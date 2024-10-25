@@ -112,7 +112,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -183,7 +183,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -250,7 +250,7 @@ class NotificationsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_notifications_serialize(
@@ -429,7 +429,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -545,7 +545,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -657,7 +657,7 @@ class NotificationsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_notification_counts_serialize(
@@ -906,7 +906,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1030,7 +1030,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1150,7 +1150,7 @@ class NotificationsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_notifications_serialize(
@@ -1353,7 +1353,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1421,7 +1421,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1485,7 +1485,7 @@ class NotificationsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_notifications_by_id_serialize(
@@ -1615,7 +1615,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1682,7 +1682,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1745,7 +1745,7 @@ class NotificationsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_notifications_cleanup_serialize(
@@ -1875,7 +1875,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1942,7 +1942,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2005,7 +2005,7 @@ class NotificationsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_notifications_dismiss_serialize(
@@ -2131,7 +2131,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2194,7 +2194,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2253,7 +2253,7 @@ class NotificationsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_notifications_cleanup_serialize(
@@ -2376,7 +2376,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2439,7 +2439,7 @@ class NotificationsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2498,7 +2498,7 @@ class NotificationsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_notifications_dismiss_serialize(

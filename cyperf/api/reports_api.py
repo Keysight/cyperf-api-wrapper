@@ -112,7 +112,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -184,7 +184,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -252,7 +252,7 @@ class ReportsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _download_pdf_serialize(
@@ -392,7 +392,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -465,7 +465,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -534,7 +534,7 @@ class ReportsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_download_csv_by_id_serialize(
@@ -671,7 +671,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -742,7 +742,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -809,7 +809,7 @@ class ReportsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_results_generate_csv_serialize(
@@ -946,7 +946,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1017,7 +1017,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1084,7 +1084,7 @@ class ReportsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_results_generate_pdf_serialize(
@@ -1221,7 +1221,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1292,7 +1292,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1359,7 +1359,7 @@ class ReportsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_results_generate_csv_serialize(
@@ -1509,7 +1509,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1580,7 +1580,7 @@ class ReportsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1647,7 +1647,7 @@ class ReportsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_results_generate_pdf_serialize(

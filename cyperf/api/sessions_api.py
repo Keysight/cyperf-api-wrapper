@@ -30,7 +30,7 @@ from cyperf.models.pair import Pair
 from cyperf.models.prepare_test_operation import PrepareTestOperation
 from cyperf.models.save_config_operation import SaveConfigOperation
 from cyperf.models.session import Session
-from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
+from cyperf.models.start_root_batch_delete_request_inner import StartRootBatchDeleteRequestInner
 from cyperf.models.test_info import TestInfo
 from cyperf.models.test_state_changed_operation import TestStateChangedOperation
 
@@ -123,7 +123,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -196,7 +196,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -265,7 +265,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_meta_serialize(
@@ -414,7 +414,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -483,7 +483,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -548,7 +548,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_sessions_serialize(
@@ -698,7 +698,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -771,7 +771,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -840,7 +840,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_meta_serialize(
@@ -977,7 +977,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1048,7 +1048,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1115,7 +1115,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_sessions_serialize(
@@ -1242,7 +1242,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1306,7 +1306,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1366,7 +1366,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_appsec_ui_metadata_serialize(
@@ -1498,7 +1498,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1570,7 +1570,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1638,7 +1638,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_config_serialize(
@@ -1774,7 +1774,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1842,7 +1842,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1906,7 +1906,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_docs_serialize(
@@ -2037,7 +2037,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2105,7 +2105,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2169,7 +2169,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_granular_stats_serialize(
@@ -2300,7 +2300,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2368,7 +2368,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2432,7 +2432,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_granular_stats_filters_serialize(
@@ -2571,7 +2571,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2647,7 +2647,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2719,7 +2719,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_meta_serialize(
@@ -2864,7 +2864,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2936,7 +2936,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3004,7 +3004,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_meta_by_id_serialize(
@@ -3161,7 +3161,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3252,7 +3252,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3339,7 +3339,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_sessions_serialize(
@@ -3506,7 +3506,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3578,7 +3578,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3646,7 +3646,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_sessions_by_id_serialize(
@@ -3781,7 +3781,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3848,7 +3848,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3911,7 +3911,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_test_serialize(
@@ -4051,7 +4051,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4128,7 +4128,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4201,7 +4201,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _patch_meta_serialize(
@@ -4356,7 +4356,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4429,7 +4429,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4498,7 +4498,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _patch_sessions_serialize(
@@ -4648,7 +4648,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4719,7 +4719,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4786,7 +4786,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _patch_test_serialize(
@@ -4936,7 +4936,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5007,7 +5007,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5074,7 +5074,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_config_granular_stats_default_dashboards_serialize(
@@ -5211,7 +5211,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5282,7 +5282,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5349,7 +5349,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_config_save_serialize(
@@ -5419,7 +5419,7 @@ class SessionsApi:
 
 
     @validate_call
-    def poll_prepare_test(
+    def poll_root_prepare_test(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -5436,7 +5436,7 @@ class SessionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_prepare_test
+        """poll_root_prepare_test
 
         Get the state of an ongoing operation.
 
@@ -5466,7 +5466,7 @@ class SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_prepare_test_serialize(
+        _param = self._poll_root_prepare_test_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -5486,11 +5486,11 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_prepare_test_with_http_info(
+    def poll_root_prepare_test_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -5507,7 +5507,7 @@ class SessionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_prepare_test
+        """poll_root_prepare_test
 
         Get the state of an ongoing operation.
 
@@ -5537,7 +5537,7 @@ class SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_prepare_test_serialize(
+        _param = self._poll_root_prepare_test_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -5557,11 +5557,11 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_prepare_test_without_preload_content(
+    def poll_root_prepare_test_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -5578,7 +5578,7 @@ class SessionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_prepare_test
+        """poll_root_prepare_test
 
         Get the state of an ongoing operation.
 
@@ -5608,7 +5608,7 @@ class SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_prepare_test_serialize(
+        _param = self._poll_root_prepare_test_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -5624,10 +5624,10 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_prepare_test_serialize(
+    def _poll_root_prepare_test_serialize(
         self,
         session_id,
         id,
@@ -5678,6 +5678,556 @@ class SessionsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v2/sessions/{sessionId}/operations/prepareTest/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def poll_root_test_end(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """poll_root_test_end
+
+        Get the state of an ongoing operation.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_root_test_end_serialize(
+            session_id=session_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def poll_root_test_end_with_http_info(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """poll_root_test_end
+
+        Get the state of an ongoing operation.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_root_test_end_serialize(
+            session_id=session_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def poll_root_test_end_without_preload_content(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """poll_root_test_end
+
+        Get the state of an ongoing operation.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_root_test_end_serialize(
+            session_id=session_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _poll_root_test_end_serialize(
+        self,
+        session_id,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if session_id is not None:
+            _path_params['sessionId'] = session_id
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/sessions/{sessionId}/operations/testEnd/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def poll_root_test_init(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """poll_root_test_init
+
+        Get the state of an ongoing operation.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_root_test_init_serialize(
+            session_id=session_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def poll_root_test_init_with_http_info(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """poll_root_test_init
+
+        Get the state of an ongoing operation.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_root_test_init_serialize(
+            session_id=session_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def poll_root_test_init_without_preload_content(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """poll_root_test_init
+
+        Get the state of an ongoing operation.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_root_test_init_serialize(
+            session_id=session_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _poll_root_test_init_serialize(
+        self,
+        session_id,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if session_id is not None:
+            _path_params['sessionId'] = session_id
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/sessions/{sessionId}/operations/testInit/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5757,7 +6307,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5824,7 +6374,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5887,7 +6437,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_sessions_batch_delete_serialize(
@@ -6021,7 +6571,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6092,7 +6642,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6159,7 +6709,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_sessions_load_config_serialize(
@@ -6296,7 +6846,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6367,7 +6917,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6434,7 +6984,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_sessions_touch_serialize(
@@ -6488,556 +7038,6 @@ class SessionsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v2/sessions/{sessionId}/operations/touch/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_test_end(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_test_end
-
-        Get the state of an ongoing operation.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_test_end_serialize(
-            session_id=session_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client)
-
-
-    @validate_call
-    def poll_test_end_with_http_info(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_test_end
-
-        Get the state of an ongoing operation.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_test_end_serialize(
-            session_id=session_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client)
-
-
-    @validate_call
-    def poll_test_end_without_preload_content(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_test_end
-
-        Get the state of an ongoing operation.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_test_end_serialize(
-            session_id=session_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
-
-
-    def _poll_test_end_serialize(
-        self,
-        session_id,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if session_id is not None:
-            _path_params['sessionId'] = session_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/sessions/{sessionId}/operations/testEnd/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_test_init(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_test_init
-
-        Get the state of an ongoing operation.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_test_init_serialize(
-            session_id=session_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client)
-
-
-    @validate_call
-    def poll_test_init_with_http_info(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_test_init
-
-        Get the state of an ongoing operation.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_test_init_serialize(
-            session_id=session_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client)
-
-
-    @validate_call
-    def poll_test_init_without_preload_content(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_test_init
-
-        Get the state of an ongoing operation.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_test_init_serialize(
-            session_id=session_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
-
-
-    def _poll_test_init_serialize(
-        self,
-        session_id,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if session_id is not None:
-            _path_params['sessionId'] = session_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/sessions/{sessionId}/operations/testInit/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7117,7 +7117,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7184,7 +7184,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7247,7 +7247,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_config_granular_stats_default_dashboards_serialize(
@@ -7381,7 +7381,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7452,7 +7452,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7519,7 +7519,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_config_save_serialize(
@@ -7602,7 +7602,7 @@ class SessionsApi:
 
 
     @validate_call
-    def start_prepare_test(
+    def start_root_prepare_test(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         prepare_test_operation: Optional[List[PrepareTestOperation]] = None,
@@ -7619,7 +7619,7 @@ class SessionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_prepare_test
+        """start_root_prepare_test
 
         This operation returns the config processed as agent messages and any data necessary for UI and REST stats
 
@@ -7649,7 +7649,7 @@ class SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_prepare_test_serialize(
+        _param = self._start_root_prepare_test_serialize(
             session_id=session_id,
             prepare_test_operation=prepare_test_operation,
             _request_auth=_request_auth,
@@ -7669,11 +7669,11 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_prepare_test_with_http_info(
+    def start_root_prepare_test_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         prepare_test_operation: Optional[List[PrepareTestOperation]] = None,
@@ -7690,7 +7690,7 @@ class SessionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_prepare_test
+        """start_root_prepare_test
 
         This operation returns the config processed as agent messages and any data necessary for UI and REST stats
 
@@ -7720,7 +7720,7 @@ class SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_prepare_test_serialize(
+        _param = self._start_root_prepare_test_serialize(
             session_id=session_id,
             prepare_test_operation=prepare_test_operation,
             _request_auth=_request_auth,
@@ -7740,11 +7740,11 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_prepare_test_without_preload_content(
+    def start_root_prepare_test_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         prepare_test_operation: Optional[List[PrepareTestOperation]] = None,
@@ -7761,7 +7761,7 @@ class SessionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_prepare_test
+        """start_root_prepare_test
 
         This operation returns the config processed as agent messages and any data necessary for UI and REST stats
 
@@ -7791,7 +7791,7 @@ class SessionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_prepare_test_serialize(
+        _param = self._start_root_prepare_test_serialize(
             session_id=session_id,
             prepare_test_operation=prepare_test_operation,
             _request_auth=_request_auth,
@@ -7807,10 +7807,10 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_prepare_test_serialize(
+    def _start_root_prepare_test_serialize(
         self,
         session_id,
         prepare_test_operation,
@@ -7891,9 +7891,587 @@ class SessionsApi:
 
 
     @validate_call
+    def start_root_test_end(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_root_test_end
+
+        This is called from traffic controller to notify that a test has ended. It should return any information needed by the traffic controller to completely clean up the test.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param test_state_changed_operation:
+        :type test_state_changed_operation: List[TestStateChangedOperation]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_root_test_end_serialize(
+            session_id=session_id,
+            test_state_changed_operation=test_state_changed_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_root_test_end_with_http_info(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_root_test_end
+
+        This is called from traffic controller to notify that a test has ended. It should return any information needed by the traffic controller to completely clean up the test.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param test_state_changed_operation:
+        :type test_state_changed_operation: List[TestStateChangedOperation]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_root_test_end_serialize(
+            session_id=session_id,
+            test_state_changed_operation=test_state_changed_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_root_test_end_without_preload_content(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_root_test_end
+
+        This is called from traffic controller to notify that a test has ended. It should return any information needed by the traffic controller to completely clean up the test.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param test_state_changed_operation:
+        :type test_state_changed_operation: List[TestStateChangedOperation]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_root_test_end_serialize(
+            session_id=session_id,
+            test_state_changed_operation=test_state_changed_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _start_root_test_end_serialize(
+        self,
+        session_id,
+        test_state_changed_operation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'TestStateChangedOperation': '',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if session_id is not None:
+            _path_params['sessionId'] = session_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if test_state_changed_operation is not None:
+            _body_params = test_state_changed_operation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/sessions/{sessionId}/operations/testEnd',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_root_test_init(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_root_test_init
+
+        This is called from traffic controller to notify that a new test is starting. It should return all the information needed by the traffic controller to start the test.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param test_state_changed_operation:
+        :type test_state_changed_operation: List[TestStateChangedOperation]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_root_test_init_serialize(
+            session_id=session_id,
+            test_state_changed_operation=test_state_changed_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_root_test_init_with_http_info(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_root_test_init
+
+        This is called from traffic controller to notify that a new test is starting. It should return all the information needed by the traffic controller to start the test.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param test_state_changed_operation:
+        :type test_state_changed_operation: List[TestStateChangedOperation]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_root_test_init_serialize(
+            session_id=session_id,
+            test_state_changed_operation=test_state_changed_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_root_test_init_without_preload_content(
+        self,
+        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
+        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_root_test_init
+
+        This is called from traffic controller to notify that a new test is starting. It should return all the information needed by the traffic controller to start the test.
+
+        :param session_id: The ID of the session. (required)
+        :type session_id: str
+        :param test_state_changed_operation:
+        :type test_state_changed_operation: List[TestStateChangedOperation]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_root_test_init_serialize(
+            session_id=session_id,
+            test_state_changed_operation=test_state_changed_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _start_root_test_init_serialize(
+        self,
+        session_id,
+        test_state_changed_operation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'TestStateChangedOperation': '',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if session_id is not None:
+            _path_params['sessionId'] = session_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if test_state_changed_operation is not None:
+            _body_params = test_state_changed_operation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/sessions/{sessionId}/operations/testInit',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def start_sessions_batch_delete(
         self,
-        start_batch_delete_request_inner: Optional[StartBatchDeleteRequestInner] = None,
+        start_root_batch_delete_request_inner: Optional[StartRootBatchDeleteRequestInner] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7911,8 +8489,8 @@ class SessionsApi:
 
         Remove multiple sessions.
 
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: StartBatchDeleteRequestInner
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: StartRootBatchDeleteRequestInner
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7936,7 +8514,7 @@ class SessionsApi:
         """ # noqa: E501
 
         _param = self._start_sessions_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7954,13 +8532,13 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
     def start_sessions_batch_delete_with_http_info(
         self,
-        start_batch_delete_request_inner: Optional[StartBatchDeleteRequestInner] = None,
+        start_root_batch_delete_request_inner: Optional[StartRootBatchDeleteRequestInner] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7978,8 +8556,8 @@ class SessionsApi:
 
         Remove multiple sessions.
 
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: StartBatchDeleteRequestInner
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: StartRootBatchDeleteRequestInner
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8003,7 +8581,7 @@ class SessionsApi:
         """ # noqa: E501
 
         _param = self._start_sessions_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8021,13 +8599,13 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
     def start_sessions_batch_delete_without_preload_content(
         self,
-        start_batch_delete_request_inner: Optional[StartBatchDeleteRequestInner] = None,
+        start_root_batch_delete_request_inner: Optional[StartRootBatchDeleteRequestInner] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8045,8 +8623,8 @@ class SessionsApi:
 
         Remove multiple sessions.
 
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: StartBatchDeleteRequestInner
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: StartRootBatchDeleteRequestInner
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8070,7 +8648,7 @@ class SessionsApi:
         """ # noqa: E501
 
         _param = self._start_sessions_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8084,12 +8662,12 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_sessions_batch_delete_serialize(
         self,
-        start_batch_delete_request_inner,
+        start_root_batch_delete_request_inner,
         _request_auth,
         _content_type,
         _headers,
@@ -8113,8 +8691,8 @@ class SessionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if start_batch_delete_request_inner is not None:
-            _body_params = start_batch_delete_request_inner
+        if start_root_batch_delete_request_inner is not None:
+            _body_params = start_root_batch_delete_request_inner
 
 
         # set the HTTP header `Accept`
@@ -8231,7 +8809,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8302,7 +8880,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8369,7 +8947,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_sessions_load_config_serialize(
@@ -8455,7 +9033,7 @@ class SessionsApi:
     def start_sessions_touch(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        start_batch_delete_request_inner: Optional[StartBatchDeleteRequestInner] = None,
+        start_root_batch_delete_request_inner: Optional[StartRootBatchDeleteRequestInner] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8475,8 +9053,8 @@ class SessionsApi:
 
         :param session_id: The ID of the session. (required)
         :type session_id: str
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: StartBatchDeleteRequestInner
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: StartRootBatchDeleteRequestInner
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8501,7 +9079,7 @@ class SessionsApi:
 
         _param = self._start_sessions_touch_serialize(
             session_id=session_id,
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8519,14 +9097,14 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
     def start_sessions_touch_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        start_batch_delete_request_inner: Optional[StartBatchDeleteRequestInner] = None,
+        start_root_batch_delete_request_inner: Optional[StartRootBatchDeleteRequestInner] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8546,8 +9124,8 @@ class SessionsApi:
 
         :param session_id: The ID of the session. (required)
         :type session_id: str
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: StartBatchDeleteRequestInner
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: StartRootBatchDeleteRequestInner
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8572,7 +9150,7 @@ class SessionsApi:
 
         _param = self._start_sessions_touch_serialize(
             session_id=session_id,
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8590,14 +9168,14 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
     def start_sessions_touch_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        start_batch_delete_request_inner: Optional[StartBatchDeleteRequestInner] = None,
+        start_root_batch_delete_request_inner: Optional[StartRootBatchDeleteRequestInner] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8617,8 +9195,8 @@ class SessionsApi:
 
         :param session_id: The ID of the session. (required)
         :type session_id: str
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: StartBatchDeleteRequestInner
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: StartRootBatchDeleteRequestInner
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8643,7 +9221,7 @@ class SessionsApi:
 
         _param = self._start_sessions_touch_serialize(
             session_id=session_id,
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8657,13 +9235,13 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_sessions_touch_serialize(
         self,
         session_id,
-        start_batch_delete_request_inner,
+        start_root_batch_delete_request_inner,
         _request_auth,
         _content_type,
         _headers,
@@ -8689,8 +9267,8 @@ class SessionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if start_batch_delete_request_inner is not None:
-            _body_params = start_batch_delete_request_inner
+        if start_root_batch_delete_request_inner is not None:
+            _body_params = start_root_batch_delete_request_inner
 
 
         # set the HTTP header `Accept`
@@ -8724,584 +9302,6 @@ class SessionsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/v2/sessions/{sessionId}/operations/touch',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def start_test_end(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """start_test_end
-
-        This is called from traffic controller to notify that a test has ended. It should return any information needed by the traffic controller to completely clean up the test.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param test_state_changed_operation:
-        :type test_state_changed_operation: List[TestStateChangedOperation]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_test_end_serialize(
-            session_id=session_id,
-            test_state_changed_operation=test_state_changed_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client)
-
-
-    @validate_call
-    def start_test_end_with_http_info(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """start_test_end
-
-        This is called from traffic controller to notify that a test has ended. It should return any information needed by the traffic controller to completely clean up the test.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param test_state_changed_operation:
-        :type test_state_changed_operation: List[TestStateChangedOperation]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_test_end_serialize(
-            session_id=session_id,
-            test_state_changed_operation=test_state_changed_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client)
-
-
-    @validate_call
-    def start_test_end_without_preload_content(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """start_test_end
-
-        This is called from traffic controller to notify that a test has ended. It should return any information needed by the traffic controller to completely clean up the test.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param test_state_changed_operation:
-        :type test_state_changed_operation: List[TestStateChangedOperation]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_test_end_serialize(
-            session_id=session_id,
-            test_state_changed_operation=test_state_changed_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
-
-
-    def _start_test_end_serialize(
-        self,
-        session_id,
-        test_state_changed_operation,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'TestStateChangedOperation': '',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if session_id is not None:
-            _path_params['sessionId'] = session_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if test_state_changed_operation is not None:
-            _body_params = test_state_changed_operation
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/sessions/{sessionId}/operations/testEnd',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def start_test_init(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """start_test_init
-
-        This is called from traffic controller to notify that a new test is starting. It should return all the information needed by the traffic controller to start the test.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param test_state_changed_operation:
-        :type test_state_changed_operation: List[TestStateChangedOperation]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_test_init_serialize(
-            session_id=session_id,
-            test_state_changed_operation=test_state_changed_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client)
-
-
-    @validate_call
-    def start_test_init_with_http_info(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """start_test_init
-
-        This is called from traffic controller to notify that a new test is starting. It should return all the information needed by the traffic controller to start the test.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param test_state_changed_operation:
-        :type test_state_changed_operation: List[TestStateChangedOperation]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_test_init_serialize(
-            session_id=session_id,
-            test_state_changed_operation=test_state_changed_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client)
-
-
-    @validate_call
-    def start_test_init_without_preload_content(
-        self,
-        session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        test_state_changed_operation: Optional[List[TestStateChangedOperation]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """start_test_init
-
-        This is called from traffic controller to notify that a new test is starting. It should return all the information needed by the traffic controller to start the test.
-
-        :param session_id: The ID of the session. (required)
-        :type session_id: str
-        :param test_state_changed_operation:
-        :type test_state_changed_operation: List[TestStateChangedOperation]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_test_init_serialize(
-            session_id=session_id,
-            test_state_changed_operation=test_state_changed_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
-
-
-    def _start_test_init_serialize(
-        self,
-        session_id,
-        test_state_changed_operation,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'TestStateChangedOperation': '',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if session_id is not None:
-            _path_params['sessionId'] = session_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if test_state_changed_operation is not None:
-            _body_params = test_state_changed_operation
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/sessions/{sessionId}/operations/testInit',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -9386,7 +9386,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9458,7 +9458,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9526,7 +9526,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _update_config_serialize(
@@ -9678,7 +9678,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9751,7 +9751,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9820,7 +9820,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _update_meta_serialize(
@@ -9974,7 +9974,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10048,7 +10048,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10118,7 +10118,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _update_sessions_serialize(
@@ -10268,7 +10268,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10339,7 +10339,7 @@ class SessionsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10406,7 +10406,7 @@ class SessionsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _update_test_serialize(

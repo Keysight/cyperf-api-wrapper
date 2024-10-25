@@ -125,7 +125,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -193,7 +193,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -257,7 +257,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_captures_operations_upload_file_serialize(
@@ -401,7 +401,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -469,7 +469,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -533,7 +533,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_certificates_operations_upload_file_serialize(
@@ -677,7 +677,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -745,7 +745,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -809,7 +809,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_flow_library_operations_upload_file_serialize(
@@ -953,7 +953,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1021,7 +1021,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1085,7 +1085,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_global_playlists_operations_upload_file_serialize(
@@ -1229,7 +1229,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1297,7 +1297,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1361,7 +1361,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_http_library_operations_upload_file_serialize(
@@ -1505,7 +1505,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1573,7 +1573,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1637,7 +1637,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_media_files_operations_upload_file_serialize(
@@ -1781,7 +1781,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1849,7 +1849,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1913,7 +1913,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_media_library_operations_upload_file_serialize(
@@ -2057,7 +2057,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2125,7 +2125,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2189,7 +2189,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_other_library_operations_upload_file_serialize(
@@ -2333,7 +2333,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2401,7 +2401,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2465,7 +2465,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_payloads_operations_upload_file_serialize(
@@ -2609,7 +2609,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2677,7 +2677,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2741,7 +2741,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_pcaps_operations_upload_file_serialize(
@@ -2885,7 +2885,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2953,7 +2953,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3017,7 +3017,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_playlists_operations_upload_file_serialize(
@@ -3161,7 +3161,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3229,7 +3229,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3293,7 +3293,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_sip_library_operations_upload_file_serialize(
@@ -3437,7 +3437,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3505,7 +3505,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3569,7 +3569,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_stats_profile_operations_upload_file_serialize(
@@ -3713,7 +3713,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3781,7 +3781,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3845,7 +3845,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_tls_certificates_operations_upload_file_serialize(
@@ -3989,7 +3989,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4057,7 +4057,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4121,7 +4121,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_tls_dhs_operations_upload_file_serialize(
@@ -4265,7 +4265,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4333,7 +4333,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4397,7 +4397,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_tls_keys_operations_upload_file_serialize(
@@ -4541,7 +4541,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4609,7 +4609,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4673,7 +4673,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_resources_user_defined_apps_operations_upload_file_serialize(
@@ -4816,7 +4816,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4883,7 +4883,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4946,7 +4946,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_captures_serialize(
@@ -5078,7 +5078,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5147,7 +5147,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5212,7 +5212,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_certificates_serialize(
@@ -5344,7 +5344,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5413,7 +5413,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5478,7 +5478,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_flow_library_serialize(
@@ -5610,7 +5610,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5679,7 +5679,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5744,7 +5744,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_global_playlists_serialize(
@@ -5876,7 +5876,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5945,7 +5945,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6010,7 +6010,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_http_library_serialize(
@@ -6142,7 +6142,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6211,7 +6211,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6276,7 +6276,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_media_files_serialize(
@@ -6408,7 +6408,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6477,7 +6477,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6542,7 +6542,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_media_library_serialize(
@@ -6674,7 +6674,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6743,7 +6743,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -6808,7 +6808,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_other_library_serialize(
@@ -6940,7 +6940,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7009,7 +7009,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7074,7 +7074,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_payloads_serialize(
@@ -7206,7 +7206,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7275,7 +7275,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7340,7 +7340,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_pcaps_serialize(
@@ -7472,7 +7472,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7541,7 +7541,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7606,7 +7606,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_playlists_serialize(
@@ -7738,7 +7738,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7807,7 +7807,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -7872,7 +7872,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_sip_library_serialize(
@@ -8004,7 +8004,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8073,7 +8073,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8138,7 +8138,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_stats_profile_serialize(
@@ -8270,7 +8270,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8339,7 +8339,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8404,7 +8404,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_tls_certificates_serialize(
@@ -8536,7 +8536,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8605,7 +8605,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8670,7 +8670,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_tls_dhs_serialize(
@@ -8802,7 +8802,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8871,7 +8871,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -8936,7 +8936,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_tls_keys_serialize(
@@ -9071,7 +9071,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9143,7 +9143,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9211,7 +9211,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_application_types_serialize(
@@ -9349,7 +9349,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9417,7 +9417,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9481,7 +9481,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_application_types_by_id_serialize(
@@ -9633,7 +9633,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9722,7 +9722,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -9807,7 +9807,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_apps_serialize(
@@ -9967,7 +9967,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10037,7 +10037,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10103,7 +10103,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_apps_by_id_serialize(
@@ -10237,7 +10237,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10308,7 +10308,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10375,7 +10375,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_attack_categories_serialize(
@@ -10539,7 +10539,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10633,7 +10633,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10723,7 +10723,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_attacks_serialize(
@@ -10888,7 +10888,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -10958,7 +10958,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -11024,7 +11024,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_attacks_by_id_serialize(
@@ -11159,7 +11159,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -11231,7 +11231,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -11299,7 +11299,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_auth_profiles_serialize(
@@ -11438,7 +11438,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -11507,7 +11507,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -11572,7 +11572,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_auth_profiles_by_id_serialize(
@@ -11706,7 +11706,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -11777,7 +11777,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -11844,7 +11844,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_captures_serialize(
@@ -11982,7 +11982,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -12050,7 +12050,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -12114,7 +12114,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_captures_by_id_serialize(
@@ -12250,7 +12250,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -12323,7 +12323,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -12392,7 +12392,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_certificates_serialize(
@@ -12532,7 +12532,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -12602,7 +12602,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -12668,7 +12668,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_certificates_by_id_serialize(
@@ -12804,7 +12804,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -12877,7 +12877,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -12946,7 +12946,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_flow_library_serialize(
@@ -13086,7 +13086,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -13156,7 +13156,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -13222,7 +13222,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_flow_library_by_id_serialize(
@@ -13358,7 +13358,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -13431,7 +13431,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -13500,7 +13500,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_global_playlists_serialize(
@@ -13640,7 +13640,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -13710,7 +13710,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -13776,7 +13776,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_global_playlists_by_id_serialize(
@@ -13912,7 +13912,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -13985,7 +13985,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -14054,7 +14054,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_http_library_serialize(
@@ -14194,7 +14194,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -14264,7 +14264,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -14330,7 +14330,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_http_library_by_id_serialize(
@@ -14465,7 +14465,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -14537,7 +14537,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -14605,7 +14605,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_http_profiles_serialize(
@@ -14744,7 +14744,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -14813,7 +14813,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -14878,7 +14878,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_http_profiles_by_id_serialize(
@@ -15014,7 +15014,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -15087,7 +15087,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -15156,7 +15156,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_media_files_serialize(
@@ -15296,7 +15296,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -15366,7 +15366,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -15432,7 +15432,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_media_files_by_id_serialize(
@@ -15568,7 +15568,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -15641,7 +15641,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -15710,7 +15710,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_media_library_serialize(
@@ -15850,7 +15850,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -15920,7 +15920,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -15986,7 +15986,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_media_library_by_id_serialize(
@@ -16122,7 +16122,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -16195,7 +16195,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -16264,7 +16264,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_other_library_serialize(
@@ -16404,7 +16404,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -16474,7 +16474,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -16540,7 +16540,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_other_library_by_id_serialize(
@@ -16676,7 +16676,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -16749,7 +16749,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -16818,7 +16818,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_payloads_serialize(
@@ -16958,7 +16958,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -17028,7 +17028,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -17094,7 +17094,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_payloads_by_id_serialize(
@@ -17230,7 +17230,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -17303,7 +17303,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -17372,7 +17372,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_pcaps_serialize(
@@ -17512,7 +17512,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -17582,7 +17582,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -17648,7 +17648,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_pcaps_by_id_serialize(
@@ -17784,7 +17784,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -17857,7 +17857,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -17926,7 +17926,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_playlists_serialize(
@@ -18066,7 +18066,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -18136,7 +18136,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -18202,7 +18202,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_playlists_by_id_serialize(
@@ -18334,7 +18334,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -18403,7 +18403,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -18468,7 +18468,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_captures_operations_upload_file_operation_id_serialize(
@@ -18600,7 +18600,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -18669,7 +18669,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -18734,7 +18734,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_captures_operations_upload_file_operation_id_result_serialize(
@@ -18865,7 +18865,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -18933,7 +18933,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -18997,7 +18997,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_certificates_certificates_id_content_file_serialize(
@@ -19130,7 +19130,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -19199,7 +19199,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -19264,7 +19264,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_certificates_operations_upload_file_operation_id_serialize(
@@ -19396,7 +19396,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -19465,7 +19465,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -19530,7 +19530,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_certificates_operations_upload_file_operation_id_result_serialize(
@@ -19661,7 +19661,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -19729,7 +19729,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -19793,7 +19793,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_flow_library_flow_library_id_content_file_serialize(
@@ -19926,7 +19926,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -19995,7 +19995,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -20060,7 +20060,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_flow_library_operations_upload_file_operation_id_serialize(
@@ -20192,7 +20192,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -20261,7 +20261,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -20326,7 +20326,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_flow_library_operations_upload_file_operation_id_result_serialize(
@@ -20457,7 +20457,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -20525,7 +20525,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -20589,7 +20589,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_global_playlists_global_playlists_id_content_file_serialize(
@@ -20722,7 +20722,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -20791,7 +20791,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -20856,7 +20856,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_global_playlists_operations_upload_file_operation_id_serialize(
@@ -20988,7 +20988,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -21057,7 +21057,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -21122,7 +21122,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_global_playlists_operations_upload_file_operation_id_result_serialize(
@@ -21253,7 +21253,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -21321,7 +21321,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -21385,7 +21385,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_http_library_http_library_id_content_file_serialize(
@@ -21518,7 +21518,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -21587,7 +21587,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -21652,7 +21652,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_http_library_operations_upload_file_operation_id_serialize(
@@ -21784,7 +21784,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -21853,7 +21853,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -21918,7 +21918,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_http_library_operations_upload_file_operation_id_result_serialize(
@@ -22049,7 +22049,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -22117,7 +22117,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -22181,7 +22181,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_media_files_media_files_id_content_file_serialize(
@@ -22314,7 +22314,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -22383,7 +22383,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -22448,7 +22448,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_media_files_operations_upload_file_operation_id_serialize(
@@ -22580,7 +22580,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -22649,7 +22649,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -22714,7 +22714,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_media_files_operations_upload_file_operation_id_result_serialize(
@@ -22845,7 +22845,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -22913,7 +22913,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -22977,7 +22977,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_media_library_media_library_id_content_file_serialize(
@@ -23110,7 +23110,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -23179,7 +23179,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -23244,7 +23244,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_media_library_operations_upload_file_operation_id_serialize(
@@ -23376,7 +23376,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -23445,7 +23445,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -23510,7 +23510,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_media_library_operations_upload_file_operation_id_result_serialize(
@@ -23642,7 +23642,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -23711,7 +23711,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -23776,7 +23776,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_other_library_operations_upload_file_operation_id_serialize(
@@ -23908,7 +23908,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -23977,7 +23977,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -24042,7 +24042,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_other_library_operations_upload_file_operation_id_result_serialize(
@@ -24173,7 +24173,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -24241,7 +24241,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -24305,7 +24305,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_other_library_other_library_id_content_file_serialize(
@@ -24438,7 +24438,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -24507,7 +24507,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -24572,7 +24572,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_payloads_operations_upload_file_operation_id_serialize(
@@ -24704,7 +24704,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -24773,7 +24773,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -24838,7 +24838,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_payloads_operations_upload_file_operation_id_result_serialize(
@@ -24969,7 +24969,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -25037,7 +25037,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -25101,7 +25101,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_payloads_payloads_id_content_file_serialize(
@@ -25234,7 +25234,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -25303,7 +25303,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -25368,7 +25368,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_pcaps_operations_upload_file_operation_id_serialize(
@@ -25500,7 +25500,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -25569,7 +25569,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -25634,7 +25634,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_pcaps_operations_upload_file_operation_id_result_serialize(
@@ -25765,7 +25765,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -25833,7 +25833,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -25897,7 +25897,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_pcaps_pcaps_id_content_file_serialize(
@@ -26030,7 +26030,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -26099,7 +26099,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -26164,7 +26164,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_playlists_operations_upload_file_operation_id_serialize(
@@ -26296,7 +26296,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -26365,7 +26365,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -26430,7 +26430,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_playlists_operations_upload_file_operation_id_result_serialize(
@@ -26561,7 +26561,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -26629,7 +26629,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -26693,7 +26693,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_playlists_playlists_id_content_file_serialize(
@@ -26830,7 +26830,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -26903,7 +26903,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -26972,7 +26972,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_playlists_playlists_id_values_serialize(
@@ -27109,7 +27109,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -27178,7 +27178,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -27243,7 +27243,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_sip_library_operations_upload_file_operation_id_serialize(
@@ -27375,7 +27375,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -27444,7 +27444,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -27509,7 +27509,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_sip_library_operations_upload_file_operation_id_result_serialize(
@@ -27640,7 +27640,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -27708,7 +27708,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -27772,7 +27772,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_sip_library_sip_library_id_content_file_serialize(
@@ -27905,7 +27905,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -27974,7 +27974,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -28039,7 +28039,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_stats_profile_operations_upload_file_operation_id_serialize(
@@ -28171,7 +28171,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -28240,7 +28240,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -28305,7 +28305,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_stats_profile_operations_upload_file_operation_id_result_serialize(
@@ -28436,7 +28436,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -28504,7 +28504,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -28568,7 +28568,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_stats_profile_stats_profile_id_content_file_serialize(
@@ -28701,7 +28701,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -28770,7 +28770,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -28835,7 +28835,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_certificates_operations_upload_file_operation_id_serialize(
@@ -28967,7 +28967,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -29036,7 +29036,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -29101,7 +29101,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_certificates_operations_upload_file_operation_id_result_serialize(
@@ -29232,7 +29232,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -29300,7 +29300,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -29364,7 +29364,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_certificates_tls_certificates_id_content_file_serialize(
@@ -29497,7 +29497,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -29566,7 +29566,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -29631,7 +29631,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_dhs_operations_upload_file_operation_id_serialize(
@@ -29763,7 +29763,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -29832,7 +29832,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -29897,7 +29897,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_dhs_operations_upload_file_operation_id_result_serialize(
@@ -30028,7 +30028,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -30096,7 +30096,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -30160,7 +30160,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_dhs_tls_dhs_id_content_file_serialize(
@@ -30293,7 +30293,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -30362,7 +30362,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -30427,7 +30427,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_keys_operations_upload_file_operation_id_serialize(
@@ -30559,7 +30559,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -30628,7 +30628,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -30693,7 +30693,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_keys_operations_upload_file_operation_id_result_serialize(
@@ -30824,7 +30824,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -30892,7 +30892,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -30956,7 +30956,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_tls_keys_tls_keys_id_content_file_serialize(
@@ -31089,7 +31089,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -31158,7 +31158,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -31223,7 +31223,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_user_defined_apps_operations_upload_file_operation_id_serialize(
@@ -31355,7 +31355,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -31424,7 +31424,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -31489,7 +31489,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_resources_user_defined_apps_operations_upload_file_operation_id_result_serialize(
@@ -31625,7 +31625,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -31698,7 +31698,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -31767,7 +31767,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_sip_library_serialize(
@@ -31907,7 +31907,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -31977,7 +31977,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -32043,7 +32043,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_sip_library_by_id_serialize(
@@ -32179,7 +32179,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -32252,7 +32252,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -32321,7 +32321,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_stats_profile_serialize(
@@ -32461,7 +32461,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -32531,7 +32531,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -32597,7 +32597,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_stats_profile_by_id_serialize(
@@ -32731,7 +32731,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -32802,7 +32802,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -32869,7 +32869,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_strike_categories_serialize(
@@ -33036,7 +33036,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -33133,7 +33133,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -33226,7 +33226,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_strikes_serialize(
@@ -33394,7 +33394,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -33462,7 +33462,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -33526,7 +33526,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_strikes_by_id_serialize(
@@ -33662,7 +33662,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -33735,7 +33735,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -33804,7 +33804,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_tls_certificates_serialize(
@@ -33944,7 +33944,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -34014,7 +34014,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -34080,7 +34080,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_tls_certificates_by_id_serialize(
@@ -34216,7 +34216,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -34289,7 +34289,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -34358,7 +34358,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_tls_dhs_serialize(
@@ -34498,7 +34498,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -34568,7 +34568,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -34634,7 +34634,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_tls_dhs_by_id_serialize(
@@ -34770,7 +34770,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -34843,7 +34843,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -34912,7 +34912,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_tls_keys_serialize(
@@ -35052,7 +35052,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -35122,7 +35122,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -35188,7 +35188,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_tls_keys_by_id_serialize(
@@ -35322,7 +35322,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -35393,7 +35393,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -35460,7 +35460,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_user_defined_apps_serialize(
@@ -35597,7 +35597,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -35664,7 +35664,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -35727,7 +35727,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_apps_export_all_serialize(
@@ -35857,7 +35857,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -35924,7 +35924,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -35987,7 +35987,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_captures_batch_delete_serialize(
@@ -36054,7 +36054,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_create_app(
+    def poll_root_create_app(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36070,7 +36070,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_create_app
+        """poll_root_create_app
 
         Get the state of an ongoing operation.
 
@@ -36098,7 +36098,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_create_app_serialize(
+        _param = self._poll_root_create_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36117,11 +36117,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_create_app_with_http_info(
+    def poll_root_create_app_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36137,7 +36137,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_create_app
+        """poll_root_create_app
 
         Get the state of an ongoing operation.
 
@@ -36165,7 +36165,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_create_app_serialize(
+        _param = self._poll_root_create_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36184,11 +36184,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_create_app_without_preload_content(
+    def poll_root_create_app_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36204,7 +36204,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_create_app
+        """poll_root_create_app
 
         Get the state of an ongoing operation.
 
@@ -36232,7 +36232,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_create_app_serialize(
+        _param = self._poll_root_create_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36247,10 +36247,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_create_app_serialize(
+    def _poll_root_create_app_serialize(
         self,
         id,
         _request_auth,
@@ -36314,7 +36314,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_get_attack_categories(
+    def poll_root_get_attack_categories(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36330,7 +36330,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_get_attack_categories
+        """poll_root_get_attack_categories
 
         Get the state of an ongoing operation.
 
@@ -36358,7 +36358,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_attack_categories_serialize(
+        _param = self._poll_root_get_attack_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36377,11 +36377,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_get_attack_categories_with_http_info(
+    def poll_root_get_attack_categories_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36397,7 +36397,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_get_attack_categories
+        """poll_root_get_attack_categories
 
         Get the state of an ongoing operation.
 
@@ -36425,7 +36425,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_attack_categories_serialize(
+        _param = self._poll_root_get_attack_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36444,11 +36444,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_get_attack_categories_without_preload_content(
+    def poll_root_get_attack_categories_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36464,7 +36464,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_get_attack_categories
+        """poll_root_get_attack_categories
 
         Get the state of an ongoing operation.
 
@@ -36492,7 +36492,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_attack_categories_serialize(
+        _param = self._poll_root_get_attack_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36507,10 +36507,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_get_attack_categories_serialize(
+    def _poll_root_get_attack_categories_serialize(
         self,
         id,
         _request_auth,
@@ -36574,7 +36574,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_get_attacks(
+    def poll_root_get_attacks(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36590,7 +36590,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_get_attacks
+        """poll_root_get_attacks
 
         Get the state of an ongoing operation.
 
@@ -36618,7 +36618,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_attacks_serialize(
+        _param = self._poll_root_get_attacks_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36637,11 +36637,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_get_attacks_with_http_info(
+    def poll_root_get_attacks_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36657,7 +36657,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_get_attacks
+        """poll_root_get_attacks
 
         Get the state of an ongoing operation.
 
@@ -36685,7 +36685,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_attacks_serialize(
+        _param = self._poll_root_get_attacks_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36704,11 +36704,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_get_attacks_without_preload_content(
+    def poll_root_get_attacks_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36724,7 +36724,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_get_attacks
+        """poll_root_get_attacks
 
         Get the state of an ongoing operation.
 
@@ -36752,7 +36752,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_attacks_serialize(
+        _param = self._poll_root_get_attacks_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36767,10 +36767,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_get_attacks_serialize(
+    def _poll_root_get_attacks_serialize(
         self,
         id,
         _request_auth,
@@ -36834,7 +36834,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_get_strike_categories(
+    def poll_root_get_strike_categories(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36850,7 +36850,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_get_strike_categories
+        """poll_root_get_strike_categories
 
         Get the state of an ongoing operation.
 
@@ -36878,7 +36878,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_strike_categories_serialize(
+        _param = self._poll_root_get_strike_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36897,11 +36897,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_get_strike_categories_with_http_info(
+    def poll_root_get_strike_categories_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36917,7 +36917,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_get_strike_categories
+        """poll_root_get_strike_categories
 
         Get the state of an ongoing operation.
 
@@ -36945,7 +36945,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_strike_categories_serialize(
+        _param = self._poll_root_get_strike_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36964,11 +36964,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_get_strike_categories_without_preload_content(
+    def poll_root_get_strike_categories_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36984,7 +36984,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_get_strike_categories
+        """poll_root_get_strike_categories
 
         Get the state of an ongoing operation.
 
@@ -37012,7 +37012,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_strike_categories_serialize(
+        _param = self._poll_root_get_strike_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -37027,10 +37027,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_get_strike_categories_serialize(
+    def _poll_root_get_strike_categories_serialize(
         self,
         id,
         _request_auth,
@@ -37094,7 +37094,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_get_strikes(
+    def poll_root_get_strikes(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -37110,7 +37110,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_get_strikes
+        """poll_root_get_strikes
 
         Get the state of an ongoing operation.
 
@@ -37138,7 +37138,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_strikes_serialize(
+        _param = self._poll_root_get_strikes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -37157,11 +37157,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_get_strikes_with_http_info(
+    def poll_root_get_strikes_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -37177,7 +37177,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_get_strikes
+        """poll_root_get_strikes
 
         Get the state of an ongoing operation.
 
@@ -37205,7 +37205,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_strikes_serialize(
+        _param = self._poll_root_get_strikes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -37224,11 +37224,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def poll_get_strikes_without_preload_content(
+    def poll_root_get_strikes_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -37244,7 +37244,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_get_strikes
+        """poll_root_get_strikes
 
         Get the state of an ongoing operation.
 
@@ -37272,7 +37272,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_get_strikes_serialize(
+        _param = self._poll_root_get_strikes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -37287,10 +37287,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_get_strikes_serialize(
+    def _poll_root_get_strikes_serialize(
         self,
         id,
         _request_auth,
@@ -37417,7 +37417,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -37484,7 +37484,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -37547,7 +37547,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_user_defined_apps_export_all_serialize(
@@ -37677,7 +37677,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -37744,7 +37744,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -37807,7 +37807,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_apps_export_all_serialize(
@@ -37946,7 +37946,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -38009,7 +38009,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -38068,7 +38068,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_captures_batch_delete_serialize(
@@ -38132,7 +38132,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_create_app(
+    def start_root_create_app(
         self,
         create_app_operation: Optional[CreateAppOperation] = None,
         _request_timeout: Union[
@@ -38148,7 +38148,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_create_app
+        """start_root_create_app
 
         Create an app from captures
 
@@ -38176,7 +38176,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_create_app_serialize(
+        _param = self._start_root_create_app_serialize(
             create_app_operation=create_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38195,11 +38195,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_create_app_with_http_info(
+    def start_root_create_app_with_http_info(
         self,
         create_app_operation: Optional[CreateAppOperation] = None,
         _request_timeout: Union[
@@ -38215,7 +38215,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_create_app
+        """start_root_create_app
 
         Create an app from captures
 
@@ -38243,7 +38243,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_create_app_serialize(
+        _param = self._start_root_create_app_serialize(
             create_app_operation=create_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38262,11 +38262,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_create_app_without_preload_content(
+    def start_root_create_app_without_preload_content(
         self,
         create_app_operation: Optional[CreateAppOperation] = None,
         _request_timeout: Union[
@@ -38282,7 +38282,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_create_app
+        """start_root_create_app
 
         Create an app from captures
 
@@ -38310,7 +38310,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_create_app_serialize(
+        _param = self._start_root_create_app_serialize(
             create_app_operation=create_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38325,10 +38325,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_create_app_serialize(
+    def _start_root_create_app_serialize(
         self,
         create_app_operation,
         _request_auth,
@@ -38405,7 +38405,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_get_attack_categories(
+    def start_root_get_attack_categories(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -38421,7 +38421,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_get_attack_categories
+        """start_root_get_attack_categories
 
         Get the list of attack categories
 
@@ -38449,7 +38449,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_attack_categories_serialize(
+        _param = self._start_root_get_attack_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38468,11 +38468,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_get_attack_categories_with_http_info(
+    def start_root_get_attack_categories_with_http_info(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -38488,7 +38488,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_get_attack_categories
+        """start_root_get_attack_categories
 
         Get the list of attack categories
 
@@ -38516,7 +38516,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_attack_categories_serialize(
+        _param = self._start_root_get_attack_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38535,11 +38535,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_get_attack_categories_without_preload_content(
+    def start_root_get_attack_categories_without_preload_content(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -38555,7 +38555,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_get_attack_categories
+        """start_root_get_attack_categories
 
         Get the list of attack categories
 
@@ -38583,7 +38583,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_attack_categories_serialize(
+        _param = self._start_root_get_attack_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38598,10 +38598,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_get_attack_categories_serialize(
+    def _start_root_get_attack_categories_serialize(
         self,
         get_categories_operation,
         _request_auth,
@@ -38678,7 +38678,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_get_attacks(
+    def start_root_get_attacks(
         self,
         get_attacks_operation: Optional[GetAttacksOperation] = None,
         _request_timeout: Union[
@@ -38694,7 +38694,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_get_attacks
+        """start_root_get_attacks
 
         Get the list of attacks
 
@@ -38722,7 +38722,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_attacks_serialize(
+        _param = self._start_root_get_attacks_serialize(
             get_attacks_operation=get_attacks_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38741,11 +38741,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_get_attacks_with_http_info(
+    def start_root_get_attacks_with_http_info(
         self,
         get_attacks_operation: Optional[GetAttacksOperation] = None,
         _request_timeout: Union[
@@ -38761,7 +38761,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_get_attacks
+        """start_root_get_attacks
 
         Get the list of attacks
 
@@ -38789,7 +38789,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_attacks_serialize(
+        _param = self._start_root_get_attacks_serialize(
             get_attacks_operation=get_attacks_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38808,11 +38808,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_get_attacks_without_preload_content(
+    def start_root_get_attacks_without_preload_content(
         self,
         get_attacks_operation: Optional[GetAttacksOperation] = None,
         _request_timeout: Union[
@@ -38828,7 +38828,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_get_attacks
+        """start_root_get_attacks
 
         Get the list of attacks
 
@@ -38856,7 +38856,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_attacks_serialize(
+        _param = self._start_root_get_attacks_serialize(
             get_attacks_operation=get_attacks_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38871,10 +38871,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_get_attacks_serialize(
+    def _start_root_get_attacks_serialize(
         self,
         get_attacks_operation,
         _request_auth,
@@ -38951,7 +38951,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_get_strike_categories(
+    def start_root_get_strike_categories(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -38967,7 +38967,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_get_strike_categories
+        """start_root_get_strike_categories
 
         Get the list of strike categories
 
@@ -38995,7 +38995,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_strike_categories_serialize(
+        _param = self._start_root_get_strike_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39014,11 +39014,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_get_strike_categories_with_http_info(
+    def start_root_get_strike_categories_with_http_info(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -39034,7 +39034,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_get_strike_categories
+        """start_root_get_strike_categories
 
         Get the list of strike categories
 
@@ -39062,7 +39062,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_strike_categories_serialize(
+        _param = self._start_root_get_strike_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39081,11 +39081,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_get_strike_categories_without_preload_content(
+    def start_root_get_strike_categories_without_preload_content(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -39101,7 +39101,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_get_strike_categories
+        """start_root_get_strike_categories
 
         Get the list of strike categories
 
@@ -39129,7 +39129,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_strike_categories_serialize(
+        _param = self._start_root_get_strike_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39144,10 +39144,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_get_strike_categories_serialize(
+    def _start_root_get_strike_categories_serialize(
         self,
         get_categories_operation,
         _request_auth,
@@ -39224,7 +39224,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_get_strikes(
+    def start_root_get_strikes(
         self,
         get_strikes_operation: Optional[GetStrikesOperation] = None,
         _request_timeout: Union[
@@ -39240,7 +39240,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_get_strikes
+        """start_root_get_strikes
 
         Get the list of strikes
 
@@ -39268,7 +39268,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_strikes_serialize(
+        _param = self._start_root_get_strikes_serialize(
             get_strikes_operation=get_strikes_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39287,11 +39287,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_get_strikes_with_http_info(
+    def start_root_get_strikes_with_http_info(
         self,
         get_strikes_operation: Optional[GetStrikesOperation] = None,
         _request_timeout: Union[
@@ -39307,7 +39307,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_get_strikes
+        """start_root_get_strikes
 
         Get the list of strikes
 
@@ -39335,7 +39335,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_strikes_serialize(
+        _param = self._start_root_get_strikes_serialize(
             get_strikes_operation=get_strikes_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39354,11 +39354,11 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
-    def start_get_strikes_without_preload_content(
+    def start_root_get_strikes_without_preload_content(
         self,
         get_strikes_operation: Optional[GetStrikesOperation] = None,
         _request_timeout: Union[
@@ -39374,7 +39374,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_get_strikes
+        """start_root_get_strikes
 
         Get the list of strikes
 
@@ -39402,7 +39402,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_get_strikes_serialize(
+        _param = self._start_root_get_strikes_serialize(
             get_strikes_operation=get_strikes_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39417,10 +39417,10 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_get_strikes_serialize(
+    def _start_root_get_strikes_serialize(
         self,
         get_strikes_operation,
         _request_auth,
@@ -39560,7 +39560,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -39627,7 +39627,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -39690,7 +39690,7 @@ class ApplicationResourcesApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_user_defined_apps_export_all_serialize(

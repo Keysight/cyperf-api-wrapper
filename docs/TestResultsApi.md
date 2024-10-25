@@ -1136,7 +1136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_results_batch_delete**
-> AsyncContext start_results_batch_delete(start_batch_delete_request_inner=start_batch_delete_request_inner)
+> AsyncContext start_results_batch_delete(start_root_batch_delete_request_inner=start_root_batch_delete_request_inner)
 
 
 
@@ -1150,7 +1150,7 @@ Remove multiple results.
 ```python
 import cyperf
 from cyperf.models.async_context import AsyncContext
-from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
+from cyperf.models.start_root_batch_delete_request_inner import StartRootBatchDeleteRequestInner
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -1173,10 +1173,10 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.TestResultsApi(api_client)
-    start_batch_delete_request_inner = [cyperf.StartBatchDeleteRequestInner()] # List[StartBatchDeleteRequestInner] |  (optional)
+    start_root_batch_delete_request_inner = [cyperf.StartRootBatchDeleteRequestInner()] # List[StartRootBatchDeleteRequestInner] |  (optional)
 
     try:
-        api_response = api_instance.start_results_batch_delete(start_batch_delete_request_inner=start_batch_delete_request_inner)
+        api_response = api_instance.start_results_batch_delete(start_root_batch_delete_request_inner=start_root_batch_delete_request_inner)
         print("The response of TestResultsApi->start_results_batch_delete:\n")
         pprint(api_response)
     except Exception as e:
@@ -1190,7 +1190,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **start_batch_delete_request_inner** | [**List[StartBatchDeleteRequestInner]**](StartBatchDeleteRequestInner.md)|  | [optional] 
+ **start_root_batch_delete_request_inner** | [**List[StartRootBatchDeleteRequestInner]**](StartRootBatchDeleteRequestInner.md)|  | [optional] 
 
 ### Return type
 

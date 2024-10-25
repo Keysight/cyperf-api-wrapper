@@ -344,7 +344,7 @@ from cyperf.models.simulated_id_p import SimulatedIdP
 from cyperf.models.snapshot import Snapshot
 from cyperf.models.sort_body_field import SortBodyField
 from cyperf.models.specific_objective import SpecificObjective
-from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
+from cyperf.models.start_root_batch_delete_request_inner import StartRootBatchDeleteRequestInner
 from cyperf.models.stateless_stream import StatelessStream
 from cyperf.models.static_arp_entry import StaticARPEntry
 from cyperf.models.stats_result import StatsResult

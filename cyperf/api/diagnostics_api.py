@@ -105,7 +105,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -169,7 +169,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -229,7 +229,7 @@ class DiagnosticsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _api_v2_diagnostics_components_get_serialize(
@@ -352,7 +352,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -415,7 +415,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -474,7 +474,7 @@ class DiagnosticsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _api_v2_diagnostics_operations_delete_delete_serialize(
@@ -601,7 +601,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -668,7 +668,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -731,7 +731,7 @@ class DiagnosticsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _api_v2_diagnostics_operations_delete_id_delete_serialize(
@@ -857,7 +857,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -920,7 +920,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -979,7 +979,7 @@ class DiagnosticsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _api_v2_diagnostics_operations_export_get_serialize(
@@ -1107,7 +1107,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1175,7 +1175,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1239,7 +1239,7 @@ class DiagnosticsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _api_v2_diagnostics_operations_export_id_get_serialize(
@@ -1370,7 +1370,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1438,7 +1438,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1502,7 +1502,7 @@ class DiagnosticsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _api_v2_diagnostics_operations_export_id_result_get_serialize(
@@ -1633,7 +1633,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1701,7 +1701,7 @@ class DiagnosticsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1765,7 +1765,7 @@ class DiagnosticsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _api_v2_diagnostics_operations_export_post_serialize(

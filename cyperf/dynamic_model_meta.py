@@ -10,20 +10,29 @@ from urllib.parse import urlparse
 from cyperf import LinkNameException
 from cyperf import ApiClient
 from cyperf import ApiException
+from cyperf.models.api_link import APILink
 import cyperf.models
 
 class DynamicList(UserList):
-    def __init__(self, lst: any = None, api_client : ApiClient = None):
+    def __init__(self, lst: any = None, api_client : ApiClient = None, link : any = None):
+        self.link = None
+        self.api_client = None
         super().__init__(lst)
         if isinstance(lst, DynamicList):
             self.data = lst.data
             self.dyn_data = lst.dyn_data
             self.api_client = lst.api_client
+            self.link = lst.link
         else:
             self.data = lst
             self.dyn_data = [DynamicModel.dynamic_wrapper(i, api_client) for i in lst] if lst else []
         if api_client:
             self.api_client = api_client
+        if link:
+            if type(link) is str:
+                self.link = APILink(href=link, name='self', rel='self', method='GET')
+            else:
+                self.link = link
 
     def __contains__(self, item):
         if isinstance(item.__class__, DynamicModel):
@@ -38,6 +47,7 @@ class DynamicList(UserList):
             other.data = con
             other.dyn_data = dyn_con
             other.api_client = self.api_client
+            other.link = self.link
             return other
         else:
             return self.dyn_data[i]
@@ -95,7 +105,33 @@ class DynamicList(UserList):
             self.dyn_data.extend(other.dyn_data)
         else:
             self.data.extend([item.base_model if isinstance(item.__class__, DynamicModel) else item for item in other])
-            self.dyn_data.extend([DynamicModel.dynamic_wrapper(item, self.api_client) if not isinstance(item.__class__, DynamicModel) else item for item in other])
+            self.dyn_data.extend([DynamicModel.dynamic_wrapper(item, self.api_client)
+                                  if not isinstance(item.__class__, DynamicModel)
+                                  else item for item in other])
+
+    def __get_base_data(self):
+        list_type = list
+        if self.data:
+            list_type = list[type(self.data[0])]
+        lst = DynamicModel.link_based_request(self, self.link.name, "GET",
+                                              return_type=list_type, href=self.link.href)
+        return lst
+
+    def refresh(self):
+        lst = self.__get_base_data()
+        self.data = lst
+        if lst:
+            self.dyn_data = [DynamicModel.dynamic_wrapper(i, self.api_client) for i in lst]
+        else:
+            self.dyn_data = []
+
+    def update(self):
+        lst = self.__get_base_data()
+        for item in self.data:
+            if item not in lst:
+                DynamicModel.link_based_request(self, self.link.name, "POST",
+                                                body=item, href=self.link.href)
+        self.refresh()
 
 class DynamicDict(UserDict):
     def __init__(self, dct: any = None, api_client : ApiClient = None):
@@ -123,6 +159,7 @@ class DynamicDict(UserDict):
             other.data = con
             other.dyn_con = dyn_con
             other.api_client = self.api_client
+            other.link = self.link
         else:
             return self.dyn_data[i]
 
@@ -137,7 +174,7 @@ class DynamicDict(UserDict):
 class DynamicModel(type):
     def __new__(cls, name, bases, dct):
         try:
-            inner_model = getattr(cyperf.models, name)
+            inner_model = getattr(cyperf, name)
         except AttributeError:
             raise Exception(f"Couldn't find model class {name}")
         local_fields = {}
@@ -154,10 +191,12 @@ class DynamicModel(type):
         dct['__str__'] = lambda self: cls.to_str(self)
         dct['__repr__'] = lambda self: cls.repr(self)
         if name == "AsyncContext":
-           dct['await_completion'] = lambda self, get_final_result = True, poll_time = 1: cls.poll(self, get_final_result = get_final_result, poll_time = poll_time)
+           dct['await_completion'] = lambda self, get_final_result = True, poll_time = 1: cls.poll(self, get_final_result=get_final_result, poll_time=poll_time)
         c =  super().__new__(cls, name, bases, dct)
         c.update = lambda self: cls.update(self)
         c.refresh = lambda self: cls.refresh(self)
+        c.get_link = lambda self, link_name: cls.get_link(self, link_name)
+        c.get_self_link = lambda self: cls.get_link(self, "self")
         c.link_based_request = lambda self, link_name, method, return_type = None, body = None, query=[]: cls.link_based_request(self, link_name, method, return_type, body, query)
         return c
 
@@ -184,15 +223,15 @@ class DynamicModel(type):
         return f"Dynamic{repr(self.base_model)}"
 
     @classmethod
-    def dynamic_wrapper(cls, obj: any, api_client: ApiClient = None):
+    def dynamic_wrapper(cls, obj: any, api_client: ApiClient = None, link: any = None):
         if isinstance(obj, list):
-            l = DynamicList(obj, api_client)
+            l = DynamicList(obj, api_client, link)
             return l
         elif isinstance(obj, dict):
             d = {key:cls.dynamic_wrapper(obj[key], api_client) for key in obj}
             return d
         elif "actual_instance" in dir(obj):
-            return cls.dynamic_wrapper(obj.actual_instance, api_client)
+            return cls.dynamic_wrapper(obj.actual_instance, api_client, link)
         elif ("links" not in dir(obj)) and (obj.__class__.__name__ != "AsyncContext"):
             return obj
         else:
@@ -205,29 +244,28 @@ class DynamicModel(type):
             dyn_obj.api_client = api_client
             return dyn_obj
 
-
     @classmethod
     def get_by_link(cls, key, self):
-        if self._local_fields[key] != None:
-           return self._local_fields[key]
+        if self._local_fields[key]:
+            return self._local_fields[key]
         if key == 'links':
             self._local_fields[key] = self.base_model.links
             return self._local_fields[key]
         field = getattr(self.base_model, key)
+        field_info = self.base_model.__class__.__fields__[key]
+        link = cls.get_link(self, key, exception=(field is None))
         if field is None:
-            field_info = self.base_model.__class__.__fields__[key]
-            try:
-                field = self.link_based_request(field_info.alias, "GET", return_type=field_info.annotation)
-            except LinkNameException as e:
-                field = self.link_based_request(key, "GET", return_type=field_info.annotation)
+            field = self.link_based_request(link.name, "GET",
+                                            return_type=field_info.annotation)
         setattr(self.base_model, key, field)
         field = getattr(self.base_model, key)
-        self._local_fields[key] = cls.dynamic_wrapper(field, self.api_client)
+        self._local_fields[key] = cls.dynamic_wrapper(field, self.api_client, link)
         return self._local_fields[key]
 
     @classmethod
     def set_base_attr(cls, key, self, obj):
-        self._local_fields[key] = cls.dynamic_wrapper(obj, self.api_client)
+        link = cls.get_link(self, key)
+        self._local_fields[key] = cls.dynamic_wrapper(obj, self.api_client, link)
         setattr(self.base_model, key, obj)
 
     @classmethod
@@ -250,7 +288,8 @@ class DynamicModel(type):
 
     @classmethod
     def refresh(cls, self):
-        self.base_model = self.link_based_request("self", "GET", return_type=self.base_model.__class__)
+        self.base_model = self.link_based_request("self", "GET",
+                                                  return_type=self.base_model.__class__)
         for k in self._local_fields.keys():
             self._local_fields[k] = None
         self._local_fields["links"] = self.base_model.links
@@ -260,7 +299,10 @@ class DynamicModel(type):
         op = self
         while op.state == "IN_PROGRESS":
             time.sleep(poll_time)
-            op = cls.dynamic_wrapper(cls.link_based_request(op, None, "GET", return_type=self.base_model.__class__, href=self.url), api_client = self.api_client)
+            op = cls.dynamic_wrapper(
+                cls.link_based_request(op, None, "GET",
+                                       return_type=self.base_model.__class__, href=self.url),
+                api_client=self.api_client)
         if op.state == "ERROR":
             raise ApiException(f"Error running operation {op.id} of type {op.type}: {op.message}")
         if op.result_url and get_final_result:
@@ -269,17 +311,31 @@ class DynamicModel(type):
 
 
     @classmethod
-    def link_based_request(cls, self, link_name, method, return_type = None, body = None, query=[], href=""):
+    def get_link(cls, self, link_name, exception=False):
+        if (not hasattr(self.base_model, 'links')) or (not self.base_model.links):
+            if exception:
+                raise Exception(("This object doesn't support automatic retrieval"
+                                "or you have used the exclude=links query param."))
+            return None
+        if link_name == 'self':
+            self_links = [link for link in self.base_model.links
+                          if link.rel == link_name]
+        else:
+            self_links = [link for link in self.base_model.links
+                          if link.rel == "child" and link.name == link_name]
+        if not self_links:
+            field_info = self.base_model.__class__.__fields__[link_name]
+            self_links = [link for link in self.base_model.links
+                          if link.rel == "child" and link.name == field_info.alias]
+        if (not self_links) and exception:
+            raise LinkNameException(f"Missing {link_name} link.")
+        return self_links[0] if self_links else None
+
+    @classmethod
+    def link_based_request(cls, self, link_name, method,
+                           return_type=None, body=None, query=[], href=""):
         if not href:
-            if self.base_model.links == None:
-                raise Exception("You must allow links to be present to use automatic retrieval functions.")
-            if link_name == 'self':
-                self_links = [link for link in self.base_model.links if link.rel == link_name]
-            else:
-                self_links = [link for link in self.base_model.links if link.rel == "child" and link.name == link_name]
-            if len(self_links) == 0:
-                raise LinkNameException(f"Missing {link_name} link.")
-            href = self_links[0].href
+            href = cls.get_link(self, link_name, exception=True).href
 
         parsed_url = urlparse(href)
         href = parsed_url.path

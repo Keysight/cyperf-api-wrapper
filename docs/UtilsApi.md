@@ -18,15 +18,15 @@ Method | HTTP request | Description
 [**poll_disk_usage_cleanup_migration**](UtilsApi.md#poll_disk_usage_cleanup_migration) | **GET** /api/v2/disk-usage/operations/cleanup-migration/{id} | 
 [**poll_disk_usage_cleanup_notifications**](UtilsApi.md#poll_disk_usage_cleanup_notifications) | **GET** /api/v2/disk-usage/operations/cleanup-notifications/{id} | 
 [**poll_disk_usage_cleanup_results**](UtilsApi.md#poll_disk_usage_cleanup_results) | **GET** /api/v2/disk-usage/operations/cleanup-results/{id} | 
-[**poll_generate**](UtilsApi.md#poll_generate) | **GET** /api/v2/cert-manager/operations/generate/{id} | 
-[**poll_upload**](UtilsApi.md#poll_upload) | **GET** /api/v2/cert-manager/operations/upload/{id} | 
+[**poll_root_generate**](UtilsApi.md#poll_root_generate) | **GET** /api/v2/cert-manager/operations/generate/{id} | 
+[**poll_root_upload**](UtilsApi.md#poll_root_upload) | **GET** /api/v2/cert-manager/operations/upload/{id} | 
 [**start_disk_usage_cleanup_diagnostics**](UtilsApi.md#start_disk_usage_cleanup_diagnostics) | **POST** /api/v2/disk-usage/operations/cleanup-diagnostics | 
 [**start_disk_usage_cleanup_logs**](UtilsApi.md#start_disk_usage_cleanup_logs) | **POST** /api/v2/disk-usage/operations/cleanup-logs | 
 [**start_disk_usage_cleanup_migration**](UtilsApi.md#start_disk_usage_cleanup_migration) | **POST** /api/v2/disk-usage/operations/cleanup-migration | 
 [**start_disk_usage_cleanup_notifications**](UtilsApi.md#start_disk_usage_cleanup_notifications) | **POST** /api/v2/disk-usage/operations/cleanup-notifications | 
 [**start_disk_usage_cleanup_results**](UtilsApi.md#start_disk_usage_cleanup_results) | **POST** /api/v2/disk-usage/operations/cleanup-results | 
-[**start_generate**](UtilsApi.md#start_generate) | **POST** /api/v2/cert-manager/operations/generate | 
-[**start_upload**](UtilsApi.md#start_upload) | **POST** /api/v2/cert-manager/operations/upload | 
+[**start_root_generate**](UtilsApi.md#start_root_generate) | **POST** /api/v2/cert-manager/operations/generate | 
+[**start_root_upload**](UtilsApi.md#start_root_upload) | **POST** /api/v2/cert-manager/operations/upload | 
 [**update_log_config**](UtilsApi.md#update_log_config) | **PUT** /api/v2/log-config | 
 
 
@@ -1084,8 +1084,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_generate**
-> AsyncContext poll_generate(id)
+# **poll_root_generate**
+> AsyncContext poll_root_generate(id)
 
 
 
@@ -1124,11 +1124,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_generate(id)
-        print("The response of UtilsApi->poll_generate:\n")
+        api_response = api_instance.poll_root_generate(id)
+        print("The response of UtilsApi->poll_root_generate:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UtilsApi->poll_generate: %s\n" % e)
+        print("Exception when calling UtilsApi->poll_root_generate: %s\n" % e)
 ```
 
 
@@ -1161,8 +1161,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_upload**
-> AsyncContext poll_upload(id)
+# **poll_root_upload**
+> AsyncContext poll_root_upload(id)
 
 
 
@@ -1201,11 +1201,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_upload(id)
-        print("The response of UtilsApi->poll_upload:\n")
+        api_response = api_instance.poll_root_upload(id)
+        print("The response of UtilsApi->poll_root_upload:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UtilsApi->poll_upload: %s\n" % e)
+        print("Exception when calling UtilsApi->poll_root_upload: %s\n" % e)
 ```
 
 
@@ -1603,8 +1603,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_generate**
-> AsyncContext start_generate(certificate=certificate)
+# **start_root_generate**
+> AsyncContext start_root_generate(certificate=certificate)
 
 
 
@@ -1644,11 +1644,11 @@ with cyperf.ApiClient(configuration) as api_client:
     certificate = cyperf.Certificate() # Certificate |  (optional)
 
     try:
-        api_response = api_instance.start_generate(certificate=certificate)
-        print("The response of UtilsApi->start_generate:\n")
+        api_response = api_instance.start_root_generate(certificate=certificate)
+        print("The response of UtilsApi->start_root_generate:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UtilsApi->start_generate: %s\n" % e)
+        print("Exception when calling UtilsApi->start_root_generate: %s\n" % e)
 ```
 
 
@@ -1681,8 +1681,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_upload**
-> AsyncContext start_upload()
+# **start_root_upload**
+> AsyncContext start_root_upload()
 
 
 
@@ -1720,11 +1720,11 @@ with cyperf.ApiClient(configuration) as api_client:
     api_instance = cyperf.UtilsApi(api_client)
 
     try:
-        api_response = api_instance.start_upload()
-        print("The response of UtilsApi->start_upload:\n")
+        api_response = api_instance.start_root_upload()
+        print("The response of UtilsApi->start_root_upload:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UtilsApi->start_upload: %s\n" % e)
+        print("Exception when calling UtilsApi->start_root_upload: %s\n" % e)
 ```
 
 

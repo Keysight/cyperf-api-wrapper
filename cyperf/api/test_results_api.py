@@ -27,7 +27,7 @@ from cyperf.models.get_result_tags200_response import GetResultTags200Response
 from cyperf.models.get_results200_response import GetResults200Response
 from cyperf.models.result_file_metadata import ResultFileMetadata
 from cyperf.models.result_metadata import ResultMetadata
-from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
+from cyperf.models.start_root_batch_delete_request_inner import StartRootBatchDeleteRequestInner
 
 from cyperf import DynamicModel
 from cyperf.api_client import ApiClient, RequestSerialized
@@ -118,7 +118,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -191,7 +191,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -260,7 +260,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_files_serialize(
@@ -396,7 +396,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -466,7 +466,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -532,7 +532,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_results_serialize(
@@ -667,7 +667,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -739,7 +739,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -807,7 +807,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_download_all_by_id_serialize(
@@ -941,7 +941,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1009,7 +1009,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1073,7 +1073,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_download_result_config_serialize(
@@ -1213,7 +1213,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1290,7 +1290,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1363,7 +1363,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_files_serialize(
@@ -1509,7 +1509,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1582,7 +1582,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1651,7 +1651,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_files_by_id_serialize(
@@ -1789,7 +1789,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1861,7 +1861,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1929,7 +1929,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_result_tags_serialize(
@@ -2087,7 +2087,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2175,7 +2175,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2259,7 +2259,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_results_serialize(
@@ -2418,7 +2418,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2487,7 +2487,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2552,7 +2552,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_results_by_id_serialize(
@@ -2688,7 +2688,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2761,7 +2761,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2830,7 +2830,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_results_results_id_files_files_id_content_serialize(
@@ -2963,7 +2963,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3030,7 +3030,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3093,7 +3093,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_results_batch_delete_serialize(
@@ -3227,7 +3227,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3298,7 +3298,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3365,7 +3365,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_results_generate_all_serialize(
@@ -3502,7 +3502,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3573,7 +3573,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3640,7 +3640,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_results_generate_results_serialize(
@@ -3777,7 +3777,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3848,7 +3848,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3915,7 +3915,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_results_load_serialize(
@@ -3987,7 +3987,7 @@ class TestResultsApi:
     @validate_call
     def start_results_batch_delete(
         self,
-        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
+        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4005,8 +4005,8 @@ class TestResultsApi:
 
         Remove multiple results.
 
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4030,7 +4030,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._start_results_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4048,13 +4048,13 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
     def start_results_batch_delete_with_http_info(
         self,
-        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
+        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4072,8 +4072,8 @@ class TestResultsApi:
 
         Remove multiple results.
 
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4097,7 +4097,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._start_results_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4115,13 +4115,13 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
     def start_results_batch_delete_without_preload_content(
         self,
-        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
+        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4139,8 +4139,8 @@ class TestResultsApi:
 
         Remove multiple results.
 
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
+        :param start_root_batch_delete_request_inner:
+        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4164,7 +4164,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._start_results_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4178,12 +4178,12 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_results_batch_delete_serialize(
         self,
-        start_batch_delete_request_inner,
+        start_root_batch_delete_request_inner,
         _request_auth,
         _content_type,
         _headers,
@@ -4193,7 +4193,7 @@ class TestResultsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'StartBatchDeleteRequestInner': '',
+            'StartRootBatchDeleteRequestInner': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -4208,8 +4208,8 @@ class TestResultsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if start_batch_delete_request_inner is not None:
-            _body_params = start_batch_delete_request_inner
+        if start_root_batch_delete_request_inner is not None:
+            _body_params = start_root_batch_delete_request_inner
 
 
         # set the HTTP header `Accept`
@@ -4326,7 +4326,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4397,7 +4397,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4464,7 +4464,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_results_generate_all_serialize(
@@ -4610,7 +4610,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4677,7 +4677,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4740,7 +4740,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_results_generate_results_serialize(
@@ -4870,7 +4870,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ).data, self.api_client)
+        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4937,7 +4937,7 @@ class TestResultsApi:
         return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
-        ), self.api_client)
+        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -5000,7 +5000,7 @@ class TestResultsApi:
             *_param,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client)
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_results_load_serialize(
