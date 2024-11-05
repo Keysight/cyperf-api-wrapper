@@ -38,7 +38,7 @@ from cyperf.models.release_operation_input import ReleaseOperationInput
 from cyperf.models.reserve_operation_input import ReserveOperationInput
 from cyperf.models.set_dpdk_mode_operation_input import SetDpdkModeOperationInput
 from cyperf.models.set_ntp_operation_input import SetNtpOperationInput
-from cyperf.models.start_root_batch_delete_request_inner import StartRootBatchDeleteRequestInner
+from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
 from cyperf.models.switch_app_operation import SwitchAppOperation
 
 from cyperf import DynamicModel
@@ -3255,6 +3255,266 @@ class AgentsApi:
 
 
     @validate_call
+    def poll_batch_delete(
+        self,
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """poll_batch_delete
+
+        Get the state of an ongoing operation.
+
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_batch_delete_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def poll_batch_delete_with_http_info(
+        self,
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """poll_batch_delete
+
+        Get the state of an ongoing operation.
+
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_batch_delete_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def poll_batch_delete_without_preload_content(
+        self,
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """poll_batch_delete
+
+        Get the state of an ongoing operation.
+
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_batch_delete_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _poll_batch_delete_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/agents/operations/batch-delete/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def poll_compute_nodes_power_cycle(
         self,
         controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
@@ -4860,7 +5120,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_batch_delete(
+    def poll_export_files(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4876,7 +5136,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_batch_delete
+        """poll_export_files
 
         Get the state of an ongoing operation.
 
@@ -4904,7 +5164,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_batch_delete_serialize(
+        _param = self._poll_export_files_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4927,7 +5187,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_batch_delete_with_http_info(
+    def poll_export_files_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4943,7 +5203,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_batch_delete
+        """poll_export_files
 
         Get the state of an ongoing operation.
 
@@ -4971,7 +5231,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_batch_delete_serialize(
+        _param = self._poll_export_files_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4994,7 +5254,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_batch_delete_without_preload_content(
+    def poll_export_files_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5010,7 +5270,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_batch_delete
+        """poll_export_files
 
         Get the state of an ongoing operation.
 
@@ -5038,7 +5298,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_batch_delete_serialize(
+        _param = self._poll_export_files_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5056,267 +5316,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_batch_delete_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/agents/operations/batch-delete/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_root_export_files(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_root_export_files
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_root_export_files_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def poll_root_export_files_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_root_export_files
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_root_export_files_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def poll_root_export_files_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_root_export_files
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_root_export_files_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
-
-
-    def _poll_root_export_files_serialize(
+    def _poll_export_files_serialize(
         self,
         id,
         _request_auth,
@@ -5380,7 +5380,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_reboot(
+    def poll_reboot(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5396,7 +5396,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_reboot
+        """poll_reboot
 
         Get the state of an ongoing operation.
 
@@ -5424,7 +5424,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_reboot_serialize(
+        _param = self._poll_reboot_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5447,7 +5447,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_reboot_with_http_info(
+    def poll_reboot_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5463,7 +5463,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_reboot
+        """poll_reboot
 
         Get the state of an ongoing operation.
 
@@ -5491,7 +5491,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_reboot_serialize(
+        _param = self._poll_reboot_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5514,7 +5514,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_reboot_without_preload_content(
+    def poll_reboot_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5530,7 +5530,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_reboot
+        """poll_reboot
 
         Get the state of an ongoing operation.
 
@@ -5558,7 +5558,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_reboot_serialize(
+        _param = self._poll_reboot_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5576,7 +5576,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_reboot_serialize(
+    def _poll_reboot_serialize(
         self,
         id,
         _request_auth,
@@ -5640,7 +5640,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_release(
+    def poll_release(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5656,7 +5656,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_release
+        """poll_release
 
         Get the state of an ongoing operation.
 
@@ -5684,7 +5684,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_release_serialize(
+        _param = self._poll_release_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5707,7 +5707,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_release_with_http_info(
+    def poll_release_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5723,7 +5723,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_release
+        """poll_release
 
         Get the state of an ongoing operation.
 
@@ -5751,7 +5751,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_release_serialize(
+        _param = self._poll_release_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5774,7 +5774,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_release_without_preload_content(
+    def poll_release_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5790,7 +5790,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_release
+        """poll_release
 
         Get the state of an ongoing operation.
 
@@ -5818,7 +5818,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_release_serialize(
+        _param = self._poll_release_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5836,7 +5836,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_release_serialize(
+    def _poll_release_serialize(
         self,
         id,
         _request_auth,
@@ -5900,7 +5900,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_reserve(
+    def poll_reserve(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5916,7 +5916,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_reserve
+        """poll_reserve
 
         Get the state of an ongoing operation.
 
@@ -5944,7 +5944,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_reserve_serialize(
+        _param = self._poll_reserve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5967,7 +5967,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_reserve_with_http_info(
+    def poll_reserve_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -5983,7 +5983,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_reserve
+        """poll_reserve
 
         Get the state of an ongoing operation.
 
@@ -6011,7 +6011,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_reserve_serialize(
+        _param = self._poll_reserve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6034,7 +6034,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_reserve_without_preload_content(
+    def poll_reserve_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6050,7 +6050,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_reserve
+        """poll_reserve
 
         Get the state of an ongoing operation.
 
@@ -6078,7 +6078,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_reserve_serialize(
+        _param = self._poll_reserve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6096,7 +6096,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_reserve_serialize(
+    def _poll_reserve_serialize(
         self,
         id,
         _request_auth,
@@ -6160,7 +6160,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_set_dpdk_mode(
+    def poll_set_dpdk_mode(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6176,7 +6176,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_set_dpdk_mode
+        """poll_set_dpdk_mode
 
         Get the state of an ongoing operation.
 
@@ -6204,7 +6204,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_set_dpdk_mode_serialize(
+        _param = self._poll_set_dpdk_mode_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6227,7 +6227,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_set_dpdk_mode_with_http_info(
+    def poll_set_dpdk_mode_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6243,7 +6243,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_set_dpdk_mode
+        """poll_set_dpdk_mode
 
         Get the state of an ongoing operation.
 
@@ -6271,7 +6271,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_set_dpdk_mode_serialize(
+        _param = self._poll_set_dpdk_mode_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6294,7 +6294,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_set_dpdk_mode_without_preload_content(
+    def poll_set_dpdk_mode_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6310,7 +6310,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_set_dpdk_mode
+        """poll_set_dpdk_mode
 
         Get the state of an ongoing operation.
 
@@ -6338,7 +6338,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_set_dpdk_mode_serialize(
+        _param = self._poll_set_dpdk_mode_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6356,7 +6356,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_set_dpdk_mode_serialize(
+    def _poll_set_dpdk_mode_serialize(
         self,
         id,
         _request_auth,
@@ -6420,7 +6420,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_set_ntp(
+    def poll_set_ntp(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6436,7 +6436,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_set_ntp
+        """poll_set_ntp
 
         Get the state of an ongoing operation.
 
@@ -6464,7 +6464,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_set_ntp_serialize(
+        _param = self._poll_set_ntp_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6487,7 +6487,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_set_ntp_with_http_info(
+    def poll_set_ntp_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6503,7 +6503,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_set_ntp
+        """poll_set_ntp
 
         Get the state of an ongoing operation.
 
@@ -6531,7 +6531,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_set_ntp_serialize(
+        _param = self._poll_set_ntp_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6554,7 +6554,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_set_ntp_without_preload_content(
+    def poll_set_ntp_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6570,7 +6570,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_set_ntp
+        """poll_set_ntp
 
         Get the state of an ongoing operation.
 
@@ -6598,7 +6598,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_set_ntp_serialize(
+        _param = self._poll_set_ntp_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6616,7 +6616,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_set_ntp_serialize(
+    def _poll_set_ntp_serialize(
         self,
         id,
         _request_auth,
@@ -6680,7 +6680,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_update(
+    def poll_update(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6696,7 +6696,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_update
+        """poll_update
 
         Get the state of an ongoing operation.
 
@@ -6724,7 +6724,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_update_serialize(
+        _param = self._poll_update_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6747,7 +6747,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_update_with_http_info(
+    def poll_update_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6763,7 +6763,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_update
+        """poll_update
 
         Get the state of an ongoing operation.
 
@@ -6791,7 +6791,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_update_serialize(
+        _param = self._poll_update_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6814,7 +6814,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_root_update_without_preload_content(
+    def poll_update_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -6830,7 +6830,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_update
+        """poll_update
 
         Get the state of an ongoing operation.
 
@@ -6858,7 +6858,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_update_serialize(
+        _param = self._poll_update_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6876,7 +6876,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_update_serialize(
+    def _poll_update_serialize(
         self,
         id,
         _request_auth,
@@ -6924,6 +6924,280 @@ class AgentsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v2/agents/operations/update/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_batch_delete(
+        self,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_batch_delete
+
+        Remove multiple agents.
+
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_batch_delete_serialize(
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_batch_delete_with_http_info(
+        self,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_batch_delete
+
+        Remove multiple agents.
+
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_batch_delete_serialize(
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_batch_delete_without_preload_content(
+        self,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_batch_delete
+
+        Remove multiple agents.
+
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_batch_delete_serialize(
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _start_batch_delete_serialize(
+        self,
+        start_batch_delete_request_inner,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'StartBatchDeleteRequestInner': '',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if start_batch_delete_request_inner is not None:
+            _body_params = start_batch_delete_request_inner
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/agents/operations/batch-delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8595,281 +8869,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_batch_delete(
-        self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """start_root_batch_delete
-
-        Remove multiple agents.
-
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_root_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def start_root_batch_delete_with_http_info(
-        self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """start_root_batch_delete
-
-        Remove multiple agents.
-
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_root_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def start_root_batch_delete_without_preload_content(
-        self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """start_root_batch_delete
-
-        Remove multiple agents.
-
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_root_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
-
-
-    def _start_root_batch_delete_serialize(
-        self,
-        start_root_batch_delete_request_inner,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'StartRootBatchDeleteRequestInner': '',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if start_root_batch_delete_request_inner is not None:
-            _body_params = start_root_batch_delete_request_inner
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/agents/operations/batch-delete',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def start_root_export_files(
+    def start_export_files(
         self,
         export_files_operation_input: Optional[ExportFilesOperationInput] = None,
         _request_timeout: Union[
@@ -8885,7 +8885,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_export_files
+        """start_export_files
 
         Sends export files requests to a list of agents.
 
@@ -8913,7 +8913,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_export_files_serialize(
+        _param = self._start_export_files_serialize(
             export_files_operation_input=export_files_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8936,7 +8936,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_export_files_with_http_info(
+    def start_export_files_with_http_info(
         self,
         export_files_operation_input: Optional[ExportFilesOperationInput] = None,
         _request_timeout: Union[
@@ -8952,7 +8952,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_export_files
+        """start_export_files
 
         Sends export files requests to a list of agents.
 
@@ -8980,7 +8980,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_export_files_serialize(
+        _param = self._start_export_files_serialize(
             export_files_operation_input=export_files_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9003,7 +9003,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_export_files_without_preload_content(
+    def start_export_files_without_preload_content(
         self,
         export_files_operation_input: Optional[ExportFilesOperationInput] = None,
         _request_timeout: Union[
@@ -9019,7 +9019,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_export_files
+        """start_export_files
 
         Sends export files requests to a list of agents.
 
@@ -9047,7 +9047,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_export_files_serialize(
+        _param = self._start_export_files_serialize(
             export_files_operation_input=export_files_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9065,7 +9065,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_export_files_serialize(
+    def _start_export_files_serialize(
         self,
         export_files_operation_input,
         _request_auth,
@@ -9142,7 +9142,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_reboot(
+    def start_reboot(
         self,
         reboot_operation_input: Optional[RebootOperationInput] = None,
         _request_timeout: Union[
@@ -9158,7 +9158,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_reboot
+        """start_reboot
 
         Reboot the agents specified in the request.
 
@@ -9186,7 +9186,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_reboot_serialize(
+        _param = self._start_reboot_serialize(
             reboot_operation_input=reboot_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9209,7 +9209,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_reboot_with_http_info(
+    def start_reboot_with_http_info(
         self,
         reboot_operation_input: Optional[RebootOperationInput] = None,
         _request_timeout: Union[
@@ -9225,7 +9225,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_reboot
+        """start_reboot
 
         Reboot the agents specified in the request.
 
@@ -9253,7 +9253,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_reboot_serialize(
+        _param = self._start_reboot_serialize(
             reboot_operation_input=reboot_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9276,7 +9276,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_reboot_without_preload_content(
+    def start_reboot_without_preload_content(
         self,
         reboot_operation_input: Optional[RebootOperationInput] = None,
         _request_timeout: Union[
@@ -9292,7 +9292,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_reboot
+        """start_reboot
 
         Reboot the agents specified in the request.
 
@@ -9320,7 +9320,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_reboot_serialize(
+        _param = self._start_reboot_serialize(
             reboot_operation_input=reboot_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9338,7 +9338,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_reboot_serialize(
+    def _start_reboot_serialize(
         self,
         reboot_operation_input,
         _request_auth,
@@ -9415,7 +9415,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_release(
+    def start_release(
         self,
         release_operation_input: Optional[ReleaseOperationInput] = None,
         _request_timeout: Union[
@@ -9431,7 +9431,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_release
+        """start_release
 
         Releases all the agents from the given session.
 
@@ -9459,7 +9459,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_release_serialize(
+        _param = self._start_release_serialize(
             release_operation_input=release_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9482,7 +9482,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_release_with_http_info(
+    def start_release_with_http_info(
         self,
         release_operation_input: Optional[ReleaseOperationInput] = None,
         _request_timeout: Union[
@@ -9498,7 +9498,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_release
+        """start_release
 
         Releases all the agents from the given session.
 
@@ -9526,7 +9526,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_release_serialize(
+        _param = self._start_release_serialize(
             release_operation_input=release_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9549,7 +9549,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_release_without_preload_content(
+    def start_release_without_preload_content(
         self,
         release_operation_input: Optional[ReleaseOperationInput] = None,
         _request_timeout: Union[
@@ -9565,7 +9565,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_release
+        """start_release
 
         Releases all the agents from the given session.
 
@@ -9593,7 +9593,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_release_serialize(
+        _param = self._start_release_serialize(
             release_operation_input=release_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9611,7 +9611,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_release_serialize(
+    def _start_release_serialize(
         self,
         release_operation_input,
         _request_auth,
@@ -9688,7 +9688,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_reserve(
+    def start_reserve(
         self,
         reserve_operation_input: Optional[ReserveOperationInput] = None,
         _request_timeout: Union[
@@ -9704,7 +9704,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_reserve
+        """start_reserve
 
         Reserves all the agents from the given session.
 
@@ -9732,7 +9732,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_reserve_serialize(
+        _param = self._start_reserve_serialize(
             reserve_operation_input=reserve_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9755,7 +9755,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_reserve_with_http_info(
+    def start_reserve_with_http_info(
         self,
         reserve_operation_input: Optional[ReserveOperationInput] = None,
         _request_timeout: Union[
@@ -9771,7 +9771,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_reserve
+        """start_reserve
 
         Reserves all the agents from the given session.
 
@@ -9799,7 +9799,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_reserve_serialize(
+        _param = self._start_reserve_serialize(
             reserve_operation_input=reserve_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9822,7 +9822,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_reserve_without_preload_content(
+    def start_reserve_without_preload_content(
         self,
         reserve_operation_input: Optional[ReserveOperationInput] = None,
         _request_timeout: Union[
@@ -9838,7 +9838,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_reserve
+        """start_reserve
 
         Reserves all the agents from the given session.
 
@@ -9866,7 +9866,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_reserve_serialize(
+        _param = self._start_reserve_serialize(
             reserve_operation_input=reserve_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9884,7 +9884,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_reserve_serialize(
+    def _start_reserve_serialize(
         self,
         reserve_operation_input,
         _request_auth,
@@ -9961,7 +9961,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_set_dpdk_mode(
+    def start_set_dpdk_mode(
         self,
         set_dpdk_mode_operation_input: Optional[SetDpdkModeOperationInput] = None,
         _request_timeout: Union[
@@ -9977,7 +9977,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_set_dpdk_mode
+        """start_set_dpdk_mode
 
         Enable/disable DPDK for a list of agents.
 
@@ -10005,7 +10005,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_set_dpdk_mode_serialize(
+        _param = self._start_set_dpdk_mode_serialize(
             set_dpdk_mode_operation_input=set_dpdk_mode_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10028,7 +10028,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_set_dpdk_mode_with_http_info(
+    def start_set_dpdk_mode_with_http_info(
         self,
         set_dpdk_mode_operation_input: Optional[SetDpdkModeOperationInput] = None,
         _request_timeout: Union[
@@ -10044,7 +10044,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_set_dpdk_mode
+        """start_set_dpdk_mode
 
         Enable/disable DPDK for a list of agents.
 
@@ -10072,7 +10072,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_set_dpdk_mode_serialize(
+        _param = self._start_set_dpdk_mode_serialize(
             set_dpdk_mode_operation_input=set_dpdk_mode_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10095,7 +10095,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_set_dpdk_mode_without_preload_content(
+    def start_set_dpdk_mode_without_preload_content(
         self,
         set_dpdk_mode_operation_input: Optional[SetDpdkModeOperationInput] = None,
         _request_timeout: Union[
@@ -10111,7 +10111,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_set_dpdk_mode
+        """start_set_dpdk_mode
 
         Enable/disable DPDK for a list of agents.
 
@@ -10139,7 +10139,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_set_dpdk_mode_serialize(
+        _param = self._start_set_dpdk_mode_serialize(
             set_dpdk_mode_operation_input=set_dpdk_mode_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10157,7 +10157,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_set_dpdk_mode_serialize(
+    def _start_set_dpdk_mode_serialize(
         self,
         set_dpdk_mode_operation_input,
         _request_auth,
@@ -10234,7 +10234,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_set_ntp(
+    def start_set_ntp(
         self,
         set_ntp_operation_input: Optional[SetNtpOperationInput] = None,
         _request_timeout: Union[
@@ -10250,7 +10250,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_set_ntp
+        """start_set_ntp
 
         Set the NTP servers for a list of agents.
 
@@ -10278,7 +10278,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_set_ntp_serialize(
+        _param = self._start_set_ntp_serialize(
             set_ntp_operation_input=set_ntp_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10301,7 +10301,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_set_ntp_with_http_info(
+    def start_set_ntp_with_http_info(
         self,
         set_ntp_operation_input: Optional[SetNtpOperationInput] = None,
         _request_timeout: Union[
@@ -10317,7 +10317,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_set_ntp
+        """start_set_ntp
 
         Set the NTP servers for a list of agents.
 
@@ -10345,7 +10345,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_set_ntp_serialize(
+        _param = self._start_set_ntp_serialize(
             set_ntp_operation_input=set_ntp_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10368,7 +10368,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_set_ntp_without_preload_content(
+    def start_set_ntp_without_preload_content(
         self,
         set_ntp_operation_input: Optional[SetNtpOperationInput] = None,
         _request_timeout: Union[
@@ -10384,7 +10384,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_set_ntp
+        """start_set_ntp
 
         Set the NTP servers for a list of agents.
 
@@ -10412,7 +10412,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_set_ntp_serialize(
+        _param = self._start_set_ntp_serialize(
             set_ntp_operation_input=set_ntp_operation_input,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10430,7 +10430,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_set_ntp_serialize(
+    def _start_set_ntp_serialize(
         self,
         set_ntp_operation_input,
         _request_auth,
@@ -10507,7 +10507,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_update(
+    def start_update(
         self,
         _request_timeout: Union[
             None,
@@ -10522,7 +10522,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_update
+        """start_update
 
         Update agents to the recommended version.
 
@@ -10548,7 +10548,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_update_serialize(
+        _param = self._start_update_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10570,7 +10570,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_update_with_http_info(
+    def start_update_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -10585,7 +10585,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_update
+        """start_update
 
         Update agents to the recommended version.
 
@@ -10611,7 +10611,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_update_serialize(
+        _param = self._start_update_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10633,7 +10633,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_root_update_without_preload_content(
+    def start_update_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -10648,7 +10648,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_update
+        """start_update
 
         Update agents to the recommended version.
 
@@ -10674,7 +10674,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_update_serialize(
+        _param = self._start_update_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10691,7 +10691,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_update_serialize(
+    def _start_update_serialize(
         self,
         _request_auth,
         _content_type,

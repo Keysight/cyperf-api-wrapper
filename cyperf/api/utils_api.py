@@ -3630,7 +3630,7 @@ class UtilsApi:
 
 
     @validate_call
-    def poll_root_generate(
+    def poll_generate(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -3646,7 +3646,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_generate
+        """poll_generate
 
         Get the state of an ongoing operation.
 
@@ -3674,7 +3674,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_generate_serialize(
+        _param = self._poll_generate_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3697,7 +3697,7 @@ class UtilsApi:
 
 
     @validate_call
-    def poll_root_generate_with_http_info(
+    def poll_generate_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -3713,7 +3713,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_generate
+        """poll_generate
 
         Get the state of an ongoing operation.
 
@@ -3741,7 +3741,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_generate_serialize(
+        _param = self._poll_generate_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3764,7 +3764,7 @@ class UtilsApi:
 
 
     @validate_call
-    def poll_root_generate_without_preload_content(
+    def poll_generate_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -3780,7 +3780,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_generate
+        """poll_generate
 
         Get the state of an ongoing operation.
 
@@ -3808,7 +3808,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_generate_serialize(
+        _param = self._poll_generate_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3826,7 +3826,7 @@ class UtilsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_generate_serialize(
+    def _poll_generate_serialize(
         self,
         id,
         _request_auth,
@@ -3890,7 +3890,7 @@ class UtilsApi:
 
 
     @validate_call
-    def poll_root_upload(
+    def poll_upload(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -3906,7 +3906,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_upload
+        """poll_upload
 
         Get the state of an ongoing operation.
 
@@ -3934,7 +3934,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_upload_serialize(
+        _param = self._poll_upload_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3957,7 +3957,7 @@ class UtilsApi:
 
 
     @validate_call
-    def poll_root_upload_with_http_info(
+    def poll_upload_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -3973,7 +3973,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_upload
+        """poll_upload
 
         Get the state of an ongoing operation.
 
@@ -4001,7 +4001,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_upload_serialize(
+        _param = self._poll_upload_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4024,7 +4024,7 @@ class UtilsApi:
 
 
     @validate_call
-    def poll_root_upload_without_preload_content(
+    def poll_upload_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4040,7 +4040,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_upload
+        """poll_upload
 
         Get the state of an ongoing operation.
 
@@ -4068,7 +4068,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_upload_serialize(
+        _param = self._poll_upload_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4086,7 +4086,7 @@ class UtilsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_upload_serialize(
+    def _poll_upload_serialize(
         self,
         id,
         _request_auth,
@@ -5375,7 +5375,7 @@ class UtilsApi:
 
 
     @validate_call
-    def start_root_generate(
+    def start_generate(
         self,
         certificate: Optional[Certificate] = None,
         _request_timeout: Union[
@@ -5391,7 +5391,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_generate
+        """start_generate
 
         Generate a certificate.
 
@@ -5419,7 +5419,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_generate_serialize(
+        _param = self._start_generate_serialize(
             certificate=certificate,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5442,7 +5442,7 @@ class UtilsApi:
 
 
     @validate_call
-    def start_root_generate_with_http_info(
+    def start_generate_with_http_info(
         self,
         certificate: Optional[Certificate] = None,
         _request_timeout: Union[
@@ -5458,7 +5458,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_generate
+        """start_generate
 
         Generate a certificate.
 
@@ -5486,7 +5486,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_generate_serialize(
+        _param = self._start_generate_serialize(
             certificate=certificate,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5509,7 +5509,7 @@ class UtilsApi:
 
 
     @validate_call
-    def start_root_generate_without_preload_content(
+    def start_generate_without_preload_content(
         self,
         certificate: Optional[Certificate] = None,
         _request_timeout: Union[
@@ -5525,7 +5525,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_generate
+        """start_generate
 
         Generate a certificate.
 
@@ -5553,7 +5553,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_generate_serialize(
+        _param = self._start_generate_serialize(
             certificate=certificate,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5571,7 +5571,7 @@ class UtilsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_generate_serialize(
+    def _start_generate_serialize(
         self,
         certificate,
         _request_auth,
@@ -5648,7 +5648,7 @@ class UtilsApi:
 
 
     @validate_call
-    def start_root_upload(
+    def start_upload(
         self,
         _request_timeout: Union[
             None,
@@ -5663,7 +5663,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_upload
+        """start_upload
 
         Upload a certificate/key pair that will replace the system certificate.
 
@@ -5689,7 +5689,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_upload_serialize(
+        _param = self._start_upload_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5711,7 +5711,7 @@ class UtilsApi:
 
 
     @validate_call
-    def start_root_upload_with_http_info(
+    def start_upload_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -5726,7 +5726,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_upload
+        """start_upload
 
         Upload a certificate/key pair that will replace the system certificate.
 
@@ -5752,7 +5752,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_upload_serialize(
+        _param = self._start_upload_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5774,7 +5774,7 @@ class UtilsApi:
 
 
     @validate_call
-    def start_root_upload_without_preload_content(
+    def start_upload_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -5789,7 +5789,7 @@ class UtilsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_upload
+        """start_upload
 
         Upload a certificate/key pair that will replace the system certificate.
 
@@ -5815,7 +5815,7 @@ class UtilsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_upload_serialize(
+        _param = self._start_upload_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5832,7 +5832,7 @@ class UtilsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_upload_serialize(
+    def _start_upload_serialize(
         self,
         _request_auth,
         _content_type,

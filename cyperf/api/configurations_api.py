@@ -27,7 +27,7 @@ from cyperf.models.get_config_categories200_response import GetConfigCategories2
 from cyperf.models.get_configs200_response import GetConfigs200Response
 from cyperf.models.get_custom_import_operations200_response import GetCustomImportOperations200Response
 from cyperf.models.import_all_operation import ImportAllOperation
-from cyperf.models.start_root_batch_delete_request_inner import StartRootBatchDeleteRequestInner
+from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
 
 from cyperf import DynamicModel
 from cyperf.api_client import ApiClient, RequestSerialized
@@ -3154,7 +3154,7 @@ class ConfigurationsApi:
     @validate_call
     def start_configs_batch_delete(
         self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3172,8 +3172,8 @@ class ConfigurationsApi:
 
         Remove multiple configurations.
 
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3197,7 +3197,7 @@ class ConfigurationsApi:
         """ # noqa: E501
 
         _param = self._start_configs_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3221,7 +3221,7 @@ class ConfigurationsApi:
     @validate_call
     def start_configs_batch_delete_with_http_info(
         self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3239,8 +3239,8 @@ class ConfigurationsApi:
 
         Remove multiple configurations.
 
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3264,7 +3264,7 @@ class ConfigurationsApi:
         """ # noqa: E501
 
         _param = self._start_configs_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3288,7 +3288,7 @@ class ConfigurationsApi:
     @validate_call
     def start_configs_batch_delete_without_preload_content(
         self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3306,8 +3306,8 @@ class ConfigurationsApi:
 
         Remove multiple configurations.
 
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3331,7 +3331,7 @@ class ConfigurationsApi:
         """ # noqa: E501
 
         _param = self._start_configs_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3350,7 +3350,7 @@ class ConfigurationsApi:
 
     def _start_configs_batch_delete_serialize(
         self,
-        start_root_batch_delete_request_inner,
+        start_batch_delete_request_inner,
         _request_auth,
         _content_type,
         _headers,
@@ -3360,7 +3360,7 @@ class ConfigurationsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'StartRootBatchDeleteRequestInner': '',
+            'StartBatchDeleteRequestInner': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -3375,8 +3375,8 @@ class ConfigurationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if start_root_batch_delete_request_inner is not None:
-            _body_params = start_root_batch_delete_request_inner
+        if start_batch_delete_request_inner is not None:
+            _body_params = start_batch_delete_request_inner
 
 
         # set the HTTP header `Accept`

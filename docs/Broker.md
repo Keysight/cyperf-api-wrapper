@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **connection_status** | **str** | The broker&#39;s connection status | [optional] 
 **fingerprint** | **str** | The broker&#39;s fingerprint | [optional] 
-**host** | **str** | The IP or hostname of the registered broker | [optional] [readonly] 
-**host_name** | **str** | The IP or hostname of the registered broker | [optional] [readonly] 
+**host** | **str** | The IP or hostname of the registered broker | [optional] 
+**host_name** | **str** | The IP or hostname of the registered broker | [optional] 
 **id** | **str** | The unique identifier of the broker | [optional] [readonly] 
 **interactive_fingerprint_verification** | **bool** | Validate the broker&#39;s fingerprint interactively | [optional] 
 **password** | **str** | The broker&#39;s authentication password | [optional] 

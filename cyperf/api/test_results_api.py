@@ -27,7 +27,7 @@ from cyperf.models.get_result_tags200_response import GetResultTags200Response
 from cyperf.models.get_results200_response import GetResults200Response
 from cyperf.models.result_file_metadata import ResultFileMetadata
 from cyperf.models.result_metadata import ResultMetadata
-from cyperf.models.start_root_batch_delete_request_inner import StartRootBatchDeleteRequestInner
+from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
 
 from cyperf import DynamicModel
 from cyperf.api_client import ApiClient, RequestSerialized
@@ -3987,7 +3987,7 @@ class TestResultsApi:
     @validate_call
     def start_results_batch_delete(
         self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4005,8 +4005,8 @@ class TestResultsApi:
 
         Remove multiple results.
 
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4030,7 +4030,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._start_results_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4054,7 +4054,7 @@ class TestResultsApi:
     @validate_call
     def start_results_batch_delete_with_http_info(
         self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4072,8 +4072,8 @@ class TestResultsApi:
 
         Remove multiple results.
 
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4097,7 +4097,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._start_results_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4121,7 +4121,7 @@ class TestResultsApi:
     @validate_call
     def start_results_batch_delete_without_preload_content(
         self,
-        start_root_batch_delete_request_inner: Optional[List[StartRootBatchDeleteRequestInner]] = None,
+        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4139,8 +4139,8 @@ class TestResultsApi:
 
         Remove multiple results.
 
-        :param start_root_batch_delete_request_inner:
-        :type start_root_batch_delete_request_inner: List[StartRootBatchDeleteRequestInner]
+        :param start_batch_delete_request_inner:
+        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4164,7 +4164,7 @@ class TestResultsApi:
         """ # noqa: E501
 
         _param = self._start_results_batch_delete_serialize(
-            start_root_batch_delete_request_inner=start_root_batch_delete_request_inner,
+            start_batch_delete_request_inner=start_batch_delete_request_inner,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4183,7 +4183,7 @@ class TestResultsApi:
 
     def _start_results_batch_delete_serialize(
         self,
-        start_root_batch_delete_request_inner,
+        start_batch_delete_request_inner,
         _request_auth,
         _content_type,
         _headers,
@@ -4193,7 +4193,7 @@ class TestResultsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'StartRootBatchDeleteRequestInner': '',
+            'StartBatchDeleteRequestInner': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -4208,8 +4208,8 @@ class TestResultsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if start_root_batch_delete_request_inner is not None:
-            _body_params = start_root_batch_delete_request_inner
+        if start_batch_delete_request_inner is not None:
+            _body_params = start_batch_delete_request_inner
 
 
         # set the HTTP header `Accept`

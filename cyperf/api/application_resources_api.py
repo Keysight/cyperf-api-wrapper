@@ -36054,7 +36054,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_create_app(
+    def poll_create_app(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36070,7 +36070,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_create_app
+        """poll_create_app
 
         Get the state of an ongoing operation.
 
@@ -36098,7 +36098,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_create_app_serialize(
+        _param = self._poll_create_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36121,7 +36121,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_create_app_with_http_info(
+    def poll_create_app_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36137,7 +36137,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_create_app
+        """poll_create_app
 
         Get the state of an ongoing operation.
 
@@ -36165,7 +36165,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_create_app_serialize(
+        _param = self._poll_create_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36188,7 +36188,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_create_app_without_preload_content(
+    def poll_create_app_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36204,7 +36204,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_create_app
+        """poll_create_app
 
         Get the state of an ongoing operation.
 
@@ -36232,7 +36232,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_create_app_serialize(
+        _param = self._poll_create_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36250,7 +36250,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_create_app_serialize(
+    def _poll_create_app_serialize(
         self,
         id,
         _request_auth,
@@ -36314,7 +36314,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_attack_categories(
+    def poll_get_attack_categories(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36330,7 +36330,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_get_attack_categories
+        """poll_get_attack_categories
 
         Get the state of an ongoing operation.
 
@@ -36358,7 +36358,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_attack_categories_serialize(
+        _param = self._poll_get_attack_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36381,7 +36381,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_attack_categories_with_http_info(
+    def poll_get_attack_categories_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36397,7 +36397,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_get_attack_categories
+        """poll_get_attack_categories
 
         Get the state of an ongoing operation.
 
@@ -36425,7 +36425,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_attack_categories_serialize(
+        _param = self._poll_get_attack_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36448,7 +36448,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_attack_categories_without_preload_content(
+    def poll_get_attack_categories_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36464,7 +36464,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_get_attack_categories
+        """poll_get_attack_categories
 
         Get the state of an ongoing operation.
 
@@ -36492,7 +36492,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_attack_categories_serialize(
+        _param = self._poll_get_attack_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36510,7 +36510,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_get_attack_categories_serialize(
+    def _poll_get_attack_categories_serialize(
         self,
         id,
         _request_auth,
@@ -36574,7 +36574,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_attacks(
+    def poll_get_attacks(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36590,7 +36590,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_get_attacks
+        """poll_get_attacks
 
         Get the state of an ongoing operation.
 
@@ -36618,7 +36618,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_attacks_serialize(
+        _param = self._poll_get_attacks_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36641,7 +36641,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_attacks_with_http_info(
+    def poll_get_attacks_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36657,7 +36657,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_get_attacks
+        """poll_get_attacks
 
         Get the state of an ongoing operation.
 
@@ -36685,7 +36685,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_attacks_serialize(
+        _param = self._poll_get_attacks_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36708,7 +36708,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_attacks_without_preload_content(
+    def poll_get_attacks_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36724,7 +36724,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_get_attacks
+        """poll_get_attacks
 
         Get the state of an ongoing operation.
 
@@ -36752,7 +36752,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_attacks_serialize(
+        _param = self._poll_get_attacks_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36770,7 +36770,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_get_attacks_serialize(
+    def _poll_get_attacks_serialize(
         self,
         id,
         _request_auth,
@@ -36834,7 +36834,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_strike_categories(
+    def poll_get_strike_categories(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36850,7 +36850,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_get_strike_categories
+        """poll_get_strike_categories
 
         Get the state of an ongoing operation.
 
@@ -36878,7 +36878,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_strike_categories_serialize(
+        _param = self._poll_get_strike_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36901,7 +36901,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_strike_categories_with_http_info(
+    def poll_get_strike_categories_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36917,7 +36917,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_get_strike_categories
+        """poll_get_strike_categories
 
         Get the state of an ongoing operation.
 
@@ -36945,7 +36945,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_strike_categories_serialize(
+        _param = self._poll_get_strike_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -36968,7 +36968,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_strike_categories_without_preload_content(
+    def poll_get_strike_categories_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -36984,7 +36984,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_get_strike_categories
+        """poll_get_strike_categories
 
         Get the state of an ongoing operation.
 
@@ -37012,7 +37012,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_strike_categories_serialize(
+        _param = self._poll_get_strike_categories_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -37030,7 +37030,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_get_strike_categories_serialize(
+    def _poll_get_strike_categories_serialize(
         self,
         id,
         _request_auth,
@@ -37094,7 +37094,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_strikes(
+    def poll_get_strikes(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -37110,7 +37110,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_get_strikes
+        """poll_get_strikes
 
         Get the state of an ongoing operation.
 
@@ -37138,7 +37138,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_strikes_serialize(
+        _param = self._poll_get_strikes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -37161,7 +37161,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_strikes_with_http_info(
+    def poll_get_strikes_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -37177,7 +37177,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_get_strikes
+        """poll_get_strikes
 
         Get the state of an ongoing operation.
 
@@ -37205,7 +37205,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_strikes_serialize(
+        _param = self._poll_get_strikes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -37228,7 +37228,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def poll_root_get_strikes_without_preload_content(
+    def poll_get_strikes_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -37244,7 +37244,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_get_strikes
+        """poll_get_strikes
 
         Get the state of an ongoing operation.
 
@@ -37272,7 +37272,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_get_strikes_serialize(
+        _param = self._poll_get_strikes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -37290,7 +37290,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_get_strikes_serialize(
+    def _poll_get_strikes_serialize(
         self,
         id,
         _request_auth,
@@ -38132,7 +38132,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_create_app(
+    def start_create_app(
         self,
         create_app_operation: Optional[CreateAppOperation] = None,
         _request_timeout: Union[
@@ -38148,7 +38148,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_create_app
+        """start_create_app
 
         Create an app from captures
 
@@ -38176,7 +38176,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_create_app_serialize(
+        _param = self._start_create_app_serialize(
             create_app_operation=create_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38199,7 +38199,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_create_app_with_http_info(
+    def start_create_app_with_http_info(
         self,
         create_app_operation: Optional[CreateAppOperation] = None,
         _request_timeout: Union[
@@ -38215,7 +38215,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_create_app
+        """start_create_app
 
         Create an app from captures
 
@@ -38243,7 +38243,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_create_app_serialize(
+        _param = self._start_create_app_serialize(
             create_app_operation=create_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38266,7 +38266,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_create_app_without_preload_content(
+    def start_create_app_without_preload_content(
         self,
         create_app_operation: Optional[CreateAppOperation] = None,
         _request_timeout: Union[
@@ -38282,7 +38282,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_create_app
+        """start_create_app
 
         Create an app from captures
 
@@ -38310,7 +38310,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_create_app_serialize(
+        _param = self._start_create_app_serialize(
             create_app_operation=create_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38328,7 +38328,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_create_app_serialize(
+    def _start_create_app_serialize(
         self,
         create_app_operation,
         _request_auth,
@@ -38405,7 +38405,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_attack_categories(
+    def start_get_attack_categories(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -38421,7 +38421,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_get_attack_categories
+        """start_get_attack_categories
 
         Get the list of attack categories
 
@@ -38449,7 +38449,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_attack_categories_serialize(
+        _param = self._start_get_attack_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38472,7 +38472,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_attack_categories_with_http_info(
+    def start_get_attack_categories_with_http_info(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -38488,7 +38488,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_get_attack_categories
+        """start_get_attack_categories
 
         Get the list of attack categories
 
@@ -38516,7 +38516,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_attack_categories_serialize(
+        _param = self._start_get_attack_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38539,7 +38539,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_attack_categories_without_preload_content(
+    def start_get_attack_categories_without_preload_content(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -38555,7 +38555,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_get_attack_categories
+        """start_get_attack_categories
 
         Get the list of attack categories
 
@@ -38583,7 +38583,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_attack_categories_serialize(
+        _param = self._start_get_attack_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38601,7 +38601,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_get_attack_categories_serialize(
+    def _start_get_attack_categories_serialize(
         self,
         get_categories_operation,
         _request_auth,
@@ -38678,7 +38678,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_attacks(
+    def start_get_attacks(
         self,
         get_attacks_operation: Optional[GetAttacksOperation] = None,
         _request_timeout: Union[
@@ -38694,7 +38694,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_get_attacks
+        """start_get_attacks
 
         Get the list of attacks
 
@@ -38722,7 +38722,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_attacks_serialize(
+        _param = self._start_get_attacks_serialize(
             get_attacks_operation=get_attacks_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38745,7 +38745,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_attacks_with_http_info(
+    def start_get_attacks_with_http_info(
         self,
         get_attacks_operation: Optional[GetAttacksOperation] = None,
         _request_timeout: Union[
@@ -38761,7 +38761,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_get_attacks
+        """start_get_attacks
 
         Get the list of attacks
 
@@ -38789,7 +38789,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_attacks_serialize(
+        _param = self._start_get_attacks_serialize(
             get_attacks_operation=get_attacks_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38812,7 +38812,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_attacks_without_preload_content(
+    def start_get_attacks_without_preload_content(
         self,
         get_attacks_operation: Optional[GetAttacksOperation] = None,
         _request_timeout: Union[
@@ -38828,7 +38828,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_get_attacks
+        """start_get_attacks
 
         Get the list of attacks
 
@@ -38856,7 +38856,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_attacks_serialize(
+        _param = self._start_get_attacks_serialize(
             get_attacks_operation=get_attacks_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -38874,7 +38874,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_get_attacks_serialize(
+    def _start_get_attacks_serialize(
         self,
         get_attacks_operation,
         _request_auth,
@@ -38951,7 +38951,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_strike_categories(
+    def start_get_strike_categories(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -38967,7 +38967,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_get_strike_categories
+        """start_get_strike_categories
 
         Get the list of strike categories
 
@@ -38995,7 +38995,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_strike_categories_serialize(
+        _param = self._start_get_strike_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39018,7 +39018,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_strike_categories_with_http_info(
+    def start_get_strike_categories_with_http_info(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -39034,7 +39034,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_get_strike_categories
+        """start_get_strike_categories
 
         Get the list of strike categories
 
@@ -39062,7 +39062,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_strike_categories_serialize(
+        _param = self._start_get_strike_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39085,7 +39085,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_strike_categories_without_preload_content(
+    def start_get_strike_categories_without_preload_content(
         self,
         get_categories_operation: Optional[GetCategoriesOperation] = None,
         _request_timeout: Union[
@@ -39101,7 +39101,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_get_strike_categories
+        """start_get_strike_categories
 
         Get the list of strike categories
 
@@ -39129,7 +39129,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_strike_categories_serialize(
+        _param = self._start_get_strike_categories_serialize(
             get_categories_operation=get_categories_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39147,7 +39147,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_get_strike_categories_serialize(
+    def _start_get_strike_categories_serialize(
         self,
         get_categories_operation,
         _request_auth,
@@ -39224,7 +39224,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_strikes(
+    def start_get_strikes(
         self,
         get_strikes_operation: Optional[GetStrikesOperation] = None,
         _request_timeout: Union[
@@ -39240,7 +39240,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_get_strikes
+        """start_get_strikes
 
         Get the list of strikes
 
@@ -39268,7 +39268,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_strikes_serialize(
+        _param = self._start_get_strikes_serialize(
             get_strikes_operation=get_strikes_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39291,7 +39291,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_strikes_with_http_info(
+    def start_get_strikes_with_http_info(
         self,
         get_strikes_operation: Optional[GetStrikesOperation] = None,
         _request_timeout: Union[
@@ -39307,7 +39307,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_get_strikes
+        """start_get_strikes
 
         Get the list of strikes
 
@@ -39335,7 +39335,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_strikes_serialize(
+        _param = self._start_get_strikes_serialize(
             get_strikes_operation=get_strikes_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39358,7 +39358,7 @@ class ApplicationResourcesApi:
 
 
     @validate_call
-    def start_root_get_strikes_without_preload_content(
+    def start_get_strikes_without_preload_content(
         self,
         get_strikes_operation: Optional[GetStrikesOperation] = None,
         _request_timeout: Union[
@@ -39374,7 +39374,7 @@ class ApplicationResourcesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_get_strikes
+        """start_get_strikes
 
         Get the list of strikes
 
@@ -39402,7 +39402,7 @@ class ApplicationResourcesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_get_strikes_serialize(
+        _param = self._start_get_strikes_serialize(
             get_strikes_operation=get_strikes_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -39420,7 +39420,7 @@ class ApplicationResourcesApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_get_strikes_serialize(
+    def _start_get_strikes_serialize(
         self,
         get_strikes_operation,
         _request_auth,

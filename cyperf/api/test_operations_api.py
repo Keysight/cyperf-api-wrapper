@@ -41,7 +41,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_abort(
+    def poll_abort(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -58,7 +58,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_abort
+        """poll_abort
 
         Get the state of an ongoing operation.
 
@@ -88,7 +88,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_abort_serialize(
+        _param = self._poll_abort_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -112,7 +112,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_abort_with_http_info(
+    def poll_abort_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -129,7 +129,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_abort
+        """poll_abort
 
         Get the state of an ongoing operation.
 
@@ -159,7 +159,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_abort_serialize(
+        _param = self._poll_abort_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -183,7 +183,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_abort_without_preload_content(
+    def poll_abort_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -200,7 +200,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_abort
+        """poll_abort
 
         Get the state of an ongoing operation.
 
@@ -230,7 +230,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_abort_serialize(
+        _param = self._poll_abort_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -249,7 +249,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_abort_serialize(
+    def _poll_abort_serialize(
         self,
         session_id,
         id,
@@ -316,7 +316,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_start_calibration(
+    def poll_start_calibration(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -333,7 +333,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_start_calibration
+        """poll_start_calibration
 
         Get the state of an ongoing operation.
 
@@ -363,7 +363,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_start_calibration_serialize(
+        _param = self._poll_start_calibration_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -387,7 +387,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_start_calibration_with_http_info(
+    def poll_start_calibration_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -404,7 +404,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_start_calibration
+        """poll_start_calibration
 
         Get the state of an ongoing operation.
 
@@ -434,7 +434,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_start_calibration_serialize(
+        _param = self._poll_start_calibration_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -458,7 +458,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_start_calibration_without_preload_content(
+    def poll_start_calibration_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -475,7 +475,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_start_calibration
+        """poll_start_calibration
 
         Get the state of an ongoing operation.
 
@@ -505,7 +505,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_start_calibration_serialize(
+        _param = self._poll_start_calibration_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -524,7 +524,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_start_calibration_serialize(
+    def _poll_start_calibration_serialize(
         self,
         session_id,
         id,
@@ -591,7 +591,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_start_traffic(
+    def poll_start_traffic(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -608,7 +608,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_start_traffic
+        """poll_start_traffic
 
         Get the state of an ongoing operation.
 
@@ -638,7 +638,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_start_traffic_serialize(
+        _param = self._poll_start_traffic_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -662,7 +662,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_start_traffic_with_http_info(
+    def poll_start_traffic_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -679,7 +679,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_start_traffic
+        """poll_start_traffic
 
         Get the state of an ongoing operation.
 
@@ -709,7 +709,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_start_traffic_serialize(
+        _param = self._poll_start_traffic_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -733,7 +733,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_start_traffic_without_preload_content(
+    def poll_start_traffic_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -750,7 +750,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_start_traffic
+        """poll_start_traffic
 
         Get the state of an ongoing operation.
 
@@ -780,7 +780,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_start_traffic_serialize(
+        _param = self._poll_start_traffic_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -799,7 +799,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_start_traffic_serialize(
+    def _poll_start_traffic_serialize(
         self,
         session_id,
         id,
@@ -866,7 +866,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_stop_calibration(
+    def poll_stop_calibration(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -883,7 +883,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_stop_calibration
+        """poll_stop_calibration
 
         Get the state of an ongoing operation.
 
@@ -913,7 +913,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_stop_calibration_serialize(
+        _param = self._poll_stop_calibration_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -937,7 +937,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_stop_calibration_with_http_info(
+    def poll_stop_calibration_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -954,7 +954,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_stop_calibration
+        """poll_stop_calibration
 
         Get the state of an ongoing operation.
 
@@ -984,7 +984,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_stop_calibration_serialize(
+        _param = self._poll_stop_calibration_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -1008,7 +1008,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_stop_calibration_without_preload_content(
+    def poll_stop_calibration_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -1025,7 +1025,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_stop_calibration
+        """poll_stop_calibration
 
         Get the state of an ongoing operation.
 
@@ -1055,7 +1055,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_stop_calibration_serialize(
+        _param = self._poll_stop_calibration_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -1074,7 +1074,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_stop_calibration_serialize(
+    def _poll_stop_calibration_serialize(
         self,
         session_id,
         id,
@@ -1141,7 +1141,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_stop_traffic(
+    def poll_stop_traffic(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -1158,7 +1158,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_stop_traffic
+        """poll_stop_traffic
 
         Get the state of an ongoing operation.
 
@@ -1188,7 +1188,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_stop_traffic_serialize(
+        _param = self._poll_stop_traffic_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -1212,7 +1212,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_stop_traffic_with_http_info(
+    def poll_stop_traffic_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -1229,7 +1229,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_stop_traffic
+        """poll_stop_traffic
 
         Get the state of an ongoing operation.
 
@@ -1259,7 +1259,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_stop_traffic_serialize(
+        _param = self._poll_stop_traffic_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -1283,7 +1283,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def poll_root_stop_traffic_without_preload_content(
+    def poll_stop_traffic_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -1300,7 +1300,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_stop_traffic
+        """poll_stop_traffic
 
         Get the state of an ongoing operation.
 
@@ -1330,7 +1330,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_stop_traffic_serialize(
+        _param = self._poll_stop_traffic_serialize(
             session_id=session_id,
             id=id,
             _request_auth=_request_auth,
@@ -1349,7 +1349,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_stop_traffic_serialize(
+    def _poll_stop_traffic_serialize(
         self,
         session_id,
         id,
@@ -1416,7 +1416,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_abort(
+    def start_abort(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -1432,7 +1432,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_abort
+        """start_abort
 
         Abort traffic for the test configured in the current session.
 
@@ -1460,7 +1460,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_abort_serialize(
+        _param = self._start_abort_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1483,7 +1483,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_abort_with_http_info(
+    def start_abort_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -1499,7 +1499,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_abort
+        """start_abort
 
         Abort traffic for the test configured in the current session.
 
@@ -1527,7 +1527,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_abort_serialize(
+        _param = self._start_abort_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1550,7 +1550,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_abort_without_preload_content(
+    def start_abort_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -1566,7 +1566,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_abort
+        """start_abort
 
         Abort traffic for the test configured in the current session.
 
@@ -1594,7 +1594,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_abort_serialize(
+        _param = self._start_abort_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1612,7 +1612,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_abort_serialize(
+    def _start_abort_serialize(
         self,
         session_id,
         _request_auth,
@@ -1676,7 +1676,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_start_calibration(
+    def start_start_calibration(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -1692,7 +1692,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_start_calibration
+        """start_start_calibration
 
         Start calibration for the test configured in the current session.
 
@@ -1720,7 +1720,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_start_calibration_serialize(
+        _param = self._start_start_calibration_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1743,7 +1743,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_start_calibration_with_http_info(
+    def start_start_calibration_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -1759,7 +1759,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_start_calibration
+        """start_start_calibration
 
         Start calibration for the test configured in the current session.
 
@@ -1787,7 +1787,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_start_calibration_serialize(
+        _param = self._start_start_calibration_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1810,7 +1810,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_start_calibration_without_preload_content(
+    def start_start_calibration_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -1826,7 +1826,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_start_calibration
+        """start_start_calibration
 
         Start calibration for the test configured in the current session.
 
@@ -1854,7 +1854,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_start_calibration_serialize(
+        _param = self._start_start_calibration_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1872,7 +1872,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_start_calibration_serialize(
+    def _start_start_calibration_serialize(
         self,
         session_id,
         _request_auth,
@@ -1936,7 +1936,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_start_traffic(
+    def start_start_traffic(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -1952,7 +1952,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_start_traffic
+        """start_start_traffic
 
         Start traffic for the test configured in the current session.
 
@@ -1980,7 +1980,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_start_traffic_serialize(
+        _param = self._start_start_traffic_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2003,7 +2003,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_start_traffic_with_http_info(
+    def start_start_traffic_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -2019,7 +2019,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_start_traffic
+        """start_start_traffic
 
         Start traffic for the test configured in the current session.
 
@@ -2047,7 +2047,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_start_traffic_serialize(
+        _param = self._start_start_traffic_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2070,7 +2070,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_start_traffic_without_preload_content(
+    def start_start_traffic_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -2086,7 +2086,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_start_traffic
+        """start_start_traffic
 
         Start traffic for the test configured in the current session.
 
@@ -2114,7 +2114,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_start_traffic_serialize(
+        _param = self._start_start_traffic_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2132,7 +2132,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_start_traffic_serialize(
+    def _start_start_traffic_serialize(
         self,
         session_id,
         _request_auth,
@@ -2196,7 +2196,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_stop_calibration(
+    def start_stop_calibration(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -2212,7 +2212,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_stop_calibration
+        """start_stop_calibration
 
         Stop calibration for the test configured in the current session.
 
@@ -2240,7 +2240,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_stop_calibration_serialize(
+        _param = self._start_stop_calibration_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2263,7 +2263,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_stop_calibration_with_http_info(
+    def start_stop_calibration_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -2279,7 +2279,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_stop_calibration
+        """start_stop_calibration
 
         Stop calibration for the test configured in the current session.
 
@@ -2307,7 +2307,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_stop_calibration_serialize(
+        _param = self._start_stop_calibration_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2330,7 +2330,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_stop_calibration_without_preload_content(
+    def start_stop_calibration_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -2346,7 +2346,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_stop_calibration
+        """start_stop_calibration
 
         Stop calibration for the test configured in the current session.
 
@@ -2374,7 +2374,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_stop_calibration_serialize(
+        _param = self._start_stop_calibration_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2392,7 +2392,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_stop_calibration_serialize(
+    def _start_stop_calibration_serialize(
         self,
         session_id,
         _request_auth,
@@ -2456,7 +2456,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_stop_traffic(
+    def start_stop_traffic(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -2472,7 +2472,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_stop_traffic
+        """start_stop_traffic
 
         Stop traffic for the test configured in the current session.
 
@@ -2500,7 +2500,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_stop_traffic_serialize(
+        _param = self._start_stop_traffic_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2523,7 +2523,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_stop_traffic_with_http_info(
+    def start_stop_traffic_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -2539,7 +2539,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_stop_traffic
+        """start_stop_traffic
 
         Stop traffic for the test configured in the current session.
 
@@ -2567,7 +2567,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_stop_traffic_serialize(
+        _param = self._start_stop_traffic_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2590,7 +2590,7 @@ class TestOperationsApi:
 
 
     @validate_call
-    def start_root_stop_traffic_without_preload_content(
+    def start_stop_traffic_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
         _request_timeout: Union[
@@ -2606,7 +2606,7 @@ class TestOperationsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_stop_traffic
+        """start_stop_traffic
 
         Stop traffic for the test configured in the current session.
 
@@ -2634,7 +2634,7 @@ class TestOperationsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_stop_traffic_serialize(
+        _param = self._start_stop_traffic_serialize(
             session_id=session_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2652,7 +2652,7 @@ class TestOperationsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_stop_traffic_serialize(
+    def _start_stop_traffic_serialize(
         self,
         session_id,
         _request_auth,

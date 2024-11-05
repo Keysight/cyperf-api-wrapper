@@ -43,7 +43,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def poll_root_export(
+    def poll_export(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -59,7 +59,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_export
+        """poll_export
 
         Get the state of an ongoing operation.
 
@@ -87,7 +87,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_export_serialize(
+        _param = self._poll_export_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -110,7 +110,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def poll_root_export_with_http_info(
+    def poll_export_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -126,7 +126,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_export
+        """poll_export
 
         Get the state of an ongoing operation.
 
@@ -154,7 +154,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_export_serialize(
+        _param = self._poll_export_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -177,7 +177,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def poll_root_export_without_preload_content(
+    def poll_export_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -193,7 +193,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_export
+        """poll_export
 
         Get the state of an ongoing operation.
 
@@ -221,7 +221,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_export_serialize(
+        _param = self._poll_export_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -239,7 +239,7 @@ class DataMigrationApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_export_serialize(
+    def _poll_export_serialize(
         self,
         id,
         _request_auth,
@@ -303,7 +303,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def poll_root_import(
+    def poll_import(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -319,7 +319,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_root_import
+        """poll_import
 
         Get the state of an ongoing operation.
 
@@ -347,7 +347,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_import_serialize(
+        _param = self._poll_import_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -370,7 +370,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def poll_root_import_with_http_info(
+    def poll_import_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -386,7 +386,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_root_import
+        """poll_import
 
         Get the state of an ongoing operation.
 
@@ -414,7 +414,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_import_serialize(
+        _param = self._poll_import_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -437,7 +437,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def poll_root_import_without_preload_content(
+    def poll_import_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -453,7 +453,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_root_import
+        """poll_import
 
         Get the state of an ongoing operation.
 
@@ -481,7 +481,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_root_import_serialize(
+        _param = self._poll_import_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -499,7 +499,7 @@ class DataMigrationApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_root_import_serialize(
+    def _poll_import_serialize(
         self,
         id,
         _request_auth,
@@ -563,7 +563,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def start_root_export(
+    def start_export(
         self,
         export_package_operation: Optional[ExportPackageOperation] = None,
         _request_timeout: Union[
@@ -579,7 +579,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_export
+        """start_export
 
         Export the data from the controller as a package.
 
@@ -607,7 +607,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_export_serialize(
+        _param = self._start_export_serialize(
             export_package_operation=export_package_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -630,7 +630,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def start_root_export_with_http_info(
+    def start_export_with_http_info(
         self,
         export_package_operation: Optional[ExportPackageOperation] = None,
         _request_timeout: Union[
@@ -646,7 +646,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_export
+        """start_export
 
         Export the data from the controller as a package.
 
@@ -674,7 +674,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_export_serialize(
+        _param = self._start_export_serialize(
             export_package_operation=export_package_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -697,7 +697,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def start_root_export_without_preload_content(
+    def start_export_without_preload_content(
         self,
         export_package_operation: Optional[ExportPackageOperation] = None,
         _request_timeout: Union[
@@ -713,7 +713,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_export
+        """start_export
 
         Export the data from the controller as a package.
 
@@ -741,7 +741,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_export_serialize(
+        _param = self._start_export_serialize(
             export_package_operation=export_package_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -759,7 +759,7 @@ class DataMigrationApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_export_serialize(
+    def _start_export_serialize(
         self,
         export_package_operation,
         _request_auth,
@@ -836,7 +836,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def start_root_import(
+    def start_import(
         self,
         file: Optional[Union[StrictBytes, StrictStr]] = None,
         _request_timeout: Union[
@@ -852,7 +852,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_root_import
+        """start_import
 
         Import the data from the supplied package into the controller.
 
@@ -880,7 +880,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_import_serialize(
+        _param = self._start_import_serialize(
             file=file,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -903,7 +903,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def start_root_import_with_http_info(
+    def start_import_with_http_info(
         self,
         file: Optional[Union[StrictBytes, StrictStr]] = None,
         _request_timeout: Union[
@@ -919,7 +919,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_root_import
+        """start_import
 
         Import the data from the supplied package into the controller.
 
@@ -947,7 +947,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_import_serialize(
+        _param = self._start_import_serialize(
             file=file,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -970,7 +970,7 @@ class DataMigrationApi:
 
 
     @validate_call
-    def start_root_import_without_preload_content(
+    def start_import_without_preload_content(
         self,
         file: Optional[Union[StrictBytes, StrictStr]] = None,
         _request_timeout: Union[
@@ -986,7 +986,7 @@ class DataMigrationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_root_import
+        """start_import
 
         Import the data from the supplied package into the controller.
 
@@ -1014,7 +1014,7 @@ class DataMigrationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_root_import_serialize(
+        _param = self._start_import_serialize(
             file=file,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1032,7 +1032,7 @@ class DataMigrationApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_root_import_serialize(
+    def _start_import_serialize(
         self,
         file,
         _request_auth,

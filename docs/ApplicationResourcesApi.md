@@ -136,19 +136,19 @@ Method | HTTP request | Description
 [**get_user_defined_apps**](ApplicationResourcesApi.md#get_user_defined_apps) | **GET** /api/v2/resources/user-defined-apps | 
 [**poll_apps_export_all**](ApplicationResourcesApi.md#poll_apps_export_all) | **GET** /api/v2/resources/apps/operations/export-all/{id} | 
 [**poll_captures_batch_delete**](ApplicationResourcesApi.md#poll_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
-[**poll_root_create_app**](ApplicationResourcesApi.md#poll_root_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
-[**poll_root_get_attack_categories**](ApplicationResourcesApi.md#poll_root_get_attack_categories) | **GET** /api/v2/resources/operations/get-attack-categories/{id} | 
-[**poll_root_get_attacks**](ApplicationResourcesApi.md#poll_root_get_attacks) | **GET** /api/v2/resources/operations/get-attacks/{id} | 
-[**poll_root_get_strike_categories**](ApplicationResourcesApi.md#poll_root_get_strike_categories) | **GET** /api/v2/resources/operations/get-strike-categories/{id} | 
-[**poll_root_get_strikes**](ApplicationResourcesApi.md#poll_root_get_strikes) | **GET** /api/v2/resources/operations/get-strikes/{id} | 
+[**poll_create_app**](ApplicationResourcesApi.md#poll_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
+[**poll_get_attack_categories**](ApplicationResourcesApi.md#poll_get_attack_categories) | **GET** /api/v2/resources/operations/get-attack-categories/{id} | 
+[**poll_get_attacks**](ApplicationResourcesApi.md#poll_get_attacks) | **GET** /api/v2/resources/operations/get-attacks/{id} | 
+[**poll_get_strike_categories**](ApplicationResourcesApi.md#poll_get_strike_categories) | **GET** /api/v2/resources/operations/get-strike-categories/{id} | 
+[**poll_get_strikes**](ApplicationResourcesApi.md#poll_get_strikes) | **GET** /api/v2/resources/operations/get-strikes/{id} | 
 [**poll_user_defined_apps_export_all**](ApplicationResourcesApi.md#poll_user_defined_apps_export_all) | **GET** /api/v2/resources/user-defined-apps/operations/export-all/{id} | 
 [**start_apps_export_all**](ApplicationResourcesApi.md#start_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 [**start_captures_batch_delete**](ApplicationResourcesApi.md#start_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
-[**start_root_create_app**](ApplicationResourcesApi.md#start_root_create_app) | **POST** /api/v2/resources/operations/create-app | 
-[**start_root_get_attack_categories**](ApplicationResourcesApi.md#start_root_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
-[**start_root_get_attacks**](ApplicationResourcesApi.md#start_root_get_attacks) | **POST** /api/v2/resources/operations/get-attacks | 
-[**start_root_get_strike_categories**](ApplicationResourcesApi.md#start_root_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
-[**start_root_get_strikes**](ApplicationResourcesApi.md#start_root_get_strikes) | **POST** /api/v2/resources/operations/get-strikes | 
+[**start_create_app**](ApplicationResourcesApi.md#start_create_app) | **POST** /api/v2/resources/operations/create-app | 
+[**start_get_attack_categories**](ApplicationResourcesApi.md#start_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
+[**start_get_attacks**](ApplicationResourcesApi.md#start_get_attacks) | **POST** /api/v2/resources/operations/get-attacks | 
+[**start_get_strike_categories**](ApplicationResourcesApi.md#start_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
+[**start_get_strikes**](ApplicationResourcesApi.md#start_get_strikes) | **POST** /api/v2/resources/operations/get-strikes | 
 [**start_user_defined_apps_export_all**](ApplicationResourcesApi.md#start_user_defined_apps_export_all) | **POST** /api/v2/resources/user-defined-apps/operations/export-all | 
 
 
@@ -10403,8 +10403,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_root_create_app**
-> AsyncContext poll_root_create_app(id)
+# **poll_create_app**
+> AsyncContext poll_create_app(id)
 
 
 
@@ -10443,11 +10443,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_root_create_app(id)
-        print("The response of ApplicationResourcesApi->poll_root_create_app:\n")
+        api_response = api_instance.poll_create_app(id)
+        print("The response of ApplicationResourcesApi->poll_create_app:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->poll_root_create_app: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->poll_create_app: %s\n" % e)
 ```
 
 
@@ -10480,8 +10480,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_root_get_attack_categories**
-> AsyncContext poll_root_get_attack_categories(id)
+# **poll_get_attack_categories**
+> AsyncContext poll_get_attack_categories(id)
 
 
 
@@ -10520,11 +10520,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_root_get_attack_categories(id)
-        print("The response of ApplicationResourcesApi->poll_root_get_attack_categories:\n")
+        api_response = api_instance.poll_get_attack_categories(id)
+        print("The response of ApplicationResourcesApi->poll_get_attack_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->poll_root_get_attack_categories: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->poll_get_attack_categories: %s\n" % e)
 ```
 
 
@@ -10557,8 +10557,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_root_get_attacks**
-> AsyncContext poll_root_get_attacks(id)
+# **poll_get_attacks**
+> AsyncContext poll_get_attacks(id)
 
 
 
@@ -10597,11 +10597,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_root_get_attacks(id)
-        print("The response of ApplicationResourcesApi->poll_root_get_attacks:\n")
+        api_response = api_instance.poll_get_attacks(id)
+        print("The response of ApplicationResourcesApi->poll_get_attacks:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->poll_root_get_attacks: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->poll_get_attacks: %s\n" % e)
 ```
 
 
@@ -10634,8 +10634,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_root_get_strike_categories**
-> AsyncContext poll_root_get_strike_categories(id)
+# **poll_get_strike_categories**
+> AsyncContext poll_get_strike_categories(id)
 
 
 
@@ -10674,11 +10674,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_root_get_strike_categories(id)
-        print("The response of ApplicationResourcesApi->poll_root_get_strike_categories:\n")
+        api_response = api_instance.poll_get_strike_categories(id)
+        print("The response of ApplicationResourcesApi->poll_get_strike_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->poll_root_get_strike_categories: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->poll_get_strike_categories: %s\n" % e)
 ```
 
 
@@ -10711,8 +10711,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_root_get_strikes**
-> AsyncContext poll_root_get_strikes(id)
+# **poll_get_strikes**
+> AsyncContext poll_get_strikes(id)
 
 
 
@@ -10751,11 +10751,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_root_get_strikes(id)
-        print("The response of ApplicationResourcesApi->poll_root_get_strikes:\n")
+        api_response = api_instance.poll_get_strikes(id)
+        print("The response of ApplicationResourcesApi->poll_get_strikes:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->poll_root_get_strikes: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->poll_get_strikes: %s\n" % e)
 ```
 
 
@@ -11016,8 +11016,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_root_create_app**
-> AsyncContext start_root_create_app(create_app_operation=create_app_operation)
+# **start_create_app**
+> AsyncContext start_create_app(create_app_operation=create_app_operation)
 
 
 
@@ -11057,11 +11057,11 @@ with cyperf.ApiClient(configuration) as api_client:
     create_app_operation = cyperf.CreateAppOperation() # CreateAppOperation |  (optional)
 
     try:
-        api_response = api_instance.start_root_create_app(create_app_operation=create_app_operation)
-        print("The response of ApplicationResourcesApi->start_root_create_app:\n")
+        api_response = api_instance.start_create_app(create_app_operation=create_app_operation)
+        print("The response of ApplicationResourcesApi->start_create_app:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->start_root_create_app: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->start_create_app: %s\n" % e)
 ```
 
 
@@ -11094,8 +11094,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_root_get_attack_categories**
-> AsyncContext start_root_get_attack_categories(get_categories_operation=get_categories_operation)
+# **start_get_attack_categories**
+> AsyncContext start_get_attack_categories(get_categories_operation=get_categories_operation)
 
 
 
@@ -11135,11 +11135,11 @@ with cyperf.ApiClient(configuration) as api_client:
     get_categories_operation = cyperf.GetCategoriesOperation() # GetCategoriesOperation |  (optional)
 
     try:
-        api_response = api_instance.start_root_get_attack_categories(get_categories_operation=get_categories_operation)
-        print("The response of ApplicationResourcesApi->start_root_get_attack_categories:\n")
+        api_response = api_instance.start_get_attack_categories(get_categories_operation=get_categories_operation)
+        print("The response of ApplicationResourcesApi->start_get_attack_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->start_root_get_attack_categories: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->start_get_attack_categories: %s\n" % e)
 ```
 
 
@@ -11172,8 +11172,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_root_get_attacks**
-> AsyncContext start_root_get_attacks(get_attacks_operation=get_attacks_operation)
+# **start_get_attacks**
+> AsyncContext start_get_attacks(get_attacks_operation=get_attacks_operation)
 
 
 
@@ -11213,11 +11213,11 @@ with cyperf.ApiClient(configuration) as api_client:
     get_attacks_operation = cyperf.GetAttacksOperation() # GetAttacksOperation |  (optional)
 
     try:
-        api_response = api_instance.start_root_get_attacks(get_attacks_operation=get_attacks_operation)
-        print("The response of ApplicationResourcesApi->start_root_get_attacks:\n")
+        api_response = api_instance.start_get_attacks(get_attacks_operation=get_attacks_operation)
+        print("The response of ApplicationResourcesApi->start_get_attacks:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->start_root_get_attacks: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->start_get_attacks: %s\n" % e)
 ```
 
 
@@ -11250,8 +11250,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_root_get_strike_categories**
-> AsyncContext start_root_get_strike_categories(get_categories_operation=get_categories_operation)
+# **start_get_strike_categories**
+> AsyncContext start_get_strike_categories(get_categories_operation=get_categories_operation)
 
 
 
@@ -11291,11 +11291,11 @@ with cyperf.ApiClient(configuration) as api_client:
     get_categories_operation = cyperf.GetCategoriesOperation() # GetCategoriesOperation |  (optional)
 
     try:
-        api_response = api_instance.start_root_get_strike_categories(get_categories_operation=get_categories_operation)
-        print("The response of ApplicationResourcesApi->start_root_get_strike_categories:\n")
+        api_response = api_instance.start_get_strike_categories(get_categories_operation=get_categories_operation)
+        print("The response of ApplicationResourcesApi->start_get_strike_categories:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->start_root_get_strike_categories: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->start_get_strike_categories: %s\n" % e)
 ```
 
 
@@ -11328,8 +11328,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_root_get_strikes**
-> AsyncContext start_root_get_strikes(get_strikes_operation=get_strikes_operation)
+# **start_get_strikes**
+> AsyncContext start_get_strikes(get_strikes_operation=get_strikes_operation)
 
 
 
@@ -11369,11 +11369,11 @@ with cyperf.ApiClient(configuration) as api_client:
     get_strikes_operation = cyperf.GetStrikesOperation() # GetStrikesOperation |  (optional)
 
     try:
-        api_response = api_instance.start_root_get_strikes(get_strikes_operation=get_strikes_operation)
-        print("The response of ApplicationResourcesApi->start_root_get_strikes:\n")
+        api_response = api_instance.start_get_strikes(get_strikes_operation=get_strikes_operation)
+        print("The response of ApplicationResourcesApi->start_get_strikes:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->start_root_get_strikes: %s\n" % e)
+        print("Exception when calling ApplicationResourcesApi->start_get_strikes: %s\n" % e)
 ```
 
 
