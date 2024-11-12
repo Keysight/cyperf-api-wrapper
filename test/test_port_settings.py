@@ -45,6 +45,8 @@ class TestPortSettings(unittest.TestCase):
                     effective_forward_proxy_port = '', 
                     effective_server_port = '', ),
                 forward_proxy_port = 56,
+                readonly = True,
+                server_listen_port = 56,
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -54,9 +56,7 @@ class TestPortSettings(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                readonly = True,
-                server_listen_port = 56
+                    ]
             )
         else:
             return PortSettings(

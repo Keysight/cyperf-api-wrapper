@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_endpoint** | **str** | The client&#39;s endpoint for exchange. | [optional] 
-**id** | **str** |  | 
 **name** | **str** | The name of the exchange. | [optional] 
 **server_endpoint** | **str** | The server&#39;s endpoint for exchange. | [optional] 
+**id** | **str** |  | 
 
 ## Example
 

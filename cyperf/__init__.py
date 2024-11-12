@@ -56,9 +56,11 @@ from cyperf.models.api_link import APILink
 from cyperf.models.api_relationship import APIRelationship
 from cyperf.models.action import Action
 from cyperf.models.action_base import ActionBase
+from cyperf.models.action_metadata import ActionMetadata
 from cyperf.models.activation_code_info import ActivationCodeInfo
 from cyperf.models.activation_code_list_request import ActivationCodeListRequest
 from cyperf.models.activation_code_request import ActivationCodeRequest
+from cyperf.models.add_input import AddInput
 from cyperf.models.advanced_settings import AdvancedSettings
 from cyperf.models.agent import Agent
 from cyperf.models.agent_assignment_by_port import AgentAssignmentByPort
@@ -79,6 +81,7 @@ from cyperf.models.application import Application
 from cyperf.models.application_profile import ApplicationProfile
 from cyperf.models.application_type import ApplicationType
 from cyperf.models.appsec_app import AppsecApp
+from cyperf.models.appsec_app_metadata import AppsecAppMetadata
 from cyperf.models.appsec_attack import AppsecAttack
 from cyperf.models.appsec_config import AppsecConfig
 from cyperf.models.archive_info import ArchiveInfo
@@ -98,14 +101,13 @@ from cyperf.models.auth_settings import AuthSettings
 from cyperf.models.authentication_settings import AuthenticationSettings
 from cyperf.models.automatic_ip_type import AutomaticIpType
 from cyperf.models.broker import Broker
+from cyperf.models.capture import Capture
 from cyperf.models.capture_settings import CaptureSettings
 from cyperf.models.category import Category
 from cyperf.models.category_filter import CategoryFilter
 from cyperf.models.category_value import CategoryValue
 from cyperf.models.cert_config import CertConfig
 from cyperf.models.certificate import Certificate
-from cyperf.models.change_aggregation_mode_operation import ChangeAggregationModeOperation
-from cyperf.models.change_link_state_operation import ChangeLinkStateOperation
 from cyperf.models.chassis_info import ChassisInfo
 from cyperf.models.choice import Choice
 from cyperf.models.cipher_tls12 import CipherTLS12
@@ -140,12 +142,14 @@ from cyperf.models.dashboard import Dashboard
 from cyperf.models.data_type import DataType
 from cyperf.models.data_type_values_inner import DataTypeValuesInner
 from cyperf.models.definition import Definition
+from cyperf.models.delete_input import DeleteInput
 from cyperf.models.dh_p1_group import DhP1Group
 from cyperf.models.diagnostic_component import DiagnosticComponent
 from cyperf.models.diagnostic_component_context import DiagnosticComponentContext
 from cyperf.models.diagnostic_options import DiagnosticOptions
 from cyperf.models.disk_usage import DiskUsage
 from cyperf.models.esp_over_udp_settings import ESPOverUDPSettings
+from cyperf.models.edit_app_operation import EditAppOperation
 from cyperf.models.effective_ports import EffectivePorts
 from cyperf.models.emulated_router import EmulatedRouter
 from cyperf.models.emulated_router_range import EmulatedRouterRange
@@ -160,6 +164,7 @@ from cyperf.models.error_description import ErrorDescription
 from cyperf.models.error_response import ErrorResponse
 from cyperf.models.eth_range import EthRange
 from cyperf.models.exchange import Exchange
+from cyperf.models.exchange_order import ExchangeOrder
 from cyperf.models.exchange_payload import ExchangePayload
 from cyperf.models.expected_disk_space import ExpectedDiskSpace
 from cyperf.models.expected_disk_space_message import ExpectedDiskSpaceMessage
@@ -267,6 +272,7 @@ from cyperf.models.local_subnet_config import LocalSubnetConfig
 from cyperf.models.log_config import LogConfig
 from cyperf.models.log_level import LogLevel
 from cyperf.models.mac_dtls_stack import MacDtlsStack
+from cyperf.models.mapping_type import MappingType
 from cyperf.models.marked_as_deleted import MarkedAsDeleted
 from cyperf.models.media_file import MediaFile
 from cyperf.models.media_track import MediaTrack
@@ -275,8 +281,11 @@ from cyperf.models.mos_mode import MosMode
 from cyperf.models.name_id_format import NameIdFormat
 from cyperf.models.name_server import NameServer
 from cyperf.models.network_mapping import NetworkMapping
+from cyperf.models.network_meshing import NetworkMeshing
 from cyperf.models.network_profile import NetworkProfile
 from cyperf.models.network_segment_base import NetworkSegmentBase
+from cyperf.models.nodes_by_controller import NodesByController
+from cyperf.models.nodes_power_cycle_operation import NodesPowerCycleOperation
 from cyperf.models.notification import Notification
 from cyperf.models.notification_counts import NotificationCounts
 from cyperf.models.ntp_info import NtpInfo
@@ -311,6 +320,8 @@ from cyperf.models.plugin import Plugin
 from cyperf.models.plugin_stats import PluginStats
 from cyperf.models.port import Port
 from cyperf.models.port_settings import PortSettings
+from cyperf.models.ports_by_controller import PortsByController
+from cyperf.models.ports_by_node import PortsByNode
 from cyperf.models.prepare_test_operation import PrepareTestOperation
 from cyperf.models.prepared_test_options import PreparedTestOptions
 from cyperf.models.prf_p1_algorithm import PrfP1Algorithm
@@ -324,6 +335,9 @@ from cyperf.models.reference import Reference
 from cyperf.models.release_operation_input import ReleaseOperationInput
 from cyperf.models.remote_access import RemoteAccess
 from cyperf.models.remote_subnet_config import RemoteSubnetConfig
+from cyperf.models.rename_input import RenameInput
+from cyperf.models.reorder_action_input import ReorderActionInput
+from cyperf.models.reorder_exchanges_input import ReorderExchangesInput
 from cyperf.models.replay_capture import ReplayCapture
 from cyperf.models.required_file_types import RequiredFileTypes
 from cyperf.models.reserve_operation_input import ReserveOperationInput
@@ -338,7 +352,10 @@ from cyperf.models.selected_env import SelectedEnv
 from cyperf.models.session import Session
 from cyperf.models.session_reuse_method_tls12 import SessionReuseMethodTLS12
 from cyperf.models.session_reuse_method_tls13 import SessionReuseMethodTLS13
+from cyperf.models.set_aggregation_mode_operation import SetAggregationModeOperation
+from cyperf.models.set_app_operation import SetAppOperation
 from cyperf.models.set_dpdk_mode_operation_input import SetDpdkModeOperationInput
+from cyperf.models.set_link_state_operation import SetLinkStateOperation
 from cyperf.models.set_ntp_operation_input import SetNtpOperationInput
 from cyperf.models.simulated_id_p import SimulatedIdP
 from cyperf.models.snapshot import Snapshot
@@ -354,7 +371,6 @@ from cyperf.models.stream_direction import StreamDirection
 from cyperf.models.stream_payload_type import StreamPayloadType
 from cyperf.models.stream_profile import StreamProfile
 from cyperf.models.supported_group_tls13 import SupportedGroupTLS13
-from cyperf.models.switch_app_operation import SwitchAppOperation
 from cyperf.models.system_info import SystemInfo
 from cyperf.models.tls_profile import TLSProfile
 from cyperf.models.tcp_profile import TcpProfile

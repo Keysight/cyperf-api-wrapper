@@ -34,12 +34,12 @@ class ObjectivesAndTimeline(BaseModel):
     ObjectivesAndTimeline
     """ # noqa: E501
     advanced_settings: Optional[AdvancedSettings] = Field(default=None, alias="AdvancedSettings")
-    links: Optional[List[APILink]] = None
     primary_objective: Optional[SpecificObjective] = Field(default=None, alias="PrimaryObjective")
     secondary_objective: Optional[SecondaryObjective] = Field(default=None, alias="SecondaryObjective")
     secondary_objectives: Optional[List[SpecificObjective]] = Field(default=None, description="Deprecated. Use SecondaryObjective instead.", alias="SecondaryObjectives")
     timeline_segments: Optional[List[TimelineSegment]] = Field(default=None, description="Deprecated. Use PrimaryObjective.Timeline instead.", alias="TimelineSegments")
-    __properties: ClassVar[List[str]] = ["AdvancedSettings", "links", "PrimaryObjective", "SecondaryObjective", "SecondaryObjectives", "TimelineSegments"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["AdvancedSettings", "PrimaryObjective", "SecondaryObjective", "SecondaryObjectives", "TimelineSegments", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,13 +83,6 @@ class ObjectivesAndTimeline(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of advanced_settings
         if self.advanced_settings:
             _dict['AdvancedSettings'] = self.advanced_settings.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of primary_objective
         if self.primary_objective:
             _dict['PrimaryObjective'] = self.primary_objective.to_dict()
@@ -110,6 +103,13 @@ class ObjectivesAndTimeline(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['TimelineSegments'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -125,11 +125,11 @@ class ObjectivesAndTimeline(BaseModel):
 
         _obj = cls.model_validate({
             "AdvancedSettings": AdvancedSettings.from_dict(obj["AdvancedSettings"]) if obj.get("AdvancedSettings") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "PrimaryObjective": SpecificObjective.from_dict(obj["PrimaryObjective"]) if obj.get("PrimaryObjective") is not None else None,
                         "SecondaryObjective": SecondaryObjective.from_dict(obj["SecondaryObjective"]) if obj.get("SecondaryObjective") is not None else None,
                         "SecondaryObjectives": [SpecificObjective.from_dict(_item) for _item in obj["SecondaryObjectives"]] if obj.get("SecondaryObjectives") is not None else None,
-                        "TimelineSegments": [TimelineSegment.from_dict(_item) for _item in obj["TimelineSegments"]] if obj.get("TimelineSegments") is not None else None
+                        "TimelineSegments": [TimelineSegment.from_dict(_item) for _item in obj["TimelineSegments"]] if obj.get("TimelineSegments") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

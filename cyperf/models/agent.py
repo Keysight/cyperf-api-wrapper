@@ -35,14 +35,20 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     agent_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags", alias="AgentTags")
+    ip: Optional[StrictStr] = Field(default=None, description="The management IP of the agent", alias="IP")
+    interfaces: Optional[List[Interface]] = Field(default=None, description="A list of test interfaces available on the agent", alias="Interfaces")
+    last_update: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when the agent was last updated", alias="LastUpdate")
+    reservation_id: Optional[StrictStr] = Field(default=None, description="The ID of the reservation", alias="ReservationID")
+    selected_env: Optional[SelectedEnv] = Field(default=None, alias="SelectedEnv")
+    selection_status: Optional[StrictStr] = Field(default=None, description="The current status of the selection operation", alias="SelectionStatus")
+    session_name: Optional[StrictStr] = Field(default=None, description="The session's name where the agent is running", alias="SessionName")
+    status: Optional[StrictStr] = Field(default=None, description="The current status of the agent", alias="Status")
+    configured_proxy: Optional[StrictStr] = Field(default=None, description="The proxy the agent is connected to", alias="configuredProxy")
     cpu_info: Optional[List[AgentCPUInfo]] = Field(default=None, description="The CPU information from the agent", alias="cpuInfo")
     dpdk_enabled: Optional[StrictBool] = Field(default=None, description="A flag indicating whether DPDK is enabled", alias="dpdkEnabled")
     features: Optional[AgentFeatures] = None
     hostname: Optional[StrictStr] = Field(default=None, description="The hostname of the agent")
     id: Optional[StrictStr] = Field(default=None, description="The agent's unique identifier")
-    interfaces: Optional[List[Interface]] = Field(default=None, description="A list of test interfaces available on the agent", alias="Interfaces")
-    ip: Optional[StrictStr] = Field(default=None, description="The management IP of the agent", alias="IP")
-    last_update: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when the agent was last updated", alias="LastUpdate")
     memory_mb: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The memory (in mega bytes) of the agent", alias="memoryMB")
     mgmt_interface: Optional[Interface] = Field(default=None, alias="mgmtInterface")
     ntp_info: Optional[NtpInfo] = Field(default=None, alias="ntpInfo")
@@ -51,13 +57,8 @@ class Agent(BaseModel):
     owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the agent's owner", alias="ownerId")
     package_version_status: Optional[StrictStr] = Field(default=None, description="A message with information about the current software version and user recommendations.", alias="packageVersionStatus")
     requires_updating: Optional[StrictBool] = Field(default=None, description="A flag indicating whether the agent is not using the recommended version", alias="requiresUpdating")
-    reservation_id: Optional[StrictStr] = Field(default=None, description="The ID of the reservation", alias="ReservationID")
-    selected_env: Optional[SelectedEnv] = Field(default=None, alias="SelectedEnv")
-    selection_status: Optional[StrictStr] = Field(default=None, description="The current status of the selection operation", alias="SelectionStatus")
-    session_name: Optional[StrictStr] = Field(default=None, description="The session's name where the agent is running", alias="SessionName")
-    status: Optional[StrictStr] = Field(default=None, description="The current status of the agent", alias="Status")
     system_info: Optional[SystemInfo] = Field(default=None, alias="systemInfo")
-    __properties: ClassVar[List[str]] = ["AgentTags", "cpuInfo", "dpdkEnabled", "features", "hostname", "id", "Interfaces", "IP", "LastUpdate", "memoryMB", "mgmtInterface", "ntpInfo", "offline", "owner", "ownerId", "packageVersionStatus", "requiresUpdating", "ReservationID", "SelectedEnv", "SelectionStatus", "SessionName", "Status", "systemInfo"]
+    __properties: ClassVar[List[str]] = ["AgentTags", "IP", "Interfaces", "LastUpdate", "ReservationID", "SelectedEnv", "SelectionStatus", "SessionName", "Status", "configuredProxy", "cpuInfo", "dpdkEnabled", "features", "hostname", "id", "memoryMB", "mgmtInterface", "ntpInfo", "offline", "owner", "ownerId", "packageVersionStatus", "requiresUpdating", "systemInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,22 +104,24 @@ class Agent(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "ip",
+            "last_update",
+            "reservation_id",
+            "session_name",
+            "status",
+            "configured_proxy",
             "cpu_info",
             "hostname",
             "id",
-            "ip",
-            "last_update",
             "memory_mb",
             "offline",
             "owner",
             "owner_id",
             "package_version_status",
             "requires_updating",
-            "reservation_id",
-            "session_name",
-            "status",
         ])
 
         _dict = self.model_dump(
@@ -126,6 +129,16 @@ class Agent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in interfaces (list)
+        _items = []
+        if self.interfaces:
+            for _item in self.interfaces:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['Interfaces'] = _items
+        # override the default output from pydantic by calling `to_dict()` of selected_env
+        if self.selected_env:
+            _dict['SelectedEnv'] = self.selected_env.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in cpu_info (list)
         _items = []
         if self.cpu_info:
@@ -136,22 +149,12 @@ class Agent(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of features
         if self.features:
             _dict['features'] = self.features.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in interfaces (list)
-        _items = []
-        if self.interfaces:
-            for _item in self.interfaces:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['Interfaces'] = _items
         # override the default output from pydantic by calling `to_dict()` of mgmt_interface
         if self.mgmt_interface:
             _dict['mgmtInterface'] = self.mgmt_interface.to_dict()
         # override the default output from pydantic by calling `to_dict()` of ntp_info
         if self.ntp_info:
             _dict['ntpInfo'] = self.ntp_info.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of selected_env
-        if self.selected_env:
-            _dict['SelectedEnv'] = self.selected_env.to_dict()
         # override the default output from pydantic by calling `to_dict()` of system_info
         if self.system_info:
             _dict['systemInfo'] = self.system_info.to_dict()
@@ -170,14 +173,20 @@ class Agent(BaseModel):
 
         _obj = cls.model_validate({
             "AgentTags": obj.get("AgentTags"),
+                        "IP": obj.get("IP"),
+                        "Interfaces": [Interface.from_dict(_item) for _item in obj["Interfaces"]] if obj.get("Interfaces") is not None else None,
+                        "LastUpdate": obj.get("LastUpdate"),
+                        "ReservationID": obj.get("ReservationID"),
+                        "SelectedEnv": SelectedEnv.from_dict(obj["SelectedEnv"]) if obj.get("SelectedEnv") is not None else None,
+                        "SelectionStatus": obj.get("SelectionStatus"),
+                        "SessionName": obj.get("SessionName"),
+                        "Status": obj.get("Status"),
+                        "configuredProxy": obj.get("configuredProxy"),
                         "cpuInfo": [AgentCPUInfo.from_dict(_item) for _item in obj["cpuInfo"]] if obj.get("cpuInfo") is not None else None,
                         "dpdkEnabled": obj.get("dpdkEnabled"),
                         "features": AgentFeatures.from_dict(obj["features"]) if obj.get("features") is not None else None,
                         "hostname": obj.get("hostname"),
                         "id": obj.get("id"),
-                        "Interfaces": [Interface.from_dict(_item) for _item in obj["Interfaces"]] if obj.get("Interfaces") is not None else None,
-                        "IP": obj.get("IP"),
-                        "LastUpdate": obj.get("LastUpdate"),
                         "memoryMB": obj.get("memoryMB"),
                         "mgmtInterface": Interface.from_dict(obj["mgmtInterface"]) if obj.get("mgmtInterface") is not None else None,
                         "ntpInfo": NtpInfo.from_dict(obj["ntpInfo"]) if obj.get("ntpInfo") is not None else None,
@@ -186,11 +195,6 @@ class Agent(BaseModel):
                         "ownerId": obj.get("ownerId"),
                         "packageVersionStatus": obj.get("packageVersionStatus"),
                         "requiresUpdating": obj.get("requiresUpdating"),
-                        "ReservationID": obj.get("ReservationID"),
-                        "SelectedEnv": SelectedEnv.from_dict(obj["SelectedEnv"]) if obj.get("SelectedEnv") is not None else None,
-                        "SelectionStatus": obj.get("SelectionStatus"),
-                        "SessionName": obj.get("SessionName"),
-                        "Status": obj.get("Status"),
                         "systemInfo": SystemInfo.from_dict(obj["systemInfo"]) if obj.get("systemInfo") is not None else None
             ,
             "links": obj.get("links")

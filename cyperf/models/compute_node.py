@@ -32,18 +32,19 @@ class ComputeNode(BaseModel):
     """
     ComputeNode
     """ # noqa: E501
-    aggregated_mode: Optional[StrictBool] = Field(default=None, description="Whether the ports of the compute-node are aggregated or not", alias="aggregatedMode")
+    aggregated_mode: Optional[StrictBool] = Field(default=None, description="Whether the ports of the compute node are aggregated or not", alias="aggregatedMode")
     app_mode: Optional[AppMode] = Field(default=None, alias="appMode")
-    health_details: Optional[List[HealthIssue]] = Field(default=None, description="A list with more details regarding the health of the compute-node", alias="healthDetails")
-    healthy: Optional[StrictBool] = Field(default=None, description="Whether the compute-node has any health issue or not")
-    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the compute-node")
+    health_details: Optional[List[HealthIssue]] = Field(default=None, description="A list with more details regarding the health of the compute node", alias="healthDetails")
+    healthy: Optional[StrictBool] = Field(default=None, description="Whether the compute node has any health issue or not")
+    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the compute node")
     links: Optional[List[APILink]] = None
-    name: Optional[StrictStr] = Field(default=None, description="A user-friendly display name for the compute-node")
-    ports: Optional[List[Port]] = Field(default=None, description="The ports of the compute-node")
-    slot_number: Optional[StrictInt] = Field(default=None, description="The slot number of the compute-node", alias="slotNumber")
-    status: Optional[StrictStr] = Field(default=None, description="The current status of the compute-node: ready or not ready")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the compute-node")
-    __properties: ClassVar[List[str]] = ["aggregatedMode", "appMode", "healthDetails", "healthy", "id", "links", "name", "ports", "slotNumber", "status", "type"]
+    name: Optional[StrictStr] = Field(default=None, description="A user-friendly display name for the compute node")
+    ports: Optional[List[Port]] = Field(default=None, description="The ports of the compute node")
+    serial: Optional[StrictStr] = Field(default=None, description="The serial of the compute node")
+    slot_number: Optional[StrictInt] = Field(default=None, description="The slot number of the compute node", alias="slotNumber")
+    status: Optional[StrictStr] = Field(default=None, description="The current status of the compute node: ready or not ready")
+    type: Optional[StrictStr] = Field(default=None, description="The type of the compute node")
+    __properties: ClassVar[List[str]] = ["aggregatedMode", "appMode", "healthDetails", "healthy", "id", "links", "name", "ports", "serial", "slotNumber", "status", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -130,6 +131,7 @@ class ComputeNode(BaseModel):
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "name": obj.get("name"),
                         "ports": [Port.from_dict(_item) for _item in obj["ports"]] if obj.get("ports") is not None else None,
+                        "serial": obj.get("serial"),
                         "slotNumber": obj.get("slotNumber"),
                         "status": obj.get("status"),
                         "type": obj.get("type")

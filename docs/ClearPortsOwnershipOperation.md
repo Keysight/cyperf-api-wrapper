@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ports** | **List[str]** | The port ids for which to clear ownership. | [optional] 
+**controllers** | [**List[PortsByController]**](PortsByController.md) | The controllers that the ports are part of. | [optional] 
 
 ## Example
 

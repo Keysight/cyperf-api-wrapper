@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **udp_profile** | [**UdpProfile**](UdpProfile.md) |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

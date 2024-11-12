@@ -34,9 +34,9 @@ class AuthenticationSettings(BaseModel):
     certificate_file: Optional[Params] = Field(default=None, description="The authentication certificate file of the IPsec tunnel(s).", alias="CertificateFile")
     key_file: Optional[Params] = Field(default=None, description="The authentication key file of the IPsec tunnel(s).", alias="KeyFile")
     key_file_password: Optional[StrictStr] = Field(default=None, description="The key file password of the IPsec authentication.", alias="KeyFilePassword")
-    links: Optional[List[APILink]] = None
     shared_key: Optional[StrictStr] = Field(default=None, alias="SharedKey")
-    __properties: ClassVar[List[str]] = ["AuthMethod", "CertificateFile", "KeyFile", "KeyFilePassword", "links", "SharedKey"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["AuthMethod", "CertificateFile", "KeyFile", "KeyFilePassword", "SharedKey", "links"]
 
     @field_validator('auth_method')
     def auth_method_validate_enum(cls, value):
@@ -118,8 +118,8 @@ class AuthenticationSettings(BaseModel):
                         "CertificateFile": Params.from_dict(obj["CertificateFile"]) if obj.get("CertificateFile") is not None else None,
                         "KeyFile": Params.from_dict(obj["KeyFile"]) if obj.get("KeyFile") is not None else None,
                         "KeyFilePassword": obj.get("KeyFilePassword"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "SharedKey": obj.get("SharedKey")
+                        "SharedKey": obj.get("SharedKey"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

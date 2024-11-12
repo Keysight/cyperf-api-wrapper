@@ -33,10 +33,10 @@ class MediaTrack(BaseModel):
     bitrate_kbps: Optional[StrictInt] = Field(default=None, alias="BitrateKbps")
     codec: Optional[StrictStr] = Field(default=None, alias="Codec")
     codec_description: Optional[StrictStr] = Field(default=None, alias="CodecDescription")
-    id: StrictStr
     track_id: StrictStr = Field(alias="TrackId")
     track_type: TrackType = Field(alias="TrackType")
-    __properties: ClassVar[List[str]] = ["Bitrate", "BitrateKbps", "Codec", "CodecDescription", "id", "TrackId", "TrackType"]
+    id: StrictStr
+    __properties: ClassVar[List[str]] = ["Bitrate", "BitrateKbps", "Codec", "CodecDescription", "TrackId", "TrackType", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,9 +95,9 @@ class MediaTrack(BaseModel):
                         "BitrateKbps": obj.get("BitrateKbps"),
                         "Codec": obj.get("Codec"),
                         "CodecDescription": obj.get("CodecDescription"),
-                        "id": obj.get("id"),
                         "TrackId": obj.get("TrackId"),
-                        "TrackType": obj.get("TrackType")
+                        "TrackType": obj.get("TrackType"),
+                        "id": obj.get("id")
             ,
             "links": obj.get("links")
         })

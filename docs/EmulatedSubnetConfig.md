@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **hosts_increment** | **str** | The IP incrementation rule (default: 0.0.0.1). | 
 **hosts_prefix** | **int** | The network mask of the IP Range (default: 16). | 
 **increment** | **str** | The IP incrementation rule (default: 0.0.1.0). | 
-**network_tags** | **List[str]** | A list of tags. | 
 **prefix** | **int** | The network mask of the IP Range (default: 16). | 
 **start** | **str** | The start IP for the IPRange (default: 10.0.0.10). | 
 **total_host_count** | **str** |  | 
+**network_tags** | **List[str]** | A list of tags. | 
 
 ## Example
 

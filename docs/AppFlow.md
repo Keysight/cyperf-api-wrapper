@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dst_address** | **bytearray** |  | [optional] 
 **dst_port** | **int** |  | [optional] 
-**exchanges** | [**List[AppExchange]**](AppExchange.md) |  | [optional] 
+**exchanges** | [**List[AppExchange]**](AppExchange.md) | The list of exchanges | [optional] 
 **id** | **str** |  | [optional] [readonly] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **src_address** | **bytearray** |  | [optional] 
 **src_port** | **int** |  | [optional] 
 **transport_type** | **str** |  | [optional] 

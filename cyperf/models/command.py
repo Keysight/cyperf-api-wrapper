@@ -36,11 +36,11 @@ class Command(BaseModel):
     description: Optional[StrictStr] = Field(default=None, description="The description of the command", alias="Description")
     exchanges: Optional[List[Exchange]] = Field(default=None, description="The exchanges of the command", alias="Exchanges")
     is_strike: Optional[StrictBool] = Field(default=None, description="Indicates if the command is a strike", alias="IsStrike")
-    links: Optional[List[APILink]] = None
     metadata: Optional[Metadata] = Field(default=None, alias="Metadata")
     name: Optional[StrictStr] = Field(default=None, description="The name of the command", alias="Name")
     parameters: Optional[List[Parameter]] = Field(default=None, description="The parameters of the command", alias="Parameters")
-    __properties: ClassVar[List[str]] = ["ActionID", "Description", "Exchanges", "IsStrike", "links", "Metadata", "Name", "Parameters"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["ActionID", "Description", "Exchanges", "IsStrike", "Metadata", "Name", "Parameters", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,13 +94,6 @@ class Command(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Exchanges'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of metadata
         if self.metadata:
             _dict['Metadata'] = self.metadata.to_dict()
@@ -111,6 +104,13 @@ class Command(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Parameters'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -129,10 +129,10 @@ class Command(BaseModel):
                         "Description": obj.get("Description"),
                         "Exchanges": [Exchange.from_dict(_item) for _item in obj["Exchanges"]] if obj.get("Exchanges") is not None else None,
                         "IsStrike": obj.get("IsStrike"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
-                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None
+                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

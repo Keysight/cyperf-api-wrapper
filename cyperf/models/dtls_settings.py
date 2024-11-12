@@ -31,10 +31,10 @@ class DTLSSettings(BaseModel):
     """
     DTLSSettings
     """ # noqa: E501
-    links: Optional[List[APILink]] = None
     tls_client_profile: Optional[TLSProfile] = Field(default=None, alias="TLSClientProfile")
     udp_profile: Optional[UdpProfile] = Field(default=None, alias="UDPProfile")
-    __properties: ClassVar[List[str]] = ["links", "TLSClientProfile", "UDPProfile"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["TLSClientProfile", "UDPProfile", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +75,12 @@ class DTLSSettings(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of tls_client_profile
+        if self.tls_client_profile:
+            _dict['TLSClientProfile'] = self.tls_client_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of udp_profile
+        if self.udp_profile:
+            _dict['UDPProfile'] = self.udp_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -82,12 +88,6 @@ class DTLSSettings(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of tls_client_profile
-        if self.tls_client_profile:
-            _dict['TLSClientProfile'] = self.tls_client_profile.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of udp_profile
-        if self.udp_profile:
-            _dict['UDPProfile'] = self.udp_profile.to_dict()
         return _dict
 
     @classmethod
@@ -102,9 +102,9 @@ class DTLSSettings(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "TLSClientProfile": TLSProfile.from_dict(obj["TLSClientProfile"]) if obj.get("TLSClientProfile") is not None else None,
-                        "UDPProfile": UdpProfile.from_dict(obj["UDPProfile"]) if obj.get("UDPProfile") is not None else None
+            "TLSClientProfile": TLSProfile.from_dict(obj["TLSClientProfile"]) if obj.get("TLSClientProfile") is not None else None,
+                        "UDPProfile": UdpProfile.from_dict(obj["UDPProfile"]) if obj.get("UDPProfile") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

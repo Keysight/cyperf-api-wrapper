@@ -32,10 +32,10 @@ class MediaFile(BaseModel):
     MediaFile
     """ # noqa: E501
     file_value: Optional[FileValue] = Field(default=None, alias="FileValue")
+    media_tracks: Optional[List[MediaTrack]] = Field(default=None, alias="MediaTracks")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    media_tracks: Optional[List[MediaTrack]] = Field(default=None, alias="MediaTracks")
-    __properties: ClassVar[List[str]] = ["FileValue", "id", "links", "MediaTracks"]
+    __properties: ClassVar[List[str]] = ["FileValue", "MediaTracks", "id", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,13 +79,6 @@ class MediaFile(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of file_value
         if self.file_value:
             _dict['FileValue'] = self.file_value.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in media_tracks (list)
         _items = []
         if self.media_tracks:
@@ -93,6 +86,13 @@ class MediaFile(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['MediaTracks'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -108,9 +108,9 @@ class MediaFile(BaseModel):
 
         _obj = cls.model_validate({
             "FileValue": FileValue.from_dict(obj["FileValue"]) if obj.get("FileValue") is not None else None,
+                        "MediaTracks": [MediaTrack.from_dict(_item) for _item in obj["MediaTracks"]] if obj.get("MediaTracks") is not None else None,
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "MediaTracks": [MediaTrack.from_dict(_item) for _item in obj["MediaTracks"]] if obj.get("MediaTracks") is not None else None
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

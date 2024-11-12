@@ -36,10 +36,10 @@ class PortSettings(BaseModel):
     destination_port: StrictInt = Field(alias="DestinationPort")
     effective_ports: Optional[EffectivePorts] = Field(default=None, alias="EffectivePorts")
     forward_proxy_port: StrictInt = Field(alias="ForwardProxyPort")
-    links: Optional[List[APILink]] = None
     readonly: Optional[StrictBool] = Field(default=None, description="If true, the port can't be selected by the user", alias="Readonly")
     server_listen_port: StrictInt = Field(alias="ServerListenPort")
-    __properties: ClassVar[List[str]] = ["Automatic", "AutomaticDestinationPort", "AutomaticForwardProxyPort", "DestinationPort", "EffectivePorts", "ForwardProxyPort", "links", "Readonly", "ServerListenPort"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Automatic", "AutomaticDestinationPort", "AutomaticForwardProxyPort", "DestinationPort", "EffectivePorts", "ForwardProxyPort", "Readonly", "ServerListenPort", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -110,9 +110,9 @@ class PortSettings(BaseModel):
                         "DestinationPort": obj.get("DestinationPort"),
                         "EffectivePorts": EffectivePorts.from_dict(obj["EffectivePorts"]) if obj.get("EffectivePorts") is not None else None,
                         "ForwardProxyPort": obj.get("ForwardProxyPort"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Readonly": obj.get("Readonly"),
-                        "ServerListenPort": obj.get("ServerListenPort")
+                        "ServerListenPort": obj.get("ServerListenPort"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

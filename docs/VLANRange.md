@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count** | **int** | The number of VLANs generated (default: 1). | [optional] 
 **count_per_agent** | **int** | The number of VLANs that should be assigned to each traffic agent for this VLAN range segment in a valid test (default: 1). | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **max_count_per_agent** | **int** | The maximum number of VLANs that should be assigned to each traffic agent for this VLAN range segment in a valid test (default: 1). | [optional] 
 **priority** | **int** | The priority code point value (default: 0). | [optional] 
 **static_arp_table** | [**List[StaticARPEntry]**](StaticARPEntry.md) |  | [optional] 
@@ -17,6 +16,7 @@ Name | Type | Description | Notes
 **vlan_enabled** | **bool** | The enable status of the VLAN configuration, if not determined automatically (default: false). | [optional] 
 **vlan_id** | **int** | The VLAN identifier (default: 1). | [optional] 
 **vlan_incr** | **int** | The VLAN incrementation rule (default: 1). | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

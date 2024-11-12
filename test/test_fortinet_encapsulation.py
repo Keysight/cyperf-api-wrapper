@@ -37,18 +37,10 @@ class TestFortinetEncapsulation(unittest.TestCase):
         if include_optional:
             return FortinetEncapsulation(
                 encapsulation_mode = 'PPP_OVER_DTLS',
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 ppp_over_dtls_enabled = True,
                 ppp_over_dtls_settings = cyperf.models.dtls_settings.DTLSSettings(
+                    tls_client_profile = null, 
+                    udp_profile = null, 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -58,10 +50,18 @@ class TestFortinetEncapsulation(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], 
-                    tls_client_profile = null, 
-                    udp_profile = null, ),
-                udp_port = 56
+                        ], ),
+                udp_port = 56,
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return FortinetEncapsulation(

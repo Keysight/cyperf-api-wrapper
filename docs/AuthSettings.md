@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **certificate_file** | [**Params**](Params.md) | The authentication certificate file of the VPN tunnel. | [optional] 
 **key_file** | [**Params**](Params.md) | The authentication key file of the VPN tunnel. | [optional] 
 **key_file_password** | **str** | The key file password of the TLS VPN authentication. | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **passwords** | **List[str]** |  | [optional] 
 **passwords_param** | [**Params**](Params.md) |  | [optional] 
 **usernames** | **List[str]** |  | [optional] 
 **usernames_param** | [**Params**](Params.md) |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **timeline_segments** | [**List[AttackTimelineSegment]**](AttackTimelineSegment.md) |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

@@ -37,12 +37,12 @@ class TestPepDUT(unittest.TestCase):
         if include_optional:
             return PepDUT(
                 auth_method = cyperf.models.params.Params(
+                    array_element_type = '', 
                     array_elements = [
                         {
                             'key' : ''
                             }
                         ], 
-                    array_element_type = '', 
                     category = '', 
                     category_index = 56, 
                     deprecated_previous_source = '', 
@@ -58,37 +58,33 @@ class TestPepDUT(unittest.TestCase):
                                 name = '', 
                                 value = '', )
                             ], ), 
-                    file_upload = [
-                        'YQ=='
-                        ], 
                     file_value = null, 
                     flow_identifier = True, 
-                    id = '', 
                     is_deprecated = True, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     media_files = [
                         cyperf.models.media_file.MediaFile(
                             file_value = null, 
-                            id = '', 
                             media_tracks = [
                                 cyperf.models.media_track.MediaTrack(
                                     bitrate = 56, 
                                     bitrate_kbps = 56, 
                                     codec = '', 
                                     codec_description = '', 
-                                    id = '', 
                                     track_id = '', 
-                                    track_type = null, )
+                                    track_type = null, 
+                                    id = '', )
+                                ], 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
                                 ], )
                         ], 
                     metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -116,18 +112,32 @@ class TestPepDUT(unittest.TestCase):
                     supported_sources = [
                         ''
                         ], 
-                    supports_dynamic_payload = True, 
                     type = '', 
-                    upload_url = '', 
-                    value = '', ),
+                    value = '', 
+                    file_upload = [
+                        'YQ=='
+                        ], 
+                    id = '', 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], 
+                    supports_dynamic_payload = True, 
+                    upload_url = '', ),
                 auth_profile_params = [
                     cyperf.models.params.Params(
+                        array_element_type = '', 
                         array_elements = [
                             {
                                 'key' : ''
                                 }
                             ], 
-                        array_element_type = '', 
                         category = '', 
                         category_index = 56, 
                         deprecated_previous_source = '', 
@@ -143,37 +153,33 @@ class TestPepDUT(unittest.TestCase):
                                     name = '', 
                                     value = '', )
                                 ], ), 
-                        file_upload = [
-                            'YQ=='
-                            ], 
                         file_value = null, 
                         flow_identifier = True, 
-                        id = '', 
                         is_deprecated = True, 
                         is_modified = True, 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         media_files = [
                             cyperf.models.media_file.MediaFile(
                                 file_value = null, 
-                                id = '', 
                                 media_tracks = [
                                     cyperf.models.media_track.MediaTrack(
                                         bitrate = 56, 
                                         bitrate_kbps = 56, 
                                         codec = '', 
                                         codec_description = '', 
-                                        id = '', 
                                         track_id = '', 
-                                        track_type = null, )
+                                        track_type = null, 
+                                        id = '', )
+                                    ], 
+                                id = '', 
+                                links = [
+                                    cyperf.models.api_link.APILink(
+                                        content_type = '', 
+                                        href = '', 
+                                        method = '', 
+                                        name = '', 
+                                        references_count = 56, 
+                                        rel = '', 
+                                        type = '', )
                                     ], )
                             ], 
                         metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -201,20 +207,34 @@ class TestPepDUT(unittest.TestCase):
                         supported_sources = [
                             ''
                             ], 
-                        supports_dynamic_payload = True, 
                         type = '', 
-                        upload_url = '', 
-                        value = '', )
+                        value = '', 
+                        file_upload = [
+                            'YQ=='
+                            ], 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], 
+                        supports_dynamic_payload = True, 
+                        upload_url = '', )
                     ],
                 auth_profile_type = '',
                 hostname_suffix = '252.7.188.200',
                 idp_type = cyperf.models.params.Params(
+                    array_element_type = '', 
                     array_elements = [
                         {
                             'key' : ''
                             }
                         ], 
-                    array_element_type = '', 
                     category = '', 
                     category_index = 56, 
                     deprecated_previous_source = '', 
@@ -230,37 +250,33 @@ class TestPepDUT(unittest.TestCase):
                                 name = '', 
                                 value = '', )
                             ], ), 
-                    file_upload = [
-                        'YQ=='
-                        ], 
                     file_value = null, 
                     flow_identifier = True, 
-                    id = '', 
                     is_deprecated = True, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     media_files = [
                         cyperf.models.media_file.MediaFile(
                             file_value = null, 
-                            id = '', 
                             media_tracks = [
                                 cyperf.models.media_track.MediaTrack(
                                     bitrate = 56, 
                                     bitrate_kbps = 56, 
                                     codec = '', 
                                     codec_description = '', 
-                                    id = '', 
                                     track_id = '', 
-                                    track_type = null, )
+                                    track_type = null, 
+                                    id = '', )
+                                ], 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
                                 ], )
                         ], 
                     metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -288,27 +304,12 @@ class TestPepDUT(unittest.TestCase):
                     supported_sources = [
                         ''
                         ], 
-                    supports_dynamic_payload = True, 
                     type = '', 
-                    upload_url = '', 
-                    value = '', ),
-                is_explicit_proxy = True,
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
-                pep_host = '252.7.188.200',
-                pep_port = 56,
-                simulated_id_p = cyperf.models.simulated_id_p.SimulatedIdP(
-                    assertion_signature = True, 
-                    audience_uri = '', 
-                    cert_config = null, 
+                    value = '', 
+                    file_upload = [
+                        'YQ=='
+                        ], 
+                    id = '', 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -319,13 +320,42 @@ class TestPepDUT(unittest.TestCase):
                             rel = '', 
                             type = '', )
                         ], 
+                    supports_dynamic_payload = True, 
+                    upload_url = '', ),
+                is_explicit_proxy = True,
+                pep_host = '252.7.188.200',
+                pep_port = 56,
+                simulated_id_p = cyperf.models.simulated_id_p.SimulatedIdP(
+                    assertion_signature = True, 
+                    audience_uri = '', 
+                    cert_config = null, 
                     name_id_format = null, 
                     response_signature = True, 
                     signature_algorithm = null, 
                     single_sign_on_url = '', 
                     xml_metadata = [
                         'YQ=='
-                        ], )
+                        ], 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return PepDUT(

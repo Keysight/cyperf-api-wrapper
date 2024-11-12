@@ -32,12 +32,11 @@ class Port(BaseModel):
     id: Optional[StrictStr] = Field(default=None, description="The port's unique identifier")
     link: Optional[StrictStr] = Field(default=None, description="The link state of the port: up or down")
     name: Optional[StrictStr] = Field(default=None, description="A user-friendly display name for the port")
-    owner: Optional[StrictStr] = Field(default=None, description="A user-friendly display name for the port's owner")
-    owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the port's owner", alias="ownerId")
+    reserved_by: Optional[StrictStr] = Field(default=None, description="The owner of the port", alias="reservedBy")
     speed: Optional[StrictStr] = Field(default=None, description="The port's speed")
     status: Optional[StrictStr] = Field(default=None, description="The current status of the port: ready or not ready")
     traffic_status: Optional[StrictStr] = Field(default=None, description="The traffic status of the port", alias="trafficStatus")
-    __properties: ClassVar[List[str]] = ["disabled", "id", "link", "name", "owner", "ownerId", "speed", "status", "trafficStatus"]
+    __properties: ClassVar[List[str]] = ["disabled", "id", "link", "name", "reservedBy", "speed", "status", "trafficStatus"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,8 +95,7 @@ class Port(BaseModel):
                         "id": obj.get("id"),
                         "link": obj.get("link"),
                         "name": obj.get("name"),
-                        "owner": obj.get("owner"),
-                        "ownerId": obj.get("ownerId"),
+                        "reservedBy": obj.get("reservedBy"),
                         "speed": obj.get("speed"),
                         "status": obj.get("status"),
                         "trafficStatus": obj.get("trafficStatus")

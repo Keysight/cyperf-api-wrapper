@@ -36,18 +36,18 @@ class ApplicationProfile(BaseModel):
     ApplicationProfile
     """ # noqa: E501
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether the profile is enabled or not.", alias="Active")
+    traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
-    add_applications: Optional[List[ExternalResourceInfo]] = Field(default=None, alias="add-applications")
     applications: Optional[List[Application]] = Field(default=None, alias="Applications")
     default_network_mapping: Optional[NetworkMapping] = Field(default=None, alias="DefaultNetworkMapping")
-    modify_excluded_dut_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-excluded-dut-recursively")
-    modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
     name: StrictStr = Field(alias="Name")
     objectives_and_timeline: Optional[ObjectivesAndTimeline] = Field(default=None, alias="ObjectivesAndTimeline")
+    add_applications: Optional[List[ExternalResourceInfo]] = Field(default=None, alias="add-applications")
+    modify_excluded_dut_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-excluded-dut-recursively")
+    modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
     reset_tags_to_default: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="reset-tags-to-default")
-    __properties: ClassVar[List[str]] = ["Active", "id", "links", "TrafficSettings", "add-applications", "Applications", "DefaultNetworkMapping", "modify-excluded-dut-recursively", "modify-tags-recursively", "Name", "ObjectivesAndTimeline", "reset-tags-to-default"]
+    __properties: ClassVar[List[str]] = ["Active", "TrafficSettings", "id", "links", "Applications", "DefaultNetworkMapping", "Name", "ObjectivesAndTimeline", "add-applications", "modify-excluded-dut-recursively", "modify-tags-recursively", "reset-tags-to-default"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +88,9 @@ class ApplicationProfile(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of traffic_settings
+        if self.traffic_settings:
+            _dict['TrafficSettings'] = self.traffic_settings.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -95,16 +98,6 @@ class ApplicationProfile(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of traffic_settings
-        if self.traffic_settings:
-            _dict['TrafficSettings'] = self.traffic_settings.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in add_applications (list)
-        _items = []
-        if self.add_applications:
-            for _item in self.add_applications:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['add-applications'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in applications (list)
         _items = []
         if self.applications:
@@ -115,6 +108,16 @@ class ApplicationProfile(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of default_network_mapping
         if self.default_network_mapping:
             _dict['DefaultNetworkMapping'] = self.default_network_mapping.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of objectives_and_timeline
+        if self.objectives_and_timeline:
+            _dict['ObjectivesAndTimeline'] = self.objectives_and_timeline.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in add_applications (list)
+        _items = []
+        if self.add_applications:
+            for _item in self.add_applications:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['add-applications'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in modify_excluded_dut_recursively (list)
         _items = []
         if self.modify_excluded_dut_recursively:
@@ -129,9 +132,6 @@ class ApplicationProfile(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['modify-tags-recursively'] = _items
-        # override the default output from pydantic by calling `to_dict()` of objectives_and_timeline
-        if self.objectives_and_timeline:
-            _dict['ObjectivesAndTimeline'] = self.objectives_and_timeline.to_dict()
         return _dict
 
     @classmethod
@@ -147,16 +147,16 @@ class ApplicationProfile(BaseModel):
 
         _obj = cls.model_validate({
             "Active": obj.get("Active"),
+                        "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
-                        "add-applications": [ExternalResourceInfo.from_dict(_item) for _item in obj["add-applications"]] if obj.get("add-applications") is not None else None,
                         "Applications": [Application.from_dict(_item) for _item in obj["Applications"]] if obj.get("Applications") is not None else None,
                         "DefaultNetworkMapping": NetworkMapping.from_dict(obj["DefaultNetworkMapping"]) if obj.get("DefaultNetworkMapping") is not None else None,
-                        "modify-excluded-dut-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-excluded-dut-recursively"]] if obj.get("modify-excluded-dut-recursively") is not None else None,
-                        "modify-tags-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-tags-recursively"]] if obj.get("modify-tags-recursively") is not None else None,
                         "Name": obj.get("Name"),
                         "ObjectivesAndTimeline": ObjectivesAndTimeline.from_dict(obj["ObjectivesAndTimeline"]) if obj.get("ObjectivesAndTimeline") is not None else None,
+                        "add-applications": [ExternalResourceInfo.from_dict(_item) for _item in obj["add-applications"]] if obj.get("add-applications") is not None else None,
+                        "modify-excluded-dut-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-excluded-dut-recursively"]] if obj.get("modify-excluded-dut-recursively") is not None else None,
+                        "modify-tags-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-tags-recursively"]] if obj.get("modify-tags-recursively") is not None else None,
                         "reset-tags-to-default": obj.get("reset-tags-to-default")
             ,
             "links": obj.get("links")

@@ -38,12 +38,12 @@ class TestAuthSettings(unittest.TestCase):
             return AuthSettings(
                 auth_method = 'AAA',
                 auth_param = cyperf.models.params.Params(
+                    array_element_type = '', 
                     array_elements = [
                         {
                             'key' : ''
                             }
                         ], 
-                    array_element_type = '', 
                     category = '', 
                     category_index = 56, 
                     deprecated_previous_source = '', 
@@ -59,24 +59,10 @@ class TestAuthSettings(unittest.TestCase):
                                 name = '', 
                                 value = '', )
                             ], ), 
-                    file_upload = [
-                        'YQ=='
-                        ], 
                     file_value = null, 
                     flow_identifier = True, 
-                    id = '', 
                     is_deprecated = True, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     media_files = [
                         cyperf.models.media_file.MediaFile(
                             file_value = null, 
@@ -86,9 +72,20 @@ class TestAuthSettings(unittest.TestCase):
                                     bitrate_kbps = 56, 
                                     codec = '', 
                                     codec_description = '', 
-                                    id = '', 
                                     track_id = '', 
-                                    track_type = null, )
+                                    track_type = null, 
+                                    id = '', )
+                                ], 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
                                 ], )
                         ], 
                     metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -115,17 +112,31 @@ class TestAuthSettings(unittest.TestCase):
                     supported_sources = [
                         ''
                         ], 
-                    supports_dynamic_payload = True, 
                     type = '', 
-                    upload_url = '', 
-                    value = '', ),
+                    value = '', 
+                    file_upload = [
+                        'YQ=='
+                        ], 
+                    id = , 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], 
+                    supports_dynamic_payload = True, 
+                    upload_url = '', ),
                 certificate_file = cyperf.models.params.Params(
+                    array_element_type = '', 
                     array_elements = [
                         {
                             'key' : ''
                             }
                         ], 
-                    array_element_type = '', 
                     category = '', 
                     category_index = 56, 
                     deprecated_previous_source = '', 
@@ -141,24 +152,10 @@ class TestAuthSettings(unittest.TestCase):
                                 name = '', 
                                 value = '', )
                             ], ), 
-                    file_upload = [
-                        'YQ=='
-                        ], 
                     file_value = null, 
                     flow_identifier = True, 
-                    id = '', 
                     is_deprecated = True, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     media_files = [
                         cyperf.models.media_file.MediaFile(
                             file_value = null, 
@@ -168,9 +165,20 @@ class TestAuthSettings(unittest.TestCase):
                                     bitrate_kbps = 56, 
                                     codec = '', 
                                     codec_description = '', 
-                                    id = '', 
                                     track_id = '', 
-                                    track_type = null, )
+                                    track_type = null, 
+                                    id = '', )
+                                ], 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
                                 ], )
                         ], 
                     metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -197,17 +205,31 @@ class TestAuthSettings(unittest.TestCase):
                     supported_sources = [
                         ''
                         ], 
-                    supports_dynamic_payload = True, 
                     type = '', 
-                    upload_url = '', 
-                    value = '', ),
+                    value = '', 
+                    file_upload = [
+                        'YQ=='
+                        ], 
+                    id = , 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], 
+                    supports_dynamic_payload = True, 
+                    upload_url = '', ),
                 key_file = cyperf.models.params.Params(
+                    array_element_type = '', 
                     array_elements = [
                         {
                             'key' : ''
                             }
                         ], 
-                    array_element_type = '', 
                     category = '', 
                     category_index = 56, 
                     deprecated_previous_source = '', 
@@ -223,24 +245,10 @@ class TestAuthSettings(unittest.TestCase):
                                 name = '', 
                                 value = '', )
                             ], ), 
-                    file_upload = [
-                        'YQ=='
-                        ], 
                     file_value = null, 
                     flow_identifier = True, 
-                    id = '', 
                     is_deprecated = True, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     media_files = [
                         cyperf.models.media_file.MediaFile(
                             file_value = null, 
@@ -250,9 +258,20 @@ class TestAuthSettings(unittest.TestCase):
                                     bitrate_kbps = 56, 
                                     codec = '', 
                                     codec_description = '', 
-                                    id = '', 
                                     track_id = '', 
-                                    track_type = null, )
+                                    track_type = null, 
+                                    id = '', )
+                                ], 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
                                 ], )
                         ], 
                     metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -279,11 +298,217 @@ class TestAuthSettings(unittest.TestCase):
                     supported_sources = [
                         ''
                         ], 
-                    supports_dynamic_payload = True, 
                     type = '', 
-                    upload_url = '', 
-                    value = '', ),
+                    value = '', 
+                    file_upload = [
+                        'YQ=='
+                        ], 
+                    id = , 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], 
+                    supports_dynamic_payload = True, 
+                    upload_url = '', ),
                 key_file_password = '',
+                passwords = [
+                    ''
+                    ],
+                passwords_param = cyperf.models.params.Params(
+                    array_element_type = '', 
+                    array_elements = [
+                        {
+                            'key' : ''
+                            }
+                        ], 
+                    category = '', 
+                    category_index = 56, 
+                    deprecated_previous_source = '', 
+                    description = '', 
+                    dictionary_value = {
+                        'key' : ''
+                        }, 
+                    enum = cyperf.models.params_enum.Params_Enum(
+                        choices = [
+                            cyperf.models.choice.Choice(
+                                description = '', 
+                                hidden = True, 
+                                name = '', 
+                                value = '', )
+                            ], ), 
+                    file_value = null, 
+                    flow_identifier = True, 
+                    is_deprecated = True, 
+                    is_modified = True, 
+                    media_files = [
+                        cyperf.models.media_file.MediaFile(
+                            file_value = null, 
+                            media_tracks = [
+                                cyperf.models.media_track.MediaTrack(
+                                    bitrate = 56, 
+                                    bitrate_kbps = 56, 
+                                    codec = '', 
+                                    codec_description = '', 
+                                    track_id = '', 
+                                    track_type = null, 
+                                    id = '', )
+                                ], 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], )
+                        ], 
+                    metadata = cyperf.models.param_metadata.ParamMetadata(
+                        type_info = cyperf.models.param_metadata_type_info.ParamMetadata_TypeInfo(
+                            array_v2 = cyperf.models.param_metadata_type_info_array_v2.ParamMetadata_TypeInfo_arrayV2(
+                                elements = [
+                                    cyperf.models.param_metadata_type_info_array_v2_elements_inner.ParamMetadata_TypeInfo_arrayV2_elements_inner(
+                                        type = '', )
+                                    ], ), 
+                            int = cyperf.models.param_metadata_type_info_int.ParamMetadata_TypeInfo_int(
+                                max_value = 56, 
+                                min_value = 56, ), 
+                            media = cyperf.models.param_metadata_type_info_media.ParamMetadata_TypeInfo_media(
+                                track_id = '', 
+                                track_type = '', ), 
+                            string = cyperf.models.param_metadata_type_info_string.ParamMetadata_TypeInfo_string(
+                                charset = '', 
+                                max_length = 56, 
+                                min_length = 56, ), ), ), 
+                    name = '', 
+                    param_id = '', 
+                    readonly = True, 
+                    source = '', 
+                    supported_sources = [
+                        ''
+                        ], 
+                    type = '', 
+                    value = '', 
+                    file_upload = [
+                        'YQ=='
+                        ], 
+                    id = , 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], 
+                    supports_dynamic_payload = True, 
+                    upload_url = '', ),
+                usernames = [
+                    ''
+                    ],
+                usernames_param = cyperf.models.params.Params(
+                    array_element_type = '', 
+                    array_elements = [
+                        {
+                            'key' : ''
+                            }
+                        ], 
+                    category = '', 
+                    category_index = 56, 
+                    deprecated_previous_source = '', 
+                    description = '', 
+                    dictionary_value = {
+                        'key' : ''
+                        }, 
+                    enum = cyperf.models.params_enum.Params_Enum(
+                        choices = [
+                            cyperf.models.choice.Choice(
+                                description = '', 
+                                hidden = True, 
+                                name = '', 
+                                value = '', )
+                            ], ), 
+                    file_value = null, 
+                    flow_identifier = True, 
+                    is_deprecated = True, 
+                    is_modified = True, 
+                    media_files = [
+                        cyperf.models.media_file.MediaFile(
+                            file_value = null, 
+                            media_tracks = [
+                                cyperf.models.media_track.MediaTrack(
+                                    bitrate = 56, 
+                                    bitrate_kbps = 56, 
+                                    codec = '', 
+                                    codec_description = '', 
+                                    track_id = '', 
+                                    track_type = null, 
+                                    id = '', )
+                                ], 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], )
+                        ], 
+                    metadata = cyperf.models.param_metadata.ParamMetadata(
+                        type_info = cyperf.models.param_metadata_type_info.ParamMetadata_TypeInfo(
+                            array_v2 = cyperf.models.param_metadata_type_info_array_v2.ParamMetadata_TypeInfo_arrayV2(
+                                elements = [
+                                    cyperf.models.param_metadata_type_info_array_v2_elements_inner.ParamMetadata_TypeInfo_arrayV2_elements_inner(
+                                        type = '', )
+                                    ], ), 
+                            int = cyperf.models.param_metadata_type_info_int.ParamMetadata_TypeInfo_int(
+                                max_value = 56, 
+                                min_value = 56, ), 
+                            media = cyperf.models.param_metadata_type_info_media.ParamMetadata_TypeInfo_media(
+                                track_id = '', 
+                                track_type = '', ), 
+                            string = cyperf.models.param_metadata_type_info_string.ParamMetadata_TypeInfo_string(
+                                charset = '', 
+                                max_length = 56, 
+                                min_length = 56, ), ), ), 
+                    name = '', 
+                    param_id = '', 
+                    readonly = True, 
+                    source = '', 
+                    supported_sources = [
+                        ''
+                        ], 
+                    type = '', 
+                    value = '', 
+                    file_upload = [
+                        'YQ=='
+                        ], 
+                    id = , 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], 
+                    supports_dynamic_payload = True, 
+                    upload_url = '', ),
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -293,177 +518,7 @@ class TestAuthSettings(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                passwords = [
-                    ''
-                    ],
-                passwords_param = cyperf.models.params.Params(
-                    array_elements = [
-                        {
-                            'key' : ''
-                            }
-                        ], 
-                    array_element_type = '', 
-                    category = '', 
-                    category_index = 56, 
-                    deprecated_previous_source = '', 
-                    description = '', 
-                    dictionary_value = {
-                        'key' : ''
-                        }, 
-                    enum = cyperf.models.params_enum.Params_Enum(
-                        choices = [
-                            cyperf.models.choice.Choice(
-                                description = '', 
-                                hidden = True, 
-                                name = '', 
-                                value = '', )
-                            ], ), 
-                    file_upload = [
-                        'YQ=='
-                        ], 
-                    file_value = null, 
-                    flow_identifier = True, 
-                    id = '', 
-                    is_deprecated = True, 
-                    is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
-                    media_files = [
-                        cyperf.models.media_file.MediaFile(
-                            file_value = null, 
-                            media_tracks = [
-                                cyperf.models.media_track.MediaTrack(
-                                    bitrate = 56, 
-                                    bitrate_kbps = 56, 
-                                    codec = '', 
-                                    codec_description = '', 
-                                    id = '', 
-                                    track_id = '', 
-                                    track_type = null, )
-                                ], )
-                        ], 
-                    metadata = cyperf.models.param_metadata.ParamMetadata(
-                        type_info = cyperf.models.param_metadata_type_info.ParamMetadata_TypeInfo(
-                            array_v2 = cyperf.models.param_metadata_type_info_array_v2.ParamMetadata_TypeInfo_arrayV2(
-                                elements = [
-                                    cyperf.models.param_metadata_type_info_array_v2_elements_inner.ParamMetadata_TypeInfo_arrayV2_elements_inner(
-                                        type = '', )
-                                    ], ), 
-                            int = cyperf.models.param_metadata_type_info_int.ParamMetadata_TypeInfo_int(
-                                max_value = 56, 
-                                min_value = 56, ), 
-                            media = cyperf.models.param_metadata_type_info_media.ParamMetadata_TypeInfo_media(
-                                track_id = '', 
-                                track_type = '', ), 
-                            string = cyperf.models.param_metadata_type_info_string.ParamMetadata_TypeInfo_string(
-                                charset = '', 
-                                max_length = 56, 
-                                min_length = 56, ), ), ), 
-                    name = '', 
-                    param_id = '', 
-                    readonly = True, 
-                    source = '', 
-                    supported_sources = [
-                        ''
-                        ], 
-                    supports_dynamic_payload = True, 
-                    type = '', 
-                    upload_url = '', 
-                    value = '', ),
-                usernames = [
-                    ''
-                    ],
-                usernames_param = cyperf.models.params.Params(
-                    array_elements = [
-                        {
-                            'key' : ''
-                            }
-                        ], 
-                    array_element_type = '', 
-                    category = '', 
-                    category_index = 56, 
-                    deprecated_previous_source = '', 
-                    description = '', 
-                    dictionary_value = {
-                        'key' : ''
-                        }, 
-                    enum = cyperf.models.params_enum.Params_Enum(
-                        choices = [
-                            cyperf.models.choice.Choice(
-                                description = '', 
-                                hidden = True, 
-                                name = '', 
-                                value = '', )
-                            ], ), 
-                    file_upload = [
-                        'YQ=='
-                        ], 
-                    file_value = null, 
-                    flow_identifier = True, 
-                    id = '', 
-                    is_deprecated = True, 
-                    is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
-                    media_files = [
-                        cyperf.models.media_file.MediaFile(
-                            file_value = null, 
-                            media_tracks = [
-                                cyperf.models.media_track.MediaTrack(
-                                    bitrate = 56, 
-                                    bitrate_kbps = 56, 
-                                    codec = '', 
-                                    codec_description = '', 
-                                    id = '', 
-                                    track_id = '', 
-                                    track_type = null, )
-                                ], )
-                        ], 
-                    metadata = cyperf.models.param_metadata.ParamMetadata(
-                        type_info = cyperf.models.param_metadata_type_info.ParamMetadata_TypeInfo(
-                            array_v2 = cyperf.models.param_metadata_type_info_array_v2.ParamMetadata_TypeInfo_arrayV2(
-                                elements = [
-                                    cyperf.models.param_metadata_type_info_array_v2_elements_inner.ParamMetadata_TypeInfo_arrayV2_elements_inner(
-                                        type = '', )
-                                    ], ), 
-                            int = cyperf.models.param_metadata_type_info_int.ParamMetadata_TypeInfo_int(
-                                max_value = 56, 
-                                min_value = 56, ), 
-                            media = cyperf.models.param_metadata_type_info_media.ParamMetadata_TypeInfo_media(
-                                track_id = '', 
-                                track_type = '', ), 
-                            string = cyperf.models.param_metadata_type_info_string.ParamMetadata_TypeInfo_string(
-                                charset = '', 
-                                max_length = 56, 
-                                min_length = 56, ), ), ), 
-                    name = '', 
-                    param_id = '', 
-                    readonly = True, 
-                    source = '', 
-                    supported_sources = [
-                        ''
-                        ], 
-                    supports_dynamic_payload = True, 
-                    type = '', 
-                    upload_url = '', 
-                    value = '', )
+                    ]
             )
         else:
             return AuthSettings(

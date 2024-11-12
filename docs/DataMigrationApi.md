@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_import**
-> AsyncContext start_import(file=file)
+> AsyncContext start_import()
 
 
 
@@ -279,10 +279,9 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.DataMigrationApi(api_client)
-    file = None # bytearray |  (optional)
 
     try:
-        api_response = api_instance.start_import(file=file)
+        api_response = api_instance.start_import()
         print("The response of DataMigrationApi->start_import:\n")
         pprint(api_response)
     except Exception as e:
@@ -293,10 +292,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **bytearray**|  | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -308,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

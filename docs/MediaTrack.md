@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **bitrate_kbps** | **int** |  | [optional] 
 **codec** | **str** |  | [optional] 
 **codec_description** | **str** |  | [optional] 
-**id** | **str** |  | 
 **track_id** | **str** |  | 
 **track_type** | [**TrackType**](TrackType.md) |  | 
+**id** | **str** |  | 
 
 ## Example
 

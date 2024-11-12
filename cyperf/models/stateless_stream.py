@@ -34,9 +34,9 @@ class StatelessStream(BaseModel):
     client_stream_profile: Optional[StreamProfile] = Field(default=None, alias="ClientStreamProfile")
     direction: Optional[StreamDirection] = Field(default=None, alias="Direction")
     is_flood_stream: Optional[StrictBool] = Field(default=None, alias="IsFloodStream")
-    links: Optional[List[APILink]] = None
     server_stream_profile: Optional[StreamProfile] = Field(default=None, alias="ServerStreamProfile")
-    __properties: ClassVar[List[str]] = ["ClientStreamProfile", "Direction", "IsFloodStream", "links", "ServerStreamProfile"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["ClientStreamProfile", "Direction", "IsFloodStream", "ServerStreamProfile", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +80,9 @@ class StatelessStream(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of client_stream_profile
         if self.client_stream_profile:
             _dict['ClientStreamProfile'] = self.client_stream_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of server_stream_profile
+        if self.server_stream_profile:
+            _dict['ServerStreamProfile'] = self.server_stream_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -87,9 +90,6 @@ class StatelessStream(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of server_stream_profile
-        if self.server_stream_profile:
-            _dict['ServerStreamProfile'] = self.server_stream_profile.to_dict()
         return _dict
 
     @classmethod
@@ -107,8 +107,8 @@ class StatelessStream(BaseModel):
             "ClientStreamProfile": StreamProfile.from_dict(obj["ClientStreamProfile"]) if obj.get("ClientStreamProfile") is not None else None,
                         "Direction": obj.get("Direction"),
                         "IsFloodStream": obj.get("IsFloodStream"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "ServerStreamProfile": StreamProfile.from_dict(obj["ServerStreamProfile"]) if obj.get("ServerStreamProfile") is not None else None
+                        "ServerStreamProfile": StreamProfile.from_dict(obj["ServerStreamProfile"]) if obj.get("ServerStreamProfile") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

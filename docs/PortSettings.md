@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **destination_port** | **int** |  | 
 **effective_ports** | [**EffectivePorts**](EffectivePorts.md) |  | [optional] 
 **forward_proxy_port** | **int** |  | 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **readonly** | **bool** | If true, the port can&#39;t be selected by the user | [optional] 
 **server_listen_port** | **int** |  | 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

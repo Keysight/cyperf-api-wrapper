@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **connections_max_transactions** | **int** | The maximum number of transactions for all scenario connections. | [optional] 
 **description** | **str** | The description of the HTTP profile. | 
 **external_resource_url** | **str** | The external resource URL of the HTTP profile. | [optional] 
-**headers** | [**Params**](Params.md) |  | [optional] 
 **http_version** | [**HTTPVersion**](HTTPVersion.md) |  | [optional] 
+**headers** | [**Params**](Params.md) |  | [optional] 
 **is_modified** | **bool** |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **name** | **str** | The name of the HTTP profile. | 
 **params** | [**List[Params]**](Params.md) | The list of parameters present in the HTTP profile. | [optional] 
 **use_application_server_headers** | **bool** |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

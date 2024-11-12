@@ -43,6 +43,16 @@ class TestMediaFile(unittest.TestCase):
                         ], 
                     resource_url = '', 
                     value = '', ),
+                media_tracks = [
+                    cyperf.models.media_track.MediaTrack(
+                        bitrate = 56, 
+                        bitrate_kbps = 56, 
+                        codec = '', 
+                        codec_description = '', 
+                        track_id = '', 
+                        track_type = null, 
+                        id = '', )
+                    ],
                 id = '',
                 links = [
                     cyperf.models.api_link.APILink(
@@ -53,16 +63,6 @@ class TestMediaFile(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                media_tracks = [
-                    cyperf.models.media_track.MediaTrack(
-                        bitrate = 56, 
-                        bitrate_kbps = 56, 
-                        codec = '', 
-                        codec_description = '', 
-                        id = '', 
-                        track_id = '', 
-                        track_type = null, )
                     ]
             )
         else:

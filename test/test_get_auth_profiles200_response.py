@@ -47,18 +47,7 @@ class TestGetAuthProfiles200Response(unittest.TestCase):
                                 hostname = '', 
                                 hostname_param = null, 
                                 http_forward_proxy_mode = 'INHERIT_DUT', 
-                                id = '', 
                                 is_deprecated = True, 
-                                links = [
-                                    cyperf.models.api_link.APILink(
-                                        content_type = '', 
-                                        href = '', 
-                                        method = '', 
-                                        name = '', 
-                                        references_count = 56, 
-                                        rel = '', 
-                                        type = '', )
-                                    ], 
                                 max_transactions = 56, 
                                 name = '', 
                                 port_settings = null, 
@@ -68,37 +57,36 @@ class TestGetAuthProfiles200Response(unittest.TestCase):
                                 readonly_type = True, 
                                 server_endpoint = '', 
                                 server_port = 56, 
-                                type = 'http', )
+                                type = 'http', 
+                                id = '', 
+                                links = [
+                                    cyperf.models.api_link.APILink(
+                                        content_type = '', 
+                                        href = '', 
+                                        method = '', 
+                                        name = '', 
+                                        references_count = 56, 
+                                        rel = '', 
+                                        type = '', )
+                                    ], )
                             ], 
                         data_types = [
                             cyperf.models.data_type.DataType(
-                                id = '', 
                                 values = [
                                     cyperf.models.data_type_values_inner.DataType_Values_inner(
                                         id = '', 
                                         value_type = '', )
-                                    ], )
+                                    ], 
+                                id = '', )
                             ], 
-                        description = '', 
                         endpoints = [
                             cyperf.models.endpoint.Endpoint(
-                                id = '', 
                                 name = '', 
                                 network_mapping = null, 
-                                type = 'Client', )
+                                type = 'Client', 
+                                id = '', )
                             ], 
                         file_name = '', 
-                        id = '', 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         metadata = cyperf.models.metadata.Metadata(
                             cve_count = 56, 
                             direction = '', 
@@ -125,13 +113,25 @@ class TestGetAuthProfiles200Response(unittest.TestCase):
                                 default_source = '', 
                                 default_value = '', 
                                 element_type = '', 
-                                field = '', 
-                                id = '', 
-                                operator = '', 
-                                query_param = '', 
                                 sources = [
                                     ''
                                     ], 
+                                type = '', 
+                                field = '', 
+                                id = '', 
+                                operator = '', 
+                                query_param = '', )
+                            ], 
+                        description = '', 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
                                 type = '', )
                             ], 
                         type = '', )

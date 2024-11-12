@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
 **values** | [**List[DataTypeValuesInner]**](DataTypeValuesInner.md) | A list of parameters for this data type. | [optional] 
+**id** | **str** |  | [optional] 
 
 ## Example
 

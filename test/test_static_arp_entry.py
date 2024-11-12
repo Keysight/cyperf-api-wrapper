@@ -37,17 +37,17 @@ class TestStaticARPEntry(unittest.TestCase):
         if include_optional:
             return StaticARPEntry(
                 count = 56,
-                id = '',
                 remote_ip = '::02:84:9:0cc0:F:CCf',
                 remote_ip_incr = '::02:84:9:0cc0:F:CCf',
                 remote_mac = '2E-B0-08-29:0c:01',
                 remote_mac_incr = '2E-B0-08-29:0c:01',
-                static_arp_entry_name = 'YBuLd'
+                static_arp_entry_name = 'YBuLd',
+                id = ''
             )
         else:
             return StaticARPEntry(
-                id = '',
                 static_arp_entry_name = 'YBuLd',
+                id = '',
         )
         """
 

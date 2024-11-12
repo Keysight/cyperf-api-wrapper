@@ -33,9 +33,9 @@ class CiscoEncapsulation(BaseModel):
     dtls_enabled: StrictBool = Field(alias="DTLSEnabled")
     dtls_settings: Optional[DTLSSettings] = Field(default=None, alias="DTLSSettings")
     encapsulation_mode: StrictStr = Field(description="The encapsulation mode for inner traffic.", alias="EncapsulationMode")
-    links: Optional[List[APILink]] = None
     udp_port: StrictInt = Field(alias="UdpPort")
-    __properties: ClassVar[List[str]] = ["DTLSEnabled", "DTLSSettings", "EncapsulationMode", "links", "UdpPort"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["DTLSEnabled", "DTLSSettings", "EncapsulationMode", "UdpPort", "links"]
 
     @field_validator('encapsulation_mode')
     def encapsulation_mode_validate_enum(cls, value):
@@ -110,8 +110,8 @@ class CiscoEncapsulation(BaseModel):
             "DTLSEnabled": obj.get("DTLSEnabled"),
                         "DTLSSettings": DTLSSettings.from_dict(obj["DTLSSettings"]) if obj.get("DTLSSettings") is not None else None,
                         "EncapsulationMode": obj.get("EncapsulationMode"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "UdpPort": obj.get("UdpPort")
+                        "UdpPort": obj.get("UdpPort"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

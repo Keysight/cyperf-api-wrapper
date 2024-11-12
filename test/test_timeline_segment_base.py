@@ -37,15 +37,15 @@ class TestTimelineSegmentBase(unittest.TestCase):
         if include_optional:
             return TimelineSegmentBase(
                 duration = 56,
-                id = '',
                 segment_type = 'SteadySegment',
-                warm_up_period = 56
+                warm_up_period = 56,
+                id = ''
             )
         else:
             return TimelineSegmentBase(
                 duration = 56,
-                id = '',
                 segment_type = 'SteadySegment',
+                id = '',
         )
         """
 

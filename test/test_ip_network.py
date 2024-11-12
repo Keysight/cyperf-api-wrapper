@@ -36,32 +36,11 @@ class TestIPNetwork(unittest.TestCase):
         model = IPNetwork()
         if include_optional:
             return IPNetwork(
-                id = '',
                 name = 'YBuLd',
+                id = '',
                 network_tags = [
                     ''
                     ],
-                active = True,
-                agent_assignments = cyperf.models.agent_assignments.AgentAssignments(
-                    by_id = [
-                        null
-                        ], 
-                    by_port = [
-                        null
-                        ], 
-                    by_tag = [
-                        ''
-                        ], 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], ),
                 dns_resolver = cyperf.models.dns_resolver.DNSResolver(
                     cache_timeout = 56, 
                     enable_perconnect = True, 
@@ -94,7 +73,6 @@ class TestIPNetwork(unittest.TestCase):
                         gw_auto = True, 
                         gw_start = '::02:84:9:0cc0:F:CCf', 
                         host_count = 56, 
-                        id = '', 
                         inner_vlan_range = null, 
                         ip_auto = True, 
                         ip_incr = '::02:84:9:0cc0:F:CCf', 
@@ -102,6 +80,11 @@ class TestIPNetwork(unittest.TestCase):
                         ip_start = '::02:84:9:0cc0:F:CCf', 
                         ip_ver = null, 
                         is_emulated_router = True, 
+                        mss = 56, 
+                        mss_auto = True, 
+                        net_mask = 56, 
+                        net_mask_auto = True, 
+                        id = '', 
                         links = [
                             cyperf.models.api_link.APILink(
                                 content_type = '', 
@@ -113,10 +96,6 @@ class TestIPNetwork(unittest.TestCase):
                                 type = '', )
                             ], 
                         max_count_per_agent = 56, 
-                        mss = 56, 
-                        mss_auto = True, 
-                        net_mask = 56, 
-                        net_mask_auto = True, 
                         network_tags = [
                             ''
                             ], )
@@ -126,19 +105,8 @@ class TestIPNetwork(unittest.TestCase):
                         ca_certificate_file = null, 
                         emulated_sub_config = null, 
                         enable_rekey = True, 
-                        id = '', 
                         ip_sec_range = null, 
                         ip_sec_stack_name = 'YBuLd', 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         local_sub_config = null, 
                         log_keys = True, 
                         max_initiation_rate = 56, 
@@ -151,8 +119,90 @@ class TestIPNetwork(unittest.TestCase):
                         retry_interval = 56, 
                         retry_interval_increment = 56, 
                         setup_timeout = 56, 
-                        stack_role = 'INITIATOR', )
+                        stack_role = 'INITIATOR', 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], )
                     ],
+                mac_dtls_stacks = [
+                    cyperf.models.mac_dtls_stack.MacDtlsStack(
+                        dtls_enabled = True, 
+                        dtls_range_name = 'YBuLd', 
+                        epoch = 56, 
+                        epoch_incr = 56, 
+                        ip_range = null, 
+                        in_iv = '0x62ECB020', 
+                        in_iv_incr = '0x62ECB020', 
+                        in_key = '0x62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea', 
+                        in_key_incr = '0x62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea', 
+                        network_meshing = null, 
+                        out_iv = '0x62ECB020', 
+                        out_iv_incr = '0x62ECB020', 
+                        out_key = '0x62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea', 
+                        out_key_incr = '0x62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea', 
+                        tunnel_count = 56, 
+                        tunnel_destination_mac_incr = '2E-B0-08-29:0c:01', 
+                        tunnel_destination_mac_start = '2E-B0-08-29:0c:01', 
+                        vlan_range = null, 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], )
+                    ],
+                tunnel_stacks = [
+                    cyperf.models.tunnel_stack.TunnelStack(
+                        inner_ip_range = null, 
+                        outer_ip_range = null, 
+                        tunnel_range = null, 
+                        tunnel_stack_name = 'YBuLd', 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], )
+                    ],
+                active = True,
+                agent_assignments = cyperf.models.agent_assignments.AgentAssignments(
+                    by_id = [
+                        null
+                        ], 
+                    by_port = [
+                        null
+                        ], 
+                    by_tag = [
+                        ''
+                        ], 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -163,60 +213,12 @@ class TestIPNetwork(unittest.TestCase):
                         rel = '', 
                         type = '', )
                     ],
-                mac_dtls_stacks = [
-                    cyperf.models.mac_dtls_stack.MacDtlsStack(
-                        dtls_range_name = 'YBuLd', 
-                        epoch = 56, 
-                        epoch_incr = 56, 
-                        id = '', 
-                        in_iv = '0x62ECB020', 
-                        in_iv_incr = '0x62ECB020', 
-                        in_key = '0x62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea', 
-                        in_key_incr = '0x62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea', 
-                        ip_range = null, 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
-                        out_iv = '0x62ECB020', 
-                        out_iv_incr = '0x62ECB020', 
-                        out_key = '0x62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea', 
-                        out_key_incr = '0x62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea', 
-                        tunnel_count = 56, 
-                        tunnel_destination_mac_incr = '2E-B0-08-29:0c:01', 
-                        tunnel_destination_mac_start = '2E-B0-08-29:0c:01', 
-                        vlan_range = null, )
-                    ],
-                min_agents = 56,
-                tunnel_stacks = [
-                    cyperf.models.tunnel_stack.TunnelStack(
-                        id = '', 
-                        inner_ip_range = null, 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
-                        outer_ip_range = null, 
-                        tunnel_range = null, 
-                        tunnel_stack_name = 'YBuLd', )
-                    ]
+                min_agents = 56
             )
         else:
             return IPNetwork(
-                id = '',
                 name = 'YBuLd',
+                id = '',
         )
         """
 

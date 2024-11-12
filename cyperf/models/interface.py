@@ -31,10 +31,10 @@ class Interface(BaseModel):
     """ # noqa: E501
     gateway: Optional[StrictStr] = Field(default=None, description="The gateway address of the interface", alias="Gateway")
     ip: Optional[List[IpMask]] = Field(default=None, description="The list of IP addresses", alias="IP")
-    mac: Optional[StrictStr] = Field(default=None, description="The MAC address of the interface", alias="Mac")
     mtu: Optional[StrictInt] = Field(default=None, description="The maximum transmission unit of the interface", alias="MTU")
+    mac: Optional[StrictStr] = Field(default=None, description="The MAC address of the interface", alias="Mac")
     name: Optional[StrictStr] = Field(default=None, description="The name of the interface", alias="Name")
-    __properties: ClassVar[List[str]] = ["Gateway", "IP", "Mac", "MTU", "Name"]
+    __properties: ClassVar[List[str]] = ["Gateway", "IP", "MTU", "Mac", "Name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,8 +75,8 @@ class Interface(BaseModel):
         excluded_fields: Set[str] = set([
             "gateway",
             "ip",
-            "mac",
             "mtu",
+            "mac",
             "name",
         ])
 
@@ -108,8 +108,8 @@ class Interface(BaseModel):
         _obj = cls.model_validate({
             "Gateway": obj.get("Gateway"),
                         "IP": [IpMask.from_dict(_item) for _item in obj["IP"]] if obj.get("IP") is not None else None,
-                        "Mac": obj.get("Mac"),
                         "MTU": obj.get("MTU"),
+                        "Mac": obj.get("Mac"),
                         "Name": obj.get("Name")
             ,
             "links": obj.get("links")

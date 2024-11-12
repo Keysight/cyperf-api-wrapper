@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **config_validation** | [**ConfigValidation**](ConfigValidation.md) |  | [optional] 
 **custom_dashboards** | [**CustomDashboards**](CustomDashboards.md) |  | [optional] 
 **expected_disk_space** | [**List[ExpectedDiskSpace]**](ExpectedDiskSpace.md) |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **network_profiles** | [**List[NetworkProfile]**](NetworkProfile.md) |  | [optional] 
 **traffic_profiles** | [**List[ApplicationProfile]**](ApplicationProfile.md) |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **validate** | **List[bytearray]** |  | [optional] 
 
 ## Example

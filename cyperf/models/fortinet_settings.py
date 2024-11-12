@@ -35,12 +35,12 @@ class FortinetSettings(BaseModel):
     FortinetSettings
     """ # noqa: E501
     var_auth_settings: Optional[AuthSettings] = Field(default=None, alias="AuthSettings")
-    links: Optional[List[APILink]] = None
     outer_tcp_profile: Optional[TcpProfile] = Field(default=None, alias="OuterTCPProfile")
+    links: Optional[List[APILink]] = None
     fortinet_encapsulation: Optional[FortinetEncapsulation] = Field(default=None, alias="FortinetEncapsulation")
     outer_tls_client_profile: Optional[TLSProfile] = Field(default=None, alias="OuterTLSClientProfile")
     vpn_gateway: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="VPNGateway")
-    __properties: ClassVar[List[str]] = ["AuthSettings", "links", "OuterTCPProfile", "FortinetEncapsulation", "OuterTLSClientProfile", "VPNGateway"]
+    __properties: ClassVar[List[str]] = ["AuthSettings", "OuterTCPProfile", "links", "FortinetEncapsulation", "OuterTLSClientProfile", "VPNGateway"]
 
     @field_validator('vpn_gateway')
     def vpn_gateway_validate_regular_expression(cls, value):
@@ -94,6 +94,9 @@ class FortinetSettings(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of var_auth_settings
         if self.var_auth_settings:
             _dict['AuthSettings'] = self.var_auth_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_tcp_profile
+        if self.outer_tcp_profile:
+            _dict['OuterTCPProfile'] = self.outer_tcp_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -101,9 +104,6 @@ class FortinetSettings(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of outer_tcp_profile
-        if self.outer_tcp_profile:
-            _dict['OuterTCPProfile'] = self.outer_tcp_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of fortinet_encapsulation
         if self.fortinet_encapsulation:
             _dict['FortinetEncapsulation'] = self.fortinet_encapsulation.to_dict()
@@ -125,8 +125,8 @@ class FortinetSettings(BaseModel):
 
         _obj = cls.model_validate({
             "AuthSettings": AuthSettings.from_dict(obj["AuthSettings"]) if obj.get("AuthSettings") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "OuterTCPProfile": TcpProfile.from_dict(obj["OuterTCPProfile"]) if obj.get("OuterTCPProfile") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "FortinetEncapsulation": FortinetEncapsulation.from_dict(obj["FortinetEncapsulation"]) if obj.get("FortinetEncapsulation") is not None else None,
                         "OuterTLSClientProfile": TLSProfile.from_dict(obj["OuterTLSClientProfile"]) if obj.get("OuterTLSClientProfile") is not None else None,
                         "VPNGateway": obj.get("VPNGateway")

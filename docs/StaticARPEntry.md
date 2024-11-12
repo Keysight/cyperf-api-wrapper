@@ -6,12 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count** | **int** |  | [optional] 
-**id** | **str** |  | 
 **remote_ip** | **str** |  | [optional] 
 **remote_ip_incr** | **str** |  | [optional] 
 **remote_mac** | **str** |  | [optional] 
 **remote_mac_incr** | **str** |  | [optional] 
 **static_arp_entry_name** | **str** |  | 
+**id** | **str** |  | 
 
 ## Example
 

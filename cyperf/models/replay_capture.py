@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.api_link import APILink
 from cyperf.models.app_flow import AppFlow
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
@@ -29,11 +30,13 @@ class ReplayCapture(BaseModel):
     """
     ReplayCapture
     """ # noqa: E501
-    flows: Optional[List[AppFlow]] = None
+    flows: Optional[List[AppFlow]] = Field(default=None, description="The list of flows")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the application")
+    links: Optional[List[APILink]] = None
     name: Optional[StrictStr] = None
-    owner: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["flows", "id", "name", "owner"]
+    owner: Optional[StrictStr] = Field(default=None, description="The user-visible name of the file's owner")
+    owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the file's owner", alias="ownerId")
+    __properties: ClassVar[List[str]] = ["flows", "id", "links", "name", "owner", "ownerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,9 +69,13 @@ class ReplayCapture(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
+            "owner",
+            "owner_id",
         ])
 
         _dict = self.model_dump(
@@ -83,6 +90,13 @@ class ReplayCapture(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['flows'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -99,8 +113,10 @@ class ReplayCapture(BaseModel):
         _obj = cls.model_validate({
             "flows": [AppFlow.from_dict(_item) for _item in obj["flows"]] if obj.get("flows") is not None else None,
                         "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "name": obj.get("name"),
-                        "owner": obj.get("owner")
+                        "owner": obj.get("owner"),
+                        "ownerId": obj.get("ownerId")
             ,
             "links": obj.get("links")
         })

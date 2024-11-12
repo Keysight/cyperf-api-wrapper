@@ -41,6 +41,11 @@ class TestConfig(unittest.TestCase):
                     ],
                 config_validation = cyperf.models.config_validation.ConfigValidation(
                     is_validated = True, 
+                    validation_messages = [
+                        cyperf.models.validation_message.ValidationMessage(
+                            message = '', 
+                            severity = 'WARNING', )
+                        ], 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -50,11 +55,6 @@ class TestConfig(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], 
-                    validation_messages = [
-                        cyperf.models.validation_message.ValidationMessage(
-                            message = '', 
-                            severity = 'WARNING', )
                         ], ),
                 custom_dashboards = cyperf.models.custom_dashboards.CustomDashboards(
                     active = True, 
@@ -93,25 +93,15 @@ class TestConfig(unittest.TestCase):
                             per_second = 56, 
                             total = 56, ), )
                     ],
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 network_profiles = [
                     cyperf.models.network_profile.NetworkProfile(
                         dut_network_segment = [
                             null
                             ], 
-                        id = '', 
                         ip_network_segment = [
                             null
                             ], 
+                        id = '', 
                         links = [
                             cyperf.models.api_link.APILink(
                                 content_type = '', 
@@ -125,6 +115,16 @@ class TestConfig(unittest.TestCase):
                     ],
                 traffic_profiles = [
                     null
+                    ],
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
                     ],
                 validate = [
                     'YQ=='

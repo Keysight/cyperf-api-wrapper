@@ -69,6 +69,13 @@ class TestSimulatedIdP(unittest.TestCase):
                                 }, )
                         ], 
                     sni_hostname = '', ),
+                name_id_format = 'emailAddress',
+                response_signature = True,
+                signature_algorithm = 'SHA256_SIGN',
+                single_sign_on_url = '',
+                xml_metadata = [
+                    'YQ=='
+                    ],
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -78,13 +85,6 @@ class TestSimulatedIdP(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                name_id_format = 'emailAddress',
-                response_signature = True,
-                signature_algorithm = 'SHA256_SIGN',
-                single_sign_on_url = '',
-                xml_metadata = [
-                    'YQ=='
                     ]
             )
         else:

@@ -37,17 +37,17 @@ class TestSteadySegment(unittest.TestCase):
         if include_optional:
             return SteadySegment(
                 duration = 56,
-                id = '',
                 segment_type = 'SteadySegment',
                 warm_up_period = 56,
+                id = '',
                 objective_unit = '',
                 objective_value = 1.337
             )
         else:
             return SteadySegment(
                 duration = 56,
-                id = '',
                 segment_type = 'SteadySegment',
+                id = '',
                 objective_unit = '',
                 objective_value = 1.337,
         )

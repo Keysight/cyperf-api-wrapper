@@ -7,9 +7,9 @@ The HealthCheck configuration for DUT
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **enabled** | **bool** | A flag indicating if the servers should listen for HealthCheck requests (default: true). | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **params** | [**List[Params]**](Params.md) | A list of additional parameters for the HealthCheck. | [optional] 
 **port** | **int** | The port that the DUT will send HealthCheck requests to the simulated servers. (default: 80) | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

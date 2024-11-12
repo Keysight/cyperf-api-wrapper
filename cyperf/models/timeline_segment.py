@@ -32,16 +32,16 @@ class TimelineSegment(BaseModel):
     TimelineSegment
     """ # noqa: E501
     duration: StrictInt = Field(description="The duration of the timeline segment (default: 600).", alias="Duration")
-    id: StrictStr
     segment_type: SegmentType = Field(description="The segment's type. Must be one of: SteadySegment, StepUpSegment, StepDownSegment.", alias="SegmentType")
     warm_up_period: Optional[StrictInt] = Field(default=None, description="Deprecated. Use ObjectivesAndTimeline.WarmUp instead. The time that servers may need to warm up, when clients should wait (default: 0 seconds).", alias="WarmUpPeriod")
-    links: Optional[List[APILink]] = None
+    id: StrictStr
     objective_unit: Optional[StrictStr] = Field(default=None, description="The measurement unit for the objective value. Only applicable for Throughput objectives.", alias="ObjectiveUnit")
     objective_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The objective value for this timeline segment.", alias="ObjectiveValue")
     primary_objective_unit: StrictStr = Field(description="Deprecated. Use PrimaryObjective.Timeline[].ObjectiveUnit instead. The primary objective unit. (default: Gbps)", alias="PrimaryObjectiveUnit")
     primary_objective_value: Union[StrictFloat, StrictInt] = Field(description="Deprecated. Use PrimaryObjective.Timeline[].ObjectiveValue instead. The primary objective value (default: 1).", alias="PrimaryObjectiveValue")
     secondary_objective_values: Optional[List[ObjectiveValueEntry]] = Field(default=None, description="Deprecated. Use SecondaryObjective.ObjectiveValue/ObjectiveUnit instead. The secondary objectives values.", alias="SecondaryObjectiveValues")
-    __properties: ClassVar[List[str]] = ["Duration", "id", "SegmentType", "WarmUpPeriod", "links", "ObjectiveUnit", "ObjectiveValue", "PrimaryObjectiveUnit", "PrimaryObjectiveValue", "SecondaryObjectiveValues"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Duration", "SegmentType", "WarmUpPeriod", "id", "ObjectiveUnit", "ObjectiveValue", "PrimaryObjectiveUnit", "PrimaryObjectiveValue", "SecondaryObjectiveValues", "links"]
 
     @field_validator('objective_unit')
     def objective_unit_validate_enum(cls, value):
@@ -99,13 +99,6 @@ class TimelineSegment(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in secondary_objective_values (list)
         _items = []
         if self.secondary_objective_values:
@@ -113,6 +106,13 @@ class TimelineSegment(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['SecondaryObjectiveValues'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -128,15 +128,15 @@ class TimelineSegment(BaseModel):
 
         _obj = cls.model_validate({
             "Duration": obj.get("Duration"),
-                        "id": obj.get("id"),
                         "SegmentType": obj.get("SegmentType"),
                         "WarmUpPeriod": obj.get("WarmUpPeriod"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "id": obj.get("id"),
                         "ObjectiveUnit": obj.get("ObjectiveUnit"),
                         "ObjectiveValue": obj.get("ObjectiveValue"),
                         "PrimaryObjectiveUnit": obj.get("PrimaryObjectiveUnit"),
                         "PrimaryObjectiveValue": obj.get("PrimaryObjectiveValue"),
-                        "SecondaryObjectiveValues": [ObjectiveValueEntry.from_dict(_item) for _item in obj["SecondaryObjectiveValues"]] if obj.get("SecondaryObjectiveValues") is not None else None
+                        "SecondaryObjectiveValues": [ObjectiveValueEntry.from_dict(_item) for _item in obj["SecondaryObjectiveValues"]] if obj.get("SecondaryObjectiveValues") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

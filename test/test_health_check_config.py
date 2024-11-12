@@ -37,24 +37,14 @@ class TestHealthCheckConfig(unittest.TestCase):
         if include_optional:
             return HealthCheckConfig(
                 enabled = True,
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 params = [
                     cyperf.models.params.Params(
+                        array_element_type = '', 
                         array_elements = [
                             {
                                 'key' : ''
                                 }
                             ], 
-                        array_element_type = '', 
                         category = '', 
                         category_index = 56, 
                         deprecated_previous_source = '', 
@@ -70,24 +60,10 @@ class TestHealthCheckConfig(unittest.TestCase):
                                     name = '', 
                                     value = '', )
                                 ], ), 
-                        file_upload = [
-                            'YQ=='
-                            ], 
                         file_value = null, 
                         flow_identifier = True, 
-                        id = '', 
                         is_deprecated = True, 
                         is_modified = True, 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         media_files = [
                             cyperf.models.media_file.MediaFile(
                                 file_value = null, 
@@ -97,9 +73,20 @@ class TestHealthCheckConfig(unittest.TestCase):
                                         bitrate_kbps = 56, 
                                         codec = '', 
                                         codec_description = '', 
-                                        id = '', 
                                         track_id = '', 
-                                        track_type = null, )
+                                        track_type = null, 
+                                        id = '', )
+                                    ], 
+                                id = '', 
+                                links = [
+                                    cyperf.models.api_link.APILink(
+                                        content_type = '', 
+                                        href = '', 
+                                        method = '', 
+                                        name = '', 
+                                        references_count = 56, 
+                                        rel = '', 
+                                        type = '', )
                                     ], )
                             ], 
                         metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -126,12 +113,36 @@ class TestHealthCheckConfig(unittest.TestCase):
                         supported_sources = [
                             ''
                             ], 
-                        supports_dynamic_payload = True, 
                         type = '', 
-                        upload_url = '', 
-                        value = '', )
+                        value = '', 
+                        file_upload = [
+                            'YQ=='
+                            ], 
+                        id = , 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], 
+                        supports_dynamic_payload = True, 
+                        upload_url = '', )
                     ],
-                port = 56
+                port = 56,
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return HealthCheckConfig(

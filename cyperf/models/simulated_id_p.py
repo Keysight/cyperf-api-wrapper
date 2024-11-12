@@ -35,13 +35,13 @@ class SimulatedIdP(BaseModel):
     assertion_signature: StrictBool = Field(alias="AssertionSignature")
     audience_uri: StrictStr = Field(alias="AudienceURI")
     cert_config: Optional[CertConfig] = Field(default=None, alias="CertConfig")
-    links: Optional[List[APILink]] = None
     name_id_format: NameIdFormat = Field(alias="NameIdFormat")
     response_signature: StrictBool = Field(alias="ResponseSignature")
     signature_algorithm: Optional[IdPSignatureAlgo] = Field(default=None, alias="SignatureAlgorithm")
     single_sign_on_url: StrictStr = Field(alias="SingleSignOnURL")
     xml_metadata: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="XMLMetadata")
-    __properties: ClassVar[List[str]] = ["AssertionSignature", "AudienceURI", "CertConfig", "links", "NameIdFormat", "ResponseSignature", "SignatureAlgorithm", "SingleSignOnURL", "XMLMetadata"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["AssertionSignature", "AudienceURI", "CertConfig", "NameIdFormat", "ResponseSignature", "SignatureAlgorithm", "SingleSignOnURL", "XMLMetadata", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -109,12 +109,12 @@ class SimulatedIdP(BaseModel):
             "AssertionSignature": obj.get("AssertionSignature"),
                         "AudienceURI": obj.get("AudienceURI"),
                         "CertConfig": CertConfig.from_dict(obj["CertConfig"]) if obj.get("CertConfig") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "NameIdFormat": obj.get("NameIdFormat"),
                         "ResponseSignature": obj.get("ResponseSignature"),
                         "SignatureAlgorithm": obj.get("SignatureAlgorithm"),
                         "SingleSignOnURL": obj.get("SingleSignOnURL"),
-                        "XMLMetadata": obj.get("XMLMetadata")
+                        "XMLMetadata": obj.get("XMLMetadata"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

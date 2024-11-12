@@ -32,14 +32,14 @@ class EthRange(BaseModel):
     The Ethernet Ranges assigned to the current test configuration
     """ # noqa: E501
     count: Optional[StrictInt] = Field(default=None, alias="Count")
-    links: Optional[List[APILink]] = None
     mac_auto: StrictBool = Field(description="A flag indicating if the MAC address for the EthRange should be determined automatically (default: true).", alias="MacAuto")
     mac_incr: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The MAC address increment rule for the EthRange (default: 00:00:00:00:00:01).", alias="MacIncr")
     mac_start: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The MAC start address for the EthRange (default: 00:11:01:00:00:01).", alias="MacStart")
-    max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of MACs that should be assigned to each traffic agent for this Ethernet range segment in a valid test (default: 0, split equally between agents).", alias="maxCountPerAgent")
     one_mac_per_ip: Optional[StrictBool] = Field(default=None, description="A flag indicating if there is only one MAC address for the EthRange per IPRange (default: true).", alias="OneMacPerIP")
     static_arp_table: Optional[List[StaticARPEntry]] = Field(default=None, alias="StaticARPTable")
-    __properties: ClassVar[List[str]] = ["Count", "links", "MacAuto", "MacIncr", "MacStart", "maxCountPerAgent", "OneMacPerIP", "StaticARPTable"]
+    links: Optional[List[APILink]] = None
+    max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of MACs that should be assigned to each traffic agent for this Ethernet range segment in a valid test (default: 0, split equally between agents).", alias="maxCountPerAgent")
+    __properties: ClassVar[List[str]] = ["Count", "MacAuto", "MacIncr", "MacStart", "OneMacPerIP", "StaticARPTable", "links", "maxCountPerAgent"]
 
     @field_validator('mac_incr')
     def mac_incr_validate_regular_expression(cls, value):
@@ -100,13 +100,6 @@ class EthRange(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in static_arp_table (list)
         _items = []
         if self.static_arp_table:
@@ -114,6 +107,13 @@ class EthRange(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['StaticARPTable'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -129,13 +129,13 @@ class EthRange(BaseModel):
 
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "MacAuto": obj.get("MacAuto"),
                         "MacIncr": obj.get("MacIncr"),
                         "MacStart": obj.get("MacStart"),
-                        "maxCountPerAgent": obj.get("maxCountPerAgent"),
                         "OneMacPerIP": obj.get("OneMacPerIP"),
-                        "StaticARPTable": [StaticARPEntry.from_dict(_item) for _item in obj["StaticARPTable"]] if obj.get("StaticARPTable") is not None else None
+                        "StaticARPTable": [StaticARPEntry.from_dict(_item) for _item in obj["StaticARPTable"]] if obj.get("StaticARPTable") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "maxCountPerAgent": obj.get("maxCountPerAgent")
             ,
             "links": obj.get("links")
         })

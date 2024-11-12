@@ -29,16 +29,16 @@ class PrepareTestOperation(BaseModel):
     """
     PrepareTestOperation
     """ # noqa: E501
+    options: Optional[PreparedTestOptions] = Field(default=None, alias="Options")
     message: Optional[StrictStr] = Field(default=None, description="An optional message that describes the reason the test ended")
     new_state: Optional[StrictStr] = Field(default=None, description="An optional enum that identifies the current state of the test", alias="newState")
     old_state: Optional[StrictStr] = Field(default=None, description="An optional enum that identifies the previous state of the test", alias="oldState")
-    options: Optional[PreparedTestOptions] = Field(default=None, alias="Options")
     owner: Optional[StrictStr] = Field(default=None, description="An optional friendly display name for the user which initiated the operation")
     owner_id: Optional[StrictStr] = Field(default=None, description="An optional identifier that uniquely identifies the user which initiated the operation", alias="ownerId")
     reason: Optional[StrictStr] = Field(default=None, description="An optional enum that identifies the underlying reason for the test's end")
     test_id: Optional[StrictStr] = Field(default=None, description="The test to which the state change refers", alias="testId")
     timestamp: Optional[StrictInt] = Field(default=None, description="An optional Unix timestamp that indicates when the test state was changed")
-    __properties: ClassVar[List[str]] = ["message", "newState", "oldState", "Options", "owner", "ownerId", "reason", "testId", "timestamp"]
+    __properties: ClassVar[List[str]] = ["Options", "message", "newState", "oldState", "owner", "ownerId", "reason", "testId", "timestamp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,10 +96,10 @@ class PrepareTestOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "message": obj.get("message"),
+            "Options": PreparedTestOptions.from_dict(obj["Options"]) if obj.get("Options") is not None else None,
+                        "message": obj.get("message"),
                         "newState": obj.get("newState"),
                         "oldState": obj.get("oldState"),
-                        "Options": PreparedTestOptions.from_dict(obj["Options"]) if obj.get("Options") is not None else None,
                         "owner": obj.get("owner"),
                         "ownerId": obj.get("ownerId"),
                         "reason": obj.get("reason"),

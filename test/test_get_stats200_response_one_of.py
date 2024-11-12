@@ -48,18 +48,6 @@ class TestGetStats200ResponseOneOf(unittest.TestCase):
                                 default_source = '', 
                                 default_value = '', 
                                 element_type = '', 
-                                field = '', 
-                                id = '', 
-                                links = [
-                                    cyperf.models.api_link.APILink(
-                                        content_type = '', 
-                                        href = '', 
-                                        method = '', 
-                                        name = '', 
-                                        references_count = 56, 
-                                        rel = '', 
-                                        type = '', )
-                                    ], 
                                 metadata = cyperf.models.parameter_metadata.ParameterMetadata(
                                     category = '', 
                                     category_index = 56, 
@@ -106,13 +94,35 @@ class TestGetStats200ResponseOneOf(unittest.TestCase):
                                             charset = '', 
                                             max_length = 56, 
                                             min_length = 56, ), ), 
-                                    unique_value = True, ), 
-                                operator = '', 
-                                query_param = '', 
+                                    unique_value = True, 
+                                    links = [
+                                        cyperf.models.api_link.APILink(
+                                            content_type = '', 
+                                            href = '', 
+                                            method = '', 
+                                            name = '', 
+                                            references_count = 56, 
+                                            rel = '', 
+                                            type = '', )
+                                        ], ), 
                                 sources = [
                                     ''
                                     ], 
-                                type = '', )
+                                type = '', 
+                                field = '', 
+                                id = '', 
+                                links = [
+                                    cyperf.models.api_link.APILink(
+                                        content_type = '', 
+                                        href = '', 
+                                        method = '', 
+                                        name = '', 
+                                        references_count = 56, 
+                                        rel = '', 
+                                        type = '', )
+                                    ], 
+                                operator = '', 
+                                query_param = '', )
                             ], 
                         columns = [
                             ''

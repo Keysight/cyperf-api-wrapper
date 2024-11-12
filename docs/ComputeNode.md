@@ -5,17 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aggregated_mode** | **bool** | Whether the ports of the compute-node are aggregated or not | [optional] 
+**aggregated_mode** | **bool** | Whether the ports of the compute node are aggregated or not | [optional] 
 **app_mode** | [**AppMode**](AppMode.md) |  | [optional] 
-**health_details** | [**List[HealthIssue]**](HealthIssue.md) | A list with more details regarding the health of the compute-node | [optional] 
-**healthy** | **bool** | Whether the compute-node has any health issue or not | [optional] 
-**id** | **str** | The unique identifier of the compute-node | [optional] 
+**health_details** | [**List[HealthIssue]**](HealthIssue.md) | A list with more details regarding the health of the compute node | [optional] 
+**healthy** | **bool** | Whether the compute node has any health issue or not | [optional] 
+**id** | **str** | The unique identifier of the compute node | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
-**name** | **str** | A user-friendly display name for the compute-node | [optional] 
-**ports** | [**List[Port]**](Port.md) | The ports of the compute-node | [optional] 
-**slot_number** | **int** | The slot number of the compute-node | [optional] 
-**status** | **str** | The current status of the compute-node: ready or not ready | [optional] 
-**type** | **str** | The type of the compute-node | [optional] 
+**name** | **str** | A user-friendly display name for the compute node | [optional] 
+**ports** | [**List[Port]**](Port.md) | The ports of the compute node | [optional] 
+**serial** | **str** | The serial of the compute node | [optional] 
+**slot_number** | **int** | The slot number of the compute node | [optional] 
+**status** | **str** | The current status of the compute node: ready or not ready | [optional] 
+**type** | **str** | The type of the compute node | [optional] 
 
 ## Example
 

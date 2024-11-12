@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_validated** | **bool** |  | 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **validation_messages** | [**List[ValidationMessage]**](ValidationMessage.md) |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

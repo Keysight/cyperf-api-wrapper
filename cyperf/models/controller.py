@@ -31,7 +31,7 @@ class Controller(BaseModel):
     """
     Controller
     """ # noqa: E501
-    compute_nodes: Optional[List[ComputeNode]] = Field(default=None, description="The compute-nodes of the controller", alias="computeNodes")
+    compute_nodes: Optional[List[ComputeNode]] = Field(default=None, description="The compute nodes of the controller", alias="computeNodes")
     health_details: Optional[List[HealthIssue]] = Field(default=None, description="Details regarding any health issue of the controller", alias="healthDetails")
     healthy: Optional[StrictBool] = Field(default=None, description="Whether the controller has any health issue or not")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the controller")

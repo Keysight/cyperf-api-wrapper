@@ -5,10 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**flows** | [**List[AppFlow]**](AppFlow.md) |  | [optional] 
+**flows** | [**List[AppFlow]**](AppFlow.md) | The list of flows | [optional] 
 **id** | **str** | The unique identifier of the application | [optional] [readonly] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **name** | **str** |  | [optional] 
-**owner** | **str** |  | [optional] 
+**owner** | **str** | The user-visible name of the file&#39;s owner | [optional] [readonly] 
+**owner_id** | **str** | The unique identifier of the file&#39;s owner | [optional] [readonly] 
 
 ## Example
 

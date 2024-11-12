@@ -31,11 +31,11 @@ class F5Encapsulation(BaseModel):
     F5Encapsulation
     """ # noqa: E501
     encapsulation_mode: StrictStr = Field(description="The encapsulation mode for inner traffic.", alias="EncapsulationMode")
-    links: Optional[List[APILink]] = None
     ppp_over_dtls_enabled: StrictBool = Field(alias="PPPOverDTLSEnabled")
     ppp_over_dtls_settings: Optional[DTLSSettings] = Field(default=None, alias="PPPOverDTLSSettings")
     udp_port: StrictInt = Field(alias="UdpPort")
-    __properties: ClassVar[List[str]] = ["EncapsulationMode", "links", "PPPOverDTLSEnabled", "PPPOverDTLSSettings", "UdpPort"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["EncapsulationMode", "PPPOverDTLSEnabled", "PPPOverDTLSSettings", "UdpPort", "links"]
 
     @field_validator('encapsulation_mode')
     def encapsulation_mode_validate_enum(cls, value):
@@ -83,6 +83,9 @@ class F5Encapsulation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of ppp_over_dtls_settings
+        if self.ppp_over_dtls_settings:
+            _dict['PPPOverDTLSSettings'] = self.ppp_over_dtls_settings.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -90,9 +93,6 @@ class F5Encapsulation(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of ppp_over_dtls_settings
-        if self.ppp_over_dtls_settings:
-            _dict['PPPOverDTLSSettings'] = self.ppp_over_dtls_settings.to_dict()
         return _dict
 
     @classmethod
@@ -108,10 +108,10 @@ class F5Encapsulation(BaseModel):
 
         _obj = cls.model_validate({
             "EncapsulationMode": obj.get("EncapsulationMode"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "PPPOverDTLSEnabled": obj.get("PPPOverDTLSEnabled"),
                         "PPPOverDTLSSettings": DTLSSettings.from_dict(obj["PPPOverDTLSSettings"]) if obj.get("PPPOverDTLSSettings") is not None else None,
-                        "UdpPort": obj.get("UdpPort")
+                        "UdpPort": obj.get("UdpPort"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

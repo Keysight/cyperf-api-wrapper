@@ -36,12 +36,12 @@ class TestDataType(unittest.TestCase):
         model = DataType()
         if include_optional:
             return DataType(
-                id = '',
                 values = [
                     cyperf.models.data_type_values_inner.DataType_Values_inner(
                         id = '', 
                         value_type = '', )
-                    ]
+                    ],
+                id = ''
             )
         else:
             return DataType(

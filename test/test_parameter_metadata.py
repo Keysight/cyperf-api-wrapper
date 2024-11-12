@@ -55,16 +55,6 @@ class TestParameterMetadata(unittest.TestCase):
                 legacy_names = [
                     ''
                     ],
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 mandatory = True,
                 payload = cyperf.models.payload_metadata.PayloadMetadata(
                     file_extension = '', 
@@ -91,7 +81,17 @@ class TestParameterMetadata(unittest.TestCase):
                         charset = '', 
                         max_length = 56, 
                         min_length = 56, ), ),
-                unique_value = True
+                unique_value = True,
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return ParameterMetadata(

@@ -41,21 +41,11 @@ class TestCommand(unittest.TestCase):
                 exchanges = [
                     cyperf.models.exchange.Exchange(
                         client_endpoint = '', 
-                        id = '', 
                         name = '', 
-                        server_endpoint = '', )
+                        server_endpoint = '', 
+                        id = '', )
                     ],
                 is_strike = True,
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 metadata = cyperf.models.metadata.Metadata(
                     cve_count = 56, 
                     direction = '', 
@@ -83,18 +73,6 @@ class TestCommand(unittest.TestCase):
                         default_source = '', 
                         default_value = '', 
                         element_type = '', 
-                        field = '', 
-                        id = '', 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         metadata = cyperf.models.parameter_metadata.ParameterMetadata(
                             category = '', 
                             category_index = 56, 
@@ -141,12 +119,44 @@ class TestCommand(unittest.TestCase):
                                     charset = '', 
                                     max_length = 56, 
                                     min_length = 56, ), ), 
-                            unique_value = True, ), 
-                        operator = '', 
-                        query_param = '', 
+                            unique_value = True, 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], ), 
                         sources = [
                             ''
                             ], 
+                        type = '', 
+                        field = '', 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], 
+                        operator = '', 
+                        query_param = '', )
+                    ],
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
                         type = '', )
                     ]
             )

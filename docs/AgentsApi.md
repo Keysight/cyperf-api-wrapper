@@ -16,12 +16,12 @@ Method | HTTP request | Description
 [**get_ports_by_id**](AgentsApi.md#get_ports_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/ports/{portId} | 
 [**patch_agents**](AgentsApi.md#patch_agents) | **PATCH** /api/v2/agents/{agentId} | 
 [**poll_batch_delete**](AgentsApi.md#poll_batch_delete) | **GET** /api/v2/agents/operations/batch-delete/{id} | 
-[**poll_compute_nodes_power_cycle**](AgentsApi.md#poll_compute_nodes_power_cycle) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/operations/power-cycle/{id} | 
-[**poll_controllers_change_nodes_aggregation**](AgentsApi.md#poll_controllers_change_nodes_aggregation) | **GET** /api/v2/controllers/operations/change-nodes-aggregation/{id} | 
-[**poll_controllers_change_ports_link_state**](AgentsApi.md#poll_controllers_change_ports_link_state) | **GET** /api/v2/controllers/operations/change-ports-link-state/{id} | 
-[**poll_controllers_clear_ports_ownership**](AgentsApi.md#poll_controllers_clear_ports_ownership) | **GET** /api/v2/controllers/operations/clear-ports-ownership/{id} | 
-[**poll_controllers_reboot_ports**](AgentsApi.md#poll_controllers_reboot_ports) | **GET** /api/v2/controllers/operations/reboot-ports/{id} | 
-[**poll_controllers_switch_app**](AgentsApi.md#poll_controllers_switch_app) | **GET** /api/v2/controllers/{controllerId}/operations/switch-app/{id} | 
+[**poll_controllers_clear_port_ownership**](AgentsApi.md#poll_controllers_clear_port_ownership) | **GET** /api/v2/controllers/operations/clear-port-ownership/{id} | 
+[**poll_controllers_power_cycle_nodes**](AgentsApi.md#poll_controllers_power_cycle_nodes) | **GET** /api/v2/controllers/operations/power-cycle-nodes/{id} | 
+[**poll_controllers_reboot_port**](AgentsApi.md#poll_controllers_reboot_port) | **GET** /api/v2/controllers/operations/reboot-port/{id} | 
+[**poll_controllers_set_app**](AgentsApi.md#poll_controllers_set_app) | **GET** /api/v2/controllers/operations/set-app/{id} | 
+[**poll_controllers_set_node_aggregation**](AgentsApi.md#poll_controllers_set_node_aggregation) | **GET** /api/v2/controllers/operations/set-node-aggregation/{id} | 
+[**poll_controllers_set_port_link_state**](AgentsApi.md#poll_controllers_set_port_link_state) | **GET** /api/v2/controllers/operations/set-port-link-state/{id} | 
 [**poll_export_files**](AgentsApi.md#poll_export_files) | **GET** /api/v2/agents/operations/exportFiles/{id} | 
 [**poll_reboot**](AgentsApi.md#poll_reboot) | **GET** /api/v2/agents/operations/reboot/{id} | 
 [**poll_release**](AgentsApi.md#poll_release) | **GET** /api/v2/agents/operations/release/{id} | 
@@ -30,12 +30,12 @@ Method | HTTP request | Description
 [**poll_set_ntp**](AgentsApi.md#poll_set_ntp) | **GET** /api/v2/agents/operations/set-ntp/{id} | 
 [**poll_update**](AgentsApi.md#poll_update) | **GET** /api/v2/agents/operations/update/{id} | 
 [**start_batch_delete**](AgentsApi.md#start_batch_delete) | **POST** /api/v2/agents/operations/batch-delete | 
-[**start_compute_nodes_power_cycle**](AgentsApi.md#start_compute_nodes_power_cycle) | **POST** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/operations/power-cycle | 
-[**start_controllers_change_nodes_aggregation**](AgentsApi.md#start_controllers_change_nodes_aggregation) | **POST** /api/v2/controllers/operations/change-nodes-aggregation | 
-[**start_controllers_change_ports_link_state**](AgentsApi.md#start_controllers_change_ports_link_state) | **POST** /api/v2/controllers/operations/change-ports-link-state | 
-[**start_controllers_clear_ports_ownership**](AgentsApi.md#start_controllers_clear_ports_ownership) | **POST** /api/v2/controllers/operations/clear-ports-ownership | 
-[**start_controllers_reboot_ports**](AgentsApi.md#start_controllers_reboot_ports) | **POST** /api/v2/controllers/operations/reboot-ports | 
-[**start_controllers_switch_app**](AgentsApi.md#start_controllers_switch_app) | **POST** /api/v2/controllers/{controllerId}/operations/switch-app | 
+[**start_controllers_clear_port_ownership**](AgentsApi.md#start_controllers_clear_port_ownership) | **POST** /api/v2/controllers/operations/clear-port-ownership | 
+[**start_controllers_power_cycle_nodes**](AgentsApi.md#start_controllers_power_cycle_nodes) | **POST** /api/v2/controllers/operations/power-cycle-nodes | 
+[**start_controllers_reboot_port**](AgentsApi.md#start_controllers_reboot_port) | **POST** /api/v2/controllers/operations/reboot-port | 
+[**start_controllers_set_app**](AgentsApi.md#start_controllers_set_app) | **POST** /api/v2/controllers/operations/set-app | 
+[**start_controllers_set_node_aggregation**](AgentsApi.md#start_controllers_set_node_aggregation) | **POST** /api/v2/controllers/operations/set-node-aggregation | 
+[**start_controllers_set_port_link_state**](AgentsApi.md#start_controllers_set_port_link_state) | **POST** /api/v2/controllers/operations/set-port-link-state | 
 [**start_export_files**](AgentsApi.md#start_export_files) | **POST** /api/v2/agents/operations/exportFiles | 
 [**start_reboot**](AgentsApi.md#start_reboot) | **POST** /api/v2/agents/operations/reboot | 
 [**start_release**](AgentsApi.md#start_release) | **POST** /api/v2/agents/operations/release | 
@@ -1006,89 +1006,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_compute_nodes_power_cycle**
-> AsyncContext poll_compute_nodes_power_cycle(controller_id, compute_node_id, id)
-
-
-
-Get the state of an ongoing operation.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.AgentsApi(api_client)
-    controller_id = 'controller_id_example' # str | The ID of the controller.
-    compute_node_id = 'compute_node_id_example' # str | The ID of the compute node.
-    id = 56 # int | The ID of the async operation.
-
-    try:
-        api_response = api_instance.poll_compute_nodes_power_cycle(controller_id, compute_node_id, id)
-        print("The response of AgentsApi->poll_compute_nodes_power_cycle:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AgentsApi->poll_compute_nodes_power_cycle: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **controller_id** | **str**| The ID of the controller. | 
- **compute_node_id** | **str**| The ID of the compute node. | 
- **id** | **int**| The ID of the async operation. | 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Details about the ongoing operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **poll_controllers_change_nodes_aggregation**
-> AsyncContext poll_controllers_change_nodes_aggregation(id)
+# **poll_controllers_clear_port_ownership**
+> AsyncContext poll_controllers_clear_port_ownership(id)
 
 
 
@@ -1127,11 +1046,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_controllers_change_nodes_aggregation(id)
-        print("The response of AgentsApi->poll_controllers_change_nodes_aggregation:\n")
+        api_response = api_instance.poll_controllers_clear_port_ownership(id)
+        print("The response of AgentsApi->poll_controllers_clear_port_ownership:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AgentsApi->poll_controllers_change_nodes_aggregation: %s\n" % e)
+        print("Exception when calling AgentsApi->poll_controllers_clear_port_ownership: %s\n" % e)
 ```
 
 
@@ -1164,8 +1083,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_controllers_change_ports_link_state**
-> AsyncContext poll_controllers_change_ports_link_state(id)
+# **poll_controllers_power_cycle_nodes**
+> AsyncContext poll_controllers_power_cycle_nodes(id)
 
 
 
@@ -1204,11 +1123,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_controllers_change_ports_link_state(id)
-        print("The response of AgentsApi->poll_controllers_change_ports_link_state:\n")
+        api_response = api_instance.poll_controllers_power_cycle_nodes(id)
+        print("The response of AgentsApi->poll_controllers_power_cycle_nodes:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AgentsApi->poll_controllers_change_ports_link_state: %s\n" % e)
+        print("Exception when calling AgentsApi->poll_controllers_power_cycle_nodes: %s\n" % e)
 ```
 
 
@@ -1241,8 +1160,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_controllers_clear_ports_ownership**
-> AsyncContext poll_controllers_clear_ports_ownership(id)
+# **poll_controllers_reboot_port**
+> AsyncContext poll_controllers_reboot_port(id)
 
 
 
@@ -1281,11 +1200,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_controllers_clear_ports_ownership(id)
-        print("The response of AgentsApi->poll_controllers_clear_ports_ownership:\n")
+        api_response = api_instance.poll_controllers_reboot_port(id)
+        print("The response of AgentsApi->poll_controllers_reboot_port:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AgentsApi->poll_controllers_clear_ports_ownership: %s\n" % e)
+        print("Exception when calling AgentsApi->poll_controllers_reboot_port: %s\n" % e)
 ```
 
 
@@ -1318,8 +1237,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_controllers_reboot_ports**
-> AsyncContext poll_controllers_reboot_ports(id)
+# **poll_controllers_set_app**
+> AsyncContext poll_controllers_set_app(id)
 
 
 
@@ -1358,11 +1277,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_controllers_reboot_ports(id)
-        print("The response of AgentsApi->poll_controllers_reboot_ports:\n")
+        api_response = api_instance.poll_controllers_set_app(id)
+        print("The response of AgentsApi->poll_controllers_set_app:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AgentsApi->poll_controllers_reboot_ports: %s\n" % e)
+        print("Exception when calling AgentsApi->poll_controllers_set_app: %s\n" % e)
 ```
 
 
@@ -1395,8 +1314,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_controllers_switch_app**
-> AsyncContext poll_controllers_switch_app(controller_id, id)
+# **poll_controllers_set_node_aggregation**
+> AsyncContext poll_controllers_set_node_aggregation(id)
 
 
 
@@ -1432,15 +1351,14 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.AgentsApi(api_client)
-    controller_id = 'controller_id_example' # str | The ID of the controller.
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_controllers_switch_app(controller_id, id)
-        print("The response of AgentsApi->poll_controllers_switch_app:\n")
+        api_response = api_instance.poll_controllers_set_node_aggregation(id)
+        print("The response of AgentsApi->poll_controllers_set_node_aggregation:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AgentsApi->poll_controllers_switch_app: %s\n" % e)
+        print("Exception when calling AgentsApi->poll_controllers_set_node_aggregation: %s\n" % e)
 ```
 
 
@@ -1450,7 +1368,83 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **controller_id** | **str**| The ID of the controller. | 
+ **id** | **int**| The ID of the async operation. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Details about the ongoing operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **poll_controllers_set_port_link_state**
+> AsyncContext poll_controllers_set_port_link_state(id)
+
+
+
+Get the state of an ongoing operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.AgentsApi(api_client)
+    id = 56 # int | The ID of the async operation.
+
+    try:
+        api_response = api_instance.poll_controllers_set_port_link_state(id)
+        print("The response of AgentsApi->poll_controllers_set_port_link_state:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsApi->poll_controllers_set_port_link_state: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
  **id** | **int**| The ID of the async operation. | 
 
 ### Return type
@@ -2091,247 +2085,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_compute_nodes_power_cycle**
-> AsyncContext start_compute_nodes_power_cycle(controller_id, compute_node_id)
+# **start_controllers_clear_port_ownership**
+> AsyncContext start_controllers_clear_port_ownership(clear_ports_ownership_operation=clear_ports_ownership_operation)
 
 
 
-Power-cycle the compute-node.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.AgentsApi(api_client)
-    controller_id = 'controller_id_example' # str | The ID of the controller.
-    compute_node_id = 'compute_node_id_example' # str | The ID of the compute node.
-
-    try:
-        api_response = api_instance.start_compute_nodes_power_cycle(controller_id, compute_node_id)
-        print("The response of AgentsApi->start_compute_nodes_power_cycle:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AgentsApi->start_compute_nodes_power_cycle: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **controller_id** | **str**| The ID of the controller. | 
- **compute_node_id** | **str**| The ID of the compute node. | 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Details about the operation that just started |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **start_controllers_change_nodes_aggregation**
-> AsyncContext start_controllers_change_nodes_aggregation(change_aggregation_mode_operation=change_aggregation_mode_operation)
-
-
-
-Change the compute-nodes aggregation mode.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.models.change_aggregation_mode_operation import ChangeAggregationModeOperation
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.AgentsApi(api_client)
-    change_aggregation_mode_operation = cyperf.ChangeAggregationModeOperation() # ChangeAggregationModeOperation |  (optional)
-
-    try:
-        api_response = api_instance.start_controllers_change_nodes_aggregation(change_aggregation_mode_operation=change_aggregation_mode_operation)
-        print("The response of AgentsApi->start_controllers_change_nodes_aggregation:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AgentsApi->start_controllers_change_nodes_aggregation: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **change_aggregation_mode_operation** | [**ChangeAggregationModeOperation**](ChangeAggregationModeOperation.md)|  | [optional] 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Details about the operation that just started |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **start_controllers_change_ports_link_state**
-> AsyncContext start_controllers_change_ports_link_state(change_link_state_operation=change_link_state_operation)
-
-
-
-Change ports link state.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.models.change_link_state_operation import ChangeLinkStateOperation
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.AgentsApi(api_client)
-    change_link_state_operation = cyperf.ChangeLinkStateOperation() # ChangeLinkStateOperation |  (optional)
-
-    try:
-        api_response = api_instance.start_controllers_change_ports_link_state(change_link_state_operation=change_link_state_operation)
-        print("The response of AgentsApi->start_controllers_change_ports_link_state:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AgentsApi->start_controllers_change_ports_link_state: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **change_link_state_operation** | [**ChangeLinkStateOperation**](ChangeLinkStateOperation.md)|  | [optional] 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Details about the operation that just started |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **start_controllers_clear_ports_ownership**
-> AsyncContext start_controllers_clear_ports_ownership(clear_ports_ownership_operation=clear_ports_ownership_operation)
-
-
-
-Clear ports ownership.
+Clear the ownership of the ports.
 
 ### Example
 
@@ -2367,11 +2126,11 @@ with cyperf.ApiClient(configuration) as api_client:
     clear_ports_ownership_operation = cyperf.ClearPortsOwnershipOperation() # ClearPortsOwnershipOperation |  (optional)
 
     try:
-        api_response = api_instance.start_controllers_clear_ports_ownership(clear_ports_ownership_operation=clear_ports_ownership_operation)
-        print("The response of AgentsApi->start_controllers_clear_ports_ownership:\n")
+        api_response = api_instance.start_controllers_clear_port_ownership(clear_ports_ownership_operation=clear_ports_ownership_operation)
+        print("The response of AgentsApi->start_controllers_clear_port_ownership:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AgentsApi->start_controllers_clear_ports_ownership: %s\n" % e)
+        print("Exception when calling AgentsApi->start_controllers_clear_port_ownership: %s\n" % e)
 ```
 
 
@@ -2404,8 +2163,86 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_controllers_reboot_ports**
-> AsyncContext start_controllers_reboot_ports(reboot_ports_operation=reboot_ports_operation)
+# **start_controllers_power_cycle_nodes**
+> AsyncContext start_controllers_power_cycle_nodes(nodes_power_cycle_operation=nodes_power_cycle_operation)
+
+
+
+Power cycle the compute nodes.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.models.nodes_power_cycle_operation import NodesPowerCycleOperation
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.AgentsApi(api_client)
+    nodes_power_cycle_operation = cyperf.NodesPowerCycleOperation() # NodesPowerCycleOperation |  (optional)
+
+    try:
+        api_response = api_instance.start_controllers_power_cycle_nodes(nodes_power_cycle_operation=nodes_power_cycle_operation)
+        print("The response of AgentsApi->start_controllers_power_cycle_nodes:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsApi->start_controllers_power_cycle_nodes: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **nodes_power_cycle_operation** | [**NodesPowerCycleOperation**](NodesPowerCycleOperation.md)|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_controllers_reboot_port**
+> AsyncContext start_controllers_reboot_port(reboot_ports_operation=reboot_ports_operation)
 
 
 
@@ -2445,11 +2282,11 @@ with cyperf.ApiClient(configuration) as api_client:
     reboot_ports_operation = cyperf.RebootPortsOperation() # RebootPortsOperation |  (optional)
 
     try:
-        api_response = api_instance.start_controllers_reboot_ports(reboot_ports_operation=reboot_ports_operation)
-        print("The response of AgentsApi->start_controllers_reboot_ports:\n")
+        api_response = api_instance.start_controllers_reboot_port(reboot_ports_operation=reboot_ports_operation)
+        print("The response of AgentsApi->start_controllers_reboot_port:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AgentsApi->start_controllers_reboot_ports: %s\n" % e)
+        print("Exception when calling AgentsApi->start_controllers_reboot_port: %s\n" % e)
 ```
 
 
@@ -2482,12 +2319,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_controllers_switch_app**
-> AsyncContext start_controllers_switch_app(controller_id, switch_app_operation=switch_app_operation)
+# **start_controllers_set_app**
+> AsyncContext start_controllers_set_app(set_app_operation=set_app_operation)
 
 
 
-Switch the controller active app.
+Set the active app of the controllers.
 
 ### Example
 
@@ -2497,7 +2334,7 @@ Switch the controller active app.
 ```python
 import cyperf
 from cyperf.models.async_context import AsyncContext
-from cyperf.models.switch_app_operation import SwitchAppOperation
+from cyperf.models.set_app_operation import SetAppOperation
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -2520,15 +2357,14 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.AgentsApi(api_client)
-    controller_id = 'controller_id_example' # str | The ID of the controller.
-    switch_app_operation = cyperf.SwitchAppOperation() # SwitchAppOperation |  (optional)
+    set_app_operation = cyperf.SetAppOperation() # SetAppOperation |  (optional)
 
     try:
-        api_response = api_instance.start_controllers_switch_app(controller_id, switch_app_operation=switch_app_operation)
-        print("The response of AgentsApi->start_controllers_switch_app:\n")
+        api_response = api_instance.start_controllers_set_app(set_app_operation=set_app_operation)
+        print("The response of AgentsApi->start_controllers_set_app:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AgentsApi->start_controllers_switch_app: %s\n" % e)
+        print("Exception when calling AgentsApi->start_controllers_set_app: %s\n" % e)
 ```
 
 
@@ -2538,8 +2374,163 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **controller_id** | **str**| The ID of the controller. | 
- **switch_app_operation** | [**SwitchAppOperation**](SwitchAppOperation.md)|  | [optional] 
+ **set_app_operation** | [**SetAppOperation**](SetAppOperation.md)|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_controllers_set_node_aggregation**
+> AsyncContext start_controllers_set_node_aggregation(set_aggregation_mode_operation=set_aggregation_mode_operation)
+
+
+
+Set the aggregation mode of the compute nodes.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.models.set_aggregation_mode_operation import SetAggregationModeOperation
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.AgentsApi(api_client)
+    set_aggregation_mode_operation = cyperf.SetAggregationModeOperation() # SetAggregationModeOperation |  (optional)
+
+    try:
+        api_response = api_instance.start_controllers_set_node_aggregation(set_aggregation_mode_operation=set_aggregation_mode_operation)
+        print("The response of AgentsApi->start_controllers_set_node_aggregation:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsApi->start_controllers_set_node_aggregation: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **set_aggregation_mode_operation** | [**SetAggregationModeOperation**](SetAggregationModeOperation.md)|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_controllers_set_port_link_state**
+> AsyncContext start_controllers_set_port_link_state(set_link_state_operation=set_link_state_operation)
+
+
+
+Set the link state of the ports.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.models.set_link_state_operation import SetLinkStateOperation
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.AgentsApi(api_client)
+    set_link_state_operation = cyperf.SetLinkStateOperation() # SetLinkStateOperation |  (optional)
+
+    try:
+        api_response = api_instance.start_controllers_set_port_link_state(set_link_state_operation=set_link_state_operation)
+        print("The response of AgentsApi->start_controllers_set_port_link_state:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsApi->start_controllers_set_port_link_state: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **set_link_state_operation** | [**SetLinkStateOperation**](SetLinkStateOperation.md)|  | [optional] 
 
 ### Return type
 

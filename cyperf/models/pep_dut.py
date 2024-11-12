@@ -38,11 +38,11 @@ class PepDUT(BaseModel):
     hostname_suffix: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A suffix to be added to the Host header of all Apps/Attacks running through the DUT (default: empty string).", alias="HostnameSuffix")
     idp_type: Optional[Params] = Field(default=None, alias="IDPType")
     is_explicit_proxy: Optional[StrictBool] = Field(default=None, description="A flag indicating if PEP for the selected authentication profile is an explicit proxy", alias="IsExplicitProxy")
-    links: Optional[List[APILink]] = None
     pep_host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The hostname where the traffic goes if PEP device is active.", alias="PEPHost")
     pep_port: Optional[StrictInt] = Field(default=None, description="The listen port for PEP DUT (default: 443).", alias="PEPPort")
     simulated_id_p: Optional[SimulatedIdP] = Field(default=None, alias="SimulatedIdP")
-    __properties: ClassVar[List[str]] = ["AuthMethod", "AuthProfileParams", "AuthProfileType", "HostnameSuffix", "IDPType", "IsExplicitProxy", "links", "PEPHost", "PEPPort", "SimulatedIdP"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["AuthMethod", "AuthProfileParams", "AuthProfileType", "HostnameSuffix", "IDPType", "IsExplicitProxy", "PEPHost", "PEPPort", "SimulatedIdP", "links"]
 
     @field_validator('hostname_suffix')
     def hostname_suffix_validate_regular_expression(cls, value):
@@ -116,6 +116,9 @@ class PepDUT(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of idp_type
         if self.idp_type:
             _dict['IDPType'] = self.idp_type.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of simulated_id_p
+        if self.simulated_id_p:
+            _dict['SimulatedIdP'] = self.simulated_id_p.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -123,9 +126,6 @@ class PepDUT(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of simulated_id_p
-        if self.simulated_id_p:
-            _dict['SimulatedIdP'] = self.simulated_id_p.to_dict()
         return _dict
 
     @classmethod
@@ -146,10 +146,10 @@ class PepDUT(BaseModel):
                         "HostnameSuffix": obj.get("HostnameSuffix"),
                         "IDPType": Params.from_dict(obj["IDPType"]) if obj.get("IDPType") is not None else None,
                         "IsExplicitProxy": obj.get("IsExplicitProxy"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "PEPHost": obj.get("PEPHost"),
                         "PEPPort": obj.get("PEPPort"),
-                        "SimulatedIdP": SimulatedIdP.from_dict(obj["SimulatedIdP"]) if obj.get("SimulatedIdP") is not None else None
+                        "SimulatedIdP": SimulatedIdP.from_dict(obj["SimulatedIdP"]) if obj.get("SimulatedIdP") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

@@ -47,13 +47,11 @@ class Scenario(BaseModel):
     end_point_id: Optional[StrictInt] = Field(default=None, description="The endpoint ID of the Scenario.", alias="EndPointID")
     endpoints: Optional[List[Endpoint]] = Field(default=None, alias="Endpoints")
     external_resource_url: Optional[StrictStr] = Field(default=None, description="The external resource URL of the Scenario.", alias="ExternalResourceURL")
-    id: Optional[StrictStr] = None
     index: Optional[StrictInt] = Field(default=None, description="The index of the scenario.", alias="Index")
     inherit_http_profile: Optional[StrictBool] = Field(default=None, alias="InheritHTTPProfile")
     ip_preference: Optional[IpPreference] = Field(default=None, description="The Ip Preference. Must be one of: IPV4_ONLY, IPV6_ONLY, BOTH_IPV4_FIRST, BOTH_IPV6_FIRST or IP_PREF_MAX.", alias="IpPreference")
     is_deprecated: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is deprecated.", alias="IsDeprecated")
     iteration_count: Optional[StrictInt] = Field(default=None, description="The iteration counter of the Scenario.", alias="IterationCount")
-    links: Optional[List[APILink]] = None
     max_active_limit: Optional[StrictInt] = Field(default=None, description="The maximum active limit of the Scenario.", alias="MaxActiveLimit")
     name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="Name")
     network_mapping: Optional[NetworkMapping] = Field(default=None, alias="NetworkMapping")
@@ -65,7 +63,9 @@ class Scenario(BaseModel):
     supports_client_http_profile: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports Client HTTP profile.", alias="SupportsClientHTTPProfile")
     supports_http_profiles: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports HTTP profiles.", alias="SupportsHTTPProfiles")
     supports_server_http_profile: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports Server HTTP profile.", alias="SupportsServerHTTPProfile")
-    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "id", "Index", "InheritHTTPProfile", "IpPreference", "IsDeprecated", "IterationCount", "links", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile"]
+    id: Optional[StrictStr] = None
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -133,13 +133,6 @@ class Scenario(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Endpoints'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of network_mapping
         if self.network_mapping:
             _dict['NetworkMapping'] = self.network_mapping.to_dict()
@@ -153,6 +146,13 @@ class Scenario(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of server_http_profile
         if self.server_http_profile:
             _dict['ServerHTTPProfile'] = self.server_http_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -178,13 +178,11 @@ class Scenario(BaseModel):
                         "EndPointID": obj.get("EndPointID"),
                         "Endpoints": [Endpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
                         "ExternalResourceURL": obj.get("ExternalResourceURL"),
-                        "id": obj.get("id"),
                         "Index": obj.get("Index"),
                         "InheritHTTPProfile": obj.get("InheritHTTPProfile"),
                         "IpPreference": obj.get("IpPreference"),
                         "IsDeprecated": obj.get("IsDeprecated"),
                         "IterationCount": obj.get("IterationCount"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "MaxActiveLimit": obj.get("MaxActiveLimit"),
                         "Name": obj.get("Name"),
                         "NetworkMapping": NetworkMapping.from_dict(obj["NetworkMapping"]) if obj.get("NetworkMapping") is not None else None,
@@ -195,7 +193,9 @@ class Scenario(BaseModel):
                         "ServerHTTPProfile": HTTPProfile.from_dict(obj["ServerHTTPProfile"]) if obj.get("ServerHTTPProfile") is not None else None,
                         "SupportsClientHTTPProfile": obj.get("SupportsClientHTTPProfile"),
                         "SupportsHTTPProfiles": obj.get("SupportsHTTPProfiles"),
-                        "SupportsServerHTTPProfile": obj.get("SupportsServerHTTPProfile")
+                        "SupportsServerHTTPProfile": obj.get("SupportsServerHTTPProfile"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

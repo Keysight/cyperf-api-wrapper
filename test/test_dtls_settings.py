@@ -36,16 +36,6 @@ class TestDTLSSettings(unittest.TestCase):
         model = DTLSSettings()
         if include_optional:
             return DTLSSettings(
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 tls_client_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
                     cipher = null, 
@@ -127,7 +117,17 @@ class TestDTLSSettings(unittest.TestCase):
                     recv_buff_size_res = 56, 
                     rx_buffer = 56, 
                     sock_group = '', 
-                    tx_buffer = 56, )
+                    tx_buffer = 56, ),
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return DTLSSettings(

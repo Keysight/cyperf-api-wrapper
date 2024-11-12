@@ -61,6 +61,29 @@ class TestGetSessions200ResponseOneOf(unittest.TestCase):
                                             per_second = 56, 
                                             total = 56, ), )
                                     ], 
+                                network_profiles = [
+                                    cyperf.models.network_profile.NetworkProfile(
+                                        dut_network_segment = [
+                                            null
+                                            ], 
+                                        ip_network_segment = [
+                                            null
+                                            ], 
+                                        id = '', 
+                                        links = [
+                                            cyperf.models.api_link.APILink(
+                                                content_type = '', 
+                                                href = '', 
+                                                method = '', 
+                                                name = '', 
+                                                references_count = 56, 
+                                                rel = '', 
+                                                type = '', )
+                                            ], )
+                                    ], 
+                                traffic_profiles = [
+                                    null
+                                    ], 
                                 links = [
                                     cyperf.models.api_link.APILink(
                                         content_type = '', 
@@ -71,38 +94,16 @@ class TestGetSessions200ResponseOneOf(unittest.TestCase):
                                         rel = '', 
                                         type = '', )
                                     ], 
-                                network_profiles = [
-                                    cyperf.models.network_profile.NetworkProfile(
-                                        dut_network_segment = [
-                                            null
-                                            ], 
-                                        id = '', 
-                                        ip_network_segment = [
-                                            null
-                                            ], )
-                                    ], 
-                                traffic_profiles = [
-                                    null
-                                    ], 
                                 validate = [
                                     'YQ=='
                                     ], ), 
+                            session_id = '', 
+                            template_id = '', 
                             config_type_name = '', 
                             data_model_version = '', 
                             id = '', 
-                            links = [
-                                cyperf.models.api_link.APILink(
-                                    content_type = '', 
-                                    href = '', 
-                                    method = '', 
-                                    name = '', 
-                                    references_count = 56, 
-                                    rel = '', 
-                                    type = '', )
-                                ], 
-                            name = '', 
-                            session_id = '', 
-                            template_id = '', ), 
+                            links = , 
+                            name = '', ), 
                         config_name = '', 
                         config_url = '', 
                         created = 56, 

@@ -42,6 +42,14 @@ class TestFortinetSettings(unittest.TestCase):
                     certificate_file = null, 
                     key_file = null, 
                     key_file_password = '', 
+                    passwords = [
+                        ''
+                        ], 
+                    passwords_param = null, 
+                    usernames = [
+                        ''
+                        ], 
+                    usernames_param = null, 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -51,25 +59,7 @@ class TestFortinetSettings(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], 
-                    passwords = [
-                        ''
-                        ], 
-                    passwords_param = null, 
-                    usernames = [
-                        ''
-                        ], 
-                    usernames_param = null, ),
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
+                        ], ),
                 outer_tcp_profile = cyperf.models.tcp_profile.TcpProfile(
                     close_with_reset = True, 
                     defer_accept = True, 
@@ -90,8 +80,21 @@ class TestFortinetSettings(unittest.TestCase):
                     tx_buffer = 56, 
                     user_mss = 56, 
                     wscale_enabled = True, ),
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ],
                 fortinet_encapsulation = cyperf.models.fortinet_encapsulation.FortinetEncapsulation(
                     encapsulation_mode = 'PPP_OVER_DTLS', 
+                    ppp_over_dtls_enabled = True, 
+                    ppp_over_dtls_settings = null, 
+                    udp_port = 56, 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -101,10 +104,7 @@ class TestFortinetSettings(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], 
-                    ppp_over_dtls_enabled = True, 
-                    ppp_over_dtls_settings = null, 
-                    udp_port = 56, ),
+                        ], ),
                 outer_tls_client_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
                     cipher = null, 

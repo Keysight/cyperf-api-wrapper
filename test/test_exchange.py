@@ -37,9 +37,9 @@ class TestExchange(unittest.TestCase):
         if include_optional:
             return Exchange(
                 client_endpoint = '',
-                id = '',
                 name = '',
-                server_endpoint = ''
+                server_endpoint = '',
+                id = ''
             )
         else:
             return Exchange(

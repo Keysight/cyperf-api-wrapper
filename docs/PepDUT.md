@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **hostname_suffix** | **str** | A suffix to be added to the Host header of all Apps/Attacks running through the DUT (default: empty string). | [optional] 
 **idp_type** | [**Params**](Params.md) |  | [optional] 
 **is_explicit_proxy** | **bool** | A flag indicating if PEP for the selected authentication profile is an explicit proxy | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **pep_host** | **str** | The hostname where the traffic goes if PEP device is active. | [optional] 
 **pep_port** | **int** | The listen port for PEP DUT (default: 443). | [optional] 
 **simulated_id_p** | [**SimulatedIdP**](SimulatedIdP.md) |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

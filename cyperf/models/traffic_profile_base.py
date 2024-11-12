@@ -31,10 +31,10 @@ class TrafficProfileBase(BaseModel):
     TrafficProfileBase
     """ # noqa: E501
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether the profile is enabled or not.", alias="Active")
+    traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
-    __properties: ClassVar[List[str]] = ["Active", "id", "links", "TrafficSettings"]
+    __properties: ClassVar[List[str]] = ["Active", "TrafficSettings", "id", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +75,9 @@ class TrafficProfileBase(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of traffic_settings
+        if self.traffic_settings:
+            _dict['TrafficSettings'] = self.traffic_settings.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -82,9 +85,6 @@ class TrafficProfileBase(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of traffic_settings
-        if self.traffic_settings:
-            _dict['TrafficSettings'] = self.traffic_settings.to_dict()
         return _dict
 
     @classmethod
@@ -100,9 +100,9 @@ class TrafficProfileBase(BaseModel):
 
         _obj = cls.model_validate({
             "Active": obj.get("Active"),
+                        "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

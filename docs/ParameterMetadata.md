@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **flow_identifier** | **bool** | If true, the value of this parameter is used to uniquely identify an application/attack | [optional] 
 **input** | **str** | The input of the parameter | [optional] 
 **legacy_names** | **List[str]** | The names of the equivalent parameters | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **mandatory** | **bool** | The mandatory status of the parameter | [optional] 
 **payload** | [**PayloadMetadata**](PayloadMetadata.md) |  | [optional] 
 **readonly** | **bool** | The read-only status of the parameter | [optional] 
@@ -22,6 +21,7 @@ Name | Type | Description | Notes
 **type** | **str** | The type of the parameter | [optional] 
 **type_info** | [**TypeInfoMetadata**](TypeInfoMetadata.md) |  | [optional] 
 **unique_value** | **bool** | If true, the value of this parameter must be unique across all Applications/Actions | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

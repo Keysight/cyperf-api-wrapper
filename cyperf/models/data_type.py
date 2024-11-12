@@ -29,9 +29,9 @@ class DataType(BaseModel):
     """
     DataType
     """ # noqa: E501
-    id: Optional[StrictStr] = None
     values: Optional[List[DataTypeValuesInner]] = Field(default=None, description="A list of parameters for this data type.", alias="Values")
-    __properties: ClassVar[List[str]] = ["id", "Values"]
+    id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["Values", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,8 +93,8 @@ class DataType(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "Values": [DataTypeValuesInner.from_dict(_item) for _item in obj["Values"]] if obj.get("Values") is not None else None
+            "Values": [DataTypeValuesInner.from_dict(_item) for _item in obj["Values"]] if obj.get("Values") is not None else None,
+                        "id": obj.get("id")
             ,
             "links": obj.get("links")
         })

@@ -22,8 +22,6 @@ from typing import List, Optional
 from typing_extensions import Annotated
 from cyperf.models.agent import Agent
 from cyperf.models.async_context import AsyncContext
-from cyperf.models.change_aggregation_mode_operation import ChangeAggregationModeOperation
-from cyperf.models.change_link_state_operation import ChangeLinkStateOperation
 from cyperf.models.clear_ports_ownership_operation import ClearPortsOwnershipOperation
 from cyperf.models.compute_node import ComputeNode
 from cyperf.models.controller import Controller
@@ -31,15 +29,18 @@ from cyperf.models.export_files_operation_input import ExportFilesOperationInput
 from cyperf.models.get_agent_tags200_response import GetAgentTags200Response
 from cyperf.models.get_agents200_response import GetAgents200Response
 from cyperf.models.get_controllers200_response import GetControllers200Response
+from cyperf.models.nodes_power_cycle_operation import NodesPowerCycleOperation
 from cyperf.models.port import Port
 from cyperf.models.reboot_operation_input import RebootOperationInput
 from cyperf.models.reboot_ports_operation import RebootPortsOperation
 from cyperf.models.release_operation_input import ReleaseOperationInput
 from cyperf.models.reserve_operation_input import ReserveOperationInput
+from cyperf.models.set_aggregation_mode_operation import SetAggregationModeOperation
+from cyperf.models.set_app_operation import SetAppOperation
 from cyperf.models.set_dpdk_mode_operation_input import SetDpdkModeOperationInput
+from cyperf.models.set_link_state_operation import SetLinkStateOperation
 from cyperf.models.set_ntp_operation_input import SetNtpOperationInput
 from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
-from cyperf.models.switch_app_operation import SwitchAppOperation
 
 from cyperf import DynamicModel
 from cyperf.api_client import ApiClient, RequestSerialized
@@ -3515,10 +3516,8 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_compute_nodes_power_cycle(
+    def poll_controllers_clear_port_ownership(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        compute_node_id: Annotated[StrictStr, Field(description="The ID of the compute node.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
@@ -3533,14 +3532,10 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_compute_nodes_power_cycle
+        """poll_controllers_clear_port_ownership
 
         Get the state of an ongoing operation.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param compute_node_id: The ID of the compute node. (required)
-        :type compute_node_id: str
         :param id: The ID of the async operation. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3565,9 +3560,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_compute_nodes_power_cycle_serialize(
-            controller_id=controller_id,
-            compute_node_id=compute_node_id,
+        _param = self._poll_controllers_clear_port_ownership_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3590,10 +3583,8 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_compute_nodes_power_cycle_with_http_info(
+    def poll_controllers_clear_port_ownership_with_http_info(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        compute_node_id: Annotated[StrictStr, Field(description="The ID of the compute node.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
@@ -3608,14 +3599,10 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_compute_nodes_power_cycle
+        """poll_controllers_clear_port_ownership
 
         Get the state of an ongoing operation.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param compute_node_id: The ID of the compute node. (required)
-        :type compute_node_id: str
         :param id: The ID of the async operation. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3640,9 +3627,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_compute_nodes_power_cycle_serialize(
-            controller_id=controller_id,
-            compute_node_id=compute_node_id,
+        _param = self._poll_controllers_clear_port_ownership_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3665,10 +3650,8 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_compute_nodes_power_cycle_without_preload_content(
+    def poll_controllers_clear_port_ownership_without_preload_content(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        compute_node_id: Annotated[StrictStr, Field(description="The ID of the compute node.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
@@ -3683,14 +3666,10 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_compute_nodes_power_cycle
+        """poll_controllers_clear_port_ownership
 
         Get the state of an ongoing operation.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param compute_node_id: The ID of the compute node. (required)
-        :type compute_node_id: str
         :param id: The ID of the async operation. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3715,9 +3694,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_compute_nodes_power_cycle_serialize(
-            controller_id=controller_id,
-            compute_node_id=compute_node_id,
+        _param = self._poll_controllers_clear_port_ownership_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3735,10 +3712,8 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_compute_nodes_power_cycle_serialize(
+    def _poll_controllers_clear_port_ownership_serialize(
         self,
-        controller_id,
-        compute_node_id,
         id,
         _request_auth,
         _content_type,
@@ -3759,10 +3734,6 @@ class AgentsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if controller_id is not None:
-            _path_params['controllerId'] = controller_id
-        if compute_node_id is not None:
-            _path_params['computeNodeId'] = compute_node_id
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -3788,7 +3759,7 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/operations/power-cycle/{id}',
+            resource_path='/api/v2/controllers/operations/clear-port-ownership/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3805,7 +3776,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_change_nodes_aggregation(
+    def poll_controllers_power_cycle_nodes(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -3821,7 +3792,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_controllers_change_nodes_aggregation
+        """poll_controllers_power_cycle_nodes
 
         Get the state of an ongoing operation.
 
@@ -3849,7 +3820,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_change_nodes_aggregation_serialize(
+        _param = self._poll_controllers_power_cycle_nodes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3872,7 +3843,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_change_nodes_aggregation_with_http_info(
+    def poll_controllers_power_cycle_nodes_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -3888,7 +3859,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_controllers_change_nodes_aggregation
+        """poll_controllers_power_cycle_nodes
 
         Get the state of an ongoing operation.
 
@@ -3916,7 +3887,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_change_nodes_aggregation_serialize(
+        _param = self._poll_controllers_power_cycle_nodes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3939,7 +3910,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_change_nodes_aggregation_without_preload_content(
+    def poll_controllers_power_cycle_nodes_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -3955,7 +3926,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_controllers_change_nodes_aggregation
+        """poll_controllers_power_cycle_nodes
 
         Get the state of an ongoing operation.
 
@@ -3983,7 +3954,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_change_nodes_aggregation_serialize(
+        _param = self._poll_controllers_power_cycle_nodes_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4001,7 +3972,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_controllers_change_nodes_aggregation_serialize(
+    def _poll_controllers_power_cycle_nodes_serialize(
         self,
         id,
         _request_auth,
@@ -4048,7 +4019,7 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/controllers/operations/change-nodes-aggregation/{id}',
+            resource_path='/api/v2/controllers/operations/power-cycle-nodes/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4065,7 +4036,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_change_ports_link_state(
+    def poll_controllers_reboot_port(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4081,7 +4052,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_controllers_change_ports_link_state
+        """poll_controllers_reboot_port
 
         Get the state of an ongoing operation.
 
@@ -4109,7 +4080,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_change_ports_link_state_serialize(
+        _param = self._poll_controllers_reboot_port_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4132,7 +4103,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_change_ports_link_state_with_http_info(
+    def poll_controllers_reboot_port_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4148,7 +4119,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_controllers_change_ports_link_state
+        """poll_controllers_reboot_port
 
         Get the state of an ongoing operation.
 
@@ -4176,7 +4147,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_change_ports_link_state_serialize(
+        _param = self._poll_controllers_reboot_port_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4199,7 +4170,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_change_ports_link_state_without_preload_content(
+    def poll_controllers_reboot_port_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4215,7 +4186,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_controllers_change_ports_link_state
+        """poll_controllers_reboot_port
 
         Get the state of an ongoing operation.
 
@@ -4243,7 +4214,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_change_ports_link_state_serialize(
+        _param = self._poll_controllers_reboot_port_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4261,7 +4232,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_controllers_change_ports_link_state_serialize(
+    def _poll_controllers_reboot_port_serialize(
         self,
         id,
         _request_auth,
@@ -4308,7 +4279,7 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/controllers/operations/change-ports-link-state/{id}',
+            resource_path='/api/v2/controllers/operations/reboot-port/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4325,7 +4296,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_clear_ports_ownership(
+    def poll_controllers_set_app(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4341,7 +4312,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_controllers_clear_ports_ownership
+        """poll_controllers_set_app
 
         Get the state of an ongoing operation.
 
@@ -4369,7 +4340,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_clear_ports_ownership_serialize(
+        _param = self._poll_controllers_set_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4392,7 +4363,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_clear_ports_ownership_with_http_info(
+    def poll_controllers_set_app_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4408,7 +4379,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_controllers_clear_ports_ownership
+        """poll_controllers_set_app
 
         Get the state of an ongoing operation.
 
@@ -4436,7 +4407,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_clear_ports_ownership_serialize(
+        _param = self._poll_controllers_set_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4459,7 +4430,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_clear_ports_ownership_without_preload_content(
+    def poll_controllers_set_app_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4475,7 +4446,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_controllers_clear_ports_ownership
+        """poll_controllers_set_app
 
         Get the state of an ongoing operation.
 
@@ -4503,7 +4474,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_clear_ports_ownership_serialize(
+        _param = self._poll_controllers_set_app_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4521,7 +4492,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_controllers_clear_ports_ownership_serialize(
+    def _poll_controllers_set_app_serialize(
         self,
         id,
         _request_auth,
@@ -4568,7 +4539,7 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/controllers/operations/clear-ports-ownership/{id}',
+            resource_path='/api/v2/controllers/operations/set-app/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4585,7 +4556,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_reboot_ports(
+    def poll_controllers_set_node_aggregation(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4601,7 +4572,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_controllers_reboot_ports
+        """poll_controllers_set_node_aggregation
 
         Get the state of an ongoing operation.
 
@@ -4629,7 +4600,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_reboot_ports_serialize(
+        _param = self._poll_controllers_set_node_aggregation_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4652,7 +4623,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_reboot_ports_with_http_info(
+    def poll_controllers_set_node_aggregation_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4668,7 +4639,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_controllers_reboot_ports
+        """poll_controllers_set_node_aggregation
 
         Get the state of an ongoing operation.
 
@@ -4696,7 +4667,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_reboot_ports_serialize(
+        _param = self._poll_controllers_set_node_aggregation_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4719,7 +4690,7 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_reboot_ports_without_preload_content(
+    def poll_controllers_set_node_aggregation_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -4735,7 +4706,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_controllers_reboot_ports
+        """poll_controllers_set_node_aggregation
 
         Get the state of an ongoing operation.
 
@@ -4763,7 +4734,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_reboot_ports_serialize(
+        _param = self._poll_controllers_set_node_aggregation_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4781,7 +4752,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_controllers_reboot_ports_serialize(
+    def _poll_controllers_set_node_aggregation_serialize(
         self,
         id,
         _request_auth,
@@ -4828,7 +4799,7 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/controllers/operations/reboot-ports/{id}',
+            resource_path='/api/v2/controllers/operations/set-node-aggregation/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4845,9 +4816,8 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_switch_app(
+    def poll_controllers_set_port_link_state(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
@@ -4862,12 +4832,10 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_controllers_switch_app
+        """poll_controllers_set_port_link_state
 
         Get the state of an ongoing operation.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
         :param id: The ID of the async operation. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -4892,8 +4860,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_switch_app_serialize(
-            controller_id=controller_id,
+        _param = self._poll_controllers_set_port_link_state_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4916,9 +4883,8 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_switch_app_with_http_info(
+    def poll_controllers_set_port_link_state_with_http_info(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
@@ -4933,12 +4899,10 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_controllers_switch_app
+        """poll_controllers_set_port_link_state
 
         Get the state of an ongoing operation.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
         :param id: The ID of the async operation. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -4963,8 +4927,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_switch_app_serialize(
-            controller_id=controller_id,
+        _param = self._poll_controllers_set_port_link_state_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4987,9 +4950,8 @@ class AgentsApi:
 
 
     @validate_call
-    def poll_controllers_switch_app_without_preload_content(
+    def poll_controllers_set_port_link_state_without_preload_content(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
@@ -5004,12 +4966,10 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_controllers_switch_app
+        """poll_controllers_set_port_link_state
 
         Get the state of an ongoing operation.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
         :param id: The ID of the async operation. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -5034,8 +4994,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_controllers_switch_app_serialize(
-            controller_id=controller_id,
+        _param = self._poll_controllers_set_port_link_state_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5053,9 +5012,8 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _poll_controllers_switch_app_serialize(
+    def _poll_controllers_set_port_link_state_serialize(
         self,
-        controller_id,
         id,
         _request_auth,
         _content_type,
@@ -5076,8 +5034,6 @@ class AgentsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if controller_id is not None:
-            _path_params['controllerId'] = controller_id
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -5103,7 +5059,7 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/controllers/{controllerId}/operations/switch-app/{id}',
+            resource_path='/api/v2/controllers/operations/set-port-link-state/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7214,828 +7170,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_compute_nodes_power_cycle(
-        self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        compute_node_id: Annotated[StrictStr, Field(description="The ID of the compute node.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """start_compute_nodes_power_cycle
-
-        Power-cycle the compute-node.
-
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param compute_node_id: The ID of the compute node. (required)
-        :type compute_node_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_compute_nodes_power_cycle_serialize(
-            controller_id=controller_id,
-            compute_node_id=compute_node_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def start_compute_nodes_power_cycle_with_http_info(
-        self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        compute_node_id: Annotated[StrictStr, Field(description="The ID of the compute node.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """start_compute_nodes_power_cycle
-
-        Power-cycle the compute-node.
-
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param compute_node_id: The ID of the compute node. (required)
-        :type compute_node_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_compute_nodes_power_cycle_serialize(
-            controller_id=controller_id,
-            compute_node_id=compute_node_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def start_compute_nodes_power_cycle_without_preload_content(
-        self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        compute_node_id: Annotated[StrictStr, Field(description="The ID of the compute node.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """start_compute_nodes_power_cycle
-
-        Power-cycle the compute-node.
-
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param compute_node_id: The ID of the compute node. (required)
-        :type compute_node_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_compute_nodes_power_cycle_serialize(
-            controller_id=controller_id,
-            compute_node_id=compute_node_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
-
-
-    def _start_compute_nodes_power_cycle_serialize(
-        self,
-        controller_id,
-        compute_node_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if controller_id is not None:
-            _path_params['controllerId'] = controller_id
-        if compute_node_id is not None:
-            _path_params['computeNodeId'] = compute_node_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/operations/power-cycle',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def start_controllers_change_nodes_aggregation(
-        self,
-        change_aggregation_mode_operation: Optional[ChangeAggregationModeOperation] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """start_controllers_change_nodes_aggregation
-
-        Change the compute-nodes aggregation mode.
-
-        :param change_aggregation_mode_operation:
-        :type change_aggregation_mode_operation: ChangeAggregationModeOperation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_controllers_change_nodes_aggregation_serialize(
-            change_aggregation_mode_operation=change_aggregation_mode_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def start_controllers_change_nodes_aggregation_with_http_info(
-        self,
-        change_aggregation_mode_operation: Optional[ChangeAggregationModeOperation] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """start_controllers_change_nodes_aggregation
-
-        Change the compute-nodes aggregation mode.
-
-        :param change_aggregation_mode_operation:
-        :type change_aggregation_mode_operation: ChangeAggregationModeOperation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_controllers_change_nodes_aggregation_serialize(
-            change_aggregation_mode_operation=change_aggregation_mode_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def start_controllers_change_nodes_aggregation_without_preload_content(
-        self,
-        change_aggregation_mode_operation: Optional[ChangeAggregationModeOperation] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """start_controllers_change_nodes_aggregation
-
-        Change the compute-nodes aggregation mode.
-
-        :param change_aggregation_mode_operation:
-        :type change_aggregation_mode_operation: ChangeAggregationModeOperation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_controllers_change_nodes_aggregation_serialize(
-            change_aggregation_mode_operation=change_aggregation_mode_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
-
-
-    def _start_controllers_change_nodes_aggregation_serialize(
-        self,
-        change_aggregation_mode_operation,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if change_aggregation_mode_operation is not None:
-            _body_params = change_aggregation_mode_operation
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/controllers/operations/change-nodes-aggregation',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def start_controllers_change_ports_link_state(
-        self,
-        change_link_state_operation: Optional[ChangeLinkStateOperation] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """start_controllers_change_ports_link_state
-
-        Change ports link state.
-
-        :param change_link_state_operation:
-        :type change_link_state_operation: ChangeLinkStateOperation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_controllers_change_ports_link_state_serialize(
-            change_link_state_operation=change_link_state_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def start_controllers_change_ports_link_state_with_http_info(
-        self,
-        change_link_state_operation: Optional[ChangeLinkStateOperation] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """start_controllers_change_ports_link_state
-
-        Change ports link state.
-
-        :param change_link_state_operation:
-        :type change_link_state_operation: ChangeLinkStateOperation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_controllers_change_ports_link_state_serialize(
-            change_link_state_operation=change_link_state_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
-
-
-    @validate_call
-    def start_controllers_change_ports_link_state_without_preload_content(
-        self,
-        change_link_state_operation: Optional[ChangeLinkStateOperation] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """start_controllers_change_ports_link_state
-
-        Change ports link state.
-
-        :param change_link_state_operation:
-        :type change_link_state_operation: ChangeLinkStateOperation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_controllers_change_ports_link_state_serialize(
-            change_link_state_operation=change_link_state_operation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
-
-
-    def _start_controllers_change_ports_link_state_serialize(
-        self,
-        change_link_state_operation,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if change_link_state_operation is not None:
-            _body_params = change_link_state_operation
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/controllers/operations/change-ports-link-state',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def start_controllers_clear_ports_ownership(
+    def start_controllers_clear_port_ownership(
         self,
         clear_ports_ownership_operation: Optional[ClearPortsOwnershipOperation] = None,
         _request_timeout: Union[
@@ -8051,9 +7186,9 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_controllers_clear_ports_ownership
+        """start_controllers_clear_port_ownership
 
-        Clear ports ownership.
+        Clear the ownership of the ports.
 
         :param clear_ports_ownership_operation:
         :type clear_ports_ownership_operation: ClearPortsOwnershipOperation
@@ -8079,7 +7214,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_clear_ports_ownership_serialize(
+        _param = self._start_controllers_clear_port_ownership_serialize(
             clear_ports_ownership_operation=clear_ports_ownership_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8102,7 +7237,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_controllers_clear_ports_ownership_with_http_info(
+    def start_controllers_clear_port_ownership_with_http_info(
         self,
         clear_ports_ownership_operation: Optional[ClearPortsOwnershipOperation] = None,
         _request_timeout: Union[
@@ -8118,9 +7253,9 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_controllers_clear_ports_ownership
+        """start_controllers_clear_port_ownership
 
-        Clear ports ownership.
+        Clear the ownership of the ports.
 
         :param clear_ports_ownership_operation:
         :type clear_ports_ownership_operation: ClearPortsOwnershipOperation
@@ -8146,7 +7281,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_clear_ports_ownership_serialize(
+        _param = self._start_controllers_clear_port_ownership_serialize(
             clear_ports_ownership_operation=clear_ports_ownership_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8169,7 +7304,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_controllers_clear_ports_ownership_without_preload_content(
+    def start_controllers_clear_port_ownership_without_preload_content(
         self,
         clear_ports_ownership_operation: Optional[ClearPortsOwnershipOperation] = None,
         _request_timeout: Union[
@@ -8185,9 +7320,9 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_controllers_clear_ports_ownership
+        """start_controllers_clear_port_ownership
 
-        Clear ports ownership.
+        Clear the ownership of the ports.
 
         :param clear_ports_ownership_operation:
         :type clear_ports_ownership_operation: ClearPortsOwnershipOperation
@@ -8213,7 +7348,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_clear_ports_ownership_serialize(
+        _param = self._start_controllers_clear_port_ownership_serialize(
             clear_ports_ownership_operation=clear_ports_ownership_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8231,7 +7366,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_controllers_clear_ports_ownership_serialize(
+    def _start_controllers_clear_port_ownership_serialize(
         self,
         clear_ports_ownership_operation,
         _request_auth,
@@ -8291,7 +7426,7 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v2/controllers/operations/clear-ports-ownership',
+            resource_path='/api/v2/controllers/operations/clear-port-ownership',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8308,7 +7443,280 @@ class AgentsApi:
 
 
     @validate_call
-    def start_controllers_reboot_ports(
+    def start_controllers_power_cycle_nodes(
+        self,
+        nodes_power_cycle_operation: Optional[NodesPowerCycleOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_controllers_power_cycle_nodes
+
+        Power cycle the compute nodes.
+
+        :param nodes_power_cycle_operation:
+        :type nodes_power_cycle_operation: NodesPowerCycleOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_power_cycle_nodes_serialize(
+            nodes_power_cycle_operation=nodes_power_cycle_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_controllers_power_cycle_nodes_with_http_info(
+        self,
+        nodes_power_cycle_operation: Optional[NodesPowerCycleOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_controllers_power_cycle_nodes
+
+        Power cycle the compute nodes.
+
+        :param nodes_power_cycle_operation:
+        :type nodes_power_cycle_operation: NodesPowerCycleOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_power_cycle_nodes_serialize(
+            nodes_power_cycle_operation=nodes_power_cycle_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_controllers_power_cycle_nodes_without_preload_content(
+        self,
+        nodes_power_cycle_operation: Optional[NodesPowerCycleOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_controllers_power_cycle_nodes
+
+        Power cycle the compute nodes.
+
+        :param nodes_power_cycle_operation:
+        :type nodes_power_cycle_operation: NodesPowerCycleOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_power_cycle_nodes_serialize(
+            nodes_power_cycle_operation=nodes_power_cycle_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _start_controllers_power_cycle_nodes_serialize(
+        self,
+        nodes_power_cycle_operation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if nodes_power_cycle_operation is not None:
+            _body_params = nodes_power_cycle_operation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/controllers/operations/power-cycle-nodes',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_controllers_reboot_port(
         self,
         reboot_ports_operation: Optional[RebootPortsOperation] = None,
         _request_timeout: Union[
@@ -8324,7 +7732,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_controllers_reboot_ports
+        """start_controllers_reboot_port
 
         Reboot ports.
 
@@ -8352,7 +7760,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_reboot_ports_serialize(
+        _param = self._start_controllers_reboot_port_serialize(
             reboot_ports_operation=reboot_ports_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8375,7 +7783,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_controllers_reboot_ports_with_http_info(
+    def start_controllers_reboot_port_with_http_info(
         self,
         reboot_ports_operation: Optional[RebootPortsOperation] = None,
         _request_timeout: Union[
@@ -8391,7 +7799,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_controllers_reboot_ports
+        """start_controllers_reboot_port
 
         Reboot ports.
 
@@ -8419,7 +7827,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_reboot_ports_serialize(
+        _param = self._start_controllers_reboot_port_serialize(
             reboot_ports_operation=reboot_ports_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8442,7 +7850,7 @@ class AgentsApi:
 
 
     @validate_call
-    def start_controllers_reboot_ports_without_preload_content(
+    def start_controllers_reboot_port_without_preload_content(
         self,
         reboot_ports_operation: Optional[RebootPortsOperation] = None,
         _request_timeout: Union[
@@ -8458,7 +7866,7 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_controllers_reboot_ports
+        """start_controllers_reboot_port
 
         Reboot ports.
 
@@ -8486,7 +7894,7 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_reboot_ports_serialize(
+        _param = self._start_controllers_reboot_port_serialize(
             reboot_ports_operation=reboot_ports_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8504,7 +7912,7 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_controllers_reboot_ports_serialize(
+    def _start_controllers_reboot_port_serialize(
         self,
         reboot_ports_operation,
         _request_auth,
@@ -8564,7 +7972,7 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v2/controllers/operations/reboot-ports',
+            resource_path='/api/v2/controllers/operations/reboot-port',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8581,10 +7989,9 @@ class AgentsApi:
 
 
     @validate_call
-    def start_controllers_switch_app(
+    def start_controllers_set_app(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        switch_app_operation: Optional[SwitchAppOperation] = None,
+        set_app_operation: Optional[SetAppOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8598,14 +8005,12 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_controllers_switch_app
+        """start_controllers_set_app
 
-        Switch the controller active app.
+        Set the active app of the controllers.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param switch_app_operation:
-        :type switch_app_operation: SwitchAppOperation
+        :param set_app_operation:
+        :type set_app_operation: SetAppOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8628,9 +8033,8 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_switch_app_serialize(
-            controller_id=controller_id,
-            switch_app_operation=switch_app_operation,
+        _param = self._start_controllers_set_app_serialize(
+            set_app_operation=set_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8652,10 +8056,9 @@ class AgentsApi:
 
 
     @validate_call
-    def start_controllers_switch_app_with_http_info(
+    def start_controllers_set_app_with_http_info(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        switch_app_operation: Optional[SwitchAppOperation] = None,
+        set_app_operation: Optional[SetAppOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8669,14 +8072,12 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_controllers_switch_app
+        """start_controllers_set_app
 
-        Switch the controller active app.
+        Set the active app of the controllers.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param switch_app_operation:
-        :type switch_app_operation: SwitchAppOperation
+        :param set_app_operation:
+        :type set_app_operation: SetAppOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8699,9 +8100,8 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_switch_app_serialize(
-            controller_id=controller_id,
-            switch_app_operation=switch_app_operation,
+        _param = self._start_controllers_set_app_serialize(
+            set_app_operation=set_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8723,10 +8123,9 @@ class AgentsApi:
 
 
     @validate_call
-    def start_controllers_switch_app_without_preload_content(
+    def start_controllers_set_app_without_preload_content(
         self,
-        controller_id: Annotated[StrictStr, Field(description="The ID of the controller.")],
-        switch_app_operation: Optional[SwitchAppOperation] = None,
+        set_app_operation: Optional[SetAppOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8740,14 +8139,12 @@ class AgentsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_controllers_switch_app
+        """start_controllers_set_app
 
-        Switch the controller active app.
+        Set the active app of the controllers.
 
-        :param controller_id: The ID of the controller. (required)
-        :type controller_id: str
-        :param switch_app_operation:
-        :type switch_app_operation: SwitchAppOperation
+        :param set_app_operation:
+        :type set_app_operation: SetAppOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8770,9 +8167,8 @@ class AgentsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_controllers_switch_app_serialize(
-            controller_id=controller_id,
-            switch_app_operation=switch_app_operation,
+        _param = self._start_controllers_set_app_serialize(
+            set_app_operation=set_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8789,10 +8185,9 @@ class AgentsApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _start_controllers_switch_app_serialize(
+    def _start_controllers_set_app_serialize(
         self,
-        controller_id,
-        switch_app_operation,
+        set_app_operation,
         _request_auth,
         _content_type,
         _headers,
@@ -8812,14 +8207,12 @@ class AgentsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if controller_id is not None:
-            _path_params['controllerId'] = controller_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if switch_app_operation is not None:
-            _body_params = switch_app_operation
+        if set_app_operation is not None:
+            _body_params = set_app_operation
 
 
         # set the HTTP header `Accept`
@@ -8852,7 +8245,553 @@ class AgentsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v2/controllers/{controllerId}/operations/switch-app',
+            resource_path='/api/v2/controllers/operations/set-app',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_controllers_set_node_aggregation(
+        self,
+        set_aggregation_mode_operation: Optional[SetAggregationModeOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_controllers_set_node_aggregation
+
+        Set the aggregation mode of the compute nodes.
+
+        :param set_aggregation_mode_operation:
+        :type set_aggregation_mode_operation: SetAggregationModeOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_node_aggregation_serialize(
+            set_aggregation_mode_operation=set_aggregation_mode_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_controllers_set_node_aggregation_with_http_info(
+        self,
+        set_aggregation_mode_operation: Optional[SetAggregationModeOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_controllers_set_node_aggregation
+
+        Set the aggregation mode of the compute nodes.
+
+        :param set_aggregation_mode_operation:
+        :type set_aggregation_mode_operation: SetAggregationModeOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_node_aggregation_serialize(
+            set_aggregation_mode_operation=set_aggregation_mode_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_controllers_set_node_aggregation_without_preload_content(
+        self,
+        set_aggregation_mode_operation: Optional[SetAggregationModeOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_controllers_set_node_aggregation
+
+        Set the aggregation mode of the compute nodes.
+
+        :param set_aggregation_mode_operation:
+        :type set_aggregation_mode_operation: SetAggregationModeOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_node_aggregation_serialize(
+            set_aggregation_mode_operation=set_aggregation_mode_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _start_controllers_set_node_aggregation_serialize(
+        self,
+        set_aggregation_mode_operation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if set_aggregation_mode_operation is not None:
+            _body_params = set_aggregation_mode_operation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/controllers/operations/set-node-aggregation',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_controllers_set_port_link_state(
+        self,
+        set_link_state_operation: Optional[SetLinkStateOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_controllers_set_port_link_state
+
+        Set the link state of the ports.
+
+        :param set_link_state_operation:
+        :type set_link_state_operation: SetLinkStateOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_port_link_state_serialize(
+            set_link_state_operation=set_link_state_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_controllers_set_port_link_state_with_http_info(
+        self,
+        set_link_state_operation: Optional[SetLinkStateOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_controllers_set_port_link_state
+
+        Set the link state of the ports.
+
+        :param set_link_state_operation:
+        :type set_link_state_operation: SetLinkStateOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_port_link_state_serialize(
+            set_link_state_operation=set_link_state_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ), self.api_client, response_data.response.url)
+
+
+    @validate_call
+    def start_controllers_set_port_link_state_without_preload_content(
+        self,
+        set_link_state_operation: Optional[SetLinkStateOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_controllers_set_port_link_state
+
+        Set the link state of the ports.
+
+        :param set_link_state_operation:
+        :type set_link_state_operation: SetLinkStateOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_port_link_state_serialize(
+            set_link_state_operation=set_link_state_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
+
+
+    def _start_controllers_set_port_link_state_serialize(
+        self,
+        set_link_state_operation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if set_link_state_operation is not None:
+            _body_params = set_link_state_operation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/controllers/operations/set-port-link-state',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -6,12 +6,12 @@ The tunnel stack assigned to the current test configuration
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
 **inner_ip_range** | [**InnerIPRange**](InnerIPRange.md) |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **outer_ip_range** | [**IPRange**](IPRange.md) |  | [optional] 
 **tunnel_range** | [**TunnelRange**](TunnelRange.md) |  | [optional] 
 **tunnel_stack_name** | **str** |  | 
+**id** | **str** |  | 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

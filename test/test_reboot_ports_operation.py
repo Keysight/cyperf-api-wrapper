@@ -36,8 +36,16 @@ class TestRebootPortsOperation(unittest.TestCase):
         model = RebootPortsOperation()
         if include_optional:
             return RebootPortsOperation(
-                ports = [
-                    ''
+                controllers = [
+                    cyperf.models.ports_by_controller.PortsByController(
+                        compute_nodes = [
+                            cyperf.models.ports_by_node.PortsByNode(
+                                compute_node_id = '', 
+                                ports = [
+                                    ''
+                                    ], )
+                            ], 
+                        controller_id = '', )
                     ]
             )
         else:

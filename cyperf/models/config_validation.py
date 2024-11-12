@@ -31,9 +31,9 @@ class ConfigValidation(BaseModel):
     ConfigValidation
     """ # noqa: E501
     is_validated: StrictBool = Field(alias="IsValidated")
-    links: Optional[List[APILink]] = None
     validation_messages: Optional[List[ValidationMessage]] = Field(default=None, alias="ValidationMessages")
-    __properties: ClassVar[List[str]] = ["IsValidated", "links", "ValidationMessages"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["IsValidated", "ValidationMessages", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,13 +74,6 @@ class ConfigValidation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in validation_messages (list)
         _items = []
         if self.validation_messages:
@@ -88,6 +81,13 @@ class ConfigValidation(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['ValidationMessages'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -103,8 +103,8 @@ class ConfigValidation(BaseModel):
 
         _obj = cls.model_validate({
             "IsValidated": obj.get("IsValidated"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "ValidationMessages": [ValidationMessage.from_dict(_item) for _item in obj["ValidationMessages"]] if obj.get("ValidationMessages") is not None else None
+                        "ValidationMessages": [ValidationMessage.from_dict(_item) for _item in obj["ValidationMessages"]] if obj.get("ValidationMessages") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

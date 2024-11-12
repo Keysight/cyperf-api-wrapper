@@ -31,10 +31,10 @@ class HealthCheckConfig(BaseModel):
     The HealthCheck configuration for DUT
     """ # noqa: E501
     enabled: Optional[StrictBool] = Field(default=None, description="A flag indicating if the servers should listen for HealthCheck requests (default: true).", alias="Enabled")
-    links: Optional[List[APILink]] = None
     params: Optional[List[Params]] = Field(default=None, description="A list of additional parameters for the HealthCheck.", alias="Params")
     port: Optional[StrictInt] = Field(default=None, description="The port that the DUT will send HealthCheck requests to the simulated servers. (default: 80)", alias="Port")
-    __properties: ClassVar[List[str]] = ["Enabled", "links", "Params", "Port"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Enabled", "Params", "Port", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,13 +75,6 @@ class HealthCheckConfig(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in params (list)
         _items = []
         if self.params:
@@ -89,6 +82,13 @@ class HealthCheckConfig(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Params'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -104,9 +104,9 @@ class HealthCheckConfig(BaseModel):
 
         _obj = cls.model_validate({
             "Enabled": obj.get("Enabled"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Params": [Params.from_dict(_item) for _item in obj["Params"]] if obj.get("Params") is not None else None,
-                        "Port": obj.get("Port")
+                        "Port": obj.get("Port"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

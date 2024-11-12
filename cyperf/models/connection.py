@@ -38,9 +38,7 @@ class Connection(BaseModel):
     hostname: Optional[StrictStr] = Field(default=None, description="The hostname associated with the connection. (default: generic.keysight.io).", alias="Hostname")
     hostname_param: Optional[Params] = Field(default=None, description="The hostname associated with the connection. (default: generic.keysight.io).", alias="HostnameParam")
     http_forward_proxy_mode: Optional[StrictStr] = Field(default=None, description="Deprecated. This is ignored and the proxy mode will be deduced from the connection type.", alias="HttpForwardProxyMode")
-    id: StrictStr
     is_deprecated: Optional[StrictBool] = Field(default=None, alias="IsDeprecated")
-    links: Optional[List[APILink]] = None
     max_transactions: StrictInt = Field(description="The maximum number of transactions for this connection.", alias="MaxTransactions")
     name: Optional[StrictStr] = Field(default=None, description="The name of the Connection.", alias="Name")
     port_settings: Optional[PortSettings] = Field(default=None, alias="PortSettings")
@@ -51,7 +49,9 @@ class Connection(BaseModel):
     server_endpoint: Optional[StrictStr] = Field(default=None, description="The server endpoint of the connection.", alias="ServerEndpoint")
     server_port: StrictInt = Field(description="The server port of the connection (default: 80).", alias="ServerPort")
     type: Optional[StrictStr] = Field(default=None, alias="Type")
-    __properties: ClassVar[List[str]] = ["ClientEndpoint", "ClientPort", "ClosingEnd", "DisableEncryption", "Hostname", "HostnameParam", "HttpForwardProxyMode", "id", "IsDeprecated", "links", "MaxTransactions", "Name", "PortSettings", "Readonly", "ReadonlyHostname", "ReadonlyMaxTrans", "ReadonlyType", "ServerEndpoint", "ServerPort", "Type"]
+    id: StrictStr
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["ClientEndpoint", "ClientPort", "ClosingEnd", "DisableEncryption", "Hostname", "HostnameParam", "HttpForwardProxyMode", "IsDeprecated", "MaxTransactions", "Name", "PortSettings", "Readonly", "ReadonlyHostname", "ReadonlyMaxTrans", "ReadonlyType", "ServerEndpoint", "ServerPort", "Type", "id", "links"]
 
     @field_validator('http_forward_proxy_mode')
     def http_forward_proxy_mode_validate_enum(cls, value):
@@ -115,6 +115,9 @@ class Connection(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of hostname_param
         if self.hostname_param:
             _dict['HostnameParam'] = self.hostname_param.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of port_settings
+        if self.port_settings:
+            _dict['PortSettings'] = self.port_settings.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -122,9 +125,6 @@ class Connection(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of port_settings
-        if self.port_settings:
-            _dict['PortSettings'] = self.port_settings.to_dict()
         return _dict
 
     @classmethod
@@ -146,9 +146,7 @@ class Connection(BaseModel):
                         "Hostname": obj.get("Hostname"),
                         "HostnameParam": Params.from_dict(obj["HostnameParam"]) if obj.get("HostnameParam") is not None else None,
                         "HttpForwardProxyMode": obj.get("HttpForwardProxyMode"),
-                        "id": obj.get("id"),
                         "IsDeprecated": obj.get("IsDeprecated"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "MaxTransactions": obj.get("MaxTransactions"),
                         "Name": obj.get("Name"),
                         "PortSettings": PortSettings.from_dict(obj["PortSettings"]) if obj.get("PortSettings") is not None else None,
@@ -158,7 +156,9 @@ class Connection(BaseModel):
                         "ReadonlyType": obj.get("ReadonlyType"),
                         "ServerEndpoint": obj.get("ServerEndpoint"),
                         "ServerPort": obj.get("ServerPort"),
-                        "Type": obj.get("Type")
+                        "Type": obj.get("Type"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

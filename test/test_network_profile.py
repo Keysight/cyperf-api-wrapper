@@ -39,10 +39,10 @@ class TestNetworkProfile(unittest.TestCase):
                 dut_network_segment = [
                     null
                     ],
-                id = '',
                 ip_network_segment = [
                     null
                     ],
+                id = '',
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 

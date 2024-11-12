@@ -12,9 +12,7 @@ Name | Type | Description | Notes
 **hostname** | **str** | The hostname associated with the connection. (default: generic.keysight.io). | [optional] 
 **hostname_param** | [**Params**](Params.md) | The hostname associated with the connection. (default: generic.keysight.io). | [optional] 
 **http_forward_proxy_mode** | **str** | Deprecated. This is ignored and the proxy mode will be deduced from the connection type. | [optional] 
-**id** | **str** |  | 
 **is_deprecated** | **bool** |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **max_transactions** | **int** | The maximum number of transactions for this connection. | 
 **name** | **str** | The name of the Connection. | [optional] 
 **port_settings** | [**PortSettings**](PortSettings.md) |  | [optional] 
@@ -25,6 +23,8 @@ Name | Type | Description | Notes
 **server_endpoint** | **str** | The server endpoint of the connection. | [optional] 
 **server_port** | **int** | The server port of the connection (default: 80). | 
 **type** | **str** |  | [optional] 
+**id** | **str** |  | 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

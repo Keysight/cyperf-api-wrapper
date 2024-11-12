@@ -37,9 +37,9 @@ class TestAttackTimelineSegment(unittest.TestCase):
         if include_optional:
             return AttackTimelineSegment(
                 duration = 56,
-                id = '',
                 segment_type = 'SteadySegment',
                 warm_up_period = 56,
+                id = '',
                 attack_rate = 56,
                 connection_graceful_stop_timeout = 56,
                 iteration_count = 56,
@@ -48,8 +48,8 @@ class TestAttackTimelineSegment(unittest.TestCase):
         else:
             return AttackTimelineSegment(
                 duration = 56,
-                id = '',
                 segment_type = 'SteadySegment',
+                id = '',
                 attack_rate = 56,
                 max_concurrent_attack = 56,
         )

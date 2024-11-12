@@ -38,17 +38,6 @@ class TestAppsecAttack(unittest.TestCase):
             return AppsecAttack(
                 attack = None,
                 description = '',
-                id = '',
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 metadata = cyperf.models.metadata.Metadata(
                     cve_count = 56, 
                     direction = '', 
@@ -66,6 +55,17 @@ class TestAppsecAttack(unittest.TestCase):
                     severity = '', 
                     strikes_count = 56, ),
                 name = '',
+                id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ],
                 owner = '',
                 owner_id = ''
             )

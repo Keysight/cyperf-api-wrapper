@@ -41,7 +41,6 @@ class ParameterMetadata(BaseModel):
     flow_identifier: Optional[StrictBool] = Field(default=None, description="If true, the value of this parameter is used to uniquely identify an application/attack", alias="FlowIdentifier")
     input: Optional[StrictStr] = Field(default=None, description="The input of the parameter", alias="Input")
     legacy_names: Optional[List[StrictStr]] = Field(default=None, description="The names of the equivalent parameters", alias="LegacyNames")
-    links: Optional[List[APILink]] = None
     mandatory: Optional[StrictBool] = Field(default=None, description="The mandatory status of the parameter", alias="Mandatory")
     payload: Optional[PayloadMetadata] = Field(default=None, alias="Payload")
     readonly: Optional[StrictBool] = Field(default=None, description="The read-only status of the parameter", alias="Readonly")
@@ -49,7 +48,8 @@ class ParameterMetadata(BaseModel):
     type: Optional[StrictStr] = Field(default=None, description="The type of the parameter", alias="Type")
     type_info: Optional[TypeInfoMetadata] = Field(default=None, alias="TypeInfo")
     unique_value: Optional[StrictBool] = Field(default=None, description="If true, the value of this parameter must be unique across all Applications/Actions", alias="UniqueValue")
-    __properties: ClassVar[List[str]] = ["Category", "CategoryIndex", "Default", "Description", "DisplayName", "Enum", "FlowIdentifier", "Input", "LegacyNames", "links", "Mandatory", "Payload", "Readonly", "Shared", "Type", "TypeInfo", "UniqueValue"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Category", "CategoryIndex", "Default", "Description", "DisplayName", "Enum", "FlowIdentifier", "Input", "LegacyNames", "Mandatory", "Payload", "Readonly", "Shared", "Type", "TypeInfo", "UniqueValue", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,6 +93,12 @@ class ParameterMetadata(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of enum
         if self.enum:
             _dict['Enum'] = self.enum.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of payload
+        if self.payload:
+            _dict['Payload'] = self.payload.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of type_info
+        if self.type_info:
+            _dict['TypeInfo'] = self.type_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -100,12 +106,6 @@ class ParameterMetadata(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of payload
-        if self.payload:
-            _dict['Payload'] = self.payload.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of type_info
-        if self.type_info:
-            _dict['TypeInfo'] = self.type_info.to_dict()
         return _dict
 
     @classmethod
@@ -129,14 +129,14 @@ class ParameterMetadata(BaseModel):
                         "FlowIdentifier": obj.get("FlowIdentifier"),
                         "Input": obj.get("Input"),
                         "LegacyNames": obj.get("LegacyNames"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Mandatory": obj.get("Mandatory"),
                         "Payload": PayloadMetadata.from_dict(obj["Payload"]) if obj.get("Payload") is not None else None,
                         "Readonly": obj.get("Readonly"),
                         "Shared": obj.get("Shared"),
                         "Type": obj.get("Type"),
                         "TypeInfo": TypeInfoMetadata.from_dict(obj["TypeInfo"]) if obj.get("TypeInfo") is not None else None,
-                        "UniqueValue": obj.get("UniqueValue")
+                        "UniqueValue": obj.get("UniqueValue"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

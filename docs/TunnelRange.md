@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **dns_resolver** | [**DNSResolver**](DNSResolver.md) |  | [optional] 
 **f5_settings** | [**F5Settings**](F5Settings.md) |  | [optional] 
 **fortinet_settings** | [**FortinetSettings**](FortinetSettings.md) |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **pangp_settings** | [**PANGPSettings**](PANGPSettings.md) |  | [optional] 
 **tcp_dst_port** | **int** |  | 
 **tunnel_count_per_outer_ip** | **int** |  | 
 **tunnel_establishment_timeout** | **int** |  | [optional] 
 **vendor_type** | **str** |  | 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

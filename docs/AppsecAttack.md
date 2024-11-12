@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attack** | [**Attack**](Attack.md) |  | [optional] 
 **description** | **str** | The description of the attack | [optional] 
-**id** | **str** | The unique identifier of the attack | [optional] [readonly] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **metadata** | [**Metadata**](Metadata.md) |  | [optional] 
 **name** | **str** | The user friendly name of the attack | [optional] 
+**id** | **str** | The unique identifier of the attack | [optional] [readonly] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **owner** | **str** | The friendly display name of the attack&#39;s owner | [optional] [readonly] 
 **owner_id** | **str** | The unique identifier of the attack&#39;s owner | [optional] [readonly] 
 

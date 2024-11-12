@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **client_stream_profile** | [**StreamProfile**](StreamProfile.md) |  | [optional] 
 **direction** | [**StreamDirection**](StreamDirection.md) |  | [optional] 
 **is_flood_stream** | **bool** |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **server_stream_profile** | [**StreamProfile**](StreamProfile.md) |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

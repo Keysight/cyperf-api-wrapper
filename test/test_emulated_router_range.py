@@ -41,10 +41,26 @@ class TestEmulatedRouterRange(unittest.TestCase):
                 gw_auto = True,
                 gw_start = '::02:84:9:0cc0:F:CCf',
                 host_count = 56,
-                id = '',
                 inner_vlan_range = cyperf.models.vlan_range.VLANRange(
                     count = 56, 
                     count_per_agent = 56, 
+                    max_count_per_agent = 56, 
+                    priority = 56, 
+                    static_arp_table = [
+                        cyperf.models.static_arp_entry.StaticARPEntry(
+                            count = 56, 
+                            remote_ip = '::02:84:9:0cc0:F:CCf', 
+                            remote_ip_incr = '::02:84:9:0cc0:F:CCf', 
+                            remote_mac = '2E-B0-08-29:0c:01', 
+                            remote_mac_incr = '2E-B0-08-29:0c:01', 
+                            static_arp_entry_name = 'YBuLd', 
+                            id = '', )
+                        ], 
+                    tag_protocol_id = 33024, 
+                    vlan_auto = True, 
+                    vlan_enabled = True, 
+                    vlan_id = 56, 
+                    vlan_incr = 56, 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -54,30 +70,18 @@ class TestEmulatedRouterRange(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], 
-                    max_count_per_agent = 56, 
-                    priority = 56, 
-                    static_arp_table = [
-                        cyperf.models.static_arp_entry.StaticARPEntry(
-                            count = 56, 
-                            id = '', 
-                            remote_ip = '::02:84:9:0cc0:F:CCf', 
-                            remote_ip_incr = '::02:84:9:0cc0:F:CCf', 
-                            remote_mac = '2E-B0-08-29:0c:01', 
-                            remote_mac_incr = '2E-B0-08-29:0c:01', 
-                            static_arp_entry_name = 'YBuLd', )
-                        ], 
-                    tag_protocol_id = 33024, 
-                    vlan_auto = True, 
-                    vlan_enabled = True, 
-                    vlan_id = 56, 
-                    vlan_incr = 56, ),
+                        ], ),
                 ip_auto = True,
                 ip_incr = '::02:84:9:0cc0:F:CCf',
                 ip_range_name = 'YBuLd',
                 ip_start = '::02:84:9:0cc0:F:CCf',
                 ip_ver = 'IPV4',
                 is_emulated_router = True,
+                mss = 56,
+                mss_auto = True,
+                net_mask = 56,
+                net_mask_auto = True,
+                id = '',
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -89,10 +93,6 @@ class TestEmulatedRouterRange(unittest.TestCase):
                         type = '', )
                     ],
                 max_count_per_agent = 56,
-                mss = 56,
-                mss_auto = True,
-                net_mask = 56,
-                net_mask_auto = True,
                 network_tags = [
                     ''
                     ]
@@ -100,13 +100,13 @@ class TestEmulatedRouterRange(unittest.TestCase):
         else:
             return EmulatedRouterRange(
                 gw_auto = True,
-                id = '',
                 ip_auto = True,
                 ip_range_name = 'YBuLd',
                 ip_ver = 'IPV4',
                 mss = 56,
                 mss_auto = True,
                 net_mask_auto = True,
+                id = '',
         )
         """
 

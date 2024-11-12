@@ -36,12 +36,12 @@ class AuthSettings(BaseModel):
     certificate_file: Optional[Params] = Field(default=None, description="The authentication certificate file of the VPN tunnel.", alias="CertificateFile")
     key_file: Optional[Params] = Field(default=None, description="The authentication key file of the VPN tunnel.", alias="KeyFile")
     key_file_password: Optional[StrictStr] = Field(default=None, description="The key file password of the TLS VPN authentication.", alias="KeyFilePassword")
-    links: Optional[List[APILink]] = None
     passwords: Optional[List[StrictStr]] = Field(default=None, alias="Passwords")
     passwords_param: Optional[Params] = Field(default=None, alias="PasswordsParam")
     usernames: Optional[List[StrictStr]] = Field(default=None, alias="Usernames")
     usernames_param: Optional[Params] = Field(default=None, alias="UsernamesParam")
-    __properties: ClassVar[List[str]] = ["AuthMethod", "AuthParam", "CertificateFile", "KeyFile", "KeyFilePassword", "links", "Passwords", "PasswordsParam", "Usernames", "UsernamesParam"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["AuthMethod", "AuthParam", "CertificateFile", "KeyFile", "KeyFilePassword", "Passwords", "PasswordsParam", "Usernames", "UsernamesParam", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +91,12 @@ class AuthSettings(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of key_file
         if self.key_file:
             _dict['KeyFile'] = self.key_file.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of passwords_param
+        if self.passwords_param:
+            _dict['PasswordsParam'] = self.passwords_param.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of usernames_param
+        if self.usernames_param:
+            _dict['UsernamesParam'] = self.usernames_param.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -98,12 +104,6 @@ class AuthSettings(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of passwords_param
-        if self.passwords_param:
-            _dict['PasswordsParam'] = self.passwords_param.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of usernames_param
-        if self.usernames_param:
-            _dict['UsernamesParam'] = self.usernames_param.to_dict()
         return _dict
 
     @classmethod
@@ -123,11 +123,11 @@ class AuthSettings(BaseModel):
                         "CertificateFile": Params.from_dict(obj["CertificateFile"]) if obj.get("CertificateFile") is not None else None,
                         "KeyFile": Params.from_dict(obj["KeyFile"]) if obj.get("KeyFile") is not None else None,
                         "KeyFilePassword": obj.get("KeyFilePassword"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Passwords": obj.get("Passwords"),
                         "PasswordsParam": Params.from_dict(obj["PasswordsParam"]) if obj.get("PasswordsParam") is not None else None,
                         "Usernames": obj.get("Usernames"),
-                        "UsernamesParam": Params.from_dict(obj["UsernamesParam"]) if obj.get("UsernamesParam") is not None else None
+                        "UsernamesParam": Params.from_dict(obj["UsernamesParam"]) if obj.get("UsernamesParam") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

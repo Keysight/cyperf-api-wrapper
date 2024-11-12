@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **max_pending_simulated_users** | **str** | Only applies if Type is SimulatedUsers. The maximum number or percentage of users that can be in the pending state (not yet connected and sending traffic) at any time. You can either specify a number or a percentage using the % sign. | 
 **max_simulated_users_per_interval** | **int** | Only applies if Type is SimulatedUsers. The maximum number of simulated users at which new users are initiated and teardown per interval(1 second). Default value is 0 (no limit) | [optional] 
 **timeline** | [**List[TimelineSegmentUnion]**](TimelineSegmentUnion.md) | The timeline of this objective. | [optional] 
 **type** | [**ObjectiveType**](ObjectiveType.md) | The objective&#39;s type (default: Throughput). | 
 **unit** | [**ObjectiveUnit**](ObjectiveUnit.md) | The objective&#39;s unit. Must be one of: bps or &#39;&#39;. | 
+**id** | **str** |  | 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

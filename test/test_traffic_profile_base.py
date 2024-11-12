@@ -37,17 +37,6 @@ class TestTrafficProfileBase(unittest.TestCase):
         if include_optional:
             return TrafficProfileBase(
                 active = True,
-                id = '',
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 traffic_settings = cyperf.models.traffic_settings.TrafficSettings(
                     default_transport_profile = null, 
                     links = [
@@ -59,7 +48,18 @@ class TestTrafficProfileBase(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], )
+                        ], ),
+                id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return TrafficProfileBase(

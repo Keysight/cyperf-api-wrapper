@@ -37,17 +37,6 @@ class TestApplicationProfile(unittest.TestCase):
         if include_optional:
             return ApplicationProfile(
                 active = True,
-                id = '',
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 traffic_settings = cyperf.models.traffic_settings.TrafficSettings(
                     default_transport_profile = null, 
                     links = [
@@ -60,9 +49,16 @@ class TestApplicationProfile(unittest.TestCase):
                             rel = '', 
                             type = '', )
                         ], ),
-                add_applications = [
-                    cyperf.models.external_resource_info.ExternalResourceInfo(
-                        external_resource_url = '', )
+                id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
                     ],
                 applications = [
                     null
@@ -77,6 +73,49 @@ class TestApplicationProfile(unittest.TestCase):
                     server_network_tags = [
                         ''
                         ], ),
+                name = '',
+                objectives_and_timeline = cyperf.models.objectives_and_timeline.ObjectivesAndTimeline(
+                    advanced_settings = null, 
+                    primary_objective = null, 
+                    secondary_objective = null, 
+                    secondary_objectives = [
+                        cyperf.models.specific_objective.SpecificObjective(
+                            max_pending_simulated_users = '80728', 
+                            max_simulated_users_per_interval = 56, 
+                            timeline = [
+                                null
+                                ], 
+                            type = null, 
+                            unit = null, 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], )
+                        ], 
+                    timeline_segments = [
+                        null
+                        ], 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
+                add_applications = [
+                    cyperf.models.external_resource_info.ExternalResourceInfo(
+                        external_resource_url = '', )
+                    ],
                 modify_excluded_dut_recursively = [
                     cyperf.models.update_network_mapping.UpdateNetworkMapping(
                         client_network_tags = [
@@ -103,35 +142,6 @@ class TestApplicationProfile(unittest.TestCase):
                             ''
                             ], )
                     ],
-                name = '',
-                objectives_and_timeline = cyperf.models.objectives_and_timeline.ObjectivesAndTimeline(
-                    advanced_settings = null, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
-                    primary_objective = null, 
-                    secondary_objective = null, 
-                    secondary_objectives = [
-                        cyperf.models.specific_objective.SpecificObjective(
-                            id = '', 
-                            max_pending_simulated_users = '80728', 
-                            max_simulated_users_per_interval = 56, 
-                            timeline = [
-                                null
-                                ], 
-                            type = null, 
-                            unit = null, )
-                        ], 
-                    timeline_segments = [
-                        null
-                        ], ),
                 reset_tags_to_default = [
                     'YQ=='
                     ]

@@ -6,16 +6,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_http_profile** | [**HTTPProfile**](HTTPProfile.md) | The client HTTP profile used in the Scenario. | [optional] 
-**client_tcp_profile** | [**TcpProfile**](TcpProfile.md) |  | [optional] 
 **client_tls_profile** | [**TLSProfile**](TLSProfile.md) |  | [optional] 
+**client_tcp_profile** | [**TcpProfile**](TcpProfile.md) |  | [optional] 
 **ip_tos** | **int** |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **rtp_profile** | [**RTPProfile**](RTPProfile.md) |  | [optional] 
 **server_http_profile** | [**HTTPProfile**](HTTPProfile.md) | The server HTTP profile used in the Scenario. | [optional] 
-**server_tcp_profile** | [**TcpProfile**](TcpProfile.md) |  | [optional] 
 **server_tls_profile** | [**TLSProfile**](TLSProfile.md) |  | [optional] 
+**server_tcp_profile** | [**TcpProfile**](TcpProfile.md) |  | [optional] 
 **udp_profile** | [**UdpProfile**](UdpProfile.md) |  | [optional] 
 **vlan_prio** | **int** |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

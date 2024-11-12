@@ -52,13 +52,11 @@ class Application(BaseModel):
     end_point_id: Optional[StrictInt] = Field(default=None, description="The endpoint ID of the Scenario.", alias="EndPointID")
     endpoints: Optional[List[Endpoint]] = Field(default=None, alias="Endpoints")
     external_resource_url: Optional[StrictStr] = Field(default=None, description="The external resource URL of the Scenario.", alias="ExternalResourceURL")
-    id: Optional[StrictStr] = None
     index: Optional[StrictInt] = Field(default=None, description="The index of the scenario.", alias="Index")
     inherit_http_profile: Optional[StrictBool] = Field(default=None, alias="InheritHTTPProfile")
     ip_preference: Optional[IpPreference] = Field(default=None, description="The Ip Preference. Must be one of: IPV4_ONLY, IPV6_ONLY, BOTH_IPV4_FIRST, BOTH_IPV6_FIRST or IP_PREF_MAX.", alias="IpPreference")
     is_deprecated: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is deprecated.", alias="IsDeprecated")
     iteration_count: Optional[StrictInt] = Field(default=None, description="The iteration counter of the Scenario.", alias="IterationCount")
-    links: Optional[List[APILink]] = None
     max_active_limit: Optional[StrictInt] = Field(default=None, description="The maximum active limit of the Scenario.", alias="MaxActiveLimit")
     name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="Name")
     network_mapping: Optional[NetworkMapping] = Field(default=None, alias="NetworkMapping")
@@ -70,12 +68,12 @@ class Application(BaseModel):
     supports_client_http_profile: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports Client HTTP profile.", alias="SupportsClientHTTPProfile")
     supports_http_profiles: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports HTTP profiles.", alias="SupportsHTTPProfiles")
     supports_server_http_profile: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports Server HTTP profile.", alias="SupportsServerHTTPProfile")
+    id: Optional[StrictStr] = None
+    links: Optional[List[APILink]] = None
     client_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ClientTLSProfile")
     data_types: Optional[List[DataType]] = Field(default=None, alias="DataTypes")
     inherit_tls: Optional[StrictBool] = Field(default=None, alias="InheritTLS")
     is_stateless_stream: Optional[StrictBool] = Field(default=None, alias="IsStatelessStream")
-    modify_excluded_dut_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-excluded-dut-recursively")
-    modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
     objective_weight: StrictInt = Field(description="The objective weight of the application.", alias="ObjectiveWeight")
     server_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ServerTLSProfile")
     stateless_stream: Optional[StatelessStream] = Field(default=None, alias="StatelessStream")
@@ -85,7 +83,9 @@ class Application(BaseModel):
     supports_strikes: Optional[StrictBool] = Field(default=None, alias="SupportsStrikes")
     supports_tls: Optional[StrictBool] = Field(default=None, alias="SupportsTLS")
     tracks: Optional[List[Track]] = Field(default=None, alias="Tracks")
-    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "id", "Index", "InheritHTTPProfile", "IpPreference", "IsDeprecated", "IterationCount", "links", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "ClientTLSProfile", "DataTypes", "InheritTLS", "IsStatelessStream", "modify-excluded-dut-recursively", "modify-tags-recursively", "ObjectiveWeight", "ServerTLSProfile", "StatelessStream", "Static", "SupportedApps", "SupportsCalibration", "SupportsStrikes", "SupportsTLS", "Tracks"]
+    modify_excluded_dut_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-excluded-dut-recursively")
+    modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
+    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links", "ClientTLSProfile", "DataTypes", "InheritTLS", "IsStatelessStream", "ObjectiveWeight", "ServerTLSProfile", "StatelessStream", "Static", "SupportedApps", "SupportsCalibration", "SupportsStrikes", "SupportsTLS", "Tracks", "modify-excluded-dut-recursively", "modify-tags-recursively"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -153,13 +153,6 @@ class Application(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Endpoints'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of network_mapping
         if self.network_mapping:
             _dict['NetworkMapping'] = self.network_mapping.to_dict()
@@ -173,6 +166,13 @@ class Application(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of server_http_profile
         if self.server_http_profile:
             _dict['ServerHTTPProfile'] = self.server_http_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of client_tls_profile
         if self.client_tls_profile:
             _dict['ClientTLSProfile'] = self.client_tls_profile.to_dict()
@@ -183,6 +183,19 @@ class Application(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['DataTypes'] = _items
+        # override the default output from pydantic by calling `to_dict()` of server_tls_profile
+        if self.server_tls_profile:
+            _dict['ServerTLSProfile'] = self.server_tls_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of stateless_stream
+        if self.stateless_stream:
+            _dict['StatelessStream'] = self.stateless_stream.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in tracks (list)
+        _items = []
+        if self.tracks:
+            for _item in self.tracks:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['Tracks'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in modify_excluded_dut_recursively (list)
         _items = []
         if self.modify_excluded_dut_recursively:
@@ -197,19 +210,6 @@ class Application(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['modify-tags-recursively'] = _items
-        # override the default output from pydantic by calling `to_dict()` of server_tls_profile
-        if self.server_tls_profile:
-            _dict['ServerTLSProfile'] = self.server_tls_profile.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of stateless_stream
-        if self.stateless_stream:
-            _dict['StatelessStream'] = self.stateless_stream.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in tracks (list)
-        _items = []
-        if self.tracks:
-            for _item in self.tracks:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['Tracks'] = _items
         return _dict
 
     @classmethod
@@ -235,13 +235,11 @@ class Application(BaseModel):
                         "EndPointID": obj.get("EndPointID"),
                         "Endpoints": [Endpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
                         "ExternalResourceURL": obj.get("ExternalResourceURL"),
-                        "id": obj.get("id"),
                         "Index": obj.get("Index"),
                         "InheritHTTPProfile": obj.get("InheritHTTPProfile"),
                         "IpPreference": obj.get("IpPreference"),
                         "IsDeprecated": obj.get("IsDeprecated"),
                         "IterationCount": obj.get("IterationCount"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "MaxActiveLimit": obj.get("MaxActiveLimit"),
                         "Name": obj.get("Name"),
                         "NetworkMapping": NetworkMapping.from_dict(obj["NetworkMapping"]) if obj.get("NetworkMapping") is not None else None,
@@ -253,12 +251,12 @@ class Application(BaseModel):
                         "SupportsClientHTTPProfile": obj.get("SupportsClientHTTPProfile"),
                         "SupportsHTTPProfiles": obj.get("SupportsHTTPProfiles"),
                         "SupportsServerHTTPProfile": obj.get("SupportsServerHTTPProfile"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "ClientTLSProfile": TLSProfile.from_dict(obj["ClientTLSProfile"]) if obj.get("ClientTLSProfile") is not None else None,
                         "DataTypes": [DataType.from_dict(_item) for _item in obj["DataTypes"]] if obj.get("DataTypes") is not None else None,
                         "InheritTLS": obj.get("InheritTLS"),
                         "IsStatelessStream": obj.get("IsStatelessStream"),
-                        "modify-excluded-dut-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-excluded-dut-recursively"]] if obj.get("modify-excluded-dut-recursively") is not None else None,
-                        "modify-tags-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-tags-recursively"]] if obj.get("modify-tags-recursively") is not None else None,
                         "ObjectiveWeight": obj.get("ObjectiveWeight"),
                         "ServerTLSProfile": TLSProfile.from_dict(obj["ServerTLSProfile"]) if obj.get("ServerTLSProfile") is not None else None,
                         "StatelessStream": StatelessStream.from_dict(obj["StatelessStream"]) if obj.get("StatelessStream") is not None else None,
@@ -267,7 +265,9 @@ class Application(BaseModel):
                         "SupportsCalibration": obj.get("SupportsCalibration"),
                         "SupportsStrikes": obj.get("SupportsStrikes"),
                         "SupportsTLS": obj.get("SupportsTLS"),
-                        "Tracks": [Track.from_dict(_item) for _item in obj["Tracks"]] if obj.get("Tracks") is not None else None
+                        "Tracks": [Track.from_dict(_item) for _item in obj["Tracks"]] if obj.get("Tracks") is not None else None,
+                        "modify-excluded-dut-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-excluded-dut-recursively"]] if obj.get("modify-excluded-dut-recursively") is not None else None,
+                        "modify-tags-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-tags-recursively"]] if obj.get("modify-tags-recursively") is not None else None
             ,
             "links": obj.get("links")
         })

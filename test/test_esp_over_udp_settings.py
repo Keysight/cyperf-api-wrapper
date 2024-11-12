@@ -36,6 +36,14 @@ class TestESPOverUDPSettings(unittest.TestCase):
         model = ESPOverUDPSettings()
         if include_optional:
             return ESPOverUDPSettings(
+                udp_profile = cyperf.models.udp_profile.UdpProfile(
+                    max_src_port = 56, 
+                    min_src_port = 56, 
+                    recv_buff_size_ini = 56, 
+                    recv_buff_size_res = 56, 
+                    rx_buffer = 56, 
+                    sock_group = '', 
+                    tx_buffer = 56, ),
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -45,15 +53,7 @@ class TestESPOverUDPSettings(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                udp_profile = cyperf.models.udp_profile.UdpProfile(
-                    max_src_port = 56, 
-                    min_src_port = 56, 
-                    recv_buff_size_ini = 56, 
-                    recv_buff_size_res = 56, 
-                    rx_buffer = 56, 
-                    sock_group = '', 
-                    tx_buffer = 56, )
+                    ]
             )
         else:
             return ESPOverUDPSettings(

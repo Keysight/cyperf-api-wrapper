@@ -34,15 +34,15 @@ class Parameter(BaseModel):
     default_source: Optional[StrictStr] = Field(default=None, description="The default source of the parameter", alias="DefaultSource")
     default_value: Optional[StrictStr] = Field(default=None, description="The default value of the parameter", alias="DefaultValue")
     element_type: Optional[StrictStr] = Field(default=None, description="The type of elements in the values array", alias="ElementType")
+    metadata: Optional[ParameterMetadata] = Field(default=None, alias="Metadata")
+    sources: Optional[List[StrictStr]] = Field(default=None, description="The sources of the parameter", alias="Sources")
+    type: Optional[StrictStr] = Field(default=None, description="The type of the parameter", alias="Type")
     var_field: Optional[StrictStr] = Field(default=None, description="The name of the ES document field", alias="field")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the parameter")
     links: Optional[List[APILink]] = None
-    metadata: Optional[ParameterMetadata] = Field(default=None, alias="Metadata")
     operator: Optional[StrictStr] = Field(default=None, description="The operator that the parameter supports")
     query_param: Optional[StrictStr] = Field(default=None, description="The corresponding query param", alias="queryParam")
-    sources: Optional[List[StrictStr]] = Field(default=None, description="The sources of the parameter", alias="Sources")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the parameter", alias="Type")
-    __properties: ClassVar[List[str]] = ["DefaultArrayElements", "DefaultSource", "DefaultValue", "ElementType", "field", "id", "links", "Metadata", "operator", "queryParam", "Sources", "Type"]
+    __properties: ClassVar[List[str]] = ["DefaultArrayElements", "DefaultSource", "DefaultValue", "ElementType", "Metadata", "Sources", "Type", "field", "id", "links", "operator", "queryParam"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +85,9 @@ class Parameter(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['Metadata'] = self.metadata.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -92,9 +95,6 @@ class Parameter(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of metadata
-        if self.metadata:
-            _dict['Metadata'] = self.metadata.to_dict()
         return _dict
 
     @classmethod
@@ -113,14 +113,14 @@ class Parameter(BaseModel):
                         "DefaultSource": obj.get("DefaultSource"),
                         "DefaultValue": obj.get("DefaultValue"),
                         "ElementType": obj.get("ElementType"),
+                        "Metadata": ParameterMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
+                        "Sources": obj.get("Sources"),
+                        "Type": obj.get("Type"),
                         "field": obj.get("field"),
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "Metadata": ParameterMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "operator": obj.get("operator"),
-                        "queryParam": obj.get("queryParam"),
-                        "Sources": obj.get("Sources"),
-                        "Type": obj.get("Type")
+                        "queryParam": obj.get("queryParam")
             ,
             "links": obj.get("links")
         })

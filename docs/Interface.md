@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **gateway** | **str** | The gateway address of the interface | [optional] [readonly] 
 **ip** | [**List[IpMask]**](IpMask.md) | The list of IP addresses | [optional] [readonly] 
-**mac** | **str** | The MAC address of the interface | [optional] [readonly] 
 **mtu** | **int** | The maximum transmission unit of the interface | [optional] [readonly] 
+**mac** | **str** | The MAC address of the interface | [optional] [readonly] 
 **name** | **str** | The name of the interface | [optional] [readonly] 
 
 ## Example

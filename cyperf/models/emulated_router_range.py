@@ -38,7 +38,6 @@ class EmulatedRouterRange(BaseModel):
     gw_auto: StrictBool = Field(description="A flag indicating if the gateway settings for the IPRange should be determined automatically (default: true).", alias="GwAuto")
     gw_start: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The gateway start IP for the IPRange (default: 10.0.0.1).", alias="GwStart")
     host_count: Optional[StrictInt] = Field(default=None, description="The number of Host IPs generated (default: 1).", alias="HostCount")
-    id: StrictStr
     inner_vlan_range: Optional[VLANRange] = Field(default=None, description="The inner VLAN range assigned to the current IP range configuration", alias="InnerVlanRange")
     ip_auto: StrictBool = Field(description="A flag indicating if IP settings for the IPRange should be determined automatically (default: true).", alias="IpAuto")
     ip_incr: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The IP incrementation rule (default: 0.0.0.1).", alias="IpIncr")
@@ -46,14 +45,15 @@ class EmulatedRouterRange(BaseModel):
     ip_start: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start IP for the IPRange (default: 10.0.0.10).", alias="IpStart")
     ip_ver: IpVer = Field(description="The type of the IP. 'IPV4' and 'IPV6' are both supported currently.", alias="IpVer")
     is_emulated_router: Optional[StrictBool] = Field(default=None, alias="IsEmulatedRouter")
-    links: Optional[List[APILink]] = None
-    max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of IPs that should be assigned to each traffic agent for this IP range segment in a valid test (default: 1).", alias="maxCountPerAgent")
     mss: StrictInt = Field(description="The maximum segment size of the TCP header.", alias="Mss")
     mss_auto: StrictBool = Field(description="A flag indicating if Mss settings for the IPRange should be determined automatically (default: false).", alias="MssAuto")
     net_mask: Optional[StrictInt] = Field(default=None, description="The network mask of the IP Range (default: 16).", alias="NetMask")
     net_mask_auto: StrictBool = Field(description="A flag indicating if the network mask of the IPRange should be determined automatically (default: true).", alias="NetMaskAuto")
+    id: StrictStr
+    links: Optional[List[APILink]] = None
+    max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of IPs that should be assigned to each traffic agent for this IP range segment in a valid test (default: 1).", alias="maxCountPerAgent")
     network_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags.", alias="networkTags")
-    __properties: ClassVar[List[str]] = ["AutomaticIpType", "Count", "GwAuto", "GwStart", "HostCount", "id", "InnerVlanRange", "IpAuto", "IpIncr", "IpRangeName", "IpStart", "IpVer", "IsEmulatedRouter", "links", "maxCountPerAgent", "Mss", "MssAuto", "NetMask", "NetMaskAuto", "networkTags"]
+    __properties: ClassVar[List[str]] = ["AutomaticIpType", "Count", "GwAuto", "GwStart", "HostCount", "InnerVlanRange", "IpAuto", "IpIncr", "IpRangeName", "IpStart", "IpVer", "IsEmulatedRouter", "Mss", "MssAuto", "NetMask", "NetMaskAuto", "id", "links", "maxCountPerAgent", "networkTags"]
 
     @field_validator('gw_start')
     def gw_start_validate_regular_expression(cls, value):
@@ -160,7 +160,6 @@ class EmulatedRouterRange(BaseModel):
                         "GwAuto": obj.get("GwAuto"),
                         "GwStart": obj.get("GwStart"),
                         "HostCount": obj.get("HostCount"),
-                        "id": obj.get("id"),
                         "InnerVlanRange": VLANRange.from_dict(obj["InnerVlanRange"]) if obj.get("InnerVlanRange") is not None else None,
                         "IpAuto": obj.get("IpAuto"),
                         "IpIncr": obj.get("IpIncr"),
@@ -168,12 +167,13 @@ class EmulatedRouterRange(BaseModel):
                         "IpStart": obj.get("IpStart"),
                         "IpVer": obj.get("IpVer"),
                         "IsEmulatedRouter": obj.get("IsEmulatedRouter"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "maxCountPerAgent": obj.get("maxCountPerAgent"),
                         "Mss": obj.get("Mss"),
                         "MssAuto": obj.get("MssAuto"),
                         "NetMask": obj.get("NetMask"),
                         "NetMaskAuto": obj.get("NetMaskAuto"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "maxCountPerAgent": obj.get("maxCountPerAgent"),
                         "networkTags": obj.get("networkTags")
             ,
             "links": obj.get("links")

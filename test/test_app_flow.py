@@ -73,6 +73,16 @@ class TestAppFlow(unittest.TestCase):
                             type = '', ), )
                     ],
                 id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ],
                 src_address = 'YQ==',
                 src_port = 56,
                 transport_type = ''

@@ -42,12 +42,12 @@ class TestConnection(unittest.TestCase):
                 disable_encryption = True,
                 hostname = '',
                 hostname_param = cyperf.models.params.Params(
+                    array_element_type = '', 
                     array_elements = [
                         {
                             'key' : ''
                             }
                         ], 
-                    array_element_type = '', 
                     category = '', 
                     category_index = 56, 
                     deprecated_previous_source = '', 
@@ -63,24 +63,10 @@ class TestConnection(unittest.TestCase):
                                 name = '', 
                                 value = '', )
                             ], ), 
-                    file_upload = [
-                        'YQ=='
-                        ], 
                     file_value = null, 
                     flow_identifier = True, 
-                    id = '', 
                     is_deprecated = True, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     media_files = [
                         cyperf.models.media_file.MediaFile(
                             file_value = null, 
@@ -90,9 +76,20 @@ class TestConnection(unittest.TestCase):
                                     bitrate_kbps = 56, 
                                     codec = '', 
                                     codec_description = '', 
-                                    id = '', 
                                     track_id = '', 
-                                    track_type = null, )
+                                    track_type = null, 
+                                    id = '', )
+                                ], 
+                            id = '', 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
                                 ], )
                         ], 
                     metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -119,32 +116,12 @@ class TestConnection(unittest.TestCase):
                     supported_sources = [
                         ''
                         ], 
-                    supports_dynamic_payload = True, 
                     type = '', 
-                    upload_url = '', 
-                    value = '', ),
-                http_forward_proxy_mode = 'INHERIT_DUT',
-                id = '',
-                is_deprecated = True,
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
-                max_transactions = 56,
-                name = '',
-                port_settings = cyperf.models.port_settings.PortSettings(
-                    automatic = True, 
-                    automatic_destination_port = True, 
-                    automatic_forward_proxy_port = True, 
-                    destination_port = 56, 
-                    effective_ports = cyperf.models.effective_ports.EffectivePorts(), 
-                    forward_proxy_port = 56, 
+                    value = '', 
+                    file_upload = [
+                        'YQ=='
+                        ], 
+                    id = , 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -155,23 +132,57 @@ class TestConnection(unittest.TestCase):
                             rel = '', 
                             type = '', )
                         ], 
+                    supports_dynamic_payload = True, 
+                    upload_url = '', ),
+                http_forward_proxy_mode = 'INHERIT_DUT',
+                is_deprecated = True,
+                max_transactions = 56,
+                name = '',
+                port_settings = cyperf.models.port_settings.PortSettings(
+                    automatic = True, 
+                    automatic_destination_port = True, 
+                    automatic_forward_proxy_port = True, 
+                    destination_port = 56, 
+                    effective_ports = cyperf.models.effective_ports.EffectivePorts(), 
+                    forward_proxy_port = 56, 
                     readonly = True, 
-                    server_listen_port = 56, ),
+                    server_listen_port = 56, 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
                 readonly = True,
                 readonly_hostname = True,
                 readonly_max_trans = True,
                 readonly_type = True,
                 server_endpoint = '',
                 server_port = 56,
-                type = 'http'
+                type = 'http',
+                id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return Connection(
                 client_endpoint = '',
                 client_port = 56,
-                id = '',
                 max_transactions = 56,
                 server_port = 56,
+                id = '',
         )
         """
 

@@ -66,12 +66,12 @@ class TestController(unittest.TestCase):
                                 id = '', 
                                 link = '', 
                                 name = '', 
-                                owner = '', 
-                                owner_id = '', 
+                                reserved_by = '', 
                                 speed = '', 
                                 status = '', 
                                 traffic_status = '', )
                             ], 
+                        serial = '', 
                         slot_number = 56, 
                         status = '', 
                         type = '', )

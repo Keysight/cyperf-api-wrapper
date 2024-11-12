@@ -16,13 +16,11 @@ Name | Type | Description | Notes
 **end_point_id** | **int** | The endpoint ID of the Scenario. | [optional] 
 **endpoints** | [**List[Endpoint]**](Endpoint.md) |  | [optional] 
 **external_resource_url** | **str** | The external resource URL of the Scenario. | [optional] 
-**id** | **str** |  | [optional] 
 **index** | **int** | The index of the scenario. | [optional] 
 **inherit_http_profile** | **bool** |  | [optional] 
 **ip_preference** | [**IpPreference**](IpPreference.md) | The Ip Preference. Must be one of: IPV4_ONLY, IPV6_ONLY, BOTH_IPV4_FIRST, BOTH_IPV6_FIRST or IP_PREF_MAX. | [optional] 
 **is_deprecated** | **bool** | A value that indicates if the action is deprecated. | [optional] 
 **iteration_count** | **int** | The iteration counter of the Scenario. | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **max_active_limit** | **int** | The maximum active limit of the Scenario. | [optional] 
 **name** | **str** |  | [optional] 
 **network_mapping** | [**NetworkMapping**](NetworkMapping.md) |  | [optional] 
@@ -34,6 +32,8 @@ Name | Type | Description | Notes
 **supports_client_http_profile** | **bool** | Indicates if the scenario supports Client HTTP profile. | [optional] 
 **supports_http_profiles** | **bool** | Indicates if the scenario supports HTTP profiles. | [optional] 
 **supports_server_http_profile** | **bool** | Indicates if the scenario supports Server HTTP profile. | [optional] 
+**id** | **str** |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

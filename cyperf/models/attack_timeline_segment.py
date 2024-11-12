@@ -30,14 +30,14 @@ class AttackTimelineSegment(BaseModel):
     AttackTimelineSegment
     """ # noqa: E501
     duration: StrictInt = Field(description="The duration of the timeline segment (default: 600).", alias="Duration")
-    id: StrictStr
     segment_type: SegmentType = Field(description="The segment's type. Must be one of: SteadySegment, StepUpSegment, StepDownSegment.", alias="SegmentType")
     warm_up_period: Optional[StrictInt] = Field(default=None, description="Deprecated. Use ObjectivesAndTimeline.WarmUp instead. The time that servers may need to warm up, when clients should wait (default: 0 seconds).", alias="WarmUpPeriod")
+    id: StrictStr
     attack_rate: StrictInt = Field(description="The attack rate of the attack (default: 1).", alias="AttackRate")
     connection_graceful_stop_timeout: Optional[StrictInt] = Field(default=None, description="The time the test will wait all connections to be graceful stopped (default: 15 seconds).", alias="ConnectionGracefulStopTimeout")
     iteration_count: Optional[StrictInt] = Field(default=None, description="The number of iterations to run (default: 1).", alias="IterationCount")
     max_concurrent_attack: StrictInt = Field(description="The maximum number of concurrent attacks (default: 1).", alias="MaxConcurrentAttack")
-    __properties: ClassVar[List[str]] = ["Duration", "id", "SegmentType", "WarmUpPeriod", "AttackRate", "ConnectionGracefulStopTimeout", "IterationCount", "MaxConcurrentAttack"]
+    __properties: ClassVar[List[str]] = ["Duration", "SegmentType", "WarmUpPeriod", "id", "AttackRate", "ConnectionGracefulStopTimeout", "IterationCount", "MaxConcurrentAttack"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,9 +93,9 @@ class AttackTimelineSegment(BaseModel):
 
         _obj = cls.model_validate({
             "Duration": obj.get("Duration"),
-                        "id": obj.get("id"),
                         "SegmentType": obj.get("SegmentType"),
                         "WarmUpPeriod": obj.get("WarmUpPeriod"),
+                        "id": obj.get("id"),
                         "AttackRate": obj.get("AttackRate"),
                         "ConnectionGracefulStopTimeout": obj.get("ConnectionGracefulStopTimeout"),
                         "IterationCount": obj.get("IterationCount"),

@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **duration** | **int** | The duration of the timeline segment (default: 600). | 
-**id** | **str** |  | 
 **segment_type** | [**SegmentType**](SegmentType.md) | The segment&#39;s type. Must be one of: SteadySegment, StepUpSegment, StepDownSegment. | 
 **warm_up_period** | **int** | Deprecated. Use ObjectivesAndTimeline.WarmUp instead. The time that servers may need to warm up, when clients should wait (default: 0 seconds). | [optional] 
+**id** | **str** |  | 
 **objective_unit** | **str** |  | 
 **objective_value** | **float** |  | 
 **enabled** | **bool** | Whether this timeline segment will be used. | 

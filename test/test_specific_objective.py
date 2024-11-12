@@ -36,6 +36,13 @@ class TestSpecificObjective(unittest.TestCase):
         model = SpecificObjective()
         if include_optional:
             return SpecificObjective(
+                max_pending_simulated_users = '80728',
+                max_simulated_users_per_interval = 56,
+                timeline = [
+                    null
+                    ],
+                type = 'Simulated users',
+                unit = '',
                 id = '',
                 links = [
                     cyperf.models.api_link.APILink(
@@ -46,21 +53,14 @@ class TestSpecificObjective(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                max_pending_simulated_users = '80728',
-                max_simulated_users_per_interval = 56,
-                timeline = [
-                    null
-                    ],
-                type = 'Simulated users',
-                unit = ''
+                    ]
             )
         else:
             return SpecificObjective(
-                id = '',
                 max_pending_simulated_users = '80728',
                 type = 'Simulated users',
                 unit = '',
+                id = '',
         )
         """
 

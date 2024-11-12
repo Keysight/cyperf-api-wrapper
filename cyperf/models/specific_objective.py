@@ -33,14 +33,14 @@ class SpecificObjective(BaseModel):
     """
     SpecificObjective
     """ # noqa: E501
-    id: StrictStr
-    links: Optional[List[APILink]] = None
     max_pending_simulated_users: Annotated[str, Field(strict=True)] = Field(description="Only applies if Type is SimulatedUsers. The maximum number or percentage of users that can be in the pending state (not yet connected and sending traffic) at any time. You can either specify a number or a percentage using the % sign.", alias="MaxPendingSimulatedUsers")
     max_simulated_users_per_interval: Optional[StrictInt] = Field(default=None, description="Only applies if Type is SimulatedUsers. The maximum number of simulated users at which new users are initiated and teardown per interval(1 second). Default value is 0 (no limit)", alias="MaxSimulatedUsersPerInterval")
     timeline: Optional[List[TimelineSegmentUnion]] = Field(default=None, description="The timeline of this objective.", alias="Timeline")
     type: ObjectiveType = Field(description="The objective's type (default: Throughput).", alias="Type")
     unit: ObjectiveUnit = Field(description="The objective's unit. Must be one of: bps or ''.", alias="Unit")
-    __properties: ClassVar[List[str]] = ["id", "links", "MaxPendingSimulatedUsers", "MaxSimulatedUsersPerInterval", "Timeline", "Type", "Unit"]
+    id: StrictStr
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["MaxPendingSimulatedUsers", "MaxSimulatedUsersPerInterval", "Timeline", "Type", "Unit", "id", "links"]
 
     @field_validator('max_pending_simulated_users')
     def max_pending_simulated_users_validate_regular_expression(cls, value):
@@ -88,13 +88,6 @@ class SpecificObjective(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in timeline (list)
         _items = []
         if self.timeline:
@@ -102,6 +95,13 @@ class SpecificObjective(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Timeline'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -116,13 +116,13 @@ class SpecificObjective(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "MaxPendingSimulatedUsers": obj.get("MaxPendingSimulatedUsers"),
+            "MaxPendingSimulatedUsers": obj.get("MaxPendingSimulatedUsers"),
                         "MaxSimulatedUsersPerInterval": obj.get("MaxSimulatedUsersPerInterval"),
                         "Timeline": [TimelineSegmentUnion.from_dict(_item) for _item in obj["Timeline"]] if obj.get("Timeline") is not None else None,
                         "Type": obj.get("Type"),
-                        "Unit": obj.get("Unit")
+                        "Unit": obj.get("Unit"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

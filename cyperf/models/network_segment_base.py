@@ -29,10 +29,10 @@ class NetworkSegmentBase(BaseModel):
     """
     NetworkSegmentBase
     """ # noqa: E501
-    id: StrictStr
     name: Annotated[str, Field(strict=True)] = Field(alias="Name")
+    id: StrictStr
     network_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags.", alias="networkTags")
-    __properties: ClassVar[List[str]] = ["id", "Name", "networkTags"]
+    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -94,8 +94,8 @@ class NetworkSegmentBase(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "Name": obj.get("Name"),
+            "Name": obj.get("Name"),
+                        "id": obj.get("id"),
                         "networkTags": obj.get("networkTags")
             ,
             "links": obj.get("links")

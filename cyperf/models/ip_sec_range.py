@@ -38,11 +38,9 @@ class IPSecRange(BaseModel):
     IPSecRange
     """ # noqa: E501
     var_auth_settings: Optional[AuthenticationSettings] = Field(default=None, alias="AuthSettings")
-    id: StrictStr
     ike_phase1_config: Optional[P1Config] = Field(default=None, alias="IKEPhase1Config")
     ike_phase2_config: Optional[P2Config] = Field(default=None, alias="IKEPhase2Config")
     ip_sec_range_name: Annotated[str, Field(strict=True)] = Field(alias="IPSecRangeName")
-    links: Optional[List[APILink]] = None
     multi_p2_over_p1: Optional[StrictBool] = Field(default=None, alias="MultiP2OverP1")
     protected_sub_config: Optional[ProtectedSubnetConfig] = Field(default=None, description="Deeprecated. Use RemoteSubConfig instead.", alias="ProtectedSubConfig")
     public_peer: Annotated[str, Field(strict=True)] = Field(alias="PublicPeer")
@@ -52,7 +50,9 @@ class IPSecRange(BaseModel):
     test_scenario: StrictStr = Field(alias="TestScenario")
     timers: Optional[Timers] = Field(default=None, alias="Timers")
     tunnel_count_per_outer_ip: StrictInt = Field(alias="TunnelCountPerOuterIP")
-    __properties: ClassVar[List[str]] = ["AuthSettings", "id", "IKEPhase1Config", "IKEPhase2Config", "IPSecRangeName", "links", "MultiP2OverP1", "ProtectedSubConfig", "PublicPeer", "PublicPeerIncrement", "RemoteAccess", "RemoteSubConfig", "TestScenario", "Timers", "TunnelCountPerOuterIP"]
+    id: StrictStr
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["AuthSettings", "IKEPhase1Config", "IKEPhase2Config", "IPSecRangeName", "MultiP2OverP1", "ProtectedSubConfig", "PublicPeer", "PublicPeerIncrement", "RemoteAccess", "RemoteSubConfig", "TestScenario", "Timers", "TunnelCountPerOuterIP", "id", "links"]
 
     @field_validator('ip_sec_range_name')
     def ip_sec_range_name_validate_regular_expression(cls, value):
@@ -130,13 +130,6 @@ class IPSecRange(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of ike_phase2_config
         if self.ike_phase2_config:
             _dict['IKEPhase2Config'] = self.ike_phase2_config.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of protected_sub_config
         if self.protected_sub_config:
             _dict['ProtectedSubConfig'] = self.protected_sub_config.to_dict()
@@ -149,6 +142,13 @@ class IPSecRange(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of timers
         if self.timers:
             _dict['Timers'] = self.timers.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -164,11 +164,9 @@ class IPSecRange(BaseModel):
 
         _obj = cls.model_validate({
             "AuthSettings": AuthenticationSettings.from_dict(obj["AuthSettings"]) if obj.get("AuthSettings") is not None else None,
-                        "id": obj.get("id"),
                         "IKEPhase1Config": P1Config.from_dict(obj["IKEPhase1Config"]) if obj.get("IKEPhase1Config") is not None else None,
                         "IKEPhase2Config": P2Config.from_dict(obj["IKEPhase2Config"]) if obj.get("IKEPhase2Config") is not None else None,
                         "IPSecRangeName": obj.get("IPSecRangeName"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "MultiP2OverP1": obj.get("MultiP2OverP1"),
                         "ProtectedSubConfig": ProtectedSubnetConfig.from_dict(obj["ProtectedSubConfig"]) if obj.get("ProtectedSubConfig") is not None else None,
                         "PublicPeer": obj.get("PublicPeer"),
@@ -177,7 +175,9 @@ class IPSecRange(BaseModel):
                         "RemoteSubConfig": RemoteSubnetConfig.from_dict(obj["RemoteSubConfig"]) if obj.get("RemoteSubConfig") is not None else None,
                         "TestScenario": obj.get("TestScenario"),
                         "Timers": Timers.from_dict(obj["Timers"]) if obj.get("Timers") is not None else None,
-                        "TunnelCountPerOuterIP": obj.get("TunnelCountPerOuterIP")
+                        "TunnelCountPerOuterIP": obj.get("TunnelCountPerOuterIP"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

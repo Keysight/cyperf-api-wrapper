@@ -42,17 +42,14 @@ class TestObjectivesAndTimeline(unittest.TestCase):
                     automatic_cpu_percent = True, 
                     connection_graceful_stop_timeout = 56, 
                     warm_up_period = 56, ),
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 primary_objective = cyperf.models.specific_objective.SpecificObjective(
+                    max_pending_simulated_users = '80728', 
+                    max_simulated_users_per_interval = 56, 
+                    timeline = [
+                        null
+                        ], 
+                    type = null, 
+                    unit = null, 
                     id = '', 
                     links = [
                         cyperf.models.api_link.APILink(
@@ -63,14 +60,7 @@ class TestObjectivesAndTimeline(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], 
-                    max_pending_simulated_users = '80728', 
-                    max_simulated_users_per_interval = 56, 
-                    timeline = [
-                        null
-                        ], 
-                    type = null, 
-                    unit = null, ),
+                        ], ),
                 secondary_objective = cyperf.models.secondary_objective.SecondaryObjective(
                     enabled = True, 
                     max_pending_simulated_users = '4', 
@@ -80,6 +70,13 @@ class TestObjectivesAndTimeline(unittest.TestCase):
                     type = null, ),
                 secondary_objectives = [
                     cyperf.models.specific_objective.SpecificObjective(
+                        max_pending_simulated_users = '80728', 
+                        max_simulated_users_per_interval = 56, 
+                        timeline = [
+                            null
+                            ], 
+                        type = null, 
+                        unit = null, 
                         id = '', 
                         links = [
                             cyperf.models.api_link.APILink(
@@ -90,17 +87,20 @@ class TestObjectivesAndTimeline(unittest.TestCase):
                                 references_count = 56, 
                                 rel = '', 
                                 type = '', )
-                            ], 
-                        max_pending_simulated_users = '80728', 
-                        max_simulated_users_per_interval = 56, 
-                        timeline = [
-                            null
-                            ], 
-                        type = null, 
-                        unit = null, )
+                            ], )
                     ],
                 timeline_segments = [
                     null
+                    ],
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
                     ]
             )
         else:

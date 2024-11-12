@@ -36,6 +36,9 @@ class TestAttackObjectivesAndTimeline(unittest.TestCase):
         model = AttackObjectivesAndTimeline()
         if include_optional:
             return AttackObjectivesAndTimeline(
+                timeline_segments = [
+                    null
+                    ],
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -45,9 +48,6 @@ class TestAttackObjectivesAndTimeline(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                timeline_segments = [
-                    null
                     ]
             )
         else:

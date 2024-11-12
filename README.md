@@ -102,12 +102,12 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**get_ports_by_id**](docs/AgentsApi.md#get_ports_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/ports/{portId} | 
 *AgentsApi* | [**patch_agents**](docs/AgentsApi.md#patch_agents) | **PATCH** /api/v2/agents/{agentId} | 
 *AgentsApi* | [**poll_batch_delete**](docs/AgentsApi.md#poll_batch_delete) | **GET** /api/v2/agents/operations/batch-delete/{id} | 
-*AgentsApi* | [**poll_compute_nodes_power_cycle**](docs/AgentsApi.md#poll_compute_nodes_power_cycle) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/operations/power-cycle/{id} | 
-*AgentsApi* | [**poll_controllers_change_nodes_aggregation**](docs/AgentsApi.md#poll_controllers_change_nodes_aggregation) | **GET** /api/v2/controllers/operations/change-nodes-aggregation/{id} | 
-*AgentsApi* | [**poll_controllers_change_ports_link_state**](docs/AgentsApi.md#poll_controllers_change_ports_link_state) | **GET** /api/v2/controllers/operations/change-ports-link-state/{id} | 
-*AgentsApi* | [**poll_controllers_clear_ports_ownership**](docs/AgentsApi.md#poll_controllers_clear_ports_ownership) | **GET** /api/v2/controllers/operations/clear-ports-ownership/{id} | 
-*AgentsApi* | [**poll_controllers_reboot_ports**](docs/AgentsApi.md#poll_controllers_reboot_ports) | **GET** /api/v2/controllers/operations/reboot-ports/{id} | 
-*AgentsApi* | [**poll_controllers_switch_app**](docs/AgentsApi.md#poll_controllers_switch_app) | **GET** /api/v2/controllers/{controllerId}/operations/switch-app/{id} | 
+*AgentsApi* | [**poll_controllers_clear_port_ownership**](docs/AgentsApi.md#poll_controllers_clear_port_ownership) | **GET** /api/v2/controllers/operations/clear-port-ownership/{id} | 
+*AgentsApi* | [**poll_controllers_power_cycle_nodes**](docs/AgentsApi.md#poll_controllers_power_cycle_nodes) | **GET** /api/v2/controllers/operations/power-cycle-nodes/{id} | 
+*AgentsApi* | [**poll_controllers_reboot_port**](docs/AgentsApi.md#poll_controllers_reboot_port) | **GET** /api/v2/controllers/operations/reboot-port/{id} | 
+*AgentsApi* | [**poll_controllers_set_app**](docs/AgentsApi.md#poll_controllers_set_app) | **GET** /api/v2/controllers/operations/set-app/{id} | 
+*AgentsApi* | [**poll_controllers_set_node_aggregation**](docs/AgentsApi.md#poll_controllers_set_node_aggregation) | **GET** /api/v2/controllers/operations/set-node-aggregation/{id} | 
+*AgentsApi* | [**poll_controllers_set_port_link_state**](docs/AgentsApi.md#poll_controllers_set_port_link_state) | **GET** /api/v2/controllers/operations/set-port-link-state/{id} | 
 *AgentsApi* | [**poll_export_files**](docs/AgentsApi.md#poll_export_files) | **GET** /api/v2/agents/operations/exportFiles/{id} | 
 *AgentsApi* | [**poll_reboot**](docs/AgentsApi.md#poll_reboot) | **GET** /api/v2/agents/operations/reboot/{id} | 
 *AgentsApi* | [**poll_release**](docs/AgentsApi.md#poll_release) | **GET** /api/v2/agents/operations/release/{id} | 
@@ -116,12 +116,12 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**poll_set_ntp**](docs/AgentsApi.md#poll_set_ntp) | **GET** /api/v2/agents/operations/set-ntp/{id} | 
 *AgentsApi* | [**poll_update**](docs/AgentsApi.md#poll_update) | **GET** /api/v2/agents/operations/update/{id} | 
 *AgentsApi* | [**start_batch_delete**](docs/AgentsApi.md#start_batch_delete) | **POST** /api/v2/agents/operations/batch-delete | 
-*AgentsApi* | [**start_compute_nodes_power_cycle**](docs/AgentsApi.md#start_compute_nodes_power_cycle) | **POST** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/operations/power-cycle | 
-*AgentsApi* | [**start_controllers_change_nodes_aggregation**](docs/AgentsApi.md#start_controllers_change_nodes_aggregation) | **POST** /api/v2/controllers/operations/change-nodes-aggregation | 
-*AgentsApi* | [**start_controllers_change_ports_link_state**](docs/AgentsApi.md#start_controllers_change_ports_link_state) | **POST** /api/v2/controllers/operations/change-ports-link-state | 
-*AgentsApi* | [**start_controllers_clear_ports_ownership**](docs/AgentsApi.md#start_controllers_clear_ports_ownership) | **POST** /api/v2/controllers/operations/clear-ports-ownership | 
-*AgentsApi* | [**start_controllers_reboot_ports**](docs/AgentsApi.md#start_controllers_reboot_ports) | **POST** /api/v2/controllers/operations/reboot-ports | 
-*AgentsApi* | [**start_controllers_switch_app**](docs/AgentsApi.md#start_controllers_switch_app) | **POST** /api/v2/controllers/{controllerId}/operations/switch-app | 
+*AgentsApi* | [**start_controllers_clear_port_ownership**](docs/AgentsApi.md#start_controllers_clear_port_ownership) | **POST** /api/v2/controllers/operations/clear-port-ownership | 
+*AgentsApi* | [**start_controllers_power_cycle_nodes**](docs/AgentsApi.md#start_controllers_power_cycle_nodes) | **POST** /api/v2/controllers/operations/power-cycle-nodes | 
+*AgentsApi* | [**start_controllers_reboot_port**](docs/AgentsApi.md#start_controllers_reboot_port) | **POST** /api/v2/controllers/operations/reboot-port | 
+*AgentsApi* | [**start_controllers_set_app**](docs/AgentsApi.md#start_controllers_set_app) | **POST** /api/v2/controllers/operations/set-app | 
+*AgentsApi* | [**start_controllers_set_node_aggregation**](docs/AgentsApi.md#start_controllers_set_node_aggregation) | **POST** /api/v2/controllers/operations/set-node-aggregation | 
+*AgentsApi* | [**start_controllers_set_port_link_state**](docs/AgentsApi.md#start_controllers_set_port_link_state) | **POST** /api/v2/controllers/operations/set-port-link-state | 
 *AgentsApi* | [**start_export_files**](docs/AgentsApi.md#start_export_files) | **POST** /api/v2/agents/operations/exportFiles | 
 *AgentsApi* | [**start_reboot**](docs/AgentsApi.md#start_reboot) | **POST** /api/v2/agents/operations/reboot | 
 *AgentsApi* | [**start_release**](docs/AgentsApi.md#start_release) | **POST** /api/v2/agents/operations/release | 
@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**delete_tls_certificates**](docs/ApplicationResourcesApi.md#delete_tls_certificates) | **DELETE** /api/v2/resources/tls-certificates/{tlsCertificateId} | 
 *ApplicationResourcesApi* | [**delete_tls_dhs**](docs/ApplicationResourcesApi.md#delete_tls_dhs) | **DELETE** /api/v2/resources/tls-dhs/{tlsDhId} | 
 *ApplicationResourcesApi* | [**delete_tls_keys**](docs/ApplicationResourcesApi.md#delete_tls_keys) | **DELETE** /api/v2/resources/tls-keys/{tlsKeyId} | 
+*ApplicationResourcesApi* | [**delete_user_defined_apps**](docs/ApplicationResourcesApi.md#delete_user_defined_apps) | **DELETE** /api/v2/resources/user-defined-apps/{userDefinedAppId} | 
 *ApplicationResourcesApi* | [**get_application_types**](docs/ApplicationResourcesApi.md#get_application_types) | **GET** /api/v2/resources/application-types | 
 *ApplicationResourcesApi* | [**get_application_types_by_id**](docs/ApplicationResourcesApi.md#get_application_types_by_id) | **GET** /api/v2/resources/application-types/{applicationTypeId} | 
 *ApplicationResourcesApi* | [**get_apps**](docs/ApplicationResourcesApi.md#get_apps) | **GET** /api/v2/resources/apps | 
@@ -175,8 +176,10 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_captures_by_id**](docs/ApplicationResourcesApi.md#get_captures_by_id) | **GET** /api/v2/resources/captures/{captureId} | 
 *ApplicationResourcesApi* | [**get_certificates**](docs/ApplicationResourcesApi.md#get_certificates) | **GET** /api/v2/resources/certificates | 
 *ApplicationResourcesApi* | [**get_certificates_by_id**](docs/ApplicationResourcesApi.md#get_certificates_by_id) | **GET** /api/v2/resources/certificates/{certificateId} | 
+*ApplicationResourcesApi* | [**get_exchanges**](docs/ApplicationResourcesApi.md#get_exchanges) | **GET** /api/v2/resources/captures/{captureId}/flows/{flowId}/exchanges | 
 *ApplicationResourcesApi* | [**get_flow_library**](docs/ApplicationResourcesApi.md#get_flow_library) | **GET** /api/v2/resources/flow-library | 
 *ApplicationResourcesApi* | [**get_flow_library_by_id**](docs/ApplicationResourcesApi.md#get_flow_library_by_id) | **GET** /api/v2/resources/flow-library/{flowLibraryId} | 
+*ApplicationResourcesApi* | [**get_flows**](docs/ApplicationResourcesApi.md#get_flows) | **GET** /api/v2/resources/captures/{captureId}/flows | 
 *ApplicationResourcesApi* | [**get_global_playlists**](docs/ApplicationResourcesApi.md#get_global_playlists) | **GET** /api/v2/resources/global-playlists | 
 *ApplicationResourcesApi* | [**get_global_playlists_by_id**](docs/ApplicationResourcesApi.md#get_global_playlists_by_id) | **GET** /api/v2/resources/global-playlists/{globalPlaylistId} | 
 *ApplicationResourcesApi* | [**get_http_library**](docs/ApplicationResourcesApi.md#get_http_library) | **GET** /api/v2/resources/http-library | 
@@ -262,6 +265,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**poll_apps_export_all**](docs/ApplicationResourcesApi.md#poll_apps_export_all) | **GET** /api/v2/resources/apps/operations/export-all/{id} | 
 *ApplicationResourcesApi* | [**poll_captures_batch_delete**](docs/ApplicationResourcesApi.md#poll_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
 *ApplicationResourcesApi* | [**poll_create_app**](docs/ApplicationResourcesApi.md#poll_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
+*ApplicationResourcesApi* | [**poll_edit_app**](docs/ApplicationResourcesApi.md#poll_edit_app) | **GET** /api/v2/resources/operations/edit-app/{id} | 
 *ApplicationResourcesApi* | [**poll_get_attack_categories**](docs/ApplicationResourcesApi.md#poll_get_attack_categories) | **GET** /api/v2/resources/operations/get-attack-categories/{id} | 
 *ApplicationResourcesApi* | [**poll_get_attacks**](docs/ApplicationResourcesApi.md#poll_get_attacks) | **GET** /api/v2/resources/operations/get-attacks/{id} | 
 *ApplicationResourcesApi* | [**poll_get_strike_categories**](docs/ApplicationResourcesApi.md#poll_get_strike_categories) | **GET** /api/v2/resources/operations/get-strike-categories/{id} | 
@@ -270,6 +274,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**start_apps_export_all**](docs/ApplicationResourcesApi.md#start_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 *ApplicationResourcesApi* | [**start_captures_batch_delete**](docs/ApplicationResourcesApi.md#start_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
 *ApplicationResourcesApi* | [**start_create_app**](docs/ApplicationResourcesApi.md#start_create_app) | **POST** /api/v2/resources/operations/create-app | 
+*ApplicationResourcesApi* | [**start_edit_app**](docs/ApplicationResourcesApi.md#start_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
 *ApplicationResourcesApi* | [**start_get_attack_categories**](docs/ApplicationResourcesApi.md#start_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
 *ApplicationResourcesApi* | [**start_get_attacks**](docs/ApplicationResourcesApi.md#start_get_attacks) | **POST** /api/v2/resources/operations/get-attacks | 
 *ApplicationResourcesApi* | [**start_get_strike_categories**](docs/ApplicationResourcesApi.md#start_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
@@ -450,9 +455,11 @@ Class | Method | HTTP request | Description
  - [APIRelationship](docs/APIRelationship.md)
  - [Action](docs/Action.md)
  - [ActionBase](docs/ActionBase.md)
+ - [ActionMetadata](docs/ActionMetadata.md)
  - [ActivationCodeInfo](docs/ActivationCodeInfo.md)
  - [ActivationCodeListRequest](docs/ActivationCodeListRequest.md)
  - [ActivationCodeRequest](docs/ActivationCodeRequest.md)
+ - [AddInput](docs/AddInput.md)
  - [AdvancedSettings](docs/AdvancedSettings.md)
  - [Agent](docs/Agent.md)
  - [AgentAssignmentByPort](docs/AgentAssignmentByPort.md)
@@ -473,6 +480,7 @@ Class | Method | HTTP request | Description
  - [ApplicationProfile](docs/ApplicationProfile.md)
  - [ApplicationType](docs/ApplicationType.md)
  - [AppsecApp](docs/AppsecApp.md)
+ - [AppsecAppMetadata](docs/AppsecAppMetadata.md)
  - [AppsecAttack](docs/AppsecAttack.md)
  - [AppsecConfig](docs/AppsecConfig.md)
  - [ArchiveInfo](docs/ArchiveInfo.md)
@@ -492,14 +500,13 @@ Class | Method | HTTP request | Description
  - [AuthenticationSettings](docs/AuthenticationSettings.md)
  - [AutomaticIpType](docs/AutomaticIpType.md)
  - [Broker](docs/Broker.md)
+ - [Capture](docs/Capture.md)
  - [CaptureSettings](docs/CaptureSettings.md)
  - [Category](docs/Category.md)
  - [CategoryFilter](docs/CategoryFilter.md)
  - [CategoryValue](docs/CategoryValue.md)
  - [CertConfig](docs/CertConfig.md)
  - [Certificate](docs/Certificate.md)
- - [ChangeAggregationModeOperation](docs/ChangeAggregationModeOperation.md)
- - [ChangeLinkStateOperation](docs/ChangeLinkStateOperation.md)
  - [ChassisInfo](docs/ChassisInfo.md)
  - [Choice](docs/Choice.md)
  - [CipherTLS12](docs/CipherTLS12.md)
@@ -534,12 +541,14 @@ Class | Method | HTTP request | Description
  - [DataType](docs/DataType.md)
  - [DataTypeValuesInner](docs/DataTypeValuesInner.md)
  - [Definition](docs/Definition.md)
+ - [DeleteInput](docs/DeleteInput.md)
  - [DhP1Group](docs/DhP1Group.md)
  - [DiagnosticComponent](docs/DiagnosticComponent.md)
  - [DiagnosticComponentContext](docs/DiagnosticComponentContext.md)
  - [DiagnosticOptions](docs/DiagnosticOptions.md)
  - [DiskUsage](docs/DiskUsage.md)
  - [ESPOverUDPSettings](docs/ESPOverUDPSettings.md)
+ - [EditAppOperation](docs/EditAppOperation.md)
  - [EffectivePorts](docs/EffectivePorts.md)
  - [EmulatedRouter](docs/EmulatedRouter.md)
  - [EmulatedRouterRange](docs/EmulatedRouterRange.md)
@@ -554,6 +563,7 @@ Class | Method | HTTP request | Description
  - [ErrorResponse](docs/ErrorResponse.md)
  - [EthRange](docs/EthRange.md)
  - [Exchange](docs/Exchange.md)
+ - [ExchangeOrder](docs/ExchangeOrder.md)
  - [ExchangePayload](docs/ExchangePayload.md)
  - [ExpectedDiskSpace](docs/ExpectedDiskSpace.md)
  - [ExpectedDiskSpaceMessage](docs/ExpectedDiskSpaceMessage.md)
@@ -661,6 +671,7 @@ Class | Method | HTTP request | Description
  - [LogConfig](docs/LogConfig.md)
  - [LogLevel](docs/LogLevel.md)
  - [MacDtlsStack](docs/MacDtlsStack.md)
+ - [MappingType](docs/MappingType.md)
  - [MarkedAsDeleted](docs/MarkedAsDeleted.md)
  - [MediaFile](docs/MediaFile.md)
  - [MediaTrack](docs/MediaTrack.md)
@@ -669,8 +680,11 @@ Class | Method | HTTP request | Description
  - [NameIdFormat](docs/NameIdFormat.md)
  - [NameServer](docs/NameServer.md)
  - [NetworkMapping](docs/NetworkMapping.md)
+ - [NetworkMeshing](docs/NetworkMeshing.md)
  - [NetworkProfile](docs/NetworkProfile.md)
  - [NetworkSegmentBase](docs/NetworkSegmentBase.md)
+ - [NodesByController](docs/NodesByController.md)
+ - [NodesPowerCycleOperation](docs/NodesPowerCycleOperation.md)
  - [Notification](docs/Notification.md)
  - [NotificationCounts](docs/NotificationCounts.md)
  - [NtpInfo](docs/NtpInfo.md)
@@ -705,6 +719,8 @@ Class | Method | HTTP request | Description
  - [PluginStats](docs/PluginStats.md)
  - [Port](docs/Port.md)
  - [PortSettings](docs/PortSettings.md)
+ - [PortsByController](docs/PortsByController.md)
+ - [PortsByNode](docs/PortsByNode.md)
  - [PrepareTestOperation](docs/PrepareTestOperation.md)
  - [PreparedTestOptions](docs/PreparedTestOptions.md)
  - [PrfP1Algorithm](docs/PrfP1Algorithm.md)
@@ -718,6 +734,9 @@ Class | Method | HTTP request | Description
  - [ReleaseOperationInput](docs/ReleaseOperationInput.md)
  - [RemoteAccess](docs/RemoteAccess.md)
  - [RemoteSubnetConfig](docs/RemoteSubnetConfig.md)
+ - [RenameInput](docs/RenameInput.md)
+ - [ReorderActionInput](docs/ReorderActionInput.md)
+ - [ReorderExchangesInput](docs/ReorderExchangesInput.md)
  - [ReplayCapture](docs/ReplayCapture.md)
  - [RequiredFileTypes](docs/RequiredFileTypes.md)
  - [ReserveOperationInput](docs/ReserveOperationInput.md)
@@ -732,7 +751,10 @@ Class | Method | HTTP request | Description
  - [Session](docs/Session.md)
  - [SessionReuseMethodTLS12](docs/SessionReuseMethodTLS12.md)
  - [SessionReuseMethodTLS13](docs/SessionReuseMethodTLS13.md)
+ - [SetAggregationModeOperation](docs/SetAggregationModeOperation.md)
+ - [SetAppOperation](docs/SetAppOperation.md)
  - [SetDpdkModeOperationInput](docs/SetDpdkModeOperationInput.md)
+ - [SetLinkStateOperation](docs/SetLinkStateOperation.md)
  - [SetNtpOperationInput](docs/SetNtpOperationInput.md)
  - [SimulatedIdP](docs/SimulatedIdP.md)
  - [Snapshot](docs/Snapshot.md)
@@ -748,7 +770,6 @@ Class | Method | HTTP request | Description
  - [StreamPayloadType](docs/StreamPayloadType.md)
  - [StreamProfile](docs/StreamProfile.md)
  - [SupportedGroupTLS13](docs/SupportedGroupTLS13.md)
- - [SwitchAppOperation](docs/SwitchAppOperation.md)
  - [SystemInfo](docs/SystemInfo.md)
  - [TLSProfile](docs/TLSProfile.md)
  - [TcpProfile](docs/TcpProfile.md)

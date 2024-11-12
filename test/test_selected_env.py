@@ -44,8 +44,8 @@ class TestSelectedEnv(unittest.TestCase):
                             cyperf.models.ip_mask.IpMask(
                                 net_mask = 56, )
                             ], 
-                        mac = '', 
                         mtu = 56, 
+                        mac = '', 
                         name = '', )
                     ],
                 token = ''

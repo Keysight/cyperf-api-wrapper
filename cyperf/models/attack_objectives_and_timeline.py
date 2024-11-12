@@ -30,9 +30,9 @@ class AttackObjectivesAndTimeline(BaseModel):
     """
     AttackObjectivesAndTimeline
     """ # noqa: E501
-    links: Optional[List[APILink]] = None
     timeline_segments: Optional[List[AttackTimelineSegment]] = Field(default=None, alias="TimelineSegments")
-    __properties: ClassVar[List[str]] = ["links", "TimelineSegments"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["TimelineSegments", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,13 +73,6 @@ class AttackObjectivesAndTimeline(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in timeline_segments (list)
         _items = []
         if self.timeline_segments:
@@ -87,6 +80,13 @@ class AttackObjectivesAndTimeline(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['TimelineSegments'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -101,8 +101,8 @@ class AttackObjectivesAndTimeline(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "TimelineSegments": [AttackTimelineSegment.from_dict(_item) for _item in obj["TimelineSegments"]] if obj.get("TimelineSegments") is not None else None
+            "TimelineSegments": [AttackTimelineSegment.from_dict(_item) for _item in obj["TimelineSegments"]] if obj.get("TimelineSegments") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

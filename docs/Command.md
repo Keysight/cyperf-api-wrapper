@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the command | [optional] 
 **exchanges** | [**List[Exchange]**](Exchange.md) | The exchanges of the command | [optional] 
 **is_strike** | **bool** | Indicates if the command is a strike | [optional] [readonly] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **metadata** | [**Metadata**](Metadata.md) |  | [optional] 
 **name** | **str** | The name of the command | [optional] [readonly] 
 **parameters** | [**List[Parameter]**](Parameter.md) | The parameters of the command | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

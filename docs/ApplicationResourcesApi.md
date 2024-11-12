@@ -37,6 +37,7 @@ Method | HTTP request | Description
 [**delete_tls_certificates**](ApplicationResourcesApi.md#delete_tls_certificates) | **DELETE** /api/v2/resources/tls-certificates/{tlsCertificateId} | 
 [**delete_tls_dhs**](ApplicationResourcesApi.md#delete_tls_dhs) | **DELETE** /api/v2/resources/tls-dhs/{tlsDhId} | 
 [**delete_tls_keys**](ApplicationResourcesApi.md#delete_tls_keys) | **DELETE** /api/v2/resources/tls-keys/{tlsKeyId} | 
+[**delete_user_defined_apps**](ApplicationResourcesApi.md#delete_user_defined_apps) | **DELETE** /api/v2/resources/user-defined-apps/{userDefinedAppId} | 
 [**get_application_types**](ApplicationResourcesApi.md#get_application_types) | **GET** /api/v2/resources/application-types | 
 [**get_application_types_by_id**](ApplicationResourcesApi.md#get_application_types_by_id) | **GET** /api/v2/resources/application-types/{applicationTypeId} | 
 [**get_apps**](ApplicationResourcesApi.md#get_apps) | **GET** /api/v2/resources/apps | 
@@ -50,8 +51,10 @@ Method | HTTP request | Description
 [**get_captures_by_id**](ApplicationResourcesApi.md#get_captures_by_id) | **GET** /api/v2/resources/captures/{captureId} | 
 [**get_certificates**](ApplicationResourcesApi.md#get_certificates) | **GET** /api/v2/resources/certificates | 
 [**get_certificates_by_id**](ApplicationResourcesApi.md#get_certificates_by_id) | **GET** /api/v2/resources/certificates/{certificateId} | 
+[**get_exchanges**](ApplicationResourcesApi.md#get_exchanges) | **GET** /api/v2/resources/captures/{captureId}/flows/{flowId}/exchanges | 
 [**get_flow_library**](ApplicationResourcesApi.md#get_flow_library) | **GET** /api/v2/resources/flow-library | 
 [**get_flow_library_by_id**](ApplicationResourcesApi.md#get_flow_library_by_id) | **GET** /api/v2/resources/flow-library/{flowLibraryId} | 
+[**get_flows**](ApplicationResourcesApi.md#get_flows) | **GET** /api/v2/resources/captures/{captureId}/flows | 
 [**get_global_playlists**](ApplicationResourcesApi.md#get_global_playlists) | **GET** /api/v2/resources/global-playlists | 
 [**get_global_playlists_by_id**](ApplicationResourcesApi.md#get_global_playlists_by_id) | **GET** /api/v2/resources/global-playlists/{globalPlaylistId} | 
 [**get_http_library**](ApplicationResourcesApi.md#get_http_library) | **GET** /api/v2/resources/http-library | 
@@ -137,6 +140,7 @@ Method | HTTP request | Description
 [**poll_apps_export_all**](ApplicationResourcesApi.md#poll_apps_export_all) | **GET** /api/v2/resources/apps/operations/export-all/{id} | 
 [**poll_captures_batch_delete**](ApplicationResourcesApi.md#poll_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
 [**poll_create_app**](ApplicationResourcesApi.md#poll_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
+[**poll_edit_app**](ApplicationResourcesApi.md#poll_edit_app) | **GET** /api/v2/resources/operations/edit-app/{id} | 
 [**poll_get_attack_categories**](ApplicationResourcesApi.md#poll_get_attack_categories) | **GET** /api/v2/resources/operations/get-attack-categories/{id} | 
 [**poll_get_attacks**](ApplicationResourcesApi.md#poll_get_attacks) | **GET** /api/v2/resources/operations/get-attacks/{id} | 
 [**poll_get_strike_categories**](ApplicationResourcesApi.md#poll_get_strike_categories) | **GET** /api/v2/resources/operations/get-strike-categories/{id} | 
@@ -145,6 +149,7 @@ Method | HTTP request | Description
 [**start_apps_export_all**](ApplicationResourcesApi.md#start_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 [**start_captures_batch_delete**](ApplicationResourcesApi.md#start_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
 [**start_create_app**](ApplicationResourcesApi.md#start_create_app) | **POST** /api/v2/resources/operations/create-app | 
+[**start_edit_app**](ApplicationResourcesApi.md#start_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
 [**start_get_attack_categories**](ApplicationResourcesApi.md#start_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
 [**start_get_attacks**](ApplicationResourcesApi.md#start_get_attacks) | **POST** /api/v2/resources/operations/get-attacks | 
 [**start_get_strike_categories**](ApplicationResourcesApi.md#start_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
@@ -2640,6 +2645,79 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_user_defined_apps**
+> delete_user_defined_apps(user_defined_app_id)
+
+
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    user_defined_app_id = 'user_defined_app_id_example' # str | The ID of the user defined app.
+
+    try:
+        api_instance.delete_user_defined_apps(user_defined_app_id)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->delete_user_defined_apps: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_defined_app_id** | **str**| The ID of the user defined app. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The request was completed successfully. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_application_types**
 > GetApplicationTypes200Response get_application_types(take=take, skip=skip)
 
@@ -3459,6 +3537,8 @@ Name | Type | Description  | Notes
 
 
 
+Get a particular CyPerf capture loaded by the user.
+
 ### Example
 
 * OAuth Authentication (OAuth2):
@@ -3525,8 +3605,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**404** | A resource with the specified ID was not found. |  -  |
+**200** | The requested CyPerf application |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
+**404** | A CyPerf capture with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3692,6 +3773,88 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_exchanges**
+> List[AppExchange] get_exchanges(capture_id, flow_id, take=take, skip=skip)
+
+
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.app_exchange import AppExchange
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    capture_id = 'capture_id_example' # str | The ID of the capture.
+    flow_id = 'flow_id_example' # str | The ID of the flow.
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
+
+    try:
+        api_response = api_instance.get_exchanges(capture_id, flow_id, take=take, skip=skip)
+        print("The response of ApplicationResourcesApi->get_exchanges:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_exchanges: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **capture_id** | **str**| The ID of the capture. | 
+ **flow_id** | **str**| The ID of the flow. | 
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
+
+### Return type
+
+[**List[AppExchange]**](AppExchange.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_flow_library**
 > GetCertificates200Response get_flow_library(take=take, skip=skip)
 
@@ -3849,6 +4012,86 @@ Name | Type | Description  | Notes
 **200** | The requested flow library file |  -  |
 **401** | Authorization information is missing or invalid. |  -  |
 **404** | A flow library file with the specified ID was not found. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_flows**
+> List[AppFlow] get_flows(capture_id, take=take, skip=skip)
+
+
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.app_flow import AppFlow
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    capture_id = 'capture_id_example' # str | The ID of the capture.
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
+
+    try:
+        api_response = api_instance.get_flows(capture_id, take=take, skip=skip)
+        print("The response of ApplicationResourcesApi->get_flows:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_flows: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **capture_id** | **str**| The ID of the capture. | 
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
+
+### Return type
+
+[**List[AppFlow]**](AppFlow.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -10480,6 +10723,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **poll_edit_app**
+> AsyncContext poll_edit_app(id)
+
+
+
+Get the state of an ongoing operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    id = 56 # int | The ID of the async operation.
+
+    try:
+        api_response = api_instance.poll_edit_app(id)
+        print("The response of ApplicationResourcesApi->poll_edit_app:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->poll_edit_app: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| The ID of the async operation. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Details about the ongoing operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **poll_get_attack_categories**
 > AsyncContext poll_get_attack_categories(id)
 
@@ -11072,6 +11392,84 @@ with cyperf.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_app_operation** | [**CreateAppOperation**](CreateAppOperation.md)|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_edit_app**
+> AsyncContext start_edit_app(edit_app_operation=edit_app_operation)
+
+
+
+Edit an application
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.models.edit_app_operation import EditAppOperation
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    edit_app_operation = cyperf.EditAppOperation() # EditAppOperation |  (optional)
+
+    try:
+        api_response = api_instance.start_edit_app(edit_app_operation=edit_app_operation)
+        print("The response of ApplicationResourcesApi->start_edit_app:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->start_edit_app: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **edit_app_operation** | [**EditAppOperation**](EditAppOperation.md)|  | [optional] 
 
 ### Return type
 

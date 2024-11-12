@@ -31,14 +31,14 @@ class AppsecConfig(BaseModel):
     AppsecConfig
     """ # noqa: E501
     config: Optional[Config] = Field(default=None, alias="Config")
+    session_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the session this configuration belongs to", alias="SessionID")
+    template_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the CyPerf configuration template from which this configuration was created", alias="TemplateID")
     config_type_name: StrictStr = Field(description="Used for API clients to decide what type of config they have loaded", alias="configTypeName")
     data_model_version: Optional[StrictStr] = Field(default=None, description="The version of the data model used for this configuration", alias="dataModelVersion")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the CyPerf configuration")
     links: Optional[List[APILink]] = None
     name: Optional[StrictStr] = Field(default=None, description="The name of the configuration")
-    session_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the session this configuration belongs to", alias="SessionID")
-    template_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the CyPerf configuration template from which this configuration was created", alias="TemplateID")
-    __properties: ClassVar[List[str]] = ["Config", "configTypeName", "dataModelVersion", "id", "links", "name", "SessionID", "TemplateID"]
+    __properties: ClassVar[List[str]] = ["Config", "SessionID", "TemplateID", "configTypeName", "dataModelVersion", "id", "links", "name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,10 +76,10 @@ class AppsecConfig(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "data_model_version",
-            "id",
             "session_id",
             "template_id",
+            "data_model_version",
+            "id",
         ])
 
         _dict = self.model_dump(
@@ -112,13 +112,13 @@ class AppsecConfig(BaseModel):
 
         _obj = cls.model_validate({
             "Config": Config.from_dict(obj["Config"]) if obj.get("Config") is not None else None,
+                        "SessionID": obj.get("SessionID"),
+                        "TemplateID": obj.get("TemplateID"),
                         "configTypeName": obj.get("configTypeName"),
                         "dataModelVersion": obj.get("dataModelVersion"),
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "name": obj.get("name"),
-                        "SessionID": obj.get("SessionID"),
-                        "TemplateID": obj.get("TemplateID")
+                        "name": obj.get("name")
             ,
             "links": obj.get("links")
         })

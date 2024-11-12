@@ -33,21 +33,18 @@ class Params(BaseModel):
     """
     Params
     """ # noqa: E501
-    array_elements: Optional[List[Dict[str, StrictStr]]] = Field(default=None, alias="ArrayElements")
     array_element_type: Optional[StrictStr] = Field(default=None, description="The type of the array elements.", alias="ArrayElementType")
+    array_elements: Optional[List[Dict[str, StrictStr]]] = Field(default=None, alias="ArrayElements")
     category: Optional[StrictStr] = Field(default=None, description="The category associated with the parameter", alias="Category")
     category_index: Optional[StrictInt] = Field(default=None, description="The position of the category in the category list", alias="CategoryIndex")
     deprecated_previous_source: Optional[StrictStr] = Field(default=None, description="A value indicating that this parameter had a source that was deprecated", alias="DeprecatedPreviousSource")
     description: Optional[StrictStr] = Field(default=None, description="The description of the parameter", alias="Description")
     dictionary_value: Optional[Dict[str, StrictStr]] = Field(default=None, description="The dictionary value of the parameter.", alias="DictionaryValue")
     enum: Optional[ParamsEnum] = Field(default=None, alias="Enum")
-    file_upload: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="file-upload")
     file_value: Optional[FileValue] = Field(default=None, alias="FileValue")
     flow_identifier: Optional[StrictBool] = Field(default=None, description="If true, the value of this parameter is used to uniquely identify an application/attack", alias="FlowIdentifier")
-    id: StrictStr
     is_deprecated: Optional[StrictBool] = Field(default=None, alias="IsDeprecated")
     is_modified: Optional[StrictBool] = Field(default=None, alias="IsModified")
-    links: Optional[List[APILink]] = None
     media_files: Optional[List[MediaFile]] = Field(default=None, alias="MediaFiles")
     metadata: Optional[ParamMetadata] = Field(default=None, alias="Metadata")
     name: Optional[StrictStr] = Field(default=None, description="The name of the parameter.", alias="Name")
@@ -55,11 +52,14 @@ class Params(BaseModel):
     readonly: Optional[StrictBool] = Field(default=None, alias="Readonly")
     source: Optional[StrictStr] = Field(default=None, description="The source of the parameter.", alias="Source")
     supported_sources: Optional[List[StrictStr]] = Field(default=None, description="A list that indicates possible sources for the parameter", alias="SupportedSources")
-    supports_dynamic_payload: Optional[StrictBool] = Field(default=None, description="A value that indicates if the parameter can have dynamic payload.", alias="supportsDynamicPayload")
     type: Optional[StrictStr] = Field(default=None, description="The type of the parameter.", alias="Type")
-    upload_url: Optional[StrictStr] = Field(default=None, description="The URL where the file parameter content could be uploaded.", alias="uploadURL")
     value: Optional[StrictStr] = Field(default=None, description="The value of the parameter.", alias="Value")
-    __properties: ClassVar[List[str]] = ["ArrayElements", "ArrayElementType", "Category", "CategoryIndex", "DeprecatedPreviousSource", "Description", "DictionaryValue", "Enum", "file-upload", "FileValue", "FlowIdentifier", "id", "IsDeprecated", "IsModified", "links", "MediaFiles", "Metadata", "Name", "ParamId", "Readonly", "Source", "SupportedSources", "supportsDynamicPayload", "Type", "uploadURL", "Value"]
+    file_upload: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="file-upload")
+    id: StrictStr
+    links: Optional[List[APILink]] = None
+    supports_dynamic_payload: Optional[StrictBool] = Field(default=None, description="A value that indicates if the parameter can have dynamic payload.", alias="supportsDynamicPayload")
+    upload_url: Optional[StrictStr] = Field(default=None, description="The URL where the file parameter content could be uploaded.", alias="uploadURL")
+    __properties: ClassVar[List[str]] = ["ArrayElementType", "ArrayElements", "Category", "CategoryIndex", "DeprecatedPreviousSource", "Description", "DictionaryValue", "Enum", "FileValue", "FlowIdentifier", "IsDeprecated", "IsModified", "MediaFiles", "Metadata", "Name", "ParamId", "Readonly", "Source", "SupportedSources", "Type", "Value", "file-upload", "id", "links", "supportsDynamicPayload", "uploadURL"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,13 +106,6 @@ class Params(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of file_value
         if self.file_value:
             _dict['FileValue'] = self.file_value.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in media_files (list)
         _items = []
         if self.media_files:
@@ -123,6 +116,13 @@ class Params(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of metadata
         if self.metadata:
             _dict['Metadata'] = self.metadata.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -137,21 +137,18 @@ class Params(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "ArrayElements": obj.get("ArrayElements"),
-                        "ArrayElementType": obj.get("ArrayElementType"),
+            "ArrayElementType": obj.get("ArrayElementType"),
+                        "ArrayElements": obj.get("ArrayElements"),
                         "Category": obj.get("Category"),
                         "CategoryIndex": obj.get("CategoryIndex"),
                         "DeprecatedPreviousSource": obj.get("DeprecatedPreviousSource"),
                         "Description": obj.get("Description"),
                         "DictionaryValue": obj.get("DictionaryValue"),
                         "Enum": ParamsEnum.from_dict(obj["Enum"]) if obj.get("Enum") is not None else None,
-                        "file-upload": obj.get("file-upload"),
                         "FileValue": FileValue.from_dict(obj["FileValue"]) if obj.get("FileValue") is not None else None,
                         "FlowIdentifier": obj.get("FlowIdentifier"),
-                        "id": obj.get("id"),
                         "IsDeprecated": obj.get("IsDeprecated"),
                         "IsModified": obj.get("IsModified"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "MediaFiles": [MediaFile.from_dict(_item) for _item in obj["MediaFiles"]] if obj.get("MediaFiles") is not None else None,
                         "Metadata": ParamMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
@@ -159,10 +156,13 @@ class Params(BaseModel):
                         "Readonly": obj.get("Readonly"),
                         "Source": obj.get("Source"),
                         "SupportedSources": obj.get("SupportedSources"),
-                        "supportsDynamicPayload": obj.get("supportsDynamicPayload"),
                         "Type": obj.get("Type"),
-                        "uploadURL": obj.get("uploadURL"),
-                        "Value": obj.get("Value")
+                        "Value": obj.get("Value"),
+                        "file-upload": obj.get("file-upload"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "supportsDynamicPayload": obj.get("supportsDynamicPayload"),
+                        "uploadURL": obj.get("uploadURL")
             ,
             "links": obj.get("links")
         })

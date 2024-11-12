@@ -39,13 +39,13 @@ class TunnelRange(BaseModel):
     dns_resolver: Optional[DNSResolver] = Field(default=None, alias="DNSResolver")
     f5_settings: Optional[F5Settings] = Field(default=None, alias="F5Settings")
     fortinet_settings: Optional[FortinetSettings] = Field(default=None, alias="FortinetSettings")
-    links: Optional[List[APILink]] = None
     pangp_settings: Optional[PANGPSettings] = Field(default=None, alias="PANGPSettings")
     tcp_dst_port: StrictInt = Field(alias="TcpDstPort")
     tunnel_count_per_outer_ip: StrictInt = Field(alias="TunnelCountPerOuterIP")
     tunnel_establishment_timeout: Optional[StrictInt] = Field(default=None, alias="TunnelEstablishmentTimeout")
     vendor_type: StrictStr = Field(alias="VendorType")
-    __properties: ClassVar[List[str]] = ["CiscoAnyConnectSettings", "DCPRequestTimeout", "DNSResolver", "F5Settings", "FortinetSettings", "links", "PANGPSettings", "TcpDstPort", "TunnelCountPerOuterIP", "TunnelEstablishmentTimeout", "VendorType"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["CiscoAnyConnectSettings", "DCPRequestTimeout", "DNSResolver", "F5Settings", "FortinetSettings", "PANGPSettings", "TcpDstPort", "TunnelCountPerOuterIP", "TunnelEstablishmentTimeout", "VendorType", "links"]
 
     @field_validator('vendor_type')
     def vendor_type_validate_enum(cls, value):
@@ -105,6 +105,9 @@ class TunnelRange(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of fortinet_settings
         if self.fortinet_settings:
             _dict['FortinetSettings'] = self.fortinet_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of pangp_settings
+        if self.pangp_settings:
+            _dict['PANGPSettings'] = self.pangp_settings.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -112,9 +115,6 @@ class TunnelRange(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of pangp_settings
-        if self.pangp_settings:
-            _dict['PANGPSettings'] = self.pangp_settings.to_dict()
         return _dict
 
     @classmethod
@@ -134,12 +134,12 @@ class TunnelRange(BaseModel):
                         "DNSResolver": DNSResolver.from_dict(obj["DNSResolver"]) if obj.get("DNSResolver") is not None else None,
                         "F5Settings": F5Settings.from_dict(obj["F5Settings"]) if obj.get("F5Settings") is not None else None,
                         "FortinetSettings": FortinetSettings.from_dict(obj["FortinetSettings"]) if obj.get("FortinetSettings") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "PANGPSettings": PANGPSettings.from_dict(obj["PANGPSettings"]) if obj.get("PANGPSettings") is not None else None,
                         "TcpDstPort": obj.get("TcpDstPort"),
                         "TunnelCountPerOuterIP": obj.get("TunnelCountPerOuterIP"),
                         "TunnelEstablishmentTimeout": obj.get("TunnelEstablishmentTimeout"),
-                        "VendorType": obj.get("VendorType")
+                        "VendorType": obj.get("VendorType"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

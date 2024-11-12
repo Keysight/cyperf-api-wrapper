@@ -37,14 +37,14 @@ class HTTPProfile(BaseModel):
     connections_max_transactions: Optional[StrictInt] = Field(default=None, description="The maximum number of transactions for all scenario connections.", alias="ConnectionsMaxTransactions")
     description: StrictStr = Field(description="The description of the HTTP profile.", alias="Description")
     external_resource_url: Optional[StrictStr] = Field(default=None, description="The external resource URL of the HTTP profile.", alias="ExternalResourceURL")
-    headers: Optional[Params] = Field(default=None, alias="Headers")
     http_version: Optional[HTTPVersion] = Field(default=None, alias="HTTPVersion")
+    headers: Optional[Params] = Field(default=None, alias="Headers")
     is_modified: Optional[StrictBool] = Field(default=None, alias="IsModified")
-    links: Optional[List[APILink]] = None
     name: StrictStr = Field(description="The name of the HTTP profile.", alias="Name")
     params: Optional[List[Params]] = Field(default=None, description="The list of parameters present in the HTTP profile.", alias="Params")
     use_application_server_headers: Optional[StrictBool] = Field(default=None, alias="UseApplicationServerHeaders")
-    __properties: ClassVar[List[str]] = ["AdditionalHeaders", "ConnectionPersistence", "ConnectionsMaxTransactions", "Description", "ExternalResourceURL", "Headers", "HTTPVersion", "IsModified", "links", "Name", "Params", "UseApplicationServerHeaders"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["AdditionalHeaders", "ConnectionPersistence", "ConnectionsMaxTransactions", "Description", "ExternalResourceURL", "HTTPVersion", "Headers", "IsModified", "Name", "Params", "UseApplicationServerHeaders", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,13 +91,6 @@ class HTTPProfile(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of headers
         if self.headers:
             _dict['Headers'] = self.headers.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in params (list)
         _items = []
         if self.params:
@@ -105,6 +98,13 @@ class HTTPProfile(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Params'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -124,13 +124,13 @@ class HTTPProfile(BaseModel):
                         "ConnectionsMaxTransactions": obj.get("ConnectionsMaxTransactions"),
                         "Description": obj.get("Description"),
                         "ExternalResourceURL": obj.get("ExternalResourceURL"),
-                        "Headers": Params.from_dict(obj["Headers"]) if obj.get("Headers") is not None else None,
                         "HTTPVersion": obj.get("HTTPVersion"),
+                        "Headers": Params.from_dict(obj["Headers"]) if obj.get("Headers") is not None else None,
                         "IsModified": obj.get("IsModified"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Name": obj.get("Name"),
                         "Params": [Params.from_dict(_item) for _item in obj["Params"]] if obj.get("Params") is not None else None,
-                        "UseApplicationServerHeaders": obj.get("UseApplicationServerHeaders")
+                        "UseApplicationServerHeaders": obj.get("UseApplicationServerHeaders"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

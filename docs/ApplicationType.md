@@ -14,8 +14,6 @@ Name | Type | Description | Notes
 **endpoints** | [**List[Endpoint]**](Endpoint.md) | The list of endpoints used by the application | [optional] [readonly] 
 **file_name** | **str** | The name of the XML file that contains the application definition | [optional] 
 **has_banner_command** | **bool** | Indicates if there is a command that is required, can only be add once and also must be the first | [optional] 
-**id** | **str** | The unique identifier of the flow | [optional] [readonly] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **md5_content** | **str** | The MD5 value of the XML file that contains the application definition. | [optional] 
 **md5_metadata** | **str** | The MD5 value of the XML file that contains the metadata definition. | [optional] 
 **metadata** | [**Metadata**](Metadata.md) |  | [optional] 
@@ -28,6 +26,8 @@ Name | Type | Description | Notes
 **supports_server_http_profile** | **bool** | Indicates if the application uses Server HTTP profiles. | [optional] 
 **supports_strikes** | **bool** | Indicates if the application supports strikes. | [optional] 
 **supports_tls** | **bool** | Indicates if the application supports TLS protocol. | [optional] 
+**id** | **str** | The unique identifier of the flow | [optional] [readonly] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

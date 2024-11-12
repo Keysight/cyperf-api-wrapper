@@ -46,8 +46,6 @@ class ApplicationType(BaseModel):
     endpoints: Optional[List[Endpoint]] = Field(default=None, description="The list of endpoints used by the application", alias="Endpoints")
     file_name: Optional[StrictStr] = Field(default=None, description="The name of the XML file that contains the application definition", alias="FileName")
     has_banner_command: Optional[StrictBool] = Field(default=None, description="Indicates if there is a command that is required, can only be add once and also must be the first", alias="HasBannerCommand")
-    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the flow")
-    links: Optional[List[APILink]] = None
     md5_content: Optional[StrictStr] = Field(default=None, description="The MD5 value of the XML file that contains the application definition.", alias="Md5Content")
     md5_metadata: Optional[StrictStr] = Field(default=None, description="The MD5 value of the XML file that contains the metadata definition.", alias="Md5Metadata")
     metadata: Optional[Metadata] = Field(default=None, alias="Metadata")
@@ -60,7 +58,9 @@ class ApplicationType(BaseModel):
     supports_server_http_profile: Optional[StrictBool] = Field(default=None, description="Indicates if the application uses Server HTTP profiles.", alias="SupportsServerHTTPProfile")
     supports_strikes: Optional[StrictBool] = Field(default=None, description="Indicates if the application supports strikes.", alias="SupportsStrikes")
     supports_tls: Optional[StrictBool] = Field(default=None, description="Indicates if the application supports TLS protocol.", alias="SupportsTLS")
-    __properties: ClassVar[List[str]] = ["Commands", "Connections", "CustomStats", "DataTypes", "Definition", "Description", "Endpoints", "FileName", "HasBannerCommand", "id", "links", "Md5Content", "Md5Metadata", "Metadata", "Name", "Parameters", "Strikes", "SupportsCalibration", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "SupportsStrikes", "SupportsTLS"]
+    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the flow")
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Commands", "Connections", "CustomStats", "DataTypes", "Definition", "Description", "Endpoints", "FileName", "HasBannerCommand", "Md5Content", "Md5Metadata", "Metadata", "Name", "Parameters", "Strikes", "SupportsCalibration", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "SupportsStrikes", "SupportsTLS", "id", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,8 +100,8 @@ class ApplicationType(BaseModel):
         excluded_fields: Set[str] = set([
             "connections",
             "endpoints",
-            "id",
             "parameters",
+            "id",
         ])
 
         _dict = self.model_dump(
@@ -147,13 +147,6 @@ class ApplicationType(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Endpoints'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of metadata
         if self.metadata:
             _dict['Metadata'] = self.metadata.to_dict()
@@ -171,6 +164,13 @@ class ApplicationType(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Strikes'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -194,8 +194,6 @@ class ApplicationType(BaseModel):
                         "Endpoints": [Endpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
                         "FileName": obj.get("FileName"),
                         "HasBannerCommand": obj.get("HasBannerCommand"),
-                        "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Md5Content": obj.get("Md5Content"),
                         "Md5Metadata": obj.get("Md5Metadata"),
                         "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
@@ -207,7 +205,9 @@ class ApplicationType(BaseModel):
                         "SupportsHTTPProfiles": obj.get("SupportsHTTPProfiles"),
                         "SupportsServerHTTPProfile": obj.get("SupportsServerHTTPProfile"),
                         "SupportsStrikes": obj.get("SupportsStrikes"),
-                        "SupportsTLS": obj.get("SupportsTLS")
+                        "SupportsTLS": obj.get("SupportsTLS"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

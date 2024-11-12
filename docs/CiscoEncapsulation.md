@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **dtls_enabled** | **bool** |  | 
 **dtls_settings** | [**DTLSSettings**](DTLSSettings.md) |  | [optional] 
 **encapsulation_mode** | **str** | The encapsulation mode for inner traffic. | 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **udp_port** | **int** |  | 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

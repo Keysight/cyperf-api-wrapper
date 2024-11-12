@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ports** | **List[str]** | The ids of the ports to reboot. | [optional] 
+**controllers** | [**List[PortsByController]**](PortsByController.md) | The controllers that the ports are part of. | [optional] 
 
 ## Example
 

@@ -29,10 +29,10 @@ class Exchange(BaseModel):
     Exchange
     """ # noqa: E501
     client_endpoint: Optional[StrictStr] = Field(default=None, description="The client's endpoint for exchange.", alias="ClientEndpoint")
-    id: StrictStr
     name: Optional[StrictStr] = Field(default=None, description="The name of the exchange.", alias="Name")
     server_endpoint: Optional[StrictStr] = Field(default=None, description="The server's endpoint for exchange.", alias="ServerEndpoint")
-    __properties: ClassVar[List[str]] = ["ClientEndpoint", "id", "Name", "ServerEndpoint"]
+    id: StrictStr
+    __properties: ClassVar[List[str]] = ["ClientEndpoint", "Name", "ServerEndpoint", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,9 +88,9 @@ class Exchange(BaseModel):
 
         _obj = cls.model_validate({
             "ClientEndpoint": obj.get("ClientEndpoint"),
-                        "id": obj.get("id"),
                         "Name": obj.get("Name"),
-                        "ServerEndpoint": obj.get("ServerEndpoint")
+                        "ServerEndpoint": obj.get("ServerEndpoint"),
+                        "id": obj.get("id")
             ,
             "links": obj.get("links")
         })

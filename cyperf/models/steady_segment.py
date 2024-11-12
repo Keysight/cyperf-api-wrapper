@@ -30,12 +30,12 @@ class SteadySegment(BaseModel):
     SteadySegment
     """ # noqa: E501
     duration: StrictInt = Field(description="The duration of the timeline segment (default: 600).", alias="Duration")
-    id: StrictStr
     segment_type: SegmentType = Field(description="The segment's type. Must be one of: SteadySegment, StepUpSegment, StepDownSegment.", alias="SegmentType")
     warm_up_period: Optional[StrictInt] = Field(default=None, description="Deprecated. Use ObjectivesAndTimeline.WarmUp instead. The time that servers may need to warm up, when clients should wait (default: 0 seconds).", alias="WarmUpPeriod")
+    id: StrictStr
     objective_unit: StrictStr = Field(alias="ObjectiveUnit")
     objective_value: Union[StrictFloat, StrictInt] = Field(alias="ObjectiveValue")
-    __properties: ClassVar[List[str]] = ["Duration", "id", "SegmentType", "WarmUpPeriod", "ObjectiveUnit", "ObjectiveValue"]
+    __properties: ClassVar[List[str]] = ["Duration", "SegmentType", "WarmUpPeriod", "id", "ObjectiveUnit", "ObjectiveValue"]
 
     @field_validator('objective_unit')
     def objective_unit_validate_enum(cls, value):
@@ -98,9 +98,9 @@ class SteadySegment(BaseModel):
 
         _obj = cls.model_validate({
             "Duration": obj.get("Duration"),
-                        "id": obj.get("id"),
                         "SegmentType": obj.get("SegmentType"),
                         "WarmUpPeriod": obj.get("WarmUpPeriod"),
+                        "id": obj.get("id"),
                         "ObjectiveUnit": obj.get("ObjectiveUnit"),
                         "ObjectiveValue": obj.get("ObjectiveValue")
             ,

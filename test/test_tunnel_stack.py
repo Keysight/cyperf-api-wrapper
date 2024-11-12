@@ -36,28 +36,16 @@ class TestTunnelStack(unittest.TestCase):
         model = TunnelStack()
         if include_optional:
             return TunnelStack(
-                id = '',
                 inner_ip_range = cyperf.models.inner_ip_range.InnerIPRange(
                     network_tags = [
                         ''
                         ], ),
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 outer_ip_range = cyperf.models.ip_range.IPRange(
                     automatic_ip_type = null, 
                     count = 56, 
                     gw_auto = True, 
                     gw_start = '::02:84:9:0cc0:F:CCf', 
                     host_count = 56, 
-                    id = '', 
                     inner_vlan_range = null, 
                     ip_auto = True, 
                     ip_incr = '::02:84:9:0cc0:F:CCf', 
@@ -65,6 +53,11 @@ class TestTunnelStack(unittest.TestCase):
                     ip_start = '::02:84:9:0cc0:F:CCf', 
                     ip_ver = null, 
                     is_emulated_router = True, 
+                    mss = 56, 
+                    mss_auto = True, 
+                    net_mask = 56, 
+                    net_mask_auto = True, 
+                    id = '', 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -76,10 +69,6 @@ class TestTunnelStack(unittest.TestCase):
                             type = '', )
                         ], 
                     max_count_per_agent = 56, 
-                    mss = 56, 
-                    mss_auto = True, 
-                    net_mask = 56, 
-                    net_mask_auto = True, 
                     network_tags = [
                         ''
                         ], ),
@@ -89,6 +78,11 @@ class TestTunnelStack(unittest.TestCase):
                     dns_resolver = null, 
                     f5_settings = null, 
                     fortinet_settings = null, 
+                    pangp_settings = null, 
+                    tcp_dst_port = 56, 
+                    tunnel_count_per_outer_ip = 56, 
+                    tunnel_establishment_timeout = 56, 
+                    vendor_type = 'CISCO_ANY_CONNECT', 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -98,18 +92,24 @@ class TestTunnelStack(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], 
-                    pangp_settings = null, 
-                    tcp_dst_port = 56, 
-                    tunnel_count_per_outer_ip = 56, 
-                    tunnel_establishment_timeout = 56, 
-                    vendor_type = 'CISCO_ANY_CONNECT', ),
-                tunnel_stack_name = 'YBuLd'
+                        ], ),
+                tunnel_stack_name = 'YBuLd',
+                id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return TunnelStack(
-                id = '',
                 tunnel_stack_name = 'YBuLd',
+                id = '',
         )
         """
 

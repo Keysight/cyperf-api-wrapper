@@ -225,6 +225,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_user_defined_apps(self) -> None:
+        """Test case for delete_user_defined_apps
+
+        """
+        pass
+
     def test_get_application_types(self) -> None:
         """Test case for get_application_types
 
@@ -303,6 +309,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_get_exchanges(self) -> None:
+        """Test case for get_exchanges
+
+        """
+        pass
+
     def test_get_flow_library(self) -> None:
         """Test case for get_flow_library
 
@@ -311,6 +323,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
     def test_get_flow_library_by_id(self) -> None:
         """Test case for get_flow_library_by_id
+
+        """
+        pass
+
+    def test_get_flows(self) -> None:
+        """Test case for get_flows
 
         """
         pass
@@ -825,6 +843,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_poll_edit_app(self) -> None:
+        """Test case for poll_edit_app
+
+        """
+        pass
+
     def test_poll_get_attack_categories(self) -> None:
         """Test case for poll_get_attack_categories
 
@@ -869,6 +893,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
     def test_start_create_app(self) -> None:
         """Test case for start_create_app
+
+        """
+        pass
+
+    def test_start_edit_app(self) -> None:
+        """Test case for start_edit_app
 
         """
         pass

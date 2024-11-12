@@ -36,17 +36,6 @@ class TestEndpoint(unittest.TestCase):
         model = Endpoint()
         if include_optional:
             return Endpoint(
-                id = '',
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 name = '',
                 network_mapping = cyperf.models.network_mapping.NetworkMapping(
                     client_network_tags = [
@@ -58,13 +47,24 @@ class TestEndpoint(unittest.TestCase):
                     server_network_tags = [
                         ''
                         ], ),
-                type = 'Client'
+                type = 'Client',
+                id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return Endpoint(
-                id = '',
                 name = '',
                 type = 'Client',
+                id = '',
         )
         """
 

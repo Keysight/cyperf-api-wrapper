@@ -8,10 +8,8 @@ Name | Type | Description | Notes
 **ca_certificate_file** | [**Params**](Params.md) | The authentication CA certificate file of the IPsec tunnel(s). | [optional] 
 **emulated_sub_config** | [**EmulatedSubnetConfig**](EmulatedSubnetConfig.md) | Deeprecated. Use LocalSubConfig instead. | [optional] 
 **enable_rekey** | **bool** |  | 
-**id** | **str** |  | 
 **ip_sec_range** | [**IPSecRange**](IPSecRange.md) |  | [optional] 
 **ip_sec_stack_name** | **str** |  | 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **local_sub_config** | [**LocalSubnetConfig**](LocalSubnetConfig.md) |  | [optional] 
 **log_keys** | **bool** |  | 
 **max_initiation_rate** | **int** |  | 
@@ -25,6 +23,8 @@ Name | Type | Description | Notes
 **retry_interval_increment** | **int** |  | [optional] 
 **setup_timeout** | **int** |  | 
 **stack_role** | **str** |  | 
+**id** | **str** |  | 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

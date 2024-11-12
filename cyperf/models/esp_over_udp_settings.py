@@ -30,9 +30,9 @@ class ESPOverUDPSettings(BaseModel):
     """
     ESPOverUDPSettings
     """ # noqa: E501
-    links: Optional[List[APILink]] = None
     udp_profile: Optional[UdpProfile] = Field(default=None, alias="UDPProfile")
-    __properties: ClassVar[List[str]] = ["links", "UDPProfile"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["UDPProfile", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +73,9 @@ class ESPOverUDPSettings(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of udp_profile
+        if self.udp_profile:
+            _dict['UDPProfile'] = self.udp_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -80,9 +83,6 @@ class ESPOverUDPSettings(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of udp_profile
-        if self.udp_profile:
-            _dict['UDPProfile'] = self.udp_profile.to_dict()
         return _dict
 
     @classmethod
@@ -97,8 +97,8 @@ class ESPOverUDPSettings(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "UDPProfile": UdpProfile.from_dict(obj["UDPProfile"]) if obj.get("UDPProfile") is not None else None
+            "UDPProfile": UdpProfile.from_dict(obj["UDPProfile"]) if obj.get("UDPProfile") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

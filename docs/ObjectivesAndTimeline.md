@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **advanced_settings** | [**AdvancedSettings**](AdvancedSettings.md) |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **primary_objective** | [**SpecificObjective**](SpecificObjective.md) |  | [optional] 
 **secondary_objective** | [**SecondaryObjective**](SecondaryObjective.md) |  | [optional] 
 **secondary_objectives** | [**List[SpecificObjective]**](SpecificObjective.md) | Deprecated. Use SecondaryObjective instead. | [optional] 
 **timeline_segments** | [**List[TimelineSegment]**](TimelineSegment.md) | Deprecated. Use PrimaryObjective.Timeline instead. | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

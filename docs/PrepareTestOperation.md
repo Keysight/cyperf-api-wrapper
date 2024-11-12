@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**options** | [**PreparedTestOptions**](PreparedTestOptions.md) |  | [optional] 
 **message** | **str** | An optional message that describes the reason the test ended | [optional] 
 **new_state** | **str** | An optional enum that identifies the current state of the test | [optional] 
 **old_state** | **str** | An optional enum that identifies the previous state of the test | [optional] 
-**options** | [**PreparedTestOptions**](PreparedTestOptions.md) |  | [optional] 
 **owner** | **str** | An optional friendly display name for the user which initiated the operation | [optional] 
 **owner_id** | **str** | An optional identifier that uniquely identifies the user which initiated the operation | [optional] 
 **reason** | **str** | An optional enum that identifies the underlying reason for the test&#39;s end | [optional] 

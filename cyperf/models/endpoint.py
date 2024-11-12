@@ -30,12 +30,12 @@ class Endpoint(BaseModel):
     """
     Endpoint
     """ # noqa: E501
-    id: StrictStr
-    links: Optional[List[APILink]] = None
     name: StrictStr = Field(alias="Name")
     network_mapping: Optional[NetworkMapping] = Field(default=None, description="The per-endpoint network mapping. Depending on Endpoint type, only ClientNetworkTags or ServerNetworkTags will be used.", alias="NetworkMapping")
     type: StrictStr = Field(alias="Type")
-    __properties: ClassVar[List[str]] = ["id", "links", "Name", "NetworkMapping", "Type"]
+    id: StrictStr
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Name", "NetworkMapping", "Type", "id", "links"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -83,6 +83,9 @@ class Endpoint(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of network_mapping
+        if self.network_mapping:
+            _dict['NetworkMapping'] = self.network_mapping.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -90,9 +93,6 @@ class Endpoint(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of network_mapping
-        if self.network_mapping:
-            _dict['NetworkMapping'] = self.network_mapping.to_dict()
         return _dict
 
     @classmethod
@@ -107,11 +107,11 @@ class Endpoint(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "Name": obj.get("Name"),
+            "Name": obj.get("Name"),
                         "NetworkMapping": NetworkMapping.from_dict(obj["NetworkMapping"]) if obj.get("NetworkMapping") is not None else None,
-                        "Type": obj.get("Type")
+                        "Type": obj.get("Type"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

@@ -99,38 +99,38 @@ class TestAgentsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_compute_nodes_power_cycle(self) -> None:
-        """Test case for poll_compute_nodes_power_cycle
+    def test_poll_controllers_clear_port_ownership(self) -> None:
+        """Test case for poll_controllers_clear_port_ownership
 
         """
         pass
 
-    def test_poll_controllers_change_nodes_aggregation(self) -> None:
-        """Test case for poll_controllers_change_nodes_aggregation
+    def test_poll_controllers_power_cycle_nodes(self) -> None:
+        """Test case for poll_controllers_power_cycle_nodes
 
         """
         pass
 
-    def test_poll_controllers_change_ports_link_state(self) -> None:
-        """Test case for poll_controllers_change_ports_link_state
+    def test_poll_controllers_reboot_port(self) -> None:
+        """Test case for poll_controllers_reboot_port
 
         """
         pass
 
-    def test_poll_controllers_clear_ports_ownership(self) -> None:
-        """Test case for poll_controllers_clear_ports_ownership
+    def test_poll_controllers_set_app(self) -> None:
+        """Test case for poll_controllers_set_app
 
         """
         pass
 
-    def test_poll_controllers_reboot_ports(self) -> None:
-        """Test case for poll_controllers_reboot_ports
+    def test_poll_controllers_set_node_aggregation(self) -> None:
+        """Test case for poll_controllers_set_node_aggregation
 
         """
         pass
 
-    def test_poll_controllers_switch_app(self) -> None:
-        """Test case for poll_controllers_switch_app
+    def test_poll_controllers_set_port_link_state(self) -> None:
+        """Test case for poll_controllers_set_port_link_state
 
         """
         pass
@@ -183,38 +183,38 @@ class TestAgentsApi(unittest.TestCase):
         """
         pass
 
-    def test_start_compute_nodes_power_cycle(self) -> None:
-        """Test case for start_compute_nodes_power_cycle
+    def test_start_controllers_clear_port_ownership(self) -> None:
+        """Test case for start_controllers_clear_port_ownership
 
         """
         pass
 
-    def test_start_controllers_change_nodes_aggregation(self) -> None:
-        """Test case for start_controllers_change_nodes_aggregation
+    def test_start_controllers_power_cycle_nodes(self) -> None:
+        """Test case for start_controllers_power_cycle_nodes
 
         """
         pass
 
-    def test_start_controllers_change_ports_link_state(self) -> None:
-        """Test case for start_controllers_change_ports_link_state
+    def test_start_controllers_reboot_port(self) -> None:
+        """Test case for start_controllers_reboot_port
 
         """
         pass
 
-    def test_start_controllers_clear_ports_ownership(self) -> None:
-        """Test case for start_controllers_clear_ports_ownership
+    def test_start_controllers_set_app(self) -> None:
+        """Test case for start_controllers_set_app
 
         """
         pass
 
-    def test_start_controllers_reboot_ports(self) -> None:
-        """Test case for start_controllers_reboot_ports
+    def test_start_controllers_set_node_aggregation(self) -> None:
+        """Test case for start_controllers_set_node_aggregation
 
         """
         pass
 
-    def test_start_controllers_switch_app(self) -> None:
-        """Test case for start_controllers_switch_app
+    def test_start_controllers_set_port_link_state(self) -> None:
+        """Test case for start_controllers_set_port_link_state
 
         """
         pass

@@ -30,13 +30,13 @@ class StaticARPEntry(BaseModel):
     StaticARPEntry
     """ # noqa: E501
     count: Optional[StrictInt] = Field(default=None, alias="Count")
-    id: StrictStr
     remote_ip: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="RemoteIP")
     remote_ip_incr: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="RemoteIPIncr")
     remote_mac: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="RemoteMAC")
     remote_mac_incr: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="RemoteMACIncr")
     static_arp_entry_name: Annotated[str, Field(strict=True)] = Field(alias="StaticArpEntryName")
-    __properties: ClassVar[List[str]] = ["Count", "id", "RemoteIP", "RemoteIPIncr", "RemoteMAC", "RemoteMACIncr", "StaticArpEntryName"]
+    id: StrictStr
+    __properties: ClassVar[List[str]] = ["Count", "RemoteIP", "RemoteIPIncr", "RemoteMAC", "RemoteMACIncr", "StaticArpEntryName", "id"]
 
     @field_validator('remote_ip')
     def remote_ip_validate_regular_expression(cls, value):
@@ -139,12 +139,12 @@ class StaticARPEntry(BaseModel):
 
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
-                        "id": obj.get("id"),
                         "RemoteIP": obj.get("RemoteIP"),
                         "RemoteIPIncr": obj.get("RemoteIPIncr"),
                         "RemoteMAC": obj.get("RemoteMAC"),
                         "RemoteMACIncr": obj.get("RemoteMACIncr"),
-                        "StaticArpEntryName": obj.get("StaticArpEntryName")
+                        "StaticArpEntryName": obj.get("StaticArpEntryName"),
+                        "id": obj.get("id")
             ,
             "links": obj.get("links")
         })

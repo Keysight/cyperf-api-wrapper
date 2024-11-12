@@ -44,28 +44,18 @@ class TestApplication(unittest.TestCase):
                     connections_max_transactions = 56, 
                     description = '', 
                     external_resource_url = '', 
-                    headers = null, 
                     http_version = null, 
+                    headers = null, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     name = '', 
                     params = [
                         cyperf.models.params.Params(
+                            array_element_type = '', 
                             array_elements = [
                                 {
                                     'key' : ''
                                     }
                                 ], 
-                            array_element_type = '', 
                             category = '', 
                             category_index = 56, 
                             deprecated_previous_source = '', 
@@ -81,12 +71,8 @@ class TestApplication(unittest.TestCase):
                                         name = '', 
                                         value = '', )
                                     ], ), 
-                            file_upload = [
-                                'YQ=='
-                                ], 
                             file_value = null, 
                             flow_identifier = True, 
-                            id = '', 
                             is_deprecated = True, 
                             is_modified = True, 
                             media_files = [
@@ -98,9 +84,20 @@ class TestApplication(unittest.TestCase):
                                             bitrate_kbps = 56, 
                                             codec = '', 
                                             codec_description = '', 
-                                            id = '', 
                                             track_id = '', 
-                                            track_type = null, )
+                                            track_type = null, 
+                                            id = '', )
+                                        ], 
+                                    id = '', 
+                                    links = [
+                                        cyperf.models.api_link.APILink(
+                                            content_type = '', 
+                                            href = '', 
+                                            method = '', 
+                                            name = '', 
+                                            references_count = 56, 
+                                            rel = '', 
+                                            type = '', )
                                         ], )
                                 ], 
                             metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -127,12 +124,27 @@ class TestApplication(unittest.TestCase):
                             supported_sources = [
                                 ''
                                 ], 
-                            supports_dynamic_payload = True, 
                             type = '', 
-                            upload_url = '', 
-                            value = '', )
+                            value = '', 
+                            file_upload = [
+                                'YQ=='
+                                ], 
+                            id = , 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], 
+                            supports_dynamic_payload = True, 
+                            upload_url = '', )
                         ], 
-                    use_application_server_headers = True, ),
+                    use_application_server_headers = True, 
+                    links = , ),
                 connections = [
                     cyperf.models.connection.Connection(
                         client_endpoint = '', 
@@ -142,18 +154,7 @@ class TestApplication(unittest.TestCase):
                         hostname = '', 
                         hostname_param = null, 
                         http_forward_proxy_mode = 'INHERIT_DUT', 
-                        id = '', 
                         is_deprecated = True, 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         max_transactions = 56, 
                         name = '', 
                         port_settings = null, 
@@ -163,15 +164,7 @@ class TestApplication(unittest.TestCase):
                         readonly_type = True, 
                         server_endpoint = '', 
                         server_port = 56, 
-                        type = 'http', )
-                    ],
-                connections_max_transactions = 56,
-                description = '',
-                destination_hostname = '',
-                dnn_id = '',
-                end_point_id = 56,
-                endpoints = [
-                    cyperf.models.endpoint.Endpoint(
+                        type = 'http', 
                         id = '', 
                         links = [
                             cyperf.models.api_link.APILink(
@@ -182,28 +175,36 @@ class TestApplication(unittest.TestCase):
                                 references_count = 56, 
                                 rel = '', 
                                 type = '', )
-                            ], 
+                            ], )
+                    ],
+                connections_max_transactions = 56,
+                description = '',
+                destination_hostname = '',
+                dnn_id = '',
+                end_point_id = 56,
+                endpoints = [
+                    cyperf.models.endpoint.Endpoint(
                         name = '', 
                         network_mapping = null, 
-                        type = 'Client', )
+                        type = 'Client', 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], )
                     ],
                 external_resource_url = '',
-                id = '',
                 index = 56,
                 inherit_http_profile = True,
                 ip_preference = 'IPV4_ONLY',
                 is_deprecated = True,
                 iteration_count = 56,
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 max_active_limit = 56,
                 name = 'YBuLd',
                 network_mapping = cyperf.models.network_mapping.NetworkMapping(
@@ -218,12 +219,12 @@ class TestApplication(unittest.TestCase):
                         ], ),
                 params = [
                     cyperf.models.params.Params(
+                        array_element_type = '', 
                         array_elements = [
                             {
                                 'key' : ''
                                 }
                             ], 
-                        array_element_type = '', 
                         category = '', 
                         category_index = 56, 
                         deprecated_previous_source = '', 
@@ -239,24 +240,10 @@ class TestApplication(unittest.TestCase):
                                     name = '', 
                                     value = '', )
                                 ], ), 
-                        file_upload = [
-                            'YQ=='
-                            ], 
                         file_value = null, 
                         flow_identifier = True, 
-                        id = '', 
                         is_deprecated = True, 
                         is_modified = True, 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         media_files = [
                             cyperf.models.media_file.MediaFile(
                                 file_value = null, 
@@ -266,9 +253,20 @@ class TestApplication(unittest.TestCase):
                                         bitrate_kbps = 56, 
                                         codec = '', 
                                         codec_description = '', 
-                                        id = '', 
                                         track_id = '', 
-                                        track_type = null, )
+                                        track_type = null, 
+                                        id = '', )
+                                    ], 
+                                id = '', 
+                                links = [
+                                    cyperf.models.api_link.APILink(
+                                        content_type = '', 
+                                        href = '', 
+                                        method = '', 
+                                        name = '', 
+                                        references_count = 56, 
+                                        rel = '', 
+                                        type = '', )
                                     ], )
                             ], 
                         metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -295,10 +293,24 @@ class TestApplication(unittest.TestCase):
                         supported_sources = [
                             ''
                             ], 
-                        supports_dynamic_payload = True, 
                         type = '', 
-                        upload_url = '', 
-                        value = '', )
+                        value = '', 
+                        file_upload = [
+                            'YQ=='
+                            ], 
+                        id = , 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], 
+                        supports_dynamic_payload = True, 
+                        upload_url = '', )
                     ],
                 protocol_id = '',
                 qos_flow_id = '',
@@ -309,28 +321,18 @@ class TestApplication(unittest.TestCase):
                     connections_max_transactions = 56, 
                     description = '', 
                     external_resource_url = '', 
-                    headers = null, 
                     http_version = null, 
+                    headers = null, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     name = '', 
                     params = [
                         cyperf.models.params.Params(
+                            array_element_type = '', 
                             array_elements = [
                                 {
                                     'key' : ''
                                     }
                                 ], 
-                            array_element_type = '', 
                             category = '', 
                             category_index = 56, 
                             deprecated_previous_source = '', 
@@ -346,12 +348,8 @@ class TestApplication(unittest.TestCase):
                                         name = '', 
                                         value = '', )
                                     ], ), 
-                            file_upload = [
-                                'YQ=='
-                                ], 
                             file_value = null, 
                             flow_identifier = True, 
-                            id = '', 
                             is_deprecated = True, 
                             is_modified = True, 
                             media_files = [
@@ -363,9 +361,20 @@ class TestApplication(unittest.TestCase):
                                             bitrate_kbps = 56, 
                                             codec = '', 
                                             codec_description = '', 
-                                            id = '', 
                                             track_id = '', 
-                                            track_type = null, )
+                                            track_type = null, 
+                                            id = '', )
+                                        ], 
+                                    id = '', 
+                                    links = [
+                                        cyperf.models.api_link.APILink(
+                                            content_type = '', 
+                                            href = '', 
+                                            method = '', 
+                                            name = '', 
+                                            references_count = 56, 
+                                            rel = '', 
+                                            type = '', )
                                         ], )
                                 ], 
                             metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -392,15 +401,41 @@ class TestApplication(unittest.TestCase):
                             supported_sources = [
                                 ''
                                 ], 
-                            supports_dynamic_payload = True, 
                             type = '', 
-                            upload_url = '', 
-                            value = '', )
+                            value = '', 
+                            file_upload = [
+                                'YQ=='
+                                ], 
+                            id = , 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], 
+                            supports_dynamic_payload = True, 
+                            upload_url = '', )
                         ], 
-                    use_application_server_headers = True, ),
+                    use_application_server_headers = True, 
+                    links = , ),
                 supports_client_http_profile = True,
                 supports_http_profiles = True,
                 supports_server_http_profile = True,
+                id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ],
                 client_tls_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
                     cipher = null, 
@@ -477,40 +512,15 @@ class TestApplication(unittest.TestCase):
                     version = 'NONE', ),
                 data_types = [
                     cyperf.models.data_type.DataType(
-                        id = '', 
                         values = [
                             cyperf.models.data_type_values_inner.DataType_Values_inner(
+                                id = '', 
                                 value_type = '', )
-                            ], )
+                            ], 
+                        id = '', )
                     ],
                 inherit_tls = True,
                 is_stateless_stream = True,
-                modify_excluded_dut_recursively = [
-                    cyperf.models.update_network_mapping.UpdateNetworkMapping(
-                        client_network_tags = [
-                            ''
-                            ], 
-                        excluded_dut_list = [
-                            ''
-                            ], 
-                        select_tags = True, 
-                        server_network_tags = [
-                            ''
-                            ], )
-                    ],
-                modify_tags_recursively = [
-                    cyperf.models.update_network_mapping.UpdateNetworkMapping(
-                        client_network_tags = [
-                            ''
-                            ], 
-                        excluded_dut_list = [
-                            ''
-                            ], 
-                        select_tags = True, 
-                        server_network_tags = [
-                            ''
-                            ], )
-                    ],
                 objective_weight = 56,
                 server_tls_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
@@ -590,6 +600,7 @@ class TestApplication(unittest.TestCase):
                     client_stream_profile = null, 
                     direction = null, 
                     is_flood_stream = True, 
+                    server_stream_profile = null, 
                     links = [
                         cyperf.models.api_link.APILink(
                             content_type = '', 
@@ -599,8 +610,7 @@ class TestApplication(unittest.TestCase):
                             references_count = 56, 
                             rel = '', 
                             type = '', )
-                        ], 
-                    server_stream_profile = null, ),
+                        ], ),
                 static = True,
                 supported_apps = [
                     ''
@@ -626,6 +636,32 @@ class TestApplication(unittest.TestCase):
                                 references_count = 56, 
                                 rel = '', 
                                 type = '', )
+                            ], )
+                    ],
+                modify_excluded_dut_recursively = [
+                    cyperf.models.update_network_mapping.UpdateNetworkMapping(
+                        client_network_tags = [
+                            ''
+                            ], 
+                        excluded_dut_list = [
+                            ''
+                            ], 
+                        select_tags = True, 
+                        server_network_tags = [
+                            ''
+                            ], )
+                    ],
+                modify_tags_recursively = [
+                    cyperf.models.update_network_mapping.UpdateNetworkMapping(
+                        client_network_tags = [
+                            ''
+                            ], 
+                        excluded_dut_list = [
+                            ''
+                            ], 
+                        select_tags = True, 
+                        server_network_tags = [
+                            ''
                             ], )
                     ]
             )

@@ -6,15 +6,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **duration** | **int** | The duration of the timeline segment (default: 600). | 
-**id** | **str** |  | 
 **segment_type** | [**SegmentType**](SegmentType.md) | The segment&#39;s type. Must be one of: SteadySegment, StepUpSegment, StepDownSegment. | 
 **warm_up_period** | **int** | Deprecated. Use ObjectivesAndTimeline.WarmUp instead. The time that servers may need to warm up, when clients should wait (default: 0 seconds). | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
+**id** | **str** |  | 
 **objective_unit** | **str** | The measurement unit for the objective value. Only applicable for Throughput objectives. | [optional] 
 **objective_value** | **float** | The objective value for this timeline segment. | [optional] 
 **primary_objective_unit** | **str** | Deprecated. Use PrimaryObjective.Timeline[].ObjectiveUnit instead. The primary objective unit. (default: Gbps) | 
 **primary_objective_value** | **float** | Deprecated. Use PrimaryObjective.Timeline[].ObjectiveValue instead. The primary objective value (default: 1). | 
 **secondary_objective_values** | [**List[ObjectiveValueEntry]**](ObjectiveValueEntry.md) | Deprecated. Use SecondaryObjective.ObjectiveValue/ObjectiveUnit instead. The secondary objectives values. | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

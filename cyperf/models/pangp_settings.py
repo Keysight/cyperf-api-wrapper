@@ -35,8 +35,8 @@ class PANGPSettings(BaseModel):
     PANGPSettings
     """ # noqa: E501
     var_auth_settings: Optional[AuthSettings] = Field(default=None, alias="AuthSettings")
-    links: Optional[List[APILink]] = None
     outer_tcp_profile: Optional[TcpProfile] = Field(default=None, alias="OuterTCPProfile")
+    links: Optional[List[APILink]] = None
     esp_probe_retry_timeout: Optional[StrictInt] = Field(default=None, alias="ESPProbeRetryTimeout")
     esp_probe_timeout: Optional[StrictInt] = Field(default=None, alias="ESPProbeTimeout")
     is_portal: Optional[StrictBool] = Field(default=None, description="A flag indicating if the tunnel is connected to PAN Portal instead of a direct connection to the PAN GP VPN Gateway (default: true).", alias="IsPortal")
@@ -45,7 +45,7 @@ class PANGPSettings(BaseModel):
     portal_hostname: Annotated[str, Field(strict=True)] = Field(alias="PortalHostname")
     vpn_gateway: Optional[StrictStr] = Field(default=None, alias="VPNGateway")
     vpn_gateways: List[StrictStr] = Field(alias="VPNGateways")
-    __properties: ClassVar[List[str]] = ["AuthSettings", "links", "OuterTCPProfile", "ESPProbeRetryTimeout", "ESPProbeTimeout", "IsPortal", "OuterTLSClientProfile", "PANGPEncapsulation", "PortalHostname", "VPNGateway", "VPNGateways"]
+    __properties: ClassVar[List[str]] = ["AuthSettings", "OuterTCPProfile", "links", "ESPProbeRetryTimeout", "ESPProbeTimeout", "IsPortal", "OuterTLSClientProfile", "PANGPEncapsulation", "PortalHostname", "VPNGateway", "VPNGateways"]
 
     @field_validator('portal_hostname')
     def portal_hostname_validate_regular_expression(cls, value):
@@ -96,6 +96,9 @@ class PANGPSettings(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of var_auth_settings
         if self.var_auth_settings:
             _dict['AuthSettings'] = self.var_auth_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_tcp_profile
+        if self.outer_tcp_profile:
+            _dict['OuterTCPProfile'] = self.outer_tcp_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -103,9 +106,6 @@ class PANGPSettings(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of outer_tcp_profile
-        if self.outer_tcp_profile:
-            _dict['OuterTCPProfile'] = self.outer_tcp_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of outer_tls_client_profile
         if self.outer_tls_client_profile:
             _dict['OuterTLSClientProfile'] = self.outer_tls_client_profile.to_dict()
@@ -127,8 +127,8 @@ class PANGPSettings(BaseModel):
 
         _obj = cls.model_validate({
             "AuthSettings": AuthSettings.from_dict(obj["AuthSettings"]) if obj.get("AuthSettings") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "OuterTCPProfile": TcpProfile.from_dict(obj["OuterTCPProfile"]) if obj.get("OuterTCPProfile") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "ESPProbeRetryTimeout": obj.get("ESPProbeRetryTimeout"),
                         "ESPProbeTimeout": obj.get("ESPProbeTimeout"),
                         "IsPortal": obj.get("IsPortal"),

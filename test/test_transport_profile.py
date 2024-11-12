@@ -42,28 +42,18 @@ class TestTransportProfile(unittest.TestCase):
                     connections_max_transactions = 56, 
                     description = '', 
                     external_resource_url = '', 
-                    headers = null, 
                     http_version = null, 
+                    headers = null, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     name = '', 
                     params = [
                         cyperf.models.params.Params(
+                            array_element_type = '', 
                             array_elements = [
                                 {
                                     'key' : ''
                                     }
                                 ], 
-                            array_element_type = '', 
                             category = '', 
                             category_index = 56, 
                             deprecated_previous_source = '', 
@@ -79,12 +69,8 @@ class TestTransportProfile(unittest.TestCase):
                                         name = '', 
                                         value = '', )
                                     ], ), 
-                            file_upload = [
-                                'YQ=='
-                                ], 
                             file_value = null, 
                             flow_identifier = True, 
-                            id = '', 
                             is_deprecated = True, 
                             is_modified = True, 
                             media_files = [
@@ -96,9 +82,20 @@ class TestTransportProfile(unittest.TestCase):
                                             bitrate_kbps = 56, 
                                             codec = '', 
                                             codec_description = '', 
-                                            id = '', 
                                             track_id = '', 
-                                            track_type = null, )
+                                            track_type = null, 
+                                            id = '', )
+                                        ], 
+                                    id = '', 
+                                    links = [
+                                        cyperf.models.api_link.APILink(
+                                            content_type = '', 
+                                            href = '', 
+                                            method = '', 
+                                            name = '', 
+                                            references_count = 56, 
+                                            rel = '', 
+                                            type = '', )
                                         ], )
                                 ], 
                             metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -125,32 +122,27 @@ class TestTransportProfile(unittest.TestCase):
                             supported_sources = [
                                 ''
                                 ], 
-                            supports_dynamic_payload = True, 
                             type = '', 
-                            upload_url = '', 
-                            value = '', )
+                            value = '', 
+                            file_upload = [
+                                'YQ=='
+                                ], 
+                            id = , 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], 
+                            supports_dynamic_payload = True, 
+                            upload_url = '', )
                         ], 
-                    use_application_server_headers = True, ),
-                client_tcp_profile = cyperf.models.tcp_profile.TcpProfile(
-                    close_with_reset = True, 
-                    defer_accept = True, 
-                    ecn_enabled = True, 
-                    max_rto = 56, 
-                    max_src_port = 56, 
-                    min_rto = 56, 
-                    min_src_port = 56, 
-                    ping_pong = True, 
-                    pmtu_disc_disabled = True, 
-                    recycle_tw_enabled = True, 
-                    reordering = True, 
-                    reuse_tw_enabled = True, 
-                    rx_buffer = 56, 
-                    sack_enabled = True, 
-                    sock_group = '', 
-                    timestamp_hdr_enabled = True, 
-                    tx_buffer = 56, 
-                    user_mss = 56, 
-                    wscale_enabled = True, ),
+                    use_application_server_headers = True, 
+                    links = , ),
                 client_tls_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
                     cipher = null, 
@@ -225,17 +217,27 @@ class TestTransportProfile(unittest.TestCase):
                     tls13_enabled = True, 
                     use_tls_profile = True, 
                     version = 'NONE', ),
+                client_tcp_profile = cyperf.models.tcp_profile.TcpProfile(
+                    close_with_reset = True, 
+                    defer_accept = True, 
+                    ecn_enabled = True, 
+                    max_rto = 56, 
+                    max_src_port = 56, 
+                    min_rto = 56, 
+                    min_src_port = 56, 
+                    ping_pong = True, 
+                    pmtu_disc_disabled = True, 
+                    recycle_tw_enabled = True, 
+                    reordering = True, 
+                    reuse_tw_enabled = True, 
+                    rx_buffer = 56, 
+                    sack_enabled = True, 
+                    sock_group = '', 
+                    timestamp_hdr_enabled = True, 
+                    tx_buffer = 56, 
+                    user_mss = 56, 
+                    wscale_enabled = True, ),
                 ip_tos = 56,
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 rtp_profile = cyperf.models.rtp_profile.RTPProfile(
                     encryption_mode = null, 
                     mos_mode = null, 
@@ -246,28 +248,18 @@ class TestTransportProfile(unittest.TestCase):
                     connections_max_transactions = 56, 
                     description = '', 
                     external_resource_url = '', 
-                    headers = null, 
                     http_version = null, 
+                    headers = null, 
                     is_modified = True, 
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
                     name = '', 
                     params = [
                         cyperf.models.params.Params(
+                            array_element_type = '', 
                             array_elements = [
                                 {
                                     'key' : ''
                                     }
                                 ], 
-                            array_element_type = '', 
                             category = '', 
                             category_index = 56, 
                             deprecated_previous_source = '', 
@@ -283,12 +275,8 @@ class TestTransportProfile(unittest.TestCase):
                                         name = '', 
                                         value = '', )
                                     ], ), 
-                            file_upload = [
-                                'YQ=='
-                                ], 
                             file_value = null, 
                             flow_identifier = True, 
-                            id = '', 
                             is_deprecated = True, 
                             is_modified = True, 
                             media_files = [
@@ -300,9 +288,20 @@ class TestTransportProfile(unittest.TestCase):
                                             bitrate_kbps = 56, 
                                             codec = '', 
                                             codec_description = '', 
-                                            id = '', 
                                             track_id = '', 
-                                            track_type = null, )
+                                            track_type = null, 
+                                            id = '', )
+                                        ], 
+                                    id = '', 
+                                    links = [
+                                        cyperf.models.api_link.APILink(
+                                            content_type = '', 
+                                            href = '', 
+                                            method = '', 
+                                            name = '', 
+                                            references_count = 56, 
+                                            rel = '', 
+                                            type = '', )
                                         ], )
                                 ], 
                             metadata = cyperf.models.param_metadata.ParamMetadata(
@@ -329,32 +328,27 @@ class TestTransportProfile(unittest.TestCase):
                             supported_sources = [
                                 ''
                                 ], 
-                            supports_dynamic_payload = True, 
                             type = '', 
-                            upload_url = '', 
-                            value = '', )
+                            value = '', 
+                            file_upload = [
+                                'YQ=='
+                                ], 
+                            id = , 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], 
+                            supports_dynamic_payload = True, 
+                            upload_url = '', )
                         ], 
-                    use_application_server_headers = True, ),
-                server_tcp_profile = cyperf.models.tcp_profile.TcpProfile(
-                    close_with_reset = True, 
-                    defer_accept = True, 
-                    ecn_enabled = True, 
-                    max_rto = 56, 
-                    max_src_port = 56, 
-                    min_rto = 56, 
-                    min_src_port = 56, 
-                    ping_pong = True, 
-                    pmtu_disc_disabled = True, 
-                    recycle_tw_enabled = True, 
-                    reordering = True, 
-                    reuse_tw_enabled = True, 
-                    rx_buffer = 56, 
-                    sack_enabled = True, 
-                    sock_group = '', 
-                    timestamp_hdr_enabled = True, 
-                    tx_buffer = 56, 
-                    user_mss = 56, 
-                    wscale_enabled = True, ),
+                    use_application_server_headers = True, 
+                    links = , ),
                 server_tls_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
                     cipher = null, 
@@ -429,6 +423,26 @@ class TestTransportProfile(unittest.TestCase):
                     tls13_enabled = True, 
                     use_tls_profile = True, 
                     version = 'NONE', ),
+                server_tcp_profile = cyperf.models.tcp_profile.TcpProfile(
+                    close_with_reset = True, 
+                    defer_accept = True, 
+                    ecn_enabled = True, 
+                    max_rto = 56, 
+                    max_src_port = 56, 
+                    min_rto = 56, 
+                    min_src_port = 56, 
+                    ping_pong = True, 
+                    pmtu_disc_disabled = True, 
+                    recycle_tw_enabled = True, 
+                    reordering = True, 
+                    reuse_tw_enabled = True, 
+                    rx_buffer = 56, 
+                    sack_enabled = True, 
+                    sock_group = '', 
+                    timestamp_hdr_enabled = True, 
+                    tx_buffer = 56, 
+                    user_mss = 56, 
+                    wscale_enabled = True, ),
                 udp_profile = cyperf.models.udp_profile.UdpProfile(
                     max_src_port = 56, 
                     min_src_port = 56, 
@@ -438,6 +452,16 @@ class TestTransportProfile(unittest.TestCase):
                     sock_group = '', 
                     tx_buffer = 56, ),
                 vlan_prio = 56,
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ],
                 l4_profile_name = ''
             )
         else:

@@ -39,11 +39,11 @@ class Config(BaseModel):
     config_validation: Optional[ConfigValidation] = Field(default=None, alias="ConfigValidation")
     custom_dashboards: Optional[CustomDashboards] = Field(default=None, alias="CustomDashboards")
     expected_disk_space: Optional[List[ExpectedDiskSpace]] = Field(default=None, alias="ExpectedDiskSpace")
-    links: Optional[List[APILink]] = None
     network_profiles: Optional[List[NetworkProfile]] = Field(default=None, alias="NetworkProfiles")
     traffic_profiles: Optional[List[ApplicationProfile]] = Field(default=None, alias="TrafficProfiles")
+    links: Optional[List[APILink]] = None
     validate: Optional[List[Union[StrictBytes, StrictStr]]] = None
-    __properties: ClassVar[List[str]] = ["AttackProfiles", "ConfigValidation", "CustomDashboards", "ExpectedDiskSpace", "links", "NetworkProfiles", "TrafficProfiles", "validate"]
+    __properties: ClassVar[List[str]] = ["AttackProfiles", "ConfigValidation", "CustomDashboards", "ExpectedDiskSpace", "NetworkProfiles", "TrafficProfiles", "links", "validate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -104,13 +104,6 @@ class Config(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['ExpectedDiskSpace'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in network_profiles (list)
         _items = []
         if self.network_profiles:
@@ -125,6 +118,13 @@ class Config(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['TrafficProfiles'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -143,9 +143,9 @@ class Config(BaseModel):
                         "ConfigValidation": ConfigValidation.from_dict(obj["ConfigValidation"]) if obj.get("ConfigValidation") is not None else None,
                         "CustomDashboards": CustomDashboards.from_dict(obj["CustomDashboards"]) if obj.get("CustomDashboards") is not None else None,
                         "ExpectedDiskSpace": [ExpectedDiskSpace.from_dict(_item) for _item in obj["ExpectedDiskSpace"]] if obj.get("ExpectedDiskSpace") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "NetworkProfiles": [NetworkProfile.from_dict(_item) for _item in obj["NetworkProfiles"]] if obj.get("NetworkProfiles") is not None else None,
                         "TrafficProfiles": [ApplicationProfile.from_dict(_item) for _item in obj["TrafficProfiles"]] if obj.get("TrafficProfiles") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "validate": obj.get("validate")
             ,
             "links": obj.get("links")

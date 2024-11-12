@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**encapsulation_mode** | **str** | The encapsulation mode for inner traffic. | 
 **esp_over_udp_enabled** | **bool** |  | 
 **esp_over_udp_settings** | [**ESPOverUDPSettings**](ESPOverUDPSettings.md) |  | [optional] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
+**encapsulation_mode** | **str** | The encapsulation mode for inner traffic. | 
 **udp_port** | **int** |  | 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

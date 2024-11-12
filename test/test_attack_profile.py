@@ -37,17 +37,6 @@ class TestAttackProfile(unittest.TestCase):
         if include_optional:
             return AttackProfile(
                 active = True,
-                id = '',
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
                 traffic_settings = cyperf.models.traffic_settings.TrafficSettings(
                     default_transport_profile = null, 
                     links = [
@@ -60,9 +49,16 @@ class TestAttackProfile(unittest.TestCase):
                             rel = '', 
                             type = '', )
                         ], ),
-                add_attacks = [
-                    cyperf.models.external_resource_info.ExternalResourceInfo(
-                        external_resource_url = '', )
+                id = '',
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
                     ],
                 attacks = [
                     null
@@ -77,6 +73,25 @@ class TestAttackProfile(unittest.TestCase):
                     server_network_tags = [
                         ''
                         ], ),
+                name = '',
+                objectives_and_timeline = cyperf.models.attack_objectives_and_timeline.AttackObjectivesAndTimeline(
+                    timeline_segments = [
+                        null
+                        ], 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
+                add_attacks = [
+                    cyperf.models.external_resource_info.ExternalResourceInfo(
+                        external_resource_url = '', )
+                    ],
                 modify_excluded_dut_recursively = [
                     cyperf.models.update_network_mapping.UpdateNetworkMapping(
                         client_network_tags = [
@@ -103,21 +118,6 @@ class TestAttackProfile(unittest.TestCase):
                             ''
                             ], )
                     ],
-                name = '',
-                objectives_and_timeline = cyperf.models.attack_objectives_and_timeline.AttackObjectivesAndTimeline(
-                    links = [
-                        cyperf.models.api_link.APILink(
-                            content_type = '', 
-                            href = '', 
-                            method = '', 
-                            name = '', 
-                            references_count = 56, 
-                            rel = '', 
-                            type = '', )
-                        ], 
-                    timeline_segments = [
-                        null
-                        ], ),
                 reset_tags_to_default = [
                     'YQ=='
                     ]

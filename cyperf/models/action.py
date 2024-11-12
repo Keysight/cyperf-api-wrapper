@@ -34,19 +34,19 @@ class Action(BaseModel):
     """ # noqa: E501
     dst_host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The destination host of the action.", alias="DstHost")
     exchanges: Optional[List[Exchange]] = Field(default=None, alias="Exchanges")
-    id: Optional[StrictStr] = None
     index: Optional[StrictInt] = Field(default=None, description="The index of the action.", alias="Index")
     is_banner: Optional[StrictBool] = Field(default=None, description="Indicates if this is a required action, can only be add once and also must be the first", alias="IsBanner")
     is_deprecated: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is deprecated.", alias="IsDeprecated")
     is_hostname: Optional[StrictInt] = Field(default=None, alias="IsHostname")
     is_strike: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is a strike.", alias="IsStrike")
-    links: Optional[List[APILink]] = None
     name: Optional[StrictStr] = Field(default=None, description="The name of the action.", alias="Name")
     params: Optional[List[Params]] = Field(default=None, alias="Params")
     port: Optional[StrictInt] = Field(default=None, description="The port of the destination host.", alias="Port")
     protocol_id: Optional[StrictStr] = Field(default=None, alias="ProtocolID")
     requires_uniqueness: Optional[StrictBool] = Field(default=None, description="If true, for applications with the same protocol id, application/attack must have been uniquely identified in previous commands.", alias="RequiresUniqueness")
-    __properties: ClassVar[List[str]] = ["DstHost", "Exchanges", "id", "Index", "IsBanner", "IsDeprecated", "IsHostname", "IsStrike", "links", "Name", "Params", "Port", "ProtocolID", "RequiresUniqueness"]
+    id: Optional[StrictStr] = None
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["DstHost", "Exchanges", "Index", "IsBanner", "IsDeprecated", "IsHostname", "IsStrike", "Name", "Params", "Port", "ProtocolID", "RequiresUniqueness", "id", "links"]
 
     @field_validator('dst_host')
     def dst_host_validate_regular_expression(cls, value):
@@ -104,13 +104,6 @@ class Action(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Exchanges'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in params (list)
         _items = []
         if self.params:
@@ -118,6 +111,13 @@ class Action(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Params'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -134,18 +134,18 @@ class Action(BaseModel):
         _obj = cls.model_validate({
             "DstHost": obj.get("DstHost"),
                         "Exchanges": [Exchange.from_dict(_item) for _item in obj["Exchanges"]] if obj.get("Exchanges") is not None else None,
-                        "id": obj.get("id"),
                         "Index": obj.get("Index"),
                         "IsBanner": obj.get("IsBanner"),
                         "IsDeprecated": obj.get("IsDeprecated"),
                         "IsHostname": obj.get("IsHostname"),
                         "IsStrike": obj.get("IsStrike"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Name": obj.get("Name"),
                         "Params": [Params.from_dict(_item) for _item in obj["Params"]] if obj.get("Params") is not None else None,
                         "Port": obj.get("Port"),
                         "ProtocolID": obj.get("ProtocolID"),
-                        "RequiresUniqueness": obj.get("RequiresUniqueness")
+                        "RequiresUniqueness": obj.get("RequiresUniqueness"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

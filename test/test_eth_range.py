@@ -37,6 +37,20 @@ class TestEthRange(unittest.TestCase):
         if include_optional:
             return EthRange(
                 count = 56,
+                mac_auto = True,
+                mac_incr = '2E-B0-08-29:0c:01',
+                mac_start = '2E-B0-08-29:0c:01',
+                one_mac_per_ip = True,
+                static_arp_table = [
+                    cyperf.models.static_arp_entry.StaticARPEntry(
+                        count = 56, 
+                        remote_ip = '::02:84:9:0cc0:F:CCf', 
+                        remote_ip_incr = '::02:84:9:0cc0:F:CCf', 
+                        remote_mac = '2E-B0-08-29:0c:01', 
+                        remote_mac_incr = '2E-B0-08-29:0c:01', 
+                        static_arp_entry_name = 'YBuLd', 
+                        id = '', )
+                    ],
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -47,21 +61,7 @@ class TestEthRange(unittest.TestCase):
                         rel = '', 
                         type = '', )
                     ],
-                mac_auto = True,
-                mac_incr = '2E-B0-08-29:0c:01',
-                mac_start = '2E-B0-08-29:0c:01',
-                max_count_per_agent = 56,
-                one_mac_per_ip = True,
-                static_arp_table = [
-                    cyperf.models.static_arp_entry.StaticARPEntry(
-                        count = 56, 
-                        id = '', 
-                        remote_ip = '::02:84:9:0cc0:F:CCf', 
-                        remote_ip_incr = '::02:84:9:0cc0:F:CCf', 
-                        remote_mac = '2E-B0-08-29:0c:01', 
-                        remote_mac_incr = '2E-B0-08-29:0c:01', 
-                        static_arp_entry_name = 'YBuLd', )
-                    ]
+                max_count_per_agent = 56
             )
         else:
             return EthRange(

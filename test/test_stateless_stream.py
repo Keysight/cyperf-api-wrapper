@@ -45,6 +45,13 @@ class TestStatelessStream(unittest.TestCase):
                     unique_pool_size = 56, ),
                 direction = 'ClientToServer',
                 is_flood_stream = True,
+                server_stream_profile = cyperf.models.stream_profile.StreamProfile(
+                    packet_rate = 56, 
+                    payload_size = 56, 
+                    payload_type = null, 
+                    total_estimated_throughput = '', 
+                    total_estimated_throughput_per_simulated_user = '', 
+                    unique_pool_size = 56, ),
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -54,14 +61,7 @@ class TestStatelessStream(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                server_stream_profile = cyperf.models.stream_profile.StreamProfile(
-                    packet_rate = 56, 
-                    payload_size = 56, 
-                    payload_type = null, 
-                    total_estimated_throughput = '', 
-                    total_estimated_throughput_per_simulated_user = '', 
-                    unique_pool_size = 56, )
+                    ]
             )
         else:
             return StatelessStream(

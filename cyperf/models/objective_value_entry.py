@@ -28,10 +28,10 @@ class ObjectiveValueEntry(BaseModel):
     """
     ObjectiveValueEntry
     """ # noqa: E501
-    id: StrictStr = Field(description="The ID of the objective.")
     unit: Optional[StrictStr] = Field(default=None, description="The unit of the Objective.", alias="Unit")
     value: Union[StrictFloat, StrictInt] = Field(description="The value of the Objective.", alias="Value")
-    __properties: ClassVar[List[str]] = ["id", "Unit", "Value"]
+    id: StrictStr = Field(description="The ID of the objective.")
+    __properties: ClassVar[List[str]] = ["Unit", "Value", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,9 +86,9 @@ class ObjectiveValueEntry(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "Unit": obj.get("Unit"),
-                        "Value": obj.get("Value")
+            "Unit": obj.get("Unit"),
+                        "Value": obj.get("Value"),
+                        "id": obj.get("id")
             ,
             "links": obj.get("links")
         })

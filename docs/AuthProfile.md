@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **connections** | [**List[Connection]**](Connection.md) | The connections included in the flow | [optional] [readonly] 
 **data_types** | [**List[DataType]**](DataType.md) | The data types definition of the parameters | [optional] 
-**description** | **str** | The user friendly description of the Auth Profile | [optional] [readonly] 
 **endpoints** | [**List[Endpoint]**](Endpoint.md) | The list of endpoints used by the authentication profile | [optional] [readonly] 
 **file_name** | **str** | The name of the XML file that contains the authentication profile definition | [optional] 
-**id** | **str** | The unique identifier of the profile | [optional] [readonly] 
-**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **metadata** | [**Metadata**](Metadata.md) |  | [optional] 
 **parameters** | [**List[Parameter]**](Parameter.md) | The parameters of the authentication profile | [optional] [readonly] 
+**description** | **str** | The user friendly description of the Auth Profile | [optional] [readonly] 
+**id** | **str** | The unique identifier of the profile | [optional] [readonly] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **type** | **str** | The type of the authentication profile | [optional] [readonly] 
 
 ## Example

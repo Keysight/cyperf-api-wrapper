@@ -37,9 +37,19 @@ class TestTimelineSegment(unittest.TestCase):
         if include_optional:
             return TimelineSegment(
                 duration = 56,
-                id = '',
                 segment_type = 'SteadySegment',
                 warm_up_period = 56,
+                id = '',
+                objective_unit = '',
+                objective_value = 1.337,
+                primary_objective_unit = '',
+                primary_objective_value = 1.337,
+                secondary_objective_values = [
+                    cyperf.models.objective_value_entry.ObjectiveValueEntry(
+                        unit = '', 
+                        value = 1.337, 
+                        id = '', )
+                    ],
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -49,23 +59,13 @@ class TestTimelineSegment(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                objective_unit = '',
-                objective_value = 1.337,
-                primary_objective_unit = '',
-                primary_objective_value = 1.337,
-                secondary_objective_values = [
-                    cyperf.models.objective_value_entry.ObjectiveValueEntry(
-                        id = '', 
-                        unit = '', 
-                        value = 1.337, )
                     ]
             )
         else:
             return TimelineSegment(
                 duration = 56,
-                id = '',
                 segment_type = 'SteadySegment',
+                id = '',
                 primary_objective_unit = '',
                 primary_objective_value = 1.337,
         )

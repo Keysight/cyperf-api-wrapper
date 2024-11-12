@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.ports_by_controller import PortsByController
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -28,8 +29,8 @@ class ClearPortsOwnershipOperation(BaseModel):
     """
     ClearPortsOwnershipOperation
     """ # noqa: E501
-    ports: Optional[List[StrictStr]] = Field(default=None, description="The port ids for which to clear ownership.")
-    __properties: ClassVar[List[str]] = ["ports"]
+    controllers: Optional[List[PortsByController]] = Field(default=None, description="The controllers that the ports are part of.")
+    __properties: ClassVar[List[str]] = ["controllers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +71,13 @@ class ClearPortsOwnershipOperation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in controllers (list)
+        _items = []
+        if self.controllers:
+            for _item in self.controllers:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['controllers'] = _items
         return _dict
 
     @classmethod
@@ -84,7 +92,7 @@ class ClearPortsOwnershipOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "ports": obj.get("ports")
+            "controllers": [PortsByController.from_dict(_item) for _item in obj["controllers"]] if obj.get("controllers") is not None else None
             ,
             "links": obj.get("links")
         })

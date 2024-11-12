@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from cyperf.models.api_link import APILink
 from cyperf.models.app_exchange import AppExchange
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
@@ -31,12 +32,13 @@ class AppFlow(BaseModel):
     """ # noqa: E501
     dst_address: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="dstAddress")
     dst_port: Optional[StrictInt] = Field(default=None, alias="dstPort")
-    exchanges: Optional[List[AppExchange]] = None
+    exchanges: Optional[List[AppExchange]] = Field(default=None, description="The list of exchanges")
     id: Optional[StrictStr] = None
+    links: Optional[List[APILink]] = None
     src_address: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="srcAddress")
     src_port: Optional[StrictInt] = Field(default=None, alias="srcPort")
     transport_type: Optional[StrictStr] = Field(default=None, alias="transportType")
-    __properties: ClassVar[List[str]] = ["dstAddress", "dstPort", "exchanges", "id", "srcAddress", "srcPort", "transportType"]
+    __properties: ClassVar[List[str]] = ["dstAddress", "dstPort", "exchanges", "id", "links", "srcAddress", "srcPort", "transportType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +88,13 @@ class AppFlow(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['exchanges'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -104,6 +113,7 @@ class AppFlow(BaseModel):
                         "dstPort": obj.get("dstPort"),
                         "exchanges": [AppExchange.from_dict(_item) for _item in obj["exchanges"]] if obj.get("exchanges") is not None else None,
                         "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "srcAddress": obj.get("srcAddress"),
                         "srcPort": obj.get("srcPort"),
                         "transportType": obj.get("transportType")

@@ -32,7 +32,6 @@ class VLANRange(BaseModel):
     """ # noqa: E501
     count: Optional[StrictInt] = Field(default=None, description="The number of VLANs generated (default: 1).", alias="Count")
     count_per_agent: Optional[StrictInt] = Field(default=None, description="The number of VLANs that should be assigned to each traffic agent for this VLAN range segment in a valid test (default: 1).", alias="CountPerAgent")
-    links: Optional[List[APILink]] = None
     max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of VLANs that should be assigned to each traffic agent for this VLAN range segment in a valid test (default: 1).", alias="MaxCountPerAgent")
     priority: Optional[StrictInt] = Field(default=None, description="The priority code point value (default: 0).", alias="Priority")
     static_arp_table: Optional[List[StaticARPEntry]] = Field(default=None, alias="StaticARPTable")
@@ -41,7 +40,8 @@ class VLANRange(BaseModel):
     vlan_enabled: Optional[StrictBool] = Field(default=None, description="The enable status of the VLAN configuration, if not determined automatically (default: false).", alias="VlanEnabled")
     vlan_id: Optional[StrictInt] = Field(default=None, description="The VLAN identifier (default: 1).", alias="VlanId")
     vlan_incr: Optional[StrictInt] = Field(default=None, description="The VLAN incrementation rule (default: 1).", alias="VlanIncr")
-    __properties: ClassVar[List[str]] = ["Count", "CountPerAgent", "links", "MaxCountPerAgent", "Priority", "StaticARPTable", "TagProtocolId", "VlanAuto", "VlanEnabled", "VlanId", "VlanIncr"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Count", "CountPerAgent", "MaxCountPerAgent", "Priority", "StaticARPTable", "TagProtocolId", "VlanAuto", "VlanEnabled", "VlanId", "VlanIncr", "links"]
 
     @field_validator('tag_protocol_id')
     def tag_protocol_id_validate_enum(cls, value):
@@ -92,13 +92,6 @@ class VLANRange(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in static_arp_table (list)
         _items = []
         if self.static_arp_table:
@@ -106,6 +99,13 @@ class VLANRange(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['StaticARPTable'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -122,7 +122,6 @@ class VLANRange(BaseModel):
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
                         "CountPerAgent": obj.get("CountPerAgent"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "MaxCountPerAgent": obj.get("MaxCountPerAgent"),
                         "Priority": obj.get("Priority"),
                         "StaticARPTable": [StaticARPEntry.from_dict(_item) for _item in obj["StaticARPTable"]] if obj.get("StaticARPTable") is not None else None,
@@ -130,7 +129,8 @@ class VLANRange(BaseModel):
                         "VlanAuto": obj.get("VlanAuto"),
                         "VlanEnabled": obj.get("VlanEnabled"),
                         "VlanId": obj.get("VlanId"),
-                        "VlanIncr": obj.get("VlanIncr")
+                        "VlanIncr": obj.get("VlanIncr"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

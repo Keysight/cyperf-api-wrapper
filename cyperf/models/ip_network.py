@@ -37,11 +37,9 @@ class IPNetwork(BaseModel):
     """
     The IP network configuration
     """ # noqa: E501
-    id: StrictStr
     name: Annotated[str, Field(strict=True)] = Field(alias="Name")
+    id: StrictStr
     network_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags.", alias="networkTags")
-    active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the network segment is active.(default: true)")
-    agent_assignments: Optional[AgentAssignments] = Field(default=None, alias="agentAssignments")
     dns_resolver: Optional[DNSResolver] = Field(default=None, alias="DNSResolver")
     dns_server: Optional[DNSServer] = Field(default=None, description="The DNS Server configuration for Network Segment", alias="DNSServer")
     dut_connections: Optional[List[StrictStr]] = Field(default=None, description="The connected DUT network segments.", alias="DUTConnections")
@@ -49,11 +47,13 @@ class IPNetwork(BaseModel):
     eth_range: Optional[Dict[str, Any]] = Field(default=None, alias="EthRange")
     ip_ranges: Optional[List[IPRange]] = Field(default=None, alias="IPRanges")
     ip_sec_stacks: Optional[List[IPSecStack]] = Field(default=None, alias="IPSecStacks")
-    links: Optional[List[APILink]] = None
     mac_dtls_stacks: Optional[List[MacDtlsStack]] = Field(default=None, alias="MacDtlsStacks")
-    min_agents: Optional[StrictInt] = Field(default=None, description="The minimum number of agents that should be assigned to this network segment in a valid test (default: 1).", alias="minAgents")
     tunnel_stacks: Optional[List[TunnelStack]] = Field(default=None, alias="TunnelStacks")
-    __properties: ClassVar[List[str]] = ["id", "Name", "networkTags", "active", "agentAssignments", "DNSResolver", "DNSServer", "DUTConnections", "EmulatedRouter", "EthRange", "IPRanges", "IPSecStacks", "links", "MacDtlsStacks", "minAgents", "TunnelStacks"]
+    active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the network segment is active.(default: true)")
+    agent_assignments: Optional[AgentAssignments] = Field(default=None, alias="agentAssignments")
+    links: Optional[List[APILink]] = None
+    min_agents: Optional[StrictInt] = Field(default=None, description="The minimum number of agents that should be assigned to this network segment in a valid test (default: 1).", alias="minAgents")
+    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "DNSResolver", "DNSServer", "DUTConnections", "EmulatedRouter", "EthRange", "IPRanges", "IPSecStacks", "MacDtlsStacks", "TunnelStacks", "active", "agentAssignments", "links", "minAgents"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -101,9 +101,6 @@ class IPNetwork(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of agent_assignments
-        if self.agent_assignments:
-            _dict['agentAssignments'] = self.agent_assignments.to_dict()
         # override the default output from pydantic by calling `to_dict()` of dns_resolver
         if self.dns_resolver:
             _dict['DNSResolver'] = self.dns_resolver.to_dict()
@@ -124,13 +121,6 @@ class IPNetwork(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['IPSecStacks'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in mac_dtls_stacks (list)
         _items = []
         if self.mac_dtls_stacks:
@@ -145,6 +135,16 @@ class IPNetwork(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['TunnelStacks'] = _items
+        # override the default output from pydantic by calling `to_dict()` of agent_assignments
+        if self.agent_assignments:
+            _dict['agentAssignments'] = self.agent_assignments.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -159,11 +159,9 @@ class IPNetwork(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "Name": obj.get("Name"),
+            "Name": obj.get("Name"),
+                        "id": obj.get("id"),
                         "networkTags": obj.get("networkTags"),
-                        "active": obj.get("active"),
-                        "agentAssignments": AgentAssignments.from_dict(obj["agentAssignments"]) if obj.get("agentAssignments") is not None else None,
                         "DNSResolver": DNSResolver.from_dict(obj["DNSResolver"]) if obj.get("DNSResolver") is not None else None,
                         "DNSServer": DNSServer.from_dict(obj["DNSServer"]) if obj.get("DNSServer") is not None else None,
                         "DUTConnections": obj.get("DUTConnections"),
@@ -171,10 +169,12 @@ class IPNetwork(BaseModel):
                         "EthRange": obj.get("EthRange"),
                         "IPRanges": [IPRange.from_dict(_item) for _item in obj["IPRanges"]] if obj.get("IPRanges") is not None else None,
                         "IPSecStacks": [IPSecStack.from_dict(_item) for _item in obj["IPSecStacks"]] if obj.get("IPSecStacks") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "MacDtlsStacks": [MacDtlsStack.from_dict(_item) for _item in obj["MacDtlsStacks"]] if obj.get("MacDtlsStacks") is not None else None,
-                        "minAgents": obj.get("minAgents"),
-                        "TunnelStacks": [TunnelStack.from_dict(_item) for _item in obj["TunnelStacks"]] if obj.get("TunnelStacks") is not None else None
+                        "TunnelStacks": [TunnelStack.from_dict(_item) for _item in obj["TunnelStacks"]] if obj.get("TunnelStacks") is not None else None,
+                        "active": obj.get("active"),
+                        "agentAssignments": AgentAssignments.from_dict(obj["agentAssignments"]) if obj.get("agentAssignments") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "minAgents": obj.get("minAgents")
             ,
             "links": obj.get("links")
         })

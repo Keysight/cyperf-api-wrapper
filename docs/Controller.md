@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**compute_nodes** | [**List[ComputeNode]**](ComputeNode.md) | The compute-nodes of the controller | [optional] 
+**compute_nodes** | [**List[ComputeNode]**](ComputeNode.md) | The compute nodes of the controller | [optional] 
 **health_details** | [**List[HealthIssue]**](HealthIssue.md) | Details regarding any health issue of the controller | [optional] 
 **healthy** | **bool** | Whether the controller has any health issue or not | [optional] 
 **id** | **str** | The unique identifier of the controller | [optional] 

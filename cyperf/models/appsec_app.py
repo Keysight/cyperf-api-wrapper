@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.application import Application
+from cyperf.models.appsec_app_metadata import AppsecAppMetadata
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -32,15 +33,16 @@ class AppsecApp(BaseModel):
     """ # noqa: E501
     app: Optional[Application] = Field(default=None, alias="App")
     description: Optional[StrictStr] = Field(default=None, description="The description of the application", alias="Description")
+    name: Optional[StrictStr] = Field(default=None, description="The user friendly name of the application", alias="Name")
+    static: Optional[StrictBool] = Field(default=None, description="If true, the application/strike is generated from Controller", alias="Static")
+    user_defined: Optional[StrictBool] = Field(default=None, description="If true, the application was created by the user", alias="UserDefined")
+    app_metadata: Optional[AppsecAppMetadata] = Field(default=None, alias="appMetadata")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the application")
     last_modified: Optional[StrictInt] = Field(default=None, alias="lastModified")
     links: Optional[List[APILink]] = None
-    name: Optional[StrictStr] = Field(default=None, description="The user friendly name of the application", alias="Name")
     owner: Optional[StrictStr] = Field(default=None, description="The friendly display name of the application's owner")
     owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the application's owner", alias="ownerId")
-    static: Optional[StrictBool] = Field(default=None, description="If true, the application/strike is generated from Controller", alias="Static")
-    user_defined: Optional[StrictBool] = Field(default=None, description="If true, the application was created by the user", alias="UserDefined")
-    __properties: ClassVar[List[str]] = ["App", "Description", "id", "lastModified", "links", "Name", "owner", "ownerId", "Static", "UserDefined"]
+    __properties: ClassVar[List[str]] = ["App", "Description", "Name", "Static", "UserDefined", "appMetadata", "id", "lastModified", "links", "owner", "ownerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,11 +81,11 @@ class AppsecApp(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "static",
+            "user_defined",
             "id",
             "owner",
             "owner_id",
-            "static",
-            "user_defined",
         ])
 
         _dict = self.model_dump(
@@ -94,6 +96,9 @@ class AppsecApp(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of app
         if self.app:
             _dict['App'] = self.app.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of app_metadata
+        if self.app_metadata:
+            _dict['appMetadata'] = self.app_metadata.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -117,14 +122,15 @@ class AppsecApp(BaseModel):
         _obj = cls.model_validate({
             "App": Application.from_dict(obj["App"]) if obj.get("App") is not None else None,
                         "Description": obj.get("Description"),
+                        "Name": obj.get("Name"),
+                        "Static": obj.get("Static"),
+                        "UserDefined": obj.get("UserDefined"),
+                        "appMetadata": AppsecAppMetadata.from_dict(obj["appMetadata"]) if obj.get("appMetadata") is not None else None,
                         "id": obj.get("id"),
                         "lastModified": obj.get("lastModified"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "Name": obj.get("Name"),
                         "owner": obj.get("owner"),
-                        "ownerId": obj.get("ownerId"),
-                        "Static": obj.get("Static"),
-                        "UserDefined": obj.get("UserDefined")
+                        "ownerId": obj.get("ownerId")
             ,
             "links": obj.get("links")
         })

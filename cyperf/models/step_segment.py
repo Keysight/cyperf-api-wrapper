@@ -30,12 +30,12 @@ class StepSegment(BaseModel):
     StepSegment
     """ # noqa: E501
     duration: StrictInt = Field(description="The duration of the timeline segment (default: 600).", alias="Duration")
-    id: StrictStr
     segment_type: SegmentType = Field(description="The segment's type. Must be one of: SteadySegment, StepUpSegment, StepDownSegment.", alias="SegmentType")
     warm_up_period: Optional[StrictInt] = Field(default=None, description="Deprecated. Use ObjectivesAndTimeline.WarmUp instead. The time that servers may need to warm up, when clients should wait (default: 0 seconds).", alias="WarmUpPeriod")
+    id: StrictStr
     enabled: StrictBool = Field(description="Whether this timeline segment will be used.", alias="Enabled")
     number_of_steps: StrictInt = Field(description="The number of steps to execute. The step value will be computed based on the SteadySegment with the following formula: StepObjectiveValue = SteadySegment.ObjectiveValue / NumberOfSteps.", alias="NumberOfSteps")
-    __properties: ClassVar[List[str]] = ["Duration", "id", "SegmentType", "WarmUpPeriod", "Enabled", "NumberOfSteps"]
+    __properties: ClassVar[List[str]] = ["Duration", "SegmentType", "WarmUpPeriod", "id", "Enabled", "NumberOfSteps"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,9 +91,9 @@ class StepSegment(BaseModel):
 
         _obj = cls.model_validate({
             "Duration": obj.get("Duration"),
-                        "id": obj.get("id"),
                         "SegmentType": obj.get("SegmentType"),
                         "WarmUpPeriod": obj.get("WarmUpPeriod"),
+                        "id": obj.get("id"),
                         "Enabled": obj.get("Enabled"),
                         "NumberOfSteps": obj.get("NumberOfSteps")
             ,

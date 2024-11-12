@@ -36,15 +36,15 @@ class AuthProfile(BaseModel):
     """ # noqa: E501
     connections: Optional[List[Connection]] = Field(default=None, description="The connections included in the flow", alias="Connections")
     data_types: Optional[List[DataType]] = Field(default=None, description="The data types definition of the parameters", alias="DataTypes")
-    description: Optional[StrictStr] = Field(default=None, description="The user friendly description of the Auth Profile")
     endpoints: Optional[List[Endpoint]] = Field(default=None, description="The list of endpoints used by the authentication profile", alias="Endpoints")
     file_name: Optional[StrictStr] = Field(default=None, description="The name of the XML file that contains the authentication profile definition", alias="FileName")
-    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the profile")
-    links: Optional[List[APILink]] = None
     metadata: Optional[Metadata] = Field(default=None, alias="Metadata")
     parameters: Optional[List[Parameter]] = Field(default=None, description="The parameters of the authentication profile", alias="Parameters")
+    description: Optional[StrictStr] = Field(default=None, description="The user friendly description of the Auth Profile")
+    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the profile")
+    links: Optional[List[APILink]] = None
     type: Optional[StrictStr] = Field(default=None, description="The type of the authentication profile")
-    __properties: ClassVar[List[str]] = ["Connections", "DataTypes", "description", "Endpoints", "FileName", "id", "links", "Metadata", "Parameters", "type"]
+    __properties: ClassVar[List[str]] = ["Connections", "DataTypes", "Endpoints", "FileName", "Metadata", "Parameters", "description", "id", "links", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,10 +85,10 @@ class AuthProfile(BaseModel):
         """
         excluded_fields: Set[str] = set([
             "connections",
-            "description",
             "endpoints",
-            "id",
             "parameters",
+            "description",
+            "id",
             "type",
         ])
 
@@ -118,13 +118,6 @@ class AuthProfile(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Endpoints'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of metadata
         if self.metadata:
             _dict['Metadata'] = self.metadata.to_dict()
@@ -135,6 +128,13 @@ class AuthProfile(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Parameters'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -151,13 +151,13 @@ class AuthProfile(BaseModel):
         _obj = cls.model_validate({
             "Connections": [Connection.from_dict(_item) for _item in obj["Connections"]] if obj.get("Connections") is not None else None,
                         "DataTypes": [DataType.from_dict(_item) for _item in obj["DataTypes"]] if obj.get("DataTypes") is not None else None,
-                        "description": obj.get("description"),
                         "Endpoints": [Endpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
                         "FileName": obj.get("FileName"),
-                        "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
+                        "description": obj.get("description"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "type": obj.get("type")
             ,
             "links": obj.get("links")

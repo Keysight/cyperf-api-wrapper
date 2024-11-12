@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The ID of the objective. | 
 **unit** | **str** | The unit of the Objective. | [optional] 
 **value** | **float** | The value of the Objective. | 
+**id** | **str** | The ID of the objective. | 
 
 ## Example
 

@@ -37,6 +37,11 @@ class TestConfigValidation(unittest.TestCase):
         if include_optional:
             return ConfigValidation(
                 is_validated = True,
+                validation_messages = [
+                    cyperf.models.validation_message.ValidationMessage(
+                        message = '', 
+                        severity = 'WARNING', )
+                    ],
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -46,11 +51,6 @@ class TestConfigValidation(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                validation_messages = [
-                    cyperf.models.validation_message.ValidationMessage(
-                        message = '', 
-                        severity = 'WARNING', )
                     ]
             )
         else:

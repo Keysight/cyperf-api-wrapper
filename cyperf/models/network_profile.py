@@ -32,10 +32,10 @@ class NetworkProfile(BaseModel):
     The networks assigned to the current test configuration
     """ # noqa: E501
     dut_network_segment: Optional[List[DUTNetwork]] = Field(default=None, alias="DUTNetworkSegment")
-    id: StrictStr
     ip_network_segment: Optional[List[IPNetwork]] = Field(default=None, alias="IPNetworkSegment")
+    id: StrictStr
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["DUTNetworkSegment", "id", "IPNetworkSegment", "links"]
+    __properties: ClassVar[List[str]] = ["DUTNetworkSegment", "IPNetworkSegment", "id", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -112,8 +112,8 @@ class NetworkProfile(BaseModel):
 
         _obj = cls.model_validate({
             "DUTNetworkSegment": [DUTNetwork.from_dict(_item) for _item in obj["DUTNetworkSegment"]] if obj.get("DUTNetworkSegment") is not None else None,
-                        "id": obj.get("id"),
                         "IPNetworkSegment": [IPNetwork.from_dict(_item) for _item in obj["IPNetworkSegment"]] if obj.get("IPNetworkSegment") is not None else None,
+                        "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")

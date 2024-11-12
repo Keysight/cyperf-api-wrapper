@@ -33,13 +33,13 @@ class AppsecAttack(BaseModel):
     """ # noqa: E501
     attack: Optional[Attack] = Field(default=None, alias="Attack")
     description: Optional[StrictStr] = Field(default=None, description="The description of the attack", alias="Description")
-    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the attack")
-    links: Optional[List[APILink]] = None
     metadata: Optional[Metadata] = Field(default=None, alias="Metadata")
     name: Optional[StrictStr] = Field(default=None, description="The user friendly name of the attack", alias="Name")
+    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the attack")
+    links: Optional[List[APILink]] = None
     owner: Optional[StrictStr] = Field(default=None, description="The friendly display name of the attack's owner")
     owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the attack's owner", alias="ownerId")
-    __properties: ClassVar[List[str]] = ["Attack", "Description", "id", "links", "Metadata", "Name", "owner", "ownerId"]
+    __properties: ClassVar[List[str]] = ["Attack", "Description", "Metadata", "Name", "id", "links", "owner", "ownerId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,6 +89,9 @@ class AppsecAttack(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of attack
         if self.attack:
             _dict['Attack'] = self.attack.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['Metadata'] = self.metadata.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -96,9 +99,6 @@ class AppsecAttack(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of metadata
-        if self.metadata:
-            _dict['Metadata'] = self.metadata.to_dict()
         return _dict
 
     @classmethod
@@ -115,10 +115,10 @@ class AppsecAttack(BaseModel):
         _obj = cls.model_validate({
             "Attack": Attack.from_dict(obj["Attack"]) if obj.get("Attack") is not None else None,
                         "Description": obj.get("Description"),
-                        "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "owner": obj.get("owner"),
                         "ownerId": obj.get("ownerId")
             ,

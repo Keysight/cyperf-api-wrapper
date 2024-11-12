@@ -36,14 +36,14 @@ class TestObjectiveValueEntry(unittest.TestCase):
         model = ObjectiveValueEntry()
         if include_optional:
             return ObjectiveValueEntry(
-                id = '',
                 unit = '',
-                value = 1.337
+                value = 1.337,
+                id = ''
             )
         else:
             return ObjectiveValueEntry(
-                id = '',
                 value = 1.337,
+                id = '',
         )
         """
 

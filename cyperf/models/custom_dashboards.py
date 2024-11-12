@@ -30,9 +30,9 @@ class CustomDashboards(BaseModel):
     CustomDashboards
     """ # noqa: E501
     active: StrictBool = Field(description="Indicates whether the custom dashboards are enabled or not.", alias="Active")
-    links: Optional[List[APILink]] = None
     links: Optional[List[APILink]] = Field(default=None, description="A list of links to user defined stats dashboards.", alias="Links")
-    __properties: ClassVar[List[str]] = ["Active", "links", "Links"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Active", "Links", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,14 +79,14 @@ class CustomDashboards(BaseModel):
             for _item in self.links:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['links'] = _items
+            _dict['Links'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
             for _item in self.links:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['Links'] = _items
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -102,8 +102,8 @@ class CustomDashboards(BaseModel):
 
         _obj = cls.model_validate({
             "Active": obj.get("Active"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "Links": [APILink.from_dict(_item) for _item in obj["Links"]] if obj.get("Links") is not None else None
+                        "Links": [APILink.from_dict(_item) for _item in obj["Links"]] if obj.get("Links") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

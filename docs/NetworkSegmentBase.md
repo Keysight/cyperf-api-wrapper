@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
 **name** | **str** |  | 
+**id** | **str** |  | 
 **network_tags** | **List[str]** | A list of tags. | [optional] 
 
 ## Example

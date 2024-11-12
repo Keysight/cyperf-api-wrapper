@@ -35,15 +35,15 @@ class CiscoAnyConnectSettings(BaseModel):
     CiscoAnyConnectSettings
     """ # noqa: E501
     var_auth_settings: Optional[AuthSettings] = Field(default=None, alias="AuthSettings")
-    links: Optional[List[APILink]] = None
     outer_tcp_profile: Optional[TcpProfile] = Field(default=None, alias="OuterTCPProfile")
+    links: Optional[List[APILink]] = None
     cisco_encapsulation: Optional[CiscoEncapsulation] = Field(default=None, alias="CiscoEncapsulation")
     connection_profiles: Optional[List[StrictStr]] = Field(default=None, alias="ConnectionProfiles")
     esp_probe_retry_timeout: Optional[StrictInt] = Field(default=None, alias="ESPProbeRetryTimeout")
     esp_probe_timeout: Optional[StrictInt] = Field(default=None, alias="ESPProbeTimeout")
     outer_tls_client_profile: Optional[TLSProfile] = Field(default=None, alias="OuterTLSClientProfile")
     vpn_gateway: Annotated[str, Field(strict=True)] = Field(alias="VPNGateway")
-    __properties: ClassVar[List[str]] = ["AuthSettings", "links", "OuterTCPProfile", "CiscoEncapsulation", "ConnectionProfiles", "ESPProbeRetryTimeout", "ESPProbeTimeout", "OuterTLSClientProfile", "VPNGateway"]
+    __properties: ClassVar[List[str]] = ["AuthSettings", "OuterTCPProfile", "links", "CiscoEncapsulation", "ConnectionProfiles", "ESPProbeRetryTimeout", "ESPProbeTimeout", "OuterTLSClientProfile", "VPNGateway"]
 
     @field_validator('vpn_gateway')
     def vpn_gateway_validate_regular_expression(cls, value):
@@ -94,6 +94,9 @@ class CiscoAnyConnectSettings(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of var_auth_settings
         if self.var_auth_settings:
             _dict['AuthSettings'] = self.var_auth_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_tcp_profile
+        if self.outer_tcp_profile:
+            _dict['OuterTCPProfile'] = self.outer_tcp_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -101,9 +104,6 @@ class CiscoAnyConnectSettings(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of outer_tcp_profile
-        if self.outer_tcp_profile:
-            _dict['OuterTCPProfile'] = self.outer_tcp_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of cisco_encapsulation
         if self.cisco_encapsulation:
             _dict['CiscoEncapsulation'] = self.cisco_encapsulation.to_dict()
@@ -125,8 +125,8 @@ class CiscoAnyConnectSettings(BaseModel):
 
         _obj = cls.model_validate({
             "AuthSettings": AuthSettings.from_dict(obj["AuthSettings"]) if obj.get("AuthSettings") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "OuterTCPProfile": TcpProfile.from_dict(obj["OuterTCPProfile"]) if obj.get("OuterTCPProfile") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "CiscoEncapsulation": CiscoEncapsulation.from_dict(obj["CiscoEncapsulation"]) if obj.get("CiscoEncapsulation") is not None else None,
                         "ConnectionProfiles": obj.get("ConnectionProfiles"),
                         "ESPProbeRetryTimeout": obj.get("ESPProbeRetryTimeout"),

@@ -33,11 +33,11 @@ class EmulatedSubnetConfig(BaseModel):
     hosts_increment: Annotated[str, Field(strict=True)] = Field(description="The IP incrementation rule (default: 0.0.0.1).", alias="HostsIncrement")
     hosts_prefix: StrictInt = Field(description="The network mask of the IP Range (default: 16).", alias="HostsPrefix")
     increment: Annotated[str, Field(strict=True)] = Field(description="The IP incrementation rule (default: 0.0.1.0).", alias="Increment")
-    network_tags: List[StrictStr] = Field(description="A list of tags.", alias="networkTags")
     prefix: StrictInt = Field(description="The network mask of the IP Range (default: 16).", alias="Prefix")
     start: Annotated[str, Field(strict=True)] = Field(description="The start IP for the IPRange (default: 10.0.0.10).", alias="Start")
     total_host_count: StrictStr = Field(alias="TotalHostCount")
-    __properties: ClassVar[List[str]] = ["HostCountPerTunnel", "HostsIncrement", "HostsPrefix", "Increment", "networkTags", "Prefix", "Start", "TotalHostCount"]
+    network_tags: List[StrictStr] = Field(description="A list of tags.", alias="networkTags")
+    __properties: ClassVar[List[str]] = ["HostCountPerTunnel", "HostsIncrement", "HostsPrefix", "Increment", "Prefix", "Start", "TotalHostCount", "networkTags"]
 
     @field_validator('hosts_increment')
     def hosts_increment_validate_regular_expression(cls, value):
@@ -117,10 +117,10 @@ class EmulatedSubnetConfig(BaseModel):
                         "HostsIncrement": obj.get("HostsIncrement"),
                         "HostsPrefix": obj.get("HostsPrefix"),
                         "Increment": obj.get("Increment"),
-                        "networkTags": obj.get("networkTags"),
                         "Prefix": obj.get("Prefix"),
                         "Start": obj.get("Start"),
-                        "TotalHostCount": obj.get("TotalHostCount")
+                        "TotalHostCount": obj.get("TotalHostCount"),
+                        "networkTags": obj.get("networkTags")
             ,
             "links": obj.get("links")
         })

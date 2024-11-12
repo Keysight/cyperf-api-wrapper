@@ -30,12 +30,12 @@ class PANGPEncapsulation(BaseModel):
     """
     PANGPEncapsulation
     """ # noqa: E501
-    encapsulation_mode: StrictStr = Field(description="The encapsulation mode for inner traffic.", alias="EncapsulationMode")
     esp_over_udp_enabled: StrictBool = Field(alias="ESPOverUDPEnabled")
     esp_over_udp_settings: Optional[ESPOverUDPSettings] = Field(default=None, alias="ESPOverUDPSettings")
-    links: Optional[List[APILink]] = None
+    encapsulation_mode: StrictStr = Field(description="The encapsulation mode for inner traffic.", alias="EncapsulationMode")
     udp_port: StrictInt = Field(alias="UdpPort")
-    __properties: ClassVar[List[str]] = ["EncapsulationMode", "ESPOverUDPEnabled", "ESPOverUDPSettings", "links", "UdpPort"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["ESPOverUDPEnabled", "ESPOverUDPSettings", "EncapsulationMode", "UdpPort", "links"]
 
     @field_validator('encapsulation_mode')
     def encapsulation_mode_validate_enum(cls, value):
@@ -107,11 +107,11 @@ class PANGPEncapsulation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "EncapsulationMode": obj.get("EncapsulationMode"),
-                        "ESPOverUDPEnabled": obj.get("ESPOverUDPEnabled"),
+            "ESPOverUDPEnabled": obj.get("ESPOverUDPEnabled"),
                         "ESPOverUDPSettings": ESPOverUDPSettings.from_dict(obj["ESPOverUDPSettings"]) if obj.get("ESPOverUDPSettings") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "UdpPort": obj.get("UdpPort")
+                        "EncapsulationMode": obj.get("EncapsulationMode"),
+                        "UdpPort": obj.get("UdpPort"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

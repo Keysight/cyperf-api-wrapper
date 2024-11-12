@@ -33,22 +33,19 @@ class DUTNetwork(BaseModel):
     """
     DUTNetwork
     """ # noqa: E501
-    id: StrictStr
     name: Annotated[str, Field(strict=True)] = Field(alias="Name")
+    id: StrictStr
     network_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags.", alias="networkTags")
-    active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the server DUT is an active device. If it is, the simulated clients or client DUT(if active) will send traffic to the DUT 'host'; and the simulated servers will use the healtcheck configurations. (default: false)")
     client_dut_active: Optional[StrictBool] = Field(default=None, alias="ClientDUTActive")
     client_dut_host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="ClientDUTHost")
     client_dut_port: Optional[StrictInt] = Field(default=None, description="The listen port for client-side DUT (default: 80).", alias="ClientDUTPort")
     config_settings: Optional[StrictStr] = Field(default=None, alias="ConfigSettings")
     forward_proxy_pep_dut: Optional[PepDUT] = Field(default=None, alias="ForwardProxyPepDUT")
     forward_proxy_pep_dut_active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the PEP device is an active device. If active, the simulated clients will send traffic to the PEP device host. (default: false)", alias="ForwardProxyPepDUTActive")
-    host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The hostname where the traffic goes if server DUT is active.")
-    hostname_suffix: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A suffix to be added to the Host header of all Apps/Attacks running through the forward proxy DUT (default: empty string).", alias="HostnameSuffix")
-    http_forward_proxy_mode: Optional[StrictStr] = Field(default=None, description="Deprecated. This is ignored and the proxy mode will be deduced from the connection type.", alias="HttpForwardProxyMode")
     http_health_check: Optional[HealthCheckConfig] = Field(default=None, description="The HTTP HealthCheck configuration for DUT", alias="HTTPHealthCheck")
     https_health_check: Optional[HealthCheckConfig] = Field(default=None, description="The HTTPS HealthCheck configuration for DUT", alias="HTTPSHealthCheck")
-    links: Optional[List[APILink]] = None
+    hostname_suffix: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A suffix to be added to the Host header of all Apps/Attacks running through the forward proxy DUT (default: empty string).", alias="HostnameSuffix")
+    http_forward_proxy_mode: Optional[StrictStr] = Field(default=None, description="Deprecated. This is ignored and the proxy mode will be deduced from the connection type.", alias="HttpForwardProxyMode")
     non_proxied_hosts: Optional[Params] = Field(default=None, alias="NonProxiedHosts")
     pep_dut: Optional[PepDUT] = Field(default=None, alias="PepDUT")
     pep_dut_active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the PEP device is an active device. If active, the simulated clients will send traffic to the PEP device host. (default: false)", alias="PepDUTActive")
@@ -59,7 +56,10 @@ class DUTNetwork(BaseModel):
     server_dut_port: Optional[StrictInt] = Field(default=None, description="The listen port for server-side DUT", alias="ServerDUTPort")
     tcp_health_check: Optional[HealthCheckConfig] = Field(default=None, description="The TCP HealthCheck configuration for DUT", alias="TCPHealthCheck")
     use_real_host: Optional[StrictBool] = Field(default=None, description="A flag indicating if tunneled hostname should use real domain names.", alias="UseRealHost")
-    __properties: ClassVar[List[str]] = ["id", "Name", "networkTags", "active", "ClientDUTActive", "ClientDUTHost", "ClientDUTPort", "ConfigSettings", "ForwardProxyPepDUT", "ForwardProxyPepDUTActive", "host", "HostnameSuffix", "HttpForwardProxyMode", "HTTPHealthCheck", "HTTPSHealthCheck", "links", "NonProxiedHosts", "PepDUT", "PepDUTActive", "ReverseProxyPepDUT", "ReverseProxyPepDUTActive", "ServerDUTActive", "ServerDUTHost", "ServerDUTPort", "TCPHealthCheck", "UseRealHost"]
+    active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the server DUT is an active device. If it is, the simulated clients or client DUT(if active) will send traffic to the DUT 'host'; and the simulated servers will use the healtcheck configurations. (default: false)")
+    host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The hostname where the traffic goes if server DUT is active.")
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "ClientDUTActive", "ClientDUTHost", "ClientDUTPort", "ConfigSettings", "ForwardProxyPepDUT", "ForwardProxyPepDUTActive", "HTTPHealthCheck", "HTTPSHealthCheck", "HostnameSuffix", "HttpForwardProxyMode", "NonProxiedHosts", "PepDUT", "PepDUTActive", "ReverseProxyPepDUT", "ReverseProxyPepDUTActive", "ServerDUTActive", "ServerDUTHost", "ServerDUTPort", "TCPHealthCheck", "UseRealHost", "active", "host", "links"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -88,16 +88,6 @@ class DUTNetwork(BaseModel):
             raise ValueError("must be one of enum values ('SIMPLE_MODE', 'ADVANCED_MODE')")
         return value
 
-    @field_validator('host')
-    def host_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^$|^(([a-zA-Z0-9\-]*[a-zA-Z0-9])\.)+([A-Za-z|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$|(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$|^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|(([0-9a-fA-F]{1,4}:){5,5}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}|([0-9a-fA-F]{1,4}:){1,4}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){2,2}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){3,3}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){4,4})|:(:[0-9a-fA-F]{1,4}){1,5}):((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$", value):
-            raise ValueError(r"must validate the regular expression /^$|^(([a-zA-Z0-9\-]*[a-zA-Z0-9])\.)+([A-Za-z|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$|(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$|^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|(([0-9a-fA-F]{1,4}:){5,5}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}|([0-9a-fA-F]{1,4}:){1,4}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){2,2}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){3,3}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){4,4})|:(:[0-9a-fA-F]{1,4}){1,5}):((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/")
-        return value
-
     @field_validator('hostname_suffix')
     def hostname_suffix_validate_regular_expression(cls, value):
         """Validates the regular expression"""
@@ -120,6 +110,16 @@ class DUTNetwork(BaseModel):
 
     @field_validator('server_dut_host')
     def server_dut_host_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^$|^(([a-zA-Z0-9\-]*[a-zA-Z0-9])\.)+([A-Za-z|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$|(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$|^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|(([0-9a-fA-F]{1,4}:){5,5}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}|([0-9a-fA-F]{1,4}:){1,4}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){2,2}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){3,3}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){4,4})|:(:[0-9a-fA-F]{1,4}){1,5}):((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$", value):
+            raise ValueError(r"must validate the regular expression /^$|^(([a-zA-Z0-9\-]*[a-zA-Z0-9])\.)+([A-Za-z|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$|(^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$|^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|(([0-9a-fA-F]{1,4}:){5,5}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}|([0-9a-fA-F]{1,4}:){1,4}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){2,2}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){3,3}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){4,4})|:(:[0-9a-fA-F]{1,4}){1,5}):((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/")
+        return value
+
+    @field_validator('host')
+    def host_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
@@ -176,13 +176,6 @@ class DUTNetwork(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of https_health_check
         if self.https_health_check:
             _dict['HTTPSHealthCheck'] = self.https_health_check.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
-        _items = []
-        if self.links:
-            for _item in self.links:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['links'] = _items
         # override the default output from pydantic by calling `to_dict()` of non_proxied_hosts
         if self.non_proxied_hosts:
             _dict['NonProxiedHosts'] = self.non_proxied_hosts.to_dict()
@@ -195,6 +188,13 @@ class DUTNetwork(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of tcp_health_check
         if self.tcp_health_check:
             _dict['TCPHealthCheck'] = self.tcp_health_check.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -209,22 +209,19 @@ class DUTNetwork(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "Name": obj.get("Name"),
+            "Name": obj.get("Name"),
+                        "id": obj.get("id"),
                         "networkTags": obj.get("networkTags"),
-                        "active": obj.get("active"),
                         "ClientDUTActive": obj.get("ClientDUTActive"),
                         "ClientDUTHost": obj.get("ClientDUTHost"),
                         "ClientDUTPort": obj.get("ClientDUTPort"),
                         "ConfigSettings": obj.get("ConfigSettings"),
                         "ForwardProxyPepDUT": PepDUT.from_dict(obj["ForwardProxyPepDUT"]) if obj.get("ForwardProxyPepDUT") is not None else None,
                         "ForwardProxyPepDUTActive": obj.get("ForwardProxyPepDUTActive"),
-                        "host": obj.get("host"),
-                        "HostnameSuffix": obj.get("HostnameSuffix"),
-                        "HttpForwardProxyMode": obj.get("HttpForwardProxyMode"),
                         "HTTPHealthCheck": HealthCheckConfig.from_dict(obj["HTTPHealthCheck"]) if obj.get("HTTPHealthCheck") is not None else None,
                         "HTTPSHealthCheck": HealthCheckConfig.from_dict(obj["HTTPSHealthCheck"]) if obj.get("HTTPSHealthCheck") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "HostnameSuffix": obj.get("HostnameSuffix"),
+                        "HttpForwardProxyMode": obj.get("HttpForwardProxyMode"),
                         "NonProxiedHosts": Params.from_dict(obj["NonProxiedHosts"]) if obj.get("NonProxiedHosts") is not None else None,
                         "PepDUT": PepDUT.from_dict(obj["PepDUT"]) if obj.get("PepDUT") is not None else None,
                         "PepDUTActive": obj.get("PepDUTActive"),
@@ -234,7 +231,10 @@ class DUTNetwork(BaseModel):
                         "ServerDUTHost": obj.get("ServerDUTHost"),
                         "ServerDUTPort": obj.get("ServerDUTPort"),
                         "TCPHealthCheck": HealthCheckConfig.from_dict(obj["TCPHealthCheck"]) if obj.get("TCPHealthCheck") is not None else None,
-                        "UseRealHost": obj.get("UseRealHost")
+                        "UseRealHost": obj.get("UseRealHost"),
+                        "active": obj.get("active"),
+                        "host": obj.get("host"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

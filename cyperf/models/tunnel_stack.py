@@ -33,13 +33,13 @@ class TunnelStack(BaseModel):
     """
     The tunnel stack assigned to the current test configuration
     """ # noqa: E501
-    id: StrictStr
     inner_ip_range: Optional[InnerIPRange] = Field(default=None, alias="InnerIPRange")
-    links: Optional[List[APILink]] = None
     outer_ip_range: Optional[IPRange] = Field(default=None, alias="OuterIPRange")
     tunnel_range: Optional[TunnelRange] = Field(default=None, alias="TunnelRange")
     tunnel_stack_name: Annotated[str, Field(strict=True)] = Field(alias="TunnelStackName")
-    __properties: ClassVar[List[str]] = ["id", "InnerIPRange", "links", "OuterIPRange", "TunnelRange", "TunnelStackName"]
+    id: StrictStr
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["InnerIPRange", "OuterIPRange", "TunnelRange", "TunnelStackName", "id", "links"]
 
     @field_validator('tunnel_stack_name')
     def tunnel_stack_name_validate_regular_expression(cls, value):
@@ -90,6 +90,12 @@ class TunnelStack(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of inner_ip_range
         if self.inner_ip_range:
             _dict['InnerIPRange'] = self.inner_ip_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_ip_range
+        if self.outer_ip_range:
+            _dict['OuterIPRange'] = self.outer_ip_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of tunnel_range
+        if self.tunnel_range:
+            _dict['TunnelRange'] = self.tunnel_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -97,12 +103,6 @@ class TunnelStack(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of outer_ip_range
-        if self.outer_ip_range:
-            _dict['OuterIPRange'] = self.outer_ip_range.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of tunnel_range
-        if self.tunnel_range:
-            _dict['TunnelRange'] = self.tunnel_range.to_dict()
         return _dict
 
     @classmethod
@@ -117,12 +117,12 @@ class TunnelStack(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "InnerIPRange": InnerIPRange.from_dict(obj["InnerIPRange"]) if obj.get("InnerIPRange") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+            "InnerIPRange": InnerIPRange.from_dict(obj["InnerIPRange"]) if obj.get("InnerIPRange") is not None else None,
                         "OuterIPRange": IPRange.from_dict(obj["OuterIPRange"]) if obj.get("OuterIPRange") is not None else None,
                         "TunnelRange": TunnelRange.from_dict(obj["TunnelRange"]) if obj.get("TunnelRange") is not None else None,
-                        "TunnelStackName": obj.get("TunnelStackName")
+                        "TunnelStackName": obj.get("TunnelStackName"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

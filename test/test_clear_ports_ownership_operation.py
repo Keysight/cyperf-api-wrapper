@@ -36,8 +36,16 @@ class TestClearPortsOwnershipOperation(unittest.TestCase):
         model = ClearPortsOwnershipOperation()
         if include_optional:
             return ClearPortsOwnershipOperation(
-                ports = [
-                    ''
+                controllers = [
+                    cyperf.models.ports_by_controller.PortsByController(
+                        compute_nodes = [
+                            cyperf.models.ports_by_node.PortsByNode(
+                                compute_node_id = '', 
+                                ports = [
+                                    ''
+                                    ], )
+                            ], 
+                        controller_id = '', )
                     ]
             )
         else:

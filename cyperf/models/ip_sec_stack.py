@@ -38,10 +38,8 @@ class IPSecStack(BaseModel):
     ca_certificate_file: Optional[Params] = Field(default=None, description="The authentication CA certificate file of the IPsec tunnel(s).", alias="CACertificateFile")
     emulated_sub_config: Optional[EmulatedSubnetConfig] = Field(default=None, description="Deeprecated. Use LocalSubConfig instead.", alias="EmulatedSubConfig")
     enable_rekey: StrictBool = Field(alias="EnableRekey")
-    id: StrictStr
     ip_sec_range: Optional[IPSecRange] = Field(default=None, alias="IPSecRange")
     ip_sec_stack_name: Annotated[str, Field(strict=True)] = Field(alias="IPSecStackName")
-    links: Optional[List[APILink]] = None
     local_sub_config: Optional[LocalSubnetConfig] = Field(default=None, alias="LocalSubConfig")
     log_keys: StrictBool = Field(alias="LogKeys")
     max_initiation_rate: StrictInt = Field(alias="MaxInitiationRate")
@@ -55,7 +53,9 @@ class IPSecStack(BaseModel):
     retry_interval_increment: Optional[StrictInt] = Field(default=None, alias="RetryIntervalIncrement")
     setup_timeout: StrictInt = Field(alias="SetupTimeout")
     stack_role: StrictStr = Field(alias="StackRole")
-    __properties: ClassVar[List[str]] = ["CACertificateFile", "EmulatedSubConfig", "EnableRekey", "id", "IPSecRange", "IPSecStackName", "links", "LocalSubConfig", "LogKeys", "MaxInitiationRate", "MaxPending", "OuterIPRange", "RekeyMargin", "RekeyRetryCount", "RetransmissionTimeout", "RetryCount", "RetryInterval", "RetryIntervalIncrement", "SetupTimeout", "StackRole"]
+    id: StrictStr
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["CACertificateFile", "EmulatedSubConfig", "EnableRekey", "IPSecRange", "IPSecStackName", "LocalSubConfig", "LogKeys", "MaxInitiationRate", "MaxPending", "OuterIPRange", "RekeyMargin", "RekeyRetryCount", "RetransmissionTimeout", "RetryCount", "RetryInterval", "RetryIntervalIncrement", "SetupTimeout", "StackRole", "id", "links"]
 
     @field_validator('ip_sec_stack_name')
     def ip_sec_stack_name_validate_regular_expression(cls, value):
@@ -119,6 +119,12 @@ class IPSecStack(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of ip_sec_range
         if self.ip_sec_range:
             _dict['IPSecRange'] = self.ip_sec_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of local_sub_config
+        if self.local_sub_config:
+            _dict['LocalSubConfig'] = self.local_sub_config.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_ip_range
+        if self.outer_ip_range:
+            _dict['OuterIPRange'] = self.outer_ip_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -126,12 +132,6 @@ class IPSecStack(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of local_sub_config
-        if self.local_sub_config:
-            _dict['LocalSubConfig'] = self.local_sub_config.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of outer_ip_range
-        if self.outer_ip_range:
-            _dict['OuterIPRange'] = self.outer_ip_range.to_dict()
         return _dict
 
     @classmethod
@@ -149,10 +149,8 @@ class IPSecStack(BaseModel):
             "CACertificateFile": Params.from_dict(obj["CACertificateFile"]) if obj.get("CACertificateFile") is not None else None,
                         "EmulatedSubConfig": EmulatedSubnetConfig.from_dict(obj["EmulatedSubConfig"]) if obj.get("EmulatedSubConfig") is not None else None,
                         "EnableRekey": obj.get("EnableRekey"),
-                        "id": obj.get("id"),
                         "IPSecRange": IPSecRange.from_dict(obj["IPSecRange"]) if obj.get("IPSecRange") is not None else None,
                         "IPSecStackName": obj.get("IPSecStackName"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "LocalSubConfig": LocalSubnetConfig.from_dict(obj["LocalSubConfig"]) if obj.get("LocalSubConfig") is not None else None,
                         "LogKeys": obj.get("LogKeys"),
                         "MaxInitiationRate": obj.get("MaxInitiationRate"),
@@ -165,7 +163,9 @@ class IPSecStack(BaseModel):
                         "RetryInterval": obj.get("RetryInterval"),
                         "RetryIntervalIncrement": obj.get("RetryIntervalIncrement"),
                         "SetupTimeout": obj.get("SetupTimeout"),
-                        "StackRole": obj.get("StackRole")
+                        "StackRole": obj.get("StackRole"),
+                        "id": obj.get("id"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })

@@ -40,17 +40,6 @@ class TestGetAttacks200ResponseOneOf(unittest.TestCase):
                     cyperf.models.appsec_attack.AppsecAttack(
                         attack = null, 
                         description = '', 
-                        id = '', 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         metadata = cyperf.models.metadata.Metadata(
                             cve_count = 56, 
                             direction = '', 
@@ -68,6 +57,17 @@ class TestGetAttacks200ResponseOneOf(unittest.TestCase):
                             severity = '', 
                             strikes_count = 56, ), 
                         name = '', 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], 
                         owner = '', 
                         owner_id = '', )
                     ],

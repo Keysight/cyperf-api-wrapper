@@ -40,8 +40,7 @@ class TestPort(unittest.TestCase):
                 id = '',
                 link = '',
                 name = '',
-                owner = '',
-                owner_id = '',
+                reserved_by = '',
                 speed = '',
                 status = '',
                 traffic_status = ''

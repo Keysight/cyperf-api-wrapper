@@ -57,6 +57,11 @@ class TestTunnelRange(unittest.TestCase):
                         ], ),
                 f5_settings = None,
                 fortinet_settings = None,
+                pangp_settings = None,
+                tcp_dst_port = 56,
+                tunnel_count_per_outer_ip = 56,
+                tunnel_establishment_timeout = 56,
+                vendor_type = 'CISCO_ANY_CONNECT',
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -66,12 +71,7 @@ class TestTunnelRange(unittest.TestCase):
                         references_count = 56, 
                         rel = '', 
                         type = '', )
-                    ],
-                pangp_settings = None,
-                tcp_dst_port = 56,
-                tunnel_count_per_outer_ip = 56,
-                tunnel_establishment_timeout = 56,
-                vendor_type = 'CISCO_ANY_CONNECT'
+                    ]
             )
         else:
             return TunnelRange(
