@@ -18,20 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.app_flow_input import AppFlowInput
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
 
-class SetAppOperation(BaseModel):
+class CaptureInput(BaseModel):
     """
-    SetAppOperation
+    CaptureInput
     """ # noqa: E501
-    app_id: Optional[StrictStr] = Field(default=None, description="The id of the app to activate on the controllers.", alias="appId")
-    controllers: Optional[List[StrictStr]] = Field(default=None, description="The controller ids for which to activate the app.")
-    force: Optional[StrictBool] = Field(default=None, description="Whether the ownership information will be cleared or not.")
-    __properties: ClassVar[List[str]] = ["appId", "controllers", "force"]
+    capture_id: Optional[StrictStr] = Field(default=None, alias="CaptureId")
+    flows: Optional[List[AppFlowInput]] = Field(default=None, alias="Flows")
+    __properties: ClassVar[List[str]] = ["CaptureId", "Flows"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +51,7 @@ class SetAppOperation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SetAppOperation from a JSON string"""
+        """Create an instance of CaptureInput from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,11 +72,18 @@ class SetAppOperation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in flows (list)
+        _items = []
+        if self.flows:
+            for _item in self.flows:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['Flows'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SetAppOperation from a dict"""
+        """Create an instance of CaptureInput from a dict"""
         if obj is None:
             return None
 
@@ -86,9 +93,8 @@ class SetAppOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "appId": obj.get("appId"),
-                        "controllers": obj.get("controllers"),
-                        "force": obj.get("force")
+            "CaptureId": obj.get("CaptureId"),
+                        "Flows": [AppFlowInput.from_dict(_item) for _item in obj["Flows"]] if obj.get("Flows") is not None else None
             ,
             "links": obj.get("links")
         })

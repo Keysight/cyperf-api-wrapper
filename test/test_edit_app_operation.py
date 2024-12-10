@@ -41,60 +41,14 @@ class TestEditAppOperation(unittest.TestCase):
                         action_index = 56, 
                         action_name = '', 
                         captures = [
-                            cyperf.models.capture.Capture(
+                            cyperf.models.capture_input.CaptureInput(
                                 capture_id = '', 
                                 flows = [
-                                    cyperf.models.app_flow.AppFlow(
-                                        dst_address = 'YQ==', 
-                                        dst_port = 56, 
+                                    cyperf.models.app_flow_input.AppFlowInput(
+                                        app_flow_id = '', 
                                         exchanges = [
-                                            cyperf.models.app_exchange.AppExchange(
-                                                c2s_payload = cyperf.models.generic_file.GenericFile(
-                                                    content = 'YQ==', 
-                                                    id = '', 
-                                                    md5 = '', 
-                                                    metadata = cyperf.models.file_metadata.FileMetadata(
-                                                        default = True, 
-                                                        user_visible = True, ), 
-                                                    name = '', 
-                                                    options = {
-                                                        'key' : null
-                                                        }, 
-                                                    owner = '', 
-                                                    owner_id = '', 
-                                                    reference_links = {
-                                                        'key' : 56
-                                                        }, 
-                                                    size = 56, 
-                                                    type = '', ), 
-                                                id = '', 
-                                                payload = cyperf.models.exchange_payload.ExchangePayload(
-                                                    c2s = 'YQ==', 
-                                                    s2c = 'YQ==', ), 
-                                                s2c_payload = cyperf.models.generic_file.GenericFile(
-                                                    content = 'YQ==', 
-                                                    id = '', 
-                                                    md5 = '', 
-                                                    name = '', 
-                                                    owner = '', 
-                                                    owner_id = '', 
-                                                    size = 56, 
-                                                    type = '', ), )
-                                            ], 
-                                        id = '', 
-                                        links = [
-                                            cyperf.models.api_link.APILink(
-                                                content_type = '', 
-                                                href = '', 
-                                                method = '', 
-                                                name = '', 
-                                                references_count = 56, 
-                                                rel = '', 
-                                                type = '', )
-                                            ], 
-                                        src_address = 'YQ==', 
-                                        src_port = 56, 
-                                        transport_type = '', )
+                                            ''
+                                            ], )
                                     ], )
                             ], 
                         exchange_index_insert_at = 56, 

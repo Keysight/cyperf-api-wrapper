@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **esp_probe_retry_timeout** | **int** |  | [optional] 
 **esp_probe_timeout** | **int** |  | [optional] 
+**gp_client_version** | **str** | GP Client Version | [optional] 
 **is_portal** | **bool** | A flag indicating if the tunnel is connected to PAN Portal instead of a direct connection to the PAN GP VPN Gateway (default: true). | [optional] 
 **outer_tls_client_profile** | [**TLSProfile**](TLSProfile.md) |  | [optional] 
 **pangp_encapsulation** | [**PANGPEncapsulation**](PANGPEncapsulation.md) |  | [optional] 

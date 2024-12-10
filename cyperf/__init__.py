@@ -56,6 +56,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.api_relationship import APIRelationship
 from cyperf.models.action import Action
 from cyperf.models.action_base import ActionBase
+from cyperf.models.action_input import ActionInput
 from cyperf.models.action_metadata import ActionMetadata
 from cyperf.models.activation_code_info import ActivationCodeInfo
 from cyperf.models.activation_code_list_request import ActivationCodeListRequest
@@ -75,6 +76,7 @@ from cyperf.models.agent_to_be_rebooted import AgentToBeRebooted
 from cyperf.models.agents_group import AgentsGroup
 from cyperf.models.app_exchange import AppExchange
 from cyperf.models.app_flow import AppFlow
+from cyperf.models.app_flow_input import AppFlowInput
 from cyperf.models.app_id import AppId
 from cyperf.models.app_mode import AppMode
 from cyperf.models.application import Application
@@ -101,7 +103,7 @@ from cyperf.models.auth_settings import AuthSettings
 from cyperf.models.authentication_settings import AuthenticationSettings
 from cyperf.models.automatic_ip_type import AutomaticIpType
 from cyperf.models.broker import Broker
-from cyperf.models.capture import Capture
+from cyperf.models.capture_input import CaptureInput
 from cyperf.models.capture_settings import CaptureSettings
 from cyperf.models.category import Category
 from cyperf.models.category_filter import CategoryFilter

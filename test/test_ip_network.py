@@ -59,7 +59,9 @@ class TestIPNetwork(unittest.TestCase):
                             name = '4.207.188.200', )
                         ], ),
                 dns_server = cyperf.models.dns_server.DNSServer(
+                    automatic = True, 
                     enabled = True, 
+                    ip_to_resolve_to = '::02:84:9:0cc0:F:CCf', 
                     port = 56, ),
                 dut_connections = [
                     ''

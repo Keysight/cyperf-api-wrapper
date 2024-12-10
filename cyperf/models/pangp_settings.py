@@ -39,13 +39,14 @@ class PANGPSettings(BaseModel):
     links: Optional[List[APILink]] = None
     esp_probe_retry_timeout: Optional[StrictInt] = Field(default=None, alias="ESPProbeRetryTimeout")
     esp_probe_timeout: Optional[StrictInt] = Field(default=None, alias="ESPProbeTimeout")
+    gp_client_version: Optional[StrictStr] = Field(default=None, description="GP Client Version", alias="GPClientVersion")
     is_portal: Optional[StrictBool] = Field(default=None, description="A flag indicating if the tunnel is connected to PAN Portal instead of a direct connection to the PAN GP VPN Gateway (default: true).", alias="IsPortal")
     outer_tls_client_profile: Optional[TLSProfile] = Field(default=None, alias="OuterTLSClientProfile")
     pangp_encapsulation: Optional[PANGPEncapsulation] = Field(default=None, alias="PANGPEncapsulation")
     portal_hostname: Annotated[str, Field(strict=True)] = Field(alias="PortalHostname")
     vpn_gateway: Optional[StrictStr] = Field(default=None, alias="VPNGateway")
     vpn_gateways: List[StrictStr] = Field(alias="VPNGateways")
-    __properties: ClassVar[List[str]] = ["AuthSettings", "OuterTCPProfile", "links", "ESPProbeRetryTimeout", "ESPProbeTimeout", "IsPortal", "OuterTLSClientProfile", "PANGPEncapsulation", "PortalHostname", "VPNGateway", "VPNGateways"]
+    __properties: ClassVar[List[str]] = ["AuthSettings", "OuterTCPProfile", "links", "ESPProbeRetryTimeout", "ESPProbeTimeout", "GPClientVersion", "IsPortal", "OuterTLSClientProfile", "PANGPEncapsulation", "PortalHostname", "VPNGateway", "VPNGateways"]
 
     @field_validator('portal_hostname')
     def portal_hostname_validate_regular_expression(cls, value):
@@ -131,6 +132,7 @@ class PANGPSettings(BaseModel):
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "ESPProbeRetryTimeout": obj.get("ESPProbeRetryTimeout"),
                         "ESPProbeTimeout": obj.get("ESPProbeTimeout"),
+                        "GPClientVersion": obj.get("GPClientVersion"),
                         "IsPortal": obj.get("IsPortal"),
                         "OuterTLSClientProfile": TLSProfile.from_dict(obj["OuterTLSClientProfile"]) if obj.get("OuterTLSClientProfile") is not None else None,
                         "PANGPEncapsulation": PANGPEncapsulation.from_dict(obj["PANGPEncapsulation"]) if obj.get("PANGPEncapsulation") is not None else None,

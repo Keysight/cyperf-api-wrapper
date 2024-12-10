@@ -5,7 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**automatic** | **bool** | A flag indicating if the DNS server should respond automatically with the test interface IP. | [optional] 
 **enabled** | **bool** | A flag indicating if the servers should listen for DNS requests (default: false). | 
+**ip_to_resolve_to** | **str** | The IP that will be returned for all queries | [optional] 
 **port** | **int** | The port that the DNS server should listen on. (default: 53) | 
 
 ## Example

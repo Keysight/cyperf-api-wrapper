@@ -44,6 +44,7 @@ class TestDiskUsage(unittest.TestCase):
                         size = 56, )
                     ],
                 critical_disk_space = True,
+                critical_threshold = 56,
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -55,6 +56,7 @@ class TestDiskUsage(unittest.TestCase):
                         type = '', )
                     ],
                 low_disk_space = True,
+                low_threshold = 56,
                 message = '',
                 pretty_available = '',
                 pretty_size = '',

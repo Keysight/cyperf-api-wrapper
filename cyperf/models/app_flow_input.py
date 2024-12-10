@@ -18,20 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
 
-class SetAppOperation(BaseModel):
+class AppFlowInput(BaseModel):
     """
-    SetAppOperation
+    AppFlowInput
     """ # noqa: E501
-    app_id: Optional[StrictStr] = Field(default=None, description="The id of the app to activate on the controllers.", alias="appId")
-    controllers: Optional[List[StrictStr]] = Field(default=None, description="The controller ids for which to activate the app.")
-    force: Optional[StrictBool] = Field(default=None, description="Whether the ownership information will be cleared or not.")
-    __properties: ClassVar[List[str]] = ["appId", "controllers", "force"]
+    app_flow_id: Optional[StrictStr] = Field(default=None, alias="AppFlowId")
+    exchanges: Optional[List[StrictStr]] = Field(default=None, alias="Exchanges")
+    __properties: ClassVar[List[str]] = ["AppFlowId", "Exchanges"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +50,7 @@ class SetAppOperation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SetAppOperation from a JSON string"""
+        """Create an instance of AppFlowInput from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,7 +75,7 @@ class SetAppOperation(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SetAppOperation from a dict"""
+        """Create an instance of AppFlowInput from a dict"""
         if obj is None:
             return None
 
@@ -86,9 +85,8 @@ class SetAppOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "appId": obj.get("appId"),
-                        "controllers": obj.get("controllers"),
-                        "force": obj.get("force")
+            "AppFlowId": obj.get("AppFlowId"),
+                        "Exchanges": obj.get("Exchanges")
             ,
             "links": obj.get("links")
         })

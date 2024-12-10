@@ -36,7 +36,9 @@ class TestDNSServer(unittest.TestCase):
         model = DNSServer()
         if include_optional:
             return DNSServer(
+                automatic = True,
                 enabled = True,
+                ip_to_resolve_to = '::02:84:9:0cc0:F:CCf',
                 port = 56
             )
         else:

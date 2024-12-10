@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_resources_captures_operations_upload_file**](ApplicationResourcesApi.md#create_resources_captures_operations_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
 [**create_resources_certificates_operations_upload_file**](ApplicationResourcesApi.md#create_resources_certificates_operations_upload_file) | **POST** /api/v2/resources/certificates/operations/uploadFile | 
 [**create_resources_flow_library_operations_upload_file**](ApplicationResourcesApi.md#create_resources_flow_library_operations_upload_file) | **POST** /api/v2/resources/flow-library/operations/uploadFile | 
 [**create_resources_global_playlists_operations_upload_file**](ApplicationResourcesApi.md#create_resources_global_playlists_operations_upload_file) | **POST** /api/v2/resources/global-playlists/operations/uploadFile | 
@@ -73,7 +72,6 @@ Method | HTTP request | Description
 [**get_pcaps_by_id**](ApplicationResourcesApi.md#get_pcaps_by_id) | **GET** /api/v2/resources/pcaps/{pcapId} | 
 [**get_playlists**](ApplicationResourcesApi.md#get_playlists) | **GET** /api/v2/resources/playlists | 
 [**get_playlists_by_id**](ApplicationResourcesApi.md#get_playlists_by_id) | **GET** /api/v2/resources/playlists/{playlistId} | 
-[**get_resources_captures_operations_upload_file_operation_id**](ApplicationResourcesApi.md#get_resources_captures_operations_upload_file_operation_id) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId} | 
 [**get_resources_captures_operations_upload_file_operation_id_result**](ApplicationResourcesApi.md#get_resources_captures_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId}/result | 
 [**get_resources_certificates_certificates_id_content_file**](ApplicationResourcesApi.md#get_resources_certificates_certificates_id_content_file) | **GET** /api/v2/resources/certificates/{certificateId}/contentFile | 
 [**get_resources_certificates_operations_upload_file_operation_id**](ApplicationResourcesApi.md#get_resources_certificates_operations_upload_file_operation_id) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId} | 
@@ -139,6 +137,7 @@ Method | HTTP request | Description
 [**get_user_defined_apps**](ApplicationResourcesApi.md#get_user_defined_apps) | **GET** /api/v2/resources/user-defined-apps | 
 [**poll_apps_export_all**](ApplicationResourcesApi.md#poll_apps_export_all) | **GET** /api/v2/resources/apps/operations/export-all/{id} | 
 [**poll_captures_batch_delete**](ApplicationResourcesApi.md#poll_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
+[**poll_captures_upload_file**](ApplicationResourcesApi.md#poll_captures_upload_file) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId} | 
 [**poll_create_app**](ApplicationResourcesApi.md#poll_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
 [**poll_edit_app**](ApplicationResourcesApi.md#poll_edit_app) | **GET** /api/v2/resources/operations/edit-app/{id} | 
 [**poll_get_attack_categories**](ApplicationResourcesApi.md#poll_get_attack_categories) | **GET** /api/v2/resources/operations/get-attack-categories/{id} | 
@@ -148,6 +147,7 @@ Method | HTTP request | Description
 [**poll_user_defined_apps_export_all**](ApplicationResourcesApi.md#poll_user_defined_apps_export_all) | **GET** /api/v2/resources/user-defined-apps/operations/export-all/{id} | 
 [**start_apps_export_all**](ApplicationResourcesApi.md#start_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 [**start_captures_batch_delete**](ApplicationResourcesApi.md#start_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
+[**start_captures_upload_file**](ApplicationResourcesApi.md#start_captures_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
 [**start_create_app**](ApplicationResourcesApi.md#start_create_app) | **POST** /api/v2/resources/operations/create-app | 
 [**start_edit_app**](ApplicationResourcesApi.md#start_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
 [**start_get_attack_categories**](ApplicationResourcesApi.md#start_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
@@ -156,81 +156,6 @@ Method | HTTP request | Description
 [**start_get_strikes**](ApplicationResourcesApi.md#start_get_strikes) | **POST** /api/v2/resources/operations/get-strikes | 
 [**start_user_defined_apps_export_all**](ApplicationResourcesApi.md#start_user_defined_apps_export_all) | **POST** /api/v2/resources/user-defined-apps/operations/export-all | 
 
-
-# **create_resources_captures_operations_upload_file**
-> create_resources_captures_operations_upload_file(file=file)
-
-
-
-Upload a file.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.ApplicationResourcesApi(api_client)
-    file = None # bytearray |  (optional)
-
-    try:
-        api_instance.create_resources_captures_operations_upload_file(file=file)
-    except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->create_resources_captures_operations_upload_file: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | **bytearray**|  | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Details about the operation that just started. |  -  |
-**500** | Unexpected error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_resources_certificates_operations_upload_file**
 > create_resources_certificates_operations_upload_file(file=file)
@@ -5543,82 +5468,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_resources_captures_operations_upload_file_operation_id**
-> get_resources_captures_operations_upload_file_operation_id(upload_file_id)
-
-
-
-Get the state of an ongoing operation.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.ApplicationResourcesApi(api_client)
-    upload_file_id = 'upload_file_id_example' # str | The ID of the uploadfile.
-
-    try:
-        api_instance.get_resources_captures_operations_upload_file_operation_id(upload_file_id)
-    except Exception as e:
-        print("Exception when calling ApplicationResourcesApi->get_resources_captures_operations_upload_file_operation_id: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **upload_file_id** | **str**| The ID of the uploadfile. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Details about the ongoing operation |  -  |
-**400** | Bad request |  -  |
-**500** | Unexpected error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_resources_captures_operations_upload_file_operation_id_result**
 > get_resources_captures_operations_upload_file_operation_id_result(upload_file_id)
 
@@ -10646,6 +10495,85 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **poll_captures_upload_file**
+> AsyncContext poll_captures_upload_file(upload_file_id)
+
+
+
+Get the state of an ongoing operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    upload_file_id = 'upload_file_id_example' # str | The ID of the uploadfile.
+
+    try:
+        api_response = api_instance.poll_captures_upload_file(upload_file_id)
+        print("The response of ApplicationResourcesApi->poll_captures_upload_file:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->poll_captures_upload_file: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upload_file_id** | **str**| The ID of the uploadfile. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **poll_create_app**
 > AsyncContext poll_create_app(id)
 
@@ -11333,6 +11261,84 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_captures_upload_file**
+> AsyncContext start_captures_upload_file(file=file)
+
+
+
+Upload a file.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    file = None # bytearray |  (optional)
+
+    try:
+        api_response = api_instance.start_captures_upload_file(file=file)
+        print("The response of ApplicationResourcesApi->start_captures_upload_file:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->start_captures_upload_file: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **bytearray**|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started. |  -  |
+**500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

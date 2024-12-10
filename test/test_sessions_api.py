@@ -129,6 +129,12 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
+    def test_poll_config_add_applications(self) -> None:
+        """Test case for poll_config_add_applications
+
+        """
+        pass
+
     def test_poll_config_granular_stats_default_dashboards(self) -> None:
         """Test case for poll_config_granular_stats_default_dashboards
 
@@ -173,6 +179,12 @@ class TestSessionsApi(unittest.TestCase):
 
     def test_poll_test_init(self) -> None:
         """Test case for poll_test_init
+
+        """
+        pass
+
+    def test_start_config_add_applications(self) -> None:
+        """Test case for start_config_add_applications
 
         """
         pass

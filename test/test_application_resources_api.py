@@ -27,12 +27,6 @@ class TestApplicationResourcesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_resources_captures_operations_upload_file(self) -> None:
-        """Test case for create_resources_captures_operations_upload_file
-
-        """
-        pass
-
     def test_create_resources_certificates_operations_upload_file(self) -> None:
         """Test case for create_resources_certificates_operations_upload_file
 
@@ -441,12 +435,6 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
-    def test_get_resources_captures_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_captures_operations_upload_file_operation_id
-
-        """
-        pass
-
     def test_get_resources_captures_operations_upload_file_operation_id_result(self) -> None:
         """Test case for get_resources_captures_operations_upload_file_operation_id_result
 
@@ -837,6 +825,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_poll_captures_upload_file(self) -> None:
+        """Test case for poll_captures_upload_file
+
+        """
+        pass
+
     def test_poll_create_app(self) -> None:
         """Test case for poll_create_app
 
@@ -887,6 +881,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
     def test_start_captures_batch_delete(self) -> None:
         """Test case for start_captures_batch_delete
+
+        """
+        pass
+
+    def test_start_captures_upload_file(self) -> None:
+        """Test case for start_captures_upload_file
 
         """
         pass

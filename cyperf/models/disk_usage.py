@@ -33,13 +33,15 @@ class DiskUsage(BaseModel):
     available: Optional[StrictInt] = Field(default=None, description="The currently available disk space (in bytes)")
     consumers: Optional[List[Consumer]] = Field(default=None, description="A list of consumers for handling logs and diagnostics storage")
     critical_disk_space: Optional[StrictBool] = Field(default=None, description="A flag indicating whether disk space is critical i.e the application may become unstable", alias="criticalDiskSpace")
+    critical_threshold: Optional[StrictInt] = Field(default=None, description="The critical disk threshold (in bytes)", alias="criticalThreshold")
     links: Optional[List[APILink]] = None
     low_disk_space: Optional[StrictBool] = Field(default=None, description="A flag indicating whether disk space is low", alias="lowDiskSpace")
+    low_threshold: Optional[StrictInt] = Field(default=None, description="The low disk threshold (in bytes)", alias="lowThreshold")
     message: Optional[StrictStr] = Field(default=None, description="A user-friendly message about disk usage")
     pretty_available: Optional[StrictStr] = Field(default=None, description="The currently available disk space in human-readable format", alias="prettyAvailable")
     pretty_size: Optional[StrictStr] = Field(default=None, description="The total disk size in human-readable format", alias="prettySize")
     size: Optional[StrictInt] = Field(default=None, description="The total disk size (in bytes)")
-    __properties: ClassVar[List[str]] = ["available", "consumers", "criticalDiskSpace", "links", "lowDiskSpace", "message", "prettyAvailable", "prettySize", "size"]
+    __properties: ClassVar[List[str]] = ["available", "consumers", "criticalDiskSpace", "criticalThreshold", "links", "lowDiskSpace", "lowThreshold", "message", "prettyAvailable", "prettySize", "size"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,11 +80,15 @@ class DiskUsage(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "available",
             "critical_disk_space",
+            "critical_threshold",
             "low_disk_space",
+            "low_threshold",
             "message",
             "pretty_available",
             "pretty_size",
@@ -125,8 +131,10 @@ class DiskUsage(BaseModel):
             "available": obj.get("available"),
                         "consumers": [Consumer.from_dict(_item) for _item in obj["consumers"]] if obj.get("consumers") is not None else None,
                         "criticalDiskSpace": obj.get("criticalDiskSpace"),
+                        "criticalThreshold": obj.get("criticalThreshold"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "lowDiskSpace": obj.get("lowDiskSpace"),
+                        "lowThreshold": obj.get("lowThreshold"),
                         "message": obj.get("message"),
                         "prettyAvailable": obj.get("prettyAvailable"),
                         "prettySize": obj.get("prettySize"),

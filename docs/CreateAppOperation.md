@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**actions** | [**List[Action]**](Action.md) |  | [optional] 
+**actions** | [**List[ActionInput]**](ActionInput.md) |  | [optional] 
 **app_name** | **str** |  | [optional] 
 **app_type** | **str** |  | [optional] 
 

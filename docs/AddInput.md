@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action_index** | **int** |  | [optional] 
 **action_name** | **str** |  | [optional] 
-**captures** | [**List[Capture]**](Capture.md) |  | [optional] 
+**captures** | [**List[CaptureInput]**](CaptureInput.md) |  | [optional] 
 **exchange_index_insert_at** | **int** |  | [optional] 
 **flow_index_insert_at** | **int** |  | [optional] 
 **type** | **str** |  | [optional] 

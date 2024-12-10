@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.capture import Capture
+from cyperf.models.capture_input import CaptureInput
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -31,7 +31,7 @@ class AddInput(BaseModel):
     """ # noqa: E501
     action_index: Optional[StrictInt] = Field(default=None, alias="ActionIndex")
     action_name: Optional[StrictStr] = Field(default=None, alias="ActionName")
-    captures: Optional[List[Capture]] = Field(default=None, alias="Captures")
+    captures: Optional[List[CaptureInput]] = Field(default=None, alias="Captures")
     exchange_index_insert_at: Optional[StrictInt] = Field(default=None, alias="ExchangeIndexInsertAt")
     flow_index_insert_at: Optional[StrictInt] = Field(default=None, alias="FlowIndexInsertAt")
     type: Optional[StrictStr] = Field(default=None, alias="Type")
@@ -99,7 +99,7 @@ class AddInput(BaseModel):
         _obj = cls.model_validate({
             "ActionIndex": obj.get("ActionIndex"),
                         "ActionName": obj.get("ActionName"),
-                        "Captures": [Capture.from_dict(_item) for _item in obj["Captures"]] if obj.get("Captures") is not None else None,
+                        "Captures": [CaptureInput.from_dict(_item) for _item in obj["Captures"]] if obj.get("Captures") is not None else None,
                         "ExchangeIndexInsertAt": obj.get("ExchangeIndexInsertAt"),
                         "FlowIndexInsertAt": obj.get("FlowIndexInsertAt"),
                         "Type": obj.get("Type")

@@ -15,10 +15,10 @@
 
 import unittest
 
-from cyperf.models.set_app_operation import SetAppOperation
+from cyperf.models.app_flow_input import AppFlowInput
 
-class TestSetAppOperation(unittest.TestCase):
-    """SetAppOperation unit test stubs"""
+class TestAppFlowInput(unittest.TestCase):
+    """AppFlowInput unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,29 +26,28 @@ class TestSetAppOperation(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SetAppOperation:
-        """Test SetAppOperation
+    def make_instance(self, include_optional) -> AppFlowInput:
+        """Test AppFlowInput
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SetAppOperation`
+        # uncomment below to create an instance of `AppFlowInput`
         """
-        model = SetAppOperation()
+        model = AppFlowInput()
         if include_optional:
-            return SetAppOperation(
-                app_id = '',
-                controllers = [
+            return AppFlowInput(
+                app_flow_id = '',
+                exchanges = [
                     ''
-                    ],
-                force = True
+                    ]
             )
         else:
-            return SetAppOperation(
+            return AppFlowInput(
         )
         """
 
-    def testSetAppOperation(self):
-        """Test SetAppOperation"""
+    def testAppFlowInput(self):
+        """Test AppFlowInput"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

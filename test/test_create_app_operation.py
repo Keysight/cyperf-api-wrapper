@@ -37,7 +37,19 @@ class TestCreateAppOperation(unittest.TestCase):
         if include_optional:
             return CreateAppOperation(
                 actions = [
-                    null
+                    cyperf.models.action_input.ActionInput(
+                        captures = [
+                            cyperf.models.capture_input.CaptureInput(
+                                capture_id = '', 
+                                flows = [
+                                    cyperf.models.app_flow_input.AppFlowInput(
+                                        app_flow_id = '', 
+                                        exchanges = [
+                                            ''
+                                            ], )
+                                    ], )
+                            ], 
+                        name = '', )
                     ],
                 app_name = '',
                 app_type = ''

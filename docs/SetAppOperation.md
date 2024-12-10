@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **app_id** | **str** | The id of the app to activate on the controllers. | [optional] 
 **controllers** | **List[str]** | The controller ids for which to activate the app. | [optional] 
+**force** | **bool** | Whether the ownership information will be cleared or not. | [optional] 
 
 ## Example
 

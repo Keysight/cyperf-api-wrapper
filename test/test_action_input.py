@@ -15,10 +15,10 @@
 
 import unittest
 
-from cyperf.models.add_input import AddInput
+from cyperf.models.action_input import ActionInput
 
-class TestAddInput(unittest.TestCase):
-    """AddInput unit test stubs"""
+class TestActionInput(unittest.TestCase):
+    """ActionInput unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,18 +26,16 @@ class TestAddInput(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AddInput:
-        """Test AddInput
+    def make_instance(self, include_optional) -> ActionInput:
+        """Test ActionInput
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AddInput`
+        # uncomment below to create an instance of `ActionInput`
         """
-        model = AddInput()
+        model = ActionInput()
         if include_optional:
-            return AddInput(
-                action_index = 56,
-                action_name = '',
+            return ActionInput(
                 captures = [
                     cyperf.models.capture_input.CaptureInput(
                         capture_id = '', 
@@ -49,17 +47,15 @@ class TestAddInput(unittest.TestCase):
                                     ], )
                             ], )
                     ],
-                exchange_index_insert_at = 56,
-                flow_index_insert_at = 56,
-                type = ''
+                name = ''
             )
         else:
-            return AddInput(
+            return ActionInput(
         )
         """
 
-    def testAddInput(self):
-        """Test AddInput"""
+    def testActionInput(self):
+        """Test ActionInput"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

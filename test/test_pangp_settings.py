@@ -92,6 +92,7 @@ class TestPANGPSettings(unittest.TestCase):
                     ],
                 esp_probe_retry_timeout = 56,
                 esp_probe_timeout = 56,
+                gp_client_version = '',
                 is_portal = True,
                 outer_tls_client_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
