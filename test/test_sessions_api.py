@@ -27,6 +27,18 @@ class TestSessionsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_add_apps(self) -> None:
+        """Test case for add_apps
+
+        """
+        pass
+
+    def test_add_attacks(self) -> None:
+        """Test case for add_attacks
+
+        """
+        pass
+
     def test_create_meta(self) -> None:
         """Test case for create_meta
 
