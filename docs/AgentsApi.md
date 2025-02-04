@@ -73,9 +73,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -150,9 +150,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -230,9 +230,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -320,9 +320,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -397,9 +397,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -477,9 +477,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -558,9 +558,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -638,9 +638,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -714,9 +714,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -796,9 +796,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -879,9 +879,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -958,9 +958,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1035,9 +1035,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1112,9 +1112,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1189,9 +1189,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1266,9 +1266,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1343,9 +1343,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1420,9 +1420,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1497,9 +1497,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1574,9 +1574,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1651,9 +1651,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1728,9 +1728,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1805,9 +1805,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1882,9 +1882,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -1959,9 +1959,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2037,9 +2037,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2115,9 +2115,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2193,9 +2193,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2271,9 +2271,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2349,9 +2349,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2427,9 +2427,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2505,9 +2505,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2583,9 +2583,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2661,9 +2661,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2739,9 +2739,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2817,9 +2817,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2895,9 +2895,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -2973,9 +2973,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -3050,9 +3050,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:

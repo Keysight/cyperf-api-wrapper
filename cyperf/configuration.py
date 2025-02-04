@@ -46,6 +46,7 @@ class Configuration:
     :param username: Username for HTTP basic authentication.
     :param password: Password for HTTP basic authentication.
     :param access_token: Access token.
+    :param refresh_token: Refresh token.
     :param server_index: Index to servers configuration.
     :param server_variables: Mapping with string values to replace variables in
       templated server configuration. The validation of enums is performed for
@@ -69,6 +70,7 @@ class Configuration:
                  api_key=None, api_key_prefix=None,
                  username=None, password=None,
                  access_token=None,
+                 refresh_token=None,
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
                  ignore_operation_servers=False,
@@ -118,6 +120,9 @@ class Configuration:
         """
         self.access_token = access_token
         """Access token
+        """
+        self.refresh_token = refresh_token
+        """Refresh token
         """
         self.logger = {}
         """Logging Settings
@@ -369,12 +374,29 @@ class Configuration:
             basic_auth=username + ':' + password
         ).get('authorization')
 
+    def _get_access_token(self):
+        from  cyperf import ApiClient, AuthorizationApi
+        refresh_token = self.refresh_token
+        self.refresh_token = None
+        with ApiClient(self) as api_client:
+            authorization = AuthorizationApi(api_client)
+            self.access_token = authorization.auth_realms_keysight_protocol_openid_connect_token_post(
+                                client_id='clt-wap',
+                                grant_type='refresh_token',
+                                refresh_token=refresh_token
+            ).access_token
+
+        self.refresh_token = refresh_token
+
+
     def auth_settings(self):
         """Gets Auth Settings dict for api client.
 
         :return: The Auth Settings information dict.
         """
         auth = {}
+        if self.access_token is None and self.refresh_token is not None:
+            self._get_access_token()
         if self.access_token is not None:
             auth['OAuth2'] = {
                 'type': 'oauth2',
@@ -382,6 +404,8 @@ class Configuration:
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token
             }
+        if self.access_token is None and self.refresh_token is not None:
+            self._get_access_token()
         if self.access_token is not None:
             auth['OAuth2'] = {
                 'type': 'oauth2',

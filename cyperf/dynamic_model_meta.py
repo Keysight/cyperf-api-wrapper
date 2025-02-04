@@ -307,7 +307,7 @@ class DynamicModel(type):
             raise ApiException(f"Error running operation {op.id} of type {op.type}: {op.message}")
         if op.result_url and get_final_result:
             return cls.link_based_request(op, None, "GET", return_type=Any, href=op.result_url)
-        return op.result
+        return op.base_model.result
 
 
     @classmethod
@@ -387,6 +387,13 @@ class DynamicModel(type):
         response_data.read()
         if response_data.status > 299:
             ApiException.from_response(http_resp=response_data, body=response_data.data, data=None)
-        if return_type != None:
-            ta = TypeAdapter(return_type)
-            return ta.validate_json(response_data.data)
+        if return_type is not None:
+            if response_data.getheader('content-type') == 'application/json':
+                return_type = return_type if isinstance(return_type, type) else str(return_type)
+            else:
+                return_type = 'file'
+            return self.api_client.response_deserialize(
+                response_data,
+                response_types_map={
+                    str(response_data.status): return_type
+                }).data
