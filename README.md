@@ -66,9 +66,9 @@ configuration = cyperf.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
 
 
 # Enter a context with an instance of the API client
@@ -351,8 +351,6 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**poll_results_generate_pdf**](docs/ReportsApi.md#poll_results_generate_pdf) | **GET** /api/v2/results/{resultId}/operations/generate-pdf/{id} | 
 *ReportsApi* | [**start_results_generate_csv**](docs/ReportsApi.md#start_results_generate_csv) | **POST** /api/v2/results/{resultId}/operations/generate-csv | 
 *ReportsApi* | [**start_results_generate_pdf**](docs/ReportsApi.md#start_results_generate_pdf) | **POST** /api/v2/results/{resultId}/operations/generate-pdf | 
-*SessionsApi* | [**add_apps**](docs/SessionsApi.md#add_apps) | **POST** /api/v2/sessions/{sessionId}/config/config/TrafficProfiles/1/operations/add-applications | 
-*SessionsApi* | [**add_attacks**](docs/SessionsApi.md#add_attacks) | **POST** /api/v2/sessions/{sessionId}/config/config/AttackProfiles/1/operations/add-attacks | 
 *SessionsApi* | [**create_meta**](docs/SessionsApi.md#create_meta) | **POST** /api/v2/sessions/{sessionId}/meta | 
 *SessionsApi* | [**create_sessions**](docs/SessionsApi.md#create_sessions) | **POST** /api/v2/sessions | 
 *SessionsApi* | [**delete_meta**](docs/SessionsApi.md#delete_meta) | **DELETE** /api/v2/sessions/{sessionId}/meta/{metaId} | 

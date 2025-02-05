@@ -331,6 +331,10 @@ class ApiClient:
             raw_data = response_data.data
         )
 
+    def refresh_authorization(self):
+        """Forces a refresh of the access token for the next requests"""
+        self.configuration.access_token = None
+
     def sanitize_for_serialization(self, obj):
         """Builds a JSON POST object.
 
@@ -440,6 +444,12 @@ class ApiClient:
                 sub_kls = m.group(2)
                 return {k: self.__deserialize(v, sub_kls)
                         for k, v in data.items()}
+
+            if klass.startswith('typing.Optional['):
+                m = re.match(r'typing.Optional\[([a-zA-Z0-9_]+\.)*(.*)]', klass)
+                assert m is not None, "Malformed Optional type definition"
+                sub_kls = m.group(2)
+                klass = sub_kls
 
             # convert str to class
             if klass in self.NATIVE_TYPES_MAPPING:
@@ -682,7 +692,7 @@ class ApiClient:
         content_disposition = response.getheader("Content-Disposition")
         if content_disposition:
             m = re.search(
-                r'filename=[\'"]?([^\'"\s]+)[\'"]?',
+                r'filename=[\'"]?([^\'"]+)[\'"]?',
                 content_disposition
             )
             assert m is not None, "Unexpected 'content-disposition' header value"
