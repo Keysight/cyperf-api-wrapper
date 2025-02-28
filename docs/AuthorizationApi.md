@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auth_realms_keysight_protocol_openid_connect_token_post**](AuthorizationApi.md#auth_realms_keysight_protocol_openid_connect_token_post) | **POST** /auth/realms/keysight/protocol/openid-connect/token | 
+[**authenticate**](AuthorizationApi.md#authenticate) | **POST** /auth/realms/keysight/protocol/openid-connect/token | 
 
 
-# **auth_realms_keysight_protocol_openid_connect_token_post**
-> AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response auth_realms_keysight_protocol_openid_connect_token_post(client_id=client_id, grant_type=grant_type, password=password, refresh_token=refresh_token, scope=scope, username=username)
+# **authenticate**
+> Authenticate200Response authenticate(client_id=client_id, grant_type=grant_type, password=password, refresh_token=refresh_token, scope=scope, username=username)
 
 
 
@@ -21,7 +21,7 @@ Get an access_token and refresh_token with a username+password, or use a refresh
 
 ```python
 import cyperf
-from cyperf.models.auth_realms_keysight_protocol_openid_connect_token_post200_response import AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response
+from cyperf.models.authenticate200_response import Authenticate200Response
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -52,11 +52,11 @@ with cyperf.ApiClient(configuration) as api_client:
     username = 'username_example' # str | (only for grant_type: password) The username to use. (optional)
 
     try:
-        api_response = api_instance.auth_realms_keysight_protocol_openid_connect_token_post(client_id=client_id, grant_type=grant_type, password=password, refresh_token=refresh_token, scope=scope, username=username)
-        print("The response of AuthorizationApi->auth_realms_keysight_protocol_openid_connect_token_post:\n")
+        api_response = api_instance.authenticate(client_id=client_id, grant_type=grant_type, password=password, refresh_token=refresh_token, scope=scope, username=username)
+        print("The response of AuthorizationApi->authenticate:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AuthorizationApi->auth_realms_keysight_protocol_openid_connect_token_post: %s\n" % e)
+        print("Exception when calling AuthorizationApi->authenticate: %s\n" % e)
 ```
 
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response**](AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response.md)
+[**Authenticate200Response**](Authenticate200Response.md)
 
 ### Authorization
 

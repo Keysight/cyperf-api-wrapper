@@ -60,6 +60,10 @@ class Configuration:
     :param ssl_ca_cert: str - the path to a file of concatenated CA certificates
       in PEM format.
     :param retries: Number of retries for API requests.
+    :param eula_accept_interactive: If true and EULA is not accepted on the system,
+      will interactively print the EULA and ask for a Yes/No answer; if false, will
+      check for the presence of a CYPERF_EULA_ACCEPTED env var as confirmation that
+      you agree with the CyPerf EULA.
 
     :Example:
     """
@@ -76,6 +80,7 @@ class Configuration:
                  ignore_operation_servers=False,
                  ssl_ca_cert=None,
                  retries=None,
+                 eula_accept_interactive=False,
                  *,
                  debug: Optional[bool] = None
                  ) -> None:
@@ -139,6 +144,9 @@ class Configuration:
         """Log file handler
         """
         self.logger_file = None
+        """Interactive EULA accept
+        """
+        self.eula_accept_interactive = eula_accept_interactive
         """Debug file location
         """
         if debug is not None:
@@ -375,19 +383,29 @@ class Configuration:
         ).get('authorization')
 
     def _get_access_token(self):
-        from  cyperf import ApiClient, AuthorizationApi
+        from cyperf import ApiClient, AuthorizationApi
         refresh_token = self.refresh_token
-        self.refresh_token = None
-        with ApiClient(self) as api_client:
-            authorization = AuthorizationApi(api_client)
-            self.access_token = authorization.auth_realms_keysight_protocol_openid_connect_token_post(
-                                client_id='clt-wap',
-                                grant_type='refresh_token',
-                                refresh_token=refresh_token
-            ).access_token
-
-        self.refresh_token = refresh_token
-
+        if self.refresh_token:
+            self.refresh_token = None
+            self.username = None
+            grant_type = 'refresh_token'
+        elif self.username and refresh_token is None:
+            grant_type = 'password'
+            username = self.username
+            self.username = None
+        try:
+            with ApiClient(self) as api_client:
+                authorization = AuthorizationApi(api_client)
+                self.access_token = authorization.authenticate(
+                    client_id='clt-wap',
+                    grant_type=grant_type,
+                    refresh_token=refresh_token,
+                    username=username,
+                    password=self.password
+                ).access_token
+        finally:
+            self.refresh_token = refresh_token
+            self.username = username
 
     def auth_settings(self):
         """Gets Auth Settings dict for api client.
@@ -395,7 +413,8 @@ class Configuration:
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if self.access_token is None and self.refresh_token is not None:
+        has_credentials = self.refresh_token is not None or self.username is not None
+        if self.access_token is None and has_credentials:
             self._get_access_token()
         if self.access_token is not None:
             auth['OAuth2'] = {
@@ -404,7 +423,8 @@ class Configuration:
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token
             }
-        if self.access_token is None and self.refresh_token is not None:
+        has_credentials = self.refresh_token is not None or self.username is not None
+        if self.access_token is None and has_credentials:
             self._get_access_token()
         if self.access_token is not None:
             auth['OAuth2'] = {

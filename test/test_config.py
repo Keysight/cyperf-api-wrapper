@@ -126,7 +126,7 @@ class TestConfig(unittest.TestCase):
                         rel = '', 
                         type = '', )
                     ],
-                validate = [
+                validate_config = [
                     'YQ=='
                     ]
             )

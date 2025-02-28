@@ -21,6 +21,7 @@ import mimetypes
 import os
 import re
 import tempfile
+import time
 
 from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
@@ -97,6 +98,56 @@ class ApiClient:
 
     def __exit__(self, exc_type, exc_value, traceback):
         pass
+
+    def accept_eula(self, eula_text):
+        if self.configuration.eula_accept_interactive:
+            print(f"{eula_text}\n")
+            answer = ""
+            while answer != "accept":
+                answer = input("Please confirm that you have read and accept the EULA " +
+                               "above by entering 'accept', or press CTRL+C to exit: ")
+            return True
+        else:
+            eula_env_var = os.getenv("CYPERF_EULA_ACCEPTED")
+            if eula_env_var != "true":
+                raise Exception("Accepting the EULA is required before proceeding " +
+                                "with the script, please set the environment " +
+                                "variable CYPERF_EULA_ACCEPTED to 'true' if you " +
+                                "accept the CyPerf EULA: " +
+                                "https://keysight.com/find/sweula")
+
+    def wait_for_controller_up(self, timeout_seconds=600):
+        from cyperf import ApplicationResourcesApi, UtilsApi, EulaSummary
+        import urllib3
+        connected = False
+        init_time = datetime.datetime.now()
+        unauthenticated_config = Configuration(self.configuration.host)
+        unauthenticated_config.verify_ssl = self.configuration.verify_ssl
+        unauthenticated_client = ApiClient(unauthenticated_config)
+        eula_checker = UtilsApi(unauthenticated_client)
+        eula_accepted = False
+        ara = ApplicationResourcesApi(self)
+        while not connected:
+            try:
+                if not eula_accepted:
+                    eula_checker.check_eulas()
+                ara.get_application_types(take=0)
+                connected = True
+            except UnauthorizedException:
+                if not eula_accepted:
+                    eula_text = eula_checker.get_eula().text
+                    elapsed = datetime.datetime.now() - init_time
+                    eula_accepted = self.accept_eula(eula_text)
+                    timeout_seconds = timeout_seconds - elapsed.seconds
+                    init_time = datetime.datetime.now()
+                    eula_checker.post_eula(EulaSummary(accepted=True))
+            except urllib3.exceptions.RequestError:
+                elapsed = datetime.datetime.now() - init_time
+                if elapsed.seconds >= timeout_seconds:
+                    break
+                time.sleep(min(5, timeout_seconds - elapsed.seconds))
+        if not connected:
+            raise ApiException(f"Server failed to connect within {timeout_seconds} seconds")
 
     @property
     def user_agent(self):

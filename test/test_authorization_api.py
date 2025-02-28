@@ -27,8 +27,8 @@ class TestAuthorizationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_auth_realms_keysight_protocol_openid_connect_token_post(self) -> None:
-        """Test case for auth_realms_keysight_protocol_openid_connect_token_post
+    def test_authenticate(self) -> None:
+        """Test case for authenticate
 
         """
         pass

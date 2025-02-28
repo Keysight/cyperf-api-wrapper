@@ -27,6 +27,13 @@ class TestUtilsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_check_eulas(self) -> None:
+        """Test case for check_eulas
+
+        Check if all EULAs are accepted
+        """
+        pass
+
     def test_get_certificate(self) -> None:
         """Test case for get_certificate
 
@@ -69,6 +76,13 @@ class TestUtilsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_eula(self) -> None:
+        """Test case for get_eula
+
+        Retrieve EULA detail
+        """
+        pass
+
     def test_get_log_config(self) -> None:
         """Test case for get_log_config
 
@@ -78,6 +92,13 @@ class TestUtilsApi(unittest.TestCase):
     def test_get_time(self) -> None:
         """Test case for get_time
 
+        """
+        pass
+
+    def test_list_eulas(self) -> None:
+        """Test case for list_eulas
+
+        list of EULAs
         """
         pass
 
@@ -120,6 +141,13 @@ class TestUtilsApi(unittest.TestCase):
     def test_poll_upload(self) -> None:
         """Test case for poll_upload
 
+        """
+        pass
+
+    def test_post_eula(self) -> None:
+        """Test case for post_eula
+
+        Update properties an EULA
         """
         pass
 

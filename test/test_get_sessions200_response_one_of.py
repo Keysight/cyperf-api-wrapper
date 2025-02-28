@@ -94,7 +94,7 @@ class TestGetSessions200ResponseOneOf(unittest.TestCase):
                                         rel = '', 
                                         type = '', )
                                     ], 
-                                validate = [
+                                validate_config = [
                                     'YQ=='
                                     ], ), 
                             session_id = '', 

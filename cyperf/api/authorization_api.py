@@ -20,7 +20,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from cyperf.models.auth_realms_keysight_protocol_openid_connect_token_post200_response import AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response
+from cyperf.models.authenticate200_response import Authenticate200Response
 
 from cyperf import DynamicModel
 from cyperf.api_client import ApiClient, RequestSerialized
@@ -42,7 +42,7 @@ class AuthorizationApi:
 
 
     @validate_call
-    def auth_realms_keysight_protocol_openid_connect_token_post(
+    def authenticate(
         self,
         client_id: Optional[StrictStr] = None,
         grant_type: Annotated[Optional[StrictStr], Field(description="Controls the type of credentials to be used for authentication.")] = None,
@@ -62,8 +62,8 @@ class AuthorizationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response:
-        """auth_realms_keysight_protocol_openid_connect_token_post
+    ) -> Authenticate200Response:
+        """authenticate
 
         Get an access_token and refresh_token with a username+password, or use a refresh_token to generate a new access_token. You can also get a refresh_token from the UI, from Gear Menu > Administration > Offline Tokens. The access_token should be supplied in the Authorization header for all API requests.
 
@@ -101,7 +101,7 @@ class AuthorizationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_realms_keysight_protocol_openid_connect_token_post_serialize(
+        _param = self._authenticate_serialize(
             client_id=client_id,
             grant_type=grant_type,
             password=password,
@@ -115,7 +115,7 @@ class AuthorizationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response",
+            '200': "Authenticate200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -129,7 +129,7 @@ class AuthorizationApi:
 
 
     @validate_call
-    def auth_realms_keysight_protocol_openid_connect_token_post_with_http_info(
+    def authenticate_with_http_info(
         self,
         client_id: Optional[StrictStr] = None,
         grant_type: Annotated[Optional[StrictStr], Field(description="Controls the type of credentials to be used for authentication.")] = None,
@@ -149,8 +149,8 @@ class AuthorizationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response]:
-        """auth_realms_keysight_protocol_openid_connect_token_post
+    ) -> ApiResponse[Authenticate200Response]:
+        """authenticate
 
         Get an access_token and refresh_token with a username+password, or use a refresh_token to generate a new access_token. You can also get a refresh_token from the UI, from Gear Menu > Administration > Offline Tokens. The access_token should be supplied in the Authorization header for all API requests.
 
@@ -188,7 +188,7 @@ class AuthorizationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_realms_keysight_protocol_openid_connect_token_post_serialize(
+        _param = self._authenticate_serialize(
             client_id=client_id,
             grant_type=grant_type,
             password=password,
@@ -202,7 +202,7 @@ class AuthorizationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response",
+            '200': "Authenticate200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -216,7 +216,7 @@ class AuthorizationApi:
 
 
     @validate_call
-    def auth_realms_keysight_protocol_openid_connect_token_post_without_preload_content(
+    def authenticate_without_preload_content(
         self,
         client_id: Optional[StrictStr] = None,
         grant_type: Annotated[Optional[StrictStr], Field(description="Controls the type of credentials to be used for authentication.")] = None,
@@ -237,7 +237,7 @@ class AuthorizationApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """auth_realms_keysight_protocol_openid_connect_token_post
+        """authenticate
 
         Get an access_token and refresh_token with a username+password, or use a refresh_token to generate a new access_token. You can also get a refresh_token from the UI, from Gear Menu > Administration > Offline Tokens. The access_token should be supplied in the Authorization header for all API requests.
 
@@ -275,7 +275,7 @@ class AuthorizationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_realms_keysight_protocol_openid_connect_token_post_serialize(
+        _param = self._authenticate_serialize(
             client_id=client_id,
             grant_type=grant_type,
             password=password,
@@ -289,7 +289,7 @@ class AuthorizationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response",
+            '200': "Authenticate200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -298,7 +298,7 @@ class AuthorizationApi:
         return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
-    def _auth_realms_keysight_protocol_openid_connect_token_post_serialize(
+    def _authenticate_serialize(
         self,
         client_id,
         grant_type,

@@ -280,7 +280,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**start_get_strike_categories**](docs/ApplicationResourcesApi.md#start_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
 *ApplicationResourcesApi* | [**start_get_strikes**](docs/ApplicationResourcesApi.md#start_get_strikes) | **POST** /api/v2/resources/operations/get-strikes | 
 *ApplicationResourcesApi* | [**start_user_defined_apps_export_all**](docs/ApplicationResourcesApi.md#start_user_defined_apps_export_all) | **POST** /api/v2/resources/user-defined-apps/operations/export-all | 
-*AuthorizationApi* | [**auth_realms_keysight_protocol_openid_connect_token_post**](docs/AuthorizationApi.md#auth_realms_keysight_protocol_openid_connect_token_post) | **POST** /auth/realms/keysight/protocol/openid-connect/token | 
+*AuthorizationApi* | [**authenticate**](docs/AuthorizationApi.md#authenticate) | **POST** /auth/realms/keysight/protocol/openid-connect/token | 
 *BrokersApi* | [**create_brokers**](docs/BrokersApi.md#create_brokers) | **POST** /api/v2/brokers | 
 *BrokersApi* | [**delete_brokers**](docs/BrokersApi.md#delete_brokers) | **DELETE** /api/v2/brokers/{brokerId} | 
 *BrokersApi* | [**get_brokers**](docs/BrokersApi.md#get_brokers) | **GET** /api/v2/brokers | 
@@ -425,6 +425,7 @@ Class | Method | HTTP request | Description
 *TestResultsApi* | [**start_results_generate_all**](docs/TestResultsApi.md#start_results_generate_all) | **POST** /api/v2/results/{resultId}/operations/generate-all | 
 *TestResultsApi* | [**start_results_generate_results**](docs/TestResultsApi.md#start_results_generate_results) | **POST** /api/v2/results/{resultId}/operations/generate-results | 
 *TestResultsApi* | [**start_results_load**](docs/TestResultsApi.md#start_results_load) | **POST** /api/v2/results/{resultId}/operations/load | 
+*UtilsApi* | [**check_eulas**](docs/UtilsApi.md#check_eulas) | **GET** /eula/v1/check | Check if all EULAs are accepted
 *UtilsApi* | [**get_certificate**](docs/UtilsApi.md#get_certificate) | **GET** /api/v2/cert-manager/certificate | 
 *UtilsApi* | [**get_consumers**](docs/UtilsApi.md#get_consumers) | **GET** /api/v2/disk-usage/consumers | 
 *UtilsApi* | [**get_consumers_by_id**](docs/UtilsApi.md#get_consumers_by_id) | **GET** /api/v2/disk-usage/consumers/{consumerId} | 
@@ -432,8 +433,10 @@ Class | Method | HTTP request | Description
 *UtilsApi* | [**get_docs**](docs/UtilsApi.md#get_docs) | **GET** /api/v2/docs | 
 *UtilsApi* | [**get_docs_json**](docs/UtilsApi.md#get_docs_json) | **GET** /api/v2/docs.json | 
 *UtilsApi* | [**get_docs_yaml**](docs/UtilsApi.md#get_docs_yaml) | **GET** /api/v2/docs.yaml | 
+*UtilsApi* | [**get_eula**](docs/UtilsApi.md#get_eula) | **GET** /eula/v1/eula/CyPerf | Retrieve EULA detail
 *UtilsApi* | [**get_log_config**](docs/UtilsApi.md#get_log_config) | **GET** /api/v2/log-config | 
 *UtilsApi* | [**get_time**](docs/UtilsApi.md#get_time) | **GET** /api/v2/time | 
+*UtilsApi* | [**list_eulas**](docs/UtilsApi.md#list_eulas) | **GET** /eula/v1/eula | list of EULAs
 *UtilsApi* | [**poll_disk_usage_cleanup_diagnostics**](docs/UtilsApi.md#poll_disk_usage_cleanup_diagnostics) | **GET** /api/v2/disk-usage/operations/cleanup-diagnostics/{id} | 
 *UtilsApi* | [**poll_disk_usage_cleanup_logs**](docs/UtilsApi.md#poll_disk_usage_cleanup_logs) | **GET** /api/v2/disk-usage/operations/cleanup-logs/{id} | 
 *UtilsApi* | [**poll_disk_usage_cleanup_migration**](docs/UtilsApi.md#poll_disk_usage_cleanup_migration) | **GET** /api/v2/disk-usage/operations/cleanup-migration/{id} | 
@@ -441,6 +444,7 @@ Class | Method | HTTP request | Description
 *UtilsApi* | [**poll_disk_usage_cleanup_results**](docs/UtilsApi.md#poll_disk_usage_cleanup_results) | **GET** /api/v2/disk-usage/operations/cleanup-results/{id} | 
 *UtilsApi* | [**poll_generate**](docs/UtilsApi.md#poll_generate) | **GET** /api/v2/cert-manager/operations/generate/{id} | 
 *UtilsApi* | [**poll_upload**](docs/UtilsApi.md#poll_upload) | **GET** /api/v2/cert-manager/operations/upload/{id} | 
+*UtilsApi* | [**post_eula**](docs/UtilsApi.md#post_eula) | **POST** /eula/v1/eula/CyPerf | Update properties an EULA
 *UtilsApi* | [**start_disk_usage_cleanup_diagnostics**](docs/UtilsApi.md#start_disk_usage_cleanup_diagnostics) | **POST** /api/v2/disk-usage/operations/cleanup-diagnostics | 
 *UtilsApi* | [**start_disk_usage_cleanup_logs**](docs/UtilsApi.md#start_disk_usage_cleanup_logs) | **POST** /api/v2/disk-usage/operations/cleanup-logs | 
 *UtilsApi* | [**start_disk_usage_cleanup_migration**](docs/UtilsApi.md#start_disk_usage_cleanup_migration) | **POST** /api/v2/disk-usage/operations/cleanup-migration | 
@@ -499,8 +503,8 @@ Class | Method | HTTP request | Description
  - [AttackTrack](docs/AttackTrack.md)
  - [AuthMethodType](docs/AuthMethodType.md)
  - [AuthProfile](docs/AuthProfile.md)
- - [AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response](docs/AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response.md)
  - [AuthSettings](docs/AuthSettings.md)
+ - [Authenticate200Response](docs/Authenticate200Response.md)
  - [AuthenticationSettings](docs/AuthenticationSettings.md)
  - [AutomaticIpType](docs/AutomaticIpType.md)
  - [Broker](docs/Broker.md)
@@ -566,6 +570,8 @@ Class | Method | HTTP request | Description
  - [ErrorDescription](docs/ErrorDescription.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [EthRange](docs/EthRange.md)
+ - [EulaDetails](docs/EulaDetails.md)
+ - [EulaSummary](docs/EulaSummary.md)
  - [Exchange](docs/Exchange.md)
  - [ExchangeOrder](docs/ExchangeOrder.md)
  - [ExchangePayload](docs/ExchangePayload.md)

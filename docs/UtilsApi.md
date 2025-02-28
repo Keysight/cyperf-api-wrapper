@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**check_eulas**](UtilsApi.md#check_eulas) | **GET** /eula/v1/check | Check if all EULAs are accepted
 [**get_certificate**](UtilsApi.md#get_certificate) | **GET** /api/v2/cert-manager/certificate | 
 [**get_consumers**](UtilsApi.md#get_consumers) | **GET** /api/v2/disk-usage/consumers | 
 [**get_consumers_by_id**](UtilsApi.md#get_consumers_by_id) | **GET** /api/v2/disk-usage/consumers/{consumerId} | 
@@ -11,8 +12,10 @@ Method | HTTP request | Description
 [**get_docs**](UtilsApi.md#get_docs) | **GET** /api/v2/docs | 
 [**get_docs_json**](UtilsApi.md#get_docs_json) | **GET** /api/v2/docs.json | 
 [**get_docs_yaml**](UtilsApi.md#get_docs_yaml) | **GET** /api/v2/docs.yaml | 
+[**get_eula**](UtilsApi.md#get_eula) | **GET** /eula/v1/eula/CyPerf | Retrieve EULA detail
 [**get_log_config**](UtilsApi.md#get_log_config) | **GET** /api/v2/log-config | 
 [**get_time**](UtilsApi.md#get_time) | **GET** /api/v2/time | 
+[**list_eulas**](UtilsApi.md#list_eulas) | **GET** /eula/v1/eula | list of EULAs
 [**poll_disk_usage_cleanup_diagnostics**](UtilsApi.md#poll_disk_usage_cleanup_diagnostics) | **GET** /api/v2/disk-usage/operations/cleanup-diagnostics/{id} | 
 [**poll_disk_usage_cleanup_logs**](UtilsApi.md#poll_disk_usage_cleanup_logs) | **GET** /api/v2/disk-usage/operations/cleanup-logs/{id} | 
 [**poll_disk_usage_cleanup_migration**](UtilsApi.md#poll_disk_usage_cleanup_migration) | **GET** /api/v2/disk-usage/operations/cleanup-migration/{id} | 
@@ -20,6 +23,7 @@ Method | HTTP request | Description
 [**poll_disk_usage_cleanup_results**](UtilsApi.md#poll_disk_usage_cleanup_results) | **GET** /api/v2/disk-usage/operations/cleanup-results/{id} | 
 [**poll_generate**](UtilsApi.md#poll_generate) | **GET** /api/v2/cert-manager/operations/generate/{id} | 
 [**poll_upload**](UtilsApi.md#poll_upload) | **GET** /api/v2/cert-manager/operations/upload/{id} | 
+[**post_eula**](UtilsApi.md#post_eula) | **POST** /eula/v1/eula/CyPerf | Update properties an EULA
 [**start_disk_usage_cleanup_diagnostics**](UtilsApi.md#start_disk_usage_cleanup_diagnostics) | **POST** /api/v2/disk-usage/operations/cleanup-diagnostics | 
 [**start_disk_usage_cleanup_logs**](UtilsApi.md#start_disk_usage_cleanup_logs) | **POST** /api/v2/disk-usage/operations/cleanup-logs | 
 [**start_disk_usage_cleanup_migration**](UtilsApi.md#start_disk_usage_cleanup_migration) | **POST** /api/v2/disk-usage/operations/cleanup-migration | 
@@ -29,6 +33,80 @@ Method | HTTP request | Description
 [**start_upload**](UtilsApi.md#start_upload) | **POST** /api/v2/cert-manager/operations/upload | 
 [**update_log_config**](UtilsApi.md#update_log_config) | **PUT** /api/v2/log-config | 
 
+
+# **check_eulas**
+> check_eulas(x_kcos_eula_bypass=x_kcos_eula_bypass)
+
+Check if all EULAs are accepted
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
+
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.UtilsApi(api_client)
+    x_kcos_eula_bypass = 'x_kcos_eula_bypass_example' # str |  (optional)
+
+    try:
+        # Check if all EULAs are accepted
+        api_instance.check_eulas(x_kcos_eula_bypass=x_kcos_eula_bypass)
+    except Exception as e:
+        print("Exception when calling UtilsApi->check_eulas: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_kcos_eula_bypass** | **str**|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | All EULAs are accepted |  -  |
+**401** | One or more EULAs are not accepted |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_certificate**
 > Certificate get_certificate()
@@ -552,6 +630,79 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_eula**
+> EulaDetails get_eula()
+
+Retrieve EULA detail
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.eula_details import EulaDetails
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
+
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.UtilsApi(api_client)
+
+    try:
+        # Retrieve EULA detail
+        api_response = api_instance.get_eula()
+        print("The response of UtilsApi->get_eula:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UtilsApi->get_eula: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**EulaDetails**](EulaDetails.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**404** | EULA not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_log_config**
 > LogConfig get_log_config()
 
@@ -696,6 +847,78 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The current cluster time |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_eulas**
+> List[EulaSummary] list_eulas()
+
+list of EULAs
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.eula_summary import EulaSummary
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
+
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.UtilsApi(api_client)
+
+    try:
+        # list of EULAs
+        api_response = api_instance.list_eulas()
+        print("The response of UtilsApi->list_eulas:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UtilsApi->list_eulas: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List[EulaSummary]**](EulaSummary.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1235,6 +1458,83 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details about the ongoing operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_eula**
+> str post_eula(eula_summary=eula_summary)
+
+Update properties an EULA
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.eula_summary import EulaSummary
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
+
+configuration.refresh_token = os.environ["REFRESH_TOKEN"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.UtilsApi(api_client)
+    eula_summary = cyperf.EulaSummary() # EulaSummary |  (optional)
+
+    try:
+        # Update properties an EULA
+        api_response = api_instance.post_eula(eula_summary=eula_summary)
+        print("The response of UtilsApi->post_eula:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling UtilsApi->post_eula: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eula_summary** | [**EulaSummary**](EulaSummary.md)|  | [optional] 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+**404** | EULA not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

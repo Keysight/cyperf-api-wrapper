@@ -387,6 +387,14 @@ class DynamicModel(type):
         response_data.read()
         if response_data.status > 299:
             ApiException.from_response(http_resp=response_data, body=response_data.data, data=None)
-        if return_type != None:
-            ta = TypeAdapter(return_type)
-            return ta.validate_json(response_data.data)
+        if return_type is not None:
+            if response_data.getheader('content-type') == 'application/json':
+                ta = TypeAdapter(return_type)
+                return ta.validate_json(response_data.data)
+            else:
+                return_type = 'file'
+                return self.api_client.response_deserialize(
+                         response_data,
+                         response_types_map={
+                                str(response_data.status): return_type
+                         }).data

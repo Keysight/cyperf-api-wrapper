@@ -64,8 +64,8 @@ from cyperf.models.attack_timeline_segment import AttackTimelineSegment
 from cyperf.models.attack_track import AttackTrack
 from cyperf.models.auth_method_type import AuthMethodType
 from cyperf.models.auth_profile import AuthProfile
-from cyperf.models.auth_realms_keysight_protocol_openid_connect_token_post200_response import AuthRealmsKeysightProtocolOpenidConnectTokenPost200Response
 from cyperf.models.auth_settings import AuthSettings
+from cyperf.models.authenticate200_response import Authenticate200Response
 from cyperf.models.authentication_settings import AuthenticationSettings
 from cyperf.models.automatic_ip_type import AutomaticIpType
 from cyperf.models.broker import Broker
@@ -131,6 +131,8 @@ from cyperf.models.enum import Enum
 from cyperf.models.error_description import ErrorDescription
 from cyperf.models.error_response import ErrorResponse
 from cyperf.models.eth_range import EthRange
+from cyperf.models.eula_details import EulaDetails
+from cyperf.models.eula_summary import EulaSummary
 from cyperf.models.exchange import Exchange
 from cyperf.models.exchange_order import ExchangeOrder
 from cyperf.models.exchange_payload import ExchangePayload

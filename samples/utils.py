@@ -1,36 +1,37 @@
 import os
-import sys
 import socket
 import time
 import datetime
-import urllib3
 import warnings
 from pprint import pprint
 import cyperf
 
+
 def format_warning_cli_issues(message, category, filename, lineno=None, line=None):
     return f"{category.__name__}: {message}\n"
+
+
 warnings.formatwarning = format_warning_cli_issues
 
-class Utils(object):
+
+class Utils:
     WAP_CLIENT_ID = 'clt-wap'
 
     def __init__(self, controller, username="", password="", refresh_token="", license_server=None, license_user="", license_password=""):
         self.controller = controller
         self.host = f'https://{controller}'
-        self.username = username
-        self.password = password
-        self.refresh_token    = refresh_token
         self.license_server   = license_server
         self.license_user     = license_user
         self.license_password = license_password
 
-        self.configuration            = cyperf.Configuration(host=self.host)
+        self.configuration            = cyperf.Configuration(host=self.host,
+                                                             refresh_token=refresh_token,
+                                                             username=username,
+                                                             password=password)
         self.configuration.verify_ssl = False
         self.api_client               = cyperf.ApiClient(self.configuration)
         self.added_license_servers    = []
 
-        self.authorize()
         self.update_license_server()
 
         self.agents = {}
@@ -47,23 +48,6 @@ class Utils(object):
             sys.modules['urllib3.response'] = urllib3.response
         self.remove_license_server()
 
-    def _authorize(self):
-        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        auth_api   = cyperf.AuthorizationApi(self.api_client)
-        grant_type = "refresh_token" if self.refresh_token else "password"
-        try:
-            response = auth_api.auth_realms_keysight_protocol_openid_connect_token_post(client_id=Utils.WAP_CLIENT_ID,
-                                                                                        grant_type=grant_type,
-                                                                                        password=self.password,
-                                                                                        username=self.username,
-                                                                                        refresh_token=self.refresh_token)
-            return response.access_token
-        except cyperf.ApiException as e:
-            raise (e)
-
-    def authorize(self):
-        self.configuration.access_token = self._authorize()
-
     def update_license_server(self):
         if not self.license_server or self.license_server == self.controller:
             return
@@ -77,7 +61,7 @@ class Utils(object):
                         return
                     license_api.delete_license_servers(str(lServerMetaData.id))
                     waitTime = 5 # seconds
-                    print (f'Waiting for {waitTime} seconds for the license server deletion to finish.')
+                    print(f'Waiting for {waitTime} seconds for the license server deletion to finish.')
                     time.sleep(5) # How can I avoid this sleep????
                     break
                     
@@ -85,7 +69,7 @@ class Utils(object):
                                                    trust_new=True,
                                                    user=self.license_user,
                                                    password=self.license_password)
-            print (f'Configuring new license server {self.license_server}')
+            print(f'Configuring new license server {self.license_server}')
             newServers = license_api.create_license_servers(license_server_metadata=[lServer])
             while newServers:
                 for server in newServers:
@@ -114,19 +98,19 @@ class Utils(object):
         config_api = cyperf.ConfigurationsApi(self.api_client)
         config_ops = []
         for config_file in configuration_files:
-            config_ops.append (config_api.start_configs_import(config_file))
+            config_ops.append(config_api.start_configs_import(config_file))
 
         configs = []
         for op in config_ops:
             try:
-                results  = op.await_completion ()
+                results = op.await_completion()
                 configs += [(elem['id'], elem['configUrl']) for elem in results]
             except cyperf.ApiException as e:
                 raise (e)
         return configs
 
     def load_configuration_file(self, configuration_file):
-        configs = self.load_configuration_files ([configuration_file])
+        configs = self.load_configuration_files([configuration_file])
         if configs:
             return configs[0]
         else:
@@ -135,20 +119,20 @@ class Utils(object):
     def remove_configurations(self, configurations_ids=[]):
         config_api = cyperf.ConfigurationsApi(self.api_client)
         for config_id in configurations_ids:
-            config_api.delete_configs (config_id)
+            config_api.delete_configs(config_id)
 
     def remove_configuration(self, configurations_id):
         self.remove_configurations([configurations_id])
 
-    def create_session_by_config_name (self, configName):
-        configsApiInstance  = cyperf.ConfigurationsApi(self.api_client)
-        appMixConfigs       = configsApiInstance.get_configs(search_col='displayName', search_val='CyPerf AppMix')
+    def create_session_by_config_name(self, configName):
+        configsApiInstance = cyperf.ConfigurationsApi(self.api_client)
+        appMixConfigs      = configsApiInstance.get_configs(search_col='displayName', search_val='CyPerf AppMix')
         if not len(appMixConfigs):
             return None
 
-        return self.create_session (appMixConfigs[0].config_url)
+        return self.create_session(appMixConfigs[0].config_url)
 
-    def create_session (self, config_url):
+    def create_session(self, config_url):
         session_api        = cyperf.SessionsApi(self.api_client)
         session            = cyperf.Session()
         session.config_url = config_url
@@ -158,20 +142,20 @@ class Utils(object):
         else:
             return None
 
-    def delete_session (self, session):
+    def delete_session(self, session):
         session_api = cyperf.SessionsApi(self.api_client)
-        test        = session_api.get_test (session_id = session.id)
+        test        = session_api.get_test(session_id=session.id)
         if test.status != 'STOPPED':
             self.stop_test(session)
         session_api.delete_sessions(session.id)
 
-    def assign_agents (self, session, agent_map, augment=False):
+    def assign_agents(self, session, agent_map, augment=False):
         # Assing agents to the indivual network segments based on the input provided
         for net_profile in session.config.config.network_profiles:
             for ip_net in net_profile.ip_network_segment:
                 if ip_net.name in agent_map:
                     mapped_ips    = agent_map[ip_net.name]
-                    agent_details = [cyperf.AgentAssignmentDetails(agent_id = self.agents[agent_ip].id, id = self.agents[agent_ip].id) for agent_ip in mapped_ips if agent_ip in self.agents] # why do we need to pass agent_id and id both????
+                    agent_details = [cyperf.AgentAssignmentDetails(agent_id=self.agents[agent_ip].id, id = self.agents[agent_ip].id) for agent_ip in mapped_ips if agent_ip in self.agents] # why do we need to pass agent_id and id both????
                     if not ip_net.agent_assignments:
                         ip_net.agent_assignments = cyperf.AgentAssignments(ByID=[], ByTag=[]) # Why is ByTag argument a must????
 
@@ -179,43 +163,42 @@ class Utils(object):
                         ip_net.agent_assignments.by_id.extend(agent_details)
                     else:
                         ip_net.agent_assignments.by_id = agent_details
-
                     ip_net.update()
 
-    def disable_automatic_network (self, session):
+    def disable_automatic_network(self, session):
         for net_profile in session.config.config.network_profiles:
             for ip_net in net_profile.ip_network_segment:
-                ip_net.ip_ranges [0].ip_auto = False
+                ip_net.ip_ranges[0].ip_auto = False
                 ip_net.update()
 
-    def add_apps (self, session, appNames):
+    def add_apps(self, session, appNames):
         # Retrieve the app from precanned Apps
         resource_api = cyperf.ApplicationResourcesApi(self.api_client)
-        session_api  = cyperf.SessionsApi(self.api_client)
         app_info     = []
         for appName in appNames:
             apps    = resource_api.get_apps(search_col='Name', search_val=appName)
             if not len(apps):
-                print ('Couldn\'t find any {appName} app.')
+                print('Couldn\'t find any {appName} app.')
                 raise Exception(f'Couldn\'t find \'{appName}\' app')
 
             # Add the app to the App-Mix, which may be empty until now.
-            app_info.append(cyperf.ExternalResourceInfo(externalResourceURL=apps[0].id))
+            app_info.append(cyperf.Application(external_resource_url=apps[0].id, objective_weight=1))
 
-        add_apps_op = session_api.add_apps(session_id=session.id, external_resource_info=app_info)
-        try:
-            add_apps_op.await_completion()
-        except cyperf.ApiException as e:
-            raise (e)
+        if not session.config.config.traffic_profiles:
+            session.config.config.traffic_profiles.append(cyperf.ApplicationProfile(name="Application Profile"))
+            session.config.config.traffic_profiles.update()
+        app_profile = session.config.config.traffic_profiles[0]
+        app_profile.applications += app_info
+        app_profile.applications.update()
 
-    def add_app (self, session, appName):
-        self.add_apps (session, [appName])
+    def add_app(self, session, appName):
+        self.add_apps(session, [appName])
 
-    def set_objective_and_timeline (self, session,
-                                    objective_type=cyperf.ObjectiveType.SIMULATED_USERS,
-                                    objective_unit=cyperf.ObjectiveUnit.EMPTY,
-                                    objective_value=100,
-                                    test_duration=600):
+    def set_objective_and_timeline(self, session,
+                                   objective_type=cyperf.ObjectiveType.SIMULATED_USERS,
+                                   objective_unit=cyperf.ObjectiveUnit.EMPTY,
+                                   objective_value=100,
+                                   test_duration=600):
         primary_objective = session.config.config.traffic_profiles[0].objectives_and_timeline.primary_objective
         primary_objective.type = objective_type
         primary_objective.unit = objective_unit
@@ -228,20 +211,20 @@ class Utils(object):
                 segment.objective_unit  = objective_unit
         primary_objective.update()
 
-    def start_test (self, session):
+    def start_test(self, session):
         test_ops_api  = cyperf.TestOperationsApi(self.api_client)
-        test_start_op = test_ops_api.start_start_traffic(session_id = session.id)
+        test_start_op = test_ops_api.start_start_traffic(session_id=session.id)
         try:
             test_start_op.await_completion()
         except cyperf.ApiException as e:
             raise (e) # The error shown in the GUI is not sent back to the API caller, why????
 
-    def wait_for_test_stop (self, session, test_monitor=None):
+    def wait_for_test_stop(self, session, test_monitor=None):
         session_api      = cyperf.SessionsApi(self.api_client)
         monitored_at     = None
         wait_interval    = 0.5
         while 1:
-            test = session_api.get_test (session_id = session.id)
+            test = session_api.get_test(session_id=session.id)
             if 'STOPPED' == test.status: # Why don't we have a enum here????
                 break
             if test_monitor:
@@ -251,17 +234,17 @@ class Utils(object):
                     monitor_start = 0
                 monitor_upto      = monitor_start - 1 # Anything less than monitor_start will mean up to most latest
                 monitored_at      = test_monitor(test, monitor_start, monitor_upto)
-            time.sleep (wait_interval)
+            time.sleep(wait_interval)
 
-    def stop_test (self, session):
+    def stop_test(self, session):
         test_ops_api = cyperf.TestOperationsApi(self.api_client)
-        test_stop_op = test_ops_api.start_stop_traffic(session_id = session.id)
+        test_stop_op = test_ops_api.start_stop_traffic(session_id=session.id)
         try:
             test_stop_op.await_completion()
         except cyperf.ApiException as e:
             raise (e)
 
-    def collect_stats (self, test, stats_name, time_from, time_to, stats_processor=None):
+    def collect_stats(self, test, stats_name, time_from, time_to, stats_processor=None):
         stats_api = cyperf.StatisticsApi(self.api_client)
         stats     = stats_api.get_stats(test.test_id)
         stats     = [stat for stat in stats if stats_name in stat.name]
@@ -273,11 +256,11 @@ class Utils(object):
         else:
             stats     = [stats_api.get_stats_by_id(test.test_id, stat.name) for stat in stats]
         if stats_processor:
-            stats = stats_processor (stats)
+            stats = stats_processor(stats)
 
         return stats
 
-    def format_milliseconds (self, milliseconds):
+    def format_milliseconds(self, milliseconds):
         seconds = int(milliseconds / 1000) % 60
         minutes = int(milliseconds / (1000 * 60)) % 60
         hours   = int(milliseconds / (1000 * 60 * 60)) % 24
@@ -287,18 +270,18 @@ class Utils(object):
     def is_valid_ipv4(ip):
         try:
             socket.inet_aton(ip)
-        except:
+        except Exception:
             return False
         return True
 
     def is_valid_ipv6(ip):
         try:
             socket.inet_pton(socket.AF_INET6, ip)
-        except:
+        except Exception:
             return False
         return True
 
-    def format_stats_dict_as_table (self, stats_dict = {}):
+    def format_stats_dict_as_table(self, stats_dict={}):
         if not stats_dict:
             return
 
@@ -310,7 +293,8 @@ class Utils(object):
         lines = ['|'.join([f'{val:^{col_width}}' for val, col_width in zip(item, col_widths)]) for item in zip(*stats_dict.values())]
         return [line_delim, header, line_delim] + lines + [line_delim]
 
-def parse_cli_options (extra_options=[]):
+
+def parse_cli_options(extra_options=[]):
     import argparse
 
     parser = argparse.ArgumentParser(description='A simple UDP test')
@@ -344,4 +328,3 @@ def parse_cli_options (extra_options=[]):
             parser.error(f'Couldn\'t find environment variable {e}')
 
     return args, offline_token
-
