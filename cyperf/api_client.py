@@ -141,7 +141,7 @@ class ApiClient:
                     timeout_seconds = timeout_seconds - elapsed.seconds
                     init_time = datetime.datetime.now()
                     eula_checker.post_eula(EulaSummary(accepted=True))
-            except ApiException | urllib3.exceptions.RequestError:
+            except (ApiException, urllib3.exceptions.RequestError):
                 elapsed = datetime.datetime.now() - init_time
                 if elapsed.seconds >= timeout_seconds:
                     break
