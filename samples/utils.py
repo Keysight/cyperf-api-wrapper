@@ -4,6 +4,7 @@ import time
 import datetime
 import warnings
 from pprint import pprint
+import sys
 import cyperf
 
 
@@ -43,9 +44,6 @@ class Utils:
     def __del__(self, time=time, datetime=datetime):
         if 'time' not in sys.modules or not sys.modules['time']:
             sys.modules['time'] = time
-        if 'urllib3' not in sys.modules or not sys.modules['urllib3']:
-            sys.modules['urllib3'] = urllib3
-            sys.modules['urllib3.response'] = urllib3.response
         self.remove_license_server()
 
     def update_license_server(self):

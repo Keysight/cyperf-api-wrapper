@@ -15,26 +15,18 @@ Python 3.7+
 ## Installation & Usage
 ### pip install
 
-If the python package is hosted on a repository, you can install directly using:
+You can install directly by doing:
 
 ```sh
-pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
+pip install .
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
+
+Assuming you are in the base root of this repo.
 
 Then import the package:
 ```python
 import cyperf
 ```
-
-### Setuptools
-
-Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
-
-```sh
-python setup.py install --user
-```
-(or `sudo python setup.py install` to install the package for all users)
 
 Then import the package:
 ```python

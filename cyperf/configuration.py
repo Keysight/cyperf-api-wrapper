@@ -385,6 +385,7 @@ class Configuration:
     def _get_access_token(self):
         from cyperf import ApiClient, AuthorizationApi
         refresh_token = self.refresh_token
+        username = self.username
         if self.refresh_token:
             self.refresh_token = None
             self.username = None
