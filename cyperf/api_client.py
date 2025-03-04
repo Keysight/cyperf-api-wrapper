@@ -103,9 +103,9 @@ class ApiClient:
         if self.configuration.eula_accept_interactive:
             print(f"{eula_text}\n")
             answer = ""
-            while answer != "accept":
+            while answer != "yes":
                 answer = input("Please confirm that you have read and accept the EULA " +
-                               "above by entering 'accept', or press CTRL+C to exit: ")
+                               "above by entering 'yes', or press CTRL+C to exit: ")
             return True
         else:
             eula_env_var = os.getenv("CYPERF_EULA_ACCEPTED")
@@ -117,7 +117,7 @@ class ApiClient:
                                 "https://keysight.com/find/sweula")
 
     def wait_for_controller_up(self, timeout_seconds=600):
-        from cyperf import ApplicationResourcesApi, UtilsApi, EulaSummary
+        from cyperf import ApplicationResourcesApi, SessionsApi, UtilsApi, EulaSummary
         import urllib3
         connected = False
         init_time = datetime.datetime.now()
@@ -127,11 +127,15 @@ class ApiClient:
         eula_checker = UtilsApi(unauthenticated_client)
         eula_accepted = False
         ara = ApplicationResourcesApi(self)
+        sessions_api = SessionsApi(self)
+        last_print = init_time
+        print("Waiting for CyPerf server to be available...")
         while not connected:
             try:
                 if not eula_accepted:
                     eula_checker.check_eulas()
                 ara.get_application_types(take=0)
+                sessions_api.get_sessions(take=0)
                 connected = True
             except UnauthorizedException:
                 if not eula_accepted:
@@ -140,14 +144,21 @@ class ApiClient:
                     eula_accepted = self.accept_eula(eula_text)
                     timeout_seconds = timeout_seconds - elapsed.seconds
                     init_time = datetime.datetime.now()
+                    last_print = init_time
                     eula_checker.post_eula(EulaSummary(accepted=True))
+                    print("EULA accepted, waiting for services...")
             except (ApiException, urllib3.exceptions.RequestError):
                 elapsed = datetime.datetime.now() - init_time
                 if elapsed.seconds >= timeout_seconds:
                     break
+                elapsed_print = datetime.datetime.now() - last_print
+                if elapsed_print.seconds >= 10:
+                    print(f"Still waiting... [{elapsed.seconds // 60}m{elapsed.seconds % 60}s elapsed]")
+                    last_print = datetime.datetime.now()
                 time.sleep(min(5, timeout_seconds - elapsed.seconds))
         if not connected:
             raise ApiException(f"Server failed to connect within {timeout_seconds} seconds")
+        print("CyPerf server is available, configuring...")
 
     @property
     def user_agent(self):
