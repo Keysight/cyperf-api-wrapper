@@ -117,7 +117,7 @@ class ApiClient:
                                 "https://keysight.com/find/sweula")
 
     def wait_for_controller_up(self, timeout_seconds=600):
-        from cyperf import ApplicationResourcesApi, SessionsApi, UtilsApi, EulaSummary
+        from cyperf import ApplicationResourcesApi, SessionsApi, UtilsApi, EulaSummary, ConfigurationsApi, AgentsApi, TestResultsApi
         import urllib3
         connected = False
         init_time = datetime.datetime.now()
@@ -126,16 +126,22 @@ class ApiClient:
         unauthenticated_client = ApiClient(unauthenticated_config)
         eula_checker = UtilsApi(unauthenticated_client)
         eula_accepted = False
-        ara = ApplicationResourcesApi(self)
+        app_res_api = ApplicationResourcesApi(self)
         sessions_api = SessionsApi(self)
+        configs_api = ConfigurationsApi(self)
+        agents_api = AgentsApi(self)
+        results_api = TestResultsApi(self)
         last_print = init_time
         print("Waiting for CyPerf server to be available...")
         while not connected:
             try:
                 if not eula_accepted:
                     eula_checker.check_eulas()
-                ara.get_application_types(take=0)
+                app_res_api.get_application_types(take=0)
                 sessions_api.get_sessions(take=0)
+                configs_api.get_configs(take=0)
+                agents_api.get_agents(take=0)
+                results_api.get_results(take=0)
                 connected = True
             except UnauthorizedException:
                 if not eula_accepted:
