@@ -106,15 +106,11 @@ class ConfigurationsApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -175,15 +171,11 @@ class ConfigurationsApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -244,11 +236,11 @@ class ConfigurationsApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_configs_serialize(
@@ -390,15 +382,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -460,15 +448,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -530,11 +514,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_configs_serialize(
@@ -661,15 +645,11 @@ class ConfigurationsApi:
             '200': "GetConfigCategories200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -733,15 +713,11 @@ class ConfigurationsApi:
             '200': "GetConfigCategories200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -805,11 +781,11 @@ class ConfigurationsApi:
             '200': "GetConfigCategories200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_config_categories_serialize(
@@ -959,15 +935,11 @@ class ConfigurationsApi:
             '200': "GetConfigs200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1047,15 +1019,11 @@ class ConfigurationsApi:
             '200': "GetConfigs200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1135,11 +1103,11 @@ class ConfigurationsApi:
             '200': "GetConfigs200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_configs_serialize(
@@ -1298,15 +1266,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1375,15 +1339,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1452,11 +1412,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_configs_by_id_serialize(
@@ -1596,15 +1556,11 @@ class ConfigurationsApi:
             '200': "GetCustomImportOperations200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1668,15 +1624,11 @@ class ConfigurationsApi:
             '200': "GetCustomImportOperations200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1740,11 +1692,11 @@ class ConfigurationsApi:
             '200': "GetCustomImportOperations200Response",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_custom_import_operations_serialize(
@@ -1879,15 +1831,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1952,15 +1900,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2025,11 +1969,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _patch_configs_serialize(
@@ -2167,15 +2111,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2234,15 +2174,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2301,11 +2237,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_configs_batch_delete_serialize(
@@ -2427,15 +2363,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2494,15 +2426,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2561,11 +2489,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_configs_export_all_serialize(
@@ -2687,15 +2615,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2754,15 +2678,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -2821,11 +2741,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_configs_import_serialize(
@@ -2947,15 +2867,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3014,15 +2930,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3081,11 +2993,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _poll_configs_import_all_serialize(
@@ -3207,15 +3119,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3274,15 +3182,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3341,11 +3245,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_configs_batch_delete_serialize(
@@ -3481,15 +3385,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3548,15 +3448,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3615,11 +3511,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_configs_export_all_serialize(
@@ -3754,15 +3650,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3821,15 +3713,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -3888,11 +3776,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_configs_import_serialize(
@@ -4034,15 +3922,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4101,15 +3985,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4168,11 +4048,11 @@ class ConfigurationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '202': "AsyncContext",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _start_configs_import_all_serialize(
@@ -4314,15 +4194,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4388,15 +4264,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -4462,11 +4334,11 @@ class ConfigurationsApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _update_configs_serialize(

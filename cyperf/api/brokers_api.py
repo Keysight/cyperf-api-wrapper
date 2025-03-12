@@ -100,15 +100,11 @@ class BrokersApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -169,15 +165,11 @@ class BrokersApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -238,11 +230,11 @@ class BrokersApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _create_brokers_serialize(
@@ -381,15 +373,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -451,15 +439,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -521,11 +505,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _delete_brokers_serialize(
@@ -653,15 +637,11 @@ class BrokersApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -726,15 +706,11 @@ class BrokersApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -799,11 +775,11 @@ class BrokersApi:
             '400': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_brokers_serialize(
@@ -933,15 +909,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1001,15 +973,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1069,11 +1037,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _get_brokers_by_id_serialize(
@@ -1202,15 +1170,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data, self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1276,15 +1240,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-        response_data.read()
-        return DynamicModel.dynamic_wrapper(self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ), self.api_client, response_data.response.url)
 
 
     @validate_call
@@ -1350,11 +1310,11 @@ class BrokersApi:
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
-        response_data = self.api_client.call_api(
+        return self.api_client.call_api(
             *_param,
+            _response_types_map=None,
             _request_timeout=_request_timeout
         )
-        return DynamicModel.dynamic_wrapper(response_data.response, self.api_client, response_data.response.url)
 
 
     def _patch_brokers_serialize(

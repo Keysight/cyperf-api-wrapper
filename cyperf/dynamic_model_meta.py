@@ -3,9 +3,10 @@
 from collections import UserDict, UserList
 from functools import partial
 from pydantic import TypeAdapter
+import re
 import time
-from typing import Any
-from urllib.parse import urlparse
+from typing import Any, List, Dict, Tuple, Optional, Union
+from urllib.parse import urlparse, parse_qs
 
 from cyperf import LinkNameException
 from cyperf import ApiClient
@@ -110,9 +111,9 @@ class DynamicList(UserList):
                                   else item for item in other])
 
     def __get_base_data(self):
-        list_type = list
+        list_type = "List[any]"
         if self.data:
-            list_type = list[type(self.data[0])]
+            list_type = f"List[{type(self.data[0]).__name__}]"
         lst = DynamicModel.link_based_request(self, self.link.name, "GET",
                                               return_type=list_type, href=self.link.href)
         return lst
@@ -132,6 +133,10 @@ class DynamicList(UserList):
                 DynamicModel.link_based_request(self, self.link.name, "POST",
                                                 body=item, href=self.link.href)
         self.refresh()
+
+    @property
+    def base_model(self):
+        return self.data
 
 class DynamicDict(UserDict):
     def __init__(self, dct: any = None, api_client : ApiClient = None):
@@ -170,6 +175,11 @@ class DynamicDict(UserDict):
         else:
             self.data[i] = item
             self.dyn_data[i] = DynamicModel.dynamic_wrapper(item, self.api_client)
+
+    @property
+    def base_model(self):
+        return self.data
+
 
 class DynamicModel(type):
     def __new__(cls, name, bases, dct):
@@ -306,7 +316,7 @@ class DynamicModel(type):
         if op.state == "ERROR":
             raise ApiException(f"Error running operation {op.id} of type {op.type}: {op.message}")
         if op.result_url and get_final_result:
-            return cls.link_based_request(op, None, "GET", return_type=Any, href=op.result_url)
+            return cls.link_based_request(op, None, "GET", return_type=object, href=op.result_url)
         return op.base_model.result
 
 
@@ -340,7 +350,13 @@ class DynamicModel(type):
         parsed_url = urlparse(href)
         href = parsed_url.path
         if not query:
-            query = parsed_url.query
+            query_dict = parse_qs(parsed_url.query)
+            query = []
+            for query_param, query_values in query_dict.items():
+                if len(query_values):
+                    query += [(query_param, value) for value in query_values]
+                else:
+                    query.append((query_param,""))
         _host = None
         _collection_formats: Dict[str, str] = {
         }
@@ -349,7 +365,6 @@ class DynamicModel(type):
         _header_params: Dict[str, Optional[str]] = {}
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
         if isinstance(body.__class__, DynamicModel):
             body = body.base_model
         # set the HTTP header `Accept`
@@ -381,20 +396,15 @@ class DynamicModel(type):
             collection_formats=_collection_formats,
             _host=_host
         )
-        response_data = self.api_client.call_api(
-            *_param
+        if not isinstance(return_type, type):
+           return_type = re.sub('cyperf.models[.a-zA-Z_0-9]*[.]([0-9a-zA-Z_]+)', '\\1', str(return_type))
+        response = self.api_client.call_api(
+            *_param,
+            _response_types_map={
+                  '200': return_type
+            }
         )
-        response_data.read()
-        if response_data.status > 299:
-            ApiException.from_response(http_resp=response_data, body=response_data.data, data=None)
-        if return_type is not None:
-            if response_data.getheader('content-type') == 'application/json':
-                ta = TypeAdapter(return_type)
-                return ta.validate_json(response_data.data)
-            else:
-                return_type = 'file'
-                return self.api_client.response_deserialize(
-                         response_data,
-                         response_types_map={
-                                str(response_data.status): return_type
-                         }).data
+        is_dynamic = isinstance(response.__class__, DynamicModel)
+        is_dynamic |= isinstance(response, DynamicList)
+        is_dynamic |= isinstance(response, DynamicDict)
+        return response.base_model if is_dynamic else response

@@ -24,7 +24,7 @@ import tempfile
 import time
 
 from urllib.parse import quote
-from typing import Tuple, Optional, List, Dict, Union
+from typing import Tuple, Optional, List, Dict, Union, TypeVar
 from pydantic import SecretStr
 
 from cyperf.configuration import Configuration
@@ -116,6 +116,24 @@ class ApiClient:
                                 "accept the CyPerf EULA: " +
                                 "https://keysight.com/find/sweula")
 
+    def __retry(self, request_func, retries=3):
+        import urllib3
+        exception = Exception()
+        tries = 0
+        if not retries:
+            retries = 5
+        while exception and (tries <= retries):
+            try:
+                result = request_func()
+                exception = None
+            except (ServiceException, urllib3.exceptions.RequestError) as e:
+                exception = e
+                tries += 1
+                time.sleep(5)
+        if exception:
+            raise exception
+        return result
+
     def wait_for_controller_up(self, timeout_seconds=600):
         from cyperf import ApplicationResourcesApi, SessionsApi, UtilsApi, EulaSummary, ConfigurationsApi, AgentsApi, TestResultsApi
         import urllib3
@@ -165,6 +183,7 @@ class ApiClient:
         if not connected:
             raise ApiException(f"Server failed to connect within {timeout_seconds} seconds")
         print("CyPerf server is available, configuring...")
+
 
     @property
     def user_agent(self):
@@ -313,28 +332,17 @@ class ApiClient:
 
         return method, url, header_params, body, post_params
 
-
-    def call_api(
-        self,
-        method,
-        url,
-        header_params=None,
-        body=None,
-        post_params=None,
-        _request_timeout=None
-    ) -> rest.RESTResponse:
-        """Makes the HTTP request (synchronous)
-        :param method: Method to call.
-        :param url: Path to method endpoint.
-        :param header_params: Header parameters to be
-            placed in the request header.
-        :param body: Request body.
-        :param post_params dict: Request post form parameters,
-            for `application/x-www-form-urlencoded`, `multipart/form-data`.
-        :param _request_timeout: timeout setting for this request.
-        :return: RESTResponse
-        """
-
+    T = TypeVar('T')
+    def __call_api(
+            self,
+            method,
+            url,
+            header_params=None,
+            body=None,
+            post_params=None,
+            _response_types_map=None,
+            _request_timeout=None
+    ) -> T:
         try:
             # perform request and return response
             response_data = self.rest_client.request(
@@ -346,8 +354,36 @@ class ApiClient:
 
         except ApiException as e:
             raise e
+        response_data.read()
+        from cyperf.dynamic_model_meta import DynamicModel
+        return DynamicModel.dynamic_wrapper(self.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data, self, response_data.response.url)
 
-        return response_data
+    def call_api(
+            self,
+            method,
+            url,
+            header_params=None,
+            body=None,
+            post_params=None,
+            _response_types_map=None,
+            _request_timeout=None
+    ) -> T:
+        """Makes the HTTP request (synchronous)
+        :param method: Method to call.
+        :param url: Path to method endpoint.
+        :param header_params: Header parameters to be
+            placed in the request header.
+        :param body: Request body.
+        :param post_params dict: Request post form parameters,
+            for `application/x-www-form-urlencoded`, `multipart/form-data`.
+        :param _request_timeout: timeout setting for this request.
+        :return: RESTResponse
+        """
+        return self.__retry(lambda: self.__call_api(method, url, header_params,
+                                                    body, post_params, _response_types_map, _request_timeout))
 
     def response_deserialize(
         self,
@@ -367,6 +403,9 @@ class ApiClient:
         if not response_type and isinstance(response_data.status, int) and 100 <= response_data.status <= 599:
             # if not found, look for '1XX', '2XX', etc.
             response_type = response_types_map.get(str(response_data.status)[0] + "XX", None)
+
+        if response_data.getheader('content-disposition') and response_data.getheader('content-disposition').startswith('attachment'):
+            response_type = 'file'
 
         # deserialize response data
         response_text = None
@@ -499,25 +538,28 @@ class ApiClient:
             return None
 
         if isinstance(klass, str):
-            if klass.startswith('List['):
-                m = re.match(r'List\[(.*)]', klass)
-                assert m is not None, "Malformed List type definition"
-                sub_kls = m.group(1)
-                return [self.__deserialize(sub_data, sub_kls)
-                        for sub_data in data]
+            while True:
+                if klass.startswith('List['):
+                    m = re.match(r'List\[(.*)]', klass)
+                    assert m is not None, "Malformed List type definition"
+                    sub_kls = m.group(1)
+                    return [self.__deserialize(sub_data, sub_kls)
+                            for sub_data in data]
 
-            if klass.startswith('Dict['):
-                m = re.match(r'Dict\[([^,]*), (.*)]', klass)
-                assert m is not None, "Malformed Dict type definition"
-                sub_kls = m.group(2)
-                return {k: self.__deserialize(v, sub_kls)
-                        for k, v in data.items()}
+                elif klass.startswith('Dict['):
+                    m = re.match(r'Dict\[([^,]*), (.*)]', klass)
+                    assert m is not None, "Malformed Dict type definition"
+                    sub_kls = m.group(2)
+                    return {k: self.__deserialize(v, sub_kls)
+                            for k, v in data.items()}
 
-            if klass.startswith('typing.Optional['):
-                m = re.match(r'typing.Optional\[([a-zA-Z0-9_]+\.)*(.*)]', klass)
-                assert m is not None, "Malformed Optional type definition"
-                sub_kls = m.group(2)
-                klass = sub_kls
+                elif klass.startswith('typing.Optional['):
+                    m = re.match(r'typing.Optional\[([a-zA-Z0-9_]+\.)*(.*)]', klass)
+                    assert m is not None, "Malformed Optional type definition"
+                    sub_kls = m.group(2)
+                    klass = sub_kls
+                else:
+                    break
 
             # convert str to class
             if klass in self.NATIVE_TYPES_MAPPING:

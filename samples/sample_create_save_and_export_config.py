@@ -1,15 +1,20 @@
 import cyperf
 from time import sleep
 from cyperf import ApplicationProfile, NetworkProfile, IPNetwork, AgentAssignments, ConfigId
+from utils import parse_cli_options
 import urllib3; urllib3.disable_warnings()
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
+
+cli, offline_token = parse_cli_options()
 configuration = cyperf.Configuration(
-    host = 'https://10.38.68.208',
-    username='admin',
-    password='CyPerf&Keysight#1'
+    host=f"https://{cli.controller}",
+    refresh_token=offline_token,
+    username=cli.user,
+    password=cli.password
 )
+configuration.verify_ssl = False
 
 # Enter a context with an instance of the API client
 with cyperf.ApiClient(configuration) as api_client:
@@ -190,7 +195,7 @@ with cyperf.ApiClient(configuration) as api_client:
     print("Test running ...")
     try:
         api_session_response = api_session_instance.get_test(session.id)
-        while(api_session_response.status != 'STOPPED'):
+        while api_session_response.status != 'STOPPED':
             sleep(5)
             api_session_response = api_session_instance.get_test(session.id)
     except Exception as e:
