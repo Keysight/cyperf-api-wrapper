@@ -1,11 +1,10 @@
 import cyperf
-import utils
-import urllib3; urllib3.disable_warnings()
+from cyperf import utils
 
 class UDPTest (object):
     def __init__(self, agent_map={}):
         args, offline_token = utils.parse_cli_options()
-        self.utils          = utils.Utils(args.controller,
+        self.utils          = utils.TestRunner(args.controller,
                                           username=args.user,
                                           password=args.password,
                                           refresh_token=offline_token,
@@ -53,7 +52,10 @@ class UDPTest (object):
         print('Configuring ...')
         self.utils.add_app(self.session, 'UDP Stream')
         self.utils.disable_automatic_network(self.session)
-        self.utils.assign_agents(self.session, self.agent_map)
+        if self.agent_map:
+            self.utils.assign_agents(self.session, self.agent_map)
+        else:
+            self.utils.assign_agents(self.session, auto_assign=True)
         self._set_objective_and_timeline()
 
         print('Configured ...')
@@ -137,10 +139,13 @@ class UDPTest (object):
 
 
 if __name__ == '__main__':
-    agents = {
-        'IP Network 1': ['10.38.68.151'],
-        'IP Network 2': ['10.38.68.185']
-    }
+    import urllib3; urllib3.disable_warnings()
+    # # Uncomment to assign specific agent IPs:
+    # agents = {
+    #     'IP Network 1': ['10.38.68.151'],
+    #     'IP Network 2': ['10.38.68.185']
+    # }
+    agents = None
     with UDPTest(agents) as test:
         test.configure()
         test.run()

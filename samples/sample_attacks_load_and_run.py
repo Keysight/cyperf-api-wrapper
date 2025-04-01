@@ -1,5 +1,5 @@
-import utils
-import urllib3; urllib3.disable_warnings()
+import cyperf
+from cyperf import utils
 
 
 class AttackTest(object):
@@ -7,13 +7,13 @@ class AttackTest(object):
         config_file         = './cyperf-configurations/Cyperf-Attacks-Test.zip'
 
         args, offline_token = utils.parse_cli_options()
-        self.utils          = utils.Utils(args.controller,
-                                          username=args.user,
-                                          password=args.password,
-                                          refresh_token=offline_token,
-                                          license_server=args.license_server,
-                                          license_user=args.license_user,
-                                          license_password=args.license_password)
+        self.utils          = utils.TestRunner(args.controller,
+                                               username=args.user,
+                                               password=args.password,
+                                               refresh_token=offline_token,
+                                               license_server=args.license_server,
+                                               license_user=args.license_user,
+                                               license_password=args.license_password)
 
         self.config         = self.utils.load_configuration_file(config_file)
         _, config_url       = self.config
@@ -51,7 +51,10 @@ class AttackTest(object):
 
     def configure(self):
         print('Configuring ...')
-        self.utils.assign_agents(self.session, self.agent_map)
+        if self.agent_map:
+            self.utils.assign_agents(self.session, self.agent_map)
+        else:
+            self.utils.assign_agents(self.session, auto_assign=True)
         print('Configured ...')
 
     def _start(self):
@@ -112,12 +115,14 @@ class AttackTest(object):
 
 
 if __name__ == '__main__':
-    agents = {
-        'PAN-FW-Client': ['10.38.68.151'],
-        'AWS-NW-FW-Client': ['10.38.68.185'],
-        'PAN-FW-Server': ['10.36.75.37'],
-        'AWS-NW-FW-Server': ['10.36.75.65']
-    }
+    import urllib3; urllib3.disable_warnings()
+    # # Uncomment to assign specific agents:
+    # agents = {
+    #     'PAN-FW-Client': ['10.38.68.151'],
+    #     'AWS-NW-FW-Client': ['10.38.68.185'],
+    #     'PAN-FW-Server': ['10.36.75.37'],
+    #     'AWS-NW-FW-Server': ['10.36.75.65']
+    agents = None
     with AttackTest(agents) as test:
         test.configure()
         test.run()

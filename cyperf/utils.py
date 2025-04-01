@@ -15,8 +15,8 @@ def format_warning_cli_issues(message, category, filename, lineno=None, line=Non
 warnings.formatwarning = format_warning_cli_issues
 
 
-class Utils:
-    WAP_CLIENT_ID = 'clt-wap'
+class TestRunner:
+    """Convenience class for common test run operations"""
 
     def __init__(self, controller, username="", password="", refresh_token="", license_server=None, license_user="", license_password=""):
         self.controller = controller
@@ -37,8 +37,8 @@ class Utils:
 
         self.agents = {}
         agents_api  = cyperf.AgentsApi(self.api_client)
-        agents      = agents_api.get_agents()
-        for agent in agents:
+        self.available_agents = agents_api.get_agents(exclude_offline='true')
+        for agent in self.available_agents:
             self.agents[agent.ip] = agent
 
     def __del__(self, time=time, datetime=datetime):
@@ -60,7 +60,7 @@ class Utils:
                     license_api.delete_license_servers(str(lServerMetaData.id))
                     waitTime = 5 # seconds
                     print(f'Waiting for {waitTime} seconds for the license server deletion to finish.')
-                    time.sleep(5) # How can I avoid this sleep????
+                    time.sleep(5)
                     break
                     
             lServer = cyperf.LicenseServerMetadata(host_name=self.license_server,
@@ -147,21 +147,34 @@ class Utils:
             self.stop_test(session)
         session_api.delete_sessions(session.id)
 
-    def assign_agents(self, session, agent_map, augment=False):
+    def assign_agents(self, session, agent_map=None, augment=False, auto_assign=False):
         # Assing agents to the indivual network segments based on the input provided
         for net_profile in session.config.config.network_profiles:
             for ip_net in net_profile.ip_network_segment:
-                if ip_net.name in agent_map:
-                    mapped_ips    = agent_map[ip_net.name]
-                    agent_details = [cyperf.AgentAssignmentDetails(agent_id=self.agents[agent_ip].id, id = self.agents[agent_ip].id) for agent_ip in mapped_ips if agent_ip in self.agents] # why do we need to pass agent_id and id both????
-                    if not ip_net.agent_assignments:
-                        ip_net.agent_assignments = cyperf.AgentAssignments(ByID=[], ByTag=[]) # Why is ByTag argument a must????
+                if agent_map and ip_net.name not in agent_map:
+                    continue
+                if auto_assign and self.agents:
+                    agent_ip = next(iter(self.agents))
+                    agents = [self.agents.pop(agent_ip)]
+                elif self.agents:
+                    mapped_ips = agent_map[ip_net.name]
+                    agents = [self.agents[ip]
+                              for ip in mapped_ips
+                              if ip in self.agents]
+                    for agent in agents:
+                        del self.agents[agent.ip]
+                else:
+                    raise ValueError("Insufficient agents found on setup.")
+                agent_details = [cyperf.AgentAssignmentDetails(agent_id=agent.id, id = str(idx))
+                                 for agent, idx in zip(agents, range(len(agents)))]
+                if not ip_net.agent_assignments:
+                    ip_net.agent_assignments = cyperf.AgentAssignments(ByID=[], ByTag=[])
 
-                    if augment:
-                        ip_net.agent_assignments.by_id.extend(agent_details)
-                    else:
-                        ip_net.agent_assignments.by_id = agent_details
-                    ip_net.update()
+                if augment:
+                    ip_net.agent_assignments.by_id.extend(agent_details)
+                else:
+                    ip_net.agent_assignments.by_id = agent_details
+                ip_net.update()
 
     def disable_automatic_network(self, session):
         for net_profile in session.config.config.network_profiles:
@@ -200,9 +213,9 @@ class Utils:
         primary_objective = session.config.config.traffic_profiles[0].objectives_and_timeline.primary_objective
         primary_objective.type = objective_type
         primary_objective.unit = objective_unit
-        primary_objective.update() # How will the customer know that update() has to be called twice (separately)????
+        primary_objective.update()
 
-        for segment in primary_objective.timeline: # How will the customer know that primary_objective.timeline has to be updated instead of objectives_and_timeline.timeline_segments????
+        for segment in primary_objective.timeline:
             if segment.enabled and (segment.segment_type == cyperf.SegmentType.STEADYSEGMENT or segment.segment_type == cyperf.SegmentType.NORMALSEGMENT):
                 segment.duration        = test_duration
                 segment.objective_value = objective_value
@@ -215,7 +228,7 @@ class Utils:
         try:
             test_start_op.await_completion()
         except cyperf.ApiException as e:
-            raise (e) # The error shown in the GUI is not sent back to the API caller, why????
+            raise (e)
 
     def wait_for_test_stop(self, session, test_monitor=None):
         session_api      = cyperf.SessionsApi(self.api_client)
@@ -223,7 +236,7 @@ class Utils:
         wait_interval    = 0.5
         while 1:
             test = session_api.get_test(session_id=session.id)
-            if 'STOPPED' == test.status: # Why don't we have a enum here????
+            if 'STOPPED' == test.status:
                 break
             if test_monitor:
                 if monitored_at:
@@ -293,6 +306,7 @@ class Utils:
 
 
 def parse_cli_options(extra_options=[]):
+    """Can be used to get parameters from the CLI or env vars that are broadly useful for CLI tests"""
     import argparse
 
     parser = argparse.ArgumentParser(description='A simple UDP test')
@@ -326,3 +340,16 @@ def parse_cli_options(extra_options=[]):
             parser.error(f'Couldn\'t find environment variable {e}')
 
     return args, offline_token
+
+
+def create_api_client_cli(verify_ssl=True):
+    """Parse the args passed to the current script and use them to create an API client; optionally disable SSL verification"""
+    cli_args, offline_token = parse_cli_options()
+    host = f'https://{cli_args.controller}'
+    
+    configuration            = cyperf.Configuration(host=host,
+                                                    refresh_token=offline_token,
+                                                    username=cli_args.user,
+                                                    password=cli_args.password)
+    configuration.verify_ssl = verify_ssl
+    return cyperf.ApiClient(configuration)
