@@ -49,7 +49,7 @@ CyPerf REST API
 
 This package is a client API for the Keysight CyPerf Controller.
 
-This is a full implementation of all features supported by CyPerf.
+This is a full implementation of all features supported by CyPerf. It requires a minimum CyPerf version of 6.0.
 
 # Getting started
 

@@ -26,6 +26,7 @@ def projectProperties = [
     [$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '50']],
     parameters ([
         string(name:'BASE_IMAGE', defaultValue:'debian:12-slim', description: 'eg. 1.0.0.1757'),
+        string(name:'PIP_VERSION', defaultValue:'0.9.0', description: 'a valid PIP version, e.g. 0.9.0'),
         booleanParam(name:'publish_pypi', defaultValue:false, description: 'If true, the build will be published to the public PyPI repos')
     ]),
 ]
@@ -46,7 +47,8 @@ node('wap') {
             ])
             
             env.NUMERIC_VERSION="${major}.${minor}.${env.BUILD_NUMBER}"
-	    env.VERSION = "${env.NUMERIC_VERSION}-${branch}"
+	    env.VERSION = "${env.NUMERIC_VERSION}-${branch}".replaceAll('/', '-').replaceAll('_', '-').replaceAll('%2F', '-')
+            env.PIP_VERSION = params.PIP_VERSION
 	    
 	    currentBuild.displayName = env.VERSION
 	}
@@ -55,7 +57,7 @@ node('wap') {
             sh('''
                   docker build -f docker/Dockerfile \
                                --build-arg base_image="$BASE_IMAGE" \
-                               --build-arg VERSION="$NUMERIC_VERSION" \
+                               --build-arg VERSION="$PIP_VERSION" \
                                -t cyperf-api-wrapper-build:$VERSION \
                                .
                 ''')
