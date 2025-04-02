@@ -1,0 +1,102 @@
+import jenkins.branch.*
+
+def job_name_split   = env.JOB_NAME.split('/')[-2]
+env.job_name_split   = env.JOB_NAME.split('/')[-2]
+def branch           = env.JOB_NAME.split('/')[-1]
+env.branch           = env.JOB_NAME.split('/')[-1]
+def jenkins_cwd_lin  = '/home/jenkins/build' + '/' + job_name_split + '/' + job_name_split + '-' + env.BUILD_NUMBER
+env.jenkins_cwd_lin  = '/home/jenkins/build' + '/' + job_name_split + '/' + job_name_split + '-' + env.BUILD_NUMBER
+
+pipeline_triggers=[
+        [
+            $class: 'BitBucketPPRTrigger',
+            triggers : [
+                [
+                    $class: 'BitBucketPPRPullRequestTriggerFilter',
+                    actionFilter: [
+                        $class: 'BitBucketPPRPullRequestCreatedActionFilter'
+                    ]
+                ]
+            ]
+        ]
+    ]
+
+def projectProperties = [
+    pipelineTriggers(pipeline_triggers),
+    [$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '50']],
+    parameters ([
+        string(name:'BASE_IMAGE', defaultValue:'debian:12-slim', description: 'eg. 1.0.0.1757'),
+        booleanParam(name:'publish_pypi', defaultValue:false, description: 'If true, the build will be published to the public PyPI repos')
+    ]),
+]
+
+properties(projectProperties)
+
+node('wap') {
+    dir (jenkins_cwd_lin) {
+        stage('GitCheckout') {
+	    major = 1
+	    minor = 0
+	    commit = checkout([$class: 'GitSCM',
+                               branches: scm.branches,
+                               extensions: scm.extensions,
+                               userRemoteConfigs: [[
+                    credentialsId: 'e7e3fcc3-4f5f-4e68-b68c-76f40b75a3c7',
+                    url: 'https://bitbucket.it.keysight.com/scm/isgappsec/cyperf-api-wrapper.git']]
+            ])
+            
+            env.NUMERIC_VERSION="${major}.${minor}.${env.BUILD_NUMBER}"
+	    env.VERSION = "${env.NUMERIC_VERSION}-${branch}"
+	    
+	    currentBuild.displayName = env.VERSION
+	}
+        stage('Build base') {
+            env.BASE_IMAGE = params.BASE_IMAGE
+            sh('''
+                  docker build -f docker/Dockerfile \
+                               --build-arg base_image="$BASE_IMAGE" \
+                               --build-arg VERSION="$NUMERIC_VERSION" \
+                               -t cyperf-api-wrapper-build:$VERSION \
+                               .
+                ''')
+        }
+        stage('Run tests') {
+            sh('''
+                  docker run --rm \
+                             cyperf-api-wrapper-build:$VERSION \
+                             /cyperf-api-wrapper-build/test.sh /build/py3
+                ''')
+        }
+        stage('Build and publish to internal repo') {
+            withCredentials([
+                string(credentialsId: 'PYPI_PRIVATE_API_TOKEN', variable: 'PYPI_API_TOKEN')
+            ]) {
+                sh('''
+                        docker run --rm \
+                                   --env TWINE_PASSWORD="$PYPI_API_TOKEN" \
+                                   cyperf-api-wrapper-build:$VERSION \
+                                   /cyperf-api-wrapper-build/publish.sh /build/py3 "--repository testpypi"
+                    ''')
+            }
+        }
+        stage('Build and publish to public repo') {
+            if (params.publish_pypi) {
+                withCredentials([
+                    string(credentialsId: 'PYPI_API_TOKEN', variable: 'PYPI_API_TOKEN')
+                ]) {
+                    sh('''
+                           docker run --rm \
+                                      --env TWINE_PASSWORD="$PYPI_API_TOKEN" \
+                                      cyperf-api-wrapper-build:$VERSION \
+                                      /cyperf-api-wrapper-build/publish.sh /build/py3
+                    ''')
+                }
+            }
+        }
+        stage('Cleanup') {
+            sh('''
+                   docker rmi cyperf-api-wrapper-build:$VERSION
+                ''')
+        }
+    }
+}
