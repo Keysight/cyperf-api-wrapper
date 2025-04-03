@@ -119,7 +119,17 @@ class TestAgent(unittest.TestCase):
                         cyperf.models.traffic_agent_info.TrafficAgentInfo(
                             type = '', 
                             version = '', )
-                        ], )
+                        ], ),
+                links = [
+                    cyperf.models.api_link.APILink(
+                        content_type = '', 
+                        href = '', 
+                        method = '', 
+                        name = '', 
+                        references_count = 56, 
+                        rel = '', 
+                        type = '', )
+                    ]
             )
         else:
             return Agent(

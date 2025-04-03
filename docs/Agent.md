@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **package_version_status** | **str** | A message with information about the current software version and user recommendations. | [optional] [readonly] 
 **requires_updating** | **bool** | A flag indicating whether the agent is not using the recommended version | [optional] [readonly] 
 **system_info** | [**SystemInfo**](SystemInfo.md) |  | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
 
 ## Example
 

@@ -50,7 +50,6 @@ class Agent(BaseModel):
     features: Optional[AgentFeatures] = None
     hostname: Optional[StrictStr] = Field(default=None, description="The hostname of the agent")
     id: Optional[StrictStr] = Field(default=None, description="The agent's unique identifier")
-    links: Optional[List[APILink]] = None
     memory_mb: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The memory (in mega bytes) of the agent", alias="memoryMB")
     mgmt_interface: Optional[Interface] = Field(default=None, alias="mgmtInterface")
     ntp_info: Optional[NtpInfo] = Field(default=None, alias="ntpInfo")
@@ -60,7 +59,8 @@ class Agent(BaseModel):
     package_version_status: Optional[StrictStr] = Field(default=None, description="A message with information about the current software version and user recommendations.", alias="packageVersionStatus")
     requires_updating: Optional[StrictBool] = Field(default=None, description="A flag indicating whether the agent is not using the recommended version", alias="requiresUpdating")
     system_info: Optional[SystemInfo] = Field(default=None, alias="systemInfo")
-    __properties: ClassVar[List[str]] = ["AgentTags", "IP", "Interfaces", "LastUpdate", "ReservationID", "SelectedEnv", "SelectionStatus", "SessionName", "Status", "configuredProxy", "cpuInfo", "dpdkEnabled", "features", "hostname", "id", "memoryMB", "mgmtInterface", "ntpInfo", "offline", "owner", "ownerId", "packageVersionStatus", "requiresUpdating", "systemInfo"]
+    links: Optional[List[APILink]] = None
+    __properties: ClassVar[List[str]] = ["AgentTags", "IP", "Interfaces", "LastUpdate", "ReservationID", "SelectedEnv", "SelectionStatus", "SessionName", "Status", "configuredProxy", "cpuInfo", "dpdkEnabled", "features", "hostname", "id", "memoryMB", "mgmtInterface", "ntpInfo", "offline", "owner", "ownerId", "packageVersionStatus", "requiresUpdating", "systemInfo", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -160,6 +160,13 @@ class Agent(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of system_info
         if self.system_info:
             _dict['systemInfo'] = self.system_info.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
         return _dict
 
     @classmethod
@@ -197,7 +204,8 @@ class Agent(BaseModel):
                         "ownerId": obj.get("ownerId"),
                         "packageVersionStatus": obj.get("packageVersionStatus"),
                         "requiresUpdating": obj.get("requiresUpdating"),
-                        "systemInfo": SystemInfo.from_dict(obj["systemInfo"]) if obj.get("systemInfo") is not None else None
+                        "systemInfo": SystemInfo.from_dict(obj["systemInfo"]) if obj.get("systemInfo") is not None else None,
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")
         })
