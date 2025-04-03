@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from cyperf.models.agent_cpu_info import AgentCPUInfo
 from cyperf.models.agent_features import AgentFeatures
+from cyperf.models.api_link import APILink
 from cyperf.models.interface import Interface
 from cyperf.models.ntp_info import NtpInfo
 from cyperf.models.selected_env import SelectedEnv
@@ -49,6 +50,7 @@ class Agent(BaseModel):
     features: Optional[AgentFeatures] = None
     hostname: Optional[StrictStr] = Field(default=None, description="The hostname of the agent")
     id: Optional[StrictStr] = Field(default=None, description="The agent's unique identifier")
+    links: Optional[List[APILink]] = None
     memory_mb: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The memory (in mega bytes) of the agent", alias="memoryMB")
     mgmt_interface: Optional[Interface] = Field(default=None, alias="mgmtInterface")
     ntp_info: Optional[NtpInfo] = Field(default=None, alias="ntpInfo")
