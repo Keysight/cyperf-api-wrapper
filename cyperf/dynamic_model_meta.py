@@ -305,8 +305,17 @@ class DynamicModel(type):
     @classmethod
     def update(cls, self):
         try:
-            d = self.base_model.to_dict()
+            d = self._local_fields.copy()
             del d['links']
+            for key in [key for key in d.keys()]:
+                if d[key] is None:
+                    del d[key]
+                else:
+                    field = self.base_model.__fields__[key]
+                    field_name = field.alias if 'alias' in dir(field) else key
+                    if field_name != key:
+                        del d[key]
+                    d[field_name] = getattr(self.base_model, key)
             self.link_based_request("self", "PATCH", body=d)
         except ApiException as e:
             if e.status != 405:
