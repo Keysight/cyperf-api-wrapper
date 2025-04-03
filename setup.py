@@ -25,7 +25,7 @@ NAME = "cyperf"
 VERSION = "1.0.0"
 PYTHON_REQUIRES = ">=3.11"
 REQUIRES = [
-    "urllib3 >= 2.0.0, < 2.1.0",
+    "urllib3 >= 2.2.2,<2.3.0",
     "python-dateutil",
     "pydantic >= 2",
     "typing-extensions >= 4.7.1",
