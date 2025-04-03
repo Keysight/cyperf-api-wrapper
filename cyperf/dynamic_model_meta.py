@@ -129,6 +129,7 @@ class DynamicList(UserList):
     def update(self):
         lst = self.__get_base_data()
         items_to_add = [item for item in self.data if item not in lst]
+        items_to_remove = [item for item in lst if item not in self.data]
         if items_to_add:
             try:
                 DynamicModel.link_based_request(self, self.link.name, "POST",
@@ -137,6 +138,23 @@ class DynamicList(UserList):
                 for item in items_to_add:
                     DynamicModel.link_based_request(self, self.link.name, "POST",
                                                     body=item, href=self.link.href)
+        remove_one_by_one = False
+        if len(items_to_remove) > 1 and "id" in dir(items_to_remove[0]):
+            try:
+                op = DynamicModel.link_based_request(self, self.link.name, "POST",
+                                                     body=[{"id": item.id} for item in items_to_remove],
+                                                     return_type=cyperf.AsyncContext,
+                                                     href=f"{self.link.href}/operations/batch-delete")
+                if op:
+                    op.await_completion()
+            except ApiException:
+                remove_one_by_one = True
+        else:
+            remove_one_by_one = True
+        if remove_one_by_one:
+            for item in items_to_remove:
+                    DynamicModel.link_based_request(self, self.link.name, "DELETE",
+                                                href=next(link.href for link in item.links if link.rel == "self"))
         self.refresh()
 
     @property
