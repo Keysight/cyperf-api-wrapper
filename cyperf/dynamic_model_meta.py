@@ -227,6 +227,7 @@ class DynamicModel(type):
            dct['await_completion'] = lambda self, get_final_result = True, poll_time = 1: cls.poll(self, get_final_result=get_final_result, poll_time=poll_time)
         c =  super().__new__(cls, name, bases, dct)
         c.update = lambda self: cls.update(self)
+        c.delete = lambda self: cls.delete(self)
         c.refresh = lambda self: cls.refresh(self)
         c.get_link = lambda self, link_name: cls.get_link(self, link_name)
         c.get_self_link = lambda self: cls.get_link(self, "self")
@@ -317,6 +318,10 @@ class DynamicModel(type):
                     val = val.base_model
                 setattr(full_body, field, val)
             self.link_based_request("self", "PUT", body=full_body)
+
+    @classmethod
+    def delete(cls, self):
+        self.link_based_request("self", "DELETE")
 
 
     @classmethod
