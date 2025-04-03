@@ -122,9 +122,9 @@ class TestRunner:
     def remove_configuration(self, configurations_id):
         self.remove_configurations([configurations_id])
 
-    def create_session_by_config_name(self, configName):
+    def create_session_by_config_name(self, config_name):
         configsApiInstance = cyperf.ConfigurationsApi(self.api_client)
-        appMixConfigs      = configsApiInstance.get_configs(search_col='displayName', search_val='CyPerf AppMix')
+        appMixConfigs      = configsApiInstance.get_configs(search_col='displayName', search_val=config_name)
         if not len(appMixConfigs):
             return None
 
