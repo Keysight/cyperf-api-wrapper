@@ -10,5 +10,6 @@ RUN . /build/py3/bin/activate && pip install --no-cache -U -r requirements.txt
 COPY . .
 ARG VERSION
 RUN sed -i 's/VERSION = "1.0.0"/VERSION = "'$VERSION'"/g' setup.py
+COPY .pypirc /root/.pypirc
 RUN . /build/py3/bin/activate && \
     python3 -m pip install .
