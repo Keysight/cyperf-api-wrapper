@@ -33,8 +33,14 @@ class TestBrokersApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_brokers(self) -> None:
-        """Test case for delete_brokers
+    def test_delete_broker(self) -> None:
+        """Test case for delete_broker
+
+        """
+        pass
+
+    def test_get_broker_by_id(self) -> None:
+        """Test case for get_broker_by_id
 
         """
         pass
@@ -45,14 +51,8 @@ class TestBrokersApi(unittest.TestCase):
         """
         pass
 
-    def test_get_brokers_by_id(self) -> None:
-        """Test case for get_brokers_by_id
-
-        """
-        pass
-
-    def test_patch_brokers(self) -> None:
-        """Test case for patch_brokers
+    def test_patch_broker(self) -> None:
+        """Test case for patch_broker
 
         """
         pass

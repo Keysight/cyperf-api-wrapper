@@ -5,11 +5,11 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**download_pdf**](ReportsApi.md#download_pdf) | **GET** /api/v2/results/{resultId}/download-pdf/{pdfId} | 
-[**get_download_csv_by_id**](ReportsApi.md#get_download_csv_by_id) | **GET** /api/v2/results/{resultId}/download-csv/{downloadCsvId} | 
-[**poll_results_generate_csv**](ReportsApi.md#poll_results_generate_csv) | **GET** /api/v2/results/{resultId}/operations/generate-csv/{id} | 
-[**poll_results_generate_pdf**](ReportsApi.md#poll_results_generate_pdf) | **GET** /api/v2/results/{resultId}/operations/generate-pdf/{id} | 
-[**start_results_generate_csv**](ReportsApi.md#start_results_generate_csv) | **POST** /api/v2/results/{resultId}/operations/generate-csv | 
-[**start_results_generate_pdf**](ReportsApi.md#start_results_generate_pdf) | **POST** /api/v2/results/{resultId}/operations/generate-pdf | 
+[**get_result_download_csv_by_id**](ReportsApi.md#get_result_download_csv_by_id) | **GET** /api/v2/results/{resultId}/download-csv/{downloadCsvId} | 
+[**poll_result_generate_csv**](ReportsApi.md#poll_result_generate_csv) | **GET** /api/v2/results/{resultId}/operations/generate-csv/{id} | 
+[**poll_result_generate_pdf**](ReportsApi.md#poll_result_generate_pdf) | **GET** /api/v2/results/{resultId}/operations/generate-pdf/{id} | 
+[**start_result_generate_csv**](ReportsApi.md#start_result_generate_csv) | **POST** /api/v2/results/{resultId}/operations/generate-csv | 
+[**start_result_generate_pdf**](ReportsApi.md#start_result_generate_pdf) | **POST** /api/v2/results/{resultId}/operations/generate-pdf | 
 
 
 # **download_pdf**
@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_download_csv_by_id**
-> get_download_csv_by_id(result_id, download_csv_id)
+# **get_result_download_csv_by_id**
+> get_result_download_csv_by_id(result_id, download_csv_id)
 
 
 
@@ -131,9 +131,9 @@ with cyperf.ApiClient(configuration) as api_client:
     download_csv_id = 'download_csv_id_example' # str | The ID of the download csv.
 
     try:
-        api_instance.get_download_csv_by_id(result_id, download_csv_id)
+        api_instance.get_result_download_csv_by_id(result_id, download_csv_id)
     except Exception as e:
-        print("Exception when calling ReportsApi->get_download_csv_by_id: %s\n" % e)
+        print("Exception when calling ReportsApi->get_result_download_csv_by_id: %s\n" % e)
 ```
 
 
@@ -169,8 +169,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_results_generate_csv**
-> AsyncContext poll_results_generate_csv(result_id, id)
+# **poll_result_generate_csv**
+> AsyncContext poll_result_generate_csv(result_id, id)
 
 
 
@@ -210,11 +210,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_results_generate_csv(result_id, id)
-        print("The response of ReportsApi->poll_results_generate_csv:\n")
+        api_response = api_instance.poll_result_generate_csv(result_id, id)
+        print("The response of ReportsApi->poll_result_generate_csv:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ReportsApi->poll_results_generate_csv: %s\n" % e)
+        print("Exception when calling ReportsApi->poll_result_generate_csv: %s\n" % e)
 ```
 
 
@@ -245,11 +245,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_results_generate_pdf**
-> AsyncContext poll_results_generate_pdf(result_id, id)
+# **poll_result_generate_pdf**
+> AsyncContext poll_result_generate_pdf(result_id, id)
 
 
 
@@ -289,11 +290,11 @@ with cyperf.ApiClient(configuration) as api_client:
     id = 56 # int | The ID of the async operation.
 
     try:
-        api_response = api_instance.poll_results_generate_pdf(result_id, id)
-        print("The response of ReportsApi->poll_results_generate_pdf:\n")
+        api_response = api_instance.poll_result_generate_pdf(result_id, id)
+        print("The response of ReportsApi->poll_result_generate_pdf:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ReportsApi->poll_results_generate_pdf: %s\n" % e)
+        print("Exception when calling ReportsApi->poll_result_generate_pdf: %s\n" % e)
 ```
 
 
@@ -324,11 +325,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_results_generate_csv**
-> AsyncContext start_results_generate_csv(result_id, generate_csv_reports_operation=generate_csv_reports_operation)
+# **start_result_generate_csv**
+> AsyncContext start_result_generate_csv(result_id, generate_csv_reports_operation=generate_csv_reports_operation)
 
 
 
@@ -369,11 +371,11 @@ with cyperf.ApiClient(configuration) as api_client:
     generate_csv_reports_operation = cyperf.GenerateCSVReportsOperation() # GenerateCSVReportsOperation |  (optional)
 
     try:
-        api_response = api_instance.start_results_generate_csv(result_id, generate_csv_reports_operation=generate_csv_reports_operation)
-        print("The response of ReportsApi->start_results_generate_csv:\n")
+        api_response = api_instance.start_result_generate_csv(result_id, generate_csv_reports_operation=generate_csv_reports_operation)
+        print("The response of ReportsApi->start_result_generate_csv:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ReportsApi->start_results_generate_csv: %s\n" % e)
+        print("Exception when calling ReportsApi->start_result_generate_csv: %s\n" % e)
 ```
 
 
@@ -407,8 +409,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_results_generate_pdf**
-> AsyncContext start_results_generate_pdf(result_id, generate_pdf_report_operation=generate_pdf_report_operation)
+# **start_result_generate_pdf**
+> AsyncContext start_result_generate_pdf(result_id, generate_pdf_report_operation=generate_pdf_report_operation)
 
 
 
@@ -449,11 +451,11 @@ with cyperf.ApiClient(configuration) as api_client:
     generate_pdf_report_operation = cyperf.GeneratePDFReportOperation() # GeneratePDFReportOperation |  (optional)
 
     try:
-        api_response = api_instance.start_results_generate_pdf(result_id, generate_pdf_report_operation=generate_pdf_report_operation)
-        print("The response of ReportsApi->start_results_generate_pdf:\n")
+        api_response = api_instance.start_result_generate_pdf(result_id, generate_pdf_report_operation=generate_pdf_report_operation)
+        print("The response of ReportsApi->start_result_generate_pdf:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ReportsApi->start_results_generate_pdf: %s\n" % e)
+        print("Exception when calling ReportsApi->start_result_generate_pdf: %s\n" % e)
 ```
 
 

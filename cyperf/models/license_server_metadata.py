@@ -29,6 +29,7 @@ class LicenseServerMetadata(BaseModel):
     LicenseServerMetadata
     """ # noqa: E501
     connection_status: Optional[StrictStr] = Field(default=None, description="The license server's connection status", alias="connectionStatus")
+    failure_reason: Optional[StrictStr] = Field(default=None, description="The license server's connection failure reason", alias="failureReason")
     fingerprint: Optional[StrictStr] = Field(default=None, description="The license server's fingerprint")
     host_name: Optional[StrictStr] = Field(default=None, description="The hostname/IP of the server", alias="hostName")
     id: Optional[StrictInt] = Field(default=None, description="The unique identifier of the license server")
@@ -38,7 +39,7 @@ class LicenseServerMetadata(BaseModel):
     trust_new: Optional[StrictBool] = Field(default=None, description="The flag used to skip license server's identity verifications", alias="trustNew")
     tunnel_host_name: Optional[StrictStr] = Field(default=None, description="The hostname/IP of the license server tunnel", alias="tunnelHostName")
     user: Optional[StrictStr] = Field(default=None, description="The license server's authentication user")
-    __properties: ClassVar[List[str]] = ["connectionStatus", "fingerprint", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "tunnelHostName", "user"]
+    __properties: ClassVar[List[str]] = ["connectionStatus", "failureReason", "fingerprint", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "tunnelHostName", "user"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -102,6 +103,7 @@ class LicenseServerMetadata(BaseModel):
 
         _obj = cls.model_validate({
             "connectionStatus": obj.get("connectionStatus"),
+                        "failureReason": obj.get("failureReason"),
                         "fingerprint": obj.get("fingerprint"),
                         "hostName": obj.get("hostName"),
                         "id": obj.get("id"),

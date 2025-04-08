@@ -49,10 +49,46 @@ class TestCreateAppOperation(unittest.TestCase):
                                             ], )
                                     ], )
                             ], 
-                        name = '', )
+                        name = '', 
+                        parameters = [
+                            cyperf.models.parameter.Parameter(
+                                matches = [
+                                    cyperf.models.parameter_match.ParameterMatch(
+                                        match_location = [
+                                            ''
+                                            ], 
+                                        match_type = '', 
+                                        regex_match = cyperf.models.regex_match.RegexMatch(
+                                            patterns = [
+                                                ''
+                                                ], ), )
+                                    ], 
+                                name = '', 
+                                field = '', 
+                                operator = '', 
+                                query_param = '', )
+                            ], )
                     ],
                 app_name = '',
-                app_type = ''
+                app_type = '',
+                parameters = [
+                    cyperf.models.parameter.Parameter(
+                        matches = [
+                            cyperf.models.parameter_match.ParameterMatch(
+                                match_location = [
+                                    ''
+                                    ], 
+                                match_type = '', 
+                                regex_match = cyperf.models.regex_match.RegexMatch(
+                                    patterns = [
+                                        ''
+                                        ], ), )
+                            ], 
+                        name = '', 
+                        field = '', 
+                        operator = '', 
+                        query_param = '', )
+                    ]
             )
         else:
             return CreateAppOperation(

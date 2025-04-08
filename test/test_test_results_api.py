@@ -27,44 +27,50 @@ class TestTestResultsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_delete_files(self) -> None:
-        """Test case for delete_files
+    def test_delete_result(self) -> None:
+        """Test case for delete_result
 
         """
         pass
 
-    def test_delete_results(self) -> None:
-        """Test case for delete_results
+    def test_delete_result_file(self) -> None:
+        """Test case for delete_result_file
 
         """
         pass
 
-    def test_get_download_all_by_id(self) -> None:
-        """Test case for get_download_all_by_id
+    def test_get_result_by_id(self) -> None:
+        """Test case for get_result_by_id
 
         """
         pass
 
-    def test_get_download_result_config(self) -> None:
-        """Test case for get_download_result_config
+    def test_get_result_download_all_by_id(self) -> None:
+        """Test case for get_result_download_all_by_id
 
         """
         pass
 
-    def test_get_files(self) -> None:
-        """Test case for get_files
+    def test_get_result_download_result_config(self) -> None:
+        """Test case for get_result_download_result_config
 
         """
         pass
 
-    def test_get_files_by_id(self) -> None:
-        """Test case for get_files_by_id
+    def test_get_result_file_by_id(self) -> None:
+        """Test case for get_result_file_by_id
 
         """
         pass
 
-    def test_get_result_tags(self) -> None:
-        """Test case for get_result_tags
+    def test_get_result_file_content(self) -> None:
+        """Test case for get_result_file_content
+
+        """
+        pass
+
+    def test_get_result_files(self) -> None:
+        """Test case for get_result_files
 
         """
         pass
@@ -75,14 +81,26 @@ class TestTestResultsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_results_by_id(self) -> None:
-        """Test case for get_results_by_id
+    def test_get_results_tags(self) -> None:
+        """Test case for get_results_tags
 
         """
         pass
 
-    def test_get_results_results_id_files_files_id_content(self) -> None:
-        """Test case for get_results_results_id_files_files_id_content
+    def test_poll_result_generate_all(self) -> None:
+        """Test case for poll_result_generate_all
+
+        """
+        pass
+
+    def test_poll_result_generate_results(self) -> None:
+        """Test case for poll_result_generate_results
+
+        """
+        pass
+
+    def test_poll_result_load(self) -> None:
+        """Test case for poll_result_load
 
         """
         pass
@@ -93,44 +111,26 @@ class TestTestResultsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_results_generate_all(self) -> None:
-        """Test case for poll_results_generate_all
+    def test_start_result_generate_all(self) -> None:
+        """Test case for start_result_generate_all
 
         """
         pass
 
-    def test_poll_results_generate_results(self) -> None:
-        """Test case for poll_results_generate_results
+    def test_start_result_generate_results(self) -> None:
+        """Test case for start_result_generate_results
 
         """
         pass
 
-    def test_poll_results_load(self) -> None:
-        """Test case for poll_results_load
+    def test_start_result_load(self) -> None:
+        """Test case for start_result_load
 
         """
         pass
 
     def test_start_results_batch_delete(self) -> None:
         """Test case for start_results_batch_delete
-
-        """
-        pass
-
-    def test_start_results_generate_all(self) -> None:
-        """Test case for start_results_generate_all
-
-        """
-        pass
-
-    def test_start_results_generate_results(self) -> None:
-        """Test case for start_results_generate_results
-
-        """
-        pass
-
-    def test_start_results_load(self) -> None:
-        """Test case for start_results_load
 
         """
         pass

@@ -27,14 +27,14 @@ class TestAgentsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_delete_agents(self) -> None:
-        """Test case for delete_agents
+    def test_delete_agent(self) -> None:
+        """Test case for delete_agent
 
         """
         pass
 
-    def test_get_agent_tags(self) -> None:
-        """Test case for get_agent_tags
+    def test_get_agent_by_id(self) -> None:
+        """Test case for get_agent_by_id
 
         """
         pass
@@ -45,20 +45,38 @@ class TestAgentsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_agents_by_id(self) -> None:
-        """Test case for get_agents_by_id
+    def test_get_agents_tags(self) -> None:
+        """Test case for get_agents_tags
 
         """
         pass
 
-    def test_get_compute_nodes(self) -> None:
-        """Test case for get_compute_nodes
+    def test_get_compute_node_port_by_id(self) -> None:
+        """Test case for get_compute_node_port_by_id
 
         """
         pass
 
-    def test_get_compute_nodes_by_id(self) -> None:
-        """Test case for get_compute_nodes_by_id
+    def test_get_compute_node_ports(self) -> None:
+        """Test case for get_compute_node_ports
+
+        """
+        pass
+
+    def test_get_controller_by_id(self) -> None:
+        """Test case for get_controller_by_id
+
+        """
+        pass
+
+    def test_get_controller_compute_node_by_id(self) -> None:
+        """Test case for get_controller_compute_node_by_id
+
+        """
+        pass
+
+    def test_get_controller_compute_nodes(self) -> None:
+        """Test case for get_controller_compute_nodes
 
         """
         pass
@@ -69,32 +87,56 @@ class TestAgentsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_controllers_by_id(self) -> None:
-        """Test case for get_controllers_by_id
+    def test_patch_agent(self) -> None:
+        """Test case for patch_agent
 
         """
         pass
 
-    def test_get_ports(self) -> None:
-        """Test case for get_ports
+    def test_poll_agents_batch_delete(self) -> None:
+        """Test case for poll_agents_batch_delete
 
         """
         pass
 
-    def test_get_ports_by_id(self) -> None:
-        """Test case for get_ports_by_id
+    def test_poll_agents_export_files(self) -> None:
+        """Test case for poll_agents_export_files
 
         """
         pass
 
-    def test_patch_agents(self) -> None:
-        """Test case for patch_agents
+    def test_poll_agents_reboot(self) -> None:
+        """Test case for poll_agents_reboot
 
         """
         pass
 
-    def test_poll_batch_delete(self) -> None:
-        """Test case for poll_batch_delete
+    def test_poll_agents_release(self) -> None:
+        """Test case for poll_agents_release
+
+        """
+        pass
+
+    def test_poll_agents_reserve(self) -> None:
+        """Test case for poll_agents_reserve
+
+        """
+        pass
+
+    def test_poll_agents_set_dpdk_mode(self) -> None:
+        """Test case for poll_agents_set_dpdk_mode
+
+        """
+        pass
+
+    def test_poll_agents_set_ntp(self) -> None:
+        """Test case for poll_agents_set_ntp
+
+        """
+        pass
+
+    def test_poll_agents_update(self) -> None:
+        """Test case for poll_agents_update
 
         """
         pass
@@ -135,50 +177,50 @@ class TestAgentsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_export_files(self) -> None:
-        """Test case for poll_export_files
+    def test_start_agents_batch_delete(self) -> None:
+        """Test case for start_agents_batch_delete
 
         """
         pass
 
-    def test_poll_reboot(self) -> None:
-        """Test case for poll_reboot
+    def test_start_agents_export_files(self) -> None:
+        """Test case for start_agents_export_files
 
         """
         pass
 
-    def test_poll_release(self) -> None:
-        """Test case for poll_release
+    def test_start_agents_reboot(self) -> None:
+        """Test case for start_agents_reboot
 
         """
         pass
 
-    def test_poll_reserve(self) -> None:
-        """Test case for poll_reserve
+    def test_start_agents_release(self) -> None:
+        """Test case for start_agents_release
 
         """
         pass
 
-    def test_poll_set_dpdk_mode(self) -> None:
-        """Test case for poll_set_dpdk_mode
+    def test_start_agents_reserve(self) -> None:
+        """Test case for start_agents_reserve
 
         """
         pass
 
-    def test_poll_set_ntp(self) -> None:
-        """Test case for poll_set_ntp
+    def test_start_agents_set_dpdk_mode(self) -> None:
+        """Test case for start_agents_set_dpdk_mode
 
         """
         pass
 
-    def test_poll_update(self) -> None:
-        """Test case for poll_update
+    def test_start_agents_set_ntp(self) -> None:
+        """Test case for start_agents_set_ntp
 
         """
         pass
 
-    def test_start_batch_delete(self) -> None:
-        """Test case for start_batch_delete
+    def test_start_agents_update(self) -> None:
+        """Test case for start_agents_update
 
         """
         pass
@@ -215,48 +257,6 @@ class TestAgentsApi(unittest.TestCase):
 
     def test_start_controllers_set_port_link_state(self) -> None:
         """Test case for start_controllers_set_port_link_state
-
-        """
-        pass
-
-    def test_start_export_files(self) -> None:
-        """Test case for start_export_files
-
-        """
-        pass
-
-    def test_start_reboot(self) -> None:
-        """Test case for start_reboot
-
-        """
-        pass
-
-    def test_start_release(self) -> None:
-        """Test case for start_release
-
-        """
-        pass
-
-    def test_start_reserve(self) -> None:
-        """Test case for start_reserve
-
-        """
-        pass
-
-    def test_start_set_dpdk_mode(self) -> None:
-        """Test case for start_set_dpdk_mode
-
-        """
-        pass
-
-    def test_start_set_ntp(self) -> None:
-        """Test case for start_set_ntp
-
-        """
-        pass
-
-    def test_start_update(self) -> None:
-        """Test case for start_update
 
         """
         pass

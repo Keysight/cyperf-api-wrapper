@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.action_metadata import ActionMetadata
+from cyperf.models.parameter import Parameter
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -30,7 +31,8 @@ class AppsecAppMetadata(BaseModel):
     AppsecAppMetadata
     """ # noqa: E501
     actions_metadata: Optional[List[ActionMetadata]] = Field(default=None, alias="ActionsMetadata")
-    __properties: ClassVar[List[str]] = ["ActionsMetadata"]
+    app_parameters: Optional[List[Parameter]] = Field(default=None, alias="AppParameters")
+    __properties: ClassVar[List[str]] = ["ActionsMetadata", "AppParameters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,6 +80,13 @@ class AppsecAppMetadata(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['ActionsMetadata'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in app_parameters (list)
+        _items = []
+        if self.app_parameters:
+            for _item in self.app_parameters:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['AppParameters'] = _items
         return _dict
 
     @classmethod
@@ -92,7 +101,8 @@ class AppsecAppMetadata(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "ActionsMetadata": [ActionMetadata.from_dict(_item) for _item in obj["ActionsMetadata"]] if obj.get("ActionsMetadata") is not None else None
+            "ActionsMetadata": [ActionMetadata.from_dict(_item) for _item in obj["ActionsMetadata"]] if obj.get("ActionsMetadata") is not None else None,
+                        "AppParameters": [Parameter.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None
             ,
             "links": obj.get("links")
         })

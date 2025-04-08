@@ -64,9 +64,9 @@ with cyperf.ApiClient(configuration) as api_client:
     agent_id = 'agent_id_example' # str | The ID of the agent.
 
     try:
-        api_instance.delete_agents(agent_id)
+        api_instance.delete_agent(agent_id)
     except ApiException as e:
-        print("Exception when calling AgentsApi->delete_agents: %s\n" % e)
+        print("Exception when calling AgentsApi->delete_agent: %s\n" % e)
 
 ```
 
@@ -76,209 +76,211 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AgentsApi* | [**delete_agents**](docs/AgentsApi.md#delete_agents) | **DELETE** /api/v2/agents/{agentId} | 
-*AgentsApi* | [**get_agent_tags**](docs/AgentsApi.md#get_agent_tags) | **GET** /api/v2/tags | 
+*AgentsApi* | [**delete_agent**](docs/AgentsApi.md#delete_agent) | **DELETE** /api/v2/agents/{agentId} | 
+*AgentsApi* | [**get_agent_by_id**](docs/AgentsApi.md#get_agent_by_id) | **GET** /api/v2/agents/{agentId} | 
 *AgentsApi* | [**get_agents**](docs/AgentsApi.md#get_agents) | **GET** /api/v2/agents | 
-*AgentsApi* | [**get_agents_by_id**](docs/AgentsApi.md#get_agents_by_id) | **GET** /api/v2/agents/{agentId} | 
-*AgentsApi* | [**get_compute_nodes**](docs/AgentsApi.md#get_compute_nodes) | **GET** /api/v2/controllers/{controllerId}/compute-nodes | 
-*AgentsApi* | [**get_compute_nodes_by_id**](docs/AgentsApi.md#get_compute_nodes_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId} | 
+*AgentsApi* | [**get_agents_tags**](docs/AgentsApi.md#get_agents_tags) | **GET** /api/v2/tags | 
+*AgentsApi* | [**get_compute_node_port_by_id**](docs/AgentsApi.md#get_compute_node_port_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/ports/{portId} | 
+*AgentsApi* | [**get_compute_node_ports**](docs/AgentsApi.md#get_compute_node_ports) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/ports | 
+*AgentsApi* | [**get_controller_by_id**](docs/AgentsApi.md#get_controller_by_id) | **GET** /api/v2/controllers/{controllerId} | 
+*AgentsApi* | [**get_controller_compute_node_by_id**](docs/AgentsApi.md#get_controller_compute_node_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId} | 
+*AgentsApi* | [**get_controller_compute_nodes**](docs/AgentsApi.md#get_controller_compute_nodes) | **GET** /api/v2/controllers/{controllerId}/compute-nodes | 
 *AgentsApi* | [**get_controllers**](docs/AgentsApi.md#get_controllers) | **GET** /api/v2/controllers | 
-*AgentsApi* | [**get_controllers_by_id**](docs/AgentsApi.md#get_controllers_by_id) | **GET** /api/v2/controllers/{controllerId} | 
-*AgentsApi* | [**get_ports**](docs/AgentsApi.md#get_ports) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/ports | 
-*AgentsApi* | [**get_ports_by_id**](docs/AgentsApi.md#get_ports_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/ports/{portId} | 
-*AgentsApi* | [**patch_agents**](docs/AgentsApi.md#patch_agents) | **PATCH** /api/v2/agents/{agentId} | 
-*AgentsApi* | [**poll_batch_delete**](docs/AgentsApi.md#poll_batch_delete) | **GET** /api/v2/agents/operations/batch-delete/{id} | 
+*AgentsApi* | [**patch_agent**](docs/AgentsApi.md#patch_agent) | **PATCH** /api/v2/agents/{agentId} | 
+*AgentsApi* | [**poll_agents_batch_delete**](docs/AgentsApi.md#poll_agents_batch_delete) | **GET** /api/v2/agents/operations/batch-delete/{id} | 
+*AgentsApi* | [**poll_agents_export_files**](docs/AgentsApi.md#poll_agents_export_files) | **GET** /api/v2/agents/operations/exportFiles/{id} | 
+*AgentsApi* | [**poll_agents_reboot**](docs/AgentsApi.md#poll_agents_reboot) | **GET** /api/v2/agents/operations/reboot/{id} | 
+*AgentsApi* | [**poll_agents_release**](docs/AgentsApi.md#poll_agents_release) | **GET** /api/v2/agents/operations/release/{id} | 
+*AgentsApi* | [**poll_agents_reserve**](docs/AgentsApi.md#poll_agents_reserve) | **GET** /api/v2/agents/operations/reserve/{id} | 
+*AgentsApi* | [**poll_agents_set_dpdk_mode**](docs/AgentsApi.md#poll_agents_set_dpdk_mode) | **GET** /api/v2/agents/operations/set-dpdk-mode/{id} | 
+*AgentsApi* | [**poll_agents_set_ntp**](docs/AgentsApi.md#poll_agents_set_ntp) | **GET** /api/v2/agents/operations/set-ntp/{id} | 
+*AgentsApi* | [**poll_agents_update**](docs/AgentsApi.md#poll_agents_update) | **GET** /api/v2/agents/operations/update/{id} | 
 *AgentsApi* | [**poll_controllers_clear_port_ownership**](docs/AgentsApi.md#poll_controllers_clear_port_ownership) | **GET** /api/v2/controllers/operations/clear-port-ownership/{id} | 
 *AgentsApi* | [**poll_controllers_power_cycle_nodes**](docs/AgentsApi.md#poll_controllers_power_cycle_nodes) | **GET** /api/v2/controllers/operations/power-cycle-nodes/{id} | 
 *AgentsApi* | [**poll_controllers_reboot_port**](docs/AgentsApi.md#poll_controllers_reboot_port) | **GET** /api/v2/controllers/operations/reboot-port/{id} | 
 *AgentsApi* | [**poll_controllers_set_app**](docs/AgentsApi.md#poll_controllers_set_app) | **GET** /api/v2/controllers/operations/set-app/{id} | 
 *AgentsApi* | [**poll_controllers_set_node_aggregation**](docs/AgentsApi.md#poll_controllers_set_node_aggregation) | **GET** /api/v2/controllers/operations/set-node-aggregation/{id} | 
 *AgentsApi* | [**poll_controllers_set_port_link_state**](docs/AgentsApi.md#poll_controllers_set_port_link_state) | **GET** /api/v2/controllers/operations/set-port-link-state/{id} | 
-*AgentsApi* | [**poll_export_files**](docs/AgentsApi.md#poll_export_files) | **GET** /api/v2/agents/operations/exportFiles/{id} | 
-*AgentsApi* | [**poll_reboot**](docs/AgentsApi.md#poll_reboot) | **GET** /api/v2/agents/operations/reboot/{id} | 
-*AgentsApi* | [**poll_release**](docs/AgentsApi.md#poll_release) | **GET** /api/v2/agents/operations/release/{id} | 
-*AgentsApi* | [**poll_reserve**](docs/AgentsApi.md#poll_reserve) | **GET** /api/v2/agents/operations/reserve/{id} | 
-*AgentsApi* | [**poll_set_dpdk_mode**](docs/AgentsApi.md#poll_set_dpdk_mode) | **GET** /api/v2/agents/operations/set-dpdk-mode/{id} | 
-*AgentsApi* | [**poll_set_ntp**](docs/AgentsApi.md#poll_set_ntp) | **GET** /api/v2/agents/operations/set-ntp/{id} | 
-*AgentsApi* | [**poll_update**](docs/AgentsApi.md#poll_update) | **GET** /api/v2/agents/operations/update/{id} | 
-*AgentsApi* | [**start_batch_delete**](docs/AgentsApi.md#start_batch_delete) | **POST** /api/v2/agents/operations/batch-delete | 
+*AgentsApi* | [**start_agents_batch_delete**](docs/AgentsApi.md#start_agents_batch_delete) | **POST** /api/v2/agents/operations/batch-delete | 
+*AgentsApi* | [**start_agents_export_files**](docs/AgentsApi.md#start_agents_export_files) | **POST** /api/v2/agents/operations/exportFiles | 
+*AgentsApi* | [**start_agents_reboot**](docs/AgentsApi.md#start_agents_reboot) | **POST** /api/v2/agents/operations/reboot | 
+*AgentsApi* | [**start_agents_release**](docs/AgentsApi.md#start_agents_release) | **POST** /api/v2/agents/operations/release | 
+*AgentsApi* | [**start_agents_reserve**](docs/AgentsApi.md#start_agents_reserve) | **POST** /api/v2/agents/operations/reserve | 
+*AgentsApi* | [**start_agents_set_dpdk_mode**](docs/AgentsApi.md#start_agents_set_dpdk_mode) | **POST** /api/v2/agents/operations/set-dpdk-mode | 
+*AgentsApi* | [**start_agents_set_ntp**](docs/AgentsApi.md#start_agents_set_ntp) | **POST** /api/v2/agents/operations/set-ntp | 
+*AgentsApi* | [**start_agents_update**](docs/AgentsApi.md#start_agents_update) | **POST** /api/v2/agents/operations/update | 
 *AgentsApi* | [**start_controllers_clear_port_ownership**](docs/AgentsApi.md#start_controllers_clear_port_ownership) | **POST** /api/v2/controllers/operations/clear-port-ownership | 
 *AgentsApi* | [**start_controllers_power_cycle_nodes**](docs/AgentsApi.md#start_controllers_power_cycle_nodes) | **POST** /api/v2/controllers/operations/power-cycle-nodes | 
 *AgentsApi* | [**start_controllers_reboot_port**](docs/AgentsApi.md#start_controllers_reboot_port) | **POST** /api/v2/controllers/operations/reboot-port | 
 *AgentsApi* | [**start_controllers_set_app**](docs/AgentsApi.md#start_controllers_set_app) | **POST** /api/v2/controllers/operations/set-app | 
 *AgentsApi* | [**start_controllers_set_node_aggregation**](docs/AgentsApi.md#start_controllers_set_node_aggregation) | **POST** /api/v2/controllers/operations/set-node-aggregation | 
 *AgentsApi* | [**start_controllers_set_port_link_state**](docs/AgentsApi.md#start_controllers_set_port_link_state) | **POST** /api/v2/controllers/operations/set-port-link-state | 
-*AgentsApi* | [**start_export_files**](docs/AgentsApi.md#start_export_files) | **POST** /api/v2/agents/operations/exportFiles | 
-*AgentsApi* | [**start_reboot**](docs/AgentsApi.md#start_reboot) | **POST** /api/v2/agents/operations/reboot | 
-*AgentsApi* | [**start_release**](docs/AgentsApi.md#start_release) | **POST** /api/v2/agents/operations/release | 
-*AgentsApi* | [**start_reserve**](docs/AgentsApi.md#start_reserve) | **POST** /api/v2/agents/operations/reserve | 
-*AgentsApi* | [**start_set_dpdk_mode**](docs/AgentsApi.md#start_set_dpdk_mode) | **POST** /api/v2/agents/operations/set-dpdk-mode | 
-*AgentsApi* | [**start_set_ntp**](docs/AgentsApi.md#start_set_ntp) | **POST** /api/v2/agents/operations/set-ntp | 
-*AgentsApi* | [**start_update**](docs/AgentsApi.md#start_update) | **POST** /api/v2/agents/operations/update | 
-*ApplicationResourcesApi* | [**create_resources_certificates_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_certificates_operations_upload_file) | **POST** /api/v2/resources/certificates/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_flow_library_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_flow_library_operations_upload_file) | **POST** /api/v2/resources/flow-library/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_global_playlists_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_global_playlists_operations_upload_file) | **POST** /api/v2/resources/global-playlists/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_http_library_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_http_library_operations_upload_file) | **POST** /api/v2/resources/http-library/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_media_files_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_media_files_operations_upload_file) | **POST** /api/v2/resources/media-files/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_media_library_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_media_library_operations_upload_file) | **POST** /api/v2/resources/media-library/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_other_library_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_other_library_operations_upload_file) | **POST** /api/v2/resources/other-library/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_payloads_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_payloads_operations_upload_file) | **POST** /api/v2/resources/payloads/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_pcaps_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_pcaps_operations_upload_file) | **POST** /api/v2/resources/pcaps/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_playlists_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_playlists_operations_upload_file) | **POST** /api/v2/resources/playlists/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_sip_library_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_sip_library_operations_upload_file) | **POST** /api/v2/resources/sip-library/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_stats_profile_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_stats_profile_operations_upload_file) | **POST** /api/v2/resources/stats-profile/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_tls_certificates_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_tls_certificates_operations_upload_file) | **POST** /api/v2/resources/tls-certificates/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_tls_dhs_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_tls_dhs_operations_upload_file) | **POST** /api/v2/resources/tls-dhs/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_tls_keys_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_tls_keys_operations_upload_file) | **POST** /api/v2/resources/tls-keys/operations/uploadFile | 
-*ApplicationResourcesApi* | [**create_resources_user_defined_apps_operations_upload_file**](docs/ApplicationResourcesApi.md#create_resources_user_defined_apps_operations_upload_file) | **POST** /api/v2/resources/user-defined-apps/operations/uploadFile | 
-*ApplicationResourcesApi* | [**delete_captures**](docs/ApplicationResourcesApi.md#delete_captures) | **DELETE** /api/v2/resources/captures/{captureId} | 
-*ApplicationResourcesApi* | [**delete_certificates**](docs/ApplicationResourcesApi.md#delete_certificates) | **DELETE** /api/v2/resources/certificates/{certificateId} | 
-*ApplicationResourcesApi* | [**delete_flow_library**](docs/ApplicationResourcesApi.md#delete_flow_library) | **DELETE** /api/v2/resources/flow-library/{flowLibraryId} | 
-*ApplicationResourcesApi* | [**delete_global_playlists**](docs/ApplicationResourcesApi.md#delete_global_playlists) | **DELETE** /api/v2/resources/global-playlists/{globalPlaylistId} | 
-*ApplicationResourcesApi* | [**delete_http_library**](docs/ApplicationResourcesApi.md#delete_http_library) | **DELETE** /api/v2/resources/http-library/{httpLibraryId} | 
-*ApplicationResourcesApi* | [**delete_media_files**](docs/ApplicationResourcesApi.md#delete_media_files) | **DELETE** /api/v2/resources/media-files/{mediaFileId} | 
-*ApplicationResourcesApi* | [**delete_media_library**](docs/ApplicationResourcesApi.md#delete_media_library) | **DELETE** /api/v2/resources/media-library/{mediaLibraryId} | 
-*ApplicationResourcesApi* | [**delete_other_library**](docs/ApplicationResourcesApi.md#delete_other_library) | **DELETE** /api/v2/resources/other-library/{otherLibraryId} | 
-*ApplicationResourcesApi* | [**delete_payloads**](docs/ApplicationResourcesApi.md#delete_payloads) | **DELETE** /api/v2/resources/payloads/{payloadId} | 
-*ApplicationResourcesApi* | [**delete_pcaps**](docs/ApplicationResourcesApi.md#delete_pcaps) | **DELETE** /api/v2/resources/pcaps/{pcapId} | 
-*ApplicationResourcesApi* | [**delete_playlists**](docs/ApplicationResourcesApi.md#delete_playlists) | **DELETE** /api/v2/resources/playlists/{playlistId} | 
-*ApplicationResourcesApi* | [**delete_sip_library**](docs/ApplicationResourcesApi.md#delete_sip_library) | **DELETE** /api/v2/resources/sip-library/{sipLibraryId} | 
-*ApplicationResourcesApi* | [**delete_stats_profile**](docs/ApplicationResourcesApi.md#delete_stats_profile) | **DELETE** /api/v2/resources/stats-profile/{statsProfileId} | 
-*ApplicationResourcesApi* | [**delete_tls_certificates**](docs/ApplicationResourcesApi.md#delete_tls_certificates) | **DELETE** /api/v2/resources/tls-certificates/{tlsCertificateId} | 
-*ApplicationResourcesApi* | [**delete_tls_dhs**](docs/ApplicationResourcesApi.md#delete_tls_dhs) | **DELETE** /api/v2/resources/tls-dhs/{tlsDhId} | 
-*ApplicationResourcesApi* | [**delete_tls_keys**](docs/ApplicationResourcesApi.md#delete_tls_keys) | **DELETE** /api/v2/resources/tls-keys/{tlsKeyId} | 
-*ApplicationResourcesApi* | [**delete_user_defined_apps**](docs/ApplicationResourcesApi.md#delete_user_defined_apps) | **DELETE** /api/v2/resources/user-defined-apps/{userDefinedAppId} | 
-*ApplicationResourcesApi* | [**get_application_types**](docs/ApplicationResourcesApi.md#get_application_types) | **GET** /api/v2/resources/application-types | 
-*ApplicationResourcesApi* | [**get_application_types_by_id**](docs/ApplicationResourcesApi.md#get_application_types_by_id) | **GET** /api/v2/resources/application-types/{applicationTypeId} | 
-*ApplicationResourcesApi* | [**get_apps**](docs/ApplicationResourcesApi.md#get_apps) | **GET** /api/v2/resources/apps | 
-*ApplicationResourcesApi* | [**get_apps_by_id**](docs/ApplicationResourcesApi.md#get_apps_by_id) | **GET** /api/v2/resources/apps/{appId} | 
-*ApplicationResourcesApi* | [**get_attack_categories**](docs/ApplicationResourcesApi.md#get_attack_categories) | **GET** /api/v2/resources/attack-categories | 
-*ApplicationResourcesApi* | [**get_attacks**](docs/ApplicationResourcesApi.md#get_attacks) | **GET** /api/v2/resources/attacks | 
-*ApplicationResourcesApi* | [**get_attacks_by_id**](docs/ApplicationResourcesApi.md#get_attacks_by_id) | **GET** /api/v2/resources/attacks/{attackId} | 
-*ApplicationResourcesApi* | [**get_auth_profiles**](docs/ApplicationResourcesApi.md#get_auth_profiles) | **GET** /api/v2/resources/auth-profiles | 
-*ApplicationResourcesApi* | [**get_auth_profiles_by_id**](docs/ApplicationResourcesApi.md#get_auth_profiles_by_id) | **GET** /api/v2/resources/auth-profiles/{authProfileId} | 
-*ApplicationResourcesApi* | [**get_captures**](docs/ApplicationResourcesApi.md#get_captures) | **GET** /api/v2/resources/captures | 
-*ApplicationResourcesApi* | [**get_captures_by_id**](docs/ApplicationResourcesApi.md#get_captures_by_id) | **GET** /api/v2/resources/captures/{captureId} | 
-*ApplicationResourcesApi* | [**get_certificates**](docs/ApplicationResourcesApi.md#get_certificates) | **GET** /api/v2/resources/certificates | 
-*ApplicationResourcesApi* | [**get_certificates_by_id**](docs/ApplicationResourcesApi.md#get_certificates_by_id) | **GET** /api/v2/resources/certificates/{certificateId} | 
-*ApplicationResourcesApi* | [**get_exchanges**](docs/ApplicationResourcesApi.md#get_exchanges) | **GET** /api/v2/resources/captures/{captureId}/flows/{flowId}/exchanges | 
-*ApplicationResourcesApi* | [**get_flow_library**](docs/ApplicationResourcesApi.md#get_flow_library) | **GET** /api/v2/resources/flow-library | 
-*ApplicationResourcesApi* | [**get_flow_library_by_id**](docs/ApplicationResourcesApi.md#get_flow_library_by_id) | **GET** /api/v2/resources/flow-library/{flowLibraryId} | 
-*ApplicationResourcesApi* | [**get_flows**](docs/ApplicationResourcesApi.md#get_flows) | **GET** /api/v2/resources/captures/{captureId}/flows | 
-*ApplicationResourcesApi* | [**get_global_playlists**](docs/ApplicationResourcesApi.md#get_global_playlists) | **GET** /api/v2/resources/global-playlists | 
-*ApplicationResourcesApi* | [**get_global_playlists_by_id**](docs/ApplicationResourcesApi.md#get_global_playlists_by_id) | **GET** /api/v2/resources/global-playlists/{globalPlaylistId} | 
-*ApplicationResourcesApi* | [**get_http_library**](docs/ApplicationResourcesApi.md#get_http_library) | **GET** /api/v2/resources/http-library | 
-*ApplicationResourcesApi* | [**get_http_library_by_id**](docs/ApplicationResourcesApi.md#get_http_library_by_id) | **GET** /api/v2/resources/http-library/{httpLibraryId} | 
-*ApplicationResourcesApi* | [**get_http_profiles**](docs/ApplicationResourcesApi.md#get_http_profiles) | **GET** /api/v2/resources/http-profiles | 
-*ApplicationResourcesApi* | [**get_http_profiles_by_id**](docs/ApplicationResourcesApi.md#get_http_profiles_by_id) | **GET** /api/v2/resources/http-profiles/{httpProfileId} | 
-*ApplicationResourcesApi* | [**get_media_files**](docs/ApplicationResourcesApi.md#get_media_files) | **GET** /api/v2/resources/media-files | 
-*ApplicationResourcesApi* | [**get_media_files_by_id**](docs/ApplicationResourcesApi.md#get_media_files_by_id) | **GET** /api/v2/resources/media-files/{mediaFileId} | 
-*ApplicationResourcesApi* | [**get_media_library**](docs/ApplicationResourcesApi.md#get_media_library) | **GET** /api/v2/resources/media-library | 
-*ApplicationResourcesApi* | [**get_media_library_by_id**](docs/ApplicationResourcesApi.md#get_media_library_by_id) | **GET** /api/v2/resources/media-library/{mediaLibraryId} | 
-*ApplicationResourcesApi* | [**get_other_library**](docs/ApplicationResourcesApi.md#get_other_library) | **GET** /api/v2/resources/other-library | 
-*ApplicationResourcesApi* | [**get_other_library_by_id**](docs/ApplicationResourcesApi.md#get_other_library_by_id) | **GET** /api/v2/resources/other-library/{otherLibraryId} | 
-*ApplicationResourcesApi* | [**get_payloads**](docs/ApplicationResourcesApi.md#get_payloads) | **GET** /api/v2/resources/payloads | 
-*ApplicationResourcesApi* | [**get_payloads_by_id**](docs/ApplicationResourcesApi.md#get_payloads_by_id) | **GET** /api/v2/resources/payloads/{payloadId} | 
-*ApplicationResourcesApi* | [**get_pcaps**](docs/ApplicationResourcesApi.md#get_pcaps) | **GET** /api/v2/resources/pcaps | 
-*ApplicationResourcesApi* | [**get_pcaps_by_id**](docs/ApplicationResourcesApi.md#get_pcaps_by_id) | **GET** /api/v2/resources/pcaps/{pcapId} | 
-*ApplicationResourcesApi* | [**get_playlists**](docs/ApplicationResourcesApi.md#get_playlists) | **GET** /api/v2/resources/playlists | 
-*ApplicationResourcesApi* | [**get_playlists_by_id**](docs/ApplicationResourcesApi.md#get_playlists_by_id) | **GET** /api/v2/resources/playlists/{playlistId} | 
-*ApplicationResourcesApi* | [**get_resources_captures_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_captures_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_certificates_certificates_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_certificates_certificates_id_content_file) | **GET** /api/v2/resources/certificates/{certificateId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_certificates_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_certificates_operations_upload_file_operation_id) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_certificates_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_certificates_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_flow_library_flow_library_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_flow_library_flow_library_id_content_file) | **GET** /api/v2/resources/flow-library/{flowLibraryId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_flow_library_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_flow_library_operations_upload_file_operation_id) | **GET** /api/v2/resources/flow-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_flow_library_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_flow_library_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/flow-library/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_global_playlists_global_playlists_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_global_playlists_global_playlists_id_content_file) | **GET** /api/v2/resources/global-playlists/{globalPlaylistId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_global_playlists_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_global_playlists_operations_upload_file_operation_id) | **GET** /api/v2/resources/global-playlists/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_global_playlists_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_global_playlists_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/global-playlists/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_http_library_http_library_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_http_library_http_library_id_content_file) | **GET** /api/v2/resources/http-library/{httpLibraryId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_http_library_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_http_library_operations_upload_file_operation_id) | **GET** /api/v2/resources/http-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_http_library_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_http_library_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/http-library/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_media_files_media_files_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_media_files_media_files_id_content_file) | **GET** /api/v2/resources/media-files/{mediaFileId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_media_files_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_media_files_operations_upload_file_operation_id) | **GET** /api/v2/resources/media-files/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_media_files_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_media_files_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/media-files/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_media_library_media_library_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_media_library_media_library_id_content_file) | **GET** /api/v2/resources/media-library/{mediaLibraryId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_media_library_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_media_library_operations_upload_file_operation_id) | **GET** /api/v2/resources/media-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_media_library_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_media_library_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/media-library/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_other_library_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_other_library_operations_upload_file_operation_id) | **GET** /api/v2/resources/other-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_other_library_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_other_library_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/other-library/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_other_library_other_library_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_other_library_other_library_id_content_file) | **GET** /api/v2/resources/other-library/{otherLibraryId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_payloads_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_payloads_operations_upload_file_operation_id) | **GET** /api/v2/resources/payloads/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_payloads_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_payloads_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/payloads/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_payloads_payloads_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_payloads_payloads_id_content_file) | **GET** /api/v2/resources/payloads/{payloadId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_pcaps_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_pcaps_operations_upload_file_operation_id) | **GET** /api/v2/resources/pcaps/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_pcaps_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_pcaps_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/pcaps/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_pcaps_pcaps_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_pcaps_pcaps_id_content_file) | **GET** /api/v2/resources/pcaps/{pcapId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_playlists_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_playlists_operations_upload_file_operation_id) | **GET** /api/v2/resources/playlists/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_playlists_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_playlists_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/playlists/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_playlists_playlists_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_playlists_playlists_id_content_file) | **GET** /api/v2/resources/playlists/{playlistId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_playlists_playlists_id_values**](docs/ApplicationResourcesApi.md#get_resources_playlists_playlists_id_values) | **GET** /api/v2/resources/playlists/{playlistId}/values | 
-*ApplicationResourcesApi* | [**get_resources_sip_library_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_sip_library_operations_upload_file_operation_id) | **GET** /api/v2/resources/sip-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_sip_library_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_sip_library_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/sip-library/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_sip_library_sip_library_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_sip_library_sip_library_id_content_file) | **GET** /api/v2/resources/sip-library/{sipLibraryId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_stats_profile_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_stats_profile_operations_upload_file_operation_id) | **GET** /api/v2/resources/stats-profile/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_stats_profile_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_stats_profile_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/stats-profile/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_stats_profile_stats_profile_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_stats_profile_stats_profile_id_content_file) | **GET** /api/v2/resources/stats-profile/{statsProfileId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_tls_certificates_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_tls_certificates_operations_upload_file_operation_id) | **GET** /api/v2/resources/tls-certificates/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_tls_certificates_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_tls_certificates_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/tls-certificates/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_tls_certificates_tls_certificates_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_tls_certificates_tls_certificates_id_content_file) | **GET** /api/v2/resources/tls-certificates/{tlsCertificateId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_tls_dhs_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_tls_dhs_operations_upload_file_operation_id) | **GET** /api/v2/resources/tls-dhs/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_tls_dhs_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_tls_dhs_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/tls-dhs/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_tls_dhs_tls_dhs_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_tls_dhs_tls_dhs_id_content_file) | **GET** /api/v2/resources/tls-dhs/{tlsDhId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_tls_keys_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_tls_keys_operations_upload_file_operation_id) | **GET** /api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_tls_keys_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_tls_keys_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_resources_tls_keys_tls_keys_id_content_file**](docs/ApplicationResourcesApi.md#get_resources_tls_keys_tls_keys_id_content_file) | **GET** /api/v2/resources/tls-keys/{tlsKeyId}/contentFile | 
-*ApplicationResourcesApi* | [**get_resources_user_defined_apps_operations_upload_file_operation_id**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps_operations_upload_file_operation_id) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**get_resources_user_defined_apps_operations_upload_file_operation_id_result**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps_operations_upload_file_operation_id_result) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**get_sip_library**](docs/ApplicationResourcesApi.md#get_sip_library) | **GET** /api/v2/resources/sip-library | 
-*ApplicationResourcesApi* | [**get_sip_library_by_id**](docs/ApplicationResourcesApi.md#get_sip_library_by_id) | **GET** /api/v2/resources/sip-library/{sipLibraryId} | 
-*ApplicationResourcesApi* | [**get_stats_profile**](docs/ApplicationResourcesApi.md#get_stats_profile) | **GET** /api/v2/resources/stats-profile | 
-*ApplicationResourcesApi* | [**get_stats_profile_by_id**](docs/ApplicationResourcesApi.md#get_stats_profile_by_id) | **GET** /api/v2/resources/stats-profile/{statsProfileId} | 
-*ApplicationResourcesApi* | [**get_strike_categories**](docs/ApplicationResourcesApi.md#get_strike_categories) | **GET** /api/v2/resources/strike-categories | 
-*ApplicationResourcesApi* | [**get_strikes**](docs/ApplicationResourcesApi.md#get_strikes) | **GET** /api/v2/resources/strikes | 
-*ApplicationResourcesApi* | [**get_strikes_by_id**](docs/ApplicationResourcesApi.md#get_strikes_by_id) | **GET** /api/v2/resources/strikes/{strikeId} | 
-*ApplicationResourcesApi* | [**get_tls_certificates**](docs/ApplicationResourcesApi.md#get_tls_certificates) | **GET** /api/v2/resources/tls-certificates | 
-*ApplicationResourcesApi* | [**get_tls_certificates_by_id**](docs/ApplicationResourcesApi.md#get_tls_certificates_by_id) | **GET** /api/v2/resources/tls-certificates/{tlsCertificateId} | 
-*ApplicationResourcesApi* | [**get_tls_dhs**](docs/ApplicationResourcesApi.md#get_tls_dhs) | **GET** /api/v2/resources/tls-dhs | 
-*ApplicationResourcesApi* | [**get_tls_dhs_by_id**](docs/ApplicationResourcesApi.md#get_tls_dhs_by_id) | **GET** /api/v2/resources/tls-dhs/{tlsDhId} | 
-*ApplicationResourcesApi* | [**get_tls_keys**](docs/ApplicationResourcesApi.md#get_tls_keys) | **GET** /api/v2/resources/tls-keys | 
-*ApplicationResourcesApi* | [**get_tls_keys_by_id**](docs/ApplicationResourcesApi.md#get_tls_keys_by_id) | **GET** /api/v2/resources/tls-keys/{tlsKeyId} | 
-*ApplicationResourcesApi* | [**get_user_defined_apps**](docs/ApplicationResourcesApi.md#get_user_defined_apps) | **GET** /api/v2/resources/user-defined-apps | 
-*ApplicationResourcesApi* | [**poll_apps_export_all**](docs/ApplicationResourcesApi.md#poll_apps_export_all) | **GET** /api/v2/resources/apps/operations/export-all/{id} | 
-*ApplicationResourcesApi* | [**poll_captures_batch_delete**](docs/ApplicationResourcesApi.md#poll_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
-*ApplicationResourcesApi* | [**poll_captures_upload_file**](docs/ApplicationResourcesApi.md#poll_captures_upload_file) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_create_app**](docs/ApplicationResourcesApi.md#poll_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
-*ApplicationResourcesApi* | [**poll_edit_app**](docs/ApplicationResourcesApi.md#poll_edit_app) | **GET** /api/v2/resources/operations/edit-app/{id} | 
-*ApplicationResourcesApi* | [**poll_get_attack_categories**](docs/ApplicationResourcesApi.md#poll_get_attack_categories) | **GET** /api/v2/resources/operations/get-attack-categories/{id} | 
-*ApplicationResourcesApi* | [**poll_get_attacks**](docs/ApplicationResourcesApi.md#poll_get_attacks) | **GET** /api/v2/resources/operations/get-attacks/{id} | 
-*ApplicationResourcesApi* | [**poll_get_strike_categories**](docs/ApplicationResourcesApi.md#poll_get_strike_categories) | **GET** /api/v2/resources/operations/get-strike-categories/{id} | 
-*ApplicationResourcesApi* | [**poll_get_strikes**](docs/ApplicationResourcesApi.md#poll_get_strikes) | **GET** /api/v2/resources/operations/get-strikes/{id} | 
-*ApplicationResourcesApi* | [**poll_user_defined_apps_export_all**](docs/ApplicationResourcesApi.md#poll_user_defined_apps_export_all) | **GET** /api/v2/resources/user-defined-apps/operations/export-all/{id} | 
-*ApplicationResourcesApi* | [**start_apps_export_all**](docs/ApplicationResourcesApi.md#start_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
-*ApplicationResourcesApi* | [**start_captures_batch_delete**](docs/ApplicationResourcesApi.md#start_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
-*ApplicationResourcesApi* | [**start_captures_upload_file**](docs/ApplicationResourcesApi.md#start_captures_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
-*ApplicationResourcesApi* | [**start_create_app**](docs/ApplicationResourcesApi.md#start_create_app) | **POST** /api/v2/resources/operations/create-app | 
-*ApplicationResourcesApi* | [**start_edit_app**](docs/ApplicationResourcesApi.md#start_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
-*ApplicationResourcesApi* | [**start_get_attack_categories**](docs/ApplicationResourcesApi.md#start_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
-*ApplicationResourcesApi* | [**start_get_attacks**](docs/ApplicationResourcesApi.md#start_get_attacks) | **POST** /api/v2/resources/operations/get-attacks | 
-*ApplicationResourcesApi* | [**start_get_strike_categories**](docs/ApplicationResourcesApi.md#start_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
-*ApplicationResourcesApi* | [**start_get_strikes**](docs/ApplicationResourcesApi.md#start_get_strikes) | **POST** /api/v2/resources/operations/get-strikes | 
-*ApplicationResourcesApi* | [**start_user_defined_apps_export_all**](docs/ApplicationResourcesApi.md#start_user_defined_apps_export_all) | **POST** /api/v2/resources/user-defined-apps/operations/export-all | 
+*ApplicationResourcesApi* | [**delete_resources_capture**](docs/ApplicationResourcesApi.md#delete_resources_capture) | **DELETE** /api/v2/resources/captures/{captureId} | 
+*ApplicationResourcesApi* | [**delete_resources_certificate**](docs/ApplicationResourcesApi.md#delete_resources_certificate) | **DELETE** /api/v2/resources/certificates/{certificateId} | 
+*ApplicationResourcesApi* | [**delete_resources_flow_library**](docs/ApplicationResourcesApi.md#delete_resources_flow_library) | **DELETE** /api/v2/resources/flow-library/{flowLibraryId} | 
+*ApplicationResourcesApi* | [**delete_resources_global_playlist**](docs/ApplicationResourcesApi.md#delete_resources_global_playlist) | **DELETE** /api/v2/resources/global-playlists/{globalPlaylistId} | 
+*ApplicationResourcesApi* | [**delete_resources_http_library**](docs/ApplicationResourcesApi.md#delete_resources_http_library) | **DELETE** /api/v2/resources/http-library/{httpLibraryId} | 
+*ApplicationResourcesApi* | [**delete_resources_media_file**](docs/ApplicationResourcesApi.md#delete_resources_media_file) | **DELETE** /api/v2/resources/media-files/{mediaFileId} | 
+*ApplicationResourcesApi* | [**delete_resources_media_library**](docs/ApplicationResourcesApi.md#delete_resources_media_library) | **DELETE** /api/v2/resources/media-library/{mediaLibraryId} | 
+*ApplicationResourcesApi* | [**delete_resources_other_library**](docs/ApplicationResourcesApi.md#delete_resources_other_library) | **DELETE** /api/v2/resources/other-library/{otherLibraryId} | 
+*ApplicationResourcesApi* | [**delete_resources_payload**](docs/ApplicationResourcesApi.md#delete_resources_payload) | **DELETE** /api/v2/resources/payloads/{payloadId} | 
+*ApplicationResourcesApi* | [**delete_resources_pcap**](docs/ApplicationResourcesApi.md#delete_resources_pcap) | **DELETE** /api/v2/resources/pcaps/{pcapId} | 
+*ApplicationResourcesApi* | [**delete_resources_playlist**](docs/ApplicationResourcesApi.md#delete_resources_playlist) | **DELETE** /api/v2/resources/playlists/{playlistId} | 
+*ApplicationResourcesApi* | [**delete_resources_sip_library**](docs/ApplicationResourcesApi.md#delete_resources_sip_library) | **DELETE** /api/v2/resources/sip-library/{sipLibraryId} | 
+*ApplicationResourcesApi* | [**delete_resources_stats_profile**](docs/ApplicationResourcesApi.md#delete_resources_stats_profile) | **DELETE** /api/v2/resources/stats-profile/{statsProfileId} | 
+*ApplicationResourcesApi* | [**delete_resources_tls_certificate**](docs/ApplicationResourcesApi.md#delete_resources_tls_certificate) | **DELETE** /api/v2/resources/tls-certificates/{tlsCertificateId} | 
+*ApplicationResourcesApi* | [**delete_resources_tls_dh**](docs/ApplicationResourcesApi.md#delete_resources_tls_dh) | **DELETE** /api/v2/resources/tls-dhs/{tlsDhId} | 
+*ApplicationResourcesApi* | [**delete_resources_tls_key**](docs/ApplicationResourcesApi.md#delete_resources_tls_key) | **DELETE** /api/v2/resources/tls-keys/{tlsKeyId} | 
+*ApplicationResourcesApi* | [**delete_resources_user_defined_app**](docs/ApplicationResourcesApi.md#delete_resources_user_defined_app) | **DELETE** /api/v2/resources/user-defined-apps/{userDefinedAppId} | 
+*ApplicationResourcesApi* | [**get_capture_flows**](docs/ApplicationResourcesApi.md#get_capture_flows) | **GET** /api/v2/resources/captures/{captureId}/flows | 
+*ApplicationResourcesApi* | [**get_flow_exchanges**](docs/ApplicationResourcesApi.md#get_flow_exchanges) | **GET** /api/v2/resources/captures/{captureId}/flows/{flowId}/exchanges | 
+*ApplicationResourcesApi* | [**get_resources_app_by_id**](docs/ApplicationResourcesApi.md#get_resources_app_by_id) | **GET** /api/v2/resources/apps/{appId} | 
+*ApplicationResourcesApi* | [**get_resources_application_type_by_id**](docs/ApplicationResourcesApi.md#get_resources_application_type_by_id) | **GET** /api/v2/resources/application-types/{applicationTypeId} | 
+*ApplicationResourcesApi* | [**get_resources_application_types**](docs/ApplicationResourcesApi.md#get_resources_application_types) | **GET** /api/v2/resources/application-types | 
+*ApplicationResourcesApi* | [**get_resources_apps**](docs/ApplicationResourcesApi.md#get_resources_apps) | **GET** /api/v2/resources/apps | 
+*ApplicationResourcesApi* | [**get_resources_attack_by_id**](docs/ApplicationResourcesApi.md#get_resources_attack_by_id) | **GET** /api/v2/resources/attacks/{attackId} | 
+*ApplicationResourcesApi* | [**get_resources_attack_categories**](docs/ApplicationResourcesApi.md#get_resources_attack_categories) | **GET** /api/v2/resources/attack-categories | 
+*ApplicationResourcesApi* | [**get_resources_attacks**](docs/ApplicationResourcesApi.md#get_resources_attacks) | **GET** /api/v2/resources/attacks | 
+*ApplicationResourcesApi* | [**get_resources_auth_profile_by_id**](docs/ApplicationResourcesApi.md#get_resources_auth_profile_by_id) | **GET** /api/v2/resources/auth-profiles/{authProfileId} | 
+*ApplicationResourcesApi* | [**get_resources_auth_profiles**](docs/ApplicationResourcesApi.md#get_resources_auth_profiles) | **GET** /api/v2/resources/auth-profiles | 
+*ApplicationResourcesApi* | [**get_resources_capture_by_id**](docs/ApplicationResourcesApi.md#get_resources_capture_by_id) | **GET** /api/v2/resources/captures/{captureId} | 
+*ApplicationResourcesApi* | [**get_resources_captures**](docs/ApplicationResourcesApi.md#get_resources_captures) | **GET** /api/v2/resources/captures | 
+*ApplicationResourcesApi* | [**get_resources_captures_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_captures_upload_file_result) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_certificate_by_id**](docs/ApplicationResourcesApi.md#get_resources_certificate_by_id) | **GET** /api/v2/resources/certificates/{certificateId} | 
+*ApplicationResourcesApi* | [**get_resources_certificate_content_file**](docs/ApplicationResourcesApi.md#get_resources_certificate_content_file) | **GET** /api/v2/resources/certificates/{certificateId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_certificates**](docs/ApplicationResourcesApi.md#get_resources_certificates) | **GET** /api/v2/resources/certificates | 
+*ApplicationResourcesApi* | [**get_resources_certificates_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_certificates_upload_file_result) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_flow_library**](docs/ApplicationResourcesApi.md#get_resources_flow_library) | **GET** /api/v2/resources/flow-library | 
+*ApplicationResourcesApi* | [**get_resources_flow_library_by_id**](docs/ApplicationResourcesApi.md#get_resources_flow_library_by_id) | **GET** /api/v2/resources/flow-library/{flowLibraryId} | 
+*ApplicationResourcesApi* | [**get_resources_flow_library_content_file**](docs/ApplicationResourcesApi.md#get_resources_flow_library_content_file) | **GET** /api/v2/resources/flow-library/{flowLibraryId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_flow_library_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_flow_library_upload_file_result) | **GET** /api/v2/resources/flow-library/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_global_playlist_by_id**](docs/ApplicationResourcesApi.md#get_resources_global_playlist_by_id) | **GET** /api/v2/resources/global-playlists/{globalPlaylistId} | 
+*ApplicationResourcesApi* | [**get_resources_global_playlist_content_file**](docs/ApplicationResourcesApi.md#get_resources_global_playlist_content_file) | **GET** /api/v2/resources/global-playlists/{globalPlaylistId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_global_playlists**](docs/ApplicationResourcesApi.md#get_resources_global_playlists) | **GET** /api/v2/resources/global-playlists | 
+*ApplicationResourcesApi* | [**get_resources_global_playlists_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_global_playlists_upload_file_result) | **GET** /api/v2/resources/global-playlists/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_http_library**](docs/ApplicationResourcesApi.md#get_resources_http_library) | **GET** /api/v2/resources/http-library | 
+*ApplicationResourcesApi* | [**get_resources_http_library_by_id**](docs/ApplicationResourcesApi.md#get_resources_http_library_by_id) | **GET** /api/v2/resources/http-library/{httpLibraryId} | 
+*ApplicationResourcesApi* | [**get_resources_http_library_content_file**](docs/ApplicationResourcesApi.md#get_resources_http_library_content_file) | **GET** /api/v2/resources/http-library/{httpLibraryId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_http_library_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_http_library_upload_file_result) | **GET** /api/v2/resources/http-library/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_http_profile_by_id**](docs/ApplicationResourcesApi.md#get_resources_http_profile_by_id) | **GET** /api/v2/resources/http-profiles/{httpProfileId} | 
+*ApplicationResourcesApi* | [**get_resources_http_profiles**](docs/ApplicationResourcesApi.md#get_resources_http_profiles) | **GET** /api/v2/resources/http-profiles | 
+*ApplicationResourcesApi* | [**get_resources_media_file_by_id**](docs/ApplicationResourcesApi.md#get_resources_media_file_by_id) | **GET** /api/v2/resources/media-files/{mediaFileId} | 
+*ApplicationResourcesApi* | [**get_resources_media_file_content_file**](docs/ApplicationResourcesApi.md#get_resources_media_file_content_file) | **GET** /api/v2/resources/media-files/{mediaFileId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_media_files**](docs/ApplicationResourcesApi.md#get_resources_media_files) | **GET** /api/v2/resources/media-files | 
+*ApplicationResourcesApi* | [**get_resources_media_files_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_media_files_upload_file_result) | **GET** /api/v2/resources/media-files/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_media_library**](docs/ApplicationResourcesApi.md#get_resources_media_library) | **GET** /api/v2/resources/media-library | 
+*ApplicationResourcesApi* | [**get_resources_media_library_by_id**](docs/ApplicationResourcesApi.md#get_resources_media_library_by_id) | **GET** /api/v2/resources/media-library/{mediaLibraryId} | 
+*ApplicationResourcesApi* | [**get_resources_media_library_content_file**](docs/ApplicationResourcesApi.md#get_resources_media_library_content_file) | **GET** /api/v2/resources/media-library/{mediaLibraryId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_media_library_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_media_library_upload_file_result) | **GET** /api/v2/resources/media-library/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_other_library**](docs/ApplicationResourcesApi.md#get_resources_other_library) | **GET** /api/v2/resources/other-library | 
+*ApplicationResourcesApi* | [**get_resources_other_library_by_id**](docs/ApplicationResourcesApi.md#get_resources_other_library_by_id) | **GET** /api/v2/resources/other-library/{otherLibraryId} | 
+*ApplicationResourcesApi* | [**get_resources_other_library_content_file**](docs/ApplicationResourcesApi.md#get_resources_other_library_content_file) | **GET** /api/v2/resources/other-library/{otherLibraryId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_other_library_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_other_library_upload_file_result) | **GET** /api/v2/resources/other-library/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_payload_by_id**](docs/ApplicationResourcesApi.md#get_resources_payload_by_id) | **GET** /api/v2/resources/payloads/{payloadId} | 
+*ApplicationResourcesApi* | [**get_resources_payload_content_file**](docs/ApplicationResourcesApi.md#get_resources_payload_content_file) | **GET** /api/v2/resources/payloads/{payloadId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_payloads**](docs/ApplicationResourcesApi.md#get_resources_payloads) | **GET** /api/v2/resources/payloads | 
+*ApplicationResourcesApi* | [**get_resources_payloads_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_payloads_upload_file_result) | **GET** /api/v2/resources/payloads/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_pcap_by_id**](docs/ApplicationResourcesApi.md#get_resources_pcap_by_id) | **GET** /api/v2/resources/pcaps/{pcapId} | 
+*ApplicationResourcesApi* | [**get_resources_pcap_content_file**](docs/ApplicationResourcesApi.md#get_resources_pcap_content_file) | **GET** /api/v2/resources/pcaps/{pcapId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_pcaps**](docs/ApplicationResourcesApi.md#get_resources_pcaps) | **GET** /api/v2/resources/pcaps | 
+*ApplicationResourcesApi* | [**get_resources_pcaps_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_pcaps_upload_file_result) | **GET** /api/v2/resources/pcaps/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_playlist_by_id**](docs/ApplicationResourcesApi.md#get_resources_playlist_by_id) | **GET** /api/v2/resources/playlists/{playlistId} | 
+*ApplicationResourcesApi* | [**get_resources_playlist_content_file**](docs/ApplicationResourcesApi.md#get_resources_playlist_content_file) | **GET** /api/v2/resources/playlists/{playlistId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_playlist_values**](docs/ApplicationResourcesApi.md#get_resources_playlist_values) | **GET** /api/v2/resources/playlists/{playlistId}/values | 
+*ApplicationResourcesApi* | [**get_resources_playlists**](docs/ApplicationResourcesApi.md#get_resources_playlists) | **GET** /api/v2/resources/playlists | 
+*ApplicationResourcesApi* | [**get_resources_playlists_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_playlists_upload_file_result) | **GET** /api/v2/resources/playlists/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_sip_library**](docs/ApplicationResourcesApi.md#get_resources_sip_library) | **GET** /api/v2/resources/sip-library | 
+*ApplicationResourcesApi* | [**get_resources_sip_library_by_id**](docs/ApplicationResourcesApi.md#get_resources_sip_library_by_id) | **GET** /api/v2/resources/sip-library/{sipLibraryId} | 
+*ApplicationResourcesApi* | [**get_resources_sip_library_content_file**](docs/ApplicationResourcesApi.md#get_resources_sip_library_content_file) | **GET** /api/v2/resources/sip-library/{sipLibraryId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_sip_library_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_sip_library_upload_file_result) | **GET** /api/v2/resources/sip-library/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_stats_profile**](docs/ApplicationResourcesApi.md#get_resources_stats_profile) | **GET** /api/v2/resources/stats-profile | 
+*ApplicationResourcesApi* | [**get_resources_stats_profile_by_id**](docs/ApplicationResourcesApi.md#get_resources_stats_profile_by_id) | **GET** /api/v2/resources/stats-profile/{statsProfileId} | 
+*ApplicationResourcesApi* | [**get_resources_stats_profile_content_file**](docs/ApplicationResourcesApi.md#get_resources_stats_profile_content_file) | **GET** /api/v2/resources/stats-profile/{statsProfileId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_stats_profile_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_stats_profile_upload_file_result) | **GET** /api/v2/resources/stats-profile/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_strike_by_id**](docs/ApplicationResourcesApi.md#get_resources_strike_by_id) | **GET** /api/v2/resources/strikes/{strikeId} | 
+*ApplicationResourcesApi* | [**get_resources_strike_categories**](docs/ApplicationResourcesApi.md#get_resources_strike_categories) | **GET** /api/v2/resources/strike-categories | 
+*ApplicationResourcesApi* | [**get_resources_strikes**](docs/ApplicationResourcesApi.md#get_resources_strikes) | **GET** /api/v2/resources/strikes | 
+*ApplicationResourcesApi* | [**get_resources_tls_certificate_by_id**](docs/ApplicationResourcesApi.md#get_resources_tls_certificate_by_id) | **GET** /api/v2/resources/tls-certificates/{tlsCertificateId} | 
+*ApplicationResourcesApi* | [**get_resources_tls_certificate_content_file**](docs/ApplicationResourcesApi.md#get_resources_tls_certificate_content_file) | **GET** /api/v2/resources/tls-certificates/{tlsCertificateId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_tls_certificates**](docs/ApplicationResourcesApi.md#get_resources_tls_certificates) | **GET** /api/v2/resources/tls-certificates | 
+*ApplicationResourcesApi* | [**get_resources_tls_certificates_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_tls_certificates_upload_file_result) | **GET** /api/v2/resources/tls-certificates/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_tls_dh_by_id**](docs/ApplicationResourcesApi.md#get_resources_tls_dh_by_id) | **GET** /api/v2/resources/tls-dhs/{tlsDhId} | 
+*ApplicationResourcesApi* | [**get_resources_tls_dh_content_file**](docs/ApplicationResourcesApi.md#get_resources_tls_dh_content_file) | **GET** /api/v2/resources/tls-dhs/{tlsDhId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_tls_dhs**](docs/ApplicationResourcesApi.md#get_resources_tls_dhs) | **GET** /api/v2/resources/tls-dhs | 
+*ApplicationResourcesApi* | [**get_resources_tls_dhs_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_tls_dhs_upload_file_result) | **GET** /api/v2/resources/tls-dhs/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_tls_key_by_id**](docs/ApplicationResourcesApi.md#get_resources_tls_key_by_id) | **GET** /api/v2/resources/tls-keys/{tlsKeyId} | 
+*ApplicationResourcesApi* | [**get_resources_tls_key_content_file**](docs/ApplicationResourcesApi.md#get_resources_tls_key_content_file) | **GET** /api/v2/resources/tls-keys/{tlsKeyId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_tls_keys**](docs/ApplicationResourcesApi.md#get_resources_tls_keys) | **GET** /api/v2/resources/tls-keys | 
+*ApplicationResourcesApi* | [**get_resources_tls_keys_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_tls_keys_upload_file_result) | **GET** /api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_user_defined_apps**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps) | **GET** /api/v2/resources/user-defined-apps | 
+*ApplicationResourcesApi* | [**get_resources_user_defined_apps_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps_upload_file_result) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**poll_resources_apps_export_all**](docs/ApplicationResourcesApi.md#poll_resources_apps_export_all) | **GET** /api/v2/resources/apps/operations/export-all/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_captures_batch_delete**](docs/ApplicationResourcesApi.md#poll_resources_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_captures_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_captures_upload_file) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_certificates_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_certificates_upload_file) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_create_app**](docs/ApplicationResourcesApi.md#poll_resources_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_edit_app**](docs/ApplicationResourcesApi.md#poll_resources_edit_app) | **GET** /api/v2/resources/operations/edit-app/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_find_param_matches**](docs/ApplicationResourcesApi.md#poll_resources_find_param_matches) | **GET** /api/v2/resources/operations/find-param-matches/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_flow_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_flow_library_upload_file) | **GET** /api/v2/resources/flow-library/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_get_attack_categories**](docs/ApplicationResourcesApi.md#poll_resources_get_attack_categories) | **GET** /api/v2/resources/operations/get-attack-categories/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_get_attacks**](docs/ApplicationResourcesApi.md#poll_resources_get_attacks) | **GET** /api/v2/resources/operations/get-attacks/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_get_strike_categories**](docs/ApplicationResourcesApi.md#poll_resources_get_strike_categories) | **GET** /api/v2/resources/operations/get-strike-categories/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_get_strikes**](docs/ApplicationResourcesApi.md#poll_resources_get_strikes) | **GET** /api/v2/resources/operations/get-strikes/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_global_playlists_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_global_playlists_upload_file) | **GET** /api/v2/resources/global-playlists/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_http_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_http_library_upload_file) | **GET** /api/v2/resources/http-library/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_media_files_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_media_files_upload_file) | **GET** /api/v2/resources/media-files/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_media_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_media_library_upload_file) | **GET** /api/v2/resources/media-library/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_other_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_other_library_upload_file) | **GET** /api/v2/resources/other-library/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_payloads_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_payloads_upload_file) | **GET** /api/v2/resources/payloads/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_pcaps_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_pcaps_upload_file) | **GET** /api/v2/resources/pcaps/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_playlists_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_playlists_upload_file) | **GET** /api/v2/resources/playlists/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_sip_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_sip_library_upload_file) | **GET** /api/v2/resources/sip-library/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_stats_profile_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_stats_profile_upload_file) | **GET** /api/v2/resources/stats-profile/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_tls_certificates_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_tls_certificates_upload_file) | **GET** /api/v2/resources/tls-certificates/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_tls_dhs_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_tls_dhs_upload_file) | **GET** /api/v2/resources/tls-dhs/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_tls_keys_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_tls_keys_upload_file) | **GET** /api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_user_defined_apps_export_all**](docs/ApplicationResourcesApi.md#poll_resources_user_defined_apps_export_all) | **GET** /api/v2/resources/user-defined-apps/operations/export-all/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_user_defined_apps_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_user_defined_apps_upload_file) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**start_resources_apps_export_all**](docs/ApplicationResourcesApi.md#start_resources_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
+*ApplicationResourcesApi* | [**start_resources_captures_batch_delete**](docs/ApplicationResourcesApi.md#start_resources_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
+*ApplicationResourcesApi* | [**start_resources_captures_upload_file**](docs/ApplicationResourcesApi.md#start_resources_captures_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_certificates_upload_file**](docs/ApplicationResourcesApi.md#start_resources_certificates_upload_file) | **POST** /api/v2/resources/certificates/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_create_app**](docs/ApplicationResourcesApi.md#start_resources_create_app) | **POST** /api/v2/resources/operations/create-app | 
+*ApplicationResourcesApi* | [**start_resources_edit_app**](docs/ApplicationResourcesApi.md#start_resources_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
+*ApplicationResourcesApi* | [**start_resources_find_param_matches**](docs/ApplicationResourcesApi.md#start_resources_find_param_matches) | **POST** /api/v2/resources/operations/find-param-matches | 
+*ApplicationResourcesApi* | [**start_resources_flow_library_upload_file**](docs/ApplicationResourcesApi.md#start_resources_flow_library_upload_file) | **POST** /api/v2/resources/flow-library/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_get_attack_categories**](docs/ApplicationResourcesApi.md#start_resources_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
+*ApplicationResourcesApi* | [**start_resources_get_attacks**](docs/ApplicationResourcesApi.md#start_resources_get_attacks) | **POST** /api/v2/resources/operations/get-attacks | 
+*ApplicationResourcesApi* | [**start_resources_get_strike_categories**](docs/ApplicationResourcesApi.md#start_resources_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
+*ApplicationResourcesApi* | [**start_resources_get_strikes**](docs/ApplicationResourcesApi.md#start_resources_get_strikes) | **POST** /api/v2/resources/operations/get-strikes | 
+*ApplicationResourcesApi* | [**start_resources_global_playlists_upload_file**](docs/ApplicationResourcesApi.md#start_resources_global_playlists_upload_file) | **POST** /api/v2/resources/global-playlists/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_http_library_upload_file**](docs/ApplicationResourcesApi.md#start_resources_http_library_upload_file) | **POST** /api/v2/resources/http-library/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_media_files_upload_file**](docs/ApplicationResourcesApi.md#start_resources_media_files_upload_file) | **POST** /api/v2/resources/media-files/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_media_library_upload_file**](docs/ApplicationResourcesApi.md#start_resources_media_library_upload_file) | **POST** /api/v2/resources/media-library/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_other_library_upload_file**](docs/ApplicationResourcesApi.md#start_resources_other_library_upload_file) | **POST** /api/v2/resources/other-library/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_payloads_upload_file**](docs/ApplicationResourcesApi.md#start_resources_payloads_upload_file) | **POST** /api/v2/resources/payloads/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_pcaps_upload_file**](docs/ApplicationResourcesApi.md#start_resources_pcaps_upload_file) | **POST** /api/v2/resources/pcaps/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_playlists_upload_file**](docs/ApplicationResourcesApi.md#start_resources_playlists_upload_file) | **POST** /api/v2/resources/playlists/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_sip_library_upload_file**](docs/ApplicationResourcesApi.md#start_resources_sip_library_upload_file) | **POST** /api/v2/resources/sip-library/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_stats_profile_upload_file**](docs/ApplicationResourcesApi.md#start_resources_stats_profile_upload_file) | **POST** /api/v2/resources/stats-profile/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_tls_certificates_upload_file**](docs/ApplicationResourcesApi.md#start_resources_tls_certificates_upload_file) | **POST** /api/v2/resources/tls-certificates/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_tls_dhs_upload_file**](docs/ApplicationResourcesApi.md#start_resources_tls_dhs_upload_file) | **POST** /api/v2/resources/tls-dhs/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_tls_keys_upload_file**](docs/ApplicationResourcesApi.md#start_resources_tls_keys_upload_file) | **POST** /api/v2/resources/tls-keys/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_user_defined_apps_export_all**](docs/ApplicationResourcesApi.md#start_resources_user_defined_apps_export_all) | **POST** /api/v2/resources/user-defined-apps/operations/export-all | 
+*ApplicationResourcesApi* | [**start_resources_user_defined_apps_upload_file**](docs/ApplicationResourcesApi.md#start_resources_user_defined_apps_upload_file) | **POST** /api/v2/resources/user-defined-apps/operations/uploadFile | 
 *AuthorizationApi* | [**authenticate**](docs/AuthorizationApi.md#authenticate) | **POST** /auth/realms/keysight/protocol/openid-connect/token | 
 *BrokersApi* | [**create_brokers**](docs/BrokersApi.md#create_brokers) | **POST** /api/v2/brokers | 
-*BrokersApi* | [**delete_brokers**](docs/BrokersApi.md#delete_brokers) | **DELETE** /api/v2/brokers/{brokerId} | 
+*BrokersApi* | [**delete_broker**](docs/BrokersApi.md#delete_broker) | **DELETE** /api/v2/brokers/{brokerId} | 
+*BrokersApi* | [**get_broker_by_id**](docs/BrokersApi.md#get_broker_by_id) | **GET** /api/v2/brokers/{brokerId} | 
 *BrokersApi* | [**get_brokers**](docs/BrokersApi.md#get_brokers) | **GET** /api/v2/brokers | 
-*BrokersApi* | [**get_brokers_by_id**](docs/BrokersApi.md#get_brokers_by_id) | **GET** /api/v2/brokers/{brokerId} | 
-*BrokersApi* | [**patch_brokers**](docs/BrokersApi.md#patch_brokers) | **PATCH** /api/v2/brokers/{brokerId} | 
+*BrokersApi* | [**patch_broker**](docs/BrokersApi.md#patch_broker) | **PATCH** /api/v2/brokers/{brokerId} | 
 *ConfigurationsApi* | [**create_configs**](docs/ConfigurationsApi.md#create_configs) | **POST** /api/v2/configs | 
-*ConfigurationsApi* | [**delete_configs**](docs/ConfigurationsApi.md#delete_configs) | **DELETE** /api/v2/configs/{configId} | 
+*ConfigurationsApi* | [**delete_config**](docs/ConfigurationsApi.md#delete_config) | **DELETE** /api/v2/configs/{configId} | 
+*ConfigurationsApi* | [**get_config_by_id**](docs/ConfigurationsApi.md#get_config_by_id) | **GET** /api/v2/configs/{configId} | 
 *ConfigurationsApi* | [**get_config_categories**](docs/ConfigurationsApi.md#get_config_categories) | **GET** /api/v2/config-categories | 
 *ConfigurationsApi* | [**get_configs**](docs/ConfigurationsApi.md#get_configs) | **GET** /api/v2/configs | 
-*ConfigurationsApi* | [**get_configs_by_id**](docs/ConfigurationsApi.md#get_configs_by_id) | **GET** /api/v2/configs/{configId} | 
-*ConfigurationsApi* | [**get_custom_import_operations**](docs/ConfigurationsApi.md#get_custom_import_operations) | **GET** /api/v2/resources/custom-import-operations | 
-*ConfigurationsApi* | [**patch_configs**](docs/ConfigurationsApi.md#patch_configs) | **PATCH** /api/v2/configs/{configId} | 
+*ConfigurationsApi* | [**get_resources_custom_import_operations**](docs/ConfigurationsApi.md#get_resources_custom_import_operations) | **GET** /api/v2/resources/custom-import-operations | 
+*ConfigurationsApi* | [**patch_config**](docs/ConfigurationsApi.md#patch_config) | **PATCH** /api/v2/configs/{configId} | 
 *ConfigurationsApi* | [**poll_configs_batch_delete**](docs/ConfigurationsApi.md#poll_configs_batch_delete) | **GET** /api/v2/configs/operations/batch-delete/{id} | 
 *ConfigurationsApi* | [**poll_configs_export_all**](docs/ConfigurationsApi.md#poll_configs_export_all) | **GET** /api/v2/configs/operations/exportAll/{id} | 
 *ConfigurationsApi* | [**poll_configs_import**](docs/ConfigurationsApi.md#poll_configs_import) | **GET** /api/v2/configs/operations/import/{id} | 
@@ -287,11 +289,11 @@ Class | Method | HTTP request | Description
 *ConfigurationsApi* | [**start_configs_export_all**](docs/ConfigurationsApi.md#start_configs_export_all) | **POST** /api/v2/configs/operations/exportAll | 
 *ConfigurationsApi* | [**start_configs_import**](docs/ConfigurationsApi.md#start_configs_import) | **POST** /api/v2/configs/operations/import | 
 *ConfigurationsApi* | [**start_configs_import_all**](docs/ConfigurationsApi.md#start_configs_import_all) | **POST** /api/v2/configs/operations/importAll | 
-*ConfigurationsApi* | [**update_configs**](docs/ConfigurationsApi.md#update_configs) | **PUT** /api/v2/configs/{configId} | 
-*DataMigrationApi* | [**poll_export**](docs/DataMigrationApi.md#poll_export) | **GET** /api/v2/controller-migration/operations/export/{id} | 
-*DataMigrationApi* | [**poll_import**](docs/DataMigrationApi.md#poll_import) | **GET** /api/v2/controller-migration/operations/import/{id} | 
-*DataMigrationApi* | [**start_export**](docs/DataMigrationApi.md#start_export) | **POST** /api/v2/controller-migration/operations/export | 
-*DataMigrationApi* | [**start_import**](docs/DataMigrationApi.md#start_import) | **POST** /api/v2/controller-migration/operations/import | 
+*ConfigurationsApi* | [**update_config**](docs/ConfigurationsApi.md#update_config) | **PUT** /api/v2/configs/{configId} | 
+*DataMigrationApi* | [**poll_controller_migration_export**](docs/DataMigrationApi.md#poll_controller_migration_export) | **GET** /api/v2/controller-migration/operations/export/{id} | 
+*DataMigrationApi* | [**poll_controller_migration_import**](docs/DataMigrationApi.md#poll_controller_migration_import) | **GET** /api/v2/controller-migration/operations/import/{id} | 
+*DataMigrationApi* | [**start_controller_migration_export**](docs/DataMigrationApi.md#start_controller_migration_export) | **POST** /api/v2/controller-migration/operations/export | 
+*DataMigrationApi* | [**start_controller_migration_import**](docs/DataMigrationApi.md#start_controller_migration_import) | **POST** /api/v2/controller-migration/operations/import | 
 *DiagnosticsApi* | [**api_v2_diagnostics_components_get**](docs/DiagnosticsApi.md#api_v2_diagnostics_components_get) | **GET** /api/v2/diagnostics/components | 
 *DiagnosticsApi* | [**api_v2_diagnostics_operations_delete_delete**](docs/DiagnosticsApi.md#api_v2_diagnostics_operations_delete_delete) | **DELETE** /api/v2/diagnostics/operations/delete | 
 *DiagnosticsApi* | [**api_v2_diagnostics_operations_delete_id_delete**](docs/DiagnosticsApi.md#api_v2_diagnostics_operations_delete_id_delete) | **DELETE** /api/v2/diagnostics/operations/delete/{id} | 
@@ -300,10 +302,10 @@ Class | Method | HTTP request | Description
 *DiagnosticsApi* | [**api_v2_diagnostics_operations_export_id_result_get**](docs/DiagnosticsApi.md#api_v2_diagnostics_operations_export_id_result_get) | **GET** /api/v2/diagnostics/operations/export/{id}/result | 
 *DiagnosticsApi* | [**api_v2_diagnostics_operations_export_post**](docs/DiagnosticsApi.md#api_v2_diagnostics_operations_export_post) | **POST** /api/v2/diagnostics/operations/export | 
 *LicenseServersApi* | [**create_license_servers**](docs/LicenseServersApi.md#create_license_servers) | **POST** /api/v2/license-servers | 
-*LicenseServersApi* | [**delete_license_servers**](docs/LicenseServersApi.md#delete_license_servers) | **DELETE** /api/v2/license-servers/{licenseServerId} | 
+*LicenseServersApi* | [**delete_license_server**](docs/LicenseServersApi.md#delete_license_server) | **DELETE** /api/v2/license-servers/{licenseServerId} | 
+*LicenseServersApi* | [**get_license_server_by_id**](docs/LicenseServersApi.md#get_license_server_by_id) | **GET** /api/v2/license-servers/{licenseServerId} | 
 *LicenseServersApi* | [**get_license_servers**](docs/LicenseServersApi.md#get_license_servers) | **GET** /api/v2/license-servers | 
-*LicenseServersApi* | [**get_license_servers_by_id**](docs/LicenseServersApi.md#get_license_servers_by_id) | **GET** /api/v2/license-servers/{licenseServerId} | 
-*LicenseServersApi* | [**patch_license_servers**](docs/LicenseServersApi.md#patch_license_servers) | **PATCH** /api/v2/license-servers/{licenseServerId} | 
+*LicenseServersApi* | [**patch_license_server**](docs/LicenseServersApi.md#patch_license_server) | **PATCH** /api/v2/license-servers/{licenseServerId} | 
 *LicensingApi* | [**activate_licenses**](docs/LicensingApi.md#activate_licenses) | **POST** /api/v2/licensing/operations/activate | Performs an online request to KSM and activates the requested licenses.
 *LicensingApi* | [**deactivate_licenses**](docs/LicensingApi.md#deactivate_licenses) | **POST** /api/v2/licensing/operations/deactivate | Performs an online request to KSM to deactivate the requested licenses.
 *LicensingApi* | [**generate_offline_request**](docs/LicensingApi.md#generate_offline_request) | **GET** /api/v2/licensing/generate-offline-request | Generates an offline request that can be used on the offline licensing portal.
@@ -323,99 +325,99 @@ Class | Method | HTTP request | Description
 *LicensingApi* | [**sync_licenses**](docs/LicensingApi.md#sync_licenses) | **POST** /api/v2/licensing/operations/synchronize-licenses | Synchronize local licenses with KSM.
 *LicensingApi* | [**test_backend_connectivity**](docs/LicensingApi.md#test_backend_connectivity) | **POST** /api/v2/licensing/operations/test-backend-connectivity | Tests connection of the license server with KSM.
 *LicensingApi* | [**update_reservation**](docs/LicensingApi.md#update_reservation) | **POST** /api/v2/licensing/licenses/{licenseId}/operations/reservation-reserve | Retain over a period of time specific counts of installed features, that can be consumed only by current user. 
-*NotificationsApi* | [**delete_notifications**](docs/NotificationsApi.md#delete_notifications) | **DELETE** /api/v2/notifications/{notificationId} | 
+*NotificationsApi* | [**delete_notification**](docs/NotificationsApi.md#delete_notification) | **DELETE** /api/v2/notifications/{notificationId} | 
+*NotificationsApi* | [**get_notification_by_id**](docs/NotificationsApi.md#get_notification_by_id) | **GET** /api/v2/notifications/{notificationId} | 
 *NotificationsApi* | [**get_notification_counts**](docs/NotificationsApi.md#get_notification_counts) | **GET** /api/v2/notification-counts | 
 *NotificationsApi* | [**get_notifications**](docs/NotificationsApi.md#get_notifications) | **GET** /api/v2/notifications | 
-*NotificationsApi* | [**get_notifications_by_id**](docs/NotificationsApi.md#get_notifications_by_id) | **GET** /api/v2/notifications/{notificationId} | 
 *NotificationsApi* | [**poll_notifications_cleanup**](docs/NotificationsApi.md#poll_notifications_cleanup) | **GET** /api/v2/notifications/operations/cleanup/{id} | 
 *NotificationsApi* | [**poll_notifications_dismiss**](docs/NotificationsApi.md#poll_notifications_dismiss) | **GET** /api/v2/notifications/operations/dismiss/{id} | 
 *NotificationsApi* | [**start_notifications_cleanup**](docs/NotificationsApi.md#start_notifications_cleanup) | **POST** /api/v2/notifications/operations/cleanup | 
 *NotificationsApi* | [**start_notifications_dismiss**](docs/NotificationsApi.md#start_notifications_dismiss) | **POST** /api/v2/notifications/operations/dismiss | 
 *ReportsApi* | [**download_pdf**](docs/ReportsApi.md#download_pdf) | **GET** /api/v2/results/{resultId}/download-pdf/{pdfId} | 
-*ReportsApi* | [**get_download_csv_by_id**](docs/ReportsApi.md#get_download_csv_by_id) | **GET** /api/v2/results/{resultId}/download-csv/{downloadCsvId} | 
-*ReportsApi* | [**poll_results_generate_csv**](docs/ReportsApi.md#poll_results_generate_csv) | **GET** /api/v2/results/{resultId}/operations/generate-csv/{id} | 
-*ReportsApi* | [**poll_results_generate_pdf**](docs/ReportsApi.md#poll_results_generate_pdf) | **GET** /api/v2/results/{resultId}/operations/generate-pdf/{id} | 
-*ReportsApi* | [**start_results_generate_csv**](docs/ReportsApi.md#start_results_generate_csv) | **POST** /api/v2/results/{resultId}/operations/generate-csv | 
-*ReportsApi* | [**start_results_generate_pdf**](docs/ReportsApi.md#start_results_generate_pdf) | **POST** /api/v2/results/{resultId}/operations/generate-pdf | 
-*SessionsApi* | [**create_meta**](docs/SessionsApi.md#create_meta) | **POST** /api/v2/sessions/{sessionId}/meta | 
+*ReportsApi* | [**get_result_download_csv_by_id**](docs/ReportsApi.md#get_result_download_csv_by_id) | **GET** /api/v2/results/{resultId}/download-csv/{downloadCsvId} | 
+*ReportsApi* | [**poll_result_generate_csv**](docs/ReportsApi.md#poll_result_generate_csv) | **GET** /api/v2/results/{resultId}/operations/generate-csv/{id} | 
+*ReportsApi* | [**poll_result_generate_pdf**](docs/ReportsApi.md#poll_result_generate_pdf) | **GET** /api/v2/results/{resultId}/operations/generate-pdf/{id} | 
+*ReportsApi* | [**start_result_generate_csv**](docs/ReportsApi.md#start_result_generate_csv) | **POST** /api/v2/results/{resultId}/operations/generate-csv | 
+*ReportsApi* | [**start_result_generate_pdf**](docs/ReportsApi.md#start_result_generate_pdf) | **POST** /api/v2/results/{resultId}/operations/generate-pdf | 
+*SessionsApi* | [**create_session_meta**](docs/SessionsApi.md#create_session_meta) | **POST** /api/v2/sessions/{sessionId}/meta | 
 *SessionsApi* | [**create_sessions**](docs/SessionsApi.md#create_sessions) | **POST** /api/v2/sessions | 
-*SessionsApi* | [**delete_meta**](docs/SessionsApi.md#delete_meta) | **DELETE** /api/v2/sessions/{sessionId}/meta/{metaId} | 
-*SessionsApi* | [**delete_sessions**](docs/SessionsApi.md#delete_sessions) | **DELETE** /api/v2/sessions/{sessionId} | 
+*SessionsApi* | [**delete_session**](docs/SessionsApi.md#delete_session) | **DELETE** /api/v2/sessions/{sessionId} | 
+*SessionsApi* | [**delete_session_meta**](docs/SessionsApi.md#delete_session_meta) | **DELETE** /api/v2/sessions/{sessionId}/meta/{metaId} | 
 *SessionsApi* | [**get_appsec_ui_metadata**](docs/SessionsApi.md#get_appsec_ui_metadata) | **GET** /api/v2/appsec-ui-metadata | 
-*SessionsApi* | [**get_config**](docs/SessionsApi.md#get_config) | **GET** /api/v2/sessions/{sessionId}/config | 
-*SessionsApi* | [**get_docs**](docs/SessionsApi.md#get_docs) | **GET** /api/v2/sessions/{sessionId}/config/$docs | 
-*SessionsApi* | [**get_granular_stats**](docs/SessionsApi.md#get_granular_stats) | **GET** /api/v2/sessions/{sessionId}/config/granular-stats | 
-*SessionsApi* | [**get_granular_stats_filters**](docs/SessionsApi.md#get_granular_stats_filters) | **GET** /api/v2/sessions/{sessionId}/config/granular-stats-filters | 
-*SessionsApi* | [**get_meta**](docs/SessionsApi.md#get_meta) | **GET** /api/v2/sessions/{sessionId}/meta | 
-*SessionsApi* | [**get_meta_by_id**](docs/SessionsApi.md#get_meta_by_id) | **GET** /api/v2/sessions/{sessionId}/meta/{metaId} | 
+*SessionsApi* | [**get_config_docs**](docs/SessionsApi.md#get_config_docs) | **GET** /api/v2/sessions/{sessionId}/config/$docs | 
+*SessionsApi* | [**get_config_granular_stats**](docs/SessionsApi.md#get_config_granular_stats) | **GET** /api/v2/sessions/{sessionId}/config/granular-stats | 
+*SessionsApi* | [**get_config_granular_stats_filters**](docs/SessionsApi.md#get_config_granular_stats_filters) | **GET** /api/v2/sessions/{sessionId}/config/granular-stats-filters | 
+*SessionsApi* | [**get_session_by_id**](docs/SessionsApi.md#get_session_by_id) | **GET** /api/v2/sessions/{sessionId} | 
+*SessionsApi* | [**get_session_config**](docs/SessionsApi.md#get_session_config) | **GET** /api/v2/sessions/{sessionId}/config | 
+*SessionsApi* | [**get_session_meta**](docs/SessionsApi.md#get_session_meta) | **GET** /api/v2/sessions/{sessionId}/meta | 
+*SessionsApi* | [**get_session_meta_by_id**](docs/SessionsApi.md#get_session_meta_by_id) | **GET** /api/v2/sessions/{sessionId}/meta/{metaId} | 
+*SessionsApi* | [**get_session_test**](docs/SessionsApi.md#get_session_test) | **GET** /api/v2/sessions/{sessionId}/test | 
 *SessionsApi* | [**get_sessions**](docs/SessionsApi.md#get_sessions) | **GET** /api/v2/sessions | 
-*SessionsApi* | [**get_sessions_by_id**](docs/SessionsApi.md#get_sessions_by_id) | **GET** /api/v2/sessions/{sessionId} | 
-*SessionsApi* | [**get_test**](docs/SessionsApi.md#get_test) | **GET** /api/v2/sessions/{sessionId}/test | 
-*SessionsApi* | [**patch_meta**](docs/SessionsApi.md#patch_meta) | **PATCH** /api/v2/sessions/{sessionId}/meta/{metaId} | 
-*SessionsApi* | [**patch_sessions**](docs/SessionsApi.md#patch_sessions) | **PATCH** /api/v2/sessions/{sessionId} | 
-*SessionsApi* | [**patch_test**](docs/SessionsApi.md#patch_test) | **PATCH** /api/v2/sessions/{sessionId}/test | 
+*SessionsApi* | [**patch_session**](docs/SessionsApi.md#patch_session) | **PATCH** /api/v2/sessions/{sessionId} | 
+*SessionsApi* | [**patch_session_meta**](docs/SessionsApi.md#patch_session_meta) | **PATCH** /api/v2/sessions/{sessionId}/meta/{metaId} | 
+*SessionsApi* | [**patch_session_test**](docs/SessionsApi.md#patch_session_test) | **PATCH** /api/v2/sessions/{sessionId}/test | 
 *SessionsApi* | [**poll_config_add_applications**](docs/SessionsApi.md#poll_config_add_applications) | **GET** /api/v2/sessions/{sessionId}/config/config/TrafficProfiles/{trafficProfileId}/operations/add-applications/{id} | 
-*SessionsApi* | [**poll_config_granular_stats_default_dashboards**](docs/SessionsApi.md#poll_config_granular_stats_default_dashboards) | **GET** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards/{id} | 
 *SessionsApi* | [**poll_config_save**](docs/SessionsApi.md#poll_config_save) | **GET** /api/v2/sessions/{sessionId}/config/operations/save/{id} | 
-*SessionsApi* | [**poll_prepare_test**](docs/SessionsApi.md#poll_prepare_test) | **GET** /api/v2/sessions/{sessionId}/operations/prepareTest/{id} | 
+*SessionsApi* | [**poll_session_config_granular_stats_default_dashboards**](docs/SessionsApi.md#poll_session_config_granular_stats_default_dashboards) | **GET** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards/{id} | 
+*SessionsApi* | [**poll_session_load_config**](docs/SessionsApi.md#poll_session_load_config) | **GET** /api/v2/sessions/{sessionId}/operations/loadConfig/{id} | 
+*SessionsApi* | [**poll_session_prepare_test**](docs/SessionsApi.md#poll_session_prepare_test) | **GET** /api/v2/sessions/{sessionId}/operations/prepareTest/{id} | 
+*SessionsApi* | [**poll_session_test_end**](docs/SessionsApi.md#poll_session_test_end) | **GET** /api/v2/sessions/{sessionId}/operations/testEnd/{id} | 
+*SessionsApi* | [**poll_session_test_init**](docs/SessionsApi.md#poll_session_test_init) | **GET** /api/v2/sessions/{sessionId}/operations/testInit/{id} | 
+*SessionsApi* | [**poll_session_touch**](docs/SessionsApi.md#poll_session_touch) | **GET** /api/v2/sessions/{sessionId}/operations/touch/{id} | 
 *SessionsApi* | [**poll_sessions_batch_delete**](docs/SessionsApi.md#poll_sessions_batch_delete) | **GET** /api/v2/sessions/operations/batch-delete/{id} | 
-*SessionsApi* | [**poll_sessions_load_config**](docs/SessionsApi.md#poll_sessions_load_config) | **GET** /api/v2/sessions/{sessionId}/operations/loadConfig/{id} | 
-*SessionsApi* | [**poll_sessions_touch**](docs/SessionsApi.md#poll_sessions_touch) | **GET** /api/v2/sessions/{sessionId}/operations/touch/{id} | 
-*SessionsApi* | [**poll_test_end**](docs/SessionsApi.md#poll_test_end) | **GET** /api/v2/sessions/{sessionId}/operations/testEnd/{id} | 
-*SessionsApi* | [**poll_test_init**](docs/SessionsApi.md#poll_test_init) | **GET** /api/v2/sessions/{sessionId}/operations/testInit/{id} | 
 *SessionsApi* | [**start_config_add_applications**](docs/SessionsApi.md#start_config_add_applications) | **POST** /api/v2/sessions/{sessionId}/config/config/TrafficProfiles/{trafficProfileId}/operations/add-applications | 
-*SessionsApi* | [**start_config_granular_stats_default_dashboards**](docs/SessionsApi.md#start_config_granular_stats_default_dashboards) | **POST** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards | 
-*SessionsApi* | [**start_config_save**](docs/SessionsApi.md#start_config_save) | **POST** /api/v2/sessions/{sessionId}/config/operations/save | 
-*SessionsApi* | [**start_prepare_test**](docs/SessionsApi.md#start_prepare_test) | **POST** /api/v2/sessions/{sessionId}/operations/prepareTest | 
+*SessionsApi* | [**start_session_config_granular_stats_default_dashboards**](docs/SessionsApi.md#start_session_config_granular_stats_default_dashboards) | **POST** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards | 
+*SessionsApi* | [**start_session_config_save**](docs/SessionsApi.md#start_session_config_save) | **POST** /api/v2/sessions/{sessionId}/config/operations/save | 
+*SessionsApi* | [**start_session_load_config**](docs/SessionsApi.md#start_session_load_config) | **POST** /api/v2/sessions/{sessionId}/operations/loadConfig | 
+*SessionsApi* | [**start_session_prepare_test**](docs/SessionsApi.md#start_session_prepare_test) | **POST** /api/v2/sessions/{sessionId}/operations/prepareTest | 
+*SessionsApi* | [**start_session_test_end**](docs/SessionsApi.md#start_session_test_end) | **POST** /api/v2/sessions/{sessionId}/operations/testEnd | 
+*SessionsApi* | [**start_session_test_init**](docs/SessionsApi.md#start_session_test_init) | **POST** /api/v2/sessions/{sessionId}/operations/testInit | 
+*SessionsApi* | [**start_session_touch**](docs/SessionsApi.md#start_session_touch) | **POST** /api/v2/sessions/{sessionId}/operations/touch | 
 *SessionsApi* | [**start_sessions_batch_delete**](docs/SessionsApi.md#start_sessions_batch_delete) | **POST** /api/v2/sessions/operations/batch-delete | 
-*SessionsApi* | [**start_sessions_load_config**](docs/SessionsApi.md#start_sessions_load_config) | **POST** /api/v2/sessions/{sessionId}/operations/loadConfig | 
-*SessionsApi* | [**start_sessions_touch**](docs/SessionsApi.md#start_sessions_touch) | **POST** /api/v2/sessions/{sessionId}/operations/touch | 
-*SessionsApi* | [**start_test_end**](docs/SessionsApi.md#start_test_end) | **POST** /api/v2/sessions/{sessionId}/operations/testEnd | 
-*SessionsApi* | [**start_test_init**](docs/SessionsApi.md#start_test_init) | **POST** /api/v2/sessions/{sessionId}/operations/testInit | 
-*SessionsApi* | [**update_config**](docs/SessionsApi.md#update_config) | **PUT** /api/v2/sessions/{sessionId}/config | 
-*SessionsApi* | [**update_meta**](docs/SessionsApi.md#update_meta) | **PUT** /api/v2/sessions/{sessionId}/meta | 
-*SessionsApi* | [**update_sessions**](docs/SessionsApi.md#update_sessions) | **PUT** /api/v2/sessions/{sessionId} | 
-*SessionsApi* | [**update_test**](docs/SessionsApi.md#update_test) | **PUT** /api/v2/sessions/{sessionId}/test | 
-*StatisticsApi* | [**create_plugins**](docs/StatisticsApi.md#create_plugins) | **POST** /api/v2/stats/plugins | 
-*StatisticsApi* | [**delete_plugins**](docs/StatisticsApi.md#delete_plugins) | **DELETE** /api/v2/stats/plugins/{pluginId} | 
-*StatisticsApi* | [**get_plugins**](docs/StatisticsApi.md#get_plugins) | **GET** /api/v2/stats/plugins | 
-*StatisticsApi* | [**get_stats**](docs/StatisticsApi.md#get_stats) | **GET** /api/v2/results/{resultId}/stats | 
-*StatisticsApi* | [**get_stats_by_id**](docs/StatisticsApi.md#get_stats_by_id) | **GET** /api/v2/results/{resultId}/stats/{statId} | 
-*StatisticsApi* | [**poll_plugins_ingest**](docs/StatisticsApi.md#poll_plugins_ingest) | **GET** /api/v2/stats/plugins/operations/ingest/{id} | 
-*StatisticsApi* | [**start_plugins_ingest**](docs/StatisticsApi.md#start_plugins_ingest) | **POST** /api/v2/stats/plugins/operations/ingest | 
-*TestOperationsApi* | [**poll_abort**](docs/TestOperationsApi.md#poll_abort) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/abort/{id} | 
-*TestOperationsApi* | [**poll_start_calibration**](docs/TestOperationsApi.md#poll_start_calibration) | **GET** /api/v2/sessions/{sessionId}/test-calibrate/operations/start/{id} | 
-*TestOperationsApi* | [**poll_start_traffic**](docs/TestOperationsApi.md#poll_start_traffic) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/start/{id} | 
-*TestOperationsApi* | [**poll_stop_calibration**](docs/TestOperationsApi.md#poll_stop_calibration) | **GET** /api/v2/sessions/{sessionId}/test-calibrate/operations/stop/{id} | 
-*TestOperationsApi* | [**poll_stop_traffic**](docs/TestOperationsApi.md#poll_stop_traffic) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/stop/{id} | 
-*TestOperationsApi* | [**start_abort**](docs/TestOperationsApi.md#start_abort) | **POST** /api/v2/sessions/{sessionId}/test-run/operations/abort | 
-*TestOperationsApi* | [**start_start_calibration**](docs/TestOperationsApi.md#start_start_calibration) | **POST** /api/v2/sessions/{sessionId}/test-calibrate/operations/start | 
-*TestOperationsApi* | [**start_start_traffic**](docs/TestOperationsApi.md#start_start_traffic) | **POST** /api/v2/sessions/{sessionId}/test-run/operations/start | 
-*TestOperationsApi* | [**start_stop_calibration**](docs/TestOperationsApi.md#start_stop_calibration) | **POST** /api/v2/sessions/{sessionId}/test-calibrate/operations/stop | 
-*TestOperationsApi* | [**start_stop_traffic**](docs/TestOperationsApi.md#start_stop_traffic) | **POST** /api/v2/sessions/{sessionId}/test-run/operations/stop | 
-*TestResultsApi* | [**delete_files**](docs/TestResultsApi.md#delete_files) | **DELETE** /api/v2/results/{resultId}/files/{fileId} | 
-*TestResultsApi* | [**delete_results**](docs/TestResultsApi.md#delete_results) | **DELETE** /api/v2/results/{resultId} | 
-*TestResultsApi* | [**get_download_all_by_id**](docs/TestResultsApi.md#get_download_all_by_id) | **GET** /api/v2/results/{resultId}/download-all/{downloadAllId} | 
-*TestResultsApi* | [**get_download_result_config**](docs/TestResultsApi.md#get_download_result_config) | **GET** /api/v2/results/{resultId}/download-result-config | 
-*TestResultsApi* | [**get_files**](docs/TestResultsApi.md#get_files) | **GET** /api/v2/results/{resultId}/files | 
-*TestResultsApi* | [**get_files_by_id**](docs/TestResultsApi.md#get_files_by_id) | **GET** /api/v2/results/{resultId}/files/{fileId} | 
-*TestResultsApi* | [**get_result_tags**](docs/TestResultsApi.md#get_result_tags) | **GET** /api/v2/results/tags | 
+*SessionsApi* | [**update_session**](docs/SessionsApi.md#update_session) | **PUT** /api/v2/sessions/{sessionId} | 
+*SessionsApi* | [**update_session_config**](docs/SessionsApi.md#update_session_config) | **PUT** /api/v2/sessions/{sessionId}/config | 
+*SessionsApi* | [**update_session_meta**](docs/SessionsApi.md#update_session_meta) | **PUT** /api/v2/sessions/{sessionId}/meta | 
+*SessionsApi* | [**update_session_test**](docs/SessionsApi.md#update_session_test) | **PUT** /api/v2/sessions/{sessionId}/test | 
+*StatisticsApi* | [**create_stats_plugins**](docs/StatisticsApi.md#create_stats_plugins) | **POST** /api/v2/stats/plugins | 
+*StatisticsApi* | [**delete_stats_plugin**](docs/StatisticsApi.md#delete_stats_plugin) | **DELETE** /api/v2/stats/plugins/{pluginId} | 
+*StatisticsApi* | [**get_result_stat_by_id**](docs/StatisticsApi.md#get_result_stat_by_id) | **GET** /api/v2/results/{resultId}/stats/{statId} | 
+*StatisticsApi* | [**get_result_stats**](docs/StatisticsApi.md#get_result_stats) | **GET** /api/v2/results/{resultId}/stats | 
+*StatisticsApi* | [**get_stats_plugins**](docs/StatisticsApi.md#get_stats_plugins) | **GET** /api/v2/stats/plugins | 
+*StatisticsApi* | [**poll_stats_plugins_ingest**](docs/StatisticsApi.md#poll_stats_plugins_ingest) | **GET** /api/v2/stats/plugins/operations/ingest/{id} | 
+*StatisticsApi* | [**start_stats_plugins_ingest**](docs/StatisticsApi.md#start_stats_plugins_ingest) | **POST** /api/v2/stats/plugins/operations/ingest | 
+*TestOperationsApi* | [**poll_test_calibrate_start**](docs/TestOperationsApi.md#poll_test_calibrate_start) | **GET** /api/v2/sessions/{sessionId}/test-calibrate/operations/start/{id} | 
+*TestOperationsApi* | [**poll_test_calibrate_stop**](docs/TestOperationsApi.md#poll_test_calibrate_stop) | **GET** /api/v2/sessions/{sessionId}/test-calibrate/operations/stop/{id} | 
+*TestOperationsApi* | [**poll_test_run_abort**](docs/TestOperationsApi.md#poll_test_run_abort) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/abort/{id} | 
+*TestOperationsApi* | [**poll_test_run_start**](docs/TestOperationsApi.md#poll_test_run_start) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/start/{id} | 
+*TestOperationsApi* | [**poll_test_run_stop**](docs/TestOperationsApi.md#poll_test_run_stop) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/stop/{id} | 
+*TestOperationsApi* | [**start_test_calibrate_start**](docs/TestOperationsApi.md#start_test_calibrate_start) | **POST** /api/v2/sessions/{sessionId}/test-calibrate/operations/start | 
+*TestOperationsApi* | [**start_test_calibrate_stop**](docs/TestOperationsApi.md#start_test_calibrate_stop) | **POST** /api/v2/sessions/{sessionId}/test-calibrate/operations/stop | 
+*TestOperationsApi* | [**start_test_run_abort**](docs/TestOperationsApi.md#start_test_run_abort) | **POST** /api/v2/sessions/{sessionId}/test-run/operations/abort | 
+*TestOperationsApi* | [**start_test_run_start**](docs/TestOperationsApi.md#start_test_run_start) | **POST** /api/v2/sessions/{sessionId}/test-run/operations/start | 
+*TestOperationsApi* | [**start_test_run_stop**](docs/TestOperationsApi.md#start_test_run_stop) | **POST** /api/v2/sessions/{sessionId}/test-run/operations/stop | 
+*TestResultsApi* | [**delete_result**](docs/TestResultsApi.md#delete_result) | **DELETE** /api/v2/results/{resultId} | 
+*TestResultsApi* | [**delete_result_file**](docs/TestResultsApi.md#delete_result_file) | **DELETE** /api/v2/results/{resultId}/files/{fileId} | 
+*TestResultsApi* | [**get_result_by_id**](docs/TestResultsApi.md#get_result_by_id) | **GET** /api/v2/results/{resultId} | 
+*TestResultsApi* | [**get_result_download_all_by_id**](docs/TestResultsApi.md#get_result_download_all_by_id) | **GET** /api/v2/results/{resultId}/download-all/{downloadAllId} | 
+*TestResultsApi* | [**get_result_download_result_config**](docs/TestResultsApi.md#get_result_download_result_config) | **GET** /api/v2/results/{resultId}/download-result-config | 
+*TestResultsApi* | [**get_result_file_by_id**](docs/TestResultsApi.md#get_result_file_by_id) | **GET** /api/v2/results/{resultId}/files/{fileId} | 
+*TestResultsApi* | [**get_result_file_content**](docs/TestResultsApi.md#get_result_file_content) | **GET** /api/v2/results/{resultId}/files/{fileId}/content | 
+*TestResultsApi* | [**get_result_files**](docs/TestResultsApi.md#get_result_files) | **GET** /api/v2/results/{resultId}/files | 
 *TestResultsApi* | [**get_results**](docs/TestResultsApi.md#get_results) | **GET** /api/v2/results | 
-*TestResultsApi* | [**get_results_by_id**](docs/TestResultsApi.md#get_results_by_id) | **GET** /api/v2/results/{resultId} | 
-*TestResultsApi* | [**get_results_results_id_files_files_id_content**](docs/TestResultsApi.md#get_results_results_id_files_files_id_content) | **GET** /api/v2/results/{resultId}/files/{fileId}/content | 
+*TestResultsApi* | [**get_results_tags**](docs/TestResultsApi.md#get_results_tags) | **GET** /api/v2/results/tags | 
+*TestResultsApi* | [**poll_result_generate_all**](docs/TestResultsApi.md#poll_result_generate_all) | **GET** /api/v2/results/{resultId}/operations/generate-all/{id} | 
+*TestResultsApi* | [**poll_result_generate_results**](docs/TestResultsApi.md#poll_result_generate_results) | **GET** /api/v2/results/{resultId}/operations/generate-results/{id} | 
+*TestResultsApi* | [**poll_result_load**](docs/TestResultsApi.md#poll_result_load) | **GET** /api/v2/results/{resultId}/operations/load/{id} | 
 *TestResultsApi* | [**poll_results_batch_delete**](docs/TestResultsApi.md#poll_results_batch_delete) | **GET** /api/v2/results/operations/batch-delete/{id} | 
-*TestResultsApi* | [**poll_results_generate_all**](docs/TestResultsApi.md#poll_results_generate_all) | **GET** /api/v2/results/{resultId}/operations/generate-all/{id} | 
-*TestResultsApi* | [**poll_results_generate_results**](docs/TestResultsApi.md#poll_results_generate_results) | **GET** /api/v2/results/{resultId}/operations/generate-results/{id} | 
-*TestResultsApi* | [**poll_results_load**](docs/TestResultsApi.md#poll_results_load) | **GET** /api/v2/results/{resultId}/operations/load/{id} | 
+*TestResultsApi* | [**start_result_generate_all**](docs/TestResultsApi.md#start_result_generate_all) | **POST** /api/v2/results/{resultId}/operations/generate-all | 
+*TestResultsApi* | [**start_result_generate_results**](docs/TestResultsApi.md#start_result_generate_results) | **POST** /api/v2/results/{resultId}/operations/generate-results | 
+*TestResultsApi* | [**start_result_load**](docs/TestResultsApi.md#start_result_load) | **POST** /api/v2/results/{resultId}/operations/load | 
 *TestResultsApi* | [**start_results_batch_delete**](docs/TestResultsApi.md#start_results_batch_delete) | **POST** /api/v2/results/operations/batch-delete | 
-*TestResultsApi* | [**start_results_generate_all**](docs/TestResultsApi.md#start_results_generate_all) | **POST** /api/v2/results/{resultId}/operations/generate-all | 
-*TestResultsApi* | [**start_results_generate_results**](docs/TestResultsApi.md#start_results_generate_results) | **POST** /api/v2/results/{resultId}/operations/generate-results | 
-*TestResultsApi* | [**start_results_load**](docs/TestResultsApi.md#start_results_load) | **POST** /api/v2/results/{resultId}/operations/load | 
 *UtilsApi* | [**check_eulas**](docs/UtilsApi.md#check_eulas) | **GET** /eula/v1/check | Check if all EULAs are accepted
-*UtilsApi* | [**get_certificate**](docs/UtilsApi.md#get_certificate) | **GET** /api/v2/cert-manager/certificate | 
-*UtilsApi* | [**get_consumers**](docs/UtilsApi.md#get_consumers) | **GET** /api/v2/disk-usage/consumers | 
-*UtilsApi* | [**get_consumers_by_id**](docs/UtilsApi.md#get_consumers_by_id) | **GET** /api/v2/disk-usage/consumers/{consumerId} | 
+*UtilsApi* | [**get_cert_manager_certificate**](docs/UtilsApi.md#get_cert_manager_certificate) | **GET** /api/v2/cert-manager/certificate | 
 *UtilsApi* | [**get_disk_usage**](docs/UtilsApi.md#get_disk_usage) | **GET** /api/v2/disk-usage | 
+*UtilsApi* | [**get_disk_usage_consumer_by_id**](docs/UtilsApi.md#get_disk_usage_consumer_by_id) | **GET** /api/v2/disk-usage/consumers/{consumerId} | 
+*UtilsApi* | [**get_disk_usage_consumers**](docs/UtilsApi.md#get_disk_usage_consumers) | **GET** /api/v2/disk-usage/consumers | 
 *UtilsApi* | [**get_docs**](docs/UtilsApi.md#get_docs) | **GET** /api/v2/docs | 
 *UtilsApi* | [**get_docs_json**](docs/UtilsApi.md#get_docs_json) | **GET** /api/v2/docs.json | 
 *UtilsApi* | [**get_docs_yaml**](docs/UtilsApi.md#get_docs_yaml) | **GET** /api/v2/docs.yaml | 
@@ -423,21 +425,21 @@ Class | Method | HTTP request | Description
 *UtilsApi* | [**get_log_config**](docs/UtilsApi.md#get_log_config) | **GET** /api/v2/log-config | 
 *UtilsApi* | [**get_time**](docs/UtilsApi.md#get_time) | **GET** /api/v2/time | 
 *UtilsApi* | [**list_eulas**](docs/UtilsApi.md#list_eulas) | **GET** /eula/v1/eula | list of EULAs
+*UtilsApi* | [**poll_cert_manager_generate**](docs/UtilsApi.md#poll_cert_manager_generate) | **GET** /api/v2/cert-manager/operations/generate/{id} | 
+*UtilsApi* | [**poll_cert_manager_upload**](docs/UtilsApi.md#poll_cert_manager_upload) | **GET** /api/v2/cert-manager/operations/upload/{id} | 
 *UtilsApi* | [**poll_disk_usage_cleanup_diagnostics**](docs/UtilsApi.md#poll_disk_usage_cleanup_diagnostics) | **GET** /api/v2/disk-usage/operations/cleanup-diagnostics/{id} | 
 *UtilsApi* | [**poll_disk_usage_cleanup_logs**](docs/UtilsApi.md#poll_disk_usage_cleanup_logs) | **GET** /api/v2/disk-usage/operations/cleanup-logs/{id} | 
 *UtilsApi* | [**poll_disk_usage_cleanup_migration**](docs/UtilsApi.md#poll_disk_usage_cleanup_migration) | **GET** /api/v2/disk-usage/operations/cleanup-migration/{id} | 
 *UtilsApi* | [**poll_disk_usage_cleanup_notifications**](docs/UtilsApi.md#poll_disk_usage_cleanup_notifications) | **GET** /api/v2/disk-usage/operations/cleanup-notifications/{id} | 
 *UtilsApi* | [**poll_disk_usage_cleanup_results**](docs/UtilsApi.md#poll_disk_usage_cleanup_results) | **GET** /api/v2/disk-usage/operations/cleanup-results/{id} | 
-*UtilsApi* | [**poll_generate**](docs/UtilsApi.md#poll_generate) | **GET** /api/v2/cert-manager/operations/generate/{id} | 
-*UtilsApi* | [**poll_upload**](docs/UtilsApi.md#poll_upload) | **GET** /api/v2/cert-manager/operations/upload/{id} | 
 *UtilsApi* | [**post_eula**](docs/UtilsApi.md#post_eula) | **POST** /eula/v1/eula/CyPerf | Update properties an EULA
+*UtilsApi* | [**start_cert_manager_generate**](docs/UtilsApi.md#start_cert_manager_generate) | **POST** /api/v2/cert-manager/operations/generate | 
+*UtilsApi* | [**start_cert_manager_upload**](docs/UtilsApi.md#start_cert_manager_upload) | **POST** /api/v2/cert-manager/operations/upload | 
 *UtilsApi* | [**start_disk_usage_cleanup_diagnostics**](docs/UtilsApi.md#start_disk_usage_cleanup_diagnostics) | **POST** /api/v2/disk-usage/operations/cleanup-diagnostics | 
 *UtilsApi* | [**start_disk_usage_cleanup_logs**](docs/UtilsApi.md#start_disk_usage_cleanup_logs) | **POST** /api/v2/disk-usage/operations/cleanup-logs | 
 *UtilsApi* | [**start_disk_usage_cleanup_migration**](docs/UtilsApi.md#start_disk_usage_cleanup_migration) | **POST** /api/v2/disk-usage/operations/cleanup-migration | 
 *UtilsApi* | [**start_disk_usage_cleanup_notifications**](docs/UtilsApi.md#start_disk_usage_cleanup_notifications) | **POST** /api/v2/disk-usage/operations/cleanup-notifications | 
 *UtilsApi* | [**start_disk_usage_cleanup_results**](docs/UtilsApi.md#start_disk_usage_cleanup_results) | **POST** /api/v2/disk-usage/operations/cleanup-results | 
-*UtilsApi* | [**start_generate**](docs/UtilsApi.md#start_generate) | **POST** /api/v2/cert-manager/operations/generate | 
-*UtilsApi* | [**start_upload**](docs/UtilsApi.md#start_upload) | **POST** /api/v2/cert-manager/operations/upload | 
 *UtilsApi* | [**update_log_config**](docs/UtilsApi.md#update_log_config) | **PUT** /api/v2/log-config | 
 
 
@@ -448,6 +450,7 @@ Class | Method | HTTP request | Description
  - [Action](docs/Action.md)
  - [ActionBase](docs/ActionBase.md)
  - [ActionInput](docs/ActionInput.md)
+ - [ActionInputFindParam](docs/ActionInputFindParam.md)
  - [ActionMetadata](docs/ActionMetadata.md)
  - [ActivationCodeInfo](docs/ActivationCodeInfo.md)
  - [ActivationCodeListRequest](docs/ActivationCodeListRequest.md)
@@ -467,7 +470,9 @@ Class | Method | HTTP request | Description
  - [AgentsGroup](docs/AgentsGroup.md)
  - [AppExchange](docs/AppExchange.md)
  - [AppFlow](docs/AppFlow.md)
+ - [AppFlowDesc](docs/AppFlowDesc.md)
  - [AppFlowInput](docs/AppFlowInput.md)
+ - [AppFlowInputFindParam](docs/AppFlowInputFindParam.md)
  - [AppId](docs/AppId.md)
  - [AppMode](docs/AppMode.md)
  - [Application](docs/Application.md)
@@ -495,6 +500,7 @@ Class | Method | HTTP request | Description
  - [AutomaticIpType](docs/AutomaticIpType.md)
  - [Broker](docs/Broker.md)
  - [CaptureInput](docs/CaptureInput.md)
+ - [CaptureInputFindParam](docs/CaptureInputFindParam.md)
  - [CaptureSettings](docs/CaptureSettings.md)
  - [Category](docs/Category.md)
  - [CategoryFilter](docs/CategoryFilter.md)
@@ -542,6 +548,7 @@ Class | Method | HTTP request | Description
  - [DiagnosticOptions](docs/DiagnosticOptions.md)
  - [DiskUsage](docs/DiskUsage.md)
  - [ESPOverUDPSettings](docs/ESPOverUDPSettings.md)
+ - [EditActionInput](docs/EditActionInput.md)
  - [EditAppOperation](docs/EditAppOperation.md)
  - [EffectivePorts](docs/EffectivePorts.md)
  - [EmulatedRouter](docs/EmulatedRouter.md)
@@ -580,6 +587,7 @@ Class | Method | HTTP request | Description
  - [FileValue](docs/FileValue.md)
  - [Filter](docs/Filter.md)
  - [FilteredStat](docs/FilteredStat.md)
+ - [FindParamMatchesOperation](docs/FindParamMatchesOperation.md)
  - [FortinetEncapsulation](docs/FortinetEncapsulation.md)
  - [FortinetSettings](docs/FortinetSettings.md)
  - [FulfillmentRequest](docs/FulfillmentRequest.md)
@@ -587,58 +595,60 @@ Class | Method | HTTP request | Description
  - [GenerateCSVReportsOperation](docs/GenerateCSVReportsOperation.md)
  - [GeneratePDFReportOperation](docs/GeneratePDFReportOperation.md)
  - [GenericFile](docs/GenericFile.md)
- - [GetAgentTags200Response](docs/GetAgentTags200Response.md)
- - [GetAgentTags200ResponseOneOf](docs/GetAgentTags200ResponseOneOf.md)
  - [GetAgents200Response](docs/GetAgents200Response.md)
  - [GetAgents200ResponseOneOf](docs/GetAgents200ResponseOneOf.md)
- - [GetApplicationTypes200Response](docs/GetApplicationTypes200Response.md)
- - [GetApplicationTypes200ResponseOneOf](docs/GetApplicationTypes200ResponseOneOf.md)
- - [GetApps200Response](docs/GetApps200Response.md)
- - [GetApps200ResponseOneOf](docs/GetApps200ResponseOneOf.md)
+ - [GetAgentsTags200Response](docs/GetAgentsTags200Response.md)
+ - [GetAgentsTags200ResponseOneOf](docs/GetAgentsTags200ResponseOneOf.md)
  - [GetAsyncOperationResult200Response](docs/GetAsyncOperationResult200Response.md)
- - [GetAttacks200Response](docs/GetAttacks200Response.md)
- - [GetAttacks200ResponseOneOf](docs/GetAttacks200ResponseOneOf.md)
  - [GetAttacksOperation](docs/GetAttacksOperation.md)
- - [GetAuthProfiles200Response](docs/GetAuthProfiles200Response.md)
- - [GetAuthProfiles200ResponseOneOf](docs/GetAuthProfiles200ResponseOneOf.md)
  - [GetBrokers200Response](docs/GetBrokers200Response.md)
  - [GetBrokers200ResponseOneOf](docs/GetBrokers200ResponseOneOf.md)
  - [GetCategoriesOperation](docs/GetCategoriesOperation.md)
- - [GetCertificates200Response](docs/GetCertificates200Response.md)
- - [GetCertificates200ResponseOneOf](docs/GetCertificates200ResponseOneOf.md)
  - [GetConfigCategories200Response](docs/GetConfigCategories200Response.md)
  - [GetConfigCategories200ResponseOneOf](docs/GetConfigCategories200ResponseOneOf.md)
  - [GetConfigs200Response](docs/GetConfigs200Response.md)
  - [GetConfigs200ResponseOneOf](docs/GetConfigs200ResponseOneOf.md)
- - [GetConsumers200Response](docs/GetConsumers200Response.md)
- - [GetConsumers200ResponseOneOf](docs/GetConsumers200ResponseOneOf.md)
  - [GetControllers200Response](docs/GetControllers200Response.md)
  - [GetControllers200ResponseOneOf](docs/GetControllers200ResponseOneOf.md)
- - [GetCustomImportOperations200Response](docs/GetCustomImportOperations200Response.md)
- - [GetCustomImportOperations200ResponseOneOf](docs/GetCustomImportOperations200ResponseOneOf.md)
- - [GetFiles200Response](docs/GetFiles200Response.md)
- - [GetFiles200ResponseOneOf](docs/GetFiles200ResponseOneOf.md)
- - [GetHttpProfiles200Response](docs/GetHttpProfiles200Response.md)
- - [GetHttpProfiles200ResponseOneOf](docs/GetHttpProfiles200ResponseOneOf.md)
+ - [GetDiskUsageConsumers200Response](docs/GetDiskUsageConsumers200Response.md)
+ - [GetDiskUsageConsumers200ResponseOneOf](docs/GetDiskUsageConsumers200ResponseOneOf.md)
  - [GetLicenseAsyncOperationResult200Response](docs/GetLicenseAsyncOperationResult200Response.md)
  - [GetLicenseServers200Response](docs/GetLicenseServers200Response.md)
  - [GetLicenseServers200ResponseOneOf](docs/GetLicenseServers200ResponseOneOf.md)
- - [GetMeta200Response](docs/GetMeta200Response.md)
- - [GetMeta200ResponseOneOf](docs/GetMeta200ResponseOneOf.md)
  - [GetNotifications200Response](docs/GetNotifications200Response.md)
  - [GetNotifications200ResponseOneOf](docs/GetNotifications200ResponseOneOf.md)
- - [GetPlugins200Response](docs/GetPlugins200Response.md)
- - [GetPlugins200ResponseOneOf](docs/GetPlugins200ResponseOneOf.md)
- - [GetResultTags200Response](docs/GetResultTags200Response.md)
- - [GetResultTags200ResponseOneOf](docs/GetResultTags200ResponseOneOf.md)
+ - [GetResourcesApplicationTypes200Response](docs/GetResourcesApplicationTypes200Response.md)
+ - [GetResourcesApplicationTypes200ResponseOneOf](docs/GetResourcesApplicationTypes200ResponseOneOf.md)
+ - [GetResourcesApps200Response](docs/GetResourcesApps200Response.md)
+ - [GetResourcesApps200ResponseOneOf](docs/GetResourcesApps200ResponseOneOf.md)
+ - [GetResourcesAttacks200Response](docs/GetResourcesAttacks200Response.md)
+ - [GetResourcesAttacks200ResponseOneOf](docs/GetResourcesAttacks200ResponseOneOf.md)
+ - [GetResourcesAuthProfiles200Response](docs/GetResourcesAuthProfiles200Response.md)
+ - [GetResourcesAuthProfiles200ResponseOneOf](docs/GetResourcesAuthProfiles200ResponseOneOf.md)
+ - [GetResourcesCertificates200Response](docs/GetResourcesCertificates200Response.md)
+ - [GetResourcesCertificates200ResponseOneOf](docs/GetResourcesCertificates200ResponseOneOf.md)
+ - [GetResourcesCustomImportOperations200Response](docs/GetResourcesCustomImportOperations200Response.md)
+ - [GetResourcesCustomImportOperations200ResponseOneOf](docs/GetResourcesCustomImportOperations200ResponseOneOf.md)
+ - [GetResourcesHttpProfiles200Response](docs/GetResourcesHttpProfiles200Response.md)
+ - [GetResourcesHttpProfiles200ResponseOneOf](docs/GetResourcesHttpProfiles200ResponseOneOf.md)
+ - [GetResultFiles200Response](docs/GetResultFiles200Response.md)
+ - [GetResultFiles200ResponseOneOf](docs/GetResultFiles200ResponseOneOf.md)
+ - [GetResultStats200Response](docs/GetResultStats200Response.md)
+ - [GetResultStats200ResponseOneOf](docs/GetResultStats200ResponseOneOf.md)
  - [GetResults200Response](docs/GetResults200Response.md)
  - [GetResults200ResponseOneOf](docs/GetResults200ResponseOneOf.md)
+ - [GetResultsTags200Response](docs/GetResultsTags200Response.md)
+ - [GetResultsTags200ResponseOneOf](docs/GetResultsTags200ResponseOneOf.md)
+ - [GetSessionMeta200Response](docs/GetSessionMeta200Response.md)
+ - [GetSessionMeta200ResponseOneOf](docs/GetSessionMeta200ResponseOneOf.md)
  - [GetSessions200Response](docs/GetSessions200Response.md)
  - [GetSessions200ResponseOneOf](docs/GetSessions200ResponseOneOf.md)
- - [GetStats200Response](docs/GetStats200Response.md)
- - [GetStats200ResponseOneOf](docs/GetStats200ResponseOneOf.md)
+ - [GetStatsPlugins200Response](docs/GetStatsPlugins200Response.md)
+ - [GetStatsPlugins200ResponseOneOf](docs/GetStatsPlugins200ResponseOneOf.md)
  - [GetStrikesOperation](docs/GetStrikesOperation.md)
  - [HTTPProfile](docs/HTTPProfile.md)
+ - [HTTPReqMeta](docs/HTTPReqMeta.md)
+ - [HTTPResMeta](docs/HTTPResMeta.md)
  - [HTTPVersion](docs/HTTPVersion.md)
  - [HashP1Algorithm](docs/HashP1Algorithm.md)
  - [HashP2Algorithm](docs/HashP2Algorithm.md)
@@ -704,6 +714,7 @@ Class | Method | HTTP request | Description
  - [ParamSourceType](docs/ParamSourceType.md)
  - [ParamType](docs/ParamType.md)
  - [Parameter](docs/Parameter.md)
+ - [ParameterMatch](docs/ParameterMatch.md)
  - [ParameterMetadata](docs/ParameterMetadata.md)
  - [Params](docs/Params.md)
  - [ParamsEnum](docs/ParamsEnum.md)
@@ -727,6 +738,7 @@ Class | Method | HTTP request | Description
  - [RebootOperationInput](docs/RebootOperationInput.md)
  - [RebootPortsOperation](docs/RebootPortsOperation.md)
  - [Reference](docs/Reference.md)
+ - [RegexMatch](docs/RegexMatch.md)
  - [ReleaseOperationInput](docs/ReleaseOperationInput.md)
  - [RemoteAccess](docs/RemoteAccess.md)
  - [RemoteSubnetConfig](docs/RemoteSubnetConfig.md)
@@ -756,7 +768,7 @@ Class | Method | HTTP request | Description
  - [Snapshot](docs/Snapshot.md)
  - [SortBodyField](docs/SortBodyField.md)
  - [SpecificObjective](docs/SpecificObjective.md)
- - [StartBatchDeleteRequestInner](docs/StartBatchDeleteRequestInner.md)
+ - [StartAgentsBatchDeleteRequestInner](docs/StartAgentsBatchDeleteRequestInner.md)
  - [StatelessStream](docs/StatelessStream.md)
  - [StaticARPEntry](docs/StaticARPEntry.md)
  - [StatsResult](docs/StatsResult.md)

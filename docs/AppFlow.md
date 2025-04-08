@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**display_id** | **str** |  | [optional] [readonly] 
 **dst_address** | **bytearray** |  | [optional] 
 **dst_port** | **int** |  | [optional] 
 **exchanges** | [**List[AppExchange]**](AppExchange.md) | The list of exchanges | [optional] 

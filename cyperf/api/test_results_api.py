@@ -22,12 +22,12 @@ from typing import Any, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.async_context import AsyncContext
 from cyperf.models.generate_all_operation import GenerateAllOperation
-from cyperf.models.get_files200_response import GetFiles200Response
-from cyperf.models.get_result_tags200_response import GetResultTags200Response
+from cyperf.models.get_result_files200_response import GetResultFiles200Response
 from cyperf.models.get_results200_response import GetResults200Response
+from cyperf.models.get_results_tags200_response import GetResultsTags200Response
 from cyperf.models.result_file_metadata import ResultFileMetadata
 from cyperf.models.result_metadata import ResultMetadata
-from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
+from cyperf.models.start_agents_batch_delete_request_inner import StartAgentsBatchDeleteRequestInner
 
 from cyperf import DynamicModel
 from cyperf.api_client import ApiClient, RequestSerialized
@@ -49,7 +49,268 @@ class TestResultsApi:
 
 
     @validate_call
-    def delete_files(
+    def delete_result(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """delete_result
+
+        Delete a particular result.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_result_serialize(
+            result_id=result_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '403': "ErrorResponse",
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def delete_result_with_http_info(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """delete_result
+
+        Delete a particular result.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_result_serialize(
+            result_id=result_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '403': "ErrorResponse",
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def delete_result_without_preload_content(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """delete_result
+
+        Delete a particular result.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_result_serialize(
+            result_id=result_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '204': None,
+            '403': "ErrorResponse",
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+
+
+    def _delete_result_serialize(
+        self,
+        result_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if result_id is not None:
+            _path_params['resultId'] = result_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/api/v2/results/{resultId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_result_file(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
@@ -66,7 +327,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """delete_files
+        """delete_result_file
 
         Delete a particular result file.
 
@@ -96,7 +357,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_files_serialize(
+        _param = self._delete_result_file_serialize(
             result_id=result_id,
             file_id=file_id,
             _request_auth=_request_auth,
@@ -118,7 +379,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def delete_files_with_http_info(
+    def delete_result_file_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
@@ -135,7 +396,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """delete_files
+        """delete_result_file
 
         Delete a particular result file.
 
@@ -165,7 +426,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_files_serialize(
+        _param = self._delete_result_file_serialize(
             result_id=result_id,
             file_id=file_id,
             _request_auth=_request_auth,
@@ -187,7 +448,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def delete_files_without_preload_content(
+    def delete_result_file_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
@@ -204,7 +465,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """delete_files
+        """delete_result_file
 
         Delete a particular result file.
 
@@ -234,7 +495,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_files_serialize(
+        _param = self._delete_result_file_serialize(
             result_id=result_id,
             file_id=file_id,
             _request_auth=_request_auth,
@@ -255,7 +516,7 @@ class TestResultsApi:
         )
 
 
-    def _delete_files_serialize(
+    def _delete_result_file_serialize(
         self,
         result_id,
         file_id,
@@ -322,7 +583,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def delete_results(
+    def get_result_by_id(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -337,10 +598,10 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """delete_results
+    ) -> ResultMetadata:
+        """get_result_by_id
 
-        Delete a particular result.
+        Get a particular result.
 
         :param result_id: The ID of the result. (required)
         :type result_id: str
@@ -366,7 +627,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_results_serialize(
+        _param = self._get_result_by_id_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -375,8 +636,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '403': "ErrorResponse",
+            '200': "ResultMetadata",
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -388,7 +648,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def delete_results_with_http_info(
+    def get_result_by_id_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -403,10 +663,10 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """delete_results
+    ) -> ApiResponse[ResultMetadata]:
+        """get_result_by_id
 
-        Delete a particular result.
+        Get a particular result.
 
         :param result_id: The ID of the result. (required)
         :type result_id: str
@@ -432,7 +692,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_results_serialize(
+        _param = self._get_result_by_id_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -441,8 +701,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '403': "ErrorResponse",
+            '200': "ResultMetadata",
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -454,7 +713,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def delete_results_without_preload_content(
+    def get_result_by_id_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -470,9 +729,9 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """delete_results
+        """get_result_by_id
 
-        Delete a particular result.
+        Get a particular result.
 
         :param result_id: The ID of the result. (required)
         :type result_id: str
@@ -498,7 +757,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_results_serialize(
+        _param = self._get_result_by_id_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -507,8 +766,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '403': "ErrorResponse",
+            '200': "ResultMetadata",
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -519,7 +777,7 @@ class TestResultsApi:
         )
 
 
-    def _delete_results_serialize(
+    def _get_result_by_id_serialize(
         self,
         result_id,
         _request_auth,
@@ -565,7 +823,7 @@ class TestResultsApi:
         ]
 
         return self.api_client.param_serialize(
-            method='DELETE',
+            method='GET',
             resource_path='/api/v2/results/{resultId}',
             path_params=_path_params,
             query_params=_query_params,
@@ -583,7 +841,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_download_all_by_id(
+    def get_result_download_all_by_id(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         download_all_id: Annotated[StrictStr, Field(description="The ID of the download all.")],
@@ -600,7 +858,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """get_download_all_by_id
+        """get_result_download_all_by_id
 
 
         :param result_id: The ID of the result. (required)
@@ -629,7 +887,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_all_by_id_serialize(
+        _param = self._get_result_download_all_by_id_serialize(
             result_id=result_id,
             download_all_id=download_all_id,
             _request_auth=_request_auth,
@@ -651,7 +909,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_download_all_by_id_with_http_info(
+    def get_result_download_all_by_id_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         download_all_id: Annotated[StrictStr, Field(description="The ID of the download all.")],
@@ -668,7 +926,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """get_download_all_by_id
+        """get_result_download_all_by_id
 
 
         :param result_id: The ID of the result. (required)
@@ -697,7 +955,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_all_by_id_serialize(
+        _param = self._get_result_download_all_by_id_serialize(
             result_id=result_id,
             download_all_id=download_all_id,
             _request_auth=_request_auth,
@@ -719,7 +977,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_download_all_by_id_without_preload_content(
+    def get_result_download_all_by_id_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         download_all_id: Annotated[StrictStr, Field(description="The ID of the download all.")],
@@ -736,7 +994,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_download_all_by_id
+        """get_result_download_all_by_id
 
 
         :param result_id: The ID of the result. (required)
@@ -765,7 +1023,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_all_by_id_serialize(
+        _param = self._get_result_download_all_by_id_serialize(
             result_id=result_id,
             download_all_id=download_all_id,
             _request_auth=_request_auth,
@@ -786,7 +1044,7 @@ class TestResultsApi:
         )
 
 
-    def _get_download_all_by_id_serialize(
+    def _get_result_download_all_by_id_serialize(
         self,
         result_id,
         download_all_id,
@@ -853,7 +1111,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_download_result_config(
+    def get_result_download_result_config(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -869,7 +1127,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> object:
-        """get_download_result_config
+        """get_result_download_result_config
 
         Download the configuration associated with the result.
 
@@ -897,7 +1155,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_result_config_serialize(
+        _param = self._get_result_download_result_config_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -917,7 +1175,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_download_result_config_with_http_info(
+    def get_result_download_result_config_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -933,7 +1191,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[object]:
-        """get_download_result_config
+        """get_result_download_result_config
 
         Download the configuration associated with the result.
 
@@ -961,7 +1219,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_result_config_serialize(
+        _param = self._get_result_download_result_config_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -981,7 +1239,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_download_result_config_without_preload_content(
+    def get_result_download_result_config_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -997,7 +1255,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_download_result_config
+        """get_result_download_result_config
 
         Download the configuration associated with the result.
 
@@ -1025,7 +1283,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_result_config_serialize(
+        _param = self._get_result_download_result_config_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1044,7 +1302,7 @@ class TestResultsApi:
         )
 
 
-    def _get_download_result_config_serialize(
+    def _get_result_download_result_config_serialize(
         self,
         result_id,
         _request_auth,
@@ -1108,299 +1366,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_files(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFiles200Response:
-        """get_files
-
-        Get the list of files for a specific result.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_files_serialize(
-            result_id=result_id,
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFiles200Response",
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def get_files_with_http_info(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetFiles200Response]:
-        """get_files
-
-        Get the list of files for a specific result.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_files_serialize(
-            result_id=result_id,
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFiles200Response",
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def get_files_without_preload_content(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """get_files
-
-        Get the list of files for a specific result.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_files_serialize(
-            result_id=result_id,
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFiles200Response",
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _get_files_serialize(
-        self,
-        result_id,
-        take,
-        skip,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if result_id is not None:
-            _path_params['resultId'] = result_id
-        # process the query parameters
-        if take is not None:
-            
-            _query_params.append(('take', take))
-            
-        if skip is not None:
-            
-            _query_params.append(('skip', skip))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/results/{resultId}/files',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_files_by_id(
+    def get_result_file_by_id(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
@@ -1417,7 +1383,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ResultFileMetadata:
-        """get_files_by_id
+        """get_result_file_by_id
 
         Get a particular result file.
 
@@ -1447,7 +1413,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_files_by_id_serialize(
+        _param = self._get_result_file_by_id_serialize(
             result_id=result_id,
             file_id=file_id,
             _request_auth=_request_auth,
@@ -1469,7 +1435,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_files_by_id_with_http_info(
+    def get_result_file_by_id_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
@@ -1486,7 +1452,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ResultFileMetadata]:
-        """get_files_by_id
+        """get_result_file_by_id
 
         Get a particular result file.
 
@@ -1516,7 +1482,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_files_by_id_serialize(
+        _param = self._get_result_file_by_id_serialize(
             result_id=result_id,
             file_id=file_id,
             _request_auth=_request_auth,
@@ -1538,7 +1504,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_files_by_id_without_preload_content(
+    def get_result_file_by_id_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
@@ -1555,7 +1521,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_files_by_id
+        """get_result_file_by_id
 
         Get a particular result file.
 
@@ -1585,7 +1551,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_files_by_id_serialize(
+        _param = self._get_result_file_by_id_serialize(
             result_id=result_id,
             file_id=file_id,
             _request_auth=_request_auth,
@@ -1606,7 +1572,7 @@ class TestResultsApi:
         )
 
 
-    def _get_files_by_id_serialize(
+    def _get_result_file_by_id_serialize(
         self,
         result_id,
         file_id,
@@ -1673,8 +1639,282 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_result_tags(
+    def get_result_file_content(
         self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """get_result_file_content
+
+        Get the content of a result file.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param file_id: The ID of the file. (required)
+        :type file_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_result_file_content_serialize(
+            result_id=result_id,
+            file_id=file_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def get_result_file_content_with_http_info(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """get_result_file_content
+
+        Get the content of a result file.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param file_id: The ID of the file. (required)
+        :type file_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_result_file_content_serialize(
+            result_id=result_id,
+            file_id=file_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def get_result_file_content_without_preload_content(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_result_file_content
+
+        Get the content of a result file.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param file_id: The ID of the file. (required)
+        :type file_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_result_file_content_serialize(
+            result_id=result_id,
+            file_id=file_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+
+
+    def _get_result_file_content_serialize(
+        self,
+        result_id,
+        file_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if result_id is not None:
+            _path_params['resultId'] = result_id
+        if file_id is not None:
+            _path_params['fileId'] = file_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/results/{resultId}/files/{fileId}/content',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_result_files(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
         skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
         _request_timeout: Union[
@@ -1689,11 +1929,13 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetResultTags200Response:
-        """get_result_tags
+    ) -> GetResultFiles200Response:
+        """get_result_files
 
-        Get all the currently available agent groups.
+        Get the list of files for a specific result.
 
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
         :param take: The number of search results to return
         :type take: int
         :param skip: The number of search results to skip
@@ -1720,7 +1962,8 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_result_tags_serialize(
+        _param = self._get_result_files_serialize(
+            result_id=result_id,
             take=take,
             skip=skip,
             _request_auth=_request_auth,
@@ -1730,7 +1973,8 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetResultTags200Response",
+            '200': "GetResultFiles200Response",
+            '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -1741,8 +1985,9 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_result_tags_with_http_info(
+    def get_result_files_with_http_info(
         self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
         skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
         _request_timeout: Union[
@@ -1757,11 +2002,13 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetResultTags200Response]:
-        """get_result_tags
+    ) -> ApiResponse[GetResultFiles200Response]:
+        """get_result_files
 
-        Get all the currently available agent groups.
+        Get the list of files for a specific result.
 
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
         :param take: The number of search results to return
         :type take: int
         :param skip: The number of search results to skip
@@ -1788,7 +2035,8 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_result_tags_serialize(
+        _param = self._get_result_files_serialize(
+            result_id=result_id,
             take=take,
             skip=skip,
             _request_auth=_request_auth,
@@ -1798,7 +2046,8 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetResultTags200Response",
+            '200': "GetResultFiles200Response",
+            '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -1809,8 +2058,9 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_result_tags_without_preload_content(
+    def get_result_files_without_preload_content(
         self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
         skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
         _request_timeout: Union[
@@ -1826,10 +2076,12 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_result_tags
+        """get_result_files
 
-        Get all the currently available agent groups.
+        Get the list of files for a specific result.
 
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
         :param take: The number of search results to return
         :type take: int
         :param skip: The number of search results to skip
@@ -1856,7 +2108,8 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_result_tags_serialize(
+        _param = self._get_result_files_serialize(
+            result_id=result_id,
             take=take,
             skip=skip,
             _request_auth=_request_auth,
@@ -1866,7 +2119,8 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetResultTags200Response",
+            '200': "GetResultFiles200Response",
+            '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -1876,8 +2130,9 @@ class TestResultsApi:
         )
 
 
-    def _get_result_tags_serialize(
+    def _get_result_files_serialize(
         self,
+        result_id,
         take,
         skip,
         _request_auth,
@@ -1899,6 +2154,8 @@ class TestResultsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if result_id is not None:
+            _path_params['resultId'] = result_id
         # process the query parameters
         if take is not None:
             
@@ -1930,7 +2187,7 @@ class TestResultsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/results/tags',
+            resource_path='/api/v2/results/{resultId}/files',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2289,9 +2546,10 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_results_by_id(
+    def get_results_tags(
         self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2304,13 +2562,15 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResultMetadata:
-        """get_results_by_id
+    ) -> GetResultsTags200Response:
+        """get_results_tags
 
-        Get a particular result.
+        Get all the currently available agent groups.
 
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2333,8 +2593,9 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_results_by_id_serialize(
-            result_id=result_id,
+        _param = self._get_results_tags_serialize(
+            take=take,
+            skip=skip,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2342,8 +2603,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResultMetadata",
-            '404': "ErrorResponse",
+            '200': "GetResultsTags200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -2354,9 +2614,10 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_results_by_id_with_http_info(
+    def get_results_tags_with_http_info(
         self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2369,13 +2630,15 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResultMetadata]:
-        """get_results_by_id
+    ) -> ApiResponse[GetResultsTags200Response]:
+        """get_results_tags
 
-        Get a particular result.
+        Get all the currently available agent groups.
 
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2398,8 +2661,9 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_results_by_id_serialize(
-            result_id=result_id,
+        _param = self._get_results_tags_serialize(
+            take=take,
+            skip=skip,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2407,8 +2671,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResultMetadata",
-            '404': "ErrorResponse",
+            '200': "GetResultsTags200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -2419,9 +2682,10 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_results_by_id_without_preload_content(
+    def get_results_tags_without_preload_content(
         self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2435,12 +2699,14 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_results_by_id
+        """get_results_tags
 
-        Get a particular result.
+        Get all the currently available agent groups.
 
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2463,8 +2729,9 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_results_by_id_serialize(
-            result_id=result_id,
+        _param = self._get_results_tags_serialize(
+            take=take,
+            skip=skip,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2472,8 +2739,7 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResultMetadata",
-            '404': "ErrorResponse",
+            '200': "GetResultsTags200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -2483,9 +2749,10 @@ class TestResultsApi:
         )
 
 
-    def _get_results_by_id_serialize(
+    def _get_results_tags_serialize(
         self,
-        result_id,
+        take,
+        skip,
         _request_auth,
         _content_type,
         _headers,
@@ -2505,9 +2772,15 @@ class TestResultsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if result_id is not None:
-            _path_params['resultId'] = result_id
         # process the query parameters
+        if take is not None:
+            
+            _query_params.append(('take', take))
+            
+        if skip is not None:
+            
+            _query_params.append(('skip', skip))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2530,7 +2803,7 @@ class TestResultsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/results/{resultId}',
+            resource_path='/api/v2/results/tags',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2547,10 +2820,10 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_results_results_id_files_files_id_content(
+    def poll_result_generate_all(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2563,15 +2836,15 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """get_results_results_id_files_files_id_content
+    ) -> AsyncContext:
+        """poll_result_generate_all
 
-        Get the content of a result file.
+        Get the state of an ongoing operation.
 
         :param result_id: The ID of the result. (required)
         :type result_id: str
-        :param file_id: The ID of the file. (required)
-        :type file_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2594,9 +2867,9 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_results_results_id_files_files_id_content_serialize(
+        _param = self._poll_result_generate_all_serialize(
             result_id=result_id,
-            file_id=file_id,
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2604,9 +2877,8 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -2616,10 +2888,10 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_results_results_id_files_files_id_content_with_http_info(
+    def poll_result_generate_all_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2632,15 +2904,15 @@ class TestResultsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """get_results_results_id_files_files_id_content
+    ) -> ApiResponse[AsyncContext]:
+        """poll_result_generate_all
 
-        Get the content of a result file.
+        Get the state of an ongoing operation.
 
         :param result_id: The ID of the result. (required)
         :type result_id: str
-        :param file_id: The ID of the file. (required)
-        :type file_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2663,9 +2935,9 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_results_results_id_files_files_id_content_serialize(
+        _param = self._poll_result_generate_all_serialize(
             result_id=result_id,
-            file_id=file_id,
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2673,9 +2945,8 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -2685,10 +2956,10 @@ class TestResultsApi:
 
 
     @validate_call
-    def get_results_results_id_files_files_id_content_without_preload_content(
+    def poll_result_generate_all_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        file_id: Annotated[StrictStr, Field(description="The ID of the file.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2702,14 +2973,14 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_results_results_id_files_files_id_content
+        """poll_result_generate_all
 
-        Get the content of a result file.
+        Get the state of an ongoing operation.
 
         :param result_id: The ID of the result. (required)
         :type result_id: str
-        :param file_id: The ID of the file. (required)
-        :type file_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2732,9 +3003,9 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_results_results_id_files_files_id_content_serialize(
+        _param = self._poll_result_generate_all_serialize(
             result_id=result_id,
-            file_id=file_id,
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2742,9 +3013,8 @@ class TestResultsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -2753,10 +3023,10 @@ class TestResultsApi:
         )
 
 
-    def _get_results_results_id_files_files_id_content_serialize(
+    def _poll_result_generate_all_serialize(
         self,
         result_id,
-        file_id,
+        id,
         _request_auth,
         _content_type,
         _headers,
@@ -2778,8 +3048,8 @@ class TestResultsApi:
         # process the path parameters
         if result_id is not None:
             _path_params['resultId'] = result_id
-        if file_id is not None:
-            _path_params['fileId'] = file_id
+        if id is not None:
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -2803,7 +3073,547 @@ class TestResultsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/v2/results/{resultId}/files/{fileId}/content',
+            resource_path='/api/v2/results/{resultId}/operations/generate-all/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def poll_result_generate_results(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """poll_result_generate_results
+
+        Get the state of an ongoing operation.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_result_generate_results_serialize(
+            result_id=result_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def poll_result_generate_results_with_http_info(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """poll_result_generate_results
+
+        Get the state of an ongoing operation.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_result_generate_results_serialize(
+            result_id=result_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def poll_result_generate_results_without_preload_content(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """poll_result_generate_results
+
+        Get the state of an ongoing operation.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_result_generate_results_serialize(
+            result_id=result_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+
+
+    def _poll_result_generate_results_serialize(
+        self,
+        result_id,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if result_id is not None:
+            _path_params['resultId'] = result_id
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/results/{resultId}/operations/generate-results/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def poll_result_load(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """poll_result_load
+
+        Get the state of an ongoing operation.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_result_load_serialize(
+            result_id=result_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def poll_result_load_with_http_info(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """poll_result_load
+
+        Get the state of an ongoing operation.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_result_load_serialize(
+            result_id=result_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def poll_result_load_without_preload_content(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """poll_result_load
+
+        Get the state of an ongoing operation.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param id: The ID of the async operation. (required)
+        :type id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._poll_result_load_serialize(
+            result_id=result_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncContext",
+            '400': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+
+
+    def _poll_result_load_serialize(
+        self,
+        result_id,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if result_id is not None:
+            _path_params['resultId'] = result_id
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/results/{resultId}/operations/load/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2874,6 +3684,7 @@ class TestResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -2937,6 +3748,7 @@ class TestResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -3000,6 +3812,7 @@ class TestResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -3072,1074 +3885,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def poll_results_generate_all(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_results_generate_all
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_generate_all_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_results_generate_all_with_http_info(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_results_generate_all
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_generate_all_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_results_generate_all_without_preload_content(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_results_generate_all
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_generate_all_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_results_generate_all_serialize(
-        self,
-        result_id,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if result_id is not None:
-            _path_params['resultId'] = result_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/results/{resultId}/operations/generate-all/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_results_generate_results(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_results_generate_results
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_generate_results_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_results_generate_results_with_http_info(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_results_generate_results
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_generate_results_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_results_generate_results_without_preload_content(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_results_generate_results
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_generate_results_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_results_generate_results_serialize(
-        self,
-        result_id,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if result_id is not None:
-            _path_params['resultId'] = result_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/results/{resultId}/operations/generate-results/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_results_load(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_results_load
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_load_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_results_load_with_http_info(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_results_load
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_load_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_results_load_without_preload_content(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_results_load
-
-        Get the state of an ongoing operation.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_results_load_serialize(
-            result_id=result_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_results_load_serialize(
-        self,
-        result_id,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if result_id is not None:
-            _path_params['resultId'] = result_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/results/{resultId}/operations/load/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def start_results_batch_delete(
-        self,
-        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """start_results_batch_delete
-
-        Remove multiple results.
-
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_results_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def start_results_batch_delete_with_http_info(
-        self,
-        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """start_results_batch_delete
-
-        Remove multiple results.
-
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_results_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def start_results_batch_delete_without_preload_content(
-        self,
-        start_batch_delete_request_inner: Optional[List[StartBatchDeleteRequestInner]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """start_results_batch_delete
-
-        Remove multiple results.
-
-        :param start_batch_delete_request_inner:
-        :type start_batch_delete_request_inner: List[StartBatchDeleteRequestInner]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._start_results_batch_delete_serialize(
-            start_batch_delete_request_inner=start_batch_delete_request_inner,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncContext",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _start_results_batch_delete_serialize(
-        self,
-        start_batch_delete_request_inner,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'StartBatchDeleteRequestInner': '',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if start_batch_delete_request_inner is not None:
-            _body_params = start_batch_delete_request_inner
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/v2/results/operations/batch-delete',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def start_results_generate_all(
+    def start_result_generate_all(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_all_operation: Optional[GenerateAllOperation] = None,
@@ -4156,7 +3902,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_results_generate_all
+        """start_result_generate_all
 
         Generate all result types.
 
@@ -4186,7 +3932,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_all_serialize(
+        _param = self._start_result_generate_all_serialize(
             result_id=result_id,
             generate_all_operation=generate_all_operation,
             _request_auth=_request_auth,
@@ -4206,7 +3952,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def start_results_generate_all_with_http_info(
+    def start_result_generate_all_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_all_operation: Optional[GenerateAllOperation] = None,
@@ -4223,7 +3969,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_results_generate_all
+        """start_result_generate_all
 
         Generate all result types.
 
@@ -4253,7 +3999,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_all_serialize(
+        _param = self._start_result_generate_all_serialize(
             result_id=result_id,
             generate_all_operation=generate_all_operation,
             _request_auth=_request_auth,
@@ -4273,7 +4019,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def start_results_generate_all_without_preload_content(
+    def start_result_generate_all_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_all_operation: Optional[GenerateAllOperation] = None,
@@ -4290,7 +4036,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_results_generate_all
+        """start_result_generate_all
 
         Generate all result types.
 
@@ -4320,7 +4066,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_all_serialize(
+        _param = self._start_result_generate_all_serialize(
             result_id=result_id,
             generate_all_operation=generate_all_operation,
             _request_auth=_request_auth,
@@ -4339,7 +4085,7 @@ class TestResultsApi:
         )
 
 
-    def _start_results_generate_all_serialize(
+    def _start_result_generate_all_serialize(
         self,
         result_id,
         generate_all_operation,
@@ -4419,7 +4165,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def start_results_generate_results(
+    def start_result_generate_results(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -4435,7 +4181,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_results_generate_results
+        """start_result_generate_results
 
         Export all result files zipped.
 
@@ -4463,7 +4209,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_results_serialize(
+        _param = self._start_result_generate_results_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4482,7 +4228,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def start_results_generate_results_with_http_info(
+    def start_result_generate_results_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -4498,7 +4244,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_results_generate_results
+        """start_result_generate_results
 
         Export all result files zipped.
 
@@ -4526,7 +4272,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_results_serialize(
+        _param = self._start_result_generate_results_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4545,7 +4291,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def start_results_generate_results_without_preload_content(
+    def start_result_generate_results_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -4561,7 +4307,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_results_generate_results
+        """start_result_generate_results
 
         Export all result files zipped.
 
@@ -4589,7 +4335,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_results_serialize(
+        _param = self._start_result_generate_results_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4607,7 +4353,7 @@ class TestResultsApi:
         )
 
 
-    def _start_results_generate_results_serialize(
+    def _start_result_generate_results_serialize(
         self,
         result_id,
         _request_auth,
@@ -4671,7 +4417,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def start_results_load(
+    def start_result_load(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -4687,7 +4433,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_results_load
+        """start_result_load
 
         Loads a completed result into a new session.
 
@@ -4715,7 +4461,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_load_serialize(
+        _param = self._start_result_load_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4734,7 +4480,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def start_results_load_with_http_info(
+    def start_result_load_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -4750,7 +4496,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_results_load
+        """start_result_load
 
         Loads a completed result into a new session.
 
@@ -4778,7 +4524,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_load_serialize(
+        _param = self._start_result_load_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4797,7 +4543,7 @@ class TestResultsApi:
 
 
     @validate_call
-    def start_results_load_without_preload_content(
+    def start_result_load_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         _request_timeout: Union[
@@ -4813,7 +4559,7 @@ class TestResultsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_results_load
+        """start_result_load
 
         Loads a completed result into a new session.
 
@@ -4841,7 +4587,7 @@ class TestResultsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_load_serialize(
+        _param = self._start_result_load_serialize(
             result_id=result_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4859,7 +4605,7 @@ class TestResultsApi:
         )
 
 
-    def _start_results_load_serialize(
+    def _start_result_load_serialize(
         self,
         result_id,
         _request_auth,
@@ -4907,6 +4653,272 @@ class TestResultsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/v2/results/{resultId}/operations/load',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_results_batch_delete(
+        self,
+        start_agents_batch_delete_request_inner: Optional[List[StartAgentsBatchDeleteRequestInner]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_results_batch_delete
+
+        Remove multiple results.
+
+        :param start_agents_batch_delete_request_inner:
+        :type start_agents_batch_delete_request_inner: List[StartAgentsBatchDeleteRequestInner]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_results_batch_delete_serialize(
+            start_agents_batch_delete_request_inner=start_agents_batch_delete_request_inner,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def start_results_batch_delete_with_http_info(
+        self,
+        start_agents_batch_delete_request_inner: Optional[List[StartAgentsBatchDeleteRequestInner]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_results_batch_delete
+
+        Remove multiple results.
+
+        :param start_agents_batch_delete_request_inner:
+        :type start_agents_batch_delete_request_inner: List[StartAgentsBatchDeleteRequestInner]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_results_batch_delete_serialize(
+            start_agents_batch_delete_request_inner=start_agents_batch_delete_request_inner,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def start_results_batch_delete_without_preload_content(
+        self,
+        start_agents_batch_delete_request_inner: Optional[List[StartAgentsBatchDeleteRequestInner]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_results_batch_delete
+
+        Remove multiple results.
+
+        :param start_agents_batch_delete_request_inner:
+        :type start_agents_batch_delete_request_inner: List[StartAgentsBatchDeleteRequestInner]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_results_batch_delete_serialize(
+            start_agents_batch_delete_request_inner=start_agents_batch_delete_request_inner,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+
+
+    def _start_results_batch_delete_serialize(
+        self,
+        start_agents_batch_delete_request_inner,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'StartAgentsBatchDeleteRequestInner': '',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if start_agents_batch_delete_request_inner is not None:
+            _body_params = start_agents_batch_delete_request_inner
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/results/operations/batch-delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

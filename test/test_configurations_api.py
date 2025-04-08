@@ -33,8 +33,14 @@ class TestConfigurationsApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_configs(self) -> None:
-        """Test case for delete_configs
+    def test_delete_config(self) -> None:
+        """Test case for delete_config
+
+        """
+        pass
+
+    def test_get_config_by_id(self) -> None:
+        """Test case for get_config_by_id
 
         """
         pass
@@ -51,20 +57,14 @@ class TestConfigurationsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_configs_by_id(self) -> None:
-        """Test case for get_configs_by_id
+    def test_get_resources_custom_import_operations(self) -> None:
+        """Test case for get_resources_custom_import_operations
 
         """
         pass
 
-    def test_get_custom_import_operations(self) -> None:
-        """Test case for get_custom_import_operations
-
-        """
-        pass
-
-    def test_patch_configs(self) -> None:
-        """Test case for patch_configs
+    def test_patch_config(self) -> None:
+        """Test case for patch_config
 
         """
         pass
@@ -117,8 +117,8 @@ class TestConfigurationsApi(unittest.TestCase):
         """
         pass
 
-    def test_update_configs(self) -> None:
-        """Test case for update_configs
+    def test_update_config(self) -> None:
+        """Test case for update_config
 
         """
         pass

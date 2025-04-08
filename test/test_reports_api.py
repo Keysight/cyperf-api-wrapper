@@ -33,32 +33,32 @@ class TestReportsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_download_csv_by_id(self) -> None:
-        """Test case for get_download_csv_by_id
+    def test_get_result_download_csv_by_id(self) -> None:
+        """Test case for get_result_download_csv_by_id
 
         """
         pass
 
-    def test_poll_results_generate_csv(self) -> None:
-        """Test case for poll_results_generate_csv
+    def test_poll_result_generate_csv(self) -> None:
+        """Test case for poll_result_generate_csv
 
         """
         pass
 
-    def test_poll_results_generate_pdf(self) -> None:
-        """Test case for poll_results_generate_pdf
+    def test_poll_result_generate_pdf(self) -> None:
+        """Test case for poll_result_generate_pdf
 
         """
         pass
 
-    def test_start_results_generate_csv(self) -> None:
-        """Test case for start_results_generate_csv
+    def test_start_result_generate_csv(self) -> None:
+        """Test case for start_result_generate_csv
 
         """
         pass
 
-    def test_start_results_generate_pdf(self) -> None:
-        """Test case for start_results_generate_pdf
+    def test_start_result_generate_pdf(self) -> None:
+        """Test case for start_result_generate_pdf
 
         """
         pass

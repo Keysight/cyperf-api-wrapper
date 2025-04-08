@@ -39,6 +39,7 @@ class TestGetLicenseServers200ResponseOneOf(unittest.TestCase):
                 data = [
                     cyperf.models.license_server_metadata.LicenseServerMetadata(
                         connection_status = '', 
+                        failure_reason = '', 
                         fingerprint = '', 
                         host_name = '', 
                         id = 56, 

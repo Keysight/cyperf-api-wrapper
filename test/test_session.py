@@ -92,7 +92,7 @@ class TestSession(unittest.TestCase):
                                 rel = '', 
                                 type = '', )
                             ], 
-                        validate_config = [
+                        validate = [
                             'YQ=='
                             ], ), 
                     session_id = '', 

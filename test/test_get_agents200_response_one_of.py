@@ -80,6 +80,7 @@ class TestGetAgents200ResponseOneOf(unittest.TestCase):
                             ], 
                         dpdk_enabled = True, 
                         features = cyperf.models.agent_features.AgentFeatures(
+                            debian_os = '', 
                             dpdk_usage = '', 
                             update = '', ), 
                         hostname = '', 

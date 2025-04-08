@@ -39,6 +39,7 @@ class TestGetBrokers200Response(unittest.TestCase):
                 data = [
                     cyperf.models.broker.Broker(
                         connection_status = '', 
+                        failure_reason = '', 
                         fingerprint = '', 
                         host = '', 
                         host_name = '', 

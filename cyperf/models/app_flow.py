@@ -30,6 +30,7 @@ class AppFlow(BaseModel):
     """
     AppFlow
     """ # noqa: E501
+    display_id: Optional[StrictStr] = Field(default=None, alias="displayId")
     dst_address: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="dstAddress")
     dst_port: Optional[StrictInt] = Field(default=None, alias="dstPort")
     exchanges: Optional[List[AppExchange]] = Field(default=None, description="The list of exchanges")
@@ -38,7 +39,7 @@ class AppFlow(BaseModel):
     src_address: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="srcAddress")
     src_port: Optional[StrictInt] = Field(default=None, alias="srcPort")
     transport_type: Optional[StrictStr] = Field(default=None, alias="transportType")
-    __properties: ClassVar[List[str]] = ["dstAddress", "dstPort", "exchanges", "id", "links", "srcAddress", "srcPort", "transportType"]
+    __properties: ClassVar[List[str]] = ["displayId", "dstAddress", "dstPort", "exchanges", "id", "links", "srcAddress", "srcPort", "transportType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,8 +72,10 @@ class AppFlow(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "display_id",
             "id",
         ])
 
@@ -109,7 +112,8 @@ class AppFlow(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "dstAddress": obj.get("dstAddress"),
+            "displayId": obj.get("displayId"),
+                        "dstAddress": obj.get("dstAddress"),
                         "dstPort": obj.get("dstPort"),
                         "exchanges": [AppExchange.from_dict(_item) for _item in obj["exchanges"]] if obj.get("exchanges") is not None else None,
                         "id": obj.get("id"),

@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.action_input import ActionInput
+from cyperf.models.parameter import Parameter
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -32,7 +33,8 @@ class CreateAppOperation(BaseModel):
     actions: Optional[List[ActionInput]] = Field(default=None, alias="Actions")
     app_name: Optional[StrictStr] = Field(default=None, alias="AppName")
     app_type: Optional[StrictStr] = Field(default=None, alias="AppType")
-    __properties: ClassVar[List[str]] = ["Actions", "AppName", "AppType"]
+    parameters: Optional[List[Parameter]] = Field(default=None, alias="Parameters")
+    __properties: ClassVar[List[str]] = ["Actions", "AppName", "AppType", "Parameters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +82,13 @@ class CreateAppOperation(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Actions'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in parameters (list)
+        _items = []
+        if self.parameters:
+            for _item in self.parameters:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['Parameters'] = _items
         return _dict
 
     @classmethod
@@ -96,7 +105,8 @@ class CreateAppOperation(BaseModel):
         _obj = cls.model_validate({
             "Actions": [ActionInput.from_dict(_item) for _item in obj["Actions"]] if obj.get("Actions") is not None else None,
                         "AppName": obj.get("AppName"),
-                        "AppType": obj.get("AppType")
+                        "AppType": obj.get("AppType"),
+                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None
             ,
             "links": obj.get("links")
         })

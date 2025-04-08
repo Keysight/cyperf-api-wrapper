@@ -27,44 +27,44 @@ class TestStatisticsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_plugins(self) -> None:
-        """Test case for create_plugins
+    def test_create_stats_plugins(self) -> None:
+        """Test case for create_stats_plugins
 
         """
         pass
 
-    def test_delete_plugins(self) -> None:
-        """Test case for delete_plugins
+    def test_delete_stats_plugin(self) -> None:
+        """Test case for delete_stats_plugin
 
         """
         pass
 
-    def test_get_plugins(self) -> None:
-        """Test case for get_plugins
+    def test_get_result_stat_by_id(self) -> None:
+        """Test case for get_result_stat_by_id
 
         """
         pass
 
-    def test_get_stats(self) -> None:
-        """Test case for get_stats
+    def test_get_result_stats(self) -> None:
+        """Test case for get_result_stats
 
         """
         pass
 
-    def test_get_stats_by_id(self) -> None:
-        """Test case for get_stats_by_id
+    def test_get_stats_plugins(self) -> None:
+        """Test case for get_stats_plugins
 
         """
         pass
 
-    def test_poll_plugins_ingest(self) -> None:
-        """Test case for poll_plugins_ingest
+    def test_poll_stats_plugins_ingest(self) -> None:
+        """Test case for poll_stats_plugins_ingest
 
         """
         pass
 
-    def test_start_plugins_ingest(self) -> None:
-        """Test case for start_plugins_ingest
+    def test_start_stats_plugins_ingest(self) -> None:
+        """Test case for start_stats_plugins_ingest
 
         """
         pass

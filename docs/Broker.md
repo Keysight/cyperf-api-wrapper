@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **connection_status** | **str** | The broker&#39;s connection status | [optional] 
+**failure_reason** | **str** | The broker&#39;s connection failure reason | [optional] 
 **fingerprint** | **str** | The broker&#39;s fingerprint | [optional] 
 **host** | **str** | The IP or hostname of the registered broker | [optional] 
 **host_name** | **str** | The IP or hostname of the registered broker | [optional] 

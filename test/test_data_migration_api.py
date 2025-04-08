@@ -27,26 +27,26 @@ class TestDataMigrationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_poll_export(self) -> None:
-        """Test case for poll_export
+    def test_poll_controller_migration_export(self) -> None:
+        """Test case for poll_controller_migration_export
 
         """
         pass
 
-    def test_poll_import(self) -> None:
-        """Test case for poll_import
+    def test_poll_controller_migration_import(self) -> None:
+        """Test case for poll_controller_migration_import
 
         """
         pass
 
-    def test_start_export(self) -> None:
-        """Test case for start_export
+    def test_start_controller_migration_export(self) -> None:
+        """Test case for start_controller_migration_export
 
         """
         pass
 
-    def test_start_import(self) -> None:
-        """Test case for start_import
+    def test_start_controller_migration_import(self) -> None:
+        """Test case for start_controller_migration_import
 
         """
         pass

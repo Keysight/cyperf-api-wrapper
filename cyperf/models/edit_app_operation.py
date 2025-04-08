@@ -22,6 +22,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.add_input import AddInput
 from cyperf.models.delete_input import DeleteInput
+from cyperf.models.edit_action_input import EditActionInput
+from cyperf.models.parameter import Parameter
 from cyperf.models.rename_input import RenameInput
 from cyperf.models.reorder_action_input import ReorderActionInput
 from cyperf.models.reorder_exchanges_input import ReorderExchangesInput
@@ -36,11 +38,13 @@ class EditAppOperation(BaseModel):
     add_inputs: Optional[List[AddInput]] = Field(default=None, alias="AddInputs")
     app_id: Optional[StrictStr] = Field(default=None, alias="AppId")
     app_name: Optional[StrictStr] = Field(default=None, alias="AppName")
+    app_parameters: Optional[List[Parameter]] = Field(default=None, alias="AppParameters")
     delete_inputs: Optional[List[DeleteInput]] = Field(default=None, alias="DeleteInputs")
+    edit_action_inputs: Optional[List[EditActionInput]] = Field(default=None, alias="EditActionInputs")
     rename_inputs: Optional[List[RenameInput]] = Field(default=None, alias="RenameInputs")
     reorder_actions_inputs: Optional[List[ReorderActionInput]] = Field(default=None, alias="ReorderActionsInputs")
     reorder_exchanges_inputs: Optional[List[ReorderExchangesInput]] = Field(default=None, alias="ReorderExchangesInputs")
-    __properties: ClassVar[List[str]] = ["AddInputs", "AppId", "AppName", "DeleteInputs", "RenameInputs", "ReorderActionsInputs", "ReorderExchangesInputs"]
+    __properties: ClassVar[List[str]] = ["AddInputs", "AppId", "AppName", "AppParameters", "DeleteInputs", "EditActionInputs", "RenameInputs", "ReorderActionsInputs", "ReorderExchangesInputs"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +92,13 @@ class EditAppOperation(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['AddInputs'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in app_parameters (list)
+        _items = []
+        if self.app_parameters:
+            for _item in self.app_parameters:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['AppParameters'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in delete_inputs (list)
         _items = []
         if self.delete_inputs:
@@ -95,6 +106,13 @@ class EditAppOperation(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['DeleteInputs'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in edit_action_inputs (list)
+        _items = []
+        if self.edit_action_inputs:
+            for _item in self.edit_action_inputs:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['EditActionInputs'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in rename_inputs (list)
         _items = []
         if self.rename_inputs:
@@ -133,7 +151,9 @@ class EditAppOperation(BaseModel):
             "AddInputs": [AddInput.from_dict(_item) for _item in obj["AddInputs"]] if obj.get("AddInputs") is not None else None,
                         "AppId": obj.get("AppId"),
                         "AppName": obj.get("AppName"),
+                        "AppParameters": [Parameter.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None,
                         "DeleteInputs": [DeleteInput.from_dict(_item) for _item in obj["DeleteInputs"]] if obj.get("DeleteInputs") is not None else None,
+                        "EditActionInputs": [EditActionInput.from_dict(_item) for _item in obj["EditActionInputs"]] if obj.get("EditActionInputs") is not None else None,
                         "RenameInputs": [RenameInput.from_dict(_item) for _item in obj["RenameInputs"]] if obj.get("RenameInputs") is not None else None,
                         "ReorderActionsInputs": [ReorderActionInput.from_dict(_item) for _item in obj["ReorderActionsInputs"]] if obj.get("ReorderActionsInputs") is not None else None,
                         "ReorderExchangesInputs": [ReorderExchangesInput.from_dict(_item) for _item in obj["ReorderExchangesInputs"]] if obj.get("ReorderExchangesInputs") is not None else None

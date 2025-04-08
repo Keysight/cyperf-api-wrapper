@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
         # Get the configuration of the created session
         include = 'Config, TrafficProfiles'                          # str | Specifies if the sub-fields that are objects should be included (eg. 'Config'). (optional)
-        config = api_session_instance.get_config(session_id=session.id, include=include)
+        config = api_session_instance.get_session_config(session_id=session.id, include=include)
 
         # Modify test duration
         config.config.traffic_profiles[0].objectives_and_timeline.primary_objective.timeline[1].duration = 30
@@ -101,7 +101,7 @@ if __name__ == "__main__":
         # Start traffic
         print("Starting the test ...")
         api_test_operation_instance = cyperf.TestOperationsApi(api_client)
-        api_test_operation_response = api_test_operation_instance.start_start_traffic(session_id=session.id)
+        api_test_operation_response = api_test_operation_instance.start_test_run_start(session_id=session.id)
         api_test_operation_response.await_completion()
 
         # Wait for the test to be finished
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         print("Downloading test results ...")
         api_test_results_instance = cyperf.TestResultsApi(api_client)
         generate_all_operation = cyperf.GenerateAllOperation()
-        api_test_results_response = api_test_results_instance.start_results_generate_all(result_id=session.test.test_id, generate_all_operation=generate_all_operation)
+        api_test_results_response = api_test_results_instance.start_result_generate_all(result_id=session.test.test_id, generate_all_operation=generate_all_operation)
         file_path = api_test_results_response.await_completion()
         
         last_separator_index = file_path.rfind("\\")

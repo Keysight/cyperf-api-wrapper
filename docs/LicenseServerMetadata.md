@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **connection_status** | **str** | The license server&#39;s connection status | [optional] [readonly] 
+**failure_reason** | **str** | The license server&#39;s connection failure reason | [optional] 
 **fingerprint** | **str** | The license server&#39;s fingerprint | [optional] 
 **host_name** | **str** | The hostname/IP of the server | [optional] 
 **id** | **int** | The unique identifier of the license server | [optional] [readonly] 

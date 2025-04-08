@@ -20,8 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.api_link import APILink
-from cyperf.models.parameter_metadata import ParameterMetadata
+from cyperf.models.parameter_match import ParameterMatch
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -30,19 +29,12 @@ class Parameter(BaseModel):
     """
     Parameter
     """ # noqa: E501
-    default_array_elements: Optional[List[Dict[str, StrictStr]]] = Field(default=None, description="The default values of the parameter", alias="DefaultArrayElements")
-    default_source: Optional[StrictStr] = Field(default=None, description="The default source of the parameter", alias="DefaultSource")
-    default_value: Optional[StrictStr] = Field(default=None, description="The default value of the parameter", alias="DefaultValue")
-    element_type: Optional[StrictStr] = Field(default=None, description="The type of elements in the values array", alias="ElementType")
-    metadata: Optional[ParameterMetadata] = Field(default=None, alias="Metadata")
-    sources: Optional[List[StrictStr]] = Field(default=None, description="The sources of the parameter", alias="Sources")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the parameter", alias="Type")
+    matches: Optional[List[ParameterMatch]] = Field(default=None, alias="Matches")
+    name: Optional[StrictStr] = Field(default=None, alias="Name")
     var_field: Optional[StrictStr] = Field(default=None, description="The name of the ES document field", alias="field")
-    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the parameter")
-    links: Optional[List[APILink]] = None
     operator: Optional[StrictStr] = Field(default=None, description="The operator that the parameter supports")
     query_param: Optional[StrictStr] = Field(default=None, description="The corresponding query param", alias="queryParam")
-    __properties: ClassVar[List[str]] = ["DefaultArrayElements", "DefaultSource", "DefaultValue", "ElementType", "Metadata", "Sources", "Type", "field", "id", "links", "operator", "queryParam"]
+    __properties: ClassVar[List[str]] = ["Matches", "Name", "field", "operator", "queryParam"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,10 +66,8 @@ class Parameter(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "id",
         ])
 
         _dict = self.model_dump(
@@ -85,16 +75,13 @@ class Parameter(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of metadata
-        if self.metadata:
-            _dict['Metadata'] = self.metadata.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in matches (list)
         _items = []
-        if self.links:
-            for _item in self.links:
+        if self.matches:
+            for _item in self.matches:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['links'] = _items
+            _dict['Matches'] = _items
         return _dict
 
     @classmethod
@@ -109,16 +96,9 @@ class Parameter(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "DefaultArrayElements": obj.get("DefaultArrayElements"),
-                        "DefaultSource": obj.get("DefaultSource"),
-                        "DefaultValue": obj.get("DefaultValue"),
-                        "ElementType": obj.get("ElementType"),
-                        "Metadata": ParameterMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
-                        "Sources": obj.get("Sources"),
-                        "Type": obj.get("Type"),
+            "Matches": [ParameterMatch.from_dict(_item) for _item in obj["Matches"]] if obj.get("Matches") is not None else None,
+                        "Name": obj.get("Name"),
                         "field": obj.get("field"),
-                        "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "operator": obj.get("operator"),
                         "queryParam": obj.get("queryParam")
             ,

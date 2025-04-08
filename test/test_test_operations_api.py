@@ -27,62 +27,62 @@ class TestTestOperationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_poll_abort(self) -> None:
-        """Test case for poll_abort
+    def test_poll_test_calibrate_start(self) -> None:
+        """Test case for poll_test_calibrate_start
 
         """
         pass
 
-    def test_poll_start_calibration(self) -> None:
-        """Test case for poll_start_calibration
+    def test_poll_test_calibrate_stop(self) -> None:
+        """Test case for poll_test_calibrate_stop
 
         """
         pass
 
-    def test_poll_start_traffic(self) -> None:
-        """Test case for poll_start_traffic
+    def test_poll_test_run_abort(self) -> None:
+        """Test case for poll_test_run_abort
 
         """
         pass
 
-    def test_poll_stop_calibration(self) -> None:
-        """Test case for poll_stop_calibration
+    def test_poll_test_run_start(self) -> None:
+        """Test case for poll_test_run_start
 
         """
         pass
 
-    def test_poll_stop_traffic(self) -> None:
-        """Test case for poll_stop_traffic
+    def test_poll_test_run_stop(self) -> None:
+        """Test case for poll_test_run_stop
 
         """
         pass
 
-    def test_start_abort(self) -> None:
-        """Test case for start_abort
+    def test_start_test_calibrate_start(self) -> None:
+        """Test case for start_test_calibrate_start
 
         """
         pass
 
-    def test_start_start_calibration(self) -> None:
-        """Test case for start_start_calibration
+    def test_start_test_calibrate_stop(self) -> None:
+        """Test case for start_test_calibrate_stop
 
         """
         pass
 
-    def test_start_start_traffic(self) -> None:
-        """Test case for start_start_traffic
+    def test_start_test_run_abort(self) -> None:
+        """Test case for start_test_run_abort
 
         """
         pass
 
-    def test_start_stop_calibration(self) -> None:
-        """Test case for start_stop_calibration
+    def test_start_test_run_start(self) -> None:
+        """Test case for start_test_run_start
 
         """
         pass
 
-    def test_start_stop_traffic(self) -> None:
-        """Test case for start_stop_traffic
+    def test_start_test_run_stop(self) -> None:
+        """Test case for start_test_run_stop
 
         """
         pass

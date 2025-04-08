@@ -53,16 +53,74 @@ class TestEditAppOperation(unittest.TestCase):
                             ], 
                         exchange_index_insert_at = 56, 
                         flow_index_insert_at = 56, 
+                        parameters = [
+                            cyperf.models.parameter.Parameter(
+                                matches = [
+                                    cyperf.models.parameter_match.ParameterMatch(
+                                        match_location = [
+                                            ''
+                                            ], 
+                                        match_type = '', 
+                                        regex_match = cyperf.models.regex_match.RegexMatch(
+                                            patterns = [
+                                                ''
+                                                ], ), )
+                                    ], 
+                                name = '', 
+                                field = '', 
+                                operator = '', 
+                                query_param = '', )
+                            ], 
                         type = '', )
                     ],
                 app_id = '',
                 app_name = '',
+                app_parameters = [
+                    cyperf.models.parameter.Parameter(
+                        matches = [
+                            cyperf.models.parameter_match.ParameterMatch(
+                                match_location = [
+                                    ''
+                                    ], 
+                                match_type = '', 
+                                regex_match = cyperf.models.regex_match.RegexMatch(
+                                    patterns = [
+                                        ''
+                                        ], ), )
+                            ], 
+                        name = '', 
+                        field = '', 
+                        operator = '', 
+                        query_param = '', )
+                    ],
                 delete_inputs = [
                     cyperf.models.delete_input.DeleteInput(
                         action_index_delete_at = 56, 
                         exchange_delete_at = 56, 
                         flow_index_delete_at = 56, 
                         type = '', )
+                    ],
+                edit_action_inputs = [
+                    cyperf.models.edit_action_input.EditActionInput(
+                        action_index = 56, 
+                        parameters = [
+                            cyperf.models.parameter.Parameter(
+                                matches = [
+                                    cyperf.models.parameter_match.ParameterMatch(
+                                        match_location = [
+                                            ''
+                                            ], 
+                                        match_type = '', 
+                                        regex_match = cyperf.models.regex_match.RegexMatch(
+                                            patterns = [
+                                                ''
+                                                ], ), )
+                                    ], 
+                                name = '', 
+                                field = '', 
+                                operator = '', 
+                                query_param = '', )
+                            ], )
                     ],
                 rename_inputs = [
                     cyperf.models.rename_input.RenameInput(

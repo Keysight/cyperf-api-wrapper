@@ -27,908 +27,920 @@ class TestApplicationResourcesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_resources_certificates_operations_upload_file(self) -> None:
-        """Test case for create_resources_certificates_operations_upload_file
+    def test_delete_resources_capture(self) -> None:
+        """Test case for delete_resources_capture
 
         """
         pass
 
-    def test_create_resources_flow_library_operations_upload_file(self) -> None:
-        """Test case for create_resources_flow_library_operations_upload_file
+    def test_delete_resources_certificate(self) -> None:
+        """Test case for delete_resources_certificate
 
         """
         pass
 
-    def test_create_resources_global_playlists_operations_upload_file(self) -> None:
-        """Test case for create_resources_global_playlists_operations_upload_file
+    def test_delete_resources_flow_library(self) -> None:
+        """Test case for delete_resources_flow_library
 
         """
         pass
 
-    def test_create_resources_http_library_operations_upload_file(self) -> None:
-        """Test case for create_resources_http_library_operations_upload_file
+    def test_delete_resources_global_playlist(self) -> None:
+        """Test case for delete_resources_global_playlist
 
         """
         pass
 
-    def test_create_resources_media_files_operations_upload_file(self) -> None:
-        """Test case for create_resources_media_files_operations_upload_file
+    def test_delete_resources_http_library(self) -> None:
+        """Test case for delete_resources_http_library
 
         """
         pass
 
-    def test_create_resources_media_library_operations_upload_file(self) -> None:
-        """Test case for create_resources_media_library_operations_upload_file
+    def test_delete_resources_media_file(self) -> None:
+        """Test case for delete_resources_media_file
 
         """
         pass
 
-    def test_create_resources_other_library_operations_upload_file(self) -> None:
-        """Test case for create_resources_other_library_operations_upload_file
+    def test_delete_resources_media_library(self) -> None:
+        """Test case for delete_resources_media_library
 
         """
         pass
 
-    def test_create_resources_payloads_operations_upload_file(self) -> None:
-        """Test case for create_resources_payloads_operations_upload_file
+    def test_delete_resources_other_library(self) -> None:
+        """Test case for delete_resources_other_library
 
         """
         pass
 
-    def test_create_resources_pcaps_operations_upload_file(self) -> None:
-        """Test case for create_resources_pcaps_operations_upload_file
+    def test_delete_resources_payload(self) -> None:
+        """Test case for delete_resources_payload
 
         """
         pass
 
-    def test_create_resources_playlists_operations_upload_file(self) -> None:
-        """Test case for create_resources_playlists_operations_upload_file
+    def test_delete_resources_pcap(self) -> None:
+        """Test case for delete_resources_pcap
 
         """
         pass
 
-    def test_create_resources_sip_library_operations_upload_file(self) -> None:
-        """Test case for create_resources_sip_library_operations_upload_file
+    def test_delete_resources_playlist(self) -> None:
+        """Test case for delete_resources_playlist
 
         """
         pass
 
-    def test_create_resources_stats_profile_operations_upload_file(self) -> None:
-        """Test case for create_resources_stats_profile_operations_upload_file
+    def test_delete_resources_sip_library(self) -> None:
+        """Test case for delete_resources_sip_library
 
         """
         pass
 
-    def test_create_resources_tls_certificates_operations_upload_file(self) -> None:
-        """Test case for create_resources_tls_certificates_operations_upload_file
+    def test_delete_resources_stats_profile(self) -> None:
+        """Test case for delete_resources_stats_profile
 
         """
         pass
 
-    def test_create_resources_tls_dhs_operations_upload_file(self) -> None:
-        """Test case for create_resources_tls_dhs_operations_upload_file
+    def test_delete_resources_tls_certificate(self) -> None:
+        """Test case for delete_resources_tls_certificate
 
         """
         pass
 
-    def test_create_resources_tls_keys_operations_upload_file(self) -> None:
-        """Test case for create_resources_tls_keys_operations_upload_file
+    def test_delete_resources_tls_dh(self) -> None:
+        """Test case for delete_resources_tls_dh
 
         """
         pass
 
-    def test_create_resources_user_defined_apps_operations_upload_file(self) -> None:
-        """Test case for create_resources_user_defined_apps_operations_upload_file
+    def test_delete_resources_tls_key(self) -> None:
+        """Test case for delete_resources_tls_key
 
         """
         pass
 
-    def test_delete_captures(self) -> None:
-        """Test case for delete_captures
+    def test_delete_resources_user_defined_app(self) -> None:
+        """Test case for delete_resources_user_defined_app
 
         """
         pass
 
-    def test_delete_certificates(self) -> None:
-        """Test case for delete_certificates
+    def test_get_capture_flows(self) -> None:
+        """Test case for get_capture_flows
 
         """
         pass
 
-    def test_delete_flow_library(self) -> None:
-        """Test case for delete_flow_library
+    def test_get_flow_exchanges(self) -> None:
+        """Test case for get_flow_exchanges
 
         """
         pass
 
-    def test_delete_global_playlists(self) -> None:
-        """Test case for delete_global_playlists
+    def test_get_resources_app_by_id(self) -> None:
+        """Test case for get_resources_app_by_id
 
         """
         pass
 
-    def test_delete_http_library(self) -> None:
-        """Test case for delete_http_library
+    def test_get_resources_application_type_by_id(self) -> None:
+        """Test case for get_resources_application_type_by_id
 
         """
         pass
 
-    def test_delete_media_files(self) -> None:
-        """Test case for delete_media_files
+    def test_get_resources_application_types(self) -> None:
+        """Test case for get_resources_application_types
 
         """
         pass
 
-    def test_delete_media_library(self) -> None:
-        """Test case for delete_media_library
+    def test_get_resources_apps(self) -> None:
+        """Test case for get_resources_apps
 
         """
         pass
 
-    def test_delete_other_library(self) -> None:
-        """Test case for delete_other_library
+    def test_get_resources_attack_by_id(self) -> None:
+        """Test case for get_resources_attack_by_id
 
         """
         pass
 
-    def test_delete_payloads(self) -> None:
-        """Test case for delete_payloads
+    def test_get_resources_attack_categories(self) -> None:
+        """Test case for get_resources_attack_categories
 
         """
         pass
 
-    def test_delete_pcaps(self) -> None:
-        """Test case for delete_pcaps
+    def test_get_resources_attacks(self) -> None:
+        """Test case for get_resources_attacks
 
         """
         pass
 
-    def test_delete_playlists(self) -> None:
-        """Test case for delete_playlists
+    def test_get_resources_auth_profile_by_id(self) -> None:
+        """Test case for get_resources_auth_profile_by_id
 
         """
         pass
 
-    def test_delete_sip_library(self) -> None:
-        """Test case for delete_sip_library
+    def test_get_resources_auth_profiles(self) -> None:
+        """Test case for get_resources_auth_profiles
 
         """
         pass
 
-    def test_delete_stats_profile(self) -> None:
-        """Test case for delete_stats_profile
+    def test_get_resources_capture_by_id(self) -> None:
+        """Test case for get_resources_capture_by_id
 
         """
         pass
 
-    def test_delete_tls_certificates(self) -> None:
-        """Test case for delete_tls_certificates
+    def test_get_resources_captures(self) -> None:
+        """Test case for get_resources_captures
 
         """
         pass
 
-    def test_delete_tls_dhs(self) -> None:
-        """Test case for delete_tls_dhs
+    def test_get_resources_captures_upload_file_result(self) -> None:
+        """Test case for get_resources_captures_upload_file_result
 
         """
         pass
 
-    def test_delete_tls_keys(self) -> None:
-        """Test case for delete_tls_keys
+    def test_get_resources_certificate_by_id(self) -> None:
+        """Test case for get_resources_certificate_by_id
 
         """
         pass
 
-    def test_delete_user_defined_apps(self) -> None:
-        """Test case for delete_user_defined_apps
+    def test_get_resources_certificate_content_file(self) -> None:
+        """Test case for get_resources_certificate_content_file
 
         """
         pass
 
-    def test_get_application_types(self) -> None:
-        """Test case for get_application_types
+    def test_get_resources_certificates(self) -> None:
+        """Test case for get_resources_certificates
 
         """
         pass
 
-    def test_get_application_types_by_id(self) -> None:
-        """Test case for get_application_types_by_id
+    def test_get_resources_certificates_upload_file_result(self) -> None:
+        """Test case for get_resources_certificates_upload_file_result
 
         """
         pass
 
-    def test_get_apps(self) -> None:
-        """Test case for get_apps
+    def test_get_resources_flow_library(self) -> None:
+        """Test case for get_resources_flow_library
 
         """
         pass
 
-    def test_get_apps_by_id(self) -> None:
-        """Test case for get_apps_by_id
+    def test_get_resources_flow_library_by_id(self) -> None:
+        """Test case for get_resources_flow_library_by_id
 
         """
         pass
 
-    def test_get_attack_categories(self) -> None:
-        """Test case for get_attack_categories
+    def test_get_resources_flow_library_content_file(self) -> None:
+        """Test case for get_resources_flow_library_content_file
 
         """
         pass
 
-    def test_get_attacks(self) -> None:
-        """Test case for get_attacks
+    def test_get_resources_flow_library_upload_file_result(self) -> None:
+        """Test case for get_resources_flow_library_upload_file_result
 
         """
         pass
 
-    def test_get_attacks_by_id(self) -> None:
-        """Test case for get_attacks_by_id
+    def test_get_resources_global_playlist_by_id(self) -> None:
+        """Test case for get_resources_global_playlist_by_id
 
         """
         pass
 
-    def test_get_auth_profiles(self) -> None:
-        """Test case for get_auth_profiles
+    def test_get_resources_global_playlist_content_file(self) -> None:
+        """Test case for get_resources_global_playlist_content_file
 
         """
         pass
 
-    def test_get_auth_profiles_by_id(self) -> None:
-        """Test case for get_auth_profiles_by_id
+    def test_get_resources_global_playlists(self) -> None:
+        """Test case for get_resources_global_playlists
 
         """
         pass
 
-    def test_get_captures(self) -> None:
-        """Test case for get_captures
+    def test_get_resources_global_playlists_upload_file_result(self) -> None:
+        """Test case for get_resources_global_playlists_upload_file_result
 
         """
         pass
 
-    def test_get_captures_by_id(self) -> None:
-        """Test case for get_captures_by_id
+    def test_get_resources_http_library(self) -> None:
+        """Test case for get_resources_http_library
 
         """
         pass
 
-    def test_get_certificates(self) -> None:
-        """Test case for get_certificates
+    def test_get_resources_http_library_by_id(self) -> None:
+        """Test case for get_resources_http_library_by_id
 
         """
         pass
 
-    def test_get_certificates_by_id(self) -> None:
-        """Test case for get_certificates_by_id
+    def test_get_resources_http_library_content_file(self) -> None:
+        """Test case for get_resources_http_library_content_file
 
         """
         pass
 
-    def test_get_exchanges(self) -> None:
-        """Test case for get_exchanges
+    def test_get_resources_http_library_upload_file_result(self) -> None:
+        """Test case for get_resources_http_library_upload_file_result
 
         """
         pass
 
-    def test_get_flow_library(self) -> None:
-        """Test case for get_flow_library
+    def test_get_resources_http_profile_by_id(self) -> None:
+        """Test case for get_resources_http_profile_by_id
 
         """
         pass
 
-    def test_get_flow_library_by_id(self) -> None:
-        """Test case for get_flow_library_by_id
+    def test_get_resources_http_profiles(self) -> None:
+        """Test case for get_resources_http_profiles
 
         """
         pass
 
-    def test_get_flows(self) -> None:
-        """Test case for get_flows
+    def test_get_resources_media_file_by_id(self) -> None:
+        """Test case for get_resources_media_file_by_id
 
         """
         pass
 
-    def test_get_global_playlists(self) -> None:
-        """Test case for get_global_playlists
+    def test_get_resources_media_file_content_file(self) -> None:
+        """Test case for get_resources_media_file_content_file
 
         """
         pass
 
-    def test_get_global_playlists_by_id(self) -> None:
-        """Test case for get_global_playlists_by_id
+    def test_get_resources_media_files(self) -> None:
+        """Test case for get_resources_media_files
 
         """
         pass
 
-    def test_get_http_library(self) -> None:
-        """Test case for get_http_library
+    def test_get_resources_media_files_upload_file_result(self) -> None:
+        """Test case for get_resources_media_files_upload_file_result
 
         """
         pass
 
-    def test_get_http_library_by_id(self) -> None:
-        """Test case for get_http_library_by_id
+    def test_get_resources_media_library(self) -> None:
+        """Test case for get_resources_media_library
 
         """
         pass
 
-    def test_get_http_profiles(self) -> None:
-        """Test case for get_http_profiles
+    def test_get_resources_media_library_by_id(self) -> None:
+        """Test case for get_resources_media_library_by_id
 
         """
         pass
 
-    def test_get_http_profiles_by_id(self) -> None:
-        """Test case for get_http_profiles_by_id
+    def test_get_resources_media_library_content_file(self) -> None:
+        """Test case for get_resources_media_library_content_file
 
         """
         pass
 
-    def test_get_media_files(self) -> None:
-        """Test case for get_media_files
+    def test_get_resources_media_library_upload_file_result(self) -> None:
+        """Test case for get_resources_media_library_upload_file_result
 
         """
         pass
 
-    def test_get_media_files_by_id(self) -> None:
-        """Test case for get_media_files_by_id
+    def test_get_resources_other_library(self) -> None:
+        """Test case for get_resources_other_library
 
         """
         pass
 
-    def test_get_media_library(self) -> None:
-        """Test case for get_media_library
+    def test_get_resources_other_library_by_id(self) -> None:
+        """Test case for get_resources_other_library_by_id
 
         """
         pass
 
-    def test_get_media_library_by_id(self) -> None:
-        """Test case for get_media_library_by_id
+    def test_get_resources_other_library_content_file(self) -> None:
+        """Test case for get_resources_other_library_content_file
 
         """
         pass
 
-    def test_get_other_library(self) -> None:
-        """Test case for get_other_library
+    def test_get_resources_other_library_upload_file_result(self) -> None:
+        """Test case for get_resources_other_library_upload_file_result
 
         """
         pass
 
-    def test_get_other_library_by_id(self) -> None:
-        """Test case for get_other_library_by_id
+    def test_get_resources_payload_by_id(self) -> None:
+        """Test case for get_resources_payload_by_id
 
         """
         pass
 
-    def test_get_payloads(self) -> None:
-        """Test case for get_payloads
+    def test_get_resources_payload_content_file(self) -> None:
+        """Test case for get_resources_payload_content_file
 
         """
         pass
 
-    def test_get_payloads_by_id(self) -> None:
-        """Test case for get_payloads_by_id
+    def test_get_resources_payloads(self) -> None:
+        """Test case for get_resources_payloads
 
         """
         pass
 
-    def test_get_pcaps(self) -> None:
-        """Test case for get_pcaps
+    def test_get_resources_payloads_upload_file_result(self) -> None:
+        """Test case for get_resources_payloads_upload_file_result
 
         """
         pass
 
-    def test_get_pcaps_by_id(self) -> None:
-        """Test case for get_pcaps_by_id
+    def test_get_resources_pcap_by_id(self) -> None:
+        """Test case for get_resources_pcap_by_id
 
         """
         pass
 
-    def test_get_playlists(self) -> None:
-        """Test case for get_playlists
+    def test_get_resources_pcap_content_file(self) -> None:
+        """Test case for get_resources_pcap_content_file
 
         """
         pass
 
-    def test_get_playlists_by_id(self) -> None:
-        """Test case for get_playlists_by_id
+    def test_get_resources_pcaps(self) -> None:
+        """Test case for get_resources_pcaps
 
         """
         pass
 
-    def test_get_resources_captures_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_captures_operations_upload_file_operation_id_result
+    def test_get_resources_pcaps_upload_file_result(self) -> None:
+        """Test case for get_resources_pcaps_upload_file_result
 
         """
         pass
 
-    def test_get_resources_certificates_certificates_id_content_file(self) -> None:
-        """Test case for get_resources_certificates_certificates_id_content_file
+    def test_get_resources_playlist_by_id(self) -> None:
+        """Test case for get_resources_playlist_by_id
 
         """
         pass
 
-    def test_get_resources_certificates_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_certificates_operations_upload_file_operation_id
+    def test_get_resources_playlist_content_file(self) -> None:
+        """Test case for get_resources_playlist_content_file
 
         """
         pass
 
-    def test_get_resources_certificates_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_certificates_operations_upload_file_operation_id_result
+    def test_get_resources_playlist_values(self) -> None:
+        """Test case for get_resources_playlist_values
 
         """
         pass
 
-    def test_get_resources_flow_library_flow_library_id_content_file(self) -> None:
-        """Test case for get_resources_flow_library_flow_library_id_content_file
+    def test_get_resources_playlists(self) -> None:
+        """Test case for get_resources_playlists
 
         """
         pass
 
-    def test_get_resources_flow_library_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_flow_library_operations_upload_file_operation_id
+    def test_get_resources_playlists_upload_file_result(self) -> None:
+        """Test case for get_resources_playlists_upload_file_result
 
         """
         pass
 
-    def test_get_resources_flow_library_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_flow_library_operations_upload_file_operation_id_result
+    def test_get_resources_sip_library(self) -> None:
+        """Test case for get_resources_sip_library
 
         """
         pass
 
-    def test_get_resources_global_playlists_global_playlists_id_content_file(self) -> None:
-        """Test case for get_resources_global_playlists_global_playlists_id_content_file
+    def test_get_resources_sip_library_by_id(self) -> None:
+        """Test case for get_resources_sip_library_by_id
 
         """
         pass
 
-    def test_get_resources_global_playlists_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_global_playlists_operations_upload_file_operation_id
+    def test_get_resources_sip_library_content_file(self) -> None:
+        """Test case for get_resources_sip_library_content_file
 
         """
         pass
 
-    def test_get_resources_global_playlists_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_global_playlists_operations_upload_file_operation_id_result
+    def test_get_resources_sip_library_upload_file_result(self) -> None:
+        """Test case for get_resources_sip_library_upload_file_result
 
         """
         pass
 
-    def test_get_resources_http_library_http_library_id_content_file(self) -> None:
-        """Test case for get_resources_http_library_http_library_id_content_file
+    def test_get_resources_stats_profile(self) -> None:
+        """Test case for get_resources_stats_profile
 
         """
         pass
 
-    def test_get_resources_http_library_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_http_library_operations_upload_file_operation_id
+    def test_get_resources_stats_profile_by_id(self) -> None:
+        """Test case for get_resources_stats_profile_by_id
 
         """
         pass
 
-    def test_get_resources_http_library_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_http_library_operations_upload_file_operation_id_result
+    def test_get_resources_stats_profile_content_file(self) -> None:
+        """Test case for get_resources_stats_profile_content_file
 
         """
         pass
 
-    def test_get_resources_media_files_media_files_id_content_file(self) -> None:
-        """Test case for get_resources_media_files_media_files_id_content_file
+    def test_get_resources_stats_profile_upload_file_result(self) -> None:
+        """Test case for get_resources_stats_profile_upload_file_result
 
         """
         pass
 
-    def test_get_resources_media_files_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_media_files_operations_upload_file_operation_id
+    def test_get_resources_strike_by_id(self) -> None:
+        """Test case for get_resources_strike_by_id
 
         """
         pass
 
-    def test_get_resources_media_files_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_media_files_operations_upload_file_operation_id_result
+    def test_get_resources_strike_categories(self) -> None:
+        """Test case for get_resources_strike_categories
 
         """
         pass
 
-    def test_get_resources_media_library_media_library_id_content_file(self) -> None:
-        """Test case for get_resources_media_library_media_library_id_content_file
+    def test_get_resources_strikes(self) -> None:
+        """Test case for get_resources_strikes
 
         """
         pass
 
-    def test_get_resources_media_library_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_media_library_operations_upload_file_operation_id
+    def test_get_resources_tls_certificate_by_id(self) -> None:
+        """Test case for get_resources_tls_certificate_by_id
 
         """
         pass
 
-    def test_get_resources_media_library_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_media_library_operations_upload_file_operation_id_result
+    def test_get_resources_tls_certificate_content_file(self) -> None:
+        """Test case for get_resources_tls_certificate_content_file
 
         """
         pass
 
-    def test_get_resources_other_library_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_other_library_operations_upload_file_operation_id
+    def test_get_resources_tls_certificates(self) -> None:
+        """Test case for get_resources_tls_certificates
 
         """
         pass
 
-    def test_get_resources_other_library_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_other_library_operations_upload_file_operation_id_result
+    def test_get_resources_tls_certificates_upload_file_result(self) -> None:
+        """Test case for get_resources_tls_certificates_upload_file_result
 
         """
         pass
 
-    def test_get_resources_other_library_other_library_id_content_file(self) -> None:
-        """Test case for get_resources_other_library_other_library_id_content_file
+    def test_get_resources_tls_dh_by_id(self) -> None:
+        """Test case for get_resources_tls_dh_by_id
 
         """
         pass
 
-    def test_get_resources_payloads_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_payloads_operations_upload_file_operation_id
+    def test_get_resources_tls_dh_content_file(self) -> None:
+        """Test case for get_resources_tls_dh_content_file
 
         """
         pass
 
-    def test_get_resources_payloads_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_payloads_operations_upload_file_operation_id_result
+    def test_get_resources_tls_dhs(self) -> None:
+        """Test case for get_resources_tls_dhs
 
         """
         pass
 
-    def test_get_resources_payloads_payloads_id_content_file(self) -> None:
-        """Test case for get_resources_payloads_payloads_id_content_file
+    def test_get_resources_tls_dhs_upload_file_result(self) -> None:
+        """Test case for get_resources_tls_dhs_upload_file_result
 
         """
         pass
 
-    def test_get_resources_pcaps_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_pcaps_operations_upload_file_operation_id
+    def test_get_resources_tls_key_by_id(self) -> None:
+        """Test case for get_resources_tls_key_by_id
 
         """
         pass
 
-    def test_get_resources_pcaps_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_pcaps_operations_upload_file_operation_id_result
+    def test_get_resources_tls_key_content_file(self) -> None:
+        """Test case for get_resources_tls_key_content_file
 
         """
         pass
 
-    def test_get_resources_pcaps_pcaps_id_content_file(self) -> None:
-        """Test case for get_resources_pcaps_pcaps_id_content_file
+    def test_get_resources_tls_keys(self) -> None:
+        """Test case for get_resources_tls_keys
 
         """
         pass
 
-    def test_get_resources_playlists_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_playlists_operations_upload_file_operation_id
+    def test_get_resources_tls_keys_upload_file_result(self) -> None:
+        """Test case for get_resources_tls_keys_upload_file_result
 
         """
         pass
 
-    def test_get_resources_playlists_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_playlists_operations_upload_file_operation_id_result
+    def test_get_resources_user_defined_apps(self) -> None:
+        """Test case for get_resources_user_defined_apps
 
         """
         pass
 
-    def test_get_resources_playlists_playlists_id_content_file(self) -> None:
-        """Test case for get_resources_playlists_playlists_id_content_file
+    def test_get_resources_user_defined_apps_upload_file_result(self) -> None:
+        """Test case for get_resources_user_defined_apps_upload_file_result
 
         """
         pass
 
-    def test_get_resources_playlists_playlists_id_values(self) -> None:
-        """Test case for get_resources_playlists_playlists_id_values
+    def test_poll_resources_apps_export_all(self) -> None:
+        """Test case for poll_resources_apps_export_all
 
         """
         pass
 
-    def test_get_resources_sip_library_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_sip_library_operations_upload_file_operation_id
+    def test_poll_resources_captures_batch_delete(self) -> None:
+        """Test case for poll_resources_captures_batch_delete
 
         """
         pass
 
-    def test_get_resources_sip_library_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_sip_library_operations_upload_file_operation_id_result
+    def test_poll_resources_captures_upload_file(self) -> None:
+        """Test case for poll_resources_captures_upload_file
 
         """
         pass
 
-    def test_get_resources_sip_library_sip_library_id_content_file(self) -> None:
-        """Test case for get_resources_sip_library_sip_library_id_content_file
+    def test_poll_resources_certificates_upload_file(self) -> None:
+        """Test case for poll_resources_certificates_upload_file
 
         """
         pass
 
-    def test_get_resources_stats_profile_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_stats_profile_operations_upload_file_operation_id
+    def test_poll_resources_create_app(self) -> None:
+        """Test case for poll_resources_create_app
 
         """
         pass
 
-    def test_get_resources_stats_profile_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_stats_profile_operations_upload_file_operation_id_result
+    def test_poll_resources_edit_app(self) -> None:
+        """Test case for poll_resources_edit_app
 
         """
         pass
 
-    def test_get_resources_stats_profile_stats_profile_id_content_file(self) -> None:
-        """Test case for get_resources_stats_profile_stats_profile_id_content_file
+    def test_poll_resources_find_param_matches(self) -> None:
+        """Test case for poll_resources_find_param_matches
 
         """
         pass
 
-    def test_get_resources_tls_certificates_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_tls_certificates_operations_upload_file_operation_id
+    def test_poll_resources_flow_library_upload_file(self) -> None:
+        """Test case for poll_resources_flow_library_upload_file
 
         """
         pass
 
-    def test_get_resources_tls_certificates_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_tls_certificates_operations_upload_file_operation_id_result
+    def test_poll_resources_get_attack_categories(self) -> None:
+        """Test case for poll_resources_get_attack_categories
 
         """
         pass
 
-    def test_get_resources_tls_certificates_tls_certificates_id_content_file(self) -> None:
-        """Test case for get_resources_tls_certificates_tls_certificates_id_content_file
+    def test_poll_resources_get_attacks(self) -> None:
+        """Test case for poll_resources_get_attacks
 
         """
         pass
 
-    def test_get_resources_tls_dhs_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_tls_dhs_operations_upload_file_operation_id
+    def test_poll_resources_get_strike_categories(self) -> None:
+        """Test case for poll_resources_get_strike_categories
 
         """
         pass
 
-    def test_get_resources_tls_dhs_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_tls_dhs_operations_upload_file_operation_id_result
+    def test_poll_resources_get_strikes(self) -> None:
+        """Test case for poll_resources_get_strikes
 
         """
         pass
 
-    def test_get_resources_tls_dhs_tls_dhs_id_content_file(self) -> None:
-        """Test case for get_resources_tls_dhs_tls_dhs_id_content_file
+    def test_poll_resources_global_playlists_upload_file(self) -> None:
+        """Test case for poll_resources_global_playlists_upload_file
 
         """
         pass
 
-    def test_get_resources_tls_keys_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_tls_keys_operations_upload_file_operation_id
+    def test_poll_resources_http_library_upload_file(self) -> None:
+        """Test case for poll_resources_http_library_upload_file
 
         """
         pass
 
-    def test_get_resources_tls_keys_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_tls_keys_operations_upload_file_operation_id_result
+    def test_poll_resources_media_files_upload_file(self) -> None:
+        """Test case for poll_resources_media_files_upload_file
 
         """
         pass
 
-    def test_get_resources_tls_keys_tls_keys_id_content_file(self) -> None:
-        """Test case for get_resources_tls_keys_tls_keys_id_content_file
+    def test_poll_resources_media_library_upload_file(self) -> None:
+        """Test case for poll_resources_media_library_upload_file
 
         """
         pass
 
-    def test_get_resources_user_defined_apps_operations_upload_file_operation_id(self) -> None:
-        """Test case for get_resources_user_defined_apps_operations_upload_file_operation_id
+    def test_poll_resources_other_library_upload_file(self) -> None:
+        """Test case for poll_resources_other_library_upload_file
 
         """
         pass
 
-    def test_get_resources_user_defined_apps_operations_upload_file_operation_id_result(self) -> None:
-        """Test case for get_resources_user_defined_apps_operations_upload_file_operation_id_result
+    def test_poll_resources_payloads_upload_file(self) -> None:
+        """Test case for poll_resources_payloads_upload_file
 
         """
         pass
 
-    def test_get_sip_library(self) -> None:
-        """Test case for get_sip_library
+    def test_poll_resources_pcaps_upload_file(self) -> None:
+        """Test case for poll_resources_pcaps_upload_file
 
         """
         pass
 
-    def test_get_sip_library_by_id(self) -> None:
-        """Test case for get_sip_library_by_id
+    def test_poll_resources_playlists_upload_file(self) -> None:
+        """Test case for poll_resources_playlists_upload_file
 
         """
         pass
 
-    def test_get_stats_profile(self) -> None:
-        """Test case for get_stats_profile
+    def test_poll_resources_sip_library_upload_file(self) -> None:
+        """Test case for poll_resources_sip_library_upload_file
 
         """
         pass
 
-    def test_get_stats_profile_by_id(self) -> None:
-        """Test case for get_stats_profile_by_id
+    def test_poll_resources_stats_profile_upload_file(self) -> None:
+        """Test case for poll_resources_stats_profile_upload_file
 
         """
         pass
 
-    def test_get_strike_categories(self) -> None:
-        """Test case for get_strike_categories
+    def test_poll_resources_tls_certificates_upload_file(self) -> None:
+        """Test case for poll_resources_tls_certificates_upload_file
 
         """
         pass
 
-    def test_get_strikes(self) -> None:
-        """Test case for get_strikes
+    def test_poll_resources_tls_dhs_upload_file(self) -> None:
+        """Test case for poll_resources_tls_dhs_upload_file
 
         """
         pass
 
-    def test_get_strikes_by_id(self) -> None:
-        """Test case for get_strikes_by_id
+    def test_poll_resources_tls_keys_upload_file(self) -> None:
+        """Test case for poll_resources_tls_keys_upload_file
 
         """
         pass
 
-    def test_get_tls_certificates(self) -> None:
-        """Test case for get_tls_certificates
+    def test_poll_resources_user_defined_apps_export_all(self) -> None:
+        """Test case for poll_resources_user_defined_apps_export_all
 
         """
         pass
 
-    def test_get_tls_certificates_by_id(self) -> None:
-        """Test case for get_tls_certificates_by_id
+    def test_poll_resources_user_defined_apps_upload_file(self) -> None:
+        """Test case for poll_resources_user_defined_apps_upload_file
 
         """
         pass
 
-    def test_get_tls_dhs(self) -> None:
-        """Test case for get_tls_dhs
+    def test_start_resources_apps_export_all(self) -> None:
+        """Test case for start_resources_apps_export_all
 
         """
         pass
 
-    def test_get_tls_dhs_by_id(self) -> None:
-        """Test case for get_tls_dhs_by_id
+    def test_start_resources_captures_batch_delete(self) -> None:
+        """Test case for start_resources_captures_batch_delete
 
         """
         pass
 
-    def test_get_tls_keys(self) -> None:
-        """Test case for get_tls_keys
+    def test_start_resources_captures_upload_file(self) -> None:
+        """Test case for start_resources_captures_upload_file
 
         """
         pass
 
-    def test_get_tls_keys_by_id(self) -> None:
-        """Test case for get_tls_keys_by_id
+    def test_start_resources_certificates_upload_file(self) -> None:
+        """Test case for start_resources_certificates_upload_file
 
         """
         pass
 
-    def test_get_user_defined_apps(self) -> None:
-        """Test case for get_user_defined_apps
+    def test_start_resources_create_app(self) -> None:
+        """Test case for start_resources_create_app
 
         """
         pass
 
-    def test_poll_apps_export_all(self) -> None:
-        """Test case for poll_apps_export_all
+    def test_start_resources_edit_app(self) -> None:
+        """Test case for start_resources_edit_app
 
         """
         pass
 
-    def test_poll_captures_batch_delete(self) -> None:
-        """Test case for poll_captures_batch_delete
+    def test_start_resources_find_param_matches(self) -> None:
+        """Test case for start_resources_find_param_matches
 
         """
         pass
 
-    def test_poll_captures_upload_file(self) -> None:
-        """Test case for poll_captures_upload_file
+    def test_start_resources_flow_library_upload_file(self) -> None:
+        """Test case for start_resources_flow_library_upload_file
 
         """
         pass
 
-    def test_poll_create_app(self) -> None:
-        """Test case for poll_create_app
+    def test_start_resources_get_attack_categories(self) -> None:
+        """Test case for start_resources_get_attack_categories
 
         """
         pass
 
-    def test_poll_edit_app(self) -> None:
-        """Test case for poll_edit_app
+    def test_start_resources_get_attacks(self) -> None:
+        """Test case for start_resources_get_attacks
 
         """
         pass
 
-    def test_poll_get_attack_categories(self) -> None:
-        """Test case for poll_get_attack_categories
+    def test_start_resources_get_strike_categories(self) -> None:
+        """Test case for start_resources_get_strike_categories
 
         """
         pass
 
-    def test_poll_get_attacks(self) -> None:
-        """Test case for poll_get_attacks
+    def test_start_resources_get_strikes(self) -> None:
+        """Test case for start_resources_get_strikes
 
         """
         pass
 
-    def test_poll_get_strike_categories(self) -> None:
-        """Test case for poll_get_strike_categories
+    def test_start_resources_global_playlists_upload_file(self) -> None:
+        """Test case for start_resources_global_playlists_upload_file
 
         """
         pass
 
-    def test_poll_get_strikes(self) -> None:
-        """Test case for poll_get_strikes
+    def test_start_resources_http_library_upload_file(self) -> None:
+        """Test case for start_resources_http_library_upload_file
 
         """
         pass
 
-    def test_poll_user_defined_apps_export_all(self) -> None:
-        """Test case for poll_user_defined_apps_export_all
+    def test_start_resources_media_files_upload_file(self) -> None:
+        """Test case for start_resources_media_files_upload_file
 
         """
         pass
 
-    def test_start_apps_export_all(self) -> None:
-        """Test case for start_apps_export_all
+    def test_start_resources_media_library_upload_file(self) -> None:
+        """Test case for start_resources_media_library_upload_file
 
         """
         pass
 
-    def test_start_captures_batch_delete(self) -> None:
-        """Test case for start_captures_batch_delete
+    def test_start_resources_other_library_upload_file(self) -> None:
+        """Test case for start_resources_other_library_upload_file
 
         """
         pass
 
-    def test_start_captures_upload_file(self) -> None:
-        """Test case for start_captures_upload_file
+    def test_start_resources_payloads_upload_file(self) -> None:
+        """Test case for start_resources_payloads_upload_file
 
         """
         pass
 
-    def test_start_create_app(self) -> None:
-        """Test case for start_create_app
+    def test_start_resources_pcaps_upload_file(self) -> None:
+        """Test case for start_resources_pcaps_upload_file
 
         """
         pass
 
-    def test_start_edit_app(self) -> None:
-        """Test case for start_edit_app
+    def test_start_resources_playlists_upload_file(self) -> None:
+        """Test case for start_resources_playlists_upload_file
 
         """
         pass
 
-    def test_start_get_attack_categories(self) -> None:
-        """Test case for start_get_attack_categories
+    def test_start_resources_sip_library_upload_file(self) -> None:
+        """Test case for start_resources_sip_library_upload_file
 
         """
         pass
 
-    def test_start_get_attacks(self) -> None:
-        """Test case for start_get_attacks
+    def test_start_resources_stats_profile_upload_file(self) -> None:
+        """Test case for start_resources_stats_profile_upload_file
 
         """
         pass
 
-    def test_start_get_strike_categories(self) -> None:
-        """Test case for start_get_strike_categories
+    def test_start_resources_tls_certificates_upload_file(self) -> None:
+        """Test case for start_resources_tls_certificates_upload_file
 
         """
         pass
 
-    def test_start_get_strikes(self) -> None:
-        """Test case for start_get_strikes
+    def test_start_resources_tls_dhs_upload_file(self) -> None:
+        """Test case for start_resources_tls_dhs_upload_file
 
         """
         pass
 
-    def test_start_user_defined_apps_export_all(self) -> None:
-        """Test case for start_user_defined_apps_export_all
+    def test_start_resources_tls_keys_upload_file(self) -> None:
+        """Test case for start_resources_tls_keys_upload_file
+
+        """
+        pass
+
+    def test_start_resources_user_defined_apps_export_all(self) -> None:
+        """Test case for start_resources_user_defined_apps_export_all
+
+        """
+        pass
+
+    def test_start_resources_user_defined_apps_upload_file(self) -> None:
+        """Test case for start_resources_user_defined_apps_upload_file
 
         """
         pass
