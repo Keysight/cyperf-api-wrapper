@@ -36,6 +36,7 @@ class TestAppFlow(unittest.TestCase):
         model = AppFlow()
         if include_optional:
             return AppFlow(
+                display_id = '',
                 dst_address = 'YQ==',
                 dst_port = 56,
                 exchanges = [
@@ -58,7 +59,24 @@ class TestAppFlow(unittest.TestCase):
                                 }, 
                             size = 56, 
                             type = '', ), 
+                        http_req_meta = cyperf.models.http_req_meta.HTTPReqMeta(
+                            headers = {
+                                'key' : [
+                                    ''
+                                    ]
+                                }, 
+                            hostname = '', 
+                            method = '', 
+                            size = 56, 
+                            uri = '', 
+                            version = '', ), 
+                        http_res_meta = cyperf.models.http_res_meta.HTTPResMeta(
+                            size = 56, 
+                            status = '', 
+                            status_code = 56, 
+                            version = '', ), 
                         id = '', 
+                        name = '', 
                         payload = cyperf.models.exchange_payload.ExchangePayload(
                             c2s = 'YQ==', 
                             s2c = 'YQ==', ), 

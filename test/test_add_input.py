@@ -51,6 +51,24 @@ class TestAddInput(unittest.TestCase):
                     ],
                 exchange_index_insert_at = 56,
                 flow_index_insert_at = 56,
+                parameters = [
+                    cyperf.models.parameter.Parameter(
+                        matches = [
+                            cyperf.models.parameter_match.ParameterMatch(
+                                match_location = [
+                                    ''
+                                    ], 
+                                match_type = '', 
+                                regex_match = cyperf.models.regex_match.RegexMatch(
+                                    patterns = [
+                                        ''
+                                        ], ), )
+                            ], 
+                        name = '', 
+                        field = '', 
+                        operator = '', 
+                        query_param = '', )
+                    ],
                 type = ''
             )
         else:

@@ -42,8 +42,8 @@ class Config(BaseModel):
     network_profiles: Optional[List[NetworkProfile]] = Field(default=None, alias="NetworkProfiles")
     traffic_profiles: Optional[List[ApplicationProfile]] = Field(default=None, alias="TrafficProfiles")
     links: Optional[List[APILink]] = None
-    validate_config: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="validate-config")
-    __properties: ClassVar[List[str]] = ["AttackProfiles", "ConfigValidation", "CustomDashboards", "ExpectedDiskSpace", "NetworkProfiles", "TrafficProfiles", "links", "validate-config"]
+    validate: Optional[List[Union[StrictBytes, StrictStr]]] = None
+    __properties: ClassVar[List[str]] = ["AttackProfiles", "ConfigValidation", "CustomDashboards", "ExpectedDiskSpace", "NetworkProfiles", "TrafficProfiles", "links", "validate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -146,7 +146,7 @@ class Config(BaseModel):
                         "NetworkProfiles": [NetworkProfile.from_dict(_item) for _item in obj["NetworkProfiles"]] if obj.get("NetworkProfiles") is not None else None,
                         "TrafficProfiles": [ApplicationProfile.from_dict(_item) for _item in obj["TrafficProfiles"]] if obj.get("TrafficProfiles") is not None else None,
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "validate-config": obj.get("validate-config")
+                        "validate": obj.get("validate")
             ,
             "links": obj.get("links")
         })

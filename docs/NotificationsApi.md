@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_notifications**](NotificationsApi.md#delete_notifications) | **DELETE** /api/v2/notifications/{notificationId} | 
+[**delete_notification**](NotificationsApi.md#delete_notification) | **DELETE** /api/v2/notifications/{notificationId} | 
+[**get_notification_by_id**](NotificationsApi.md#get_notification_by_id) | **GET** /api/v2/notifications/{notificationId} | 
 [**get_notification_counts**](NotificationsApi.md#get_notification_counts) | **GET** /api/v2/notification-counts | 
 [**get_notifications**](NotificationsApi.md#get_notifications) | **GET** /api/v2/notifications | 
-[**get_notifications_by_id**](NotificationsApi.md#get_notifications_by_id) | **GET** /api/v2/notifications/{notificationId} | 
 [**poll_notifications_cleanup**](NotificationsApi.md#poll_notifications_cleanup) | **GET** /api/v2/notifications/operations/cleanup/{id} | 
 [**poll_notifications_dismiss**](NotificationsApi.md#poll_notifications_dismiss) | **GET** /api/v2/notifications/operations/dismiss/{id} | 
 [**start_notifications_cleanup**](NotificationsApi.md#start_notifications_cleanup) | **POST** /api/v2/notifications/operations/cleanup | 
 [**start_notifications_dismiss**](NotificationsApi.md#start_notifications_dismiss) | **POST** /api/v2/notifications/operations/dismiss | 
 
 
-# **delete_notifications**
-> delete_notifications(notification_id)
+# **delete_notification**
+> delete_notification(notification_id)
 
 
 
@@ -53,9 +53,9 @@ with cyperf.ApiClient(configuration) as api_client:
     notification_id = 'notification_id_example' # str | The ID of the notification.
 
     try:
-        api_instance.delete_notifications(notification_id)
+        api_instance.delete_notification(notification_id)
     except Exception as e:
-        print("Exception when calling NotificationsApi->delete_notifications: %s\n" % e)
+        print("Exception when calling NotificationsApi->delete_notification: %s\n" % e)
 ```
 
 
@@ -89,6 +89,84 @@ void (empty response body)
 **403** | The initiator of the request does not have enough privileges to perform the action. |  -  |
 **404** | A notification with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_notification_by_id**
+> Notification get_notification_by_id(notification_id)
+
+
+
+Get a particular notification.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.notification import Notification
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.NotificationsApi(api_client)
+    notification_id = 'notification_id_example' # str | The ID of the notification.
+
+    try:
+        api_response = api_instance.get_notification_by_id(notification_id)
+        print("The response of NotificationsApi->get_notification_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling NotificationsApi->get_notification_by_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notification_id** | **str**| The ID of the notification. | 
+
+### Return type
+
+[**Notification**](Notification.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested notification |  -  |
+**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -300,84 +378,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_notifications_by_id**
-> Notification get_notifications_by_id(notification_id)
-
-
-
-Get a particular notification.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.notification import Notification
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.NotificationsApi(api_client)
-    notification_id = 'notification_id_example' # str | The ID of the notification.
-
-    try:
-        api_response = api_instance.get_notifications_by_id(notification_id)
-        print("The response of NotificationsApi->get_notifications_by_id:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling NotificationsApi->get_notifications_by_id: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notification_id** | **str**| The ID of the notification. | 
-
-### Return type
-
-[**Notification**](Notification.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The requested notification |  -  |
-**400** | Bad request |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **poll_notifications_cleanup**
 > AsyncContext poll_notifications_cleanup(id)
 
@@ -452,6 +452,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -529,6 +530,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

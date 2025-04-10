@@ -64,7 +64,7 @@ if __name__ == "__main__":
         application_ids = []
         application_names = []
         print("Finding first 4 applications with 'Google' in their name, sorted alphabetically...")
-        api_application_resources_response = api_application_resources_instance.get_apps(take=take, skip=skip, search_col=search_col, search_val=search_val, filter_mode=filter_mode, sort=sort)
+        api_application_resources_response = api_application_resources_instance.get_resources_apps(take=take, skip=skip, search_col=search_col, search_val=search_val, filter_mode=filter_mode, sort=sort)
         print(f"{len(api_application_resources_response.data)} applications found.\n")
         if len(api_application_resources_response.data) != 4:
             raise ValueError("Couldn't find 4 applications.")
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
         # Get the configuration of the created session
         include = 'Config, TrafficProfiles'                          # str | Specifies if the sub-fields that are objects should be included (eg. 'Config'). (optional)
-        config = api_session_instance.get_config(session_id=session.id, include=include)
+        config = api_session_instance.get_session_config(session_id=session.id, include=include)
 
         # Modify test duration
         config.config.traffic_profiles[0].objectives_and_timeline.primary_objective.timeline[1].duration = 30
@@ -154,7 +154,7 @@ if __name__ == "__main__":
         # Start traffic
         print("Starting the test ...")
         api_test_operation_instance = cyperf.TestOperationsApi(api_client)
-        api_test_operation_response = api_test_operation_instance.start_start_traffic(session_id=session.id)
+        api_test_operation_response = api_test_operation_instance.start_test_run_start(session_id=session.id)
         api_test_operation_response.await_completion()
 
         # Wait for the test to be finished
@@ -170,7 +170,7 @@ if __name__ == "__main__":
         save_config_operation.name = "Sample Script Name"
         saving_response = ''
         print("Saving the configuration...")
-        api_save_config_response = api_session_instance.start_config_save(session.id, save_config_operation=save_config_operation)
+        api_save_config_response = api_session_instance.start_session_config_save(session.id, save_config_operation=save_config_operation)
         saving_response = api_save_config_response.await_completion()
         print("Configuration saved successfully.\n")
 

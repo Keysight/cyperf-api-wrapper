@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.capture_input import CaptureInput
+from cyperf.models.parameter import Parameter
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -31,7 +32,8 @@ class ActionInput(BaseModel):
     """ # noqa: E501
     captures: Optional[List[CaptureInput]] = Field(default=None, alias="Captures")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
-    __properties: ClassVar[List[str]] = ["Captures", "Name"]
+    parameters: Optional[List[Parameter]] = Field(default=None, alias="Parameters")
+    __properties: ClassVar[List[str]] = ["Captures", "Name", "Parameters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,6 +81,13 @@ class ActionInput(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Captures'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in parameters (list)
+        _items = []
+        if self.parameters:
+            for _item in self.parameters:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['Parameters'] = _items
         return _dict
 
     @classmethod
@@ -94,7 +103,8 @@ class ActionInput(BaseModel):
 
         _obj = cls.model_validate({
             "Captures": [CaptureInput.from_dict(_item) for _item in obj["Captures"]] if obj.get("Captures") is not None else None,
-                        "Name": obj.get("Name")
+                        "Name": obj.get("Name"),
+                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None
             ,
             "links": obj.get("links")
         })

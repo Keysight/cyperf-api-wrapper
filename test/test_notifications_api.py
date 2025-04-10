@@ -27,8 +27,14 @@ class TestNotificationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_delete_notifications(self) -> None:
-        """Test case for delete_notifications
+    def test_delete_notification(self) -> None:
+        """Test case for delete_notification
+
+        """
+        pass
+
+    def test_get_notification_by_id(self) -> None:
+        """Test case for get_notification_by_id
 
         """
         pass
@@ -41,12 +47,6 @@ class TestNotificationsApi(unittest.TestCase):
 
     def test_get_notifications(self) -> None:
         """Test case for get_notifications
-
-        """
-        pass
-
-    def test_get_notifications_by_id(self) -> None:
-        """Test case for get_notifications_by_id
 
         """
         pass

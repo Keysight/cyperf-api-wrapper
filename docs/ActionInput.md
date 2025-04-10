@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **captures** | [**List[CaptureInput]**](CaptureInput.md) |  | [optional] 
 **name** | **str** |  | [optional] 
+**parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 
 
 ## Example
 

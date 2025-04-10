@@ -6,7 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **c2s_payload** | [**GenericFile**](GenericFile.md) |  | [optional] 
+**http_req_meta** | [**HTTPReqMeta**](HTTPReqMeta.md) |  | [optional] 
+**http_res_meta** | [**HTTPResMeta**](HTTPResMeta.md) |  | [optional] 
 **id** | **str** |  | [optional] [readonly] 
+**name** | **str** |  | [optional] [readonly] 
 **payload** | [**ExchangePayload**](ExchangePayload.md) |  | [optional] 
 **s2c_payload** | [**GenericFile**](GenericFile.md) |  | [optional] 
 

@@ -34,26 +34,26 @@ class TestUtilsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_certificate(self) -> None:
-        """Test case for get_certificate
-
-        """
-        pass
-
-    def test_get_consumers(self) -> None:
-        """Test case for get_consumers
-
-        """
-        pass
-
-    def test_get_consumers_by_id(self) -> None:
-        """Test case for get_consumers_by_id
+    def test_get_cert_manager_certificate(self) -> None:
+        """Test case for get_cert_manager_certificate
 
         """
         pass
 
     def test_get_disk_usage(self) -> None:
         """Test case for get_disk_usage
+
+        """
+        pass
+
+    def test_get_disk_usage_consumer_by_id(self) -> None:
+        """Test case for get_disk_usage_consumer_by_id
+
+        """
+        pass
+
+    def test_get_disk_usage_consumers(self) -> None:
+        """Test case for get_disk_usage_consumers
 
         """
         pass
@@ -102,6 +102,18 @@ class TestUtilsApi(unittest.TestCase):
         """
         pass
 
+    def test_poll_cert_manager_generate(self) -> None:
+        """Test case for poll_cert_manager_generate
+
+        """
+        pass
+
+    def test_poll_cert_manager_upload(self) -> None:
+        """Test case for poll_cert_manager_upload
+
+        """
+        pass
+
     def test_poll_disk_usage_cleanup_diagnostics(self) -> None:
         """Test case for poll_disk_usage_cleanup_diagnostics
 
@@ -132,22 +144,22 @@ class TestUtilsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_generate(self) -> None:
-        """Test case for poll_generate
-
-        """
-        pass
-
-    def test_poll_upload(self) -> None:
-        """Test case for poll_upload
-
-        """
-        pass
-
     def test_post_eula(self) -> None:
         """Test case for post_eula
 
         Update properties an EULA
+        """
+        pass
+
+    def test_start_cert_manager_generate(self) -> None:
+        """Test case for start_cert_manager_generate
+
+        """
+        pass
+
+    def test_start_cert_manager_upload(self) -> None:
+        """Test case for start_cert_manager_upload
+
         """
         pass
 
@@ -177,18 +189,6 @@ class TestUtilsApi(unittest.TestCase):
 
     def test_start_disk_usage_cleanup_results(self) -> None:
         """Test case for start_disk_usage_cleanup_results
-
-        """
-        pass
-
-    def test_start_generate(self) -> None:
-        """Test case for start_generate
-
-        """
-        pass
-
-    def test_start_upload(self) -> None:
-        """Test case for start_upload
 
         """
         pass

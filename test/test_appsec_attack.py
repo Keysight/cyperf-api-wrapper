@@ -39,21 +39,37 @@ class TestAppsecAttack(unittest.TestCase):
                 attack = None,
                 description = '',
                 metadata = cyperf.models.metadata.Metadata(
-                    cve_count = 56, 
                     direction = '', 
+                    is_banner = True, 
                     keywords = [
                         null
                         ], 
                     legacy_names = [
                         ''
                         ], 
+                    protocol = '', 
+                    rtp_profile_meta = cyperf.models.rtp_profile_meta.RTPProfileMeta(
+                        custom_header_len_offset = 56, 
+                        custom_header_len_size = 56, 
+                        custom_header_signature = 'YQ==', 
+                        custom_header_signature_offset = 56, 
+                        custom_header_size = 56, 
+                        encryption_mode = '', 
+                        requires_rtp_profile = True, ), 
                     references = [
                         cyperf.models.reference.Reference(
                             type = '', 
                             value = '', )
                         ], 
+                    requires_uniqueness = True, 
                     severity = '', 
-                    strikes_count = 56, ),
+                    skip_attack_generation = True, 
+                    sort_severity = '', 
+                    static = True, 
+                    supported_apps = [
+                        ''
+                        ], 
+                    year = '', ),
                 name = '',
                 id = '',
                 links = [

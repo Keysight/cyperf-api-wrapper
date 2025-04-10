@@ -22,6 +22,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.exchange_payload import ExchangePayload
 from cyperf.models.generic_file import GenericFile
+from cyperf.models.http_req_meta import HTTPReqMeta
+from cyperf.models.http_res_meta import HTTPResMeta
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -31,10 +33,13 @@ class AppExchange(BaseModel):
     AppExchange
     """ # noqa: E501
     c2s_payload: Optional[GenericFile] = Field(default=None, alias="c2sPayload")
+    http_req_meta: Optional[HTTPReqMeta] = Field(default=None, alias="httpReqMeta")
+    http_res_meta: Optional[HTTPResMeta] = Field(default=None, alias="httpResMeta")
     id: Optional[StrictStr] = None
+    name: Optional[StrictStr] = None
     payload: Optional[ExchangePayload] = None
     s2c_payload: Optional[GenericFile] = Field(default=None, alias="s2cPayload")
-    __properties: ClassVar[List[str]] = ["c2sPayload", "id", "payload", "s2cPayload"]
+    __properties: ClassVar[List[str]] = ["c2sPayload", "httpReqMeta", "httpResMeta", "id", "name", "payload", "s2cPayload"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -67,9 +72,11 @@ class AppExchange(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "id",
+            "name",
         ])
 
         _dict = self.model_dump(
@@ -80,6 +87,12 @@ class AppExchange(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of c2s_payload
         if self.c2s_payload:
             _dict['c2sPayload'] = self.c2s_payload.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of http_req_meta
+        if self.http_req_meta:
+            _dict['httpReqMeta'] = self.http_req_meta.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of http_res_meta
+        if self.http_res_meta:
+            _dict['httpResMeta'] = self.http_res_meta.to_dict()
         # override the default output from pydantic by calling `to_dict()` of payload
         if self.payload:
             _dict['payload'] = self.payload.to_dict()
@@ -101,7 +114,10 @@ class AppExchange(BaseModel):
 
         _obj = cls.model_validate({
             "c2sPayload": GenericFile.from_dict(obj["c2sPayload"]) if obj.get("c2sPayload") is not None else None,
+                        "httpReqMeta": HTTPReqMeta.from_dict(obj["httpReqMeta"]) if obj.get("httpReqMeta") is not None else None,
+                        "httpResMeta": HTTPResMeta.from_dict(obj["httpResMeta"]) if obj.get("httpResMeta") is not None else None,
                         "id": obj.get("id"),
+                        "name": obj.get("name"),
                         "payload": ExchangePayload.from_dict(obj["payload"]) if obj.get("payload") is not None else None,
                         "s2cPayload": GenericFile.from_dict(obj["s2cPayload"]) if obj.get("s2cPayload") is not None else None
             ,

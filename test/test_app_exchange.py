@@ -54,7 +54,29 @@ class TestAppExchange(unittest.TestCase):
                         }, 
                     size = 56, 
                     type = '', ),
+                http_req_meta = cyperf.models.http_req_meta.HTTPReqMeta(
+                    headers = {
+                        'key' : [
+                            ''
+                            ]
+                        }, 
+                    hostname = '', 
+                    method = '', 
+                    size = 56, 
+                    uri = '', 
+                    version = '', ),
+                http_res_meta = cyperf.models.http_res_meta.HTTPResMeta(
+                    headers = {
+                        'key' : [
+                            ''
+                            ]
+                        }, 
+                    size = 56, 
+                    status = '', 
+                    status_code = 56, 
+                    version = '', ),
                 id = '',
+                name = '',
                 payload = cyperf.models.exchange_payload.ExchangePayload(
                     c2s = 'YQ==', 
                     s2c = 'YQ==', ),

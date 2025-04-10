@@ -315,7 +315,7 @@ class ReportsApi:
 
 
     @validate_call
-    def get_download_csv_by_id(
+    def get_result_download_csv_by_id(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         download_csv_id: Annotated[StrictStr, Field(description="The ID of the download csv.")],
@@ -332,7 +332,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """get_download_csv_by_id
+        """get_result_download_csv_by_id
 
         Download the generated CSV reports for the current result as a zip file.
 
@@ -362,7 +362,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_csv_by_id_serialize(
+        _param = self._get_result_download_csv_by_id_serialize(
             result_id=result_id,
             download_csv_id=download_csv_id,
             _request_auth=_request_auth,
@@ -384,7 +384,7 @@ class ReportsApi:
 
 
     @validate_call
-    def get_download_csv_by_id_with_http_info(
+    def get_result_download_csv_by_id_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         download_csv_id: Annotated[StrictStr, Field(description="The ID of the download csv.")],
@@ -401,7 +401,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """get_download_csv_by_id
+        """get_result_download_csv_by_id
 
         Download the generated CSV reports for the current result as a zip file.
 
@@ -431,7 +431,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_csv_by_id_serialize(
+        _param = self._get_result_download_csv_by_id_serialize(
             result_id=result_id,
             download_csv_id=download_csv_id,
             _request_auth=_request_auth,
@@ -453,7 +453,7 @@ class ReportsApi:
 
 
     @validate_call
-    def get_download_csv_by_id_without_preload_content(
+    def get_result_download_csv_by_id_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         download_csv_id: Annotated[StrictStr, Field(description="The ID of the download csv.")],
@@ -470,7 +470,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_download_csv_by_id
+        """get_result_download_csv_by_id
 
         Download the generated CSV reports for the current result as a zip file.
 
@@ -500,7 +500,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_download_csv_by_id_serialize(
+        _param = self._get_result_download_csv_by_id_serialize(
             result_id=result_id,
             download_csv_id=download_csv_id,
             _request_auth=_request_auth,
@@ -521,7 +521,7 @@ class ReportsApi:
         )
 
 
-    def _get_download_csv_by_id_serialize(
+    def _get_result_download_csv_by_id_serialize(
         self,
         result_id,
         download_csv_id,
@@ -588,7 +588,7 @@ class ReportsApi:
 
 
     @validate_call
-    def poll_results_generate_csv(
+    def poll_result_generate_csv(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -605,7 +605,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_results_generate_csv
+        """poll_result_generate_csv
 
         Get the state of an ongoing operation.
 
@@ -635,7 +635,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_results_generate_csv_serialize(
+        _param = self._poll_result_generate_csv_serialize(
             result_id=result_id,
             id=id,
             _request_auth=_request_auth,
@@ -646,6 +646,7 @@ class ReportsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -655,7 +656,7 @@ class ReportsApi:
 
 
     @validate_call
-    def poll_results_generate_csv_with_http_info(
+    def poll_result_generate_csv_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -672,7 +673,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_results_generate_csv
+        """poll_result_generate_csv
 
         Get the state of an ongoing operation.
 
@@ -702,7 +703,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_results_generate_csv_serialize(
+        _param = self._poll_result_generate_csv_serialize(
             result_id=result_id,
             id=id,
             _request_auth=_request_auth,
@@ -713,6 +714,7 @@ class ReportsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -722,7 +724,7 @@ class ReportsApi:
 
 
     @validate_call
-    def poll_results_generate_csv_without_preload_content(
+    def poll_result_generate_csv_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -739,7 +741,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_results_generate_csv
+        """poll_result_generate_csv
 
         Get the state of an ongoing operation.
 
@@ -769,7 +771,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_results_generate_csv_serialize(
+        _param = self._poll_result_generate_csv_serialize(
             result_id=result_id,
             id=id,
             _request_auth=_request_auth,
@@ -780,6 +782,7 @@ class ReportsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -788,7 +791,7 @@ class ReportsApi:
         )
 
 
-    def _poll_results_generate_csv_serialize(
+    def _poll_result_generate_csv_serialize(
         self,
         result_id,
         id,
@@ -855,7 +858,7 @@ class ReportsApi:
 
 
     @validate_call
-    def poll_results_generate_pdf(
+    def poll_result_generate_pdf(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -872,7 +875,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_results_generate_pdf
+        """poll_result_generate_pdf
 
         Get the state of an ongoing operation.
 
@@ -902,7 +905,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_results_generate_pdf_serialize(
+        _param = self._poll_result_generate_pdf_serialize(
             result_id=result_id,
             id=id,
             _request_auth=_request_auth,
@@ -913,6 +916,7 @@ class ReportsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -922,7 +926,7 @@ class ReportsApi:
 
 
     @validate_call
-    def poll_results_generate_pdf_with_http_info(
+    def poll_result_generate_pdf_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -939,7 +943,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_results_generate_pdf
+        """poll_result_generate_pdf
 
         Get the state of an ongoing operation.
 
@@ -969,7 +973,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_results_generate_pdf_serialize(
+        _param = self._poll_result_generate_pdf_serialize(
             result_id=result_id,
             id=id,
             _request_auth=_request_auth,
@@ -980,6 +984,7 @@ class ReportsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -989,7 +994,7 @@ class ReportsApi:
 
 
     @validate_call
-    def poll_results_generate_pdf_without_preload_content(
+    def poll_result_generate_pdf_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
@@ -1006,7 +1011,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_results_generate_pdf
+        """poll_result_generate_pdf
 
         Get the state of an ongoing operation.
 
@@ -1036,7 +1041,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_results_generate_pdf_serialize(
+        _param = self._poll_result_generate_pdf_serialize(
             result_id=result_id,
             id=id,
             _request_auth=_request_auth,
@@ -1047,6 +1052,7 @@ class ReportsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -1055,7 +1061,7 @@ class ReportsApi:
         )
 
 
-    def _poll_results_generate_pdf_serialize(
+    def _poll_result_generate_pdf_serialize(
         self,
         result_id,
         id,
@@ -1122,7 +1128,7 @@ class ReportsApi:
 
 
     @validate_call
-    def start_results_generate_csv(
+    def start_result_generate_csv(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_csv_reports_operation: Optional[GenerateCSVReportsOperation] = None,
@@ -1139,7 +1145,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_results_generate_csv
+        """start_result_generate_csv
 
         Generate CSV reports for the current result.
 
@@ -1169,7 +1175,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_csv_serialize(
+        _param = self._start_result_generate_csv_serialize(
             result_id=result_id,
             generate_csv_reports_operation=generate_csv_reports_operation,
             _request_auth=_request_auth,
@@ -1189,7 +1195,7 @@ class ReportsApi:
 
 
     @validate_call
-    def start_results_generate_csv_with_http_info(
+    def start_result_generate_csv_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_csv_reports_operation: Optional[GenerateCSVReportsOperation] = None,
@@ -1206,7 +1212,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_results_generate_csv
+        """start_result_generate_csv
 
         Generate CSV reports for the current result.
 
@@ -1236,7 +1242,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_csv_serialize(
+        _param = self._start_result_generate_csv_serialize(
             result_id=result_id,
             generate_csv_reports_operation=generate_csv_reports_operation,
             _request_auth=_request_auth,
@@ -1256,7 +1262,7 @@ class ReportsApi:
 
 
     @validate_call
-    def start_results_generate_csv_without_preload_content(
+    def start_result_generate_csv_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_csv_reports_operation: Optional[GenerateCSVReportsOperation] = None,
@@ -1273,7 +1279,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_results_generate_csv
+        """start_result_generate_csv
 
         Generate CSV reports for the current result.
 
@@ -1303,7 +1309,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_csv_serialize(
+        _param = self._start_result_generate_csv_serialize(
             result_id=result_id,
             generate_csv_reports_operation=generate_csv_reports_operation,
             _request_auth=_request_auth,
@@ -1322,7 +1328,7 @@ class ReportsApi:
         )
 
 
-    def _start_results_generate_csv_serialize(
+    def _start_result_generate_csv_serialize(
         self,
         result_id,
         generate_csv_reports_operation,
@@ -1402,7 +1408,7 @@ class ReportsApi:
 
 
     @validate_call
-    def start_results_generate_pdf(
+    def start_result_generate_pdf(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_pdf_report_operation: Optional[GeneratePDFReportOperation] = None,
@@ -1419,7 +1425,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_results_generate_pdf
+        """start_result_generate_pdf
 
         Generate a PDF report for the current result.
 
@@ -1449,7 +1455,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_pdf_serialize(
+        _param = self._start_result_generate_pdf_serialize(
             result_id=result_id,
             generate_pdf_report_operation=generate_pdf_report_operation,
             _request_auth=_request_auth,
@@ -1469,7 +1475,7 @@ class ReportsApi:
 
 
     @validate_call
-    def start_results_generate_pdf_with_http_info(
+    def start_result_generate_pdf_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_pdf_report_operation: Optional[GeneratePDFReportOperation] = None,
@@ -1486,7 +1492,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_results_generate_pdf
+        """start_result_generate_pdf
 
         Generate a PDF report for the current result.
 
@@ -1516,7 +1522,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_pdf_serialize(
+        _param = self._start_result_generate_pdf_serialize(
             result_id=result_id,
             generate_pdf_report_operation=generate_pdf_report_operation,
             _request_auth=_request_auth,
@@ -1536,7 +1542,7 @@ class ReportsApi:
 
 
     @validate_call
-    def start_results_generate_pdf_without_preload_content(
+    def start_result_generate_pdf_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         generate_pdf_report_operation: Optional[GeneratePDFReportOperation] = None,
@@ -1553,7 +1559,7 @@ class ReportsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_results_generate_pdf
+        """start_result_generate_pdf
 
         Generate a PDF report for the current result.
 
@@ -1583,7 +1589,7 @@ class ReportsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_results_generate_pdf_serialize(
+        _param = self._start_result_generate_pdf_serialize(
             result_id=result_id,
             generate_pdf_report_operation=generate_pdf_report_operation,
             _request_auth=_request_auth,
@@ -1602,7 +1608,7 @@ class ReportsApi:
         )
 
 
-    def _start_results_generate_pdf_serialize(
+    def _start_result_generate_pdf_serialize(
         self,
         result_id,
         generate_pdf_report_operation,

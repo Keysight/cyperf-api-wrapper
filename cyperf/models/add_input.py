@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.capture_input import CaptureInput
+from cyperf.models.parameter import Parameter
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -34,8 +35,9 @@ class AddInput(BaseModel):
     captures: Optional[List[CaptureInput]] = Field(default=None, alias="Captures")
     exchange_index_insert_at: Optional[StrictInt] = Field(default=None, alias="ExchangeIndexInsertAt")
     flow_index_insert_at: Optional[StrictInt] = Field(default=None, alias="FlowIndexInsertAt")
+    parameters: Optional[List[Parameter]] = Field(default=None, alias="Parameters")
     type: Optional[StrictStr] = Field(default=None, alias="Type")
-    __properties: ClassVar[List[str]] = ["ActionIndex", "ActionName", "Captures", "ExchangeIndexInsertAt", "FlowIndexInsertAt", "Type"]
+    __properties: ClassVar[List[str]] = ["ActionIndex", "ActionName", "Captures", "ExchangeIndexInsertAt", "FlowIndexInsertAt", "Parameters", "Type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +85,13 @@ class AddInput(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Captures'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in parameters (list)
+        _items = []
+        if self.parameters:
+            for _item in self.parameters:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['Parameters'] = _items
         return _dict
 
     @classmethod
@@ -102,6 +111,7 @@ class AddInput(BaseModel):
                         "Captures": [CaptureInput.from_dict(_item) for _item in obj["Captures"]] if obj.get("Captures") is not None else None,
                         "ExchangeIndexInsertAt": obj.get("ExchangeIndexInsertAt"),
                         "FlowIndexInsertAt": obj.get("FlowIndexInsertAt"),
+                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
                         "Type": obj.get("Type")
             ,
             "links": obj.get("links")

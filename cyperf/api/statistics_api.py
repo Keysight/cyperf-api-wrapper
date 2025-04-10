@@ -21,8 +21,8 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
 from cyperf.models.async_context import AsyncContext
-from cyperf.models.get_plugins200_response import GetPlugins200Response
-from cyperf.models.get_stats200_response import GetStats200Response
+from cyperf.models.get_result_stats200_response import GetResultStats200Response
+from cyperf.models.get_stats_plugins200_response import GetStatsPlugins200Response
 from cyperf.models.ingest_operation import IngestOperation
 from cyperf.models.plugin import Plugin
 from cyperf.models.stats_result import StatsResult
@@ -47,7 +47,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def create_plugins(
+    def create_stats_plugins(
         self,
         plugin: Optional[List[Plugin]] = None,
         _request_timeout: Union[
@@ -63,7 +63,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Plugin]:
-        """create_plugins
+        """create_stats_plugins
 
         Create new plugins.
 
@@ -91,7 +91,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_plugins_serialize(
+        _param = self._create_stats_plugins_serialize(
             plugin=plugin,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -112,7 +112,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def create_plugins_with_http_info(
+    def create_stats_plugins_with_http_info(
         self,
         plugin: Optional[List[Plugin]] = None,
         _request_timeout: Union[
@@ -128,7 +128,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Plugin]]:
-        """create_plugins
+        """create_stats_plugins
 
         Create new plugins.
 
@@ -156,7 +156,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_plugins_serialize(
+        _param = self._create_stats_plugins_serialize(
             plugin=plugin,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -177,7 +177,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def create_plugins_without_preload_content(
+    def create_stats_plugins_without_preload_content(
         self,
         plugin: Optional[List[Plugin]] = None,
         _request_timeout: Union[
@@ -193,7 +193,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """create_plugins
+        """create_stats_plugins
 
         Create new plugins.
 
@@ -221,7 +221,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._create_plugins_serialize(
+        _param = self._create_stats_plugins_serialize(
             plugin=plugin,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -241,7 +241,7 @@ class StatisticsApi:
         )
 
 
-    def _create_plugins_serialize(
+    def _create_stats_plugins_serialize(
         self,
         plugin,
         _request_auth,
@@ -319,7 +319,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def delete_plugins(
+    def delete_stats_plugin(
         self,
         plugin_id: Annotated[StrictStr, Field(description="The ID of the plugin.")],
         _request_timeout: Union[
@@ -335,7 +335,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
-        """delete_plugins
+        """delete_stats_plugin
 
         Delete a particular plugin.
 
@@ -363,7 +363,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_plugins_serialize(
+        _param = self._delete_stats_plugin_serialize(
             plugin_id=plugin_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -384,7 +384,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def delete_plugins_with_http_info(
+    def delete_stats_plugin_with_http_info(
         self,
         plugin_id: Annotated[StrictStr, Field(description="The ID of the plugin.")],
         _request_timeout: Union[
@@ -400,7 +400,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
-        """delete_plugins
+        """delete_stats_plugin
 
         Delete a particular plugin.
 
@@ -428,7 +428,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_plugins_serialize(
+        _param = self._delete_stats_plugin_serialize(
             plugin_id=plugin_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -449,7 +449,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def delete_plugins_without_preload_content(
+    def delete_stats_plugin_without_preload_content(
         self,
         plugin_id: Annotated[StrictStr, Field(description="The ID of the plugin.")],
         _request_timeout: Union[
@@ -465,7 +465,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """delete_plugins
+        """delete_stats_plugin
 
         Delete a particular plugin.
 
@@ -493,7 +493,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_plugins_serialize(
+        _param = self._delete_stats_plugin_serialize(
             plugin_id=plugin_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -513,7 +513,7 @@ class StatisticsApi:
         )
 
 
-    def _delete_plugins_serialize(
+    def _delete_stats_plugin_serialize(
         self,
         plugin_id,
         _request_auth,
@@ -577,573 +577,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def get_plugins(
-        self,
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPlugins200Response:
-        """get_plugins
-
-        List all the plugins.
-
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_plugins_serialize(
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPlugins200Response",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def get_plugins_with_http_info(
-        self,
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetPlugins200Response]:
-        """get_plugins
-
-        List all the plugins.
-
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_plugins_serialize(
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPlugins200Response",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def get_plugins_without_preload_content(
-        self,
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """get_plugins
-
-        List all the plugins.
-
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_plugins_serialize(
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPlugins200Response",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _get_plugins_serialize(
-        self,
-        take,
-        skip,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if take is not None:
-            
-            _query_params.append(('take', take))
-            
-        if skip is not None:
-            
-            _query_params.append(('skip', skip))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/stats/plugins',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_stats(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetStats200Response:
-        """get_stats
-
-        Get all the available queries.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_stats_serialize(
-            result_id=result_id,
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetStats200Response",
-            '400': "ErrorResponse",
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def get_stats_with_http_info(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetStats200Response]:
-        """get_stats
-
-        Get all the available queries.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_stats_serialize(
-            result_id=result_id,
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetStats200Response",
-            '400': "ErrorResponse",
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def get_stats_without_preload_content(
-        self,
-        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
-        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
-        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """get_stats
-
-        Get all the available queries.
-
-        :param result_id: The ID of the result. (required)
-        :type result_id: str
-        :param take: The number of search results to return
-        :type take: int
-        :param skip: The number of search results to skip
-        :type skip: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_stats_serialize(
-            result_id=result_id,
-            take=take,
-            skip=skip,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetStats200Response",
-            '400': "ErrorResponse",
-            '404': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _get_stats_serialize(
-        self,
-        result_id,
-        take,
-        skip,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if result_id is not None:
-            _path_params['resultId'] = result_id
-        # process the query parameters
-        if take is not None:
-            
-            _query_params.append(('take', take))
-            
-        if skip is not None:
-            
-            _query_params.append(('skip', skip))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/results/{resultId}/stats',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_stats_by_id(
+    def get_result_stat_by_id(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         stat_id: Annotated[StrictStr, Field(description="The ID of the stat.")],
@@ -1164,7 +598,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StatsResult:
-        """get_stats_by_id
+        """get_result_stat_by_id
 
         Query statistics
 
@@ -1202,7 +636,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_stats_by_id_serialize(
+        _param = self._get_result_stat_by_id_serialize(
             result_id=result_id,
             stat_id=stat_id,
             var_from=var_from,
@@ -1229,7 +663,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def get_stats_by_id_with_http_info(
+    def get_result_stat_by_id_with_http_info(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         stat_id: Annotated[StrictStr, Field(description="The ID of the stat.")],
@@ -1250,7 +684,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StatsResult]:
-        """get_stats_by_id
+        """get_result_stat_by_id
 
         Query statistics
 
@@ -1288,7 +722,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_stats_by_id_serialize(
+        _param = self._get_result_stat_by_id_serialize(
             result_id=result_id,
             stat_id=stat_id,
             var_from=var_from,
@@ -1315,7 +749,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def get_stats_by_id_without_preload_content(
+    def get_result_stat_by_id_without_preload_content(
         self,
         result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
         stat_id: Annotated[StrictStr, Field(description="The ID of the stat.")],
@@ -1336,7 +770,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """get_stats_by_id
+        """get_result_stat_by_id
 
         Query statistics
 
@@ -1374,7 +808,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_stats_by_id_serialize(
+        _param = self._get_result_stat_by_id_serialize(
             result_id=result_id,
             stat_id=stat_id,
             var_from=var_from,
@@ -1400,7 +834,7 @@ class StatisticsApi:
         )
 
 
-    def _get_stats_by_id_serialize(
+    def _get_result_stat_by_id_serialize(
         self,
         result_id,
         stat_id,
@@ -1487,7 +921,573 @@ class StatisticsApi:
 
 
     @validate_call
-    def poll_plugins_ingest(
+    def get_result_stats(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetResultStats200Response:
+        """get_result_stats
+
+        Get all the available queries.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_result_stats_serialize(
+            result_id=result_id,
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetResultStats200Response",
+            '400': "ErrorResponse",
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def get_result_stats_with_http_info(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetResultStats200Response]:
+        """get_result_stats
+
+        Get all the available queries.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_result_stats_serialize(
+            result_id=result_id,
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetResultStats200Response",
+            '400': "ErrorResponse",
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def get_result_stats_without_preload_content(
+        self,
+        result_id: Annotated[StrictStr, Field(description="The ID of the result.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_result_stats
+
+        Get all the available queries.
+
+        :param result_id: The ID of the result. (required)
+        :type result_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_result_stats_serialize(
+            result_id=result_id,
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetResultStats200Response",
+            '400': "ErrorResponse",
+            '404': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+
+
+    def _get_result_stats_serialize(
+        self,
+        result_id,
+        take,
+        skip,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if result_id is not None:
+            _path_params['resultId'] = result_id
+        # process the query parameters
+        if take is not None:
+            
+            _query_params.append(('take', take))
+            
+        if skip is not None:
+            
+            _query_params.append(('skip', skip))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/results/{resultId}/stats',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_stats_plugins(
+        self,
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetStatsPlugins200Response:
+        """get_stats_plugins
+
+        List all the plugins.
+
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_stats_plugins_serialize(
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetStatsPlugins200Response",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def get_stats_plugins_with_http_info(
+        self,
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetStatsPlugins200Response]:
+        """get_stats_plugins
+
+        List all the plugins.
+
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_stats_plugins_serialize(
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetStatsPlugins200Response",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+
+
+    @validate_call
+    def get_stats_plugins_without_preload_content(
+        self,
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_stats_plugins
+
+        List all the plugins.
+
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_stats_plugins_serialize(
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetStatsPlugins200Response",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+
+
+    def _get_stats_plugins_serialize(
+        self,
+        take,
+        skip,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if take is not None:
+            
+            _query_params.append(('take', take))
+            
+        if skip is not None:
+            
+            _query_params.append(('skip', skip))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/stats/plugins',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def poll_stats_plugins_ingest(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -1503,7 +1503,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """poll_plugins_ingest
+        """poll_stats_plugins_ingest
 
         Get the state of an ongoing operation.
 
@@ -1531,7 +1531,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_plugins_ingest_serialize(
+        _param = self._poll_stats_plugins_ingest_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1541,6 +1541,7 @@ class StatisticsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -1550,7 +1551,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def poll_plugins_ingest_with_http_info(
+    def poll_stats_plugins_ingest_with_http_info(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -1566,7 +1567,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """poll_plugins_ingest
+        """poll_stats_plugins_ingest
 
         Get the state of an ongoing operation.
 
@@ -1594,7 +1595,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_plugins_ingest_serialize(
+        _param = self._poll_stats_plugins_ingest_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1604,6 +1605,7 @@ class StatisticsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -1613,7 +1615,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def poll_plugins_ingest_without_preload_content(
+    def poll_stats_plugins_ingest_without_preload_content(
         self,
         id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
         _request_timeout: Union[
@@ -1629,7 +1631,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """poll_plugins_ingest
+        """poll_stats_plugins_ingest
 
         Get the state of an ongoing operation.
 
@@ -1657,7 +1659,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._poll_plugins_ingest_serialize(
+        _param = self._poll_stats_plugins_ingest_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1667,6 +1669,7 @@ class StatisticsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AsyncContext",
+            '400': "ErrorResponse",
         }
         return self.api_client.call_api(
             *_param,
@@ -1675,7 +1678,7 @@ class StatisticsApi:
         )
 
 
-    def _poll_plugins_ingest_serialize(
+    def _poll_stats_plugins_ingest_serialize(
         self,
         id,
         _request_auth,
@@ -1739,7 +1742,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def start_plugins_ingest(
+    def start_stats_plugins_ingest(
         self,
         ingest_operation: Optional[IngestOperation] = None,
         _request_timeout: Union[
@@ -1755,7 +1758,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AsyncContext:
-        """start_plugins_ingest
+        """start_stats_plugins_ingest
 
         Ingest the plugin statistics.
 
@@ -1783,7 +1786,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_plugins_ingest_serialize(
+        _param = self._start_stats_plugins_ingest_serialize(
             ingest_operation=ingest_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1802,7 +1805,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def start_plugins_ingest_with_http_info(
+    def start_stats_plugins_ingest_with_http_info(
         self,
         ingest_operation: Optional[IngestOperation] = None,
         _request_timeout: Union[
@@ -1818,7 +1821,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AsyncContext]:
-        """start_plugins_ingest
+        """start_stats_plugins_ingest
 
         Ingest the plugin statistics.
 
@@ -1846,7 +1849,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_plugins_ingest_serialize(
+        _param = self._start_stats_plugins_ingest_serialize(
             ingest_operation=ingest_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1865,7 +1868,7 @@ class StatisticsApi:
 
 
     @validate_call
-    def start_plugins_ingest_without_preload_content(
+    def start_stats_plugins_ingest_without_preload_content(
         self,
         ingest_operation: Optional[IngestOperation] = None,
         _request_timeout: Union[
@@ -1881,7 +1884,7 @@ class StatisticsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """start_plugins_ingest
+        """start_stats_plugins_ingest
 
         Ingest the plugin statistics.
 
@@ -1909,7 +1912,7 @@ class StatisticsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._start_plugins_ingest_serialize(
+        _param = self._start_stats_plugins_ingest_serialize(
             ingest_operation=ingest_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1927,7 +1930,7 @@ class StatisticsApi:
         )
 
 
-    def _start_plugins_ingest_serialize(
+    def _start_stats_plugins_ingest_serialize(
         self,
         ingest_operation,
         _request_auth,

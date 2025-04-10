@@ -29,6 +29,7 @@ class Broker(BaseModel):
     Broker
     """ # noqa: E501
     connection_status: Optional[StrictStr] = Field(default=None, description="The broker's connection status", alias="connectionStatus")
+    failure_reason: Optional[StrictStr] = Field(default=None, description="The broker's connection failure reason", alias="failureReason")
     fingerprint: Optional[StrictStr] = Field(default=None, description="The broker's fingerprint")
     host: Optional[StrictStr] = Field(default=None, description="The IP or hostname of the registered broker")
     host_name: Optional[StrictStr] = Field(default=None, description="The IP or hostname of the registered broker", alias="hostName")
@@ -38,7 +39,7 @@ class Broker(BaseModel):
     pretty_conn_status: Optional[StrictStr] = Field(default=None, description="The broker's connection status in human readable format", alias="prettyConnStatus")
     trust_new: Optional[StrictBool] = Field(default=None, description="The flag used to skip broker's identity verifications", alias="trustNew")
     user: Optional[StrictStr] = Field(default=None, description="The broker's authentication user")
-    __properties: ClassVar[List[str]] = ["connectionStatus", "fingerprint", "host", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "user"]
+    __properties: ClassVar[List[str]] = ["connectionStatus", "failureReason", "fingerprint", "host", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "user"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +97,7 @@ class Broker(BaseModel):
 
         _obj = cls.model_validate({
             "connectionStatus": obj.get("connectionStatus"),
+                        "failureReason": obj.get("failureReason"),
                         "fingerprint": obj.get("fingerprint"),
                         "host": obj.get("host"),
                         "hostName": obj.get("hostName"),

@@ -1,0 +1,124 @@
+import jenkins.branch.*
+import java.util.regex.Pattern
+
+def job_name_split   = env.JOB_NAME.split('/')[-2]
+env.job_name_split   = env.JOB_NAME.split('/')[-2]
+def branch           = env.JOB_NAME.split('/')[-1]
+env.branch           = env.JOB_NAME.split('/')[-1]
+def jenkins_cwd_lin  = '/home/jenkins/build' + '/' + job_name_split + '/' + job_name_split + '-' + env.BUILD_NUMBER
+env.jenkins_cwd_lin  = '/home/jenkins/build' + '/' + job_name_split + '/' + job_name_split + '-' + env.BUILD_NUMBER
+
+pipeline_triggers=[
+        [
+            $class: 'BitBucketPPRTrigger',
+            triggers : [
+                [
+                    $class: 'BitBucketPPRPullRequestTriggerFilter',
+                    actionFilter: [
+                        $class: 'BitBucketPPRPullRequestCreatedActionFilter'
+                    ]
+                ]
+            ]
+        ]
+    ]
+
+def projectProperties = [
+    pipelineTriggers(pipeline_triggers),
+    [$class: 'BuildDiscarderProperty',strategy: [$class: 'LogRotator', numToKeepStr: '50']],
+    parameters ([
+        string(name:'BASE_IMAGE', defaultValue:'docker-virtual-wap.artifactorylbj.it.keysight.com/wap-base-debian:12.8-slim', description: 'docker-virtual-wap.artifactorylbj.it.keysight.com/wap-base-debian:12.8-slim'),
+        booleanParam(name:'publish_pypi', defaultValue:false, description: 'If true, the build will be published to the public PyPI repos. Only works on release/ branches.')
+    ]),
+]
+
+properties(projectProperties)
+
+def do_publish = params.publish_pypi
+
+@NonCPS
+boolean setDisplayVersion(publish) {
+    branch_sanitized = branch.replaceAll('-', '.').replaceAll('_', '.')
+    def matcher = Pattern.compile("^release%2F([0-9]+)\\.([0-9]+)\$").matcher(branch)
+    if (matcher.matches()) {
+        build_number = "dev${env.BUILD_NUMBER}+${branch_sanitized}"
+        if (publish) {
+            build_number = "${env.BUILD_NUMBER}"
+        }
+	env.PIP_VERSION = "${matcher.group(1).toString()}.${matcher.group(2).toString()}.${build_number}"
+        env.DOCKER_VERSION = env.PIP_VERSION.replaceAll('\\+', '-')
+    } else if (branch.startsWith("release%2F")) {
+        throw new Exception("Unexpected release branch format ${branch}, expected 'release%2fNUMBER.NUMBER'")
+    } else {
+        env.PIP_VERSION = "0.0.dev${env.BUILD_NUMBER}+${branch_sanitized}"
+        env.DOCKER_VERSION = env.PIP_VERSION.replaceAll('\\+', '-')
+        publish = false
+    }
+    currentBuild.displayName = env.PIP_VERSION
+    return publish
+}
+
+node('wap') {
+    dir (jenkins_cwd_lin) {
+        stage('GitCheckout') {
+	    commit = checkout([$class: 'GitSCM',
+                               branches: scm.branches,
+                               extensions: scm.extensions,
+                               userRemoteConfigs: [[
+                    credentialsId: 'e7e3fcc3-4f5f-4e68-b68c-76f40b75a3c7',
+                    url: 'https://bitbucket.it.keysight.com/scm/isgappsec/cyperf-api-wrapper.git']]
+            ])
+            do_publish = setDisplayVersion(do_publish)
+	}
+        stage('Build base') {
+            env.BASE_IMAGE = params.BASE_IMAGE
+            sh('''
+                  docker build -f docker/Dockerfile \
+                               --build-arg base_image="$BASE_IMAGE" \
+                               --build-arg VERSION="$PIP_VERSION" \
+                               -t cyperf-api-wrapper-build:$DOCKER_VERSION \
+                               .
+                ''')
+        }
+        stage('Run tests') {
+            sh('''
+                  docker run --rm \
+                             cyperf-api-wrapper-build:$DOCKER_VERSION \
+                             /cyperf-api-wrapper-build/test.sh /build/py3
+                ''')
+        }
+        stage('Build and publish to internal repo') {
+            withCredentials([[$class: 'UsernamePasswordMultiBinding',
+                              credentialsId: 'e7e3fcc3-4f5f-4e68-b68c-76f40b75a3c7',
+                              usernameVariable: 'ARTIFACTORY_USERNAME',
+                              passwordVariable: 'ARTIFACTORY_PASSWORD']]) {
+                sh('''
+                        docker run --rm \
+                                   --env TWINE_USERNAME="$ARTIFACTORY_USERNAME" \
+                                   --env TWINE_PASSWORD="$ARTIFACTORY_PASSWORD" \
+                                   cyperf-api-wrapper-build:$DOCKER_VERSION \
+                                   /cyperf-api-wrapper-build/publish.sh /build/py3 "--repository artifactory"
+                    ''')
+            }
+        }
+        stage('Build and publish to public repo') {
+            if (do_publish) {
+                withCredentials([
+                    string(credentialsId: 'PYPI_API_TOKEN', variable: 'PYPI_API_TOKEN')
+                ]) {
+                    sh('''
+                           docker run --rm \
+                                      --env TWINE_USERNAME="__token__" \
+                                      --env TWINE_PASSWORD="$PYPI_API_TOKEN" \
+                                      cyperf-api-wrapper-build:$DOCKER_VERSION \
+                                      /cyperf-api-wrapper-build/publish.sh /build/py3
+                    ''')
+                }
+            }
+        }
+        stage('Cleanup') {
+            sh('''
+                   docker rmi cyperf-api-wrapper-build:$DOCKER_VERSION
+                ''')
+        }
+    }
+}

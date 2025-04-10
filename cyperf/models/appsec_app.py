@@ -34,7 +34,7 @@ class AppsecApp(BaseModel):
     app: Optional[Application] = Field(default=None, alias="App")
     description: Optional[StrictStr] = Field(default=None, description="The description of the application", alias="Description")
     name: Optional[StrictStr] = Field(default=None, description="The user friendly name of the application", alias="Name")
-    static: Optional[StrictBool] = Field(default=None, description="If true, the application/strike is generated from Controller", alias="Static")
+    static: Optional[StrictBool] = Field(default=None, description="If true, the application/strike is generated from controller", alias="Static")
     user_defined: Optional[StrictBool] = Field(default=None, description="If true, the application was created by the user", alias="UserDefined")
     app_metadata: Optional[AppsecAppMetadata] = Field(default=None, alias="appMetadata")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the application")

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **actions** | [**List[ActionInput]**](ActionInput.md) |  | [optional] 
 **app_name** | **str** |  | [optional] 
 **app_type** | **str** |  | [optional] 
+**parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 
 
 ## Example
 

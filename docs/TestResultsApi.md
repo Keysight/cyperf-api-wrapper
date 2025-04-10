@@ -4,28 +4,105 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_files**](TestResultsApi.md#delete_files) | **DELETE** /api/v2/results/{resultId}/files/{fileId} | 
-[**delete_results**](TestResultsApi.md#delete_results) | **DELETE** /api/v2/results/{resultId} | 
-[**get_download_all_by_id**](TestResultsApi.md#get_download_all_by_id) | **GET** /api/v2/results/{resultId}/download-all/{downloadAllId} | 
-[**get_download_result_config**](TestResultsApi.md#get_download_result_config) | **GET** /api/v2/results/{resultId}/download-result-config | 
-[**get_files**](TestResultsApi.md#get_files) | **GET** /api/v2/results/{resultId}/files | 
-[**get_files_by_id**](TestResultsApi.md#get_files_by_id) | **GET** /api/v2/results/{resultId}/files/{fileId} | 
-[**get_result_tags**](TestResultsApi.md#get_result_tags) | **GET** /api/v2/results/tags | 
+[**delete_result**](TestResultsApi.md#delete_result) | **DELETE** /api/v2/results/{resultId} | 
+[**delete_result_file**](TestResultsApi.md#delete_result_file) | **DELETE** /api/v2/results/{resultId}/files/{fileId} | 
+[**get_result_by_id**](TestResultsApi.md#get_result_by_id) | **GET** /api/v2/results/{resultId} | 
+[**get_result_download_all_by_id**](TestResultsApi.md#get_result_download_all_by_id) | **GET** /api/v2/results/{resultId}/download-all/{downloadAllId} | 
+[**get_result_download_result_config**](TestResultsApi.md#get_result_download_result_config) | **GET** /api/v2/results/{resultId}/download-result-config | 
+[**get_result_file_by_id**](TestResultsApi.md#get_result_file_by_id) | **GET** /api/v2/results/{resultId}/files/{fileId} | 
+[**get_result_file_content**](TestResultsApi.md#get_result_file_content) | **GET** /api/v2/results/{resultId}/files/{fileId}/content | 
+[**get_result_files**](TestResultsApi.md#get_result_files) | **GET** /api/v2/results/{resultId}/files | 
 [**get_results**](TestResultsApi.md#get_results) | **GET** /api/v2/results | 
-[**get_results_by_id**](TestResultsApi.md#get_results_by_id) | **GET** /api/v2/results/{resultId} | 
-[**get_results_results_id_files_files_id_content**](TestResultsApi.md#get_results_results_id_files_files_id_content) | **GET** /api/v2/results/{resultId}/files/{fileId}/content | 
+[**get_results_tags**](TestResultsApi.md#get_results_tags) | **GET** /api/v2/results/tags | 
+[**poll_result_generate_all**](TestResultsApi.md#poll_result_generate_all) | **GET** /api/v2/results/{resultId}/operations/generate-all/{id} | 
+[**poll_result_generate_results**](TestResultsApi.md#poll_result_generate_results) | **GET** /api/v2/results/{resultId}/operations/generate-results/{id} | 
+[**poll_result_load**](TestResultsApi.md#poll_result_load) | **GET** /api/v2/results/{resultId}/operations/load/{id} | 
 [**poll_results_batch_delete**](TestResultsApi.md#poll_results_batch_delete) | **GET** /api/v2/results/operations/batch-delete/{id} | 
-[**poll_results_generate_all**](TestResultsApi.md#poll_results_generate_all) | **GET** /api/v2/results/{resultId}/operations/generate-all/{id} | 
-[**poll_results_generate_results**](TestResultsApi.md#poll_results_generate_results) | **GET** /api/v2/results/{resultId}/operations/generate-results/{id} | 
-[**poll_results_load**](TestResultsApi.md#poll_results_load) | **GET** /api/v2/results/{resultId}/operations/load/{id} | 
+[**start_result_generate_all**](TestResultsApi.md#start_result_generate_all) | **POST** /api/v2/results/{resultId}/operations/generate-all | 
+[**start_result_generate_results**](TestResultsApi.md#start_result_generate_results) | **POST** /api/v2/results/{resultId}/operations/generate-results | 
+[**start_result_load**](TestResultsApi.md#start_result_load) | **POST** /api/v2/results/{resultId}/operations/load | 
 [**start_results_batch_delete**](TestResultsApi.md#start_results_batch_delete) | **POST** /api/v2/results/operations/batch-delete | 
-[**start_results_generate_all**](TestResultsApi.md#start_results_generate_all) | **POST** /api/v2/results/{resultId}/operations/generate-all | 
-[**start_results_generate_results**](TestResultsApi.md#start_results_generate_results) | **POST** /api/v2/results/{resultId}/operations/generate-results | 
-[**start_results_load**](TestResultsApi.md#start_results_load) | **POST** /api/v2/results/{resultId}/operations/load | 
 
 
-# **delete_files**
-> delete_files(result_id, file_id)
+# **delete_result**
+> delete_result(result_id)
+
+
+
+Delete a particular result.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.TestResultsApi(api_client)
+    result_id = 'result_id_example' # str | The ID of the result.
+
+    try:
+        api_instance.delete_result(result_id)
+    except Exception as e:
+        print("Exception when calling TestResultsApi->delete_result: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **result_id** | **str**| The ID of the result. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The result was successfully deleted. |  -  |
+**403** | The initiator of the request does not have enough privileges to perform the action. |  -  |
+**404** | A result with the specified ID was not found. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_result_file**
+> delete_result_file(result_id, file_id)
 
 
 
@@ -64,9 +141,9 @@ with cyperf.ApiClient(configuration) as api_client:
     file_id = 'file_id_example' # str | The ID of the file.
 
     try:
-        api_instance.delete_files(result_id, file_id)
+        api_instance.delete_result_file(result_id, file_id)
     except Exception as e:
-        print("Exception when calling TestResultsApi->delete_files: %s\n" % e)
+        print("Exception when calling TestResultsApi->delete_result_file: %s\n" % e)
 ```
 
 
@@ -102,12 +179,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_results**
-> delete_results(result_id)
+# **get_result_by_id**
+> ResultMetadata get_result_by_id(result_id)
 
 
 
-Delete a particular result.
+Get a particular result.
 
 ### Example
 
@@ -116,6 +193,7 @@ Delete a particular result.
 
 ```python
 import cyperf
+from cyperf.models.result_metadata import ResultMetadata
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -141,9 +219,11 @@ with cyperf.ApiClient(configuration) as api_client:
     result_id = 'result_id_example' # str | The ID of the result.
 
     try:
-        api_instance.delete_results(result_id)
+        api_response = api_instance.get_result_by_id(result_id)
+        print("The response of TestResultsApi->get_result_by_id:\n")
+        pprint(api_response)
     except Exception as e:
-        print("Exception when calling TestResultsApi->delete_results: %s\n" % e)
+        print("Exception when calling TestResultsApi->get_result_by_id: %s\n" % e)
 ```
 
 
@@ -157,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ResultMetadata**](ResultMetadata.md)
 
 ### Authorization
 
@@ -172,15 +252,14 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | The result was successfully deleted. |  -  |
-**403** | The initiator of the request does not have enough privileges to perform the action. |  -  |
+**200** | The requested result |  -  |
 **404** | A result with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_download_all_by_id**
-> get_download_all_by_id(result_id, download_all_id)
+# **get_result_download_all_by_id**
+> get_result_download_all_by_id(result_id, download_all_id)
 
 
 
@@ -217,9 +296,9 @@ with cyperf.ApiClient(configuration) as api_client:
     download_all_id = 'download_all_id_example' # str | The ID of the download all.
 
     try:
-        api_instance.get_download_all_by_id(result_id, download_all_id)
+        api_instance.get_result_download_all_by_id(result_id, download_all_id)
     except Exception as e:
-        print("Exception when calling TestResultsApi->get_download_all_by_id: %s\n" % e)
+        print("Exception when calling TestResultsApi->get_result_download_all_by_id: %s\n" % e)
 ```
 
 
@@ -255,8 +334,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_download_result_config**
-> object get_download_result_config(result_id)
+# **get_result_download_result_config**
+> object get_result_download_result_config(result_id)
 
 
 
@@ -294,11 +373,11 @@ with cyperf.ApiClient(configuration) as api_client:
     result_id = 'result_id_example' # str | The ID of the result.
 
     try:
-        api_response = api_instance.get_download_result_config(result_id)
-        print("The response of TestResultsApi->get_download_result_config:\n")
+        api_response = api_instance.get_result_download_result_config(result_id)
+        print("The response of TestResultsApi->get_result_download_result_config:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TestResultsApi->get_download_result_config: %s\n" % e)
+        print("Exception when calling TestResultsApi->get_result_download_result_config: %s\n" % e)
 ```
 
 
@@ -332,91 +411,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_files**
-> GetFiles200Response get_files(result_id, take=take, skip=skip)
-
-
-
-Get the list of files for a specific result.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.get_files200_response import GetFiles200Response
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.TestResultsApi(api_client)
-    result_id = 'result_id_example' # str | The ID of the result.
-    take = 56 # int | The number of search results to return (optional)
-    skip = 56 # int | The number of search results to skip (optional)
-
-    try:
-        api_response = api_instance.get_files(result_id, take=take, skip=skip)
-        print("The response of TestResultsApi->get_files:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TestResultsApi->get_files: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **result_id** | **str**| The ID of the result. | 
- **take** | **int**| The number of search results to return | [optional] 
- **skip** | **int**| The number of search results to skip | [optional] 
-
-### Return type
-
-[**GetFiles200Response**](GetFiles200Response.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The list of files |  -  |
-**404** | A result with the specified ID was not found. |  -  |
-**500** | Unexpected error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_files_by_id**
-> ResultFileMetadata get_files_by_id(result_id, file_id)
+# **get_result_file_by_id**
+> ResultFileMetadata get_result_file_by_id(result_id, file_id)
 
 
 
@@ -456,11 +452,11 @@ with cyperf.ApiClient(configuration) as api_client:
     file_id = 'file_id_example' # str | The ID of the file.
 
     try:
-        api_response = api_instance.get_files_by_id(result_id, file_id)
-        print("The response of TestResultsApi->get_files_by_id:\n")
+        api_response = api_instance.get_result_file_by_id(result_id, file_id)
+        print("The response of TestResultsApi->get_result_file_by_id:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TestResultsApi->get_files_by_id: %s\n" % e)
+        print("Exception when calling TestResultsApi->get_result_file_by_id: %s\n" % e)
 ```
 
 
@@ -496,12 +492,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_result_tags**
-> GetResultTags200Response get_result_tags(take=take, skip=skip)
+# **get_result_file_content**
+> get_result_file_content(result_id, file_id)
 
 
 
-Get all the currently available agent groups.
+Get the content of a result file.
 
 ### Example
 
@@ -510,7 +506,6 @@ Get all the currently available agent groups.
 
 ```python
 import cyperf
-from cyperf.models.get_result_tags200_response import GetResultTags200Response
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -533,15 +528,13 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.TestResultsApi(api_client)
-    take = 56 # int | The number of search results to return (optional)
-    skip = 56 # int | The number of search results to skip (optional)
+    result_id = 'result_id_example' # str | The ID of the result.
+    file_id = 'file_id_example' # str | The ID of the file.
 
     try:
-        api_response = api_instance.get_result_tags(take=take, skip=skip)
-        print("The response of TestResultsApi->get_result_tags:\n")
-        pprint(api_response)
+        api_instance.get_result_file_content(result_id, file_id)
     except Exception as e:
-        print("Exception when calling TestResultsApi->get_result_tags: %s\n" % e)
+        print("Exception when calling TestResultsApi->get_result_file_content: %s\n" % e)
 ```
 
 
@@ -551,12 +544,12 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **take** | **int**| The number of search results to return | [optional] 
- **skip** | **int**| The number of search results to skip | [optional] 
+ **result_id** | **str**| The ID of the result. | 
+ **file_id** | **str**| The ID of the file. | 
 
 ### Return type
 
-[**GetResultTags200Response**](GetResultTags200Response.md)
+void (empty response body)
 
 ### Authorization
 
@@ -571,7 +564,91 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The list of agent groups |  -  |
+**200** | The content of the result file |  -  |
+**404** | A result or file with the specified ID was not found. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_result_files**
+> GetResultFiles200Response get_result_files(result_id, take=take, skip=skip)
+
+
+
+Get the list of files for a specific result.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.get_result_files200_response import GetResultFiles200Response
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.TestResultsApi(api_client)
+    result_id = 'result_id_example' # str | The ID of the result.
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
+
+    try:
+        api_response = api_instance.get_result_files(result_id, take=take, skip=skip)
+        print("The response of TestResultsApi->get_result_files:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TestResultsApi->get_result_files: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **result_id** | **str**| The ID of the result. | 
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
+
+### Return type
+
+[**GetResultFiles200Response**](GetResultFiles200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of files |  -  |
+**404** | A result with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -664,12 +741,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_results_by_id**
-> ResultMetadata get_results_by_id(result_id)
+# **get_results_tags**
+> GetResultsTags200Response get_results_tags(take=take, skip=skip)
 
 
 
-Get a particular result.
+Get all the currently available agent groups.
 
 ### Example
 
@@ -678,7 +755,7 @@ Get a particular result.
 
 ```python
 import cyperf
-from cyperf.models.result_metadata import ResultMetadata
+from cyperf.models.get_results_tags200_response import GetResultsTags200Response
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -701,14 +778,15 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.TestResultsApi(api_client)
-    result_id = 'result_id_example' # str | The ID of the result.
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
 
     try:
-        api_response = api_instance.get_results_by_id(result_id)
-        print("The response of TestResultsApi->get_results_by_id:\n")
+        api_response = api_instance.get_results_tags(take=take, skip=skip)
+        print("The response of TestResultsApi->get_results_tags:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TestResultsApi->get_results_by_id: %s\n" % e)
+        print("Exception when calling TestResultsApi->get_results_tags: %s\n" % e)
 ```
 
 
@@ -718,11 +796,12 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **result_id** | **str**| The ID of the result. | 
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
 
 ### Return type
 
-[**ResultMetadata**](ResultMetadata.md)
+[**GetResultsTags200Response**](GetResultsTags200Response.md)
 
 ### Authorization
 
@@ -737,18 +816,17 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The requested result |  -  |
-**404** | A result with the specified ID was not found. |  -  |
+**200** | The list of agent groups |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_results_results_id_files_files_id_content**
-> get_results_results_id_files_files_id_content(result_id, file_id)
+# **poll_result_generate_all**
+> AsyncContext poll_result_generate_all(result_id, id)
 
 
 
-Get the content of a result file.
+Get the state of an ongoing operation.
 
 ### Example
 
@@ -757,6 +835,7 @@ Get the content of a result file.
 
 ```python
 import cyperf
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -780,12 +859,14 @@ with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.TestResultsApi(api_client)
     result_id = 'result_id_example' # str | The ID of the result.
-    file_id = 'file_id_example' # str | The ID of the file.
+    id = 56 # int | The ID of the async operation.
 
     try:
-        api_instance.get_results_results_id_files_files_id_content(result_id, file_id)
+        api_response = api_instance.poll_result_generate_all(result_id, id)
+        print("The response of TestResultsApi->poll_result_generate_all:\n")
+        pprint(api_response)
     except Exception as e:
-        print("Exception when calling TestResultsApi->get_results_results_id_files_files_id_content: %s\n" % e)
+        print("Exception when calling TestResultsApi->poll_result_generate_all: %s\n" % e)
 ```
 
 
@@ -796,11 +877,11 @@ with cyperf.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **result_id** | **str**| The ID of the result. | 
- **file_id** | **str**| The ID of the file. | 
+ **id** | **int**| The ID of the async operation. | 
 
 ### Return type
 
-void (empty response body)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -815,9 +896,168 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The content of the result file |  -  |
-**404** | A result or file with the specified ID was not found. |  -  |
-**500** | Unexpected error |  -  |
+**200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **poll_result_generate_results**
+> AsyncContext poll_result_generate_results(result_id, id)
+
+
+
+Get the state of an ongoing operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.TestResultsApi(api_client)
+    result_id = 'result_id_example' # str | The ID of the result.
+    id = 56 # int | The ID of the async operation.
+
+    try:
+        api_response = api_instance.poll_result_generate_results(result_id, id)
+        print("The response of TestResultsApi->poll_result_generate_results:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TestResultsApi->poll_result_generate_results: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **result_id** | **str**| The ID of the result. | 
+ **id** | **int**| The ID of the async operation. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **poll_result_load**
+> AsyncContext poll_result_load(result_id, id)
+
+
+
+Get the state of an ongoing operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.TestResultsApi(api_client)
+    result_id = 'result_id_example' # str | The ID of the result.
+    id = 56 # int | The ID of the async operation.
+
+    try:
+        api_response = api_instance.poll_result_load(result_id, id)
+        print("The response of TestResultsApi->poll_result_load:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TestResultsApi->poll_result_load: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **result_id** | **str**| The ID of the result. | 
+ **id** | **int**| The ID of the async operation. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -895,326 +1135,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_results_generate_all**
-> AsyncContext poll_results_generate_all(result_id, id)
-
-
-
-Get the state of an ongoing operation.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.TestResultsApi(api_client)
-    result_id = 'result_id_example' # str | The ID of the result.
-    id = 56 # int | The ID of the async operation.
-
-    try:
-        api_response = api_instance.poll_results_generate_all(result_id, id)
-        print("The response of TestResultsApi->poll_results_generate_all:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TestResultsApi->poll_results_generate_all: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **result_id** | **str**| The ID of the result. | 
- **id** | **int**| The ID of the async operation. | 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Details about the ongoing operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **poll_results_generate_results**
-> AsyncContext poll_results_generate_results(result_id, id)
-
-
-
-Get the state of an ongoing operation.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.TestResultsApi(api_client)
-    result_id = 'result_id_example' # str | The ID of the result.
-    id = 56 # int | The ID of the async operation.
-
-    try:
-        api_response = api_instance.poll_results_generate_results(result_id, id)
-        print("The response of TestResultsApi->poll_results_generate_results:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TestResultsApi->poll_results_generate_results: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **result_id** | **str**| The ID of the result. | 
- **id** | **int**| The ID of the async operation. | 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Details about the ongoing operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **poll_results_load**
-> AsyncContext poll_results_load(result_id, id)
-
-
-
-Get the state of an ongoing operation.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.TestResultsApi(api_client)
-    result_id = 'result_id_example' # str | The ID of the result.
-    id = 56 # int | The ID of the async operation.
-
-    try:
-        api_response = api_instance.poll_results_load(result_id, id)
-        print("The response of TestResultsApi->poll_results_load:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TestResultsApi->poll_results_load: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **result_id** | **str**| The ID of the result. | 
- **id** | **int**| The ID of the async operation. | 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Details about the ongoing operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **start_results_batch_delete**
-> AsyncContext start_results_batch_delete(start_batch_delete_request_inner=start_batch_delete_request_inner)
-
-
-
-Remove multiple results.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.models.start_batch_delete_request_inner import StartBatchDeleteRequestInner
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.TestResultsApi(api_client)
-    start_batch_delete_request_inner = [cyperf.StartBatchDeleteRequestInner()] # List[StartBatchDeleteRequestInner] |  (optional)
-
-    try:
-        api_response = api_instance.start_results_batch_delete(start_batch_delete_request_inner=start_batch_delete_request_inner)
-        print("The response of TestResultsApi->start_results_batch_delete:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling TestResultsApi->start_results_batch_delete: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start_batch_delete_request_inner** | [**List[StartBatchDeleteRequestInner]**](StartBatchDeleteRequestInner.md)|  | [optional] 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Details about the operation that just started |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **start_results_generate_all**
-> AsyncContext start_results_generate_all(result_id, generate_all_operation=generate_all_operation)
+# **start_result_generate_all**
+> AsyncContext start_result_generate_all(result_id, generate_all_operation=generate_all_operation)
 
 
 
@@ -1255,11 +1181,11 @@ with cyperf.ApiClient(configuration) as api_client:
     generate_all_operation = cyperf.GenerateAllOperation() # GenerateAllOperation |  (optional)
 
     try:
-        api_response = api_instance.start_results_generate_all(result_id, generate_all_operation=generate_all_operation)
-        print("The response of TestResultsApi->start_results_generate_all:\n")
+        api_response = api_instance.start_result_generate_all(result_id, generate_all_operation=generate_all_operation)
+        print("The response of TestResultsApi->start_result_generate_all:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TestResultsApi->start_results_generate_all: %s\n" % e)
+        print("Exception when calling TestResultsApi->start_result_generate_all: %s\n" % e)
 ```
 
 
@@ -1293,8 +1219,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_results_generate_results**
-> AsyncContext start_results_generate_results(result_id)
+# **start_result_generate_results**
+> AsyncContext start_result_generate_results(result_id)
 
 
 
@@ -1333,11 +1259,11 @@ with cyperf.ApiClient(configuration) as api_client:
     result_id = 'result_id_example' # str | The ID of the result.
 
     try:
-        api_response = api_instance.start_results_generate_results(result_id)
-        print("The response of TestResultsApi->start_results_generate_results:\n")
+        api_response = api_instance.start_result_generate_results(result_id)
+        print("The response of TestResultsApi->start_result_generate_results:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TestResultsApi->start_results_generate_results: %s\n" % e)
+        print("Exception when calling TestResultsApi->start_result_generate_results: %s\n" % e)
 ```
 
 
@@ -1370,8 +1296,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_results_load**
-> AsyncContext start_results_load(result_id)
+# **start_result_load**
+> AsyncContext start_result_load(result_id)
 
 
 
@@ -1410,11 +1336,11 @@ with cyperf.ApiClient(configuration) as api_client:
     result_id = 'result_id_example' # str | The ID of the result.
 
     try:
-        api_response = api_instance.start_results_load(result_id)
-        print("The response of TestResultsApi->start_results_load:\n")
+        api_response = api_instance.start_result_load(result_id)
+        print("The response of TestResultsApi->start_result_load:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TestResultsApi->start_results_load: %s\n" % e)
+        print("Exception when calling TestResultsApi->start_result_load: %s\n" % e)
 ```
 
 
@@ -1437,6 +1363,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_results_batch_delete**
+> AsyncContext start_results_batch_delete(start_agents_batch_delete_request_inner=start_agents_batch_delete_request_inner)
+
+
+
+Remove multiple results.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.models.start_agents_batch_delete_request_inner import StartAgentsBatchDeleteRequestInner
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.TestResultsApi(api_client)
+    start_agents_batch_delete_request_inner = [cyperf.StartAgentsBatchDeleteRequestInner()] # List[StartAgentsBatchDeleteRequestInner] |  (optional)
+
+    try:
+        api_response = api_instance.start_results_batch_delete(start_agents_batch_delete_request_inner=start_agents_batch_delete_request_inner)
+        print("The response of TestResultsApi->start_results_batch_delete:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TestResultsApi->start_results_batch_delete: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_agents_batch_delete_request_inner** | [**List[StartAgentsBatchDeleteRequestInner]**](StartAgentsBatchDeleteRequestInner.md)|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

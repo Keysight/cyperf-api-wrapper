@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**debian_os** | **str** | A flag indicating whether the operating system is Debian-based | [optional] [readonly] 
 **dpdk_usage** | **str** | A flag indicating whether DPDK usage is supported | [optional] [readonly] 
 **update** | **str** | A flag indicating if update operation is supported | [optional] [readonly] 
 

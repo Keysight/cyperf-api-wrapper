@@ -28,9 +28,10 @@ class AgentFeatures(BaseModel):
     """
     AgentFeatures
     """ # noqa: E501
+    debian_os: Optional[StrictStr] = Field(default=None, description="A flag indicating whether the operating system is Debian-based", alias="debianOS")
     dpdk_usage: Optional[StrictStr] = Field(default=None, description="A flag indicating whether DPDK usage is supported", alias="dpdkUsage")
     update: Optional[StrictStr] = Field(default=None, description="A flag indicating if update operation is supported")
-    __properties: ClassVar[List[str]] = ["dpdkUsage", "update"]
+    __properties: ClassVar[List[str]] = ["debianOS", "dpdkUsage", "update"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,8 +65,10 @@ class AgentFeatures(BaseModel):
           are ignored.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "debian_os",
             "dpdk_usage",
             "update",
         ])
@@ -89,7 +92,8 @@ class AgentFeatures(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "dpdkUsage": obj.get("dpdkUsage"),
+            "debianOS": obj.get("debianOS"),
+                        "dpdkUsage": obj.get("dpdkUsage"),
                         "update": obj.get("update")
             ,
             "links": obj.get("links")

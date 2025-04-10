@@ -37,6 +37,7 @@ class TestLicenseServerMetadata(unittest.TestCase):
         if include_optional:
             return LicenseServerMetadata(
                 connection_status = '',
+                failure_reason = '',
                 fingerprint = '',
                 host_name = '',
                 id = 56,

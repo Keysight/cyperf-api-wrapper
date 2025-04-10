@@ -33,8 +33,14 @@ class TestLicenseServersApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_license_servers(self) -> None:
-        """Test case for delete_license_servers
+    def test_delete_license_server(self) -> None:
+        """Test case for delete_license_server
+
+        """
+        pass
+
+    def test_get_license_server_by_id(self) -> None:
+        """Test case for get_license_server_by_id
 
         """
         pass
@@ -45,14 +51,8 @@ class TestLicenseServersApi(unittest.TestCase):
         """
         pass
 
-    def test_get_license_servers_by_id(self) -> None:
-        """Test case for get_license_servers_by_id
-
-        """
-        pass
-
-    def test_patch_license_servers(self) -> None:
-        """Test case for patch_license_servers
+    def test_patch_license_server(self) -> None:
+        """Test case for patch_license_server
 
         """
         pass

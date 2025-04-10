@@ -36,6 +36,7 @@ class TestAgentFeatures(unittest.TestCase):
         model = AgentFeatures()
         if include_optional:
             return AgentFeatures(
+                debian_os = '',
                 dpdk_usage = '',
                 update = ''
             )

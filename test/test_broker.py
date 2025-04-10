@@ -37,6 +37,7 @@ class TestBroker(unittest.TestCase):
         if include_optional:
             return Broker(
                 connection_status = '',
+                failure_reason = '',
                 fingerprint = '',
                 host = '',
                 host_name = '',

@@ -133,7 +133,7 @@ class UDPTest (object):
         print('Collecting final statistics ...')
         stat_names  = ['client-streaming-statistics', 'server-streaming-statistics']
         session_api = cyperf.SessionsApi(self.utils.api_client)
-        test        = session_api.get_test(session_id=self.session.id)
+        test        = session_api.get_session_test(session_id=self.session.id)
         self.print_run_time_stats(test, 0, -1, stat_names)
         print('Collected final statistics ...')
 

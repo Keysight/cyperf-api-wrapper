@@ -27,8 +27,8 @@ class TestSessionsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_create_meta(self) -> None:
-        """Test case for create_meta
+    def test_create_session_meta(self) -> None:
+        """Test case for create_session_meta
 
         """
         pass
@@ -39,14 +39,14 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_meta(self) -> None:
-        """Test case for delete_meta
+    def test_delete_session(self) -> None:
+        """Test case for delete_session
 
         """
         pass
 
-    def test_delete_sessions(self) -> None:
-        """Test case for delete_sessions
+    def test_delete_session_meta(self) -> None:
+        """Test case for delete_session_meta
 
         """
         pass
@@ -57,38 +57,50 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_config(self) -> None:
-        """Test case for get_config
+    def test_get_config_docs(self) -> None:
+        """Test case for get_config_docs
 
         """
         pass
 
-    def test_get_docs(self) -> None:
-        """Test case for get_docs
+    def test_get_config_granular_stats(self) -> None:
+        """Test case for get_config_granular_stats
 
         """
         pass
 
-    def test_get_granular_stats(self) -> None:
-        """Test case for get_granular_stats
+    def test_get_config_granular_stats_filters(self) -> None:
+        """Test case for get_config_granular_stats_filters
 
         """
         pass
 
-    def test_get_granular_stats_filters(self) -> None:
-        """Test case for get_granular_stats_filters
+    def test_get_session_by_id(self) -> None:
+        """Test case for get_session_by_id
 
         """
         pass
 
-    def test_get_meta(self) -> None:
-        """Test case for get_meta
+    def test_get_session_config(self) -> None:
+        """Test case for get_session_config
 
         """
         pass
 
-    def test_get_meta_by_id(self) -> None:
-        """Test case for get_meta_by_id
+    def test_get_session_meta(self) -> None:
+        """Test case for get_session_meta
+
+        """
+        pass
+
+    def test_get_session_meta_by_id(self) -> None:
+        """Test case for get_session_meta_by_id
+
+        """
+        pass
+
+    def test_get_session_test(self) -> None:
+        """Test case for get_session_test
 
         """
         pass
@@ -99,32 +111,20 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_sessions_by_id(self) -> None:
-        """Test case for get_sessions_by_id
+    def test_patch_session(self) -> None:
+        """Test case for patch_session
 
         """
         pass
 
-    def test_get_test(self) -> None:
-        """Test case for get_test
+    def test_patch_session_meta(self) -> None:
+        """Test case for patch_session_meta
 
         """
         pass
 
-    def test_patch_meta(self) -> None:
-        """Test case for patch_meta
-
-        """
-        pass
-
-    def test_patch_sessions(self) -> None:
-        """Test case for patch_sessions
-
-        """
-        pass
-
-    def test_patch_test(self) -> None:
-        """Test case for patch_test
+    def test_patch_session_test(self) -> None:
+        """Test case for patch_session_test
 
         """
         pass
@@ -135,20 +135,44 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_config_granular_stats_default_dashboards(self) -> None:
-        """Test case for poll_config_granular_stats_default_dashboards
-
-        """
-        pass
-
     def test_poll_config_save(self) -> None:
         """Test case for poll_config_save
 
         """
         pass
 
-    def test_poll_prepare_test(self) -> None:
-        """Test case for poll_prepare_test
+    def test_poll_session_config_granular_stats_default_dashboards(self) -> None:
+        """Test case for poll_session_config_granular_stats_default_dashboards
+
+        """
+        pass
+
+    def test_poll_session_load_config(self) -> None:
+        """Test case for poll_session_load_config
+
+        """
+        pass
+
+    def test_poll_session_prepare_test(self) -> None:
+        """Test case for poll_session_prepare_test
+
+        """
+        pass
+
+    def test_poll_session_test_end(self) -> None:
+        """Test case for poll_session_test_end
+
+        """
+        pass
+
+    def test_poll_session_test_init(self) -> None:
+        """Test case for poll_session_test_init
+
+        """
+        pass
+
+    def test_poll_session_touch(self) -> None:
+        """Test case for poll_session_touch
 
         """
         pass
@@ -159,50 +183,50 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_sessions_load_config(self) -> None:
-        """Test case for poll_sessions_load_config
-
-        """
-        pass
-
-    def test_poll_sessions_touch(self) -> None:
-        """Test case for poll_sessions_touch
-
-        """
-        pass
-
-    def test_poll_test_end(self) -> None:
-        """Test case for poll_test_end
-
-        """
-        pass
-
-    def test_poll_test_init(self) -> None:
-        """Test case for poll_test_init
-
-        """
-        pass
-
     def test_start_config_add_applications(self) -> None:
         """Test case for start_config_add_applications
 
         """
         pass
 
-    def test_start_config_granular_stats_default_dashboards(self) -> None:
-        """Test case for start_config_granular_stats_default_dashboards
+    def test_start_session_config_granular_stats_default_dashboards(self) -> None:
+        """Test case for start_session_config_granular_stats_default_dashboards
 
         """
         pass
 
-    def test_start_config_save(self) -> None:
-        """Test case for start_config_save
+    def test_start_session_config_save(self) -> None:
+        """Test case for start_session_config_save
 
         """
         pass
 
-    def test_start_prepare_test(self) -> None:
-        """Test case for start_prepare_test
+    def test_start_session_load_config(self) -> None:
+        """Test case for start_session_load_config
+
+        """
+        pass
+
+    def test_start_session_prepare_test(self) -> None:
+        """Test case for start_session_prepare_test
+
+        """
+        pass
+
+    def test_start_session_test_end(self) -> None:
+        """Test case for start_session_test_end
+
+        """
+        pass
+
+    def test_start_session_test_init(self) -> None:
+        """Test case for start_session_test_init
+
+        """
+        pass
+
+    def test_start_session_touch(self) -> None:
+        """Test case for start_session_touch
 
         """
         pass
@@ -213,50 +237,26 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_start_sessions_load_config(self) -> None:
-        """Test case for start_sessions_load_config
+    def test_update_session(self) -> None:
+        """Test case for update_session
 
         """
         pass
 
-    def test_start_sessions_touch(self) -> None:
-        """Test case for start_sessions_touch
+    def test_update_session_config(self) -> None:
+        """Test case for update_session_config
 
         """
         pass
 
-    def test_start_test_end(self) -> None:
-        """Test case for start_test_end
+    def test_update_session_meta(self) -> None:
+        """Test case for update_session_meta
 
         """
         pass
 
-    def test_start_test_init(self) -> None:
-        """Test case for start_test_init
-
-        """
-        pass
-
-    def test_update_config(self) -> None:
-        """Test case for update_config
-
-        """
-        pass
-
-    def test_update_meta(self) -> None:
-        """Test case for update_meta
-
-        """
-        pass
-
-    def test_update_sessions(self) -> None:
-        """Test case for update_sessions
-
-        """
-        pass
-
-    def test_update_test(self) -> None:
-        """Test case for update_test
+    def test_update_session_test(self) -> None:
+        """Test case for update_session_test
 
         """
         pass

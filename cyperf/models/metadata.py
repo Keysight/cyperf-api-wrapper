@@ -18,10 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.config_metadata_config_data_value import ConfigMetadataConfigDataValue
 from cyperf.models.reference import Reference
+from cyperf.models.rtp_profile_meta import RTPProfileMeta
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field
@@ -30,14 +31,21 @@ class Metadata(BaseModel):
     """
     Metadata
     """ # noqa: E501
-    cve_count: Optional[StrictInt] = Field(default=None, description="The number of CVE references associated with the attack", alias="CveCount")
-    direction: Optional[StrictStr] = Field(default=None, description="The aggregated direction of the strike included in the attack", alias="Direction")
-    keywords: Optional[List[ConfigMetadataConfigDataValue]] = Field(default=None, description="The aggregated keywords of the attack", alias="Keywords")
-    legacy_names: Optional[List[StrictStr]] = Field(default=None, alias="LegacyNames")
-    references: Optional[List[Reference]] = Field(default=None, description="The aggregated references of the attack", alias="References")
-    severity: Optional[StrictStr] = Field(default=None, description="The aggregated severity of the strike included in the attack", alias="Severity")
-    strikes_count: Optional[StrictInt] = Field(default=None, description="The number of strikes associated with the attack", alias="StrikesCount")
-    __properties: ClassVar[List[str]] = ["CveCount", "Direction", "Keywords", "LegacyNames", "References", "Severity", "StrikesCount"]
+    direction: Optional[StrictStr] = Field(default=None, description="The direction of the strike", alias="Direction")
+    is_banner: Optional[StrictBool] = Field(default=None, description="Indicates that this is a command that is required, can only be add once and also must be the first", alias="IsBanner")
+    keywords: Optional[List[ConfigMetadataConfigDataValue]] = Field(default=None, description="The keywords of the strike", alias="Keywords")
+    legacy_names: Optional[List[StrictStr]] = Field(default=None, description="The names of the equivalent application/strike", alias="LegacyNames")
+    protocol: Optional[StrictStr] = Field(default=None, description="The protocol of the strike", alias="Protocol")
+    rtp_profile_meta: Optional[RTPProfileMeta] = Field(default=None, alias="RTPProfileMeta")
+    references: Optional[List[Reference]] = Field(default=None, description="The references of the strike", alias="References")
+    requires_uniqueness: Optional[StrictBool] = Field(default=None, description="If true, for applications with the same protocol id, application/attack must have been uniquely identified in previous commands", alias="RequiresUniqueness")
+    severity: Optional[StrictStr] = Field(default=None, description="The severity of the strike", alias="Severity")
+    skip_attack_generation: Optional[StrictBool] = Field(default=None, description="If true, don't generate an attack for this strike", alias="SkipAttackGeneration")
+    sort_severity: Optional[StrictStr] = Field(default=None, description="The field by which the severity is sorted", alias="SortSeverity")
+    static: Optional[StrictBool] = Field(default=None, description="If true, the application/strike is managed directly by the controller", alias="Static")
+    supported_apps: Optional[List[StrictStr]] = Field(default=None, description="The apps that this strike can be used with", alias="SupportedApps")
+    year: Optional[StrictStr] = Field(default=None, description="The year of the strike", alias="Year")
+    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "Keywords", "LegacyNames", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "Year"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +93,9 @@ class Metadata(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Keywords'] = _items
+        # override the default output from pydantic by calling `to_dict()` of rtp_profile_meta
+        if self.rtp_profile_meta:
+            _dict['RTPProfileMeta'] = self.rtp_profile_meta.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in references (list)
         _items = []
         if self.references:
@@ -106,13 +117,20 @@ class Metadata(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "CveCount": obj.get("CveCount"),
-                        "Direction": obj.get("Direction"),
+            "Direction": obj.get("Direction"),
+                        "IsBanner": obj.get("IsBanner"),
                         "Keywords": [ConfigMetadataConfigDataValue.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
                         "LegacyNames": obj.get("LegacyNames"),
+                        "Protocol": obj.get("Protocol"),
+                        "RTPProfileMeta": RTPProfileMeta.from_dict(obj["RTPProfileMeta"]) if obj.get("RTPProfileMeta") is not None else None,
                         "References": [Reference.from_dict(_item) for _item in obj["References"]] if obj.get("References") is not None else None,
+                        "RequiresUniqueness": obj.get("RequiresUniqueness"),
                         "Severity": obj.get("Severity"),
-                        "StrikesCount": obj.get("StrikesCount")
+                        "SkipAttackGeneration": obj.get("SkipAttackGeneration"),
+                        "SortSeverity": obj.get("SortSeverity"),
+                        "Static": obj.get("Static"),
+                        "SupportedApps": obj.get("SupportedApps"),
+                        "Year": obj.get("Year")
             ,
             "links": obj.get("links")
         })

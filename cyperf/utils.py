@@ -57,7 +57,7 @@ class TestRunner:
                     if 'ESTABLISHED' == lServerMetaData.connection_status:
                         pprint(f'License server {self.license_server} is already configured')
                         return
-                    license_api.delete_license_servers(str(lServerMetaData.id))
+                    license_api.delete_license_server(str(lServerMetaData.id))
                     waitTime = 5 # seconds
                     print(f'Waiting for {waitTime} seconds for the license server deletion to finish.')
                     time.sleep(5)
@@ -71,7 +71,7 @@ class TestRunner:
             newServers = license_api.create_license_servers(license_server_metadata=[lServer])
             while newServers:
                 for server in newServers:
-                    s = license_api.get_license_servers_by_id(
+                    s = license_api.get_license_server_by_id(
                         str(server.id))
                     if 'IN_PROGRESS' != s.connection_status:
                         newServers.remove(server)
@@ -88,7 +88,7 @@ class TestRunner:
         license_api = cyperf.LicenseServersApi(self.api_client)
         for server in self.added_license_servers:
             try:
-                license_api.delete_license_servers(str(server.id))
+                license_api.delete_license_server(str(server.id))
             except cyperf.ApiException as e:
                 pprint(f'{e}')
 
@@ -117,7 +117,7 @@ class TestRunner:
     def remove_configurations(self, configurations_ids=[]):
         config_api = cyperf.ConfigurationsApi(self.api_client)
         for config_id in configurations_ids:
-            config_api.delete_configs(config_id)
+            config_api.delete_config(config_id)
 
     def remove_configuration(self, configurations_id):
         self.remove_configurations([configurations_id])
@@ -142,10 +142,10 @@ class TestRunner:
 
     def delete_session(self, session):
         session_api = cyperf.SessionsApi(self.api_client)
-        test        = session_api.get_test(session_id=session.id)
+        test        = session_api.get_session_test(session_id=session.id)
         if test.status != 'STOPPED':
             self.stop_test(session)
-        session_api.delete_sessions(session.id)
+        session_api.delete_session(session.id)
 
     def assign_agents(self, session, agent_map=None, augment=False, auto_assign=False):
         # Assing agents to the indivual network segments based on the input provided
@@ -187,7 +187,7 @@ class TestRunner:
         resource_api = cyperf.ApplicationResourcesApi(self.api_client)
         app_info     = []
         for appName in appNames:
-            apps    = resource_api.get_apps(search_col='Name', search_val=appName)
+            apps    = resource_api.get_resources_apps(search_col='Name', search_val=appName)
             if not len(apps):
                 print('Couldn\'t find any {appName} app.')
                 raise Exception(f'Couldn\'t find \'{appName}\' app')
@@ -224,7 +224,7 @@ class TestRunner:
 
     def start_test(self, session):
         test_ops_api  = cyperf.TestOperationsApi(self.api_client)
-        test_start_op = test_ops_api.start_start_traffic(session_id=session.id)
+        test_start_op = test_ops_api.start_test_run_start(session_id=session.id)
         try:
             test_start_op.await_completion()
         except cyperf.ApiException as e:
@@ -235,7 +235,7 @@ class TestRunner:
         monitored_at     = None
         wait_interval    = 0.5
         while 1:
-            test = session_api.get_test(session_id=session.id)
+            test = session_api.get_session_test(session_id=session.id)
             if 'STOPPED' == test.status:
                 break
             if test_monitor:
@@ -249,7 +249,7 @@ class TestRunner:
 
     def stop_test(self, session):
         test_ops_api = cyperf.TestOperationsApi(self.api_client)
-        test_stop_op = test_ops_api.start_stop_traffic(session_id=session.id)
+        test_stop_op = test_ops_api.start_test_run_stop(session_id=session.id)
         try:
             test_stop_op.await_completion()
         except cyperf.ApiException as e:
@@ -257,15 +257,15 @@ class TestRunner:
 
     def collect_stats(self, test, stats_name, time_from, time_to, stats_processor=None):
         stats_api = cyperf.StatisticsApi(self.api_client)
-        stats     = stats_api.get_stats(test.test_id)
+        stats     = stats_api.get_result_stats(test.test_id)
         stats     = [stat for stat in stats if stats_name in stat.name]
         if time_from:
             if time_to > time_from:
-                stats = [stats_api.get_stats_by_id(test.test_id, stat.name, var_from=time_from, to=time_to) for stat in stats]
+                stats = [stats_api.get_result_stat_by_id(test.test_id, stat.name, var_from=time_from, to=time_to) for stat in stats]
             else:
-                stats = [stats_api.get_stats_by_id(test.test_id, stat.name, var_from=time_from) for stat in stats]
+                stats = [stats_api.get_result_stat_by_id(test.test_id, stat.name, var_from=time_from) for stat in stats]
         else:
-            stats     = [stats_api.get_stats_by_id(test.test_id, stat.name) for stat in stats]
+            stats     = [stats_api.get_result_stat_by_id(test.test_id, stat.name) for stat in stats]
         if stats_processor:
             stats = stats_processor(stats)
 
