@@ -155,7 +155,7 @@ class ApiClient:
             try:
                 if not eula_accepted:
                     eula_checker.check_eulas()
-                app_res_api.get_application_types(take=0)
+                app_res_api.get_resources_application_types(take=0)
                 sessions_api.get_sessions(take=0)
                 configs_api.get_configs(take=0)
                 agents_api.get_agents(take=0)
