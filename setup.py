@@ -58,7 +58,7 @@ To connect to a controller running at https://my-controller, just run the follow
     import cyperf
 
     config = cyperf.Configuration(host="https://my-controller",
-                                  user="admin",
+                                  username="admin",
                                   refresh_token="get a token from CyPerf UI > Gear > Offline Token")
     # if you don't have a valid HTTPS certificate for controller, uncomment this line
     # config.verify_ssl = False
