@@ -51,7 +51,7 @@ class ConfigurationsApi:
     @validate_call
     def create_configs(
         self,
-        config_metadata: Optional[List[ConfigMetadata]] = None,
+        configs: Optional[List[ConfigMetadata]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -69,8 +69,8 @@ class ConfigurationsApi:
 
         Save or import a new configuration. If the ConfigData field is not provided, this is implemented as a Save operation, only recording the metadata.
 
-        :param config_metadata:
-        :type config_metadata: List[ConfigMetadata]
+        :param configs:
+        :type configs: List[ConfigMetadata]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -94,7 +94,7 @@ class ConfigurationsApi:
         """ # noqa: E501
 
         _param = self._create_configs_serialize(
-            config_metadata=config_metadata,
+            configs=configs,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -116,7 +116,7 @@ class ConfigurationsApi:
     @validate_call
     def create_configs_with_http_info(
         self,
-        config_metadata: Optional[List[ConfigMetadata]] = None,
+        configs: Optional[List[ConfigMetadata]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -134,8 +134,8 @@ class ConfigurationsApi:
 
         Save or import a new configuration. If the ConfigData field is not provided, this is implemented as a Save operation, only recording the metadata.
 
-        :param config_metadata:
-        :type config_metadata: List[ConfigMetadata]
+        :param configs:
+        :type configs: List[ConfigMetadata]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -159,7 +159,7 @@ class ConfigurationsApi:
         """ # noqa: E501
 
         _param = self._create_configs_serialize(
-            config_metadata=config_metadata,
+            configs=configs,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -181,7 +181,7 @@ class ConfigurationsApi:
     @validate_call
     def create_configs_without_preload_content(
         self,
-        config_metadata: Optional[List[ConfigMetadata]] = None,
+        configs: Optional[List[ConfigMetadata]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -199,8 +199,8 @@ class ConfigurationsApi:
 
         Save or import a new configuration. If the ConfigData field is not provided, this is implemented as a Save operation, only recording the metadata.
 
-        :param config_metadata:
-        :type config_metadata: List[ConfigMetadata]
+        :param configs:
+        :type configs: List[ConfigMetadata]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -224,7 +224,7 @@ class ConfigurationsApi:
         """ # noqa: E501
 
         _param = self._create_configs_serialize(
-            config_metadata=config_metadata,
+            configs=configs,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -245,7 +245,7 @@ class ConfigurationsApi:
 
     def _create_configs_serialize(
         self,
-        config_metadata,
+        configs,
         _request_auth,
         _content_type,
         _headers,
@@ -255,7 +255,7 @@ class ConfigurationsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'ConfigMetadata': '',
+            'configs': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -270,8 +270,8 @@ class ConfigurationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if config_metadata is not None:
-            _body_params = config_metadata
+        if configs is not None:
+            _body_params = configs
 
 
         # set the HTTP header `Accept`

@@ -49,7 +49,7 @@ class StatisticsApi:
     @validate_call
     def create_stats_plugins(
         self,
-        plugin: Optional[List[Plugin]] = None,
+        stats_plugins: Optional[List[Plugin]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -67,8 +67,8 @@ class StatisticsApi:
 
         Create new plugins.
 
-        :param plugin:
-        :type plugin: List[Plugin]
+        :param stats_plugins:
+        :type stats_plugins: List[Plugin]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,7 +92,7 @@ class StatisticsApi:
         """ # noqa: E501
 
         _param = self._create_stats_plugins_serialize(
-            plugin=plugin,
+            stats_plugins=stats_plugins,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -114,7 +114,7 @@ class StatisticsApi:
     @validate_call
     def create_stats_plugins_with_http_info(
         self,
-        plugin: Optional[List[Plugin]] = None,
+        stats_plugins: Optional[List[Plugin]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -132,8 +132,8 @@ class StatisticsApi:
 
         Create new plugins.
 
-        :param plugin:
-        :type plugin: List[Plugin]
+        :param stats_plugins:
+        :type stats_plugins: List[Plugin]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -157,7 +157,7 @@ class StatisticsApi:
         """ # noqa: E501
 
         _param = self._create_stats_plugins_serialize(
-            plugin=plugin,
+            stats_plugins=stats_plugins,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -179,7 +179,7 @@ class StatisticsApi:
     @validate_call
     def create_stats_plugins_without_preload_content(
         self,
-        plugin: Optional[List[Plugin]] = None,
+        stats_plugins: Optional[List[Plugin]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -197,8 +197,8 @@ class StatisticsApi:
 
         Create new plugins.
 
-        :param plugin:
-        :type plugin: List[Plugin]
+        :param stats_plugins:
+        :type stats_plugins: List[Plugin]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -222,7 +222,7 @@ class StatisticsApi:
         """ # noqa: E501
 
         _param = self._create_stats_plugins_serialize(
-            plugin=plugin,
+            stats_plugins=stats_plugins,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -243,7 +243,7 @@ class StatisticsApi:
 
     def _create_stats_plugins_serialize(
         self,
-        plugin,
+        stats_plugins,
         _request_auth,
         _content_type,
         _headers,
@@ -253,7 +253,7 @@ class StatisticsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'Plugin': '',
+            'statsPlugins': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -268,8 +268,8 @@ class StatisticsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if plugin is not None:
-            _body_params = plugin
+        if stats_plugins is not None:
+            _body_params = stats_plugins
 
 
         # set the HTTP header `Accept`

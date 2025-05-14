@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_license_servers**
-> List[LicenseServerMetadata] create_license_servers(license_server_metadata=license_server_metadata)
+> List[LicenseServerMetadata] create_license_servers(license_servers=license_servers)
 
 
 
@@ -48,10 +48,10 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.LicenseServersApi(api_client)
-    license_server_metadata = [cyperf.LicenseServerMetadata()] # List[LicenseServerMetadata] |  (optional)
+    license_servers = [cyperf.LicenseServerMetadata()] # List[LicenseServerMetadata] |  (optional)
 
     try:
-        api_response = api_instance.create_license_servers(license_server_metadata=license_server_metadata)
+        api_response = api_instance.create_license_servers(license_servers=license_servers)
         print("The response of LicenseServersApi->create_license_servers:\n")
         pprint(api_response)
     except Exception as e:
@@ -65,7 +65,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license_server_metadata** | [**List[LicenseServerMetadata]**](LicenseServerMetadata.md)|  | [optional] 
+ **license_servers** | [**List[LicenseServerMetadata]**](LicenseServerMetadata.md)|  | [optional] 
 
 ### Return type
 

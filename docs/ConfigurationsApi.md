@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **create_configs**
-> List[ConfigMetadata] create_configs(config_metadata=config_metadata)
+> List[ConfigMetadata] create_configs(configs=configs)
 
 
 
@@ -59,10 +59,10 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.ConfigurationsApi(api_client)
-    config_metadata = [cyperf.ConfigMetadata()] # List[ConfigMetadata] |  (optional)
+    configs = [cyperf.ConfigMetadata()] # List[ConfigMetadata] |  (optional)
 
     try:
-        api_response = api_instance.create_configs(config_metadata=config_metadata)
+        api_response = api_instance.create_configs(configs=configs)
         print("The response of ConfigurationsApi->create_configs:\n")
         pprint(api_response)
     except Exception as e:
@@ -76,7 +76,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **config_metadata** | [**List[ConfigMetadata]**](ConfigMetadata.md)|  | [optional] 
+ **configs** | [**List[ConfigMetadata]**](ConfigMetadata.md)|  | [optional] 
 
 ### Return type
 

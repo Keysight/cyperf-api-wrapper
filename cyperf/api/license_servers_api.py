@@ -45,7 +45,7 @@ class LicenseServersApi:
     @validate_call
     def create_license_servers(
         self,
-        license_server_metadata: Optional[List[LicenseServerMetadata]] = None,
+        license_servers: Optional[List[LicenseServerMetadata]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,8 +63,8 @@ class LicenseServersApi:
 
         Register a license server.
 
-        :param license_server_metadata:
-        :type license_server_metadata: List[LicenseServerMetadata]
+        :param license_servers:
+        :type license_servers: List[LicenseServerMetadata]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -88,7 +88,7 @@ class LicenseServersApi:
         """ # noqa: E501
 
         _param = self._create_license_servers_serialize(
-            license_server_metadata=license_server_metadata,
+            license_servers=license_servers,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -110,7 +110,7 @@ class LicenseServersApi:
     @validate_call
     def create_license_servers_with_http_info(
         self,
-        license_server_metadata: Optional[List[LicenseServerMetadata]] = None,
+        license_servers: Optional[List[LicenseServerMetadata]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -128,8 +128,8 @@ class LicenseServersApi:
 
         Register a license server.
 
-        :param license_server_metadata:
-        :type license_server_metadata: List[LicenseServerMetadata]
+        :param license_servers:
+        :type license_servers: List[LicenseServerMetadata]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -153,7 +153,7 @@ class LicenseServersApi:
         """ # noqa: E501
 
         _param = self._create_license_servers_serialize(
-            license_server_metadata=license_server_metadata,
+            license_servers=license_servers,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -175,7 +175,7 @@ class LicenseServersApi:
     @validate_call
     def create_license_servers_without_preload_content(
         self,
-        license_server_metadata: Optional[List[LicenseServerMetadata]] = None,
+        license_servers: Optional[List[LicenseServerMetadata]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -193,8 +193,8 @@ class LicenseServersApi:
 
         Register a license server.
 
-        :param license_server_metadata:
-        :type license_server_metadata: List[LicenseServerMetadata]
+        :param license_servers:
+        :type license_servers: List[LicenseServerMetadata]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -218,7 +218,7 @@ class LicenseServersApi:
         """ # noqa: E501
 
         _param = self._create_license_servers_serialize(
-            license_server_metadata=license_server_metadata,
+            license_servers=license_servers,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -239,7 +239,7 @@ class LicenseServersApi:
 
     def _create_license_servers_serialize(
         self,
-        license_server_metadata,
+        license_servers,
         _request_auth,
         _content_type,
         _headers,
@@ -249,7 +249,7 @@ class LicenseServersApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'LicenseServerMetadata': '',
+            'licenseServers': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -264,8 +264,8 @@ class LicenseServersApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if license_server_metadata is not None:
-            _body_params = license_server_metadata
+        if license_servers is not None:
+            _body_params = license_servers
 
 
         # set the HTTP header `Accept`
