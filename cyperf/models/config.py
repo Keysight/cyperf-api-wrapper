@@ -42,7 +42,7 @@ class Config(BaseModel):
     network_profiles: Optional[List[NetworkProfile]] = Field(default=None, alias="NetworkProfiles")
     traffic_profiles: Optional[List[ApplicationProfile]] = Field(default=None, alias="TrafficProfiles")
     links: Optional[List[APILink]] = None
-    validate_operations: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="validate")
+    validate: Optional[List[Union[StrictBytes, StrictStr]]] = None
     __properties: ClassVar[List[str]] = ["AttackProfiles", "ConfigValidation", "CustomDashboards", "ExpectedDiskSpace", "NetworkProfiles", "TrafficProfiles", "links", "validate"]
 
     model_config = ConfigDict(

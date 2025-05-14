@@ -45,7 +45,7 @@ class BrokersApi:
     @validate_call
     def create_brokers(
         self,
-        broker: Optional[List[Broker]] = None,
+        brokers: Optional[List[Broker]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,8 +63,8 @@ class BrokersApi:
 
         Register an external broker.
 
-        :param broker:
-        :type broker: List[Broker]
+        :param brokers:
+        :type brokers: List[Broker]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -88,7 +88,7 @@ class BrokersApi:
         """ # noqa: E501
 
         _param = self._create_brokers_serialize(
-            broker=broker,
+            brokers=brokers,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -110,7 +110,7 @@ class BrokersApi:
     @validate_call
     def create_brokers_with_http_info(
         self,
-        broker: Optional[List[Broker]] = None,
+        brokers: Optional[List[Broker]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -128,8 +128,8 @@ class BrokersApi:
 
         Register an external broker.
 
-        :param broker:
-        :type broker: List[Broker]
+        :param brokers:
+        :type brokers: List[Broker]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -153,7 +153,7 @@ class BrokersApi:
         """ # noqa: E501
 
         _param = self._create_brokers_serialize(
-            broker=broker,
+            brokers=brokers,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -175,7 +175,7 @@ class BrokersApi:
     @validate_call
     def create_brokers_without_preload_content(
         self,
-        broker: Optional[List[Broker]] = None,
+        brokers: Optional[List[Broker]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -193,8 +193,8 @@ class BrokersApi:
 
         Register an external broker.
 
-        :param broker:
-        :type broker: List[Broker]
+        :param brokers:
+        :type brokers: List[Broker]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -218,7 +218,7 @@ class BrokersApi:
         """ # noqa: E501
 
         _param = self._create_brokers_serialize(
-            broker=broker,
+            brokers=brokers,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -239,7 +239,7 @@ class BrokersApi:
 
     def _create_brokers_serialize(
         self,
-        broker,
+        brokers,
         _request_auth,
         _content_type,
         _headers,
@@ -249,7 +249,7 @@ class BrokersApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'Broker': '',
+            'brokers': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -264,8 +264,8 @@ class BrokersApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if broker is not None:
-            _body_params = broker
+        if brokers is not None:
+            _body_params = brokers
 
 
         # set the HTTP header `Accept`

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **create_stats_plugins**
-> List[Plugin] create_stats_plugins(plugin=plugin)
+> List[Plugin] create_stats_plugins(stats_plugins=stats_plugins)
 
 
 
@@ -50,10 +50,10 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.StatisticsApi(api_client)
-    plugin = [cyperf.Plugin()] # List[Plugin] |  (optional)
+    stats_plugins = [cyperf.Plugin()] # List[Plugin] |  (optional)
 
     try:
-        api_response = api_instance.create_stats_plugins(plugin=plugin)
+        api_response = api_instance.create_stats_plugins(stats_plugins=stats_plugins)
         print("The response of StatisticsApi->create_stats_plugins:\n")
         pprint(api_response)
     except Exception as e:
@@ -67,7 +67,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **plugin** | [**List[Plugin]**](Plugin.md)|  | [optional] 
+ **stats_plugins** | [**List[Plugin]**](Plugin.md)|  | [optional] 
 
 ### Return type
 

@@ -46,7 +46,7 @@ Method | HTTP request | Description
 
 
 # **create_session_meta**
-> List[Pair] create_session_meta(session_id, pair=pair)
+> List[Pair] create_session_meta(session_id, session_metas=session_metas)
 
 
 
@@ -83,10 +83,10 @@ with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.SessionsApi(api_client)
     session_id = 'session_id_example' # str | The ID of the session.
-    pair = [cyperf.Pair()] # List[Pair] |  (optional)
+    session_metas = [cyperf.Pair()] # List[Pair] |  (optional)
 
     try:
-        api_response = api_instance.create_session_meta(session_id, pair=pair)
+        api_response = api_instance.create_session_meta(session_id, session_metas=session_metas)
         print("The response of SessionsApi->create_session_meta:\n")
         pprint(api_response)
     except Exception as e:
@@ -101,7 +101,7 @@ with cyperf.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **str**| The ID of the session. | 
- **pair** | [**List[Pair]**](Pair.md)|  | [optional] 
+ **session_metas** | [**List[Pair]**](Pair.md)|  | [optional] 
 
 ### Return type
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_sessions**
-> List[Session] create_sessions(session=session)
+> List[Session] create_sessions(sessions=sessions)
 
 
 
@@ -163,10 +163,10 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.SessionsApi(api_client)
-    session = [cyperf.Session()] # List[Session] |  (optional)
+    sessions = [cyperf.Session()] # List[Session] |  (optional)
 
     try:
-        api_response = api_instance.create_sessions(session=session)
+        api_response = api_instance.create_sessions(sessions=sessions)
         print("The response of SessionsApi->create_sessions:\n")
         pprint(api_response)
     except Exception as e:
@@ -180,7 +180,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session** | [**List[Session]**](Session.md)|  | [optional] 
+ **sessions** | [**List[Session]**](Session.md)|  | [optional] 
 
 ### Return type
 

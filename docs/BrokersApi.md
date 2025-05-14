@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_brokers**
-> List[Broker] create_brokers(broker=broker)
+> List[Broker] create_brokers(brokers=brokers)
 
 
 
@@ -48,10 +48,10 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.BrokersApi(api_client)
-    broker = [cyperf.Broker()] # List[Broker] |  (optional)
+    brokers = [cyperf.Broker()] # List[Broker] |  (optional)
 
     try:
-        api_response = api_instance.create_brokers(broker=broker)
+        api_response = api_instance.create_brokers(brokers=brokers)
         print("The response of BrokersApi->create_brokers:\n")
         pprint(api_response)
     except Exception as e:
@@ -65,7 +65,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **broker** | [**List[Broker]**](Broker.md)|  | [optional] 
+ **brokers** | [**List[Broker]**](Broker.md)|  | [optional] 
 
 ### Return type
 

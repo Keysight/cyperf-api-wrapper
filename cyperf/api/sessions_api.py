@@ -58,7 +58,7 @@ class SessionsApi:
     def create_session_meta(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        pair: Optional[List[Pair]] = None,
+        session_metas: Optional[List[Pair]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -78,8 +78,8 @@ class SessionsApi:
 
         :param session_id: The ID of the session. (required)
         :type session_id: str
-        :param pair:
-        :type pair: List[Pair]
+        :param session_metas:
+        :type session_metas: List[Pair]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -104,7 +104,7 @@ class SessionsApi:
 
         _param = self._create_session_meta_serialize(
             session_id=session_id,
-            pair=pair,
+            session_metas=session_metas,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -127,7 +127,7 @@ class SessionsApi:
     def create_session_meta_with_http_info(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        pair: Optional[List[Pair]] = None,
+        session_metas: Optional[List[Pair]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -147,8 +147,8 @@ class SessionsApi:
 
         :param session_id: The ID of the session. (required)
         :type session_id: str
-        :param pair:
-        :type pair: List[Pair]
+        :param session_metas:
+        :type session_metas: List[Pair]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -173,7 +173,7 @@ class SessionsApi:
 
         _param = self._create_session_meta_serialize(
             session_id=session_id,
-            pair=pair,
+            session_metas=session_metas,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -196,7 +196,7 @@ class SessionsApi:
     def create_session_meta_without_preload_content(
         self,
         session_id: Annotated[StrictStr, Field(description="The ID of the session.")],
-        pair: Optional[List[Pair]] = None,
+        session_metas: Optional[List[Pair]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -216,8 +216,8 @@ class SessionsApi:
 
         :param session_id: The ID of the session. (required)
         :type session_id: str
-        :param pair:
-        :type pair: List[Pair]
+        :param session_metas:
+        :type session_metas: List[Pair]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -242,7 +242,7 @@ class SessionsApi:
 
         _param = self._create_session_meta_serialize(
             session_id=session_id,
-            pair=pair,
+            session_metas=session_metas,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -264,7 +264,7 @@ class SessionsApi:
     def _create_session_meta_serialize(
         self,
         session_id,
-        pair,
+        session_metas,
         _request_auth,
         _content_type,
         _headers,
@@ -274,7 +274,7 @@ class SessionsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'Pair': '',
+            'sessionMetas': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -291,8 +291,8 @@ class SessionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if pair is not None:
-            _body_params = pair
+        if session_metas is not None:
+            _body_params = session_metas
 
 
         # set the HTTP header `Accept`
@@ -344,7 +344,7 @@ class SessionsApi:
     @validate_call
     def create_sessions(
         self,
-        session: Optional[List[Session]] = None,
+        sessions: Optional[List[Session]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -362,8 +362,8 @@ class SessionsApi:
 
         Create a new session by providing the URL of the configuration to be loaded.
 
-        :param session:
-        :type session: List[Session]
+        :param sessions:
+        :type sessions: List[Session]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -387,7 +387,7 @@ class SessionsApi:
         """ # noqa: E501
 
         _param = self._create_sessions_serialize(
-            session=session,
+            sessions=sessions,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -409,7 +409,7 @@ class SessionsApi:
     @validate_call
     def create_sessions_with_http_info(
         self,
-        session: Optional[List[Session]] = None,
+        sessions: Optional[List[Session]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -427,8 +427,8 @@ class SessionsApi:
 
         Create a new session by providing the URL of the configuration to be loaded.
 
-        :param session:
-        :type session: List[Session]
+        :param sessions:
+        :type sessions: List[Session]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -452,7 +452,7 @@ class SessionsApi:
         """ # noqa: E501
 
         _param = self._create_sessions_serialize(
-            session=session,
+            sessions=sessions,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -474,7 +474,7 @@ class SessionsApi:
     @validate_call
     def create_sessions_without_preload_content(
         self,
-        session: Optional[List[Session]] = None,
+        sessions: Optional[List[Session]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -492,8 +492,8 @@ class SessionsApi:
 
         Create a new session by providing the URL of the configuration to be loaded.
 
-        :param session:
-        :type session: List[Session]
+        :param sessions:
+        :type sessions: List[Session]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -517,7 +517,7 @@ class SessionsApi:
         """ # noqa: E501
 
         _param = self._create_sessions_serialize(
-            session=session,
+            sessions=sessions,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -538,7 +538,7 @@ class SessionsApi:
 
     def _create_sessions_serialize(
         self,
-        session,
+        sessions,
         _request_auth,
         _content_type,
         _headers,
@@ -548,7 +548,7 @@ class SessionsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'Session': '',
+            'sessions': '',
         }
 
         _path_params: Dict[str, str] = {}
@@ -563,8 +563,8 @@ class SessionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if session is not None:
-            _body_params = session
+        if sessions is not None:
+            _body_params = sessions
 
 
         # set the HTTP header `Accept`
