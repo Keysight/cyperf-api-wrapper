@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**create_sessions**](SessionsApi.md#create_sessions) | **POST** /api/v2/sessions | 
 [**delete_session**](SessionsApi.md#delete_session) | **DELETE** /api/v2/sessions/{sessionId} | 
 [**delete_session_meta**](SessionsApi.md#delete_session_meta) | **DELETE** /api/v2/sessions/{sessionId}/meta/{metaId} | 
-[**get_appsec_ui_metadata**](SessionsApi.md#get_appsec_ui_metadata) | **GET** /api/v2/appsec-ui-metadata | 
 [**get_config_docs**](SessionsApi.md#get_config_docs) | **GET** /api/v2/sessions/{sessionId}/config/$docs | 
 [**get_config_granular_stats**](SessionsApi.md#get_config_granular_stats) | **GET** /api/v2/sessions/{sessionId}/config/granular-stats | 
 [**get_config_granular_stats_filters**](SessionsApi.md#get_config_granular_stats_filters) | **GET** /api/v2/sessions/{sessionId}/config/granular-stats-filters | 
@@ -358,79 +357,6 @@ void (empty response body)
 **204** | The session metadata was successfully deleted. |  -  |
 **400** | Bad request |  -  |
 **404** | A session or metadata with the specified IDs were not found. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_appsec_ui_metadata**
-> object get_appsec_ui_metadata()
-
-
-
-Get the UI metadata
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.SessionsApi(api_client)
-
-    try:
-        api_response = api_instance.get_appsec_ui_metadata()
-        print("The response of SessionsApi->get_appsec_ui_metadata:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling SessionsApi->get_appsec_ui_metadata: %s\n" % e)
-```
-
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-**object**
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | The UI metadata |  -  |
-**500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

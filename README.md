@@ -343,7 +343,6 @@ Class | Method | HTTP request | Description
 *SessionsApi* | [**create_sessions**](docs/SessionsApi.md#create_sessions) | **POST** /api/v2/sessions | 
 *SessionsApi* | [**delete_session**](docs/SessionsApi.md#delete_session) | **DELETE** /api/v2/sessions/{sessionId} | 
 *SessionsApi* | [**delete_session_meta**](docs/SessionsApi.md#delete_session_meta) | **DELETE** /api/v2/sessions/{sessionId}/meta/{metaId} | 
-*SessionsApi* | [**get_appsec_ui_metadata**](docs/SessionsApi.md#get_appsec_ui_metadata) | **GET** /api/v2/appsec-ui-metadata | 
 *SessionsApi* | [**get_config_docs**](docs/SessionsApi.md#get_config_docs) | **GET** /api/v2/sessions/{sessionId}/config/$docs | 
 *SessionsApi* | [**get_config_granular_stats**](docs/SessionsApi.md#get_config_granular_stats) | **GET** /api/v2/sessions/{sessionId}/config/granular-stats | 
 *SessionsApi* | [**get_config_granular_stats_filters**](docs/SessionsApi.md#get_config_granular_stats_filters) | **GET** /api/v2/sessions/{sessionId}/config/granular-stats-filters | 

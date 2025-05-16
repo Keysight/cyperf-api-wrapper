@@ -51,12 +51,6 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_appsec_ui_metadata(self) -> None:
-        """Test case for get_appsec_ui_metadata
-
-        """
-        pass
-
     def test_get_config_docs(self) -> None:
         """Test case for get_config_docs
 
