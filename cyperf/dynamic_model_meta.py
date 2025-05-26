@@ -128,18 +128,41 @@ class DynamicList(UserList):
 
     def update(self):
         lst = self.__get_base_data()
-        items_to_add = [item for item in self.data if item not in lst]
-        items_to_remove = [item for item in lst if item not in self.data]
+
+        server_hrefs = {
+            link.href for item in lst
+            for link in getattr(item, "links", [])
+            if getattr(link, "type", None) == "self"
+        }
+
+        local_hrefs = set()
+        href_to_item = {}
+        items_to_add = []
+
+        for item in self.dyn_data:
+            link = item.get_self_link()
+            if link is None or link.href is None:
+                items_to_add.append(item)
+            else:
+                local_hrefs.add(link.href)
+                href_to_item[link.href] = item
+
+        items_to_add.extend(
+            href_to_item[href] for href in local_hrefs - server_hrefs
+        )
+        items_to_remove = [
+            item for item in lst
+            for link in getattr(item, "links", [])
+            if getattr(link, "type", None) == "self" and link.href not in local_hrefs
+        ]
+
         if items_to_add:
-            try:
+            for item in items_to_add:
                 DynamicModel.link_based_request(self, self.link.name, "POST",
-                                                body=items_to_add, href=self.link.href)
-            except ApiException:
-                for item in items_to_add:
-                    DynamicModel.link_based_request(self, self.link.name, "POST",
-                                                    body=item, href=self.link.href)
+                                                body=item, href=self.link.href)
+
         remove_one_by_one = False
-        if len(items_to_remove) > 1 and "id" in dir(items_to_remove[0]):
+        if len(items_to_remove) > 1:
             try:
                 op = DynamicModel.link_based_request(self, self.link.name, "POST",
                                                      body=[{"id": item.id} for item in items_to_remove],
@@ -151,9 +174,10 @@ class DynamicList(UserList):
                 remove_one_by_one = True
         else:
             remove_one_by_one = True
+
         if remove_one_by_one:
             for item in items_to_remove:
-                    DynamicModel.link_based_request(self, self.link.name, "DELETE",
+                DynamicModel.link_based_request(self, self.link.name, "DELETE",
                                                 href=next(link.href for link in item.links if link.rel == "self"))
         self.refresh()
 

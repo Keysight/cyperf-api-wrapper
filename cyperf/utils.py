@@ -198,8 +198,11 @@ class TestRunner:
         if not session.config.config.traffic_profiles:
             session.config.config.traffic_profiles.append(cyperf.ApplicationProfile(name="Application Profile"))
             session.config.config.traffic_profiles.update()
+        
         app_profile = session.config.config.traffic_profiles[0]
-        app_profile.applications += app_info
+        for app in app_info:
+            app_profile.applications.append(app)
+            
         app_profile.applications.update()
 
     def add_app(self, session, appName):
