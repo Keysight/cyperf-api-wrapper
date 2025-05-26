@@ -44,7 +44,7 @@ if __name__ == "__main__":
         # Create a session
         session = None
         print("Creating empty session...")
-        api_session_response = api_session_instance.create_sessions(session=sessions)
+        api_session_response = api_session_instance.create_sessions(sessions=sessions)
         session = api_session_response[0]
         print("Session created.\n")
 
