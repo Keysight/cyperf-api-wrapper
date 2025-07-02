@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **server_tls_profile** | [**TLSProfile**](TLSProfile.md) |  | [optional] 
 **supports_tls** | **bool** |  | [optional] 
 **tracks** | [**List[AttackTrack]**](AttackTrack.md) |  | [optional] 
-**create** | **List[bytearray]** |  | [optional] 
+**create** | [**List[CreateAppOrAttackOperationInput]**](CreateAppOrAttackOperationInput.md) |  | [optional] 
 **modify_excluded_dut_recursively** | [**List[UpdateNetworkMapping]**](UpdateNetworkMapping.md) |  | [optional] 
 **modify_tags_recursively** | [**List[UpdateNetworkMapping]**](UpdateNetworkMapping.md) |  | [optional] 
 

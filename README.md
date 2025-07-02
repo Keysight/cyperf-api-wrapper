@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**start_controllers_set_port_link_state**](docs/AgentsApi.md#start_controllers_set_port_link_state) | **POST** /api/v2/controllers/operations/set-port-link-state | 
 *ApplicationResourcesApi* | [**delete_resources_capture**](docs/ApplicationResourcesApi.md#delete_resources_capture) | **DELETE** /api/v2/resources/captures/{captureId} | 
 *ApplicationResourcesApi* | [**delete_resources_certificate**](docs/ApplicationResourcesApi.md#delete_resources_certificate) | **DELETE** /api/v2/resources/certificates/{certificateId} | 
+*ApplicationResourcesApi* | [**delete_resources_custom_fuzzing_script**](docs/ApplicationResourcesApi.md#delete_resources_custom_fuzzing_script) | **DELETE** /api/v2/resources/custom-fuzzing-scripts/{customFuzzingScriptId} | 
 *ApplicationResourcesApi* | [**delete_resources_flow_library**](docs/ApplicationResourcesApi.md#delete_resources_flow_library) | **DELETE** /api/v2/resources/flow-library/{flowLibraryId} | 
 *ApplicationResourcesApi* | [**delete_resources_global_playlist**](docs/ApplicationResourcesApi.md#delete_resources_global_playlist) | **DELETE** /api/v2/resources/global-playlists/{globalPlaylistId} | 
 *ApplicationResourcesApi* | [**delete_resources_http_library**](docs/ApplicationResourcesApi.md#delete_resources_http_library) | **DELETE** /api/v2/resources/http-library/{httpLibraryId} | 
@@ -150,6 +151,10 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_resources_certificate_content_file**](docs/ApplicationResourcesApi.md#get_resources_certificate_content_file) | **GET** /api/v2/resources/certificates/{certificateId}/contentFile | 
 *ApplicationResourcesApi* | [**get_resources_certificates**](docs/ApplicationResourcesApi.md#get_resources_certificates) | **GET** /api/v2/resources/certificates | 
 *ApplicationResourcesApi* | [**get_resources_certificates_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_certificates_upload_file_result) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_custom_fuzzing_script_by_id**](docs/ApplicationResourcesApi.md#get_resources_custom_fuzzing_script_by_id) | **GET** /api/v2/resources/custom-fuzzing-scripts/{customFuzzingScriptId} | 
+*ApplicationResourcesApi* | [**get_resources_custom_fuzzing_script_content_file**](docs/ApplicationResourcesApi.md#get_resources_custom_fuzzing_script_content_file) | **GET** /api/v2/resources/custom-fuzzing-scripts/{customFuzzingScriptId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_custom_fuzzing_scripts**](docs/ApplicationResourcesApi.md#get_resources_custom_fuzzing_scripts) | **GET** /api/v2/resources/custom-fuzzing-scripts | 
+*ApplicationResourcesApi* | [**get_resources_custom_fuzzing_scripts_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_custom_fuzzing_scripts_upload_file_result) | **GET** /api/v2/resources/custom-fuzzing-scripts/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**get_resources_flow_library**](docs/ApplicationResourcesApi.md#get_resources_flow_library) | **GET** /api/v2/resources/flow-library | 
 *ApplicationResourcesApi* | [**get_resources_flow_library_by_id**](docs/ApplicationResourcesApi.md#get_resources_flow_library_by_id) | **GET** /api/v2/resources/flow-library/{flowLibraryId} | 
 *ApplicationResourcesApi* | [**get_resources_flow_library_content_file**](docs/ApplicationResourcesApi.md#get_resources_flow_library_content_file) | **GET** /api/v2/resources/flow-library/{flowLibraryId}/contentFile | 
@@ -218,7 +223,9 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**poll_resources_captures_batch_delete**](docs/ApplicationResourcesApi.md#poll_resources_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
 *ApplicationResourcesApi* | [**poll_resources_captures_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_captures_upload_file) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId} | 
 *ApplicationResourcesApi* | [**poll_resources_certificates_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_certificates_upload_file) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId} | 
+*ApplicationResourcesApi* | [**poll_resources_config_export_user_defined_apps**](docs/ApplicationResourcesApi.md#poll_resources_config_export_user_defined_apps) | **GET** /api/v2/resources/configs/{configId}/operations/export-user-defined-apps/{id} | 
 *ApplicationResourcesApi* | [**poll_resources_create_app**](docs/ApplicationResourcesApi.md#poll_resources_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
+*ApplicationResourcesApi* | [**poll_resources_custom_fuzzing_scripts_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_custom_fuzzing_scripts_upload_file) | **GET** /api/v2/resources/custom-fuzzing-scripts/operations/uploadFile/{uploadFileId} | 
 *ApplicationResourcesApi* | [**poll_resources_edit_app**](docs/ApplicationResourcesApi.md#poll_resources_edit_app) | **GET** /api/v2/resources/operations/edit-app/{id} | 
 *ApplicationResourcesApi* | [**poll_resources_find_param_matches**](docs/ApplicationResourcesApi.md#poll_resources_find_param_matches) | **GET** /api/v2/resources/operations/find-param-matches/{id} | 
 *ApplicationResourcesApi* | [**poll_resources_flow_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_flow_library_upload_file) | **GET** /api/v2/resources/flow-library/operations/uploadFile/{uploadFileId} | 
@@ -245,7 +252,9 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**start_resources_captures_batch_delete**](docs/ApplicationResourcesApi.md#start_resources_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
 *ApplicationResourcesApi* | [**start_resources_captures_upload_file**](docs/ApplicationResourcesApi.md#start_resources_captures_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
 *ApplicationResourcesApi* | [**start_resources_certificates_upload_file**](docs/ApplicationResourcesApi.md#start_resources_certificates_upload_file) | **POST** /api/v2/resources/certificates/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_config_export_user_defined_apps**](docs/ApplicationResourcesApi.md#start_resources_config_export_user_defined_apps) | **POST** /api/v2/resources/configs/{configId}/operations/export-user-defined-apps | 
 *ApplicationResourcesApi* | [**start_resources_create_app**](docs/ApplicationResourcesApi.md#start_resources_create_app) | **POST** /api/v2/resources/operations/create-app | 
+*ApplicationResourcesApi* | [**start_resources_custom_fuzzing_scripts_upload_file**](docs/ApplicationResourcesApi.md#start_resources_custom_fuzzing_scripts_upload_file) | **POST** /api/v2/resources/custom-fuzzing-scripts/operations/uploadFile | 
 *ApplicationResourcesApi* | [**start_resources_edit_app**](docs/ApplicationResourcesApi.md#start_resources_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
 *ApplicationResourcesApi* | [**start_resources_find_param_matches**](docs/ApplicationResourcesApi.md#start_resources_find_param_matches) | **POST** /api/v2/resources/operations/find-param-matches | 
 *ApplicationResourcesApi* | [**start_resources_flow_library_upload_file**](docs/ApplicationResourcesApi.md#start_resources_flow_library_upload_file) | **POST** /api/v2/resources/flow-library/operations/uploadFile | 
@@ -356,8 +365,8 @@ Class | Method | HTTP request | Description
 *SessionsApi* | [**patch_session_meta**](docs/SessionsApi.md#patch_session_meta) | **PATCH** /api/v2/sessions/{sessionId}/meta/{metaId} | 
 *SessionsApi* | [**patch_session_test**](docs/SessionsApi.md#patch_session_test) | **PATCH** /api/v2/sessions/{sessionId}/test | 
 *SessionsApi* | [**poll_config_add_applications**](docs/SessionsApi.md#poll_config_add_applications) | **GET** /api/v2/sessions/{sessionId}/config/config/TrafficProfiles/{trafficProfileId}/operations/add-applications/{id} | 
-*SessionsApi* | [**poll_config_save**](docs/SessionsApi.md#poll_config_save) | **GET** /api/v2/sessions/{sessionId}/config/operations/save/{id} | 
 *SessionsApi* | [**poll_session_config_granular_stats_default_dashboards**](docs/SessionsApi.md#poll_session_config_granular_stats_default_dashboards) | **GET** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards/{id} | 
+*SessionsApi* | [**poll_session_config_save**](docs/SessionsApi.md#poll_session_config_save) | **GET** /api/v2/sessions/{sessionId}/config/operations/save/{id} | 
 *SessionsApi* | [**poll_session_load_config**](docs/SessionsApi.md#poll_session_load_config) | **GET** /api/v2/sessions/{sessionId}/operations/loadConfig/{id} | 
 *SessionsApi* | [**poll_session_prepare_test**](docs/SessionsApi.md#poll_session_prepare_test) | **GET** /api/v2/sessions/{sessionId}/operations/prepareTest/{id} | 
 *SessionsApi* | [**poll_session_test_end**](docs/SessionsApi.md#poll_session_test_end) | **GET** /api/v2/sessions/{sessionId}/operations/testEnd/{id} | 
@@ -454,6 +463,7 @@ Class | Method | HTTP request | Description
  - [ActivationCodeInfo](docs/ActivationCodeInfo.md)
  - [ActivationCodeListRequest](docs/ActivationCodeListRequest.md)
  - [ActivationCodeRequest](docs/ActivationCodeRequest.md)
+ - [AddActionInfo](docs/AddActionInfo.md)
  - [AddInput](docs/AddInput.md)
  - [AdvancedSettings](docs/AdvancedSettings.md)
  - [Agent](docs/Agent.md)
@@ -487,12 +497,15 @@ Class | Method | HTTP request | Description
  - [AsyncOperationResponse](docs/AsyncOperationResponse.md)
  - [Attack](docs/Attack.md)
  - [AttackAction](docs/AttackAction.md)
+ - [AttackMetadata](docs/AttackMetadata.md)
+ - [AttackMetadataKeywordsInner](docs/AttackMetadataKeywordsInner.md)
  - [AttackObjectivesAndTimeline](docs/AttackObjectivesAndTimeline.md)
  - [AttackProfile](docs/AttackProfile.md)
  - [AttackTimelineSegment](docs/AttackTimelineSegment.md)
  - [AttackTrack](docs/AttackTrack.md)
  - [AuthMethodType](docs/AuthMethodType.md)
  - [AuthProfile](docs/AuthProfile.md)
+ - [AuthProfileMetadata](docs/AuthProfileMetadata.md)
  - [AuthSettings](docs/AuthSettings.md)
  - [Authenticate200Response](docs/Authenticate200Response.md)
  - [AuthenticationSettings](docs/AuthenticationSettings.md)
@@ -519,7 +532,6 @@ Class | Method | HTTP request | Description
  - [ConfigCategory](docs/ConfigCategory.md)
  - [ConfigId](docs/ConfigId.md)
  - [ConfigMetadata](docs/ConfigMetadata.md)
- - [ConfigMetadataConfigDataValue](docs/ConfigMetadataConfigDataValue.md)
  - [ConfigValidation](docs/ConfigValidation.md)
  - [Conflict](docs/Conflict.md)
  - [Connection](docs/Connection.md)
@@ -529,6 +541,7 @@ Class | Method | HTTP request | Description
  - [CountedFeatureConsumer](docs/CountedFeatureConsumer.md)
  - [CountedFeatureStats](docs/CountedFeatureStats.md)
  - [CreateAppOperation](docs/CreateAppOperation.md)
+ - [CreateAppOrAttackOperationInput](docs/CreateAppOrAttackOperationInput.md)
  - [CustomDashboards](docs/CustomDashboards.md)
  - [CustomImportHandler](docs/CustomImportHandler.md)
  - [CustomStat](docs/CustomStat.md)

@@ -28,7 +28,7 @@ from cyperf.models.tls_profile import TLSProfile
 from cyperf.models.udp_profile import UdpProfile
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class TransportProfile(BaseModel):
     """

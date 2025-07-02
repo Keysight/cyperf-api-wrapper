@@ -7,10 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **content** | **bytearray** | The content of the file | [optional] 
 **id** | **str** | The unique identifier for the file | [optional] [readonly] 
+**is_public** | **bool** | Indicates if the resource is accessible by all users. | [optional] 
 **md5** | **str** | The md5 value of the file | [optional] 
 **metadata** | [**FileMetadata**](FileMetadata.md) |  | [optional] 
 **name** | **str** | The name of the file | [optional] 
-**options** | [**Dict[str, ConfigMetadataConfigDataValue]**](ConfigMetadataConfigDataValue.md) | The characteristics of the file | [optional] 
+**options** | [**Dict[str, AttackMetadataKeywordsInner]**](AttackMetadataKeywordsInner.md) | The characteristics of the file | [optional] 
 **owner** | **str** | The user-visible name of the file&#39;s owner | [optional] [readonly] 
 **owner_id** | **str** | The unique identifier of the file&#39;s owner | [optional] [readonly] 
 **reference_links** | **Dict[str, int]** |  | [optional] 

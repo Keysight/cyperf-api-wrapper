@@ -20,16 +20,16 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.config_metadata_config_data_value import ConfigMetadataConfigDataValue
+from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class OpenAPIDefinitions(BaseModel):
     """
     OpenAPIDefinitions
     """ # noqa: E501
-    open_api_definitions: Optional[Dict[str, ConfigMetadataConfigDataValue]] = Field(default=None, description="The OpenAPI definitions for CyPerf data model", alias="openApiDefinitions")
+    open_api_definitions: Optional[Dict[str, AttackMetadataKeywordsInner]] = Field(default=None, description="The OpenAPI definitions for CyPerf data model", alias="openApiDefinitions")
     __properties: ClassVar[List[str]] = ["openApiDefinitions"]
 
     model_config = ConfigDict(
@@ -93,7 +93,7 @@ class OpenAPIDefinitions(BaseModel):
 
         _obj = cls.model_validate({
             "openApiDefinitions": dict(
-                (_k, ConfigMetadataConfigDataValue.from_dict(_v))
+                (_k, AttackMetadataKeywordsInner.from_dict(_v))
                 for _k, _v in obj["openApiDefinitions"].items()
             )
             if obj.get("openApiDefinitions") is not None

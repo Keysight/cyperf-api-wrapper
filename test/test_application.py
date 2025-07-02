@@ -522,6 +522,7 @@ class TestApplication(unittest.TestCase):
                 inherit_tls = True,
                 is_stateless_stream = True,
                 objective_weight = 56,
+                protocol_found = True,
                 server_tls_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
                     cipher = null, 
@@ -624,7 +625,15 @@ class TestApplication(unittest.TestCase):
                             null
                             ], 
                         add_actions = [
-                            'YQ=='
+                            cyperf.models.create_app_or_attack_operation_input.CreateAppOrAttackOperationInput(
+                                actions = [
+                                    cyperf.models.add_action_info.AddActionInfo(
+                                        action_id = '', 
+                                        insert_at_index = 56, 
+                                        is_strike = True, 
+                                        protocol_id = '', )
+                                    ], 
+                                resource_url = '', )
                             ], 
                         id = '', 
                         links = [

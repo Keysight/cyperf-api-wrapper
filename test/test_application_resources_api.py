@@ -39,6 +39,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_resources_custom_fuzzing_script(self) -> None:
+        """Test case for delete_resources_custom_fuzzing_script
+
+        """
+        pass
+
     def test_delete_resources_flow_library(self) -> None:
         """Test case for delete_resources_flow_library
 
@@ -233,6 +239,30 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
     def test_get_resources_certificates_upload_file_result(self) -> None:
         """Test case for get_resources_certificates_upload_file_result
+
+        """
+        pass
+
+    def test_get_resources_custom_fuzzing_script_by_id(self) -> None:
+        """Test case for get_resources_custom_fuzzing_script_by_id
+
+        """
+        pass
+
+    def test_get_resources_custom_fuzzing_script_content_file(self) -> None:
+        """Test case for get_resources_custom_fuzzing_script_content_file
+
+        """
+        pass
+
+    def test_get_resources_custom_fuzzing_scripts(self) -> None:
+        """Test case for get_resources_custom_fuzzing_scripts
+
+        """
+        pass
+
+    def test_get_resources_custom_fuzzing_scripts_upload_file_result(self) -> None:
+        """Test case for get_resources_custom_fuzzing_scripts_upload_file_result
 
         """
         pass
@@ -645,8 +675,20 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_poll_resources_config_export_user_defined_apps(self) -> None:
+        """Test case for poll_resources_config_export_user_defined_apps
+
+        """
+        pass
+
     def test_poll_resources_create_app(self) -> None:
         """Test case for poll_resources_create_app
+
+        """
+        pass
+
+    def test_poll_resources_custom_fuzzing_scripts_upload_file(self) -> None:
+        """Test case for poll_resources_custom_fuzzing_scripts_upload_file
 
         """
         pass
@@ -807,8 +849,20 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_start_resources_config_export_user_defined_apps(self) -> None:
+        """Test case for start_resources_config_export_user_defined_apps
+
+        """
+        pass
+
     def test_start_resources_create_app(self) -> None:
         """Test case for start_resources_create_app
+
+        """
+        pass
+
+    def test_start_resources_custom_fuzzing_scripts_upload_file(self) -> None:
+        """Test case for start_resources_custom_fuzzing_scripts_upload_file
 
         """
         pass

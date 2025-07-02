@@ -21,23 +21,24 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
-from cyperf.models.config_metadata_config_data_value import ConfigMetadataConfigDataValue
+from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
 from cyperf.models.version import Version
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class ConfigMetadata(BaseModel):
     """
     ConfigMetadata
     """ # noqa: E501
     application: Optional[StrictStr] = None
-    config_data: Optional[Dict[str, ConfigMetadataConfigDataValue]] = Field(default=None, description="The actual configuration object", alias="configData")
+    config_data: Optional[Dict[str, AttackMetadataKeywordsInner]] = Field(default=None, description="The actual configuration object", alias="configData")
     config_url: Optional[StrictStr] = Field(default=None, description="The backend URL of the saved config data", alias="configUrl")
     created_on: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when config was created", alias="createdOn")
     display_name: Optional[StrictStr] = Field(default=None, description="The user-visible name of the configuration", alias="displayName")
     encoded_files: Optional[StrictBool] = Field(default=None, alias="encodedFiles")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the configuration")
+    is_public: Optional[StrictBool] = Field(default=None, description="Indicates if the configuration is accessible by all users.", alias="isPublic")
     last_accessed: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when config was last opened or modified", alias="lastAccessed")
     last_modified: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when config was last modified", alias="lastModified")
     linked_resources: Optional[List[APILink]] = Field(default=None, alias="linkedResources")
@@ -47,7 +48,7 @@ class ConfigMetadata(BaseModel):
     tags: Optional[Dict[str, StrictStr]] = Field(default=None, description="Tags used for categorizing configs")
     type: Optional[StrictStr] = Field(default=None, description="The type of config")
     version: Optional[Version] = None
-    __properties: ClassVar[List[str]] = ["application", "configData", "configUrl", "createdOn", "displayName", "encodedFiles", "id", "lastAccessed", "lastModified", "linkedResources", "owner", "ownerId", "readonly", "tags", "type", "version"]
+    __properties: ClassVar[List[str]] = ["application", "configData", "configUrl", "createdOn", "displayName", "encodedFiles", "id", "isPublic", "lastAccessed", "lastModified", "linkedResources", "owner", "ownerId", "readonly", "tags", "type", "version"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -135,7 +136,7 @@ class ConfigMetadata(BaseModel):
         _obj = cls.model_validate({
             "application": obj.get("application"),
                         "configData": dict(
-                (_k, ConfigMetadataConfigDataValue.from_dict(_v))
+                (_k, AttackMetadataKeywordsInner.from_dict(_v))
                 for _k, _v in obj["configData"].items()
             )
             if obj.get("configData") is not None
@@ -145,6 +146,7 @@ class ConfigMetadata(BaseModel):
                         "displayName": obj.get("displayName"),
                         "encodedFiles": obj.get("encodedFiles"),
                         "id": obj.get("id"),
+                        "isPublic": obj.get("isPublic"),
                         "lastAccessed": obj.get("lastAccessed"),
                         "lastModified": obj.get("lastModified"),
                         "linkedResources": [APILink.from_dict(_item) for _item in obj["linkedResources"]] if obj.get("linkedResources") is not None else None,

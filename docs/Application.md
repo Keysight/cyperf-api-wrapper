@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **inherit_tls** | **bool** |  | [optional] 
 **is_stateless_stream** | **bool** |  | [optional] 
 **objective_weight** | **int** | The objective weight of the application. | 
+**protocol_found** | **bool** |  | [optional] 
 **server_tls_profile** | [**TLSProfile**](TLSProfile.md) |  | [optional] 
 **stateless_stream** | [**StatelessStream**](StatelessStream.md) |  | [optional] 
 **static** | **bool** |  | [optional] 

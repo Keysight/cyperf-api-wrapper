@@ -85,19 +85,30 @@ class TestGetResourcesApplicationTypes200ResponseOneOf(unittest.TestCase):
                                 name = '', 
                                 parameters = [
                                     cyperf.models.parameter.Parameter(
-                                        matches = [
-                                            cyperf.models.parameter_match.ParameterMatch(
-                                                match_location = [
-                                                    ''
-                                                    ], 
-                                                match_type = '', 
-                                                regex_match = cyperf.models.regex_match.RegexMatch(
-                                                    patterns = [
-                                                        ''
-                                                        ], ), )
+                                        default_array_elements = [
+                                            {
+                                                'key' : ''
+                                                }
                                             ], 
-                                        name = '', 
+                                        default_source = '', 
+                                        default_value = '', 
+                                        element_type = '', 
+                                        sources = [
+                                            ''
+                                            ], 
+                                        type = '', 
                                         field = '', 
+                                        id = '', 
+                                        links = [
+                                            cyperf.models.api_link.APILink(
+                                                content_type = '', 
+                                                href = '', 
+                                                method = '', 
+                                                name = '', 
+                                                references_count = 56, 
+                                                rel = '', 
+                                                type = '', )
+                                            ], 
                                         operator = '', 
                                         query_param = '', )
                                     ], 
@@ -175,11 +186,16 @@ class TestGetResourcesApplicationTypes200ResponseOneOf(unittest.TestCase):
                         name = '', 
                         parameters = [
                             cyperf.models.parameter.Parameter(
-                                name = '', 
+                                default_source = '', 
+                                default_value = '', 
+                                element_type = '', 
+                                type = '', 
                                 field = '', 
+                                id = '', 
                                 operator = '', 
                                 query_param = '', )
                             ], 
+                        protocol_found = True, 
                         strikes = [
                             cyperf.models.command.Command(
                                 action_id = '', 
@@ -194,16 +210,7 @@ class TestGetResourcesApplicationTypes200ResponseOneOf(unittest.TestCase):
                         supports_strikes = True, 
                         supports_tls = True, 
                         id = '', 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], )
+                        links = , )
                     ],
                 total_count = 56
             )

@@ -62,6 +62,7 @@ from cyperf.models.action_metadata import ActionMetadata
 from cyperf.models.activation_code_info import ActivationCodeInfo
 from cyperf.models.activation_code_list_request import ActivationCodeListRequest
 from cyperf.models.activation_code_request import ActivationCodeRequest
+from cyperf.models.add_action_info import AddActionInfo
 from cyperf.models.add_input import AddInput
 from cyperf.models.advanced_settings import AdvancedSettings
 from cyperf.models.agent import Agent
@@ -95,12 +96,15 @@ from cyperf.models.async_context import AsyncContext
 from cyperf.models.async_operation_response import AsyncOperationResponse
 from cyperf.models.attack import Attack
 from cyperf.models.attack_action import AttackAction
+from cyperf.models.attack_metadata import AttackMetadata
+from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
 from cyperf.models.attack_objectives_and_timeline import AttackObjectivesAndTimeline
 from cyperf.models.attack_profile import AttackProfile
 from cyperf.models.attack_timeline_segment import AttackTimelineSegment
 from cyperf.models.attack_track import AttackTrack
 from cyperf.models.auth_method_type import AuthMethodType
 from cyperf.models.auth_profile import AuthProfile
+from cyperf.models.auth_profile_metadata import AuthProfileMetadata
 from cyperf.models.auth_settings import AuthSettings
 from cyperf.models.authenticate200_response import Authenticate200Response
 from cyperf.models.authentication_settings import AuthenticationSettings
@@ -127,7 +131,6 @@ from cyperf.models.config import Config
 from cyperf.models.config_category import ConfigCategory
 from cyperf.models.config_id import ConfigId
 from cyperf.models.config_metadata import ConfigMetadata
-from cyperf.models.config_metadata_config_data_value import ConfigMetadataConfigDataValue
 from cyperf.models.config_validation import ConfigValidation
 from cyperf.models.conflict import Conflict
 from cyperf.models.connection import Connection
@@ -137,6 +140,7 @@ from cyperf.models.controller import Controller
 from cyperf.models.counted_feature_consumer import CountedFeatureConsumer
 from cyperf.models.counted_feature_stats import CountedFeatureStats
 from cyperf.models.create_app_operation import CreateAppOperation
+from cyperf.models.create_app_or_attack_operation_input import CreateAppOrAttackOperationInput
 from cyperf.models.custom_dashboards import CustomDashboards
 from cyperf.models.custom_import_handler import CustomImportHandler
 from cyperf.models.custom_stat import CustomStat

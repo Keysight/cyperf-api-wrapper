@@ -26,7 +26,7 @@ from cyperf.models.id_p_signature_algo import IdPSignatureAlgo
 from cyperf.models.name_id_format import NameIdFormat
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class SimulatedIdP(BaseModel):
     """

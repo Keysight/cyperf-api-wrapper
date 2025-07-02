@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_resources_capture**](ApplicationResourcesApi.md#delete_resources_capture) | **DELETE** /api/v2/resources/captures/{captureId} | 
 [**delete_resources_certificate**](ApplicationResourcesApi.md#delete_resources_certificate) | **DELETE** /api/v2/resources/certificates/{certificateId} | 
+[**delete_resources_custom_fuzzing_script**](ApplicationResourcesApi.md#delete_resources_custom_fuzzing_script) | **DELETE** /api/v2/resources/custom-fuzzing-scripts/{customFuzzingScriptId} | 
 [**delete_resources_flow_library**](ApplicationResourcesApi.md#delete_resources_flow_library) | **DELETE** /api/v2/resources/flow-library/{flowLibraryId} | 
 [**delete_resources_global_playlist**](ApplicationResourcesApi.md#delete_resources_global_playlist) | **DELETE** /api/v2/resources/global-playlists/{globalPlaylistId} | 
 [**delete_resources_http_library**](ApplicationResourcesApi.md#delete_resources_http_library) | **DELETE** /api/v2/resources/http-library/{httpLibraryId} | 
@@ -39,6 +40,10 @@ Method | HTTP request | Description
 [**get_resources_certificate_content_file**](ApplicationResourcesApi.md#get_resources_certificate_content_file) | **GET** /api/v2/resources/certificates/{certificateId}/contentFile | 
 [**get_resources_certificates**](ApplicationResourcesApi.md#get_resources_certificates) | **GET** /api/v2/resources/certificates | 
 [**get_resources_certificates_upload_file_result**](ApplicationResourcesApi.md#get_resources_certificates_upload_file_result) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId}/result | 
+[**get_resources_custom_fuzzing_script_by_id**](ApplicationResourcesApi.md#get_resources_custom_fuzzing_script_by_id) | **GET** /api/v2/resources/custom-fuzzing-scripts/{customFuzzingScriptId} | 
+[**get_resources_custom_fuzzing_script_content_file**](ApplicationResourcesApi.md#get_resources_custom_fuzzing_script_content_file) | **GET** /api/v2/resources/custom-fuzzing-scripts/{customFuzzingScriptId}/contentFile | 
+[**get_resources_custom_fuzzing_scripts**](ApplicationResourcesApi.md#get_resources_custom_fuzzing_scripts) | **GET** /api/v2/resources/custom-fuzzing-scripts | 
+[**get_resources_custom_fuzzing_scripts_upload_file_result**](ApplicationResourcesApi.md#get_resources_custom_fuzzing_scripts_upload_file_result) | **GET** /api/v2/resources/custom-fuzzing-scripts/operations/uploadFile/{uploadFileId}/result | 
 [**get_resources_flow_library**](ApplicationResourcesApi.md#get_resources_flow_library) | **GET** /api/v2/resources/flow-library | 
 [**get_resources_flow_library_by_id**](ApplicationResourcesApi.md#get_resources_flow_library_by_id) | **GET** /api/v2/resources/flow-library/{flowLibraryId} | 
 [**get_resources_flow_library_content_file**](ApplicationResourcesApi.md#get_resources_flow_library_content_file) | **GET** /api/v2/resources/flow-library/{flowLibraryId}/contentFile | 
@@ -107,7 +112,9 @@ Method | HTTP request | Description
 [**poll_resources_captures_batch_delete**](ApplicationResourcesApi.md#poll_resources_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
 [**poll_resources_captures_upload_file**](ApplicationResourcesApi.md#poll_resources_captures_upload_file) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId} | 
 [**poll_resources_certificates_upload_file**](ApplicationResourcesApi.md#poll_resources_certificates_upload_file) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId} | 
+[**poll_resources_config_export_user_defined_apps**](ApplicationResourcesApi.md#poll_resources_config_export_user_defined_apps) | **GET** /api/v2/resources/configs/{configId}/operations/export-user-defined-apps/{id} | 
 [**poll_resources_create_app**](ApplicationResourcesApi.md#poll_resources_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
+[**poll_resources_custom_fuzzing_scripts_upload_file**](ApplicationResourcesApi.md#poll_resources_custom_fuzzing_scripts_upload_file) | **GET** /api/v2/resources/custom-fuzzing-scripts/operations/uploadFile/{uploadFileId} | 
 [**poll_resources_edit_app**](ApplicationResourcesApi.md#poll_resources_edit_app) | **GET** /api/v2/resources/operations/edit-app/{id} | 
 [**poll_resources_find_param_matches**](ApplicationResourcesApi.md#poll_resources_find_param_matches) | **GET** /api/v2/resources/operations/find-param-matches/{id} | 
 [**poll_resources_flow_library_upload_file**](ApplicationResourcesApi.md#poll_resources_flow_library_upload_file) | **GET** /api/v2/resources/flow-library/operations/uploadFile/{uploadFileId} | 
@@ -134,7 +141,9 @@ Method | HTTP request | Description
 [**start_resources_captures_batch_delete**](ApplicationResourcesApi.md#start_resources_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
 [**start_resources_captures_upload_file**](ApplicationResourcesApi.md#start_resources_captures_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
 [**start_resources_certificates_upload_file**](ApplicationResourcesApi.md#start_resources_certificates_upload_file) | **POST** /api/v2/resources/certificates/operations/uploadFile | 
+[**start_resources_config_export_user_defined_apps**](ApplicationResourcesApi.md#start_resources_config_export_user_defined_apps) | **POST** /api/v2/resources/configs/{configId}/operations/export-user-defined-apps | 
 [**start_resources_create_app**](ApplicationResourcesApi.md#start_resources_create_app) | **POST** /api/v2/resources/operations/create-app | 
+[**start_resources_custom_fuzzing_scripts_upload_file**](ApplicationResourcesApi.md#start_resources_custom_fuzzing_scripts_upload_file) | **POST** /api/v2/resources/custom-fuzzing-scripts/operations/uploadFile | 
 [**start_resources_edit_app**](ApplicationResourcesApi.md#start_resources_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
 [**start_resources_find_param_matches**](ApplicationResourcesApi.md#start_resources_find_param_matches) | **POST** /api/v2/resources/operations/find-param-matches | 
 [**start_resources_flow_library_upload_file**](ApplicationResourcesApi.md#start_resources_flow_library_upload_file) | **POST** /api/v2/resources/flow-library/operations/uploadFile | 
@@ -303,6 +312,82 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The certificates file was successfully deleted. |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_resources_custom_fuzzing_script**
+> delete_resources_custom_fuzzing_script(custom_fuzzing_script_id)
+
+
+
+Delete a particular custom fuzzing script.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    custom_fuzzing_script_id = 'custom_fuzzing_script_id_example' # str | The ID of the custom fuzzing script.
+
+    try:
+        api_instance.delete_resources_custom_fuzzing_script(custom_fuzzing_script_id)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->delete_resources_custom_fuzzing_script: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_fuzzing_script_id** | **str**| The ID of the custom fuzzing script. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The custom fuzzing script was successfully deleted. |  -  |
 **401** | Authorization information is missing or invalid. |  -  |
 **500** | Unexpected error |  -  |
 
@@ -1377,6 +1462,8 @@ void (empty response body)
 
 
 
+Delete a CyPerf application that was created by the user.
+
 ### Example
 
 * OAuth Authentication (OAuth2):
@@ -1440,7 +1527,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | The request was completed successfully. |  -  |
+**204** | The application was deleted. |  -  |
+**401** | The user is not authorized to delete resources. |  -  |
+**403** | The user is not allowed to delete an application not owned by them. |  -  |
+**404** | A resource with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2857,6 +2947,320 @@ with cyperf.ApiClient(configuration) as api_client:
         api_instance.get_resources_certificates_upload_file_result(upload_file_id)
     except Exception as e:
         print("Exception when calling ApplicationResourcesApi->get_resources_certificates_upload_file_result: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upload_file_id** | **str**| The ID of the uploadfile. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The payload file that was added |  -  |
+**400** | Bad request |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_custom_fuzzing_script_by_id**
+> GenericFile get_resources_custom_fuzzing_script_by_id(custom_fuzzing_script_id)
+
+
+
+Get a particular custom fuzzing script.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.generic_file import GenericFile
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    custom_fuzzing_script_id = 'custom_fuzzing_script_id_example' # str | The ID of the custom fuzzing script.
+
+    try:
+        api_response = api_instance.get_resources_custom_fuzzing_script_by_id(custom_fuzzing_script_id)
+        print("The response of ApplicationResourcesApi->get_resources_custom_fuzzing_script_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_custom_fuzzing_script_by_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_fuzzing_script_id** | **str**| The ID of the custom fuzzing script. | 
+
+### Return type
+
+[**GenericFile**](GenericFile.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested custom fuzzing script |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
+**404** | A custom fuzzing script with the specified ID was not found. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_custom_fuzzing_script_content_file**
+> bytearray get_resources_custom_fuzzing_script_content_file(custom_fuzzing_script_id)
+
+
+
+Get the content of a particular custom fuzzing script file.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    custom_fuzzing_script_id = 'custom_fuzzing_script_id_example' # str | The ID of the custom fuzzing script.
+
+    try:
+        api_response = api_instance.get_resources_custom_fuzzing_script_content_file(custom_fuzzing_script_id)
+        print("The response of ApplicationResourcesApi->get_resources_custom_fuzzing_script_content_file:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_custom_fuzzing_script_content_file: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **custom_fuzzing_script_id** | **str**| The ID of the custom fuzzing script. | 
+
+### Return type
+
+**bytearray**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream, application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The content of the custom fuzzing script file |  -  |
+**404** | A custom fuzzing script file with the specified ID was not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_custom_fuzzing_scripts**
+> GetResourcesCertificates200Response get_resources_custom_fuzzing_scripts(take=take, skip=skip)
+
+
+
+Get all the available custom fuzzing scripts.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.get_resources_certificates200_response import GetResourcesCertificates200Response
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
+
+    try:
+        api_response = api_instance.get_resources_custom_fuzzing_scripts(take=take, skip=skip)
+        print("The response of ApplicationResourcesApi->get_resources_custom_fuzzing_scripts:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_custom_fuzzing_scripts: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
+
+### Return type
+
+[**GetResourcesCertificates200Response**](GetResourcesCertificates200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of custom fuzzing scripts |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_custom_fuzzing_scripts_upload_file_result**
+> get_resources_custom_fuzzing_scripts_upload_file_result(upload_file_id)
+
+
+
+Get the result of the upload file operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    upload_file_id = 'upload_file_id_example' # str | The ID of the uploadfile.
+
+    try:
+        api_instance.get_resources_custom_fuzzing_scripts_upload_file_result(upload_file_id)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_custom_fuzzing_scripts_upload_file_result: %s\n" % e)
 ```
 
 
@@ -8238,6 +8642,86 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **poll_resources_config_export_user_defined_apps**
+> AsyncContext poll_resources_config_export_user_defined_apps(config_id, id)
+
+
+
+Get the state of an ongoing operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    config_id = 'config_id_example' # str | The ID of the config.
+    id = 56 # int | The ID of the async operation.
+
+    try:
+        api_response = api_instance.poll_resources_config_export_user_defined_apps(config_id, id)
+        print("The response of ApplicationResourcesApi->poll_resources_config_export_user_defined_apps:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->poll_resources_config_export_user_defined_apps: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config_id** | **str**| The ID of the config. | 
+ **id** | **int**| The ID of the async operation. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **poll_resources_create_app**
 > AsyncContext poll_resources_create_app(id)
 
@@ -8313,6 +8797,82 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Details about the ongoing operation |  -  |
 **400** | Bad request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **poll_resources_custom_fuzzing_scripts_upload_file**
+> poll_resources_custom_fuzzing_scripts_upload_file(upload_file_id)
+
+
+
+Get the state of an ongoing operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    upload_file_id = 'upload_file_id_example' # str | The ID of the uploadfile.
+
+    try:
+        api_instance.poll_resources_custom_fuzzing_scripts_upload_file(upload_file_id)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->poll_resources_custom_fuzzing_scripts_upload_file: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upload_file_id** | **str**| The ID of the uploadfile. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
+**500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -10306,6 +10866,83 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **start_resources_config_export_user_defined_apps**
+> AsyncContext start_resources_config_export_user_defined_apps(config_id)
+
+
+
+Export all apps created by the user.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    config_id = 'config_id_example' # str | The ID of the config.
+
+    try:
+        api_response = api_instance.start_resources_config_export_user_defined_apps(config_id)
+        print("The response of ApplicationResourcesApi->start_resources_config_export_user_defined_apps:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->start_resources_config_export_user_defined_apps: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config_id** | **str**| The ID of the config. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **start_resources_create_app**
 > AsyncContext start_resources_create_app(create_app_operation=create_app_operation)
 
@@ -10381,6 +11018,81 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_resources_custom_fuzzing_scripts_upload_file**
+> start_resources_custom_fuzzing_scripts_upload_file(file=file)
+
+
+
+Upload a file.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    file = None # bytearray |  (optional)
+
+    try:
+        api_instance.start_resources_custom_fuzzing_scripts_upload_file(file=file)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->start_resources_custom_fuzzing_scripts_upload_file: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **bytearray**|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started. |  -  |
+**500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

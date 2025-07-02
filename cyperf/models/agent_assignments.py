@@ -25,7 +25,7 @@ from cyperf.models.agent_assignment_details import AgentAssignmentDetails
 from cyperf.models.api_link import APILink
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class AgentAssignments(BaseModel):
     """

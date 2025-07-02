@@ -29,7 +29,7 @@ from cyperf.models.selected_env import SelectedEnv
 from cyperf.models.system_info import SystemInfo
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Agent(BaseModel):
     """

@@ -31,7 +31,7 @@ from cyperf.models.metadata import Metadata
 from cyperf.models.parameter import Parameter
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class ApplicationType(BaseModel):
     """
@@ -51,6 +51,7 @@ class ApplicationType(BaseModel):
     metadata: Optional[Metadata] = Field(default=None, alias="Metadata")
     name: Optional[StrictStr] = Field(default=None, description="The display name of the application", alias="Name")
     parameters: Optional[List[Parameter]] = Field(default=None, description="The parameters of the application", alias="Parameters")
+    protocol_found: Optional[StrictBool] = Field(default=None, description="Indicates if the application protocol has been found.", alias="ProtocolFound")
     strikes: Optional[List[Command]] = Field(default=None, description="The commands and strikes included in the flow", alias="Strikes")
     supports_calibration: Optional[StrictBool] = Field(default=None, description="Indicates if the best configuration can be computed automatically", alias="SupportsCalibration")
     supports_client_http_profile: Optional[StrictBool] = Field(default=None, description="Indicates if the application uses Client HTTP profiles.", alias="SupportsClientHTTPProfile")
@@ -60,7 +61,7 @@ class ApplicationType(BaseModel):
     supports_tls: Optional[StrictBool] = Field(default=None, description="Indicates if the application supports TLS protocol.", alias="SupportsTLS")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the flow")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Commands", "Connections", "CustomStats", "DataTypes", "Definition", "Description", "Endpoints", "FileName", "HasBannerCommand", "Md5Content", "Md5Metadata", "Metadata", "Name", "Parameters", "Strikes", "SupportsCalibration", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "SupportsStrikes", "SupportsTLS", "id", "links"]
+    __properties: ClassVar[List[str]] = ["Commands", "Connections", "CustomStats", "DataTypes", "Definition", "Description", "Endpoints", "FileName", "HasBannerCommand", "Md5Content", "Md5Metadata", "Metadata", "Name", "Parameters", "ProtocolFound", "Strikes", "SupportsCalibration", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "SupportsStrikes", "SupportsTLS", "id", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -199,6 +200,7 @@ class ApplicationType(BaseModel):
                         "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
                         "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
+                        "ProtocolFound": obj.get("ProtocolFound"),
                         "Strikes": [Command.from_dict(_item) for _item in obj["Strikes"]] if obj.get("Strikes") is not None else None,
                         "SupportsCalibration": obj.get("SupportsCalibration"),
                         "SupportsClientHTTPProfile": obj.get("SupportsClientHTTPProfile"),

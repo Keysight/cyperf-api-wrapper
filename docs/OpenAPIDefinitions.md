@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**open_api_definitions** | [**Dict[str, ConfigMetadataConfigDataValue]**](ConfigMetadataConfigDataValue.md) | The OpenAPI definitions for CyPerf data model | [optional] 
+**open_api_definitions** | [**Dict[str, AttackMetadataKeywordsInner]**](AttackMetadataKeywordsInner.md) | The OpenAPI definitions for CyPerf data model | [optional] 
 
 ## Example
 

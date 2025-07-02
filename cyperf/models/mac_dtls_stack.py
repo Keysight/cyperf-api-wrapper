@@ -27,7 +27,7 @@ from cyperf.models.network_meshing import NetworkMeshing
 from cyperf.models.vlan_range import VLANRange
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class MacDtlsStack(BaseModel):
     """

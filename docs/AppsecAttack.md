@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attack** | [**Attack**](Attack.md) |  | [optional] 
 **description** | **str** | The description of the attack | [optional] 
-**metadata** | [**Metadata**](Metadata.md) |  | [optional] 
+**metadata** | [**AttackMetadata**](AttackMetadata.md) |  | [optional] 
 **name** | **str** | The user friendly name of the attack | [optional] 
 **id** | **str** | The unique identifier of the attack | [optional] [readonly] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 

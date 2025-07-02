@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **direction** | **str** | The direction of the strike | [optional] 
 **is_banner** | **bool** | Indicates that this is a command that is required, can only be add once and also must be the first | [optional] 
-**keywords** | [**List[ConfigMetadataConfigDataValue]**](ConfigMetadataConfigDataValue.md) | The keywords of the strike | [optional] 
+**keywords** | [**List[AttackMetadataKeywordsInner]**](AttackMetadataKeywordsInner.md) | The keywords of the strike | [optional] 
 **legacy_names** | **List[str]** | The names of the equivalent application/strike | [optional] 
 **protocol** | **str** | The protocol of the strike | [optional] 
 **rtp_profile_meta** | [**RTPProfileMeta**](RTPProfileMeta.md) |  | [optional] 

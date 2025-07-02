@@ -31,7 +31,7 @@ from cyperf.models.session_reuse_method_tls13 import SessionReuseMethodTLS13
 from cyperf.models.supported_group_tls13 import SupportedGroupTLS13
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class TLSProfile(BaseModel):
     """
@@ -45,6 +45,7 @@ class TLSProfile(BaseModel):
     ciphers13: Optional[List[CipherTLS13]] = None
     dh_file: Optional[Params] = Field(default=None, alias="dhFile")
     get_tls_conflicts: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="get-tls-conflicts")
+    _get_tls_conflicts_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,GetTLSConflicts" })
     immediate_close: Optional[StrictBool] = Field(default=None, description="The immediate FIN after close notify", alias="immediateClose")
     key_file: Optional[Params] = Field(default=None, description="The key file of the TLS profile.", alias="keyFile")
     key_file_password: Optional[StrictStr] = Field(default=None, description="The key file password of the TLS profile.", alias="keyFilePassword")
@@ -52,6 +53,7 @@ class TLSProfile(BaseModel):
     middle_box_enabled: Optional[StrictBool] = Field(default=None, description="If true, the middle box compatibility will be enabled", alias="middleBoxEnabled")
     profile_id: StrictStr = Field(description="The ID of the TLS profile (default: TLSProfile).", alias="profileId")
     resolve_tls_conflicts: Optional[List[Conflict]] = Field(default=None, alias="resolve-tls-conflicts")
+    _resolve_tls_conflicts_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,ResolveTLSConflicts" })
     send_close_notify: Optional[StrictBool] = Field(default=None, description="If true, a TLS close-notify alert will be sent while closing the TLS session", alias="sendCloseNotify")
     session_reuse_count: Optional[StrictInt] = Field(default=None, alias="sessionReuseCount")
     session_reuse_method: Optional[SessionReuseMethodTLS12] = Field(default=None, alias="sessionReuseMethod")

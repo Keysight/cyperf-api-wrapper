@@ -6,12 +6,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **application** | **str** |  | [optional] 
-**config_data** | [**Dict[str, ConfigMetadataConfigDataValue]**](ConfigMetadataConfigDataValue.md) | The actual configuration object | [optional] 
+**config_data** | [**Dict[str, AttackMetadataKeywordsInner]**](AttackMetadataKeywordsInner.md) | The actual configuration object | [optional] 
 **config_url** | **str** | The backend URL of the saved config data | [optional] 
 **created_on** | **int** | A Unix timestamp that indicates when config was created | [optional] [readonly] 
 **display_name** | **str** | The user-visible name of the configuration | [optional] 
 **encoded_files** | **bool** |  | [optional] 
 **id** | **str** | The unique identifier of the configuration | [optional] [readonly] 
+**is_public** | **bool** | Indicates if the configuration is accessible by all users. | [optional] 
 **last_accessed** | **int** | A Unix timestamp that indicates when config was last opened or modified | [optional] 
 **last_modified** | **int** | A Unix timestamp that indicates when config was last modified | [optional] [readonly] 
 **linked_resources** | [**List[APILink]**](APILink.md) |  | [optional] 

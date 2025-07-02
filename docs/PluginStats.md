@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **plugin** | **str** | The name of the plugin | [optional] 
-**stats** | **List[Dict[str, ConfigMetadataConfigDataValue]]** | The statistics to be ingested | [optional] 
+**stats** | **List[Dict[str, AttackMetadataKeywordsInner]]** | The statistics to be ingested | [optional] 
 **version** | **str** | The version of the plugin | [optional] 
 
 ## Example

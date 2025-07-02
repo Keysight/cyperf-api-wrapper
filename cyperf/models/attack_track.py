@@ -18,20 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.attack_action import AttackAction
+from cyperf.models.create_app_or_attack_operation_input import CreateAppOrAttackOperationInput
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class AttackTrack(BaseModel):
     """
     AttackTrack
     """ # noqa: E501
     actions: Optional[List[AttackAction]] = Field(default=None, alias="Actions")
-    add_actions: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="add-actions")
+    add_actions: Optional[List[CreateAppOrAttackOperationInput]] = Field(default=None, alias="add-actions")
+    _add_actions_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,CreateAttackAction" })
     id: StrictStr
     links: Optional[List[APILink]] = None
     __properties: ClassVar[List[str]] = ["Actions", "add-actions", "id", "links"]
@@ -82,6 +84,13 @@ class AttackTrack(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Actions'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in add_actions (list)
+        _items = []
+        if self.add_actions:
+            for _item in self.add_actions:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['add-actions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -104,7 +113,7 @@ class AttackTrack(BaseModel):
 
         _obj = cls.model_validate({
             "Actions": [AttackAction.from_dict(_item) for _item in obj["Actions"]] if obj.get("Actions") is not None else None,
-                        "add-actions": obj.get("add-actions"),
+                        "add-actions": [CreateAppOrAttackOperationInput.from_dict(_item) for _item in obj["add-actions"]] if obj.get("add-actions") is not None else None,
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,

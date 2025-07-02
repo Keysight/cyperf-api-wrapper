@@ -31,7 +31,7 @@ from cyperf.models.mac_dtls_stack import MacDtlsStack
 from cyperf.models.tunnel_stack import TunnelStack
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class IPNetwork(BaseModel):
     """

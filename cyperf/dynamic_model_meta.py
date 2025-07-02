@@ -230,32 +230,70 @@ class DynamicDict(UserDict):
 
 class DynamicModel(type):
     def __new__(cls, name, bases, dct):
-        try:
-            inner_model = getattr(cyperf, name)
-        except AttributeError:
-            raise Exception(f"Couldn't find model class {name}")
+        fields, private_attrs = cls.get_inner_model(name)
+
         local_fields = {}
-        fields = []
-        try:
-            fields = inner_model.__fields__
-        except AttributeError as e:
-            pass
-        for key in fields:
-            dct[key] = property(fget=partial(cls.get_by_link, key), fset=partial(cls.set_base_attr, key))
+        ignored_types = {"String", "Union", "Bytes", "APILink", "StrictInt", "StrictStr", "StrictBool", "Any", "str", "int", "bool", "object"}
+
+        for key, field in fields.items():
+            field_str = str(field)
+
+            not_method = True
+            alias_match = re.search(r"alias='([^']+)'", field_str)
+            if alias_match:
+                alias = alias_match.group(1)
+                if not re.search(r'[A-Z]', alias) or '-' in alias:
+                    not_method = False
+
+            list_fields = []
+            if not_method:
+                list_match = re.search(r"List\[(\w+)\]", field_str)
+                if list_match:
+                    inner_type = list_match.group(1)
+                    if inner_type not in ignored_types:
+                        list_fields.append([inner_type, field.alias])
+
+            for child_name, child_alias in list_fields:
+                child_fields, child_private_attrs = cls.get_inner_model(child_name)
+
+                for child_key, _ in child_fields.items():
+                    parts = cls.extract_x_operation(child_key, child_private_attrs)
+                    
+                    if parts:
+                        if len(parts) == 1 or (len(parts) == 2 and parts[1].strip() == "-"):
+                            child_method_name = child_key + "_" + child_name.lower()
+                            dct[child_method_name] = cls.generate_method(child_key, 'POST', True, child_alias)                               
+
+            parts = cls.extract_x_operation(key, private_attrs)
+            if parts:
+                if len(parts) == 2 and parts[0].strip() == "-":
+                    method_name = key
+                    link_name = field.alias or key
+                    dct[method_name] = cls.generate_method(link_name, 'POST')
+                    continue
+
+            dct[key] = property(
+                fget=partial(cls.get_by_link, key),
+                fset=partial(cls.set_base_attr, key)
+            )
             local_fields[key] = None
+
         dct['_model_fields'] = local_fields
         dct['__init__'] = lambda self, base_model: cls.init(self, base_model)
         dct['__str__'] = lambda self: cls.to_str(self)
         dct['__repr__'] = lambda self: cls.repr(self)
+
         if name == "AsyncContext":
-           dct['await_completion'] = lambda self, get_final_result = True, poll_time = 1: cls.poll(self, get_final_result=get_final_result, poll_time=poll_time)
-        c =  super().__new__(cls, name, bases, dct)
+            dct['await_completion'] = lambda self, get_final_result=True, poll_time=1: cls.poll(self, get_final_result, poll_time)
+
+        c = super().__new__(cls, name, bases, dct)
         c.update = lambda self: cls.update(self)
         c.delete = lambda self: cls.delete(self)
         c.refresh = lambda self: cls.refresh(self)
         c.get_link = lambda self, link_name: cls.get_link(self, link_name)
         c.get_self_link = lambda self: cls.get_link(self, "self")
-        c.link_based_request = lambda self, link_name, method, return_type = None, body = None, query=[]: cls.link_based_request(self, link_name, method, return_type, body, query)
+        c.link_based_request = lambda self, link_name, method, return_type=None, body=None, query=[]: cls.link_based_request(self, link_name, method, return_type, body, query)
+
         return c
 
     def __call__(cls, *args, **kwargs):
@@ -462,10 +500,78 @@ class DynamicModel(type):
         response = self.api_client.call_api(
             *_param,
             _response_types_map={
-                  '200': return_type
+                  '200': return_type,
+                  '202': return_type
             }
         )
         is_dynamic = isinstance(response.__class__, DynamicModel)
         is_dynamic |= isinstance(response, DynamicList)
         is_dynamic |= isinstance(response, DynamicDict)
         return response.base_model if is_dynamic else response
+
+    @classmethod
+    def get_inner_model(cls, name):
+        try:
+            inner_model = getattr(cyperf, name)
+        except AttributeError:
+            raise Exception(f"Couldn't find model class {name}")
+
+        fields = getattr(inner_model, '__fields__', {})
+        private_attrs = getattr(inner_model, '__private_attributes__', {})
+
+        return (fields, private_attrs)
+
+    @classmethod
+    def extract_x_operation(cls, key, private_attrs):
+        extra_attr_name = f"_{key}_json_schema_extra"
+        extra = {}
+
+        if extra_attr_name in private_attrs:
+            private_attr_obj = private_attrs[extra_attr_name]
+            if hasattr(private_attr_obj, 'default'):
+                extra = private_attr_obj.default or {}
+        
+        operation_raw = extra.get("x-operation")
+        if operation_raw:
+            parts = operation_raw.split(",")
+            return parts
+
+        return None
+
+    @classmethod
+    def generate_method(cls, link_name, method, is_list_function=False, child_inner_model=None):
+        def operation(self, *args, **kwargs):
+            self_link = self.get_self_link()
+            derived_href = ""
+            if is_list_function:
+                derived_href = self_link.href.rstrip("/") + f"/{child_inner_model}" f"/operations/{link_name.replace('_', '-')}"
+            else:
+                derived_href = self_link.href.rstrip("/") + f"/operations/{link_name.replace('_', '-')}"
+            
+            link_class = type(self.links[0]) if self.links else type(self_link)
+            new_link = link_class(
+                href=derived_href,
+                method=method,
+                rel="child",
+                type="operation",
+                name=link_name
+            )
+            self.links.append(new_link)
+
+            if len(args) == 1 and not kwargs:
+                body = args[0]
+            elif args or kwargs:
+                body = list(args) if args else kwargs
+            else:
+                body = None
+
+            response = cls.link_based_request(
+                self, link_name, method,
+                body=body,
+                return_type=cyperf.AsyncContext,
+                href=derived_href
+            )
+
+            response = DynamicModel.dynamic_wrapper(response, self.api_client)
+            return response
+        return operation

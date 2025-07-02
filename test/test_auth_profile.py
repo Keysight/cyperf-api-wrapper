@@ -95,53 +95,105 @@ class TestAuthProfile(unittest.TestCase):
                             ], )
                     ],
                 file_name = '',
-                metadata = cyperf.models.metadata.Metadata(
-                    direction = '', 
-                    is_banner = True, 
-                    keywords = [
-                        null
-                        ], 
-                    legacy_names = [
-                        ''
-                        ], 
-                    protocol = '', 
-                    rtp_profile_meta = cyperf.models.rtp_profile_meta.RTPProfileMeta(
-                        custom_header_len_offset = 56, 
-                        custom_header_len_size = 56, 
-                        custom_header_signature = 'YQ==', 
-                        custom_header_signature_offset = 56, 
-                        custom_header_size = 56, 
-                        encryption_mode = '', 
-                        requires_rtp_profile = True, ), 
-                    references = [
-                        cyperf.models.reference.Reference(
-                            type = '', 
-                            value = '', )
-                        ], 
-                    requires_uniqueness = True, 
-                    severity = '', 
-                    skip_attack_generation = True, 
-                    sort_severity = '', 
-                    static = True, 
-                    supported_apps = [
-                        ''
-                        ], 
-                    year = '', ),
+                metadata = cyperf.models.auth_profile_metadata.AuthProfileMetadata(
+                    auth_method = cyperf.models.enum.Enum(
+                        choices = [
+                            cyperf.models.choice.Choice(
+                                description = '', 
+                                hidden = True, 
+                                name = '', 
+                                value = '', )
+                            ], 
+                        default = '', ), 
+                    explicit_proxy = True, 
+                    idp_type = cyperf.models.enum.Enum(
+                        default = '', ), 
+                    sgw_name = '', 
+                    sgw_type = '', 
+                    sgw_type_value = '', ),
                 parameters = [
                     cyperf.models.parameter.Parameter(
-                        matches = [
-                            cyperf.models.parameter_match.ParameterMatch(
-                                match_location = [
-                                    ''
-                                    ], 
-                                match_type = '', 
-                                regex_match = cyperf.models.regex_match.RegexMatch(
-                                    patterns = [
-                                        ''
-                                        ], ), )
+                        default_array_elements = [
+                            {
+                                'key' : ''
+                                }
                             ], 
-                        name = '', 
+                        default_source = '', 
+                        default_value = '', 
+                        element_type = '', 
+                        metadata = cyperf.models.parameter_metadata.ParameterMetadata(
+                            category = '', 
+                            category_index = 56, 
+                            default = '', 
+                            description = '', 
+                            display_name = '', 
+                            enum = cyperf.models.enum.Enum(
+                                choices = [
+                                    cyperf.models.choice.Choice(
+                                        description = '', 
+                                        hidden = True, 
+                                        name = '', 
+                                        value = '', )
+                                    ], 
+                                default = '', ), 
+                            flow_identifier = True, 
+                            input = '', 
+                            legacy_names = [
+                                ''
+                                ], 
+                            mandatory = True, 
+                            payload = cyperf.models.payload_metadata.PayloadMetadata(
+                                file_extension = '', 
+                                file_name = '', 
+                                file_type = '', 
+                                file_url = '', ), 
+                            readonly = True, 
+                            shared = True, 
+                            type = '', 
+                            type_info = cyperf.models.type_info_metadata.TypeInfoMetadata(
+                                array_v2 = cyperf.models.type_array_v2_metadata.TypeArrayV2Metadata(
+                                    elements = [
+                                        cyperf.models.array_v2_element_metadata.ArrayV2ElementMetadata(
+                                            id = '', 
+                                            type = '', )
+                                        ], ), 
+                                int = cyperf.models.type_int_metadata.TypeIntMetadata(
+                                    max_value = 56, 
+                                    min_value = 56, ), 
+                                media = cyperf.models.type_media_metadata.TypeMediaMetadata(
+                                    track_id = '', 
+                                    track_type = '', ), 
+                                string = cyperf.models.type_string_metadata.TypeStringMetadata(
+                                    charset = '', 
+                                    max_length = 56, 
+                                    min_length = 56, ), ), 
+                            unique_value = True, 
+                            links = [
+                                cyperf.models.api_link.APILink(
+                                    content_type = '', 
+                                    href = '', 
+                                    method = '', 
+                                    name = '', 
+                                    references_count = 56, 
+                                    rel = '', 
+                                    type = '', )
+                                ], ), 
+                        sources = [
+                            ''
+                            ], 
+                        type = '', 
                         field = '', 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], 
                         operator = '', 
                         query_param = '', )
                     ],

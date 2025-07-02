@@ -25,7 +25,7 @@ from cyperf.models.compute_node import ComputeNode
 from cyperf.models.health_issue import HealthIssue
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Controller(BaseModel):
     """

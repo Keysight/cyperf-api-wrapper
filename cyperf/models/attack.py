@@ -18,12 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.attack_track import AttackTrack
 from cyperf.models.connection import Connection
+from cyperf.models.create_app_or_attack_operation_input import CreateAppOrAttackOperationInput
 from cyperf.models.endpoint import Endpoint
 from cyperf.models.http_profile import HTTPProfile
 from cyperf.models.ip_preference import IpPreference
@@ -33,7 +34,7 @@ from cyperf.models.tls_profile import TLSProfile
 from cyperf.models.update_network_mapping import UpdateNetworkMapping
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Attack(BaseModel):
     """
@@ -73,9 +74,12 @@ class Attack(BaseModel):
     server_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ServerTLSProfile")
     supports_tls: Optional[StrictBool] = Field(default=None, alias="SupportsTLS")
     tracks: Optional[List[AttackTrack]] = Field(default=None, alias="Tracks")
-    create: Optional[List[Union[StrictBytes, StrictStr]]] = None
+    create: Optional[List[CreateAppOrAttackOperationInput]] = None
+    _create_json_schema_extra: dict = PrivateAttr(default={"x-operation": "CreateAttack" })
     modify_excluded_dut_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-excluded-dut-recursively")
+    _modify_excluded_dut_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateAttackNetworkMapping" })
     modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
+    _modify_tags_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateAttackNetworkMapping" })
     __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links", "ClientTLSProfile", "InheritTLS", "ServerTLSProfile", "SupportsTLS", "Tracks", "create", "modify-excluded-dut-recursively", "modify-tags-recursively"]
 
     @field_validator('name')
@@ -177,6 +181,13 @@ class Attack(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Tracks'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in create (list)
+        _items = []
+        if self.create:
+            for _item in self.create:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['create'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in modify_excluded_dut_recursively (list)
         _items = []
         if self.modify_excluded_dut_recursively:
@@ -239,7 +250,7 @@ class Attack(BaseModel):
                         "ServerTLSProfile": TLSProfile.from_dict(obj["ServerTLSProfile"]) if obj.get("ServerTLSProfile") is not None else None,
                         "SupportsTLS": obj.get("SupportsTLS"),
                         "Tracks": [AttackTrack.from_dict(_item) for _item in obj["Tracks"]] if obj.get("Tracks") is not None else None,
-                        "create": obj.get("create"),
+                        "create": [CreateAppOrAttackOperationInput.from_dict(_item) for _item in obj["create"]] if obj.get("create") is not None else None,
                         "modify-excluded-dut-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-excluded-dut-recursively"]] if obj.get("modify-excluded-dut-recursively") is not None else None,
                         "modify-tags-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-tags-recursively"]] if obj.get("modify-tags-recursively") is not None else None
             ,

@@ -25,7 +25,7 @@ from cyperf.models.dut_network import DUTNetwork
 from cyperf.models.ip_network import IPNetwork
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class NetworkProfile(BaseModel):
     """

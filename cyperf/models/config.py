@@ -29,7 +29,7 @@ from cyperf.models.expected_disk_space import ExpectedDiskSpace
 from cyperf.models.network_profile import NetworkProfile
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Config(BaseModel):
     """
@@ -43,6 +43,7 @@ class Config(BaseModel):
     traffic_profiles: Optional[List[ApplicationProfile]] = Field(default=None, alias="TrafficProfiles")
     links: Optional[List[APILink]] = None
     validate: Optional[List[Union[StrictBytes, StrictStr]]] = None
+    _validate_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,ValidateConfig" })
     __properties: ClassVar[List[str]] = ["AttackProfiles", "ConfigValidation", "CustomDashboards", "ExpectedDiskSpace", "NetworkProfiles", "TrafficProfiles", "links", "validate"]
 
     model_config = ConfigDict(
