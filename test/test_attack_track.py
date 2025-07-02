@@ -40,7 +40,15 @@ class TestAttackTrack(unittest.TestCase):
                     null
                     ],
                 add_actions = [
-                    'YQ=='
+                    cyperf.models.create_app_or_attack_operation_input.CreateAppOrAttackOperationInput(
+                        actions = [
+                            cyperf.models.add_action_info.AddActionInfo(
+                                action_id = '', 
+                                insert_at_index = 56, 
+                                is_strike = True, 
+                                protocol_id = '', )
+                            ], 
+                        resource_url = '', )
                     ],
                 id = '',
                 links = [

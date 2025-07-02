@@ -24,7 +24,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.params import Params
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class AuthenticationSettings(BaseModel):
     """

@@ -24,7 +24,7 @@ from cyperf.models.capture_input import CaptureInput
 from cyperf.models.parameter import Parameter
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class AddInput(BaseModel):
     """

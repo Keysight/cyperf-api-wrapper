@@ -20,17 +20,17 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.config_metadata_config_data_value import ConfigMetadataConfigDataValue
+from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Snapshot(BaseModel):
     """
     Snapshot
     """ # noqa: E501
     timestamp: Optional[StrictInt] = Field(default=None, description="The Unix timestamp in milliseconds at which the snapshot was taken")
-    values: Optional[List[List[ConfigMetadataConfigDataValue]]] = Field(default=None, description="The values of the snapshot. The order of the values corresponds to the order of columns in result.")
+    values: Optional[List[List[AttackMetadataKeywordsInner]]] = Field(default=None, description="The values of the snapshot. The order of the values corresponds to the order of columns in result.")
     __properties: ClassVar[List[str]] = ["timestamp", "values"]
 
     model_config = ConfigDict(
@@ -97,7 +97,7 @@ class Snapshot(BaseModel):
         _obj = cls.model_validate({
             "timestamp": obj.get("timestamp"),
                         "values": [
-                    [ConfigMetadataConfigDataValue.from_dict(_inner_item) for _inner_item in _item]
+                    [AttackMetadataKeywordsInner.from_dict(_inner_item) for _inner_item in _item]
                     for _item in obj["values"]
                 ] if obj.get("values") is not None else None
             ,

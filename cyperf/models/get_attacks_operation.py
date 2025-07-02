@@ -24,7 +24,7 @@ from cyperf.models.category_filter import CategoryFilter
 from cyperf.models.sort_body_field import SortBodyField
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class GetAttacksOperation(BaseModel):
     """

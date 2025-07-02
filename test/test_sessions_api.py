@@ -129,14 +129,14 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_config_save(self) -> None:
-        """Test case for poll_config_save
+    def test_poll_session_config_granular_stats_default_dashboards(self) -> None:
+        """Test case for poll_session_config_granular_stats_default_dashboards
 
         """
         pass
 
-    def test_poll_session_config_granular_stats_default_dashboards(self) -> None:
-        """Test case for poll_session_config_granular_stats_default_dashboards
+    def test_poll_session_config_save(self) -> None:
+        """Test case for poll_session_config_save
 
         """
         pass

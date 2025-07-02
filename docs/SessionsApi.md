@@ -21,8 +21,8 @@ Method | HTTP request | Description
 [**patch_session_meta**](SessionsApi.md#patch_session_meta) | **PATCH** /api/v2/sessions/{sessionId}/meta/{metaId} | 
 [**patch_session_test**](SessionsApi.md#patch_session_test) | **PATCH** /api/v2/sessions/{sessionId}/test | 
 [**poll_config_add_applications**](SessionsApi.md#poll_config_add_applications) | **GET** /api/v2/sessions/{sessionId}/config/config/TrafficProfiles/{trafficProfileId}/operations/add-applications/{id} | 
-[**poll_config_save**](SessionsApi.md#poll_config_save) | **GET** /api/v2/sessions/{sessionId}/config/operations/save/{id} | 
 [**poll_session_config_granular_stats_default_dashboards**](SessionsApi.md#poll_session_config_granular_stats_default_dashboards) | **GET** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards/{id} | 
+[**poll_session_config_save**](SessionsApi.md#poll_session_config_save) | **GET** /api/v2/sessions/{sessionId}/config/operations/save/{id} | 
 [**poll_session_load_config**](SessionsApi.md#poll_session_load_config) | **GET** /api/v2/sessions/{sessionId}/operations/loadConfig/{id} | 
 [**poll_session_prepare_test**](SessionsApi.md#poll_session_prepare_test) | **GET** /api/v2/sessions/{sessionId}/operations/prepareTest/{id} | 
 [**poll_session_test_end**](SessionsApi.md#poll_session_test_end) | **GET** /api/v2/sessions/{sessionId}/operations/testEnd/{id} | 
@@ -1396,85 +1396,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **poll_config_save**
-> AsyncContext poll_config_save(session_id, id)
-
-
-
-Get the state of an ongoing operation.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.SessionsApi(api_client)
-    session_id = 'session_id_example' # str | The ID of the session.
-    id = 56 # int | The ID of the async operation.
-
-    try:
-        api_response = api_instance.poll_config_save(session_id, id)
-        print("The response of SessionsApi->poll_config_save:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling SessionsApi->poll_config_save: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **session_id** | **str**| The ID of the session. | 
- **id** | **int**| The ID of the async operation. | 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Details about the ongoing operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **poll_session_config_granular_stats_default_dashboards**
 > AsyncContext poll_session_config_granular_stats_default_dashboards(session_id, id)
 
@@ -1521,6 +1442,86 @@ with cyperf.ApiClient(configuration) as api_client:
         pprint(api_response)
     except Exception as e:
         print("Exception when calling SessionsApi->poll_session_config_granular_stats_default_dashboards: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **str**| The ID of the session. | 
+ **id** | **int**| The ID of the async operation. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Details about the ongoing operation |  -  |
+**400** | Bad request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **poll_session_config_save**
+> AsyncContext poll_session_config_save(session_id, id)
+
+
+
+Get the state of an ongoing operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.SessionsApi(api_client)
+    session_id = 'session_id_example' # str | The ID of the session.
+    id = 56 # int | The ID of the async operation.
+
+    try:
+        api_response = api_instance.poll_session_config_save(session_id, id)
+        print("The response of SessionsApi->poll_session_config_save:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SessionsApi->poll_session_config_save: %s\n" % e)
 ```
 
 

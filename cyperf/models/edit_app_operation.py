@@ -29,7 +29,7 @@ from cyperf.models.reorder_action_input import ReorderActionInput
 from cyperf.models.reorder_exchanges_input import ReorderExchangesInput
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class EditAppOperation(BaseModel):
     """

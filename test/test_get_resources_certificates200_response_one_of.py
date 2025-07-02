@@ -40,6 +40,7 @@ class TestGetResourcesCertificates200ResponseOneOf(unittest.TestCase):
                     cyperf.models.generic_file.GenericFile(
                         content = 'YQ==', 
                         id = '', 
+                        is_public = True, 
                         md5 = '', 
                         metadata = cyperf.models.file_metadata.FileMetadata(
                             default = True, 

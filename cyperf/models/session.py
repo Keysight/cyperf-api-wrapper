@@ -26,7 +26,7 @@ from cyperf.models.pair import Pair
 from cyperf.models.test_info import TestInfo
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Session(BaseModel):
     """

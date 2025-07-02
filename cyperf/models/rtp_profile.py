@@ -24,7 +24,7 @@ from cyperf.models.mos_mode import MosMode
 from cyperf.models.rtp_encryption_mode import RTPEncryptionMode
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class RTPProfile(BaseModel):
     """

@@ -25,7 +25,7 @@ from cyperf.models.hash_p2_algorithm import HashP2Algorithm
 from cyperf.models.pfs_p2_group import PfsP2Group
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class P2Config(BaseModel):
     """

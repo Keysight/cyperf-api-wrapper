@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actions** | [**List[AttackAction]**](AttackAction.md) |  | [optional] 
-**add_actions** | **List[bytearray]** |  | [optional] 
+**add_actions** | [**List[CreateAppOrAttackOperationInput]**](CreateAppOrAttackOperationInput.md) |  | [optional] 
 **id** | **str** |  | 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 

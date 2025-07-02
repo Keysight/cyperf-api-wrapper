@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.category_value import CategoryValue
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Category(BaseModel):
     """

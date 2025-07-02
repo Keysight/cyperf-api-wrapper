@@ -25,7 +25,7 @@ from cyperf.models.file_value import FileValue
 from cyperf.models.media_track import MediaTrack
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class MediaFile(BaseModel):
     """

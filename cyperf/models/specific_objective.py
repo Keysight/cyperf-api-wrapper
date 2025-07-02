@@ -27,7 +27,7 @@ from cyperf.models.objective_unit import ObjectiveUnit
 from cyperf.models.timeline_segment_union import TimelineSegmentUnion
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class SpecificObjective(BaseModel):
     """

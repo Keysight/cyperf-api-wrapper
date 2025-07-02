@@ -25,7 +25,7 @@ from cyperf.models.stream_direction import StreamDirection
 from cyperf.models.stream_profile import StreamProfile
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class StatelessStream(BaseModel):
     """

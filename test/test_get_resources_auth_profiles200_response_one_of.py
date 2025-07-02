@@ -87,53 +87,38 @@ class TestGetResourcesAuthProfiles200ResponseOneOf(unittest.TestCase):
                                 id = '', )
                             ], 
                         file_name = '', 
-                        metadata = cyperf.models.metadata.Metadata(
-                            direction = '', 
-                            is_banner = True, 
-                            keywords = [
-                                null
-                                ], 
-                            legacy_names = [
-                                ''
-                                ], 
-                            protocol = '', 
-                            rtp_profile_meta = cyperf.models.rtp_profile_meta.RTPProfileMeta(
-                                custom_header_len_offset = 56, 
-                                custom_header_len_size = 56, 
-                                custom_header_signature = 'YQ==', 
-                                custom_header_signature_offset = 56, 
-                                custom_header_size = 56, 
-                                encryption_mode = '', 
-                                requires_rtp_profile = True, ), 
-                            references = [
-                                cyperf.models.reference.Reference(
-                                    type = '', 
-                                    value = '', )
-                                ], 
-                            requires_uniqueness = True, 
-                            severity = '', 
-                            skip_attack_generation = True, 
-                            sort_severity = '', 
-                            static = True, 
-                            supported_apps = [
-                                ''
-                                ], 
-                            year = '', ), 
+                        metadata = cyperf.models.auth_profile_metadata.AuthProfileMetadata(
+                            auth_method = cyperf.models.enum.Enum(
+                                choices = [
+                                    cyperf.models.choice.Choice(
+                                        description = '', 
+                                        hidden = True, 
+                                        name = '', 
+                                        value = '', )
+                                    ], 
+                                default = '', ), 
+                            explicit_proxy = True, 
+                            idp_type = cyperf.models.enum.Enum(
+                                default = '', ), 
+                            sgw_name = '', 
+                            sgw_type = '', 
+                            sgw_type_value = '', ), 
                         parameters = [
                             cyperf.models.parameter.Parameter(
-                                matches = [
-                                    cyperf.models.parameter_match.ParameterMatch(
-                                        match_location = [
-                                            ''
-                                            ], 
-                                        match_type = '', 
-                                        regex_match = cyperf.models.regex_match.RegexMatch(
-                                            patterns = [
-                                                ''
-                                                ], ), )
+                                default_array_elements = [
+                                    {
+                                        'key' : ''
+                                        }
                                     ], 
-                                name = '', 
+                                default_source = '', 
+                                default_value = '', 
+                                element_type = '', 
+                                sources = [
+                                    ''
+                                    ], 
+                                type = '', 
                                 field = '', 
+                                id = '', 
                                 operator = '', 
                                 query_param = '', )
                             ], 

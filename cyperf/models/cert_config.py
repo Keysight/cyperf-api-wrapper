@@ -25,7 +25,7 @@ from cyperf.models.conflict import Conflict
 from cyperf.models.params import Params
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class CertConfig(BaseModel):
     """
@@ -34,6 +34,7 @@ class CertConfig(BaseModel):
     certificate_file: Optional[Params] = Field(default=None, description="The certificate file of the TLS profile.", alias="certificateFile")
     dh_file: Optional[Params] = Field(default=None, alias="dhFile")
     get_sni_conflicts: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="get-sni-conflicts")
+    _get_sni_conflicts_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,GetSNICertConflicts" })
     id: StrictStr
     is_playlist: Optional[StrictBool] = Field(default=None, alias="isPlaylist")
     key_file: Optional[Params] = Field(default=None, description="The key file of the TLS profile.", alias="keyFile")
@@ -42,6 +43,7 @@ class CertConfig(BaseModel):
     playlist_column_name: Optional[StrictStr] = Field(default=None, alias="playlistColumnName")
     playlist_filename: Optional[StrictStr] = Field(default=None, alias="playlistFilename")
     resolve_sni_conflicts: Optional[List[Conflict]] = Field(default=None, alias="resolve-sni-conflicts")
+    _resolve_sni_conflicts_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,ResolveSNIConflicts" })
     sni_hostname: StrictStr = Field(description="The SNI hostname associated with the certificate. (default: generic.keysight.io).", alias="sniHostname")
     __properties: ClassVar[List[str]] = ["certificateFile", "dhFile", "get-sni-conflicts", "id", "isPlaylist", "keyFile", "keyFilePassword", "links", "playlistColumnName", "playlistFilename", "resolve-sni-conflicts", "sniHostname"]
 

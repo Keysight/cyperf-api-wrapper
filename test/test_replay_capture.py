@@ -46,6 +46,7 @@ class TestReplayCapture(unittest.TestCase):
                                 c2s_payload = cyperf.models.generic_file.GenericFile(
                                     content = 'YQ==', 
                                     id = '', 
+                                    is_public = True, 
                                     md5 = '', 
                                     metadata = cyperf.models.file_metadata.FileMetadata(
                                         default = True, 
@@ -85,6 +86,7 @@ class TestReplayCapture(unittest.TestCase):
                                 s2c_payload = cyperf.models.generic_file.GenericFile(
                                     content = 'YQ==', 
                                     id = '', 
+                                    is_public = True, 
                                     md5 = '', 
                                     name = '', 
                                     owner = '', 

@@ -25,7 +25,7 @@ from cyperf.models.expected_disk_space_pretty_size import ExpectedDiskSpacePrett
 from cyperf.models.expected_disk_space_size import ExpectedDiskSpaceSize
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class ExpectedDiskSpace(BaseModel):
     """

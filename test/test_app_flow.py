@@ -44,6 +44,7 @@ class TestAppFlow(unittest.TestCase):
                         c2s_payload = cyperf.models.generic_file.GenericFile(
                             content = 'YQ==', 
                             id = '', 
+                            is_public = True, 
                             md5 = '', 
                             metadata = cyperf.models.file_metadata.FileMetadata(
                                 default = True, 
@@ -83,6 +84,7 @@ class TestAppFlow(unittest.TestCase):
                         s2c_payload = cyperf.models.generic_file.GenericFile(
                             content = 'YQ==', 
                             id = '', 
+                            is_public = True, 
                             md5 = '', 
                             name = '', 
                             owner = '', 

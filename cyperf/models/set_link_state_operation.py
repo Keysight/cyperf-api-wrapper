@@ -24,7 +24,7 @@ from typing_extensions import Annotated
 from cyperf.models.ports_by_controller import PortsByController
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class SetLinkStateOperation(BaseModel):
     """

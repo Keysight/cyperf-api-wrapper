@@ -38,6 +38,7 @@ class TestGenericFile(unittest.TestCase):
             return GenericFile(
                 content = 'YQ==',
                 id = '',
+                is_public = True,
                 md5 = '',
                 metadata = cyperf.models.file_metadata.FileMetadata(
                     default = True, 

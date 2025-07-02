@@ -26,7 +26,7 @@ from cyperf.models.param_metadata_type_info_media import ParamMetadataTypeInfoMe
 from cyperf.models.param_metadata_type_info_string import ParamMetadataTypeInfoString
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class ParamMetadataTypeInfo(BaseModel):
     """

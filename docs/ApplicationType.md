@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **metadata** | [**Metadata**](Metadata.md) |  | [optional] 
 **name** | **str** | The display name of the application | [optional] 
 **parameters** | [**List[Parameter]**](Parameter.md) | The parameters of the application | [optional] [readonly] 
+**protocol_found** | **bool** | Indicates if the application protocol has been found. | [optional] 
 **strikes** | [**List[Command]**](Command.md) | The commands and strikes included in the flow | [optional] 
 **supports_calibration** | **bool** | Indicates if the best configuration can be computed automatically | [optional] 
 **supports_client_http_profile** | **bool** | Indicates if the application uses Client HTTP profiles. | [optional] 

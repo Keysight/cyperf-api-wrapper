@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.app_flow_input import AppFlowInput
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class CaptureInput(BaseModel):
     """

@@ -29,7 +29,7 @@ from cyperf.models.traffic_settings import TrafficSettings
 from cyperf.models.update_network_mapping import UpdateNetworkMapping
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class AttackProfile(BaseModel):
     """
@@ -44,9 +44,13 @@ class AttackProfile(BaseModel):
     name: StrictStr = Field(alias="Name")
     objectives_and_timeline: Optional[AttackObjectivesAndTimeline] = Field(default=None, alias="ObjectivesAndTimeline")
     add_attacks: Optional[List[ExternalResourceInfo]] = Field(default=None, alias="add-attacks")
+    _add_attacks_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,AddAttacks" })
     modify_excluded_dut_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-excluded-dut-recursively")
+    _modify_excluded_dut_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateAttackProfileNetworkMapping" })
     modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
+    _modify_tags_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateAttackProfileNetworkMapping" })
     reset_tags_to_default: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="reset-tags-to-default")
+    _reset_tags_to_default_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,ResetAttackProfileNetworkMapping" })
     __properties: ClassVar[List[str]] = ["Active", "TrafficSettings", "id", "links", "Attacks", "DefaultNetworkMapping", "Name", "ObjectivesAndTimeline", "add-attacks", "modify-excluded-dut-recursively", "modify-tags-recursively", "reset-tags-to-default"]
 
     model_config = ConfigDict(

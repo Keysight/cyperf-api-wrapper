@@ -22,10 +22,10 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.attack import Attack
-from cyperf.models.metadata import Metadata
+from cyperf.models.attack_metadata import AttackMetadata
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class AppsecAttack(BaseModel):
     """
@@ -33,7 +33,7 @@ class AppsecAttack(BaseModel):
     """ # noqa: E501
     attack: Optional[Attack] = Field(default=None, alias="Attack")
     description: Optional[StrictStr] = Field(default=None, description="The description of the attack", alias="Description")
-    metadata: Optional[Metadata] = Field(default=None, alias="Metadata")
+    metadata: Optional[AttackMetadata] = Field(default=None, alias="Metadata")
     name: Optional[StrictStr] = Field(default=None, description="The user friendly name of the attack", alias="Name")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the attack")
     links: Optional[List[APILink]] = None
@@ -115,7 +115,7 @@ class AppsecAttack(BaseModel):
         _obj = cls.model_validate({
             "Attack": Attack.from_dict(obj["Attack"]) if obj.get("Attack") is not None else None,
                         "Description": obj.get("Description"),
-                        "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
+                        "Metadata": AttackMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,

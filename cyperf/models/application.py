@@ -35,7 +35,7 @@ from cyperf.models.track import Track
 from cyperf.models.update_network_mapping import UpdateNetworkMapping
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Application(BaseModel):
     """
@@ -75,6 +75,7 @@ class Application(BaseModel):
     inherit_tls: Optional[StrictBool] = Field(default=None, alias="InheritTLS")
     is_stateless_stream: Optional[StrictBool] = Field(default=None, alias="IsStatelessStream")
     objective_weight: StrictInt = Field(description="The objective weight of the application.", alias="ObjectiveWeight")
+    protocol_found: Optional[StrictBool] = Field(default=None, alias="ProtocolFound")
     server_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ServerTLSProfile")
     stateless_stream: Optional[StatelessStream] = Field(default=None, alias="StatelessStream")
     static: Optional[StrictBool] = Field(default=None, alias="Static")
@@ -84,8 +85,10 @@ class Application(BaseModel):
     supports_tls: Optional[StrictBool] = Field(default=None, alias="SupportsTLS")
     tracks: Optional[List[Track]] = Field(default=None, alias="Tracks")
     modify_excluded_dut_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-excluded-dut-recursively")
+    _modify_excluded_dut_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateApplicationNetworkMapping" })
     modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
-    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links", "ClientTLSProfile", "DataTypes", "InheritTLS", "IsStatelessStream", "ObjectiveWeight", "ServerTLSProfile", "StatelessStream", "Static", "SupportedApps", "SupportsCalibration", "SupportsStrikes", "SupportsTLS", "Tracks", "modify-excluded-dut-recursively", "modify-tags-recursively"]
+    _modify_tags_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateApplicationNetworkMapping" })
+    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links", "ClientTLSProfile", "DataTypes", "InheritTLS", "IsStatelessStream", "ObjectiveWeight", "ProtocolFound", "ServerTLSProfile", "StatelessStream", "Static", "SupportedApps", "SupportsCalibration", "SupportsStrikes", "SupportsTLS", "Tracks", "modify-excluded-dut-recursively", "modify-tags-recursively"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -258,6 +261,7 @@ class Application(BaseModel):
                         "InheritTLS": obj.get("InheritTLS"),
                         "IsStatelessStream": obj.get("IsStatelessStream"),
                         "ObjectiveWeight": obj.get("ObjectiveWeight"),
+                        "ProtocolFound": obj.get("ProtocolFound"),
                         "ServerTLSProfile": TLSProfile.from_dict(obj["ServerTLSProfile"]) if obj.get("ServerTLSProfile") is not None else None,
                         "StatelessStream": StatelessStream.from_dict(obj["StatelessStream"]) if obj.get("StatelessStream") is not None else None,
                         "Static": obj.get("Static"),

@@ -20,12 +20,12 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.config_metadata_config_data_value import ConfigMetadataConfigDataValue
+from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
 from cyperf.models.reference import Reference
 from cyperf.models.rtp_profile_meta import RTPProfileMeta
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Metadata(BaseModel):
     """
@@ -33,7 +33,7 @@ class Metadata(BaseModel):
     """ # noqa: E501
     direction: Optional[StrictStr] = Field(default=None, description="The direction of the strike", alias="Direction")
     is_banner: Optional[StrictBool] = Field(default=None, description="Indicates that this is a command that is required, can only be add once and also must be the first", alias="IsBanner")
-    keywords: Optional[List[ConfigMetadataConfigDataValue]] = Field(default=None, description="The keywords of the strike", alias="Keywords")
+    keywords: Optional[List[AttackMetadataKeywordsInner]] = Field(default=None, description="The keywords of the strike", alias="Keywords")
     legacy_names: Optional[List[StrictStr]] = Field(default=None, description="The names of the equivalent application/strike", alias="LegacyNames")
     protocol: Optional[StrictStr] = Field(default=None, description="The protocol of the strike", alias="Protocol")
     rtp_profile_meta: Optional[RTPProfileMeta] = Field(default=None, alias="RTPProfileMeta")
@@ -119,7 +119,7 @@ class Metadata(BaseModel):
         _obj = cls.model_validate({
             "Direction": obj.get("Direction"),
                         "IsBanner": obj.get("IsBanner"),
-                        "Keywords": [ConfigMetadataConfigDataValue.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
+                        "Keywords": [AttackMetadataKeywordsInner.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
                         "LegacyNames": obj.get("LegacyNames"),
                         "Protocol": obj.get("Protocol"),
                         "RTPProfileMeta": RTPProfileMeta.from_dict(obj["RTPProfileMeta"]) if obj.get("RTPProfileMeta") is not None else None,

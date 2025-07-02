@@ -18,13 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from cyperf.models.config_metadata_config_data_value import ConfigMetadataConfigDataValue
+from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
 from cyperf.models.file_metadata import FileMetadata
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class GenericFile(BaseModel):
     """
@@ -32,16 +32,17 @@ class GenericFile(BaseModel):
     """ # noqa: E501
     content: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The content of the file")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier for the file")
+    is_public: Optional[StrictBool] = Field(default=None, description="Indicates if the resource is accessible by all users.", alias="isPublic")
     md5: Optional[StrictStr] = Field(default=None, description="The md5 value of the file")
     metadata: Optional[FileMetadata] = None
     name: Optional[StrictStr] = Field(default=None, description="The name of the file")
-    options: Optional[Dict[str, ConfigMetadataConfigDataValue]] = Field(default=None, description="The characteristics of the file")
+    options: Optional[Dict[str, AttackMetadataKeywordsInner]] = Field(default=None, description="The characteristics of the file")
     owner: Optional[StrictStr] = Field(default=None, description="The user-visible name of the file's owner")
     owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the file's owner", alias="ownerId")
     reference_links: Optional[Dict[str, StrictInt]] = Field(default=None, alias="referenceLinks")
     size: Optional[StrictInt] = Field(default=None, description="The size of the file")
     type: Optional[StrictStr] = Field(default=None, description="The type of file")
-    __properties: ClassVar[List[str]] = ["content", "id", "md5", "metadata", "name", "options", "owner", "ownerId", "referenceLinks", "size", "type"]
+    __properties: ClassVar[List[str]] = ["content", "id", "isPublic", "md5", "metadata", "name", "options", "owner", "ownerId", "referenceLinks", "size", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,11 +117,12 @@ class GenericFile(BaseModel):
         _obj = cls.model_validate({
             "content": obj.get("content"),
                         "id": obj.get("id"),
+                        "isPublic": obj.get("isPublic"),
                         "md5": obj.get("md5"),
                         "metadata": FileMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
                         "name": obj.get("name"),
                         "options": dict(
-                (_k, ConfigMetadataConfigDataValue.from_dict(_v))
+                (_k, AttackMetadataKeywordsInner.from_dict(_v))
                 for _k, _v in obj["options"].items()
             )
             if obj.get("options") is not None

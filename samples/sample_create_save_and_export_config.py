@@ -188,4 +188,3 @@ if __name__ == "__main__":
         file_name = file_path[last_separator_index + 1:]
     
         print(f"Exported as: '{file_name}' at {directory}\n")
-

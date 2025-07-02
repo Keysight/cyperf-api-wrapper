@@ -21,14 +21,14 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
+from cyperf.models.auth_profile_metadata import AuthProfileMetadata
 from cyperf.models.connection import Connection
 from cyperf.models.data_type import DataType
 from cyperf.models.endpoint import Endpoint
-from cyperf.models.metadata import Metadata
 from cyperf.models.parameter import Parameter
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class AuthProfile(BaseModel):
     """
@@ -38,7 +38,7 @@ class AuthProfile(BaseModel):
     data_types: Optional[List[DataType]] = Field(default=None, description="The data types definition of the parameters", alias="DataTypes")
     endpoints: Optional[List[Endpoint]] = Field(default=None, description="The list of endpoints used by the authentication profile", alias="Endpoints")
     file_name: Optional[StrictStr] = Field(default=None, description="The name of the XML file that contains the authentication profile definition", alias="FileName")
-    metadata: Optional[Metadata] = Field(default=None, alias="Metadata")
+    metadata: Optional[AuthProfileMetadata] = Field(default=None, alias="Metadata")
     parameters: Optional[List[Parameter]] = Field(default=None, description="The parameters of the authentication profile", alias="Parameters")
     description: Optional[StrictStr] = Field(default=None, description="The user friendly description of the Auth Profile")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the profile")
@@ -153,7 +153,7 @@ class AuthProfile(BaseModel):
                         "DataTypes": [DataType.from_dict(_item) for _item in obj["DataTypes"]] if obj.get("DataTypes") is not None else None,
                         "Endpoints": [Endpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
                         "FileName": obj.get("FileName"),
-                        "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
+                        "Metadata": AuthProfileMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
                         "description": obj.get("description"),
                         "id": obj.get("id"),

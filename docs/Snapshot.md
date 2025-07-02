@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **timestamp** | **int** | The Unix timestamp in milliseconds at which the snapshot was taken | [optional] 
-**values** | **List[List[ConfigMetadataConfigDataValue]]** | The values of the snapshot. The order of the values corresponds to the order of columns in result. | [optional] 
+**values** | **List[List[AttackMetadataKeywordsInner]]** | The values of the snapshot. The order of the values corresponds to the order of columns in result. | [optional] 
 
 ## Example
 

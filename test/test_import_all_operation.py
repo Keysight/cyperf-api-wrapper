@@ -47,6 +47,7 @@ class TestImportAllOperation(unittest.TestCase):
                         display_name = '', 
                         encoded_files = True, 
                         id = '', 
+                        is_public = True, 
                         last_accessed = 56, 
                         last_modified = 56, 
                         linked_resources = [

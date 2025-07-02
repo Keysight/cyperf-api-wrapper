@@ -27,7 +27,7 @@ from cyperf.models.param_metadata import ParamMetadata
 from cyperf.models.params_enum import ParamsEnum
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class Params(BaseModel):
     """
@@ -55,6 +55,7 @@ class Params(BaseModel):
     type: Optional[StrictStr] = Field(default=None, description="The type of the parameter.", alias="Type")
     value: Optional[StrictStr] = Field(default=None, description="The value of the parameter.", alias="Value")
     file_upload: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="file-upload")
+    _file_upload_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UploadFile" })
     id: StrictStr
     links: Optional[List[APILink]] = None
     supports_dynamic_payload: Optional[StrictBool] = Field(default=None, description="A value that indicates if the parameter can have dynamic payload.", alias="supportsDynamicPayload")

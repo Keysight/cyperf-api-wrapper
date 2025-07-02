@@ -24,7 +24,7 @@ from cyperf.models.chassis_info import ChassisInfo
 from cyperf.models.traffic_agent_info import TrafficAgentInfo
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class SystemInfo(BaseModel):
     """

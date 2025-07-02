@@ -26,7 +26,7 @@ from cyperf.models.payload_metadata import PayloadMetadata
 from cyperf.models.type_info_metadata import TypeInfoMetadata
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 
 class ParameterMetadata(BaseModel):
     """
