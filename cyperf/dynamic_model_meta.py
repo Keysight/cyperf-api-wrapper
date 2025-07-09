@@ -139,6 +139,13 @@ class DynamicList(UserList):
         href_to_item = {}
         items_to_add = []
 
+        self_data_links = []
+        for item in self.data:
+            links = item.links
+            if links != None:
+                for link in links:
+                    self_data_links.append(link.href)
+
         for item in self.dyn_data:
             link = item.get_self_link()
             if link is None or link.href is None:
@@ -153,7 +160,7 @@ class DynamicList(UserList):
         items_to_remove = [
             item for item in lst
             for link in getattr(item, "links", [])
-            if getattr(link, "type", None) == "self" and link.href not in local_hrefs
+            if getattr(link, "type", None) == "self" and link.href not in self_data_links
         ]
 
         if items_to_add:
