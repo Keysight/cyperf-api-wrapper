@@ -37,7 +37,7 @@ def do_publish = params.publish_pypi
 
 @NonCPS
 boolean setDisplayVersion(publish) {
-    branch_sanitized = branch.replaceAll('-', '.').replaceAll('_', '.')
+    branch_sanitized = branch.replaceAll('-', '.').replaceAll('_', '.').replaceAll('%2F', '-')
     def matcher = Pattern.compile("^release%2F([0-9]+)\\.([0-9]+)\$").matcher(branch)
     if (matcher.matches()) {
         build_number = "dev${env.BUILD_NUMBER}+${branch_sanitized}"
