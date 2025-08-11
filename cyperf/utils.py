@@ -175,6 +175,28 @@ class TestRunner:
                 else:
                     ip_net.agent_assignments.by_id = agent_details
                 ip_net.update()
+    
+    def wait_until_agents_released(self, agents):
+        timeout = 180
+        poll_interval = 3
+        agent_api_instance = cyperf.AgentsApi(self.api_client)
+        start_time = time.time()
+
+        while True:
+            running = False
+            for agent in agents:
+                current_agent = agent_api_instance.get_agent_by_id(agent.id)
+                if current_agent.status == "RUNNING":
+                    running = True
+                    break
+
+            if not running:
+                return  
+
+            if time.time() - start_time > timeout:
+                raise TimeoutError("Timeout reached while waiting for agents to be released.")
+
+            time.sleep(poll_interval)
 
     def disable_automatic_network(self, session):
         for net_profile in session.config.config.network_profiles:
