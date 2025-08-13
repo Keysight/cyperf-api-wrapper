@@ -38,12 +38,14 @@ class TestMetadata(unittest.TestCase):
             return Metadata(
                 direction = '',
                 is_banner = True,
+                is_streaming = True,
                 keywords = [
                     null
                     ],
                 legacy_names = [
                     ''
                     ],
+                no_multi_flow_support = True,
                 protocol = '',
                 rtp_profile_meta = cyperf.models.rtp_profile_meta.RTPProfileMeta(
                     custom_header_len_offset = 56, 
@@ -77,6 +79,7 @@ class TestMetadata(unittest.TestCase):
         """Test Metadata"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

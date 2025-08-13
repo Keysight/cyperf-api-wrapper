@@ -30,5 +30,6 @@ class TestDhP1Group(unittest.TestCase):
         """Test DhP1Group"""
         # inst = DhP1Group()
 
+
 if __name__ == '__main__':
     unittest.main()

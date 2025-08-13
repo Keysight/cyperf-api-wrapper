@@ -30,5 +30,6 @@ class TestHashP1Algorithm(unittest.TestCase):
         """Test HashP1Algorithm"""
         # inst = HashP1Algorithm()
 
+
 if __name__ == '__main__':
     unittest.main()

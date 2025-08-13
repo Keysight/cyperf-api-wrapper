@@ -27,6 +27,7 @@ class TestUtilsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_check_eulas(self) -> None:
         """Test case for check_eulas
 
@@ -102,47 +103,12 @@ class TestUtilsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_cert_manager_generate(self) -> None:
-        """Test case for poll_cert_manager_generate
 
-        """
-        pass
 
-    def test_poll_cert_manager_upload(self) -> None:
-        """Test case for poll_cert_manager_upload
 
-        """
-        pass
 
-    def test_poll_disk_usage_cleanup_diagnostics(self) -> None:
-        """Test case for poll_disk_usage_cleanup_diagnostics
 
-        """
-        pass
 
-    def test_poll_disk_usage_cleanup_logs(self) -> None:
-        """Test case for poll_disk_usage_cleanup_logs
-
-        """
-        pass
-
-    def test_poll_disk_usage_cleanup_migration(self) -> None:
-        """Test case for poll_disk_usage_cleanup_migration
-
-        """
-        pass
-
-    def test_poll_disk_usage_cleanup_notifications(self) -> None:
-        """Test case for poll_disk_usage_cleanup_notifications
-
-        """
-        pass
-
-    def test_poll_disk_usage_cleanup_results(self) -> None:
-        """Test case for poll_disk_usage_cleanup_results
-
-        """
-        pass
 
     def test_post_eula(self) -> None:
         """Test case for post_eula
@@ -198,7 +164,6 @@ class TestUtilsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

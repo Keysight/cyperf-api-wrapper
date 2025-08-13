@@ -27,6 +27,7 @@ class TestDiagnosticsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_api_v2_diagnostics_components_get(self) -> None:
         """Test case for api_v2_diagnostics_components_get
 
@@ -68,7 +69,6 @@ class TestDiagnosticsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -69,8 +69,8 @@ class Connection(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['http', 'https', 'tcp', 'tls', 'udp', 'ssl']):
-            raise ValueError("must be one of enum values ('http', 'https', 'tcp', 'tls', 'udp', 'ssl')")
+        if value not in set(['http', 'https', 'tcp', 'tls', 'udp', 'ssl', 'google_quic']):
+            raise ValueError("must be one of enum values ('http', 'https', 'tcp', 'tls', 'udp', 'ssl', 'google_quic')")
         return value
 
     model_config = ConfigDict(

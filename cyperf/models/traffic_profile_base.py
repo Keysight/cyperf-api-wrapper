@@ -32,9 +32,10 @@ class TrafficProfileBase(BaseModel):
     """ # noqa: E501
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether the profile is enabled or not.", alias="Active")
     traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
+    use_all_source_ips_per_user: Optional[StrictBool] = Field(default=None, description="Indicates whether one or all source IPs are used for each simulated user.", alias="UseAllSourceIPsPerUser")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Active", "TrafficSettings", "id", "links"]
+    __properties: ClassVar[List[str]] = ["Active", "TrafficSettings", "UseAllSourceIPsPerUser", "id", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,6 +102,7 @@ class TrafficProfileBase(BaseModel):
         _obj = cls.model_validate({
             "Active": obj.get("Active"),
                         "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
+                        "UseAllSourceIPsPerUser": obj.get("UseAllSourceIPsPerUser"),
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,

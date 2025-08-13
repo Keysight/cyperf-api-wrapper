@@ -49,6 +49,7 @@ class TestTrafficProfileBase(unittest.TestCase):
                             rel = '', 
                             type = '', )
                         ], ),
+                use_all_source_ips_per_user = True,
                 id = '',
                 links = [
                     cyperf.models.api_link.APILink(
@@ -70,6 +71,7 @@ class TestTrafficProfileBase(unittest.TestCase):
         """Test TrafficProfileBase"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

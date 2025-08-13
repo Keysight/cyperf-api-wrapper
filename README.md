@@ -87,20 +87,6 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**get_controller_compute_nodes**](docs/AgentsApi.md#get_controller_compute_nodes) | **GET** /api/v2/controllers/{controllerId}/compute-nodes | 
 *AgentsApi* | [**get_controllers**](docs/AgentsApi.md#get_controllers) | **GET** /api/v2/controllers | 
 *AgentsApi* | [**patch_agent**](docs/AgentsApi.md#patch_agent) | **PATCH** /api/v2/agents/{agentId} | 
-*AgentsApi* | [**poll_agents_batch_delete**](docs/AgentsApi.md#poll_agents_batch_delete) | **GET** /api/v2/agents/operations/batch-delete/{id} | 
-*AgentsApi* | [**poll_agents_export_files**](docs/AgentsApi.md#poll_agents_export_files) | **GET** /api/v2/agents/operations/exportFiles/{id} | 
-*AgentsApi* | [**poll_agents_reboot**](docs/AgentsApi.md#poll_agents_reboot) | **GET** /api/v2/agents/operations/reboot/{id} | 
-*AgentsApi* | [**poll_agents_release**](docs/AgentsApi.md#poll_agents_release) | **GET** /api/v2/agents/operations/release/{id} | 
-*AgentsApi* | [**poll_agents_reserve**](docs/AgentsApi.md#poll_agents_reserve) | **GET** /api/v2/agents/operations/reserve/{id} | 
-*AgentsApi* | [**poll_agents_set_dpdk_mode**](docs/AgentsApi.md#poll_agents_set_dpdk_mode) | **GET** /api/v2/agents/operations/set-dpdk-mode/{id} | 
-*AgentsApi* | [**poll_agents_set_ntp**](docs/AgentsApi.md#poll_agents_set_ntp) | **GET** /api/v2/agents/operations/set-ntp/{id} | 
-*AgentsApi* | [**poll_agents_update**](docs/AgentsApi.md#poll_agents_update) | **GET** /api/v2/agents/operations/update/{id} | 
-*AgentsApi* | [**poll_controllers_clear_port_ownership**](docs/AgentsApi.md#poll_controllers_clear_port_ownership) | **GET** /api/v2/controllers/operations/clear-port-ownership/{id} | 
-*AgentsApi* | [**poll_controllers_power_cycle_nodes**](docs/AgentsApi.md#poll_controllers_power_cycle_nodes) | **GET** /api/v2/controllers/operations/power-cycle-nodes/{id} | 
-*AgentsApi* | [**poll_controllers_reboot_port**](docs/AgentsApi.md#poll_controllers_reboot_port) | **GET** /api/v2/controllers/operations/reboot-port/{id} | 
-*AgentsApi* | [**poll_controllers_set_app**](docs/AgentsApi.md#poll_controllers_set_app) | **GET** /api/v2/controllers/operations/set-app/{id} | 
-*AgentsApi* | [**poll_controllers_set_node_aggregation**](docs/AgentsApi.md#poll_controllers_set_node_aggregation) | **GET** /api/v2/controllers/operations/set-node-aggregation/{id} | 
-*AgentsApi* | [**poll_controllers_set_port_link_state**](docs/AgentsApi.md#poll_controllers_set_port_link_state) | **GET** /api/v2/controllers/operations/set-port-link-state/{id} | 
 *AgentsApi* | [**start_agents_batch_delete**](docs/AgentsApi.md#start_agents_batch_delete) | **POST** /api/v2/agents/operations/batch-delete | 
 *AgentsApi* | [**start_agents_export_files**](docs/AgentsApi.md#start_agents_export_files) | **POST** /api/v2/agents/operations/exportFiles | 
 *AgentsApi* | [**start_agents_reboot**](docs/AgentsApi.md#start_agents_reboot) | **POST** /api/v2/agents/operations/reboot | 
@@ -219,35 +205,6 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_resources_tls_keys_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_tls_keys_upload_file_result) | **GET** /api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**get_resources_user_defined_apps**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps) | **GET** /api/v2/resources/user-defined-apps | 
 *ApplicationResourcesApi* | [**get_resources_user_defined_apps_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps_upload_file_result) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId}/result | 
-*ApplicationResourcesApi* | [**poll_resources_apps_export_all**](docs/ApplicationResourcesApi.md#poll_resources_apps_export_all) | **GET** /api/v2/resources/apps/operations/export-all/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_captures_batch_delete**](docs/ApplicationResourcesApi.md#poll_resources_captures_batch_delete) | **GET** /api/v2/resources/captures/operations/batch-delete/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_captures_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_captures_upload_file) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_certificates_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_certificates_upload_file) | **GET** /api/v2/resources/certificates/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_config_export_user_defined_apps**](docs/ApplicationResourcesApi.md#poll_resources_config_export_user_defined_apps) | **GET** /api/v2/resources/configs/{configId}/operations/export-user-defined-apps/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_create_app**](docs/ApplicationResourcesApi.md#poll_resources_create_app) | **GET** /api/v2/resources/operations/create-app/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_custom_fuzzing_scripts_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_custom_fuzzing_scripts_upload_file) | **GET** /api/v2/resources/custom-fuzzing-scripts/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_edit_app**](docs/ApplicationResourcesApi.md#poll_resources_edit_app) | **GET** /api/v2/resources/operations/edit-app/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_find_param_matches**](docs/ApplicationResourcesApi.md#poll_resources_find_param_matches) | **GET** /api/v2/resources/operations/find-param-matches/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_flow_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_flow_library_upload_file) | **GET** /api/v2/resources/flow-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_get_attack_categories**](docs/ApplicationResourcesApi.md#poll_resources_get_attack_categories) | **GET** /api/v2/resources/operations/get-attack-categories/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_get_attacks**](docs/ApplicationResourcesApi.md#poll_resources_get_attacks) | **GET** /api/v2/resources/operations/get-attacks/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_get_strike_categories**](docs/ApplicationResourcesApi.md#poll_resources_get_strike_categories) | **GET** /api/v2/resources/operations/get-strike-categories/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_get_strikes**](docs/ApplicationResourcesApi.md#poll_resources_get_strikes) | **GET** /api/v2/resources/operations/get-strikes/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_global_playlists_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_global_playlists_upload_file) | **GET** /api/v2/resources/global-playlists/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_http_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_http_library_upload_file) | **GET** /api/v2/resources/http-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_media_files_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_media_files_upload_file) | **GET** /api/v2/resources/media-files/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_media_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_media_library_upload_file) | **GET** /api/v2/resources/media-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_other_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_other_library_upload_file) | **GET** /api/v2/resources/other-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_payloads_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_payloads_upload_file) | **GET** /api/v2/resources/payloads/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_pcaps_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_pcaps_upload_file) | **GET** /api/v2/resources/pcaps/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_playlists_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_playlists_upload_file) | **GET** /api/v2/resources/playlists/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_sip_library_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_sip_library_upload_file) | **GET** /api/v2/resources/sip-library/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_stats_profile_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_stats_profile_upload_file) | **GET** /api/v2/resources/stats-profile/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_tls_certificates_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_tls_certificates_upload_file) | **GET** /api/v2/resources/tls-certificates/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_tls_dhs_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_tls_dhs_upload_file) | **GET** /api/v2/resources/tls-dhs/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_tls_keys_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_tls_keys_upload_file) | **GET** /api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId} | 
-*ApplicationResourcesApi* | [**poll_resources_user_defined_apps_export_all**](docs/ApplicationResourcesApi.md#poll_resources_user_defined_apps_export_all) | **GET** /api/v2/resources/user-defined-apps/operations/export-all/{id} | 
-*ApplicationResourcesApi* | [**poll_resources_user_defined_apps_upload_file**](docs/ApplicationResourcesApi.md#poll_resources_user_defined_apps_upload_file) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId} | 
 *ApplicationResourcesApi* | [**start_resources_apps_export_all**](docs/ApplicationResourcesApi.md#start_resources_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 *ApplicationResourcesApi* | [**start_resources_captures_batch_delete**](docs/ApplicationResourcesApi.md#start_resources_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
 *ApplicationResourcesApi* | [**start_resources_captures_upload_file**](docs/ApplicationResourcesApi.md#start_resources_captures_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
@@ -290,17 +247,11 @@ Class | Method | HTTP request | Description
 *ConfigurationsApi* | [**get_configs**](docs/ConfigurationsApi.md#get_configs) | **GET** /api/v2/configs | 
 *ConfigurationsApi* | [**get_resources_custom_import_operations**](docs/ConfigurationsApi.md#get_resources_custom_import_operations) | **GET** /api/v2/resources/custom-import-operations | 
 *ConfigurationsApi* | [**patch_config**](docs/ConfigurationsApi.md#patch_config) | **PATCH** /api/v2/configs/{configId} | 
-*ConfigurationsApi* | [**poll_configs_batch_delete**](docs/ConfigurationsApi.md#poll_configs_batch_delete) | **GET** /api/v2/configs/operations/batch-delete/{id} | 
-*ConfigurationsApi* | [**poll_configs_export_all**](docs/ConfigurationsApi.md#poll_configs_export_all) | **GET** /api/v2/configs/operations/exportAll/{id} | 
-*ConfigurationsApi* | [**poll_configs_import**](docs/ConfigurationsApi.md#poll_configs_import) | **GET** /api/v2/configs/operations/import/{id} | 
-*ConfigurationsApi* | [**poll_configs_import_all**](docs/ConfigurationsApi.md#poll_configs_import_all) | **GET** /api/v2/configs/operations/importAll/{id} | 
 *ConfigurationsApi* | [**start_configs_batch_delete**](docs/ConfigurationsApi.md#start_configs_batch_delete) | **POST** /api/v2/configs/operations/batch-delete | 
 *ConfigurationsApi* | [**start_configs_export_all**](docs/ConfigurationsApi.md#start_configs_export_all) | **POST** /api/v2/configs/operations/exportAll | 
 *ConfigurationsApi* | [**start_configs_import**](docs/ConfigurationsApi.md#start_configs_import) | **POST** /api/v2/configs/operations/import | 
 *ConfigurationsApi* | [**start_configs_import_all**](docs/ConfigurationsApi.md#start_configs_import_all) | **POST** /api/v2/configs/operations/importAll | 
 *ConfigurationsApi* | [**update_config**](docs/ConfigurationsApi.md#update_config) | **PUT** /api/v2/configs/{configId} | 
-*DataMigrationApi* | [**poll_controller_migration_export**](docs/DataMigrationApi.md#poll_controller_migration_export) | **GET** /api/v2/controller-migration/operations/export/{id} | 
-*DataMigrationApi* | [**poll_controller_migration_import**](docs/DataMigrationApi.md#poll_controller_migration_import) | **GET** /api/v2/controller-migration/operations/import/{id} | 
 *DataMigrationApi* | [**start_controller_migration_export**](docs/DataMigrationApi.md#start_controller_migration_export) | **POST** /api/v2/controller-migration/operations/export | 
 *DataMigrationApi* | [**start_controller_migration_import**](docs/DataMigrationApi.md#start_controller_migration_import) | **POST** /api/v2/controller-migration/operations/import | 
 *DiagnosticsApi* | [**api_v2_diagnostics_components_get**](docs/DiagnosticsApi.md#api_v2_diagnostics_components_get) | **GET** /api/v2/diagnostics/components | 
@@ -338,14 +289,10 @@ Class | Method | HTTP request | Description
 *NotificationsApi* | [**get_notification_by_id**](docs/NotificationsApi.md#get_notification_by_id) | **GET** /api/v2/notifications/{notificationId} | 
 *NotificationsApi* | [**get_notification_counts**](docs/NotificationsApi.md#get_notification_counts) | **GET** /api/v2/notification-counts | 
 *NotificationsApi* | [**get_notifications**](docs/NotificationsApi.md#get_notifications) | **GET** /api/v2/notifications | 
-*NotificationsApi* | [**poll_notifications_cleanup**](docs/NotificationsApi.md#poll_notifications_cleanup) | **GET** /api/v2/notifications/operations/cleanup/{id} | 
-*NotificationsApi* | [**poll_notifications_dismiss**](docs/NotificationsApi.md#poll_notifications_dismiss) | **GET** /api/v2/notifications/operations/dismiss/{id} | 
 *NotificationsApi* | [**start_notifications_cleanup**](docs/NotificationsApi.md#start_notifications_cleanup) | **POST** /api/v2/notifications/operations/cleanup | 
 *NotificationsApi* | [**start_notifications_dismiss**](docs/NotificationsApi.md#start_notifications_dismiss) | **POST** /api/v2/notifications/operations/dismiss | 
 *ReportsApi* | [**download_pdf**](docs/ReportsApi.md#download_pdf) | **GET** /api/v2/results/{resultId}/download-pdf/{pdfId} | 
 *ReportsApi* | [**get_result_download_csv_by_id**](docs/ReportsApi.md#get_result_download_csv_by_id) | **GET** /api/v2/results/{resultId}/download-csv/{downloadCsvId} | 
-*ReportsApi* | [**poll_result_generate_csv**](docs/ReportsApi.md#poll_result_generate_csv) | **GET** /api/v2/results/{resultId}/operations/generate-csv/{id} | 
-*ReportsApi* | [**poll_result_generate_pdf**](docs/ReportsApi.md#poll_result_generate_pdf) | **GET** /api/v2/results/{resultId}/operations/generate-pdf/{id} | 
 *ReportsApi* | [**start_result_generate_csv**](docs/ReportsApi.md#start_result_generate_csv) | **POST** /api/v2/results/{resultId}/operations/generate-csv | 
 *ReportsApi* | [**start_result_generate_pdf**](docs/ReportsApi.md#start_result_generate_pdf) | **POST** /api/v2/results/{resultId}/operations/generate-pdf | 
 *SessionsApi* | [**create_session_meta**](docs/SessionsApi.md#create_session_meta) | **POST** /api/v2/sessions/{sessionId}/meta | 
@@ -364,15 +311,6 @@ Class | Method | HTTP request | Description
 *SessionsApi* | [**patch_session**](docs/SessionsApi.md#patch_session) | **PATCH** /api/v2/sessions/{sessionId} | 
 *SessionsApi* | [**patch_session_meta**](docs/SessionsApi.md#patch_session_meta) | **PATCH** /api/v2/sessions/{sessionId}/meta/{metaId} | 
 *SessionsApi* | [**patch_session_test**](docs/SessionsApi.md#patch_session_test) | **PATCH** /api/v2/sessions/{sessionId}/test | 
-*SessionsApi* | [**poll_config_add_applications**](docs/SessionsApi.md#poll_config_add_applications) | **GET** /api/v2/sessions/{sessionId}/config/config/TrafficProfiles/{trafficProfileId}/operations/add-applications/{id} | 
-*SessionsApi* | [**poll_session_config_granular_stats_default_dashboards**](docs/SessionsApi.md#poll_session_config_granular_stats_default_dashboards) | **GET** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards/{id} | 
-*SessionsApi* | [**poll_session_config_save**](docs/SessionsApi.md#poll_session_config_save) | **GET** /api/v2/sessions/{sessionId}/config/operations/save/{id} | 
-*SessionsApi* | [**poll_session_load_config**](docs/SessionsApi.md#poll_session_load_config) | **GET** /api/v2/sessions/{sessionId}/operations/loadConfig/{id} | 
-*SessionsApi* | [**poll_session_prepare_test**](docs/SessionsApi.md#poll_session_prepare_test) | **GET** /api/v2/sessions/{sessionId}/operations/prepareTest/{id} | 
-*SessionsApi* | [**poll_session_test_end**](docs/SessionsApi.md#poll_session_test_end) | **GET** /api/v2/sessions/{sessionId}/operations/testEnd/{id} | 
-*SessionsApi* | [**poll_session_test_init**](docs/SessionsApi.md#poll_session_test_init) | **GET** /api/v2/sessions/{sessionId}/operations/testInit/{id} | 
-*SessionsApi* | [**poll_session_touch**](docs/SessionsApi.md#poll_session_touch) | **GET** /api/v2/sessions/{sessionId}/operations/touch/{id} | 
-*SessionsApi* | [**poll_sessions_batch_delete**](docs/SessionsApi.md#poll_sessions_batch_delete) | **GET** /api/v2/sessions/operations/batch-delete/{id} | 
 *SessionsApi* | [**start_config_add_applications**](docs/SessionsApi.md#start_config_add_applications) | **POST** /api/v2/sessions/{sessionId}/config/config/TrafficProfiles/{trafficProfileId}/operations/add-applications | 
 *SessionsApi* | [**start_session_config_granular_stats_default_dashboards**](docs/SessionsApi.md#start_session_config_granular_stats_default_dashboards) | **POST** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards | 
 *SessionsApi* | [**start_session_config_save**](docs/SessionsApi.md#start_session_config_save) | **POST** /api/v2/sessions/{sessionId}/config/operations/save | 
@@ -391,13 +329,7 @@ Class | Method | HTTP request | Description
 *StatisticsApi* | [**get_result_stat_by_id**](docs/StatisticsApi.md#get_result_stat_by_id) | **GET** /api/v2/results/{resultId}/stats/{statId} | 
 *StatisticsApi* | [**get_result_stats**](docs/StatisticsApi.md#get_result_stats) | **GET** /api/v2/results/{resultId}/stats | 
 *StatisticsApi* | [**get_stats_plugins**](docs/StatisticsApi.md#get_stats_plugins) | **GET** /api/v2/stats/plugins | 
-*StatisticsApi* | [**poll_stats_plugins_ingest**](docs/StatisticsApi.md#poll_stats_plugins_ingest) | **GET** /api/v2/stats/plugins/operations/ingest/{id} | 
 *StatisticsApi* | [**start_stats_plugins_ingest**](docs/StatisticsApi.md#start_stats_plugins_ingest) | **POST** /api/v2/stats/plugins/operations/ingest | 
-*TestOperationsApi* | [**poll_test_calibrate_start**](docs/TestOperationsApi.md#poll_test_calibrate_start) | **GET** /api/v2/sessions/{sessionId}/test-calibrate/operations/start/{id} | 
-*TestOperationsApi* | [**poll_test_calibrate_stop**](docs/TestOperationsApi.md#poll_test_calibrate_stop) | **GET** /api/v2/sessions/{sessionId}/test-calibrate/operations/stop/{id} | 
-*TestOperationsApi* | [**poll_test_run_abort**](docs/TestOperationsApi.md#poll_test_run_abort) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/abort/{id} | 
-*TestOperationsApi* | [**poll_test_run_start**](docs/TestOperationsApi.md#poll_test_run_start) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/start/{id} | 
-*TestOperationsApi* | [**poll_test_run_stop**](docs/TestOperationsApi.md#poll_test_run_stop) | **GET** /api/v2/sessions/{sessionId}/test-run/operations/stop/{id} | 
 *TestOperationsApi* | [**start_test_calibrate_start**](docs/TestOperationsApi.md#start_test_calibrate_start) | **POST** /api/v2/sessions/{sessionId}/test-calibrate/operations/start | 
 *TestOperationsApi* | [**start_test_calibrate_stop**](docs/TestOperationsApi.md#start_test_calibrate_stop) | **POST** /api/v2/sessions/{sessionId}/test-calibrate/operations/stop | 
 *TestOperationsApi* | [**start_test_run_abort**](docs/TestOperationsApi.md#start_test_run_abort) | **POST** /api/v2/sessions/{sessionId}/test-run/operations/abort | 
@@ -413,10 +345,6 @@ Class | Method | HTTP request | Description
 *TestResultsApi* | [**get_result_files**](docs/TestResultsApi.md#get_result_files) | **GET** /api/v2/results/{resultId}/files | 
 *TestResultsApi* | [**get_results**](docs/TestResultsApi.md#get_results) | **GET** /api/v2/results | 
 *TestResultsApi* | [**get_results_tags**](docs/TestResultsApi.md#get_results_tags) | **GET** /api/v2/results/tags | 
-*TestResultsApi* | [**poll_result_generate_all**](docs/TestResultsApi.md#poll_result_generate_all) | **GET** /api/v2/results/{resultId}/operations/generate-all/{id} | 
-*TestResultsApi* | [**poll_result_generate_results**](docs/TestResultsApi.md#poll_result_generate_results) | **GET** /api/v2/results/{resultId}/operations/generate-results/{id} | 
-*TestResultsApi* | [**poll_result_load**](docs/TestResultsApi.md#poll_result_load) | **GET** /api/v2/results/{resultId}/operations/load/{id} | 
-*TestResultsApi* | [**poll_results_batch_delete**](docs/TestResultsApi.md#poll_results_batch_delete) | **GET** /api/v2/results/operations/batch-delete/{id} | 
 *TestResultsApi* | [**start_result_generate_all**](docs/TestResultsApi.md#start_result_generate_all) | **POST** /api/v2/results/{resultId}/operations/generate-all | 
 *TestResultsApi* | [**start_result_generate_results**](docs/TestResultsApi.md#start_result_generate_results) | **POST** /api/v2/results/{resultId}/operations/generate-results | 
 *TestResultsApi* | [**start_result_load**](docs/TestResultsApi.md#start_result_load) | **POST** /api/v2/results/{resultId}/operations/load | 
@@ -433,13 +361,6 @@ Class | Method | HTTP request | Description
 *UtilsApi* | [**get_log_config**](docs/UtilsApi.md#get_log_config) | **GET** /api/v2/log-config | 
 *UtilsApi* | [**get_time**](docs/UtilsApi.md#get_time) | **GET** /api/v2/time | 
 *UtilsApi* | [**list_eulas**](docs/UtilsApi.md#list_eulas) | **GET** /eula/v1/eula | list of EULAs
-*UtilsApi* | [**poll_cert_manager_generate**](docs/UtilsApi.md#poll_cert_manager_generate) | **GET** /api/v2/cert-manager/operations/generate/{id} | 
-*UtilsApi* | [**poll_cert_manager_upload**](docs/UtilsApi.md#poll_cert_manager_upload) | **GET** /api/v2/cert-manager/operations/upload/{id} | 
-*UtilsApi* | [**poll_disk_usage_cleanup_diagnostics**](docs/UtilsApi.md#poll_disk_usage_cleanup_diagnostics) | **GET** /api/v2/disk-usage/operations/cleanup-diagnostics/{id} | 
-*UtilsApi* | [**poll_disk_usage_cleanup_logs**](docs/UtilsApi.md#poll_disk_usage_cleanup_logs) | **GET** /api/v2/disk-usage/operations/cleanup-logs/{id} | 
-*UtilsApi* | [**poll_disk_usage_cleanup_migration**](docs/UtilsApi.md#poll_disk_usage_cleanup_migration) | **GET** /api/v2/disk-usage/operations/cleanup-migration/{id} | 
-*UtilsApi* | [**poll_disk_usage_cleanup_notifications**](docs/UtilsApi.md#poll_disk_usage_cleanup_notifications) | **GET** /api/v2/disk-usage/operations/cleanup-notifications/{id} | 
-*UtilsApi* | [**poll_disk_usage_cleanup_results**](docs/UtilsApi.md#poll_disk_usage_cleanup_results) | **GET** /api/v2/disk-usage/operations/cleanup-results/{id} | 
 *UtilsApi* | [**post_eula**](docs/UtilsApi.md#post_eula) | **POST** /eula/v1/eula/CyPerf | Update properties an EULA
 *UtilsApi* | [**start_cert_manager_generate**](docs/UtilsApi.md#start_cert_manager_generate) | **POST** /api/v2/cert-manager/operations/generate | 
 *UtilsApi* | [**start_cert_manager_upload**](docs/UtilsApi.md#start_cert_manager_upload) | **POST** /api/v2/cert-manager/operations/upload | 
@@ -744,6 +665,8 @@ Class | Method | HTTP request | Description
  - [PreparedTestOptions](docs/PreparedTestOptions.md)
  - [PrfP1Algorithm](docs/PrfP1Algorithm.md)
  - [ProtectedSubnetConfig](docs/ProtectedSubnetConfig.md)
+ - [QUICProfile](docs/QUICProfile.md)
+ - [QUICVersion](docs/QUICVersion.md)
  - [RTPEncryptionMode](docs/RTPEncryptionMode.md)
  - [RTPProfile](docs/RTPProfile.md)
  - [RTPProfileMeta](docs/RTPProfileMeta.md)

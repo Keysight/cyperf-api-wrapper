@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** | Indicates whether the profile is enabled or not. | [optional] 
 **traffic_settings** | [**TrafficSettings**](TrafficSettings.md) |  | [optional] 
+**use_all_source_ips_per_user** | **bool** | Indicates whether one or all source IPs are used for each simulated user. | [optional] 
 **id** | **str** |  | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 

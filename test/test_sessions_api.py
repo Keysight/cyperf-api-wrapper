@@ -27,6 +27,7 @@ class TestSessionsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_create_session_meta(self) -> None:
         """Test case for create_session_meta
 
@@ -123,59 +124,14 @@ class TestSessionsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_config_add_applications(self) -> None:
-        """Test case for poll_config_add_applications
 
-        """
-        pass
 
-    def test_poll_session_config_granular_stats_default_dashboards(self) -> None:
-        """Test case for poll_session_config_granular_stats_default_dashboards
 
-        """
-        pass
 
-    def test_poll_session_config_save(self) -> None:
-        """Test case for poll_session_config_save
 
-        """
-        pass
 
-    def test_poll_session_load_config(self) -> None:
-        """Test case for poll_session_load_config
 
-        """
-        pass
 
-    def test_poll_session_prepare_test(self) -> None:
-        """Test case for poll_session_prepare_test
-
-        """
-        pass
-
-    def test_poll_session_test_end(self) -> None:
-        """Test case for poll_session_test_end
-
-        """
-        pass
-
-    def test_poll_session_test_init(self) -> None:
-        """Test case for poll_session_test_init
-
-        """
-        pass
-
-    def test_poll_session_touch(self) -> None:
-        """Test case for poll_session_touch
-
-        """
-        pass
-
-    def test_poll_sessions_batch_delete(self) -> None:
-        """Test case for poll_sessions_batch_delete
-
-        """
-        pass
 
     def test_start_config_add_applications(self) -> None:
         """Test case for start_config_add_applications
@@ -254,7 +210,6 @@ class TestSessionsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

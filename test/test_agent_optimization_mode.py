@@ -30,5 +30,6 @@ class TestAgentOptimizationMode(unittest.TestCase):
         """Test AgentOptimizationMode"""
         # inst = AgentOptimizationMode()
 
+
 if __name__ == '__main__':
     unittest.main()

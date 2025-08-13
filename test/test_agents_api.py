@@ -27,6 +27,7 @@ class TestAgentsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_delete_agent(self) -> None:
         """Test case for delete_agent
 
@@ -93,89 +94,19 @@ class TestAgentsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_agents_batch_delete(self) -> None:
-        """Test case for poll_agents_batch_delete
 
-        """
-        pass
 
-    def test_poll_agents_export_files(self) -> None:
-        """Test case for poll_agents_export_files
 
-        """
-        pass
 
-    def test_poll_agents_reboot(self) -> None:
-        """Test case for poll_agents_reboot
 
-        """
-        pass
 
-    def test_poll_agents_release(self) -> None:
-        """Test case for poll_agents_release
 
-        """
-        pass
 
-    def test_poll_agents_reserve(self) -> None:
-        """Test case for poll_agents_reserve
 
-        """
-        pass
 
-    def test_poll_agents_set_dpdk_mode(self) -> None:
-        """Test case for poll_agents_set_dpdk_mode
 
-        """
-        pass
 
-    def test_poll_agents_set_ntp(self) -> None:
-        """Test case for poll_agents_set_ntp
 
-        """
-        pass
-
-    def test_poll_agents_update(self) -> None:
-        """Test case for poll_agents_update
-
-        """
-        pass
-
-    def test_poll_controllers_clear_port_ownership(self) -> None:
-        """Test case for poll_controllers_clear_port_ownership
-
-        """
-        pass
-
-    def test_poll_controllers_power_cycle_nodes(self) -> None:
-        """Test case for poll_controllers_power_cycle_nodes
-
-        """
-        pass
-
-    def test_poll_controllers_reboot_port(self) -> None:
-        """Test case for poll_controllers_reboot_port
-
-        """
-        pass
-
-    def test_poll_controllers_set_app(self) -> None:
-        """Test case for poll_controllers_set_app
-
-        """
-        pass
-
-    def test_poll_controllers_set_node_aggregation(self) -> None:
-        """Test case for poll_controllers_set_node_aggregation
-
-        """
-        pass
-
-    def test_poll_controllers_set_port_link_state(self) -> None:
-        """Test case for poll_controllers_set_port_link_state
-
-        """
-        pass
 
     def test_start_agents_batch_delete(self) -> None:
         """Test case for start_agents_batch_delete
@@ -260,7 +191,6 @@ class TestAgentsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

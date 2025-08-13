@@ -30,5 +30,6 @@ class TestTrackType(unittest.TestCase):
         """Test TrackType"""
         # inst = TrackType()
 
+
 if __name__ == '__main__':
     unittest.main()

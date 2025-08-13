@@ -112,7 +112,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def activate_licenses_with_http_info(
@@ -175,7 +175,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def activate_licenses_without_preload_content(
@@ -238,7 +238,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _activate_licenses_serialize(
         self,
@@ -378,7 +378,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def deactivate_licenses_with_http_info(
@@ -441,7 +441,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def deactivate_licenses_without_preload_content(
@@ -504,7 +504,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _deactivate_licenses_serialize(
         self,
@@ -640,7 +640,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def generate_offline_request_with_http_info(
@@ -699,7 +699,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def generate_offline_request_without_preload_content(
@@ -758,7 +758,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _generate_offline_request_serialize(
         self,
@@ -882,7 +882,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_activation_code_info_with_http_info(
@@ -945,7 +945,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_activation_code_info_without_preload_content(
@@ -1008,7 +1008,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_activation_code_info_serialize(
         self,
@@ -1147,7 +1147,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_activation_code_info_list_with_http_info(
@@ -1210,7 +1210,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_activation_code_info_list_without_preload_content(
@@ -1273,7 +1273,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_activation_code_info_list_serialize(
         self,
@@ -1416,7 +1416,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_async_operation_result_with_http_info(
@@ -1483,7 +1483,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_async_operation_result_without_preload_content(
@@ -1550,7 +1550,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_async_operation_result_serialize(
         self,
@@ -1683,7 +1683,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_async_operation_status_with_http_info(
@@ -1750,7 +1750,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_async_operation_status_without_preload_content(
@@ -1817,7 +1817,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_async_operation_status_serialize(
         self,
@@ -1942,7 +1942,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_counted_feature_stats_with_http_info(
@@ -2001,7 +2001,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_counted_feature_stats_without_preload_content(
@@ -2060,7 +2060,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_counted_feature_stats_serialize(
         self,
@@ -2183,7 +2183,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_entitlement_code_info_with_http_info(
@@ -2246,7 +2246,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_entitlement_code_info_without_preload_content(
@@ -2309,7 +2309,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_entitlement_code_info_serialize(
         self,
@@ -2444,7 +2444,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_hostid_with_http_info(
@@ -2503,7 +2503,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_hostid_without_preload_content(
@@ -2562,7 +2562,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_hostid_serialize(
         self,
@@ -2681,7 +2681,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_installed_licenses_with_http_info(
@@ -2740,7 +2740,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_installed_licenses_without_preload_content(
@@ -2799,7 +2799,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_installed_licenses_serialize(
         self,
@@ -2922,7 +2922,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_license_with_http_info(
@@ -2985,7 +2985,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_license_without_preload_content(
@@ -3048,7 +3048,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_license_serialize(
         self,
@@ -3182,7 +3182,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_license_async_operation_result_with_http_info(
@@ -3253,7 +3253,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_license_async_operation_result_without_preload_content(
@@ -3324,7 +3324,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_license_async_operation_result_serialize(
         self,
@@ -3464,7 +3464,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_license_async_operation_status_with_http_info(
@@ -3535,7 +3535,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_license_async_operation_status_without_preload_content(
@@ -3606,7 +3606,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_license_async_operation_status_serialize(
         self,
@@ -3738,7 +3738,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def import_offline_license_with_http_info(
@@ -3801,7 +3801,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def import_offline_license_without_preload_content(
@@ -3864,7 +3864,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _import_offline_license_serialize(
         self,
@@ -4007,7 +4007,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def remove_reservation_with_http_info(
@@ -4074,7 +4074,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def remove_reservation_without_preload_content(
@@ -4141,7 +4141,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _remove_reservation_serialize(
         self,
@@ -4280,7 +4280,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def sync_licenses_with_http_info(
@@ -4339,7 +4339,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def sync_licenses_without_preload_content(
@@ -4398,7 +4398,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _sync_licenses_serialize(
         self,
@@ -4517,7 +4517,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def test_backend_connectivity_with_http_info(
@@ -4576,7 +4576,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def test_backend_connectivity_without_preload_content(
@@ -4635,7 +4635,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _test_backend_connectivity_serialize(
         self,
@@ -4762,7 +4762,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def update_reservation_with_http_info(
@@ -4829,7 +4829,7 @@ class LicensingApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def update_reservation_without_preload_content(
@@ -4896,7 +4896,7 @@ class LicensingApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _update_reservation_serialize(
         self,

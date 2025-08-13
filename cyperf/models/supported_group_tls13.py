@@ -47,6 +47,7 @@ class SupportedGroupTLS13(str, Enum):
     P384_MLKEM768 = 'P384_MLKEM768'
     P256_MLKEM768 = 'P256_MLKEM768'
     P256_MLKEM512 = 'P256_MLKEM512'
+    X25519 = 'X25519'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

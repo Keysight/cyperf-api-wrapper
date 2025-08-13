@@ -30,5 +30,6 @@ class TestParamType(unittest.TestCase):
         """Test ParamType"""
         # inst = ParamType()
 
+
 if __name__ == '__main__':
     unittest.main()

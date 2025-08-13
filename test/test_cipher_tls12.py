@@ -30,5 +30,6 @@ class TestCipherTLS12(unittest.TestCase):
         """Test CipherTLS12"""
         # inst = CipherTLS12()
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -30,5 +30,6 @@ class TestPfsP2Group(unittest.TestCase):
         """Test PfsP2Group"""
         # inst = PfsP2Group()
 
+
 if __name__ == '__main__':
     unittest.main()

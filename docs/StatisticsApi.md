@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**get_result_stat_by_id**](StatisticsApi.md#get_result_stat_by_id) | **GET** /api/v2/results/{resultId}/stats/{statId} | 
 [**get_result_stats**](StatisticsApi.md#get_result_stats) | **GET** /api/v2/results/{resultId}/stats | 
 [**get_stats_plugins**](StatisticsApi.md#get_stats_plugins) | **GET** /api/v2/stats/plugins | 
-[**poll_stats_plugins_ingest**](StatisticsApi.md#poll_stats_plugins_ingest) | **GET** /api/v2/stats/plugins/operations/ingest/{id} | 
 [**start_stats_plugins_ingest**](StatisticsApi.md#start_stats_plugins_ingest) | **POST** /api/v2/stats/plugins/operations/ingest | 
 
 
@@ -418,84 +417,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The list of available plugins |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **poll_stats_plugins_ingest**
-> AsyncContext poll_stats_plugins_ingest(id)
-
-
-
-Get the state of an ongoing operation.
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.StatisticsApi(api_client)
-    id = 56 # int | The ID of the async operation.
-
-    try:
-        api_response = api_instance.poll_stats_plugins_ingest(id)
-        print("The response of StatisticsApi->poll_stats_plugins_ingest:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling StatisticsApi->poll_stats_plugins_ingest: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| The ID of the async operation. | 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Details about the ongoing operation |  -  |
-**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

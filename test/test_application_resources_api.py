@@ -27,6 +27,7 @@ class TestApplicationResourcesApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_delete_resources_capture(self) -> None:
         """Test case for delete_resources_capture
 
@@ -651,179 +652,34 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_resources_apps_export_all(self) -> None:
-        """Test case for poll_resources_apps_export_all
 
-        """
-        pass
 
-    def test_poll_resources_captures_batch_delete(self) -> None:
-        """Test case for poll_resources_captures_batch_delete
 
-        """
-        pass
 
-    def test_poll_resources_captures_upload_file(self) -> None:
-        """Test case for poll_resources_captures_upload_file
 
-        """
-        pass
 
-    def test_poll_resources_certificates_upload_file(self) -> None:
-        """Test case for poll_resources_certificates_upload_file
 
-        """
-        pass
 
-    def test_poll_resources_config_export_user_defined_apps(self) -> None:
-        """Test case for poll_resources_config_export_user_defined_apps
 
-        """
-        pass
 
-    def test_poll_resources_create_app(self) -> None:
-        """Test case for poll_resources_create_app
 
-        """
-        pass
 
-    def test_poll_resources_custom_fuzzing_scripts_upload_file(self) -> None:
-        """Test case for poll_resources_custom_fuzzing_scripts_upload_file
 
-        """
-        pass
 
-    def test_poll_resources_edit_app(self) -> None:
-        """Test case for poll_resources_edit_app
 
-        """
-        pass
 
-    def test_poll_resources_find_param_matches(self) -> None:
-        """Test case for poll_resources_find_param_matches
 
-        """
-        pass
 
-    def test_poll_resources_flow_library_upload_file(self) -> None:
-        """Test case for poll_resources_flow_library_upload_file
 
-        """
-        pass
 
-    def test_poll_resources_get_attack_categories(self) -> None:
-        """Test case for poll_resources_get_attack_categories
 
-        """
-        pass
 
-    def test_poll_resources_get_attacks(self) -> None:
-        """Test case for poll_resources_get_attacks
 
-        """
-        pass
 
-    def test_poll_resources_get_strike_categories(self) -> None:
-        """Test case for poll_resources_get_strike_categories
 
-        """
-        pass
 
-    def test_poll_resources_get_strikes(self) -> None:
-        """Test case for poll_resources_get_strikes
 
-        """
-        pass
 
-    def test_poll_resources_global_playlists_upload_file(self) -> None:
-        """Test case for poll_resources_global_playlists_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_http_library_upload_file(self) -> None:
-        """Test case for poll_resources_http_library_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_media_files_upload_file(self) -> None:
-        """Test case for poll_resources_media_files_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_media_library_upload_file(self) -> None:
-        """Test case for poll_resources_media_library_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_other_library_upload_file(self) -> None:
-        """Test case for poll_resources_other_library_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_payloads_upload_file(self) -> None:
-        """Test case for poll_resources_payloads_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_pcaps_upload_file(self) -> None:
-        """Test case for poll_resources_pcaps_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_playlists_upload_file(self) -> None:
-        """Test case for poll_resources_playlists_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_sip_library_upload_file(self) -> None:
-        """Test case for poll_resources_sip_library_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_stats_profile_upload_file(self) -> None:
-        """Test case for poll_resources_stats_profile_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_tls_certificates_upload_file(self) -> None:
-        """Test case for poll_resources_tls_certificates_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_tls_dhs_upload_file(self) -> None:
-        """Test case for poll_resources_tls_dhs_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_tls_keys_upload_file(self) -> None:
-        """Test case for poll_resources_tls_keys_upload_file
-
-        """
-        pass
-
-    def test_poll_resources_user_defined_apps_export_all(self) -> None:
-        """Test case for poll_resources_user_defined_apps_export_all
-
-        """
-        pass
-
-    def test_poll_resources_user_defined_apps_upload_file(self) -> None:
-        """Test case for poll_resources_user_defined_apps_upload_file
-
-        """
-        pass
 
     def test_start_resources_apps_export_all(self) -> None:
         """Test case for start_resources_apps_export_all
@@ -998,7 +854,6 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

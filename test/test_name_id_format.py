@@ -30,5 +30,6 @@ class TestNameIdFormat(unittest.TestCase):
         """Test NameIdFormat"""
         # inst = NameIdFormat()
 
+
 if __name__ == '__main__':
     unittest.main()

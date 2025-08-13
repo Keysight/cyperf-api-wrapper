@@ -30,5 +30,6 @@ class TestIdPSignatureAlgo(unittest.TestCase):
         """Test IdPSignatureAlgo"""
         # inst = IdPSignatureAlgo()
 
+
 if __name__ == '__main__':
     unittest.main()

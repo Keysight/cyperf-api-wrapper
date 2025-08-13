@@ -30,5 +30,6 @@ class TestStreamDirection(unittest.TestCase):
         """Test StreamDirection"""
         # inst = StreamDirection()
 
+
 if __name__ == '__main__':
     unittest.main()

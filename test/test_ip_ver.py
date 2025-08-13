@@ -30,5 +30,6 @@ class TestIpVer(unittest.TestCase):
         """Test IpVer"""
         # inst = IpVer()
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -125,7 +125,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_capture_with_http_info(
@@ -188,7 +188,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_capture_without_preload_content(
@@ -251,7 +251,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_capture_serialize(
         self,
@@ -379,7 +379,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_certificate_with_http_info(
@@ -444,7 +444,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_certificate_without_preload_content(
@@ -509,7 +509,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_certificate_serialize(
         self,
@@ -637,7 +637,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_custom_fuzzing_script_with_http_info(
@@ -702,7 +702,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_custom_fuzzing_script_without_preload_content(
@@ -767,7 +767,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_custom_fuzzing_script_serialize(
         self,
@@ -895,7 +895,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_flow_library_with_http_info(
@@ -960,7 +960,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_flow_library_without_preload_content(
@@ -1025,7 +1025,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_flow_library_serialize(
         self,
@@ -1153,7 +1153,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_global_playlist_with_http_info(
@@ -1218,7 +1218,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_global_playlist_without_preload_content(
@@ -1283,7 +1283,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_global_playlist_serialize(
         self,
@@ -1411,7 +1411,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_http_library_with_http_info(
@@ -1476,7 +1476,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_http_library_without_preload_content(
@@ -1541,7 +1541,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_http_library_serialize(
         self,
@@ -1669,7 +1669,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_media_file_with_http_info(
@@ -1734,7 +1734,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_media_file_without_preload_content(
@@ -1799,7 +1799,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_media_file_serialize(
         self,
@@ -1927,7 +1927,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_media_library_with_http_info(
@@ -1992,7 +1992,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_media_library_without_preload_content(
@@ -2057,7 +2057,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_media_library_serialize(
         self,
@@ -2185,7 +2185,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_other_library_with_http_info(
@@ -2250,7 +2250,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_other_library_without_preload_content(
@@ -2315,7 +2315,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_other_library_serialize(
         self,
@@ -2443,7 +2443,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_payload_with_http_info(
@@ -2508,7 +2508,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_payload_without_preload_content(
@@ -2573,7 +2573,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_payload_serialize(
         self,
@@ -2701,7 +2701,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_pcap_with_http_info(
@@ -2766,7 +2766,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_pcap_without_preload_content(
@@ -2831,7 +2831,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_pcap_serialize(
         self,
@@ -2959,7 +2959,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_playlist_with_http_info(
@@ -3024,7 +3024,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_playlist_without_preload_content(
@@ -3089,7 +3089,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_playlist_serialize(
         self,
@@ -3217,7 +3217,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_sip_library_with_http_info(
@@ -3282,7 +3282,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_sip_library_without_preload_content(
@@ -3347,7 +3347,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_sip_library_serialize(
         self,
@@ -3475,7 +3475,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_stats_profile_with_http_info(
@@ -3540,7 +3540,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_stats_profile_without_preload_content(
@@ -3605,7 +3605,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_stats_profile_serialize(
         self,
@@ -3733,7 +3733,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_tls_certificate_with_http_info(
@@ -3798,7 +3798,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_tls_certificate_without_preload_content(
@@ -3863,7 +3863,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_tls_certificate_serialize(
         self,
@@ -3991,7 +3991,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_tls_dh_with_http_info(
@@ -4056,7 +4056,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_tls_dh_without_preload_content(
@@ -4121,7 +4121,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_tls_dh_serialize(
         self,
@@ -4249,7 +4249,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_tls_key_with_http_info(
@@ -4314,7 +4314,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_tls_key_without_preload_content(
@@ -4379,7 +4379,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_tls_key_serialize(
         self,
@@ -4509,7 +4509,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_user_defined_app_with_http_info(
@@ -4576,7 +4576,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_resources_user_defined_app_without_preload_content(
@@ -4643,7 +4643,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_resources_user_defined_app_serialize(
         self,
@@ -4777,7 +4777,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_capture_flows_with_http_info(
@@ -4848,7 +4848,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_capture_flows_without_preload_content(
@@ -4919,7 +4919,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_capture_flows_serialize(
         self,
@@ -5067,7 +5067,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_flow_exchanges_with_http_info(
@@ -5142,7 +5142,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_flow_exchanges_without_preload_content(
@@ -5217,7 +5217,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_flow_exchanges_serialize(
         self,
@@ -5359,7 +5359,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_app_by_id_with_http_info(
@@ -5425,7 +5425,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_app_by_id_without_preload_content(
@@ -5491,7 +5491,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_app_by_id_serialize(
         self,
@@ -5618,7 +5618,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_application_type_by_id_with_http_info(
@@ -5682,7 +5682,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_application_type_by_id_without_preload_content(
@@ -5746,7 +5746,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_application_type_by_id_serialize(
         self,
@@ -5877,7 +5877,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_application_types_with_http_info(
@@ -5945,7 +5945,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_application_types_without_preload_content(
@@ -6013,7 +6013,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_application_types_serialize(
         self,
@@ -6168,7 +6168,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_apps_with_http_info(
@@ -6253,7 +6253,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_apps_without_preload_content(
@@ -6338,7 +6338,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_apps_serialize(
         self,
@@ -6494,7 +6494,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_attack_by_id_with_http_info(
@@ -6560,7 +6560,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_attack_by_id_without_preload_content(
@@ -6626,7 +6626,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_attack_by_id_serialize(
         self,
@@ -6756,7 +6756,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_attack_categories_with_http_info(
@@ -6823,7 +6823,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_attack_categories_without_preload_content(
@@ -6890,7 +6890,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_attack_categories_serialize(
         self,
@@ -7050,7 +7050,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_attacks_with_http_info(
@@ -7140,7 +7140,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_attacks_without_preload_content(
@@ -7230,7 +7230,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_attacks_serialize(
         self,
@@ -7390,7 +7390,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_auth_profile_by_id_with_http_info(
@@ -7455,7 +7455,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_auth_profile_by_id_without_preload_content(
@@ -7520,7 +7520,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_auth_profile_by_id_serialize(
         self,
@@ -7651,7 +7651,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_auth_profiles_with_http_info(
@@ -7719,7 +7719,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_auth_profiles_without_preload_content(
@@ -7787,7 +7787,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_auth_profiles_serialize(
         self,
@@ -7923,7 +7923,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_capture_by_id_with_http_info(
@@ -7989,7 +7989,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_capture_by_id_without_preload_content(
@@ -8055,7 +8055,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_capture_by_id_serialize(
         self,
@@ -8185,7 +8185,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_captures_with_http_info(
@@ -8252,7 +8252,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_captures_without_preload_content(
@@ -8319,7 +8319,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_captures_serialize(
         self,
@@ -8454,7 +8454,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_captures_upload_file_result_with_http_info(
@@ -8519,7 +8519,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_captures_upload_file_result_without_preload_content(
@@ -8584,7 +8584,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_captures_upload_file_result_serialize(
         self,
@@ -8713,7 +8713,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_certificate_by_id_with_http_info(
@@ -8779,7 +8779,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_certificate_by_id_without_preload_content(
@@ -8845,7 +8845,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_certificate_by_id_serialize(
         self,
@@ -8972,7 +8972,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_certificate_content_file_with_http_info(
@@ -9036,7 +9036,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_certificate_content_file_without_preload_content(
@@ -9100,7 +9100,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_certificate_content_file_serialize(
         self,
@@ -9233,7 +9233,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_certificates_with_http_info(
@@ -9302,7 +9302,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_certificates_without_preload_content(
@@ -9371,7 +9371,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_certificates_serialize(
         self,
@@ -9506,7 +9506,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_certificates_upload_file_result_with_http_info(
@@ -9571,7 +9571,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_certificates_upload_file_result_without_preload_content(
@@ -9636,7 +9636,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_certificates_upload_file_result_serialize(
         self,
@@ -9765,7 +9765,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_custom_fuzzing_script_by_id_with_http_info(
@@ -9831,7 +9831,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_custom_fuzzing_script_by_id_without_preload_content(
@@ -9897,7 +9897,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_custom_fuzzing_script_by_id_serialize(
         self,
@@ -10024,7 +10024,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_custom_fuzzing_script_content_file_with_http_info(
@@ -10088,7 +10088,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_custom_fuzzing_script_content_file_without_preload_content(
@@ -10152,7 +10152,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_custom_fuzzing_script_content_file_serialize(
         self,
@@ -10285,7 +10285,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_custom_fuzzing_scripts_with_http_info(
@@ -10354,7 +10354,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_custom_fuzzing_scripts_without_preload_content(
@@ -10423,7 +10423,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_custom_fuzzing_scripts_serialize(
         self,
@@ -10558,7 +10558,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_custom_fuzzing_scripts_upload_file_result_with_http_info(
@@ -10623,7 +10623,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_custom_fuzzing_scripts_upload_file_result_without_preload_content(
@@ -10688,7 +10688,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_custom_fuzzing_scripts_upload_file_result_serialize(
         self,
@@ -10820,7 +10820,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_flow_library_with_http_info(
@@ -10889,7 +10889,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_flow_library_without_preload_content(
@@ -10958,7 +10958,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_flow_library_serialize(
         self,
@@ -11094,7 +11094,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_flow_library_by_id_with_http_info(
@@ -11160,7 +11160,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_flow_library_by_id_without_preload_content(
@@ -11226,7 +11226,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_flow_library_by_id_serialize(
         self,
@@ -11353,7 +11353,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_flow_library_content_file_with_http_info(
@@ -11417,7 +11417,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_flow_library_content_file_without_preload_content(
@@ -11481,7 +11481,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_flow_library_content_file_serialize(
         self,
@@ -11610,7 +11610,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_flow_library_upload_file_result_with_http_info(
@@ -11675,7 +11675,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_flow_library_upload_file_result_without_preload_content(
@@ -11740,7 +11740,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_flow_library_upload_file_result_serialize(
         self,
@@ -11869,7 +11869,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_global_playlist_by_id_with_http_info(
@@ -11935,7 +11935,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_global_playlist_by_id_without_preload_content(
@@ -12001,7 +12001,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_global_playlist_by_id_serialize(
         self,
@@ -12128,7 +12128,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_global_playlist_content_file_with_http_info(
@@ -12192,7 +12192,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_global_playlist_content_file_without_preload_content(
@@ -12256,7 +12256,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_global_playlist_content_file_serialize(
         self,
@@ -12389,7 +12389,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_global_playlists_with_http_info(
@@ -12458,7 +12458,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_global_playlists_without_preload_content(
@@ -12527,7 +12527,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_global_playlists_serialize(
         self,
@@ -12662,7 +12662,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_global_playlists_upload_file_result_with_http_info(
@@ -12727,7 +12727,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_global_playlists_upload_file_result_without_preload_content(
@@ -12792,7 +12792,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_global_playlists_upload_file_result_serialize(
         self,
@@ -12924,7 +12924,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_library_with_http_info(
@@ -12993,7 +12993,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_library_without_preload_content(
@@ -13062,7 +13062,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_http_library_serialize(
         self,
@@ -13198,7 +13198,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_library_by_id_with_http_info(
@@ -13264,7 +13264,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_library_by_id_without_preload_content(
@@ -13330,7 +13330,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_http_library_by_id_serialize(
         self,
@@ -13457,7 +13457,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_library_content_file_with_http_info(
@@ -13521,7 +13521,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_library_content_file_without_preload_content(
@@ -13585,7 +13585,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_http_library_content_file_serialize(
         self,
@@ -13714,7 +13714,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_library_upload_file_result_with_http_info(
@@ -13779,7 +13779,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_library_upload_file_result_without_preload_content(
@@ -13844,7 +13844,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_http_library_upload_file_result_serialize(
         self,
@@ -13972,7 +13972,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_profile_by_id_with_http_info(
@@ -14037,7 +14037,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_profile_by_id_without_preload_content(
@@ -14102,7 +14102,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_http_profile_by_id_serialize(
         self,
@@ -14233,7 +14233,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_profiles_with_http_info(
@@ -14301,7 +14301,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_http_profiles_without_preload_content(
@@ -14369,7 +14369,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_http_profiles_serialize(
         self,
@@ -14505,7 +14505,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_file_by_id_with_http_info(
@@ -14571,7 +14571,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_file_by_id_without_preload_content(
@@ -14637,7 +14637,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_media_file_by_id_serialize(
         self,
@@ -14764,7 +14764,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_file_content_file_with_http_info(
@@ -14828,7 +14828,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_file_content_file_without_preload_content(
@@ -14892,7 +14892,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_media_file_content_file_serialize(
         self,
@@ -15025,7 +15025,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_files_with_http_info(
@@ -15094,7 +15094,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_files_without_preload_content(
@@ -15163,7 +15163,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_media_files_serialize(
         self,
@@ -15298,7 +15298,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_files_upload_file_result_with_http_info(
@@ -15363,7 +15363,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_files_upload_file_result_without_preload_content(
@@ -15428,7 +15428,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_media_files_upload_file_result_serialize(
         self,
@@ -15560,7 +15560,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_library_with_http_info(
@@ -15629,7 +15629,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_library_without_preload_content(
@@ -15698,7 +15698,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_media_library_serialize(
         self,
@@ -15834,7 +15834,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_library_by_id_with_http_info(
@@ -15900,7 +15900,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_library_by_id_without_preload_content(
@@ -15966,7 +15966,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_media_library_by_id_serialize(
         self,
@@ -16093,7 +16093,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_library_content_file_with_http_info(
@@ -16157,7 +16157,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_library_content_file_without_preload_content(
@@ -16221,7 +16221,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_media_library_content_file_serialize(
         self,
@@ -16350,7 +16350,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_library_upload_file_result_with_http_info(
@@ -16415,7 +16415,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_media_library_upload_file_result_without_preload_content(
@@ -16480,7 +16480,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_media_library_upload_file_result_serialize(
         self,
@@ -16612,7 +16612,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_other_library_with_http_info(
@@ -16681,7 +16681,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_other_library_without_preload_content(
@@ -16750,7 +16750,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_other_library_serialize(
         self,
@@ -16886,7 +16886,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_other_library_by_id_with_http_info(
@@ -16952,7 +16952,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_other_library_by_id_without_preload_content(
@@ -17018,7 +17018,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_other_library_by_id_serialize(
         self,
@@ -17145,7 +17145,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_other_library_content_file_with_http_info(
@@ -17209,7 +17209,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_other_library_content_file_without_preload_content(
@@ -17273,7 +17273,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_other_library_content_file_serialize(
         self,
@@ -17402,7 +17402,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_other_library_upload_file_result_with_http_info(
@@ -17467,7 +17467,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_other_library_upload_file_result_without_preload_content(
@@ -17532,7 +17532,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_other_library_upload_file_result_serialize(
         self,
@@ -17661,7 +17661,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_payload_by_id_with_http_info(
@@ -17727,7 +17727,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_payload_by_id_without_preload_content(
@@ -17793,7 +17793,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_payload_by_id_serialize(
         self,
@@ -17920,7 +17920,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_payload_content_file_with_http_info(
@@ -17984,7 +17984,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_payload_content_file_without_preload_content(
@@ -18048,7 +18048,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_payload_content_file_serialize(
         self,
@@ -18181,7 +18181,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_payloads_with_http_info(
@@ -18250,7 +18250,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_payloads_without_preload_content(
@@ -18319,7 +18319,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_payloads_serialize(
         self,
@@ -18454,7 +18454,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_payloads_upload_file_result_with_http_info(
@@ -18519,7 +18519,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_payloads_upload_file_result_without_preload_content(
@@ -18584,7 +18584,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_payloads_upload_file_result_serialize(
         self,
@@ -18713,7 +18713,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_pcap_by_id_with_http_info(
@@ -18779,7 +18779,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_pcap_by_id_without_preload_content(
@@ -18845,7 +18845,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_pcap_by_id_serialize(
         self,
@@ -18972,7 +18972,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_pcap_content_file_with_http_info(
@@ -19036,7 +19036,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_pcap_content_file_without_preload_content(
@@ -19100,7 +19100,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_pcap_content_file_serialize(
         self,
@@ -19233,7 +19233,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_pcaps_with_http_info(
@@ -19302,7 +19302,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_pcaps_without_preload_content(
@@ -19371,7 +19371,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_pcaps_serialize(
         self,
@@ -19506,7 +19506,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_pcaps_upload_file_result_with_http_info(
@@ -19571,7 +19571,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_pcaps_upload_file_result_without_preload_content(
@@ -19636,7 +19636,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_pcaps_upload_file_result_serialize(
         self,
@@ -19765,7 +19765,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlist_by_id_with_http_info(
@@ -19831,7 +19831,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlist_by_id_without_preload_content(
@@ -19897,7 +19897,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_playlist_by_id_serialize(
         self,
@@ -20024,7 +20024,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlist_content_file_with_http_info(
@@ -20088,7 +20088,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlist_content_file_without_preload_content(
@@ -20152,7 +20152,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_playlist_content_file_serialize(
         self,
@@ -20285,7 +20285,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlist_values_with_http_info(
@@ -20354,7 +20354,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlist_values_without_preload_content(
@@ -20423,7 +20423,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_playlist_values_serialize(
         self,
@@ -20560,7 +20560,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlists_with_http_info(
@@ -20629,7 +20629,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlists_without_preload_content(
@@ -20698,7 +20698,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_playlists_serialize(
         self,
@@ -20833,7 +20833,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlists_upload_file_result_with_http_info(
@@ -20898,7 +20898,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_playlists_upload_file_result_without_preload_content(
@@ -20963,7 +20963,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_playlists_upload_file_result_serialize(
         self,
@@ -21095,7 +21095,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_sip_library_with_http_info(
@@ -21164,7 +21164,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_sip_library_without_preload_content(
@@ -21233,7 +21233,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_sip_library_serialize(
         self,
@@ -21369,7 +21369,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_sip_library_by_id_with_http_info(
@@ -21435,7 +21435,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_sip_library_by_id_without_preload_content(
@@ -21501,7 +21501,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_sip_library_by_id_serialize(
         self,
@@ -21628,7 +21628,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_sip_library_content_file_with_http_info(
@@ -21692,7 +21692,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_sip_library_content_file_without_preload_content(
@@ -21756,7 +21756,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_sip_library_content_file_serialize(
         self,
@@ -21885,7 +21885,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_sip_library_upload_file_result_with_http_info(
@@ -21950,7 +21950,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_sip_library_upload_file_result_without_preload_content(
@@ -22015,7 +22015,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_sip_library_upload_file_result_serialize(
         self,
@@ -22147,7 +22147,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_stats_profile_with_http_info(
@@ -22216,7 +22216,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_stats_profile_without_preload_content(
@@ -22285,7 +22285,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_stats_profile_serialize(
         self,
@@ -22421,7 +22421,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_stats_profile_by_id_with_http_info(
@@ -22487,7 +22487,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_stats_profile_by_id_without_preload_content(
@@ -22553,7 +22553,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_stats_profile_by_id_serialize(
         self,
@@ -22680,7 +22680,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_stats_profile_content_file_with_http_info(
@@ -22744,7 +22744,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_stats_profile_content_file_without_preload_content(
@@ -22808,7 +22808,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_stats_profile_content_file_serialize(
         self,
@@ -22937,7 +22937,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_stats_profile_upload_file_result_with_http_info(
@@ -23002,7 +23002,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_stats_profile_upload_file_result_without_preload_content(
@@ -23067,7 +23067,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_stats_profile_upload_file_result_serialize(
         self,
@@ -23194,7 +23194,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_strike_by_id_with_http_info(
@@ -23258,7 +23258,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_strike_by_id_without_preload_content(
@@ -23322,7 +23322,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_strike_by_id_serialize(
         self,
@@ -23452,7 +23452,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_strike_categories_with_http_info(
@@ -23519,7 +23519,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_strike_categories_without_preload_content(
@@ -23586,7 +23586,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_strike_categories_serialize(
         self,
@@ -23749,7 +23749,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_strikes_with_http_info(
@@ -23842,7 +23842,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_strikes_without_preload_content(
@@ -23935,7 +23935,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_strikes_serialize(
         self,
@@ -24101,7 +24101,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_certificate_by_id_with_http_info(
@@ -24167,7 +24167,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_certificate_by_id_without_preload_content(
@@ -24233,7 +24233,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_certificate_by_id_serialize(
         self,
@@ -24360,7 +24360,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_certificate_content_file_with_http_info(
@@ -24424,7 +24424,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_certificate_content_file_without_preload_content(
@@ -24488,7 +24488,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_certificate_content_file_serialize(
         self,
@@ -24621,7 +24621,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_certificates_with_http_info(
@@ -24690,7 +24690,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_certificates_without_preload_content(
@@ -24759,7 +24759,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_certificates_serialize(
         self,
@@ -24894,7 +24894,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_certificates_upload_file_result_with_http_info(
@@ -24959,7 +24959,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_certificates_upload_file_result_without_preload_content(
@@ -25024,7 +25024,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_certificates_upload_file_result_serialize(
         self,
@@ -25153,7 +25153,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_dh_by_id_with_http_info(
@@ -25219,7 +25219,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_dh_by_id_without_preload_content(
@@ -25285,7 +25285,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_dh_by_id_serialize(
         self,
@@ -25412,7 +25412,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_dh_content_file_with_http_info(
@@ -25476,7 +25476,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_dh_content_file_without_preload_content(
@@ -25540,7 +25540,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_dh_content_file_serialize(
         self,
@@ -25673,7 +25673,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_dhs_with_http_info(
@@ -25742,7 +25742,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_dhs_without_preload_content(
@@ -25811,7 +25811,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_dhs_serialize(
         self,
@@ -25946,7 +25946,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_dhs_upload_file_result_with_http_info(
@@ -26011,7 +26011,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_dhs_upload_file_result_without_preload_content(
@@ -26076,7 +26076,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_dhs_upload_file_result_serialize(
         self,
@@ -26205,7 +26205,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_key_by_id_with_http_info(
@@ -26271,7 +26271,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_key_by_id_without_preload_content(
@@ -26337,7 +26337,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_key_by_id_serialize(
         self,
@@ -26464,7 +26464,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_key_content_file_with_http_info(
@@ -26528,7 +26528,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_key_content_file_without_preload_content(
@@ -26592,7 +26592,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_key_content_file_serialize(
         self,
@@ -26725,7 +26725,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_keys_with_http_info(
@@ -26794,7 +26794,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_keys_without_preload_content(
@@ -26863,7 +26863,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_keys_serialize(
         self,
@@ -26998,7 +26998,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_keys_upload_file_result_with_http_info(
@@ -27063,7 +27063,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_tls_keys_upload_file_result_without_preload_content(
@@ -27128,7 +27128,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_tls_keys_upload_file_result_serialize(
         self,
@@ -27258,7 +27258,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_user_defined_apps_with_http_info(
@@ -27325,7 +27325,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_user_defined_apps_without_preload_content(
@@ -27392,7 +27392,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_user_defined_apps_serialize(
         self,
@@ -27527,7 +27527,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_user_defined_apps_upload_file_result_with_http_info(
@@ -27592,7 +27592,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_resources_user_defined_apps_upload_file_result_without_preload_content(
@@ -27657,7 +27657,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_resources_user_defined_apps_upload_file_result_serialize(
         self,
@@ -27722,7466 +27722,292 @@ class ApplicationResourcesApi:
 
 
 
-    @validate_call
-    def poll_resources_apps_export_all(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_apps_export_all
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_apps_export_all_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_apps_export_all_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_apps_export_all
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_apps_export_all_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_apps_export_all_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_apps_export_all
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_apps_export_all_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_apps_export_all_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/apps/operations/export-all/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_captures_batch_delete(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_captures_batch_delete
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_captures_batch_delete_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_captures_batch_delete_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_captures_batch_delete
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_captures_batch_delete_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_captures_batch_delete_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_captures_batch_delete
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_captures_batch_delete_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_captures_batch_delete_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/captures/operations/batch-delete/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_captures_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_captures_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_captures_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_captures_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_captures_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_captures_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_captures_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_captures_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_captures_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_captures_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/captures/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_certificates_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_certificates_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_certificates_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_certificates_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_certificates_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_certificates_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_certificates_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_certificates_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_certificates_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_certificates_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/certificates/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_config_export_user_defined_apps(
-        self,
-        config_id: Annotated[StrictStr, Field(description="The ID of the config.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_config_export_user_defined_apps
-
-        Get the state of an ongoing operation.
-
-        :param config_id: The ID of the config. (required)
-        :type config_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_config_export_user_defined_apps_serialize(
-            config_id=config_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_config_export_user_defined_apps_with_http_info(
-        self,
-        config_id: Annotated[StrictStr, Field(description="The ID of the config.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_config_export_user_defined_apps
-
-        Get the state of an ongoing operation.
-
-        :param config_id: The ID of the config. (required)
-        :type config_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_config_export_user_defined_apps_serialize(
-            config_id=config_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_config_export_user_defined_apps_without_preload_content(
-        self,
-        config_id: Annotated[StrictStr, Field(description="The ID of the config.")],
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_config_export_user_defined_apps
-
-        Get the state of an ongoing operation.
-
-        :param config_id: The ID of the config. (required)
-        :type config_id: str
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_config_export_user_defined_apps_serialize(
-            config_id=config_id,
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_config_export_user_defined_apps_serialize(
-        self,
-        config_id,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if config_id is not None:
-            _path_params['configId'] = config_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/configs/{configId}/operations/export-user-defined-apps/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_create_app(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_create_app
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_create_app_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_create_app_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_create_app
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_create_app_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_create_app_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_create_app
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_create_app_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_create_app_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/operations/create-app/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_custom_fuzzing_scripts_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_custom_fuzzing_scripts_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_custom_fuzzing_scripts_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_custom_fuzzing_scripts_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_custom_fuzzing_scripts_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_custom_fuzzing_scripts_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_custom_fuzzing_scripts_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_custom_fuzzing_scripts_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_custom_fuzzing_scripts_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_custom_fuzzing_scripts_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/custom-fuzzing-scripts/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_edit_app(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_edit_app
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_edit_app_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_edit_app_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_edit_app
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_edit_app_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_edit_app_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_edit_app
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_edit_app_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_edit_app_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/operations/edit-app/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_find_param_matches(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_find_param_matches
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_find_param_matches_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_find_param_matches_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_find_param_matches
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_find_param_matches_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_find_param_matches_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_find_param_matches
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_find_param_matches_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_find_param_matches_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/operations/find-param-matches/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_flow_library_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_flow_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_flow_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_flow_library_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_flow_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_flow_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_flow_library_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_flow_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_flow_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_flow_library_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/flow-library/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_get_attack_categories(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_get_attack_categories
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_attack_categories_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_get_attack_categories_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_get_attack_categories
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_attack_categories_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_get_attack_categories_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_get_attack_categories
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_attack_categories_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_get_attack_categories_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/operations/get-attack-categories/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_get_attacks(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_get_attacks
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_attacks_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_get_attacks_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_get_attacks
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_attacks_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_get_attacks_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_get_attacks
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_attacks_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_get_attacks_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/operations/get-attacks/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_get_strike_categories(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_get_strike_categories
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_strike_categories_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_get_strike_categories_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_get_strike_categories
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_strike_categories_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_get_strike_categories_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_get_strike_categories
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_strike_categories_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_get_strike_categories_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/operations/get-strike-categories/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_get_strikes(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_get_strikes
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_strikes_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_get_strikes_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_get_strikes
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_strikes_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_get_strikes_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_get_strikes
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_get_strikes_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_get_strikes_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/operations/get-strikes/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_global_playlists_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_global_playlists_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_global_playlists_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_global_playlists_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_global_playlists_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_global_playlists_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_global_playlists_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_global_playlists_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_global_playlists_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_global_playlists_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/global-playlists/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_http_library_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_http_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_http_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_http_library_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_http_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_http_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_http_library_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_http_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_http_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_http_library_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/http-library/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_media_files_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_media_files_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_media_files_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_media_files_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_media_files_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_media_files_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_media_files_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_media_files_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_media_files_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_media_files_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/media-files/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_media_library_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_media_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_media_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_media_library_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_media_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_media_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_media_library_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_media_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_media_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_media_library_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/media-library/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_other_library_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_other_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_other_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_other_library_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_other_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_other_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_other_library_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_other_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_other_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_other_library_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/other-library/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_payloads_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_payloads_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_payloads_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_payloads_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_payloads_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_payloads_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_payloads_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_payloads_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_payloads_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_payloads_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/payloads/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_pcaps_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_pcaps_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_pcaps_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_pcaps_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_pcaps_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_pcaps_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_pcaps_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_pcaps_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_pcaps_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_pcaps_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/pcaps/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_playlists_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_playlists_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_playlists_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_playlists_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_playlists_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_playlists_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_playlists_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_playlists_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_playlists_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_playlists_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/playlists/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_sip_library_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_sip_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_sip_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_sip_library_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_sip_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_sip_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_sip_library_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_sip_library_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_sip_library_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_sip_library_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/sip-library/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_stats_profile_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_stats_profile_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_stats_profile_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_stats_profile_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_stats_profile_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_stats_profile_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_stats_profile_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_stats_profile_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_stats_profile_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_stats_profile_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/stats-profile/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_tls_certificates_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_tls_certificates_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_certificates_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_tls_certificates_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_tls_certificates_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_certificates_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_tls_certificates_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_tls_certificates_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_certificates_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_tls_certificates_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/tls-certificates/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_tls_dhs_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_tls_dhs_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_dhs_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_tls_dhs_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_tls_dhs_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_dhs_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_tls_dhs_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_tls_dhs_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_dhs_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_tls_dhs_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/tls-dhs/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_tls_keys_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_tls_keys_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_keys_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_tls_keys_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_tls_keys_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_keys_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_tls_keys_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_tls_keys_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_tls_keys_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_tls_keys_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_user_defined_apps_export_all(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncContext:
-        """poll_resources_user_defined_apps_export_all
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_user_defined_apps_export_all_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_user_defined_apps_export_all_with_http_info(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncContext]:
-        """poll_resources_user_defined_apps_export_all
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_user_defined_apps_export_all_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_user_defined_apps_export_all_without_preload_content(
-        self,
-        id: Annotated[StrictInt, Field(description="The ID of the async operation.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_user_defined_apps_export_all
-
-        Get the state of an ongoing operation.
-
-        :param id: The ID of the async operation. (required)
-        :type id: int
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_user_defined_apps_export_all_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncContext",
-            '400': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_user_defined_apps_export_all_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/user-defined-apps/operations/export-all/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def poll_resources_user_defined_apps_upload_file(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """poll_resources_user_defined_apps_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_user_defined_apps_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_user_defined_apps_upload_file_with_http_info(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """poll_resources_user_defined_apps_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_user_defined_apps_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=_response_types_map,
-            _request_timeout=_request_timeout
-        )
-
-
-    @validate_call
-    def poll_resources_user_defined_apps_upload_file_without_preload_content(
-        self,
-        upload_file_id: Annotated[StrictStr, Field(description="The ID of the uploadfile.")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """poll_resources_user_defined_apps_upload_file
-
-        Get the state of an ongoing operation.
-
-        :param upload_file_id: The ID of the uploadfile. (required)
-        :type upload_file_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._poll_resources_user_defined_apps_upload_file_serialize(
-            upload_file_id=upload_file_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '400': "ErrorResponse",
-            '500': "ErrorResponse",
-        }
-        return self.api_client.call_api(
-            *_param,
-            _response_types_map=None,
-            _request_timeout=_request_timeout
-        )
-
-
-    def _poll_resources_user_defined_apps_upload_file_serialize(
-        self,
-        upload_file_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if upload_file_id is not None:
-            _path_params['uploadFileId'] = upload_file_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'OAuth2', 
-            'OAuth2'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
 
 
 
@@ -35247,7 +28073,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_apps_export_all_with_http_info(
@@ -35310,7 +28136,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_apps_export_all_without_preload_content(
@@ -35373,7 +28199,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_apps_export_all_serialize(
         self,
@@ -35508,7 +28334,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_captures_batch_delete_with_http_info(
@@ -35567,7 +28393,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_captures_batch_delete_without_preload_content(
@@ -35626,7 +28452,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_captures_batch_delete_serialize(
         self,
@@ -35750,7 +28576,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_captures_upload_file_with_http_info(
@@ -35814,7 +28640,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_captures_upload_file_without_preload_content(
@@ -35878,7 +28704,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_captures_upload_file_serialize(
         self,
@@ -36018,7 +28844,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_certificates_upload_file_with_http_info(
@@ -36082,7 +28908,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_certificates_upload_file_without_preload_content(
@@ -36146,7 +28972,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_certificates_upload_file_serialize(
         self,
@@ -36285,7 +29111,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_config_export_user_defined_apps_with_http_info(
@@ -36348,7 +29174,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_config_export_user_defined_apps_without_preload_content(
@@ -36411,7 +29237,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_config_export_user_defined_apps_serialize(
         self,
@@ -36537,7 +29363,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_create_app_with_http_info(
@@ -36600,7 +29426,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_create_app_without_preload_content(
@@ -36663,7 +29489,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_create_app_serialize(
         self,
@@ -36803,7 +29629,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_custom_fuzzing_scripts_upload_file_with_http_info(
@@ -36867,7 +29693,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_custom_fuzzing_scripts_upload_file_without_preload_content(
@@ -36931,7 +29757,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_custom_fuzzing_scripts_upload_file_serialize(
         self,
@@ -37070,7 +29896,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_edit_app_with_http_info(
@@ -37133,7 +29959,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_edit_app_without_preload_content(
@@ -37196,7 +30022,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_edit_app_serialize(
         self,
@@ -37335,7 +30161,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_find_param_matches_with_http_info(
@@ -37398,7 +30224,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_find_param_matches_without_preload_content(
@@ -37461,7 +30287,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_find_param_matches_serialize(
         self,
@@ -37601,7 +30427,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_flow_library_upload_file_with_http_info(
@@ -37665,7 +30491,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_flow_library_upload_file_without_preload_content(
@@ -37729,7 +30555,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_flow_library_upload_file_serialize(
         self,
@@ -37868,7 +30694,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_get_attack_categories_with_http_info(
@@ -37931,7 +30757,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_get_attack_categories_without_preload_content(
@@ -37994,7 +30820,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_get_attack_categories_serialize(
         self,
@@ -38133,7 +30959,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_get_attacks_with_http_info(
@@ -38196,7 +31022,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_get_attacks_without_preload_content(
@@ -38259,7 +31085,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_get_attacks_serialize(
         self,
@@ -38398,7 +31224,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_get_strike_categories_with_http_info(
@@ -38461,7 +31287,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_get_strike_categories_without_preload_content(
@@ -38524,7 +31350,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_get_strike_categories_serialize(
         self,
@@ -38663,7 +31489,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_get_strikes_with_http_info(
@@ -38726,7 +31552,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_get_strikes_without_preload_content(
@@ -38789,7 +31615,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_get_strikes_serialize(
         self,
@@ -38929,7 +31755,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_global_playlists_upload_file_with_http_info(
@@ -38993,7 +31819,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_global_playlists_upload_file_without_preload_content(
@@ -39057,7 +31883,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_global_playlists_upload_file_serialize(
         self,
@@ -39197,7 +32023,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_http_library_upload_file_with_http_info(
@@ -39261,7 +32087,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_http_library_upload_file_without_preload_content(
@@ -39325,7 +32151,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_http_library_upload_file_serialize(
         self,
@@ -39465,7 +32291,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_media_files_upload_file_with_http_info(
@@ -39529,7 +32355,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_media_files_upload_file_without_preload_content(
@@ -39593,7 +32419,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_media_files_upload_file_serialize(
         self,
@@ -39733,7 +32559,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_media_library_upload_file_with_http_info(
@@ -39797,7 +32623,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_media_library_upload_file_without_preload_content(
@@ -39861,7 +32687,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_media_library_upload_file_serialize(
         self,
@@ -40001,7 +32827,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_other_library_upload_file_with_http_info(
@@ -40065,7 +32891,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_other_library_upload_file_without_preload_content(
@@ -40129,7 +32955,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_other_library_upload_file_serialize(
         self,
@@ -40269,7 +33095,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_payloads_upload_file_with_http_info(
@@ -40333,7 +33159,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_payloads_upload_file_without_preload_content(
@@ -40397,7 +33223,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_payloads_upload_file_serialize(
         self,
@@ -40537,7 +33363,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_pcaps_upload_file_with_http_info(
@@ -40601,7 +33427,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_pcaps_upload_file_without_preload_content(
@@ -40665,7 +33491,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_pcaps_upload_file_serialize(
         self,
@@ -40805,7 +33631,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_playlists_upload_file_with_http_info(
@@ -40869,7 +33695,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_playlists_upload_file_without_preload_content(
@@ -40933,7 +33759,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_playlists_upload_file_serialize(
         self,
@@ -41073,7 +33899,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_sip_library_upload_file_with_http_info(
@@ -41137,7 +33963,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_sip_library_upload_file_without_preload_content(
@@ -41201,7 +34027,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_sip_library_upload_file_serialize(
         self,
@@ -41341,7 +34167,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_stats_profile_upload_file_with_http_info(
@@ -41405,7 +34231,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_stats_profile_upload_file_without_preload_content(
@@ -41469,7 +34295,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_stats_profile_upload_file_serialize(
         self,
@@ -41609,7 +34435,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_tls_certificates_upload_file_with_http_info(
@@ -41673,7 +34499,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_tls_certificates_upload_file_without_preload_content(
@@ -41737,7 +34563,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_tls_certificates_upload_file_serialize(
         self,
@@ -41877,7 +34703,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_tls_dhs_upload_file_with_http_info(
@@ -41941,7 +34767,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_tls_dhs_upload_file_without_preload_content(
@@ -42005,7 +34831,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_tls_dhs_upload_file_serialize(
         self,
@@ -42145,7 +34971,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_tls_keys_upload_file_with_http_info(
@@ -42209,7 +35035,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_tls_keys_upload_file_without_preload_content(
@@ -42273,7 +35099,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_tls_keys_upload_file_serialize(
         self,
@@ -42412,7 +35238,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_user_defined_apps_export_all_with_http_info(
@@ -42475,7 +35301,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_user_defined_apps_export_all_without_preload_content(
@@ -42538,7 +35364,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_user_defined_apps_export_all_serialize(
         self,
@@ -42678,7 +35504,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_user_defined_apps_upload_file_with_http_info(
@@ -42742,7 +35568,7 @@ class ApplicationResourcesApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def start_resources_user_defined_apps_upload_file_without_preload_content(
@@ -42806,7 +35632,7 @@ class ApplicationResourcesApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _start_resources_user_defined_apps_upload_file_serialize(
         self,

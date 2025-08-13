@@ -143,6 +143,23 @@ class TestTransportProfile(unittest.TestCase):
                         ], 
                     use_application_server_headers = True, 
                     links = , ),
+                client_quic_profile = cyperf.models.quic_profile.QUICProfile(
+                    client_tls_profile = null, 
+                    min_rto = 56, 
+                    name = '', 
+                    quic_version = null, 
+                    rx_buffer = 56, 
+                    server_tls_profile = null, 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
                 client_tls_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
                     cipher = null, 
@@ -349,6 +366,23 @@ class TestTransportProfile(unittest.TestCase):
                         ], 
                     use_application_server_headers = True, 
                     links = , ),
+                server_quic_profile = cyperf.models.quic_profile.QUICProfile(
+                    client_tls_profile = null, 
+                    min_rto = 56, 
+                    name = '', 
+                    quic_version = null, 
+                    rx_buffer = 56, 
+                    server_tls_profile = null, 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
                 server_tls_profile = cyperf.models.tls_profile.TLSProfile(
                     certificate_file = null, 
                     cipher = null, 
@@ -474,6 +508,7 @@ class TestTransportProfile(unittest.TestCase):
         """Test TransportProfile"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()
