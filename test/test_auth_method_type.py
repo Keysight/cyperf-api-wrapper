@@ -30,5 +30,6 @@ class TestAuthMethodType(unittest.TestCase):
         """Test AuthMethodType"""
         # inst = AuthMethodType()
 
+
 if __name__ == '__main__':
     unittest.main()

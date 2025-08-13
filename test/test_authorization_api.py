@@ -27,12 +27,12 @@ class TestAuthorizationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_authenticate(self) -> None:
         """Test case for authenticate
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

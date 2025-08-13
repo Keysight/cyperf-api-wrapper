@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **add_inputs** | [**List[AddInput]**](AddInput.md) |  | [optional] 
+**app_description** | **str** |  | [optional] 
 **app_id** | **str** |  | [optional] 
 **app_name** | **str** |  | [optional] 
 **app_parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 

@@ -27,6 +27,7 @@ class TestTestResultsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_delete_result(self) -> None:
         """Test case for delete_result
 
@@ -87,29 +88,9 @@ class TestTestResultsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_result_generate_all(self) -> None:
-        """Test case for poll_result_generate_all
 
-        """
-        pass
 
-    def test_poll_result_generate_results(self) -> None:
-        """Test case for poll_result_generate_results
 
-        """
-        pass
-
-    def test_poll_result_load(self) -> None:
-        """Test case for poll_result_load
-
-        """
-        pass
-
-    def test_poll_results_batch_delete(self) -> None:
-        """Test case for poll_results_batch_delete
-
-        """
-        pass
 
     def test_start_result_generate_all(self) -> None:
         """Test case for start_result_generate_all
@@ -134,7 +115,6 @@ class TestTestResultsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

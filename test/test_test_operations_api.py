@@ -27,35 +27,11 @@ class TestTestOperationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_poll_test_calibrate_start(self) -> None:
-        """Test case for poll_test_calibrate_start
+   
 
-        """
-        pass
 
-    def test_poll_test_calibrate_stop(self) -> None:
-        """Test case for poll_test_calibrate_stop
 
-        """
-        pass
 
-    def test_poll_test_run_abort(self) -> None:
-        """Test case for poll_test_run_abort
-
-        """
-        pass
-
-    def test_poll_test_run_start(self) -> None:
-        """Test case for poll_test_run_start
-
-        """
-        pass
-
-    def test_poll_test_run_stop(self) -> None:
-        """Test case for poll_test_run_stop
-
-        """
-        pass
 
     def test_start_test_calibrate_start(self) -> None:
         """Test case for start_test_calibrate_start
@@ -86,7 +62,6 @@ class TestTestOperationsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

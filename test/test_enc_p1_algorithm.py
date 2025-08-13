@@ -30,5 +30,6 @@ class TestEncP1Algorithm(unittest.TestCase):
         """Test EncP1Algorithm"""
         # inst = EncP1Algorithm()
 
+
 if __name__ == '__main__':
     unittest.main()

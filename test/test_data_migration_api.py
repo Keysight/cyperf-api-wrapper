@@ -27,17 +27,8 @@ class TestDataMigrationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_poll_controller_migration_export(self) -> None:
-        """Test case for poll_controller_migration_export
+   
 
-        """
-        pass
-
-    def test_poll_controller_migration_import(self) -> None:
-        """Test case for poll_controller_migration_import
-
-        """
-        pass
 
     def test_start_controller_migration_export(self) -> None:
         """Test case for start_controller_migration_export
@@ -50,7 +41,6 @@ class TestDataMigrationApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

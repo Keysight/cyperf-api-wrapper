@@ -30,5 +30,6 @@ class TestStreamPayloadType(unittest.TestCase):
         """Test StreamPayloadType"""
         # inst = StreamPayloadType()
 
+
 if __name__ == '__main__':
     unittest.main()

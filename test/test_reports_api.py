@@ -27,6 +27,7 @@ class TestReportsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_download_pdf(self) -> None:
         """Test case for download_pdf
 
@@ -39,17 +40,7 @@ class TestReportsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_result_generate_csv(self) -> None:
-        """Test case for poll_result_generate_csv
 
-        """
-        pass
-
-    def test_poll_result_generate_pdf(self) -> None:
-        """Test case for poll_result_generate_pdf
-
-        """
-        pass
 
     def test_start_result_generate_csv(self) -> None:
         """Test case for start_result_generate_csv
@@ -62,7 +53,6 @@ class TestReportsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

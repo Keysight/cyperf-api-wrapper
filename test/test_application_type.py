@@ -51,12 +51,14 @@ class TestApplicationType(unittest.TestCase):
                         metadata = cyperf.models.metadata.Metadata(
                             direction = '', 
                             is_banner = True, 
+                            is_streaming = True, 
                             keywords = [
                                 null
                                 ], 
                             legacy_names = [
                                 ''
                                 ], 
+                            no_multi_flow_support = True, 
                             protocol = '', 
                             rtp_profile_meta = cyperf.models.rtp_profile_meta.RTPProfileMeta(
                                 custom_header_len_offset = 56, 
@@ -83,29 +85,19 @@ class TestApplicationType(unittest.TestCase):
                         name = '', 
                         parameters = [
                             cyperf.models.parameter.Parameter(
-                                default_array_elements = [
-                                    {
-                                        'key' : ''
-                                        }
+                                matches = [
+                                    cyperf.models.parameter_match.ParameterMatch(
+                                        match_location = [
+                                            ''
+                                            ], 
+                                        match_type = '', 
+                                        regex_match = cyperf.models.regex_match.RegexMatch(
+                                            patterns = [
+                                                ''
+                                                ], ), )
                                     ], 
-                                default_source = '', 
-                                default_value = '', 
-                                element_type = '', 
-                                sources = [
-                                    ''
-                                    ], 
-                                type = '', 
+                                name = '', 
                                 field = '', 
-                                links = [
-                                    cyperf.models.api_link.APILink(
-                                        content_type = '', 
-                                        href = '', 
-                                        method = '', 
-                                        name = '', 
-                                        references_count = 56, 
-                                        rel = '', 
-                                        type = '', )
-                                    ], 
                                 operator = '', 
                                 query_param = '', )
                             ], 
@@ -193,12 +185,14 @@ class TestApplicationType(unittest.TestCase):
                 metadata = cyperf.models.metadata.Metadata(
                     direction = '', 
                     is_banner = True, 
+                    is_streaming = True, 
                     keywords = [
                         null
                         ], 
                     legacy_names = [
                         ''
                         ], 
+                    no_multi_flow_support = True, 
                     protocol = '', 
                     rtp_profile_meta = cyperf.models.rtp_profile_meta.RTPProfileMeta(
                         custom_header_len_offset = 56, 
@@ -225,87 +219,19 @@ class TestApplicationType(unittest.TestCase):
                 name = '',
                 parameters = [
                     cyperf.models.parameter.Parameter(
-                        default_array_elements = [
-                            {
-                                'key' : ''
-                                }
-                            ], 
-                        default_source = '', 
-                        default_value = '', 
-                        element_type = '', 
-                        metadata = cyperf.models.parameter_metadata.ParameterMetadata(
-                            category = '', 
-                            category_index = 56, 
-                            default = '', 
-                            description = '', 
-                            display_name = '', 
-                            enum = cyperf.models.enum.Enum(
-                                choices = [
-                                    cyperf.models.choice.Choice(
-                                        description = '', 
-                                        hidden = True, 
-                                        name = '', 
-                                        value = '', )
+                        matches = [
+                            cyperf.models.parameter_match.ParameterMatch(
+                                match_location = [
+                                    ''
                                     ], 
-                                default = '', ), 
-                            flow_identifier = True, 
-                            input = '', 
-                            legacy_names = [
-                                ''
-                                ], 
-                            mandatory = True, 
-                            payload = cyperf.models.payload_metadata.PayloadMetadata(
-                                file_extension = '', 
-                                file_name = '', 
-                                file_type = '', 
-                                file_url = '', ), 
-                            readonly = True, 
-                            shared = True, 
-                            type = '', 
-                            type_info = cyperf.models.type_info_metadata.TypeInfoMetadata(
-                                array_v2 = cyperf.models.type_array_v2_metadata.TypeArrayV2Metadata(
-                                    elements = [
-                                        cyperf.models.array_v2_element_metadata.ArrayV2ElementMetadata(
-                                            id = '', 
-                                            type = '', )
-                                        ], ), 
-                                int = cyperf.models.type_int_metadata.TypeIntMetadata(
-                                    max_value = 56, 
-                                    min_value = 56, ), 
-                                media = cyperf.models.type_media_metadata.TypeMediaMetadata(
-                                    track_id = '', 
-                                    track_type = '', ), 
-                                string = cyperf.models.type_string_metadata.TypeStringMetadata(
-                                    charset = '', 
-                                    max_length = 56, 
-                                    min_length = 56, ), ), 
-                            unique_value = True, 
-                            links = [
-                                cyperf.models.api_link.APILink(
-                                    content_type = '', 
-                                    href = '', 
-                                    method = '', 
-                                    name = '', 
-                                    references_count = 56, 
-                                    rel = '', 
-                                    type = '', )
-                                ], ), 
-                        sources = [
-                            ''
+                                match_type = '', 
+                                regex_match = cyperf.models.regex_match.RegexMatch(
+                                    patterns = [
+                                        ''
+                                        ], ), )
                             ], 
-                        type = '', 
+                        name = '', 
                         field = '', 
-                        id = '', 
-                        links = [
-                            cyperf.models.api_link.APILink(
-                                content_type = '', 
-                                href = '', 
-                                method = '', 
-                                name = '', 
-                                references_count = 56, 
-                                rel = '', 
-                                type = '', )
-                            ], 
                         operator = '', 
                         query_param = '', )
                     ],
@@ -325,12 +251,14 @@ class TestApplicationType(unittest.TestCase):
                         metadata = cyperf.models.metadata.Metadata(
                             direction = '', 
                             is_banner = True, 
+                            is_streaming = True, 
                             keywords = [
                                 null
                                 ], 
                             legacy_names = [
                                 ''
                                 ], 
+                            no_multi_flow_support = True, 
                             protocol = '', 
                             rtp_profile_meta = cyperf.models.rtp_profile_meta.RTPProfileMeta(
                                 custom_header_len_offset = 56, 
@@ -357,29 +285,19 @@ class TestApplicationType(unittest.TestCase):
                         name = '', 
                         parameters = [
                             cyperf.models.parameter.Parameter(
-                                default_array_elements = [
-                                    {
-                                        'key' : ''
-                                        }
+                                matches = [
+                                    cyperf.models.parameter_match.ParameterMatch(
+                                        match_location = [
+                                            ''
+                                            ], 
+                                        match_type = '', 
+                                        regex_match = cyperf.models.regex_match.RegexMatch(
+                                            patterns = [
+                                                ''
+                                                ], ), )
                                     ], 
-                                default_source = '', 
-                                default_value = '', 
-                                element_type = '', 
-                                sources = [
-                                    ''
-                                    ], 
-                                type = '', 
+                                name = '', 
                                 field = '', 
-                                links = [
-                                    cyperf.models.api_link.APILink(
-                                        content_type = '', 
-                                        href = '', 
-                                        method = '', 
-                                        name = '', 
-                                        references_count = 56, 
-                                        rel = '', 
-                                        type = '', )
-                                    ], 
                                 operator = '', 
                                 query_param = '', )
                             ], 
@@ -421,6 +339,7 @@ class TestApplicationType(unittest.TestCase):
         """Test ApplicationType"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

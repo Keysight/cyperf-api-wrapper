@@ -30,5 +30,6 @@ class TestLogLevel(unittest.TestCase):
         """Test LogLevel"""
         # inst = LogLevel()
 
+
 if __name__ == '__main__':
     unittest.main()

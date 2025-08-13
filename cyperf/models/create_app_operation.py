@@ -33,8 +33,9 @@ class CreateAppOperation(BaseModel):
     actions: Optional[List[ActionInput]] = Field(default=None, alias="Actions")
     app_name: Optional[StrictStr] = Field(default=None, alias="AppName")
     app_type: Optional[StrictStr] = Field(default=None, alias="AppType")
+    description: Optional[StrictStr] = Field(default=None, alias="Description")
     parameters: Optional[List[Parameter]] = Field(default=None, alias="Parameters")
-    __properties: ClassVar[List[str]] = ["Actions", "AppName", "AppType", "Parameters"]
+    __properties: ClassVar[List[str]] = ["Actions", "AppName", "AppType", "Description", "Parameters"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,6 +107,7 @@ class CreateAppOperation(BaseModel):
             "Actions": [ActionInput.from_dict(_item) for _item in obj["Actions"]] if obj.get("Actions") is not None else None,
                         "AppName": obj.get("AppName"),
                         "AppType": obj.get("AppType"),
+                        "Description": obj.get("Description"),
                         "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None
             ,
             "links": obj.get("links")

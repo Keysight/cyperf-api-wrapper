@@ -30,5 +30,6 @@ class TestMosMode(unittest.TestCase):
         """Test MosMode"""
         # inst = MosMode()
 
+
 if __name__ == '__main__':
     unittest.main()

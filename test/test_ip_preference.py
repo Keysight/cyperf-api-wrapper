@@ -30,5 +30,6 @@ class TestIpPreference(unittest.TestCase):
         """Test IpPreference"""
         # inst = IpPreference()
 
+
 if __name__ == '__main__':
     unittest.main()

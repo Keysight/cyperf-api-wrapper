@@ -30,5 +30,6 @@ class TestConnectionPersistence(unittest.TestCase):
         """Test ConnectionPersistence"""
         # inst = ConnectionPersistence()
 
+
 if __name__ == '__main__':
     unittest.main()

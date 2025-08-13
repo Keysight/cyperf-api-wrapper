@@ -30,5 +30,6 @@ class TestAutomaticIpType(unittest.TestCase):
         """Test AutomaticIpType"""
         # inst = AutomaticIpType()
 
+
 if __name__ == '__main__':
     unittest.main()

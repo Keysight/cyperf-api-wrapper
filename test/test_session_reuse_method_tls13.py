@@ -30,5 +30,6 @@ class TestSessionReuseMethodTLS13(unittest.TestCase):
         """Test SessionReuseMethodTLS13"""
         # inst = SessionReuseMethodTLS13()
 
+
 if __name__ == '__main__':
     unittest.main()

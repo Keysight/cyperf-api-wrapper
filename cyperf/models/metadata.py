@@ -33,8 +33,10 @@ class Metadata(BaseModel):
     """ # noqa: E501
     direction: Optional[StrictStr] = Field(default=None, description="The direction of the strike", alias="Direction")
     is_banner: Optional[StrictBool] = Field(default=None, description="Indicates that this is a command that is required, can only be add once and also must be the first", alias="IsBanner")
+    is_streaming: Optional[StrictBool] = Field(default=None, description="Indicates if the application's traffic is a UDP stream", alias="IsStreaming")
     keywords: Optional[List[AttackMetadataKeywordsInner]] = Field(default=None, description="The keywords of the strike", alias="Keywords")
     legacy_names: Optional[List[StrictStr]] = Field(default=None, description="The names of the equivalent application/strike", alias="LegacyNames")
+    no_multi_flow_support: Optional[StrictBool] = Field(default=None, description="If true, only a single application with this protocol id can be present in the configuration", alias="NoMultiFlowSupport")
     protocol: Optional[StrictStr] = Field(default=None, description="The protocol of the strike", alias="Protocol")
     rtp_profile_meta: Optional[RTPProfileMeta] = Field(default=None, alias="RTPProfileMeta")
     references: Optional[List[Reference]] = Field(default=None, description="The references of the strike", alias="References")
@@ -45,7 +47,7 @@ class Metadata(BaseModel):
     static: Optional[StrictBool] = Field(default=None, description="If true, the application/strike is managed directly by the controller", alias="Static")
     supported_apps: Optional[List[StrictStr]] = Field(default=None, description="The apps that this strike can be used with", alias="SupportedApps")
     year: Optional[StrictStr] = Field(default=None, description="The year of the strike", alias="Year")
-    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "Keywords", "LegacyNames", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "Year"]
+    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "IsStreaming", "Keywords", "LegacyNames", "NoMultiFlowSupport", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "Year"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -119,8 +121,10 @@ class Metadata(BaseModel):
         _obj = cls.model_validate({
             "Direction": obj.get("Direction"),
                         "IsBanner": obj.get("IsBanner"),
+                        "IsStreaming": obj.get("IsStreaming"),
                         "Keywords": [AttackMetadataKeywordsInner.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
                         "LegacyNames": obj.get("LegacyNames"),
+                        "NoMultiFlowSupport": obj.get("NoMultiFlowSupport"),
                         "Protocol": obj.get("Protocol"),
                         "RTPProfileMeta": RTPProfileMeta.from_dict(obj["RTPProfileMeta"]) if obj.get("RTPProfileMeta") is not None else None,
                         "References": [Reference.from_dict(_item) for _item in obj["References"]] if obj.get("References") is not None else None,

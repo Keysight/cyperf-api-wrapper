@@ -105,7 +105,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def create_brokers_with_http_info(
@@ -170,7 +170,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def create_brokers_without_preload_content(
@@ -235,7 +235,7 @@ class BrokersApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _create_brokers_serialize(
         self,
@@ -378,7 +378,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_broker_with_http_info(
@@ -444,7 +444,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def delete_broker_without_preload_content(
@@ -510,7 +510,7 @@ class BrokersApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _delete_broker_serialize(
         self,
@@ -637,7 +637,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_broker_by_id_with_http_info(
@@ -701,7 +701,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_broker_by_id_without_preload_content(
@@ -765,7 +765,7 @@ class BrokersApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_broker_by_id_serialize(
         self,
@@ -897,7 +897,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_brokers_with_http_info(
@@ -966,7 +966,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def get_brokers_without_preload_content(
@@ -1035,7 +1035,7 @@ class BrokersApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _get_brokers_serialize(
         self,
@@ -1175,7 +1175,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def patch_broker_with_http_info(
@@ -1245,7 +1245,7 @@ class BrokersApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def patch_broker_without_preload_content(
@@ -1315,7 +1315,7 @@ class BrokersApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _patch_broker_serialize(
         self,
