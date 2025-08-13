@@ -30,5 +30,6 @@ class TestPrfP1Algorithm(unittest.TestCase):
         """Test PrfP1Algorithm"""
         # inst = PrfP1Algorithm()
 
+
 if __name__ == '__main__':
     unittest.main()

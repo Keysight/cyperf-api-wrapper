@@ -309,6 +309,8 @@ from cyperf.models.prepare_test_operation import PrepareTestOperation
 from cyperf.models.prepared_test_options import PreparedTestOptions
 from cyperf.models.prf_p1_algorithm import PrfP1Algorithm
 from cyperf.models.protected_subnet_config import ProtectedSubnetConfig
+from cyperf.models.quic_profile import QUICProfile
+from cyperf.models.quic_version import QUICVersion
 from cyperf.models.rtp_encryption_mode import RTPEncryptionMode
 from cyperf.models.rtp_profile import RTPProfile
 from cyperf.models.rtp_profile_meta import RTPProfileMeta

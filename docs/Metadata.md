@@ -7,8 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **direction** | **str** | The direction of the strike | [optional] 
 **is_banner** | **bool** | Indicates that this is a command that is required, can only be add once and also must be the first | [optional] 
+**is_streaming** | **bool** | Indicates if the application&#39;s traffic is a UDP stream | [optional] 
 **keywords** | [**List[AttackMetadataKeywordsInner]**](AttackMetadataKeywordsInner.md) | The keywords of the strike | [optional] 
 **legacy_names** | **List[str]** | The names of the equivalent application/strike | [optional] 
+**no_multi_flow_support** | **bool** | If true, only a single application with this protocol id can be present in the configuration | [optional] 
 **protocol** | **str** | The protocol of the strike | [optional] 
 **rtp_profile_meta** | [**RTPProfileMeta**](RTPProfileMeta.md) |  | [optional] 
 **references** | [**List[Reference]**](Reference.md) | The references of the strike | [optional] 

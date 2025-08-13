@@ -27,6 +27,7 @@ class TestNotificationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_delete_notification(self) -> None:
         """Test case for delete_notification
 
@@ -51,17 +52,7 @@ class TestNotificationsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_notifications_cleanup(self) -> None:
-        """Test case for poll_notifications_cleanup
 
-        """
-        pass
-
-    def test_poll_notifications_dismiss(self) -> None:
-        """Test case for poll_notifications_dismiss
-
-        """
-        pass
 
     def test_start_notifications_cleanup(self) -> None:
         """Test case for start_notifications_cleanup
@@ -74,7 +65,6 @@ class TestNotificationsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

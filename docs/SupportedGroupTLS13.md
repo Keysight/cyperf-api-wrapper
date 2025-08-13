@@ -44,6 +44,8 @@ The TLSv1.3 supported groups (default: P-256).
 
 * `P256_MLKEM512` (value: `'P256_MLKEM512'`)
 
+* `X25519` (value: `'X25519'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

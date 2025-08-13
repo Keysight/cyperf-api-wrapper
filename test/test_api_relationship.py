@@ -30,5 +30,6 @@ class TestAPIRelationship(unittest.TestCase):
         """Test APIRelationship"""
         # inst = APIRelationship()
 
+
 if __name__ == '__main__':
     unittest.main()

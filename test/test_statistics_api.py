@@ -27,6 +27,7 @@ class TestStatisticsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_create_stats_plugins(self) -> None:
         """Test case for create_stats_plugins
 
@@ -57,18 +58,12 @@ class TestStatisticsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_stats_plugins_ingest(self) -> None:
-        """Test case for poll_stats_plugins_ingest
-
-        """
-        pass
 
     def test_start_stats_plugins_ingest(self) -> None:
         """Test case for start_stats_plugins_ingest
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

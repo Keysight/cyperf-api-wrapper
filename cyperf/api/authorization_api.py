@@ -122,7 +122,7 @@ class AuthorizationApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def authenticate_with_http_info(
@@ -205,7 +205,7 @@ class AuthorizationApi:
             _response_types_map=_response_types_map,
             _request_timeout=_request_timeout
         )
-
+    
 
     @validate_call
     def authenticate_without_preload_content(
@@ -288,7 +288,7 @@ class AuthorizationApi:
             _response_types_map=None,
             _request_timeout=_request_timeout
         )
-
+    
 
     def _authenticate_serialize(
         self,

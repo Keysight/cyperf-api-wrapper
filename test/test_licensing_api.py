@@ -27,6 +27,7 @@ class TestLicensingApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_activate_licenses(self) -> None:
         """Test case for activate_licenses
 
@@ -159,7 +160,6 @@ class TestLicensingApi(unittest.TestCase):
         Retain over a period of time specific counts of installed features, that can be consumed only by current user. 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -30,5 +30,6 @@ class TestObjectiveType(unittest.TestCase):
         """Test ObjectiveType"""
         # inst = ObjectiveType()
 
+
 if __name__ == '__main__':
     unittest.main()

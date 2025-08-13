@@ -36,6 +36,7 @@ class EditAppOperation(BaseModel):
     EditAppOperation
     """ # noqa: E501
     add_inputs: Optional[List[AddInput]] = Field(default=None, alias="AddInputs")
+    app_description: Optional[StrictStr] = Field(default=None, alias="AppDescription")
     app_id: Optional[StrictStr] = Field(default=None, alias="AppId")
     app_name: Optional[StrictStr] = Field(default=None, alias="AppName")
     app_parameters: Optional[List[Parameter]] = Field(default=None, alias="AppParameters")
@@ -44,7 +45,7 @@ class EditAppOperation(BaseModel):
     rename_inputs: Optional[List[RenameInput]] = Field(default=None, alias="RenameInputs")
     reorder_actions_inputs: Optional[List[ReorderActionInput]] = Field(default=None, alias="ReorderActionsInputs")
     reorder_exchanges_inputs: Optional[List[ReorderExchangesInput]] = Field(default=None, alias="ReorderExchangesInputs")
-    __properties: ClassVar[List[str]] = ["AddInputs", "AppId", "AppName", "AppParameters", "DeleteInputs", "EditActionInputs", "RenameInputs", "ReorderActionsInputs", "ReorderExchangesInputs"]
+    __properties: ClassVar[List[str]] = ["AddInputs", "AppDescription", "AppId", "AppName", "AppParameters", "DeleteInputs", "EditActionInputs", "RenameInputs", "ReorderActionsInputs", "ReorderExchangesInputs"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -149,6 +150,7 @@ class EditAppOperation(BaseModel):
 
         _obj = cls.model_validate({
             "AddInputs": [AddInput.from_dict(_item) for _item in obj["AddInputs"]] if obj.get("AddInputs") is not None else None,
+                        "AppDescription": obj.get("AppDescription"),
                         "AppId": obj.get("AppId"),
                         "AppName": obj.get("AppName"),
                         "AppParameters": [Parameter.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None,

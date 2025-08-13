@@ -28,6 +28,7 @@ from cyperf.models.http_profile import HTTPProfile
 from cyperf.models.ip_preference import IpPreference
 from cyperf.models.network_mapping import NetworkMapping
 from cyperf.models.params import Params
+from cyperf.models.quic_profile import QUICProfile
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -39,6 +40,7 @@ class Scenario(BaseModel):
     action_timeout: Optional[StrictInt] = Field(default=None, description="The action timeout value of the Scenario.", alias="ActionTimeout")
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether the scenario is enabled or not.", alias="Active")
     client_http_profile: Optional[HTTPProfile] = Field(default=None, description="The client HTTP profile used in the Scenario.", alias="ClientHTTPProfile")
+    client_quic_profile: Optional[QUICProfile] = Field(default=None, alias="ClientQUICProfile")
     connections: Optional[List[Connection]] = Field(default=None, alias="Connections")
     connections_max_transactions: Optional[StrictInt] = Field(default=None, description="The maximum number of transactions for all scenario connections.", alias="ConnectionsMaxTransactions")
     description: Optional[StrictStr] = Field(default=None, description="The description of the Scenario.", alias="Description")
@@ -49,6 +51,7 @@ class Scenario(BaseModel):
     external_resource_url: Optional[StrictStr] = Field(default=None, description="The external resource URL of the Scenario.", alias="ExternalResourceURL")
     index: Optional[StrictInt] = Field(default=None, description="The index of the scenario.", alias="Index")
     inherit_http_profile: Optional[StrictBool] = Field(default=None, alias="InheritHTTPProfile")
+    inherit_quic_profile: Optional[StrictBool] = Field(default=None, alias="InheritQUICProfile")
     ip_preference: Optional[IpPreference] = Field(default=None, description="The Ip Preference. Must be one of: IPV4_ONLY, IPV6_ONLY, BOTH_IPV4_FIRST, BOTH_IPV6_FIRST or IP_PREF_MAX.", alias="IpPreference")
     is_deprecated: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is deprecated.", alias="IsDeprecated")
     iteration_count: Optional[StrictInt] = Field(default=None, description="The iteration counter of the Scenario.", alias="IterationCount")
@@ -60,12 +63,13 @@ class Scenario(BaseModel):
     qos_flow_id: Optional[StrictStr] = Field(default=None, alias="QosFlowId")
     readonly_max_trans: Optional[StrictBool] = Field(default=None, description="If true, ConnectionsMaxTransactions will be readonly.", alias="ReadonlyMaxTrans")
     server_http_profile: Optional[HTTPProfile] = Field(default=None, description="The server HTTP profile used in the Scenario.", alias="ServerHTTPProfile")
+    server_quic_profile: Optional[QUICProfile] = Field(default=None, alias="ServerQUICProfile")
     supports_client_http_profile: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports Client HTTP profile.", alias="SupportsClientHTTPProfile")
     supports_http_profiles: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports HTTP profiles.", alias="SupportsHTTPProfiles")
     supports_server_http_profile: Optional[StrictBool] = Field(default=None, description="Indicates if the scenario supports Server HTTP profile.", alias="SupportsServerHTTPProfile")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links"]
+    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "ClientQUICProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "InheritQUICProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "ServerQUICProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -119,6 +123,9 @@ class Scenario(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of client_http_profile
         if self.client_http_profile:
             _dict['ClientHTTPProfile'] = self.client_http_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of client_quic_profile
+        if self.client_quic_profile:
+            _dict['ClientQUICProfile'] = self.client_quic_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in connections (list)
         _items = []
         if self.connections:
@@ -146,6 +153,9 @@ class Scenario(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of server_http_profile
         if self.server_http_profile:
             _dict['ServerHTTPProfile'] = self.server_http_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of server_quic_profile
+        if self.server_quic_profile:
+            _dict['ServerQUICProfile'] = self.server_quic_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -170,6 +180,7 @@ class Scenario(BaseModel):
             "ActionTimeout": obj.get("ActionTimeout"),
                         "Active": obj.get("Active"),
                         "ClientHTTPProfile": HTTPProfile.from_dict(obj["ClientHTTPProfile"]) if obj.get("ClientHTTPProfile") is not None else None,
+                        "ClientQUICProfile": QUICProfile.from_dict(obj["ClientQUICProfile"]) if obj.get("ClientQUICProfile") is not None else None,
                         "Connections": [Connection.from_dict(_item) for _item in obj["Connections"]] if obj.get("Connections") is not None else None,
                         "ConnectionsMaxTransactions": obj.get("ConnectionsMaxTransactions"),
                         "Description": obj.get("Description"),
@@ -180,6 +191,7 @@ class Scenario(BaseModel):
                         "ExternalResourceURL": obj.get("ExternalResourceURL"),
                         "Index": obj.get("Index"),
                         "InheritHTTPProfile": obj.get("InheritHTTPProfile"),
+                        "InheritQUICProfile": obj.get("InheritQUICProfile"),
                         "IpPreference": obj.get("IpPreference"),
                         "IsDeprecated": obj.get("IsDeprecated"),
                         "IterationCount": obj.get("IterationCount"),
@@ -191,6 +203,7 @@ class Scenario(BaseModel):
                         "QosFlowId": obj.get("QosFlowId"),
                         "ReadonlyMaxTrans": obj.get("ReadonlyMaxTrans"),
                         "ServerHTTPProfile": HTTPProfile.from_dict(obj["ServerHTTPProfile"]) if obj.get("ServerHTTPProfile") is not None else None,
+                        "ServerQUICProfile": QUICProfile.from_dict(obj["ServerQUICProfile"]) if obj.get("ServerQUICProfile") is not None else None,
                         "SupportsClientHTTPProfile": obj.get("SupportsClientHTTPProfile"),
                         "SupportsHTTPProfiles": obj.get("SupportsHTTPProfiles"),
                         "SupportsServerHTTPProfile": obj.get("SupportsServerHTTPProfile"),

@@ -27,6 +27,7 @@ class TestConfigurationsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+   
     def test_create_configs(self) -> None:
         """Test case for create_configs
 
@@ -69,29 +70,9 @@ class TestConfigurationsApi(unittest.TestCase):
         """
         pass
 
-    def test_poll_configs_batch_delete(self) -> None:
-        """Test case for poll_configs_batch_delete
 
-        """
-        pass
 
-    def test_poll_configs_export_all(self) -> None:
-        """Test case for poll_configs_export_all
 
-        """
-        pass
-
-    def test_poll_configs_import(self) -> None:
-        """Test case for poll_configs_import
-
-        """
-        pass
-
-    def test_poll_configs_import_all(self) -> None:
-        """Test case for poll_configs_import_all
-
-        """
-        pass
 
     def test_start_configs_batch_delete(self) -> None:
         """Test case for start_configs_batch_delete
@@ -122,7 +103,6 @@ class TestConfigurationsApi(unittest.TestCase):
 
         """
         pass
-
 
 if __name__ == '__main__':
     unittest.main()

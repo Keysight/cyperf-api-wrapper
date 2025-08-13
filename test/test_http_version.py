@@ -30,5 +30,6 @@ class TestHTTPVersion(unittest.TestCase):
         """Test HTTPVersion"""
         # inst = HTTPVersion()
 
+
 if __name__ == '__main__':
     unittest.main()

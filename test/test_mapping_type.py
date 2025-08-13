@@ -30,5 +30,6 @@ class TestMappingType(unittest.TestCase):
         """Test MappingType"""
         # inst = MappingType()
 
+
 if __name__ == '__main__':
     unittest.main()

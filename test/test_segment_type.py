@@ -30,5 +30,6 @@ class TestSegmentType(unittest.TestCase):
         """Test SegmentType"""
         # inst = SegmentType()
 
+
 if __name__ == '__main__':
     unittest.main()

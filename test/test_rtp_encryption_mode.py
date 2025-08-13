@@ -30,5 +30,6 @@ class TestRTPEncryptionMode(unittest.TestCase):
         """Test RTPEncryptionMode"""
         # inst = RTPEncryptionMode()
 
+
 if __name__ == '__main__':
     unittest.main()

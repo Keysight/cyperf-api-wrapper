@@ -145,6 +145,23 @@ class TestApplication(unittest.TestCase):
                         ], 
                     use_application_server_headers = True, 
                     links = , ),
+                client_quic_profile = cyperf.models.quic_profile.QUICProfile(
+                    client_tls_profile = null, 
+                    min_rto = 56, 
+                    name = '', 
+                    quic_version = null, 
+                    rx_buffer = 56, 
+                    server_tls_profile = null, 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
                 connections = [
                     cyperf.models.connection.Connection(
                         client_endpoint = '', 
@@ -202,6 +219,7 @@ class TestApplication(unittest.TestCase):
                 external_resource_url = '',
                 index = 56,
                 inherit_http_profile = True,
+                inherit_quic_profile = True,
                 ip_preference = 'IPV4_ONLY',
                 is_deprecated = True,
                 iteration_count = 56,
@@ -422,6 +440,23 @@ class TestApplication(unittest.TestCase):
                         ], 
                     use_application_server_headers = True, 
                     links = , ),
+                server_quic_profile = cyperf.models.quic_profile.QUICProfile(
+                    client_tls_profile = null, 
+                    min_rto = 56, 
+                    name = '', 
+                    quic_version = null, 
+                    rx_buffer = 56, 
+                    server_tls_profile = null, 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
                 supports_client_http_profile = True,
                 supports_http_profiles = True,
                 supports_server_http_profile = True,
@@ -521,6 +556,7 @@ class TestApplication(unittest.TestCase):
                     ],
                 inherit_tls = True,
                 is_stateless_stream = True,
+                is_streaming = True,
                 objective_weight = 56,
                 protocol_found = True,
                 server_tls_profile = cyperf.models.tls_profile.TLSProfile(
@@ -617,6 +653,7 @@ class TestApplication(unittest.TestCase):
                     ''
                     ],
                 supports_calibration = True,
+                supports_multi_flow = True,
                 supports_strikes = True,
                 supports_tls = True,
                 tracks = [
@@ -684,6 +721,7 @@ class TestApplication(unittest.TestCase):
         """Test Application"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

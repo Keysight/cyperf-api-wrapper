@@ -53,12 +53,14 @@ class TestGetResourcesApplicationTypes200Response(unittest.TestCase):
                                 metadata = cyperf.models.metadata.Metadata(
                                     direction = '', 
                                     is_banner = True, 
+                                    is_streaming = True, 
                                     keywords = [
                                         null
                                         ], 
                                     legacy_names = [
                                         ''
                                         ], 
+                                    no_multi_flow_support = True, 
                                     protocol = '', 
                                     rtp_profile_meta = cyperf.models.rtp_profile_meta.RTPProfileMeta(
                                         custom_header_len_offset = 56, 
@@ -85,30 +87,19 @@ class TestGetResourcesApplicationTypes200Response(unittest.TestCase):
                                 name = '', 
                                 parameters = [
                                     cyperf.models.parameter.Parameter(
-                                        default_array_elements = [
-                                            {
-                                                'key' : ''
-                                                }
+                                        matches = [
+                                            cyperf.models.parameter_match.ParameterMatch(
+                                                match_location = [
+                                                    ''
+                                                    ], 
+                                                match_type = '', 
+                                                regex_match = cyperf.models.regex_match.RegexMatch(
+                                                    patterns = [
+                                                        ''
+                                                        ], ), )
                                             ], 
-                                        default_source = '', 
-                                        default_value = '', 
-                                        element_type = '', 
-                                        sources = [
-                                            ''
-                                            ], 
-                                        type = '', 
+                                        name = '', 
                                         field = '', 
-                                        id = '', 
-                                        links = [
-                                            cyperf.models.api_link.APILink(
-                                                content_type = '', 
-                                                href = '', 
-                                                method = '', 
-                                                name = '', 
-                                                references_count = 56, 
-                                                rel = '', 
-                                                type = '', )
-                                            ], 
                                         operator = '', 
                                         query_param = '', )
                                     ], 
@@ -176,6 +167,8 @@ class TestGetResourcesApplicationTypes200Response(unittest.TestCase):
                         metadata = cyperf.models.metadata.Metadata(
                             direction = '', 
                             is_banner = True, 
+                            is_streaming = True, 
+                            no_multi_flow_support = True, 
                             protocol = '', 
                             requires_uniqueness = True, 
                             severity = '', 
@@ -186,12 +179,8 @@ class TestGetResourcesApplicationTypes200Response(unittest.TestCase):
                         name = '', 
                         parameters = [
                             cyperf.models.parameter.Parameter(
-                                default_source = '', 
-                                default_value = '', 
-                                element_type = '', 
-                                type = '', 
+                                name = '', 
                                 field = '', 
-                                id = '', 
                                 operator = '', 
                                 query_param = '', )
                             ], 
@@ -210,7 +199,16 @@ class TestGetResourcesApplicationTypes200Response(unittest.TestCase):
                         supports_strikes = True, 
                         supports_tls = True, 
                         id = '', 
-                        links = , )
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], )
                     ],
                 total_count = 56
             )
@@ -223,6 +221,7 @@ class TestGetResourcesApplicationTypes200Response(unittest.TestCase):
         """Test GetResourcesApplicationTypes200Response"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
+
 
 if __name__ == '__main__':
     unittest.main()

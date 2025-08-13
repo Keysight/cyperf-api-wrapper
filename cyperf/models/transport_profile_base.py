@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.http_profile import HTTPProfile
+from cyperf.models.quic_profile import QUICProfile
 from cyperf.models.rtp_profile import RTPProfile
 from cyperf.models.tcp_profile import TcpProfile
 from cyperf.models.tls_profile import TLSProfile
@@ -35,17 +36,19 @@ class TransportProfileBase(BaseModel):
     TransportProfileBase
     """ # noqa: E501
     client_http_profile: Optional[HTTPProfile] = Field(default=None, description="The client HTTP profile used in the Scenario.", alias="ClientHTTPProfile")
+    client_quic_profile: Optional[QUICProfile] = Field(default=None, alias="ClientQUICProfile")
     client_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ClientTLSProfile")
     client_tcp_profile: Optional[TcpProfile] = Field(default=None, alias="ClientTcpProfile")
     ip_tos: Optional[StrictInt] = Field(default=None, alias="IpTos")
     rtp_profile: Optional[RTPProfile] = Field(default=None, alias="RTPProfile")
     server_http_profile: Optional[HTTPProfile] = Field(default=None, description="The server HTTP profile used in the Scenario.", alias="ServerHTTPProfile")
+    server_quic_profile: Optional[QUICProfile] = Field(default=None, alias="ServerQUICProfile")
     server_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ServerTLSProfile")
     server_tcp_profile: Optional[TcpProfile] = Field(default=None, alias="ServerTcpProfile")
     udp_profile: Optional[UdpProfile] = Field(default=None, alias="UdpProfile")
     vlan_prio: Optional[StrictInt] = Field(default=None, alias="VlanPrio")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["ClientHTTPProfile", "ClientTLSProfile", "ClientTcpProfile", "IpTos", "RTPProfile", "ServerHTTPProfile", "ServerTLSProfile", "ServerTcpProfile", "UdpProfile", "VlanPrio", "links"]
+    __properties: ClassVar[List[str]] = ["ClientHTTPProfile", "ClientQUICProfile", "ClientTLSProfile", "ClientTcpProfile", "IpTos", "RTPProfile", "ServerHTTPProfile", "ServerQUICProfile", "ServerTLSProfile", "ServerTcpProfile", "UdpProfile", "VlanPrio", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,6 +92,9 @@ class TransportProfileBase(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of client_http_profile
         if self.client_http_profile:
             _dict['ClientHTTPProfile'] = self.client_http_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of client_quic_profile
+        if self.client_quic_profile:
+            _dict['ClientQUICProfile'] = self.client_quic_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of client_tls_profile
         if self.client_tls_profile:
             _dict['ClientTLSProfile'] = self.client_tls_profile.to_dict()
@@ -101,6 +107,9 @@ class TransportProfileBase(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of server_http_profile
         if self.server_http_profile:
             _dict['ServerHTTPProfile'] = self.server_http_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of server_quic_profile
+        if self.server_quic_profile:
+            _dict['ServerQUICProfile'] = self.server_quic_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of server_tls_profile
         if self.server_tls_profile:
             _dict['ServerTLSProfile'] = self.server_tls_profile.to_dict()
@@ -132,11 +141,13 @@ class TransportProfileBase(BaseModel):
 
         _obj = cls.model_validate({
             "ClientHTTPProfile": HTTPProfile.from_dict(obj["ClientHTTPProfile"]) if obj.get("ClientHTTPProfile") is not None else None,
+                        "ClientQUICProfile": QUICProfile.from_dict(obj["ClientQUICProfile"]) if obj.get("ClientQUICProfile") is not None else None,
                         "ClientTLSProfile": TLSProfile.from_dict(obj["ClientTLSProfile"]) if obj.get("ClientTLSProfile") is not None else None,
                         "ClientTcpProfile": TcpProfile.from_dict(obj["ClientTcpProfile"]) if obj.get("ClientTcpProfile") is not None else None,
                         "IpTos": obj.get("IpTos"),
                         "RTPProfile": RTPProfile.from_dict(obj["RTPProfile"]) if obj.get("RTPProfile") is not None else None,
                         "ServerHTTPProfile": HTTPProfile.from_dict(obj["ServerHTTPProfile"]) if obj.get("ServerHTTPProfile") is not None else None,
+                        "ServerQUICProfile": QUICProfile.from_dict(obj["ServerQUICProfile"]) if obj.get("ServerQUICProfile") is not None else None,
                         "ServerTLSProfile": TLSProfile.from_dict(obj["ServerTLSProfile"]) if obj.get("ServerTLSProfile") is not None else None,
                         "ServerTcpProfile": TcpProfile.from_dict(obj["ServerTcpProfile"]) if obj.get("ServerTcpProfile") is not None else None,
                         "UdpProfile": UdpProfile.from_dict(obj["UdpProfile"]) if obj.get("UdpProfile") is not None else None,
