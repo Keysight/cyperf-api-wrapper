@@ -44,7 +44,7 @@ if __name__ == "__main__":
         # Create a session
         session = None
         print("Creating session from config called 'Not Working From Home Traffic Mix' ...")
-        api_session_response = api_session_instance.create_sessions(sessions=sessions)
+        api_session_response = api_session_instance.create_sessions(session=sessions)
         session = api_session_response[0]
         print("Session created.\n")
 

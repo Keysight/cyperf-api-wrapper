@@ -44,7 +44,7 @@ if __name__ == "__main__":
         # Create a session
         session = None
         print("Creating empty session...")
-        api_session_response = api_session_instance.create_sessions(sessions=sessions)
+        api_session_response = api_session_instance.create_sessions(session=sessions)
         session = api_session_response[0]
         print("Session created.\n")
 
@@ -188,3 +188,4 @@ if __name__ == "__main__":
         file_name = file_path[last_separator_index + 1:]
     
         print(f"Exported as: '{file_name}' at {directory}\n")
+
