@@ -1,0 +1,745 @@
+import cyperf
+import os
+import re
+import utils
+import urllib3; urllib3.disable_warnings()
+import argparse
+import yaml 
+from pprint import pprint
+import asyncio
+import csv
+import pandas as pd
+from collections import Counter
+import math
+
+file_path = 'samples/test_parameters.yml'
+
+def replace_zeros_with_ones(lst):
+    arr = np.array(lst)
+    arr[arr == 0] = 1
+    return arr.tolist()
+
+def merge_duplicate_entries(csv_file_path):
+    # Read the CSV file
+    df = pd.read_csv(csv_file_path)
+
+    # Group by the first column and sum the values
+    merged_df = df.groupby(df.columns[0])[df.columns[1]].sum().reset_index()
+
+    return merged_df
+
+def convert_to_integers(numbers):
+    # Calculate the greatest common divisor (GCD) of the numbers
+    def gcd(a, b):
+        while b:
+            a, b = b, a % b
+        return a
+
+    # Find the least common multiple (LCM) of the denominators
+    def lcm(a, b):
+        return a * b // gcd(a, b)
+
+    # Convert floats to fractions
+    fractions = []
+    for num in numbers:
+        if isinstance(num, int):
+            fractions.append((num, 1))
+        else:
+            denominator = 10 ** len(str(num).split('.')[1])
+            numerator = int(num * denominator)
+            gcd_val = gcd(numerator, denominator)
+            fractions.append((numerator // gcd_val, denominator // gcd_val))
+
+    # Find the LCM of the denominators
+    lcm_denominator = 1
+    for _, denominator in fractions:
+        lcm_denominator = lcm(lcm_denominator, denominator)
+
+    # Convert fractions to integers while maintaining ratios
+    integers = []
+    for numerator, denominator in fractions:
+        integers.append(numerator * lcm_denominator // denominator)
+
+    # Find the GCD of the integers
+    gcd_integers = integers[0]
+    for num in integers[1:]:
+        gcd_integers = gcd(gcd_integers, num)
+
+    # Divide all integers by the GCD to get the smallest possible integers
+    integers = [num // gcd_integers for num in integers]
+
+    #print("SOUMYA BEFORE LIMITING !")
+    #print(integers)
+
+    # Limit the integer values to 10000
+    
+    max_value = max(integers)
+    if max_value > 10000: #cyperf limits weights upto 10K
+        ratio = max_value / 10000
+        integers = [int(num / ratio) for num in integers]
+
+    #eliminate any zero weights as they are not configurable in CyPerf . Convert all zeros to ONES .
+    non_zero_integers=[1 if x == 0 else x for x in integers]
+
+    return non_zero_integers
+
+
+def get_file_names(folder_path):
+    file_names = []
+    for filename in os.listdir(folder_path):
+        if os.path.isfile(os.path.join(folder_path, filename)):
+            file_name_without_extension = os.path.splitext(filename)[0]
+            file_names.append(file_name_without_extension)
+    return file_names
+
+def convert_to_next_highest(dictionary):
+             return {key: math.ceil(value) for key, value in dictionary.items()}
+        
+
+def remove_values(input_string, separator='-', values_to_remove=['ms', 'base', 'ds', 'as']):
+    words = input_string.split(separator)
+    filtered_words = [word for word in words if word not in values_to_remove]
+    return ' '.join(filtered_words)
+
+def find_key_by_value(dictionary, value):
+    for key, val in dictionary.items():
+        if val == value:
+            return key
+    return None
+
+def extract_first_word(input_string):
+    return input_string.split(' ')[0]
+
+def check_string_position(input_string, target_string):
+    words = target_string.split()
+    if input_string == words[0]:
+        return "Start"
+    elif input_string == words[-1]:
+        return "Last"
+    elif input_string in words[1:-1]:
+        return "Middle"
+    else:
+        return "Not found"
+
+def display_menu():
+    print(" Please select one of the following option [1/2/3] ")
+    print("[1] Manually upload the captures and use capture convertor to improve the coverage percentage")
+    print("[2] Try to Automatically find captures from BPS and use capture convertor to improve coverage percentage")
+    print("[3] Dont continue with Test execution")
+
+def get_user_choice():
+    while True:
+        try:
+            choice = int(input("Please select an option (1, 2, or 3): "))
+            if 1 <= choice <= 3:
+                return choice
+            else:
+                print("Invalid option. Please choose 1, 2, or 3.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+def process_choice(choice):
+    if choice == 1:
+        print("You chose Option 1")
+    elif choice == 2:
+        print("You chose Option 2")
+    elif choice == 3:
+        print("You chose Option 3")
+
+def find_matching_string(search_str, string_list):
+    matching_strings = [string for string in string_list if search_str in string]
+    return matching_strings
+
+
+def remove_suffix(string, suffix="-base"):
+    if string.endswith(suffix):
+        return string[:-len(suffix)]
+    return string
+
+def find_indices(my_list, target_string, exact_match=False):
+    if exact_match:
+        return [i for i, s in enumerate(my_list) if s == target_string]
+    else:
+        return [i for i, s in enumerate(my_list) if target_string in s]
+
+def common_items(dictionary):
+    # Check if dictionary is empty
+    if not dictionary:
+        return []
+
+    # Find the intersection of all lists
+    common = set(dictionary[list(dictionary.keys())[0]])
+    for key in dictionary:
+        common = common.intersection(set(dictionary[key]))
+        print(common)
+    return list(common)
+
+def select_best_matching_app(dump_app_dict,cyperf_apps,first_word):
+   
+    list_common = common_items(dump_app_dict)
+    
+    if (not len(list_common)):
+        print("SOUMYA : There was no common item")
+        tmp_list=[]
+        for ele in cyperf_apps:
+            posi= check_string_position(first_word,ele)
+            #print(posi)
+            if posi == "Not found":
+                continue;
+            else:
+                tmp_list.append(ele)
+                print("tmp_list")
+                print(tmp_list)
+        print ("the return valr from func select_best_matching_app is ")
+        print (sorted(tmp_list, key=len, reverse=False))
+        return sorted(tmp_list, key=len, reverse=False)
+
+    else:
+        print("SOUMYA: Common item was found in intersection ")
+        print(sorted(list_common, key=len, reverse=False))
+        sorted_list = sorted(list_common, key=len, reverse=False)
+        return sorted_list
+    
+
+
+#This function needs refinement. This is crucial to matching the apps in our Library .
+def convert_app_names_to_common_names(application_dict):
+    for item in application_dict:
+        app_name= item
+        #if the user-specified application name does not contain hyphen('-') then include it as-is in the list
+        if(app_name.find("-")==-1):
+            application_dict[item].append(app_name)
+        #if the user-specified application name contains suffix ( -base ) , prefix (ms-) ,etc  remove them . This will help in search.
+        else:
+            temp_list= re.split(r"[- ]", app_name)
+            # strings_to_remove list needs to be updated on regular basis 
+            strings_to_remove=["base","ms","as","ds"]
+            #list1 = [element for element in list1 if element not in list2]
+            #result = [s for s in temp_list if s not in strings_to_remove]
+            result = [s for s in temp_list if s not in strings_to_remove]
+            application_dict[item].extend(result)
+    return application_dict
+
+
+#read a yml file and return a dictionary 
+def read_yaml_file(file_path):
+  
+    try:
+        with open(file_path, 'r') as file:
+            yaml_data = yaml.safe_load(file)
+            return yaml_data
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        return {}
+    except yaml.YAMLError as e:
+        print(f"Error parsing YAML file: {e}")
+        return {}
+
+#read the test_parameters from the yml file and populate into variables 
+yaml_dict = read_yaml_file(file_path)
+
+print(yaml_dict)
+
+#populate the variables with user inputs
+capture_folder_path                   = yaml_dict["location_of_folder_containing_captures"]
+name_of_existing_cyperf_configuration = yaml_dict["name_of_existing_cyperf_configuration"]
+csv_path                              = yaml_dict["csv_path"]
+exact_match                           = yaml_dict["exact_match"]
+threshold_coverage_percentage         = int(yaml_dict["threshold_coverage_percentage"])
+percentage                            = yaml_dict["percentage"]
+dictionary_path                       = yaml_dict["dictionary_path"]
+
+#Load the configuration or check if the configuration is already loaded and having an active session id.
+#Only the loading part is imlemented . In case the configuartion is already loaded and has an active session-id 
+#we need to delete the application-profile and create a new one based on the app_mix.csv ( this is TBD )
+class AppMixBuilderTest (object):
+    def __init__ (self, capture_folder_path ,name_of_existing_cyperf_configuration ,csv_path , agent_map={} , re_entry=0):
+        args, offline_token = utils.parse_cli_options()
+        self.utils          = utils.Utils(args.controller,
+                                          username=args.user,
+                                          password=args.password,
+                                          refresh_token=offline_token,
+                                          license_server=args.license_server,
+                                          license_user=args.license_user,
+                                          license_password=args.license_password)
+
+
+
+        self.capture_folder_path                      = capture_folder_path
+        self.name_of_existing_cyperf_configuration    = name_of_existing_cyperf_configuration
+        self.csv_path                                 = csv_path
+        self.agent_map                                = agent_map
+        self.local_stats                              = {}
+        self.re_entry                                 = re_entry
+        
+    def __del__(self):
+        self._release()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exception_type, exception_value, exception_traceback): 
+        self._release()
+        if exception_value:
+            raise (exception_value)
+
+    def _release(self):
+        try:
+            if self.session:
+                print('Deleting session')
+                self.utils.delete_session(self.session)
+                print('Deleted session')
+                self.session = None
+        except AttributeError:
+            pass
+
+    def _set_objective_and_timeline(self):
+        # Change the objective type to 'Simulated Users'. 'Throughput' is not yet supported for UDP Stream.
+        self.utils.set_objective_and_timeline(self.session,
+                                              objective_type=cyperf.ObjectiveType.SIMULATED_USERS,
+                                              objective_value=1000,
+                                              test_duration=self.test_duration)
+
+    #function to read the input CSV file which contains 2 coulums - (a)Application Name (b) percentage
+    def read_csv_file(self):
+        data_dict = {}
+        with open(self.csv_path, 'r') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                if len(row) == 2:
+                    key, value = row
+                    data_dict[key] = value
+                else:
+                    print(f"Skipping row: {row}. Expected 2 columns, but got {len(row)}.")
+        return data_dict
+    
+    def csv_to_dict(self,filename):
+        data_dict = {}
+        with open(filename, 'r') as file:
+            reader = csv.reader(file)
+            next(reader)  # Skip the header row
+            for row in reader:
+                if len(row) == 2:  # Ensure the row has exactly two columns
+                    data_dict[row[0]] = row[1]
+        return data_dict
+
+    def sum_percentage_and_populate_applications(self):
+        try:
+            df = pd.read_csv(self.csv_path)
+            total_percentage = df['percentage'].sum()
+            applications = df['application'].tolist()
+            percentages = df['percentage'].tolist()
+            return total_percentage, applications,percentages
+        except pd.errors.EmptyDataError:
+            print("The CSV file is empty.")
+            return None, None, None
+        except KeyError as e:
+            print(f"The CSV file is missing the column: {e}")
+            return None, None, None
+        
+    def populate_applications_and_weights(self):
+        try:
+            df = pd.read_csv(self.csv_path) 
+            applications = df['application'].tolist()
+            weights_raw = df['weight'].tolist()
+            #process the weights such that they are convered to integers and in propoer ratio 
+            weights=convert_to_integers(weights_raw)
+            print(" I am inside populate application  weights ")
+            print(applications)
+            print(weights)
+            return applications,weights
+        except pd.errors.EmptyDataError:
+            print("The CSV file is empty.")
+            return None, None
+        except KeyError as e:
+            print(f"The CSV file is missing the column: {e}")
+            return None, None
+
+    
+    def percentages_to_weights(self, percentages):
+        total_percentage = sum(percentages)
+        weights = [round(p / total_percentage * 100) for p in percentages]
+        # Ensure no weight is zero
+        min_weight = min(weights)
+        if min_weight == 0:
+            zero_indices = [i for i, w in enumerate(weights) if w == 0]
+            for i in zero_indices:
+                weights[i] = 1
+            # Adjust weights to ensure they sum up to 100
+            diff = sum(weights) - 100
+            weights[weights.index(max(weights))] -= diff
+        else:
+            # Adjust weights to ensure they sum up to 100
+            diff = 100 - sum(weights)
+            weights[weights.index(max(weights))] += diff
+        return weights
+
+    #Configure the Applications with their corresponding weights in CyPerf             
+    def configure_appmix_test(self):
+
+        #check if the input csv ( appmix name & % weights provided by user ) contains any duplicate entry in aplication 
+        #coulum , In case it does we need to coaslese them into a single entry by adding weights 
+        merged_df = merge_duplicate_entries(csv_path)
+        print(merged_df)
+
+        # Save the merged DataFrame to a the CSV file
+        merged_df.to_csv(csv_path, index=False)
+
+        if (percentage == "True"):
+            total_percentage, applications, percenatges  = self.sum_percentage_and_populate_applications()
+            
+            if(total_percentage < 99 or total_percentage > 101):
+                print("You must fix the percentages such that they add upto 100 ")
+            else:
+                #if percentages of all the userinput adds close to 100 , then convert them into non-zero weights
+                weights = self.percentages_to_weights(percenatges)
+        else:
+            applications, weights = self.populate_applications_and_weights()
+
+       
+        #create a dictionary to store the user-input applications and their corresponding weights
+        input_app_dict_tmp = dict(zip(applications, weights)) 
+
+        print(input_app_dict_tmp)
+        #covert the weights to the nearest integer ceiling value 
+        input_app_dict=convert_to_next_highest(input_app_dict_tmp)
+       
+        #Search a  configuation by name as provided in the test-aparmeters.yml file ( example - PANW-APPMIX)
+        if (self.utils.search_configuration_file(name_of_existing_cyperf_configuration)):
+            #load the configuration and create a test session 
+            try:
+               session_appmix=self.utils.create_session_by_config_name(name_of_existing_cyperf_configuration)
+               print("The Base Configuration Template was loaded successfully !")
+            except Exception:
+                print("The Base Configuration Template was not loaded successfully !")
+                return False
+            
+            #create the CyPerf app-dictionary
+            app_dictionary= self.csv_to_dict(dictionary_path)
+            target_app_mix_dict={}
+            not_found_apps=[]
+            matching_matrix_dict={}
+            found=0 
+            for item in input_app_dict:
+                cyperf_app_name=app_dictionary.get(item)
+                if(cyperf_app_name):
+                    found=found+1
+                    #check if it present earlier in the dictionary - in that case we need to modify weights 
+                    if (cyperf_app_name in target_app_mix_dict ):
+                        adjusted_weight= target_app_mix_dict[cyperf_app_name] + input_app_dict[item]
+                        input_app_dict[item]=adjusted_weight
+                        
+                    target_app_mix_dict.update({cyperf_app_name:input_app_dict[item]})
+                    matching_matrix_dict.update({item:cyperf_app_name})
+                else:
+                    
+                    not_found_apps.append(item)
+
+           
+            #Reports for users 
+            print(" = = = = = = = = = = = = = = = = = = = = = = = = = = = == = = = = = = = = ")
+            print(f"Total applications provided in the CSV file = {len(input_app_dict.keys())}")
+            #pprint(new_app_dict.keys())
+            #print(f"Total applications found in CyPerf Libarary  = {len(target_app_mix_dict.keys())}")
+            print(f"Total applications found in CyPerf Libarary  = {found}")
+            #pprint(target_app_mix_dict.keys())
+            print(f"Total non matching application = {len(not_found_apps)}")
+            pprint(not_found_apps)
+            print("Matching matrix")
+            print(matching_matrix_dict)
+            print(" = = = = = = = = = = = = = = = = = = = = = = = = = = = == = = = = = = = = \n")
+            #Coverage Percenatge : (This is the ratio of applications found in CyPerf Library / Total number of application presented by the user )
+            #A higher Covergae ratio incicates that most of the applications were found in the CyPerf Library 
+            
+            coverage_percent = (len(target_app_mix_dict.keys())/len((input_app_dict.keys())))*100
+            print(f"coverage Percentage = {coverage_percent}")
+            print(" = = = = = = = = = = = = = = = = = = = = = = = = = = = == = = = = = = = = \n")
+
+            session_deleted=False
+            if(threshold_coverage_percentage == 0 ):
+                #Menu Driven option to the user 
+                decision=input("Do you wish to continue with the existing Coverage percentage [Y/N]?: ")
+                if (decision.lower() == 'y'):
+                    #start the configuration of the test and subsequently run the test 
+                    self.utils.add_apps_with_weights(session_appmix,target_app_mix_dict)
+                    self.utils.set_objective_and_timeline(session_appmix,objective_type=cyperf.ObjectiveType.SIMULATED_USERS,
+                                   objective_unit=cyperf.ObjectiveUnit.EMPTY,
+                                   objective_value=100,
+                                   test_duration=30)
+                    #self.utils.check_if_traffic_enabled(session)
+                    print ("configuration complete !")
+                    
+                elif (decision.lower() == 'n' and self.re_entry == 0 ) :
+                     while True:
+                            display_menu()
+                            choice = get_user_choice()
+                            process_choice(choice)
+                            cont = input("Do you want to continue? (y/n): ")
+                            if cont.lower() != 'y':
+                                break
+                     
+                     
+                            if(choice == 1):
+                                #This part requires automation . TBD 
+                                print("Delete any existing capture files in the capture Folder & ensure the name of the capture file is same as the name of the app you provided in the CSV (application, weight) ")
+                                user_input =input("Upload the capture files of missing applications manually to the capture folder and type -\"continue\" ")
+                                if(user_input.lower()== "continue"):
+                                    #start updating the master dictionary after reading the capture folder 
+                                    #read the capture folder and gather all the new capture names in a list 
+                                    filenames=get_file_names(capture_folder_path)
+                                    #update the master csv - whic conyains teh dictionary mapping between user-input & cyPerf appnames 
+                                    # Create a DataFrame from the list
+                                    df = pd.DataFrame({'app-id': filenames, 'cyperf-appname': ['CCA-'+ filename for filename in filenames]})
+
+                                    # Check if the CSV file exists
+                                    try:
+                                        existing_df = pd.read_csv(dictionary_path)
+                                        combined_df = pd.concat([existing_df, df])
+                                        combined_df.to_csv(dictionary_path, index=False)
+                                    except FileNotFoundError:
+                                        df.to_csv(dictionary_path, index=False)
+
+                                    #start creating the custom applications 
+                                    asyncio.run(capture_convertor_and_custom_app_builder())
+                                    print("Exiting the present Test . Reruning Test again and check coverage improvement")
+                                    self.utils.delete_session(session_appmix)
+                                    start_appmixbuilder_test(re_entry=1)
+                                    break;
+                                else:
+                                    print("Invalid input ! ")
+                            elif(choice == 2):
+                                user_input =input("Trying to fetch captures from known repo & creating custom application")
+                                #start creating the custom applications
+                                print("This is under implementation ! ... exiting the test!")
+                                if(self.utils.session_appmix.id):
+                                    self.utils.delete_session(session_appmix)
+                                    session_deleted=True
+                                    break;
+                            elif(choice == 3):
+                                print("Stopping the execution ! ")
+                                #raise Exception(" TEST STOPPED ! ")
+                                if(not session_deleted):
+                                     self.utils.delete_session(session_appmix)
+                                break;
+                elif (decision.lower() == 'n' and self.re_entry == 1 ) :
+                    print("Stopping the execution ! ")
+                    #raise Exception(" TEST STOPPED ! ")
+                    if(not session_deleted):
+                        self.utils.delete_session(session_appmix)
+                    
+                else:
+                    print("Invalid ! option selected ")
+                
+            #If threshold percentage is non-zero the decision to configure and run the test is driven by the threshold percenatge & covergae percentage 
+            else:
+                if(threshold_coverage_percentage <= coverage_percent):    
+                    #add_application-mix along with weights to the CyPerf 
+                    self.utils.add_apps_with_weights(session_appmix,target_app_mix_dict)
+                    #self.utils.check_if_traffic_enabled(session)
+                    print ("configuration complete !")
+                    print ( "Starting test ")
+                    #start the test 
+                    #self.utils.delete_session(session_appmix.id)
+                else:
+                    #need to stop the test 
+                    #raise Exception ( " APPLICATION COVERAGE INADEQUATE FOR PROCEDDING WITH TEST Configuration !! ")
+                    print(" APPLICATION COVERAGE INADEQUATE FOR PROCEDDING WITH TEST Configuration !!")
+                    self.utils.delete_session(session_appmix.id)
+
+
+    def _set_objective_and_timeline(self):
+        # Change the objective type to 'Simulated Users'. 'Throughput' is not yet supported for UDP Stream.
+        self.utils.set_objective_and_timeline(self.session,
+                                              objective_type=cyperf.ObjectiveType.SIMULATED_USERS,
+                                              objective_value=1000,
+                                              test_duration=30)
+
+class CaptureReplayTest (object):
+    def __init__(self, capture_folder_path ,agent_map={}):
+        args, offline_token = utils.parse_cli_options()
+        self.utils          = utils.Utils(args.controller,
+                                          username=args.user,
+                                          password=args.password,
+                                          refresh_token=offline_token,
+                                          license_server=args.license_server,
+                                          license_user=args.license_user,
+                                          license_password=args.license_password)
+
+        
+        
+        self.capture_folder_path = capture_folder_path
+        self.agent_map      = agent_map
+        self.test_duration  = 60
+        self.local_stats    = {}
+
+    def __del__(self):
+        self._release()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exception_type, exception_value, exception_traceback): 
+        self._release()
+        if exception_value:
+            raise (exception_value)
+
+    def _release(self):
+        try:
+            if self.session:
+                print('Deleting session')
+                self.utils.delete_session(self.session)
+                print('Deleted session')
+                self.session = None
+        except AttributeError:
+            pass
+
+    def _set_objective_and_timeline(self):
+        # Change the objective type to 'Simulated Users'. 'Throughput' is not yet supported for UDP Stream.
+        self.utils.set_objective_and_timeline(self.session,
+                                              objective_type=cyperf.ObjectiveType.SIMULATED_USERS,
+                                              objective_value=1000,
+                                              test_duration=self.test_duration)
+    #soumo
+    def get_capture_file_paths(self):
+        try:
+          # Check if the folder exists
+          if not os.path.exists(self.capture_folder_path):
+            print(f"Error: Folder '{self.capture_folder_path}' does not exist.")
+            return []
+
+          # Get a list of all files in the folder
+          file_paths = [os.path.join(self.capture_folder_path, file) for file in os.listdir(self.capture_folder_path) if os.path.isfile(os.path.join(self.capture_folder_path, file))]
+          return file_paths
+
+        except Exception as e:          
+          print(f"An error occurred: {str(e)}")
+          return []
+
+    
+
+
+    async def configure(self):
+        print('Configuring ...')
+        #read the pcap files 
+        list_of_paths_of_pcap_files = self.get_capture_file_paths()
+        list_of_paths_of_pcap_files.reverse()
+        print(list_of_paths_of_pcap_files)
+        #upload all the captures from the specified folder ( in yml file )
+        #to CyPerf Resource Library for Captures 
+        while(list_of_paths_of_pcap_files):
+          capture_file=list_of_paths_of_pcap_files.pop()
+          print("uploading capture - {} ".format(capture_file))
+          await self.utils.upload_the_capture_file(capture_file)
+        #create an application from the uploaded captures 
+        apps_created= self.utils.create_apps_from_captures()
+        print('Conversion from pcaps to Applications complete !!!.You may now use the created apps created from pcaps.\nThe custom apps are available under the Resource Library in CyPerf Controller')
+
+    def _start(self):
+        print('Starting test ...')
+        self.utils.start_test(self.session)
+        print('Started test ...')
+
+    def _process_stats(self, stats):
+        processed_stats = self.local_stats
+        for stat in stats:
+            if stat.snapshots:
+                processed_stats[stat.name] = {}
+                for snapshot in stat.snapshots:
+                    time_stamp = snapshot.timestamp
+                    processed_stats[stat.name][time_stamp] = []
+                    d = {}
+                    for idx, stat_name in enumerate(stat.columns):
+                        d[stat_name] = [val[idx].actual_instance for val in snapshot.values]
+                    processed_stats[stat.name][time_stamp] = d
+        return processed_stats
+
+    def _print_run_time_stats(self, test, time_from, time_to):
+        stat_names = ['client-streaming-rate', 'server-streaming-rate']
+        return self.print_run_time_stats(test, time_from, time_to, stat_names)
+
+    def print_run_time_stats(self, test, time_from, time_to, stat_names):
+        last_monitored_time_stamp = None
+        for stat_name in stat_names:
+            stats = self.utils.collect_stats(test,
+                                             stat_name,
+                                             time_from,
+                                             time_to,
+                                             self._process_stats)
+            if stat_name not in stats:
+                continue
+
+            stats           = stats[stat_name]
+            last_time_stamp = max(stats)
+
+            if stat_name in self.last_recorded_time_stamps:
+                last_recorded_time_stamp = self.last_recorded_time_stamps[stat_name]
+            else:
+                last_recorded_time_stamp = 0
+
+            if last_time_stamp != last_recorded_time_stamp:
+                last_stats      = stats[last_time_stamp]
+
+                print(f'\n{stat_name} at {self.utils.format_milliseconds(last_time_stamp)}\n')
+                lines = self.utils.format_stats_dict_as_table(last_stats)
+                for line in lines:
+                    print(line)
+
+                self.last_recorded_time_stamps[stat_name] = last_time_stamp
+
+            if last_monitored_time_stamp:
+                last_monitored_time_stamp = min (max(last_time_stamp, time_from),
+                                                 last_monitored_time_stamp)
+            else:
+                last_monitored_time_stamp = max(last_time_stamp, time_from)
+
+        return last_monitored_time_stamp
+
+    def _wait_until_stopped(self):
+        self.last_recorded_time_stamps = {}
+        self.utils.wait_for_test_stop(self.session, self._print_run_time_stats)
+        print('Stopped test ...')
+
+    def run(self):
+        self._start()
+        self._wait_until_stopped()
+
+    def collect_final_stats(self):
+        print('Collecting final statistics ...')
+        stat_names  = ['client-streaming-statistics', 'server-streaming-statistics']
+        session_api = cyperf.SessionsApi(self.utils.api_client)
+        test        = session_api.get_test(session_id=self.session.id)
+        self.print_run_time_stats(test, 0, -1, stat_names)
+        print('Collected final statistics ...')
+
+
+def start_appmixbuilder_test(re_entry=0):
+      
+    agents = {
+        'IP Network 1': ['10.39.69.98'],
+        'IP Network 2': ['10.39.69.99']
+    }
+    with AppMixBuilderTest( capture_folder_path,name_of_existing_cyperf_configuration,csv_path,agents,re_entry) as test1:
+        test1.configure_appmix_test()
+        #test1._set_objective_and_timeline()
+        #test.configure()
+        #test.run()
+        #test.collect_final_stats()
+
+    
+
+#async def main():
+async def capture_convertor_and_custom_app_builder():      
+    agents = {
+        'IP Network 1': ['10.39.68.192'],
+        'IP Network 2': ['10.39.69.229']
+    }
+    
+    with CaptureReplayTest(capture_folder_path,agents) as test:
+        await test.configure()
+        #test.configure()
+        #test.run()
+        #test.collect_final_stats()
+
+if __name__ == '__main__':
+    #asyncio.run(capture_convertor_and_custom_app_builder())
+    start_appmixbuilder_test()

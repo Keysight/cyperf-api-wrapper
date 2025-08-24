@@ -1,0 +1,103 @@
+web-browsing: YYLive Microsoft Edge
+google-base: Office365 Outlook Microsoft Edge
+google-maps: Meraki Microsoft Edge
+facebook-base: iTunes Desktop
+http-video: YYLive Microsoft Edge
+alipay: Ctrip Chrome
+alisoft: Alibaba
+google-analytics: iTunes Desktop
+amazon-chime-conferencing: Amazon Chime
+amazon-chime-base: Amazon Chime
+appdynamics: AppDynamics
+appogee: Appogee
+vimeo-base: appointy Microsoft Edge
+zendesk-base: appointy Microsoft Edge
+appointy: appointy Microsoft Edge
+amazon-aws-console: AWS Console Microsoft Edge
+amazon-cloud-drive-uploading: AWS S3 Microsoft Edge
+bittorrent: BitTorrent Upload
+blogger-blog-posting: Blogger
+Web-browsing: Blogger
+youtube-base: GooglePhotos Microsoft Edge
+google-hangouts-base: GoogleHangouts Microsoft Edge
+google-hangouts-video: Blogger
+ms-ds-smbv1: CIFS
+cisco-spark-base: Cisco Spark Microsoft Edge
+webex-base: Cisco Spark Microsoft Edge
+cisco-spark-file-transfer: Cisco Spark Microsoft Edge
+jira-base: Jira Service Desk
+confluence-downloading: Confluence
+dns-base: DNS Flood
+http-audio: Skype Microsoft Edge
+facebook-voice: Facebook Audio Microsoft Edge
+facebook-uploading: FacebookLive Chrome
+facebook-posting: FacebookLive Microsoft Edge
+facebook-chat: FacebookLive Microsoft Edge
+facebook-video: FacebookLive Microsoft Edge
+ftp: FTP
+gmail-base: Gmail Chrome
+gmail-downloading: Gmail Chrome
+gmail-posting: Gmail Chrome
+gmx-mail: GMX Mail
+google: Google Classroom Microsoft Edge
+google-drive-web: Google Drive Microsoft Edge
+google-play: GooglePhotos Microsoft Edge
+google-plus-base: GoogleHangouts Microsoft Edge
+google-calendar-base: Google Calendar
+google-classroom: Google Classroom Chrome
+google-app-engine: Google Cloud Storage
+google-safebrowsing: Google Cloud Storage
+google-docs-downloading: Google Drive Microsoft Edge
+google-docs-posting: Google Slides Microsoft Edge
+google-docs-base: Google Slides Microsoft Edge
+google-docs-uploading: GoogleHangouts Microsoft Edge
+google-hangouts-audio-video: GoogleHangouts Microsoft Edge
+google-hangouts-chat: GoogleHangouts Microsoft Edge
+google-photos-uploading: GooglePhotos Microsoft Edge
+google-photos-downloading: GooglePhotos Microsoft Edge
+instagram-base: Google Search
+google-update: Google Search
+apache-guacamole: Guacamole
+hbo: HBOMax
+hulu-base: Hulu Microsoft Edge
+c37.118-cmd-frame-send-cfg-2: IEEE C37.118 Synchrophasor UDP
+jira-posting: Jira Service Desk
+qq-games: League of Legends Microsoft Edge
+mqtt-disconnect: MQTT Subscriber
+mail.ru-base: Mail.ru Microsoft Edge
+mms-ics-base: Manufacturing Message Specification (MMS) 
+ocsp: Meraki Microsoft Edge
+new-relic: Meraki Microsoft Edge
+windows-azure-base: Microsoft Azure Chrome
+modbus-read-fifo-queue: Modbus
+mongodb-base: MongoDB
+mssql-db-unencrypted: MS-SQL Server
+portmapper: NFSv3
+hotmail: Office365 Excel Microsoft Edge
+office365-consumer-access: Skype 8 Microsoft Edge
+ms-office365-base: Office365 Outlook Microsoft Edge
+ms-onedrive-base: Office365 Outlook Microsoft Edge
+outlook-web-online: Yammer Microsoft Edge
+ms-onedrive-downloading: Office365 OneNote
+ms-powerpoint-online: Office365 OneNote
+ms-onedrive-uploading: Office365 OneDrive Microsoft Edge
+outlook-web: Office365 OneNote
+ms-onenote-base: Office365 OneNote
+ms-outlook-personal-uploading: Office365 Outlook Microsoft Edge
+odnoklassniki-base: OK.ru Microsoft Edge
+oracle: Oracle Database
+pop3: POP3
+postgres: PostgreSQL
+reddit-base: Reddit Microsoft Edge
+reddit-posting: Reddit Microsoft Edge
+salesforce-base: Salesforce Microsoft Edge
+service-now-editing: Service-Now Microsoft Edge
+sina-weibo-base: Sina Weibo Microsoft Edge
+skype: Skype Microsoft Edge
+smtp-exception: SMTP
+tubitv: Tubi Microsoft Edge
+weather-desktop: TWC Microsoft Edge
+vkontakte-base: VKontakte Microsoft Edge
+vkontakte-chat: VKontakte Microsoft Edge
+yammer-editing: Yammer Microsoft Edge
+zoom: Zoom Classroom Teacher

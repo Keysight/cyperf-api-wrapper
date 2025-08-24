@@ -1,0 +1,25 @@
+#Path of the folder where the captures will be stored . These will be used to convert to custom- applications
+location_of_folder_containing_captures : "/mnt/c/git-new-features/cyperf-api-wrapper/samples/capture_folder"
+
+#The name of the Base Configuration Template where the application profile needs to be configured . 
+#This template must not have any pre-configured Application profile. 
+name_of_existing_cyperf_configuration : "PANW-APPMIX"
+
+#The path of the csv file
+#This file contains input in form of csv [ application name , weights/percentage ]format 
+csv_path : "/mnt/c/git-new-features/cyperf-api-wrapper/samples/combined_report.csv"
+
+#weights or percentage provided for the application if percentage is False , then direct weights are provided 
+percentage: False
+
+#When set to True the user wishes to have exact name macthes with the CyPerf Libarary
+#It is recommended to keep the boolean value as False for maximum coverage 
+exact_match : False
+
+#If the coverage percentage is equal to or greater than the non-zero threshold value ; then only the test will start running .
+#If the threshold value is set to zero, the script enters interactive mode (menu driven) 
+threshold_coverage_percentage : 0
+
+#dictionary- which contains mapping between app-id and the Cyperf app names- no need to modify this  
+dictionary_path: "/mnt/c/git-new-features/cyperf-api-wrapper/samples/pan_app_id_to_cyperf_app_mappings.csv"
+#dictionary_path: "/mnt/c/new_python_automation_panw/cyperf-api-wrapper/samples/dictionary-of-app-id_bkp.csv"

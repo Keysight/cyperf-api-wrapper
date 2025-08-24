@@ -51,6 +51,7 @@ class UDPTest (object):
     def configure(self):
         print('Configuring ...')
         self.utils.add_app(self.session, 'UDP Stream')
+        #import pdb;pdb.set_trace()
         self.utils.disable_automatic_network(self.session)
         if self.agent_map:
             self.utils.assign_agents(self.session, self.agent_map)
