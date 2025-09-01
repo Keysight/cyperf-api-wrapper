@@ -18,26 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.ports_by_controller import PortsByController
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class Port(BaseModel):
+class UpdatePortTagsOperation(BaseModel):
     """
-    Port
+    UpdatePortTagsOperation
     """ # noqa: E501
-    disabled: Optional[StrictBool] = Field(default=None, description="Whether the port is disabled or not")
-    id: Optional[StrictStr] = Field(default=None, description="The port's unique identifier")
-    link: Optional[StrictStr] = Field(default=None, description="The link state of the port: up or down")
-    name: Optional[StrictStr] = Field(default=None, description="A user-friendly display name for the port")
-    reserved_by: Optional[StrictStr] = Field(default=None, description="The owner of the port", alias="reservedBy")
-    speed: Optional[StrictStr] = Field(default=None, description="The port's speed")
-    status: Optional[StrictStr] = Field(default=None, description="The current status of the port: ready or not ready")
-    tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags")
-    traffic_status: Optional[StrictStr] = Field(default=None, description="The traffic status of the port", alias="trafficStatus")
-    __properties: ClassVar[List[str]] = ["disabled", "id", "link", "name", "reservedBy", "speed", "status", "tags", "trafficStatus"]
+    controllers: Optional[List[PortsByController]] = Field(default=None, description="The controllers that the ports are part of.")
+    tags_to_add: Optional[List[StrictStr]] = Field(default=None, description="The list of tags to add to the port selection", alias="tagsToAdd")
+    tags_to_remove: Optional[List[StrictStr]] = Field(default=None, description="The list of tags to remove from the port selection", alias="tagsToRemove")
+    __properties: ClassVar[List[str]] = ["controllers", "tagsToAdd", "tagsToRemove"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,7 +52,7 @@ class Port(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Port from a JSON string"""
+        """Create an instance of UpdatePortTagsOperation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,11 +73,18 @@ class Port(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in controllers (list)
+        _items = []
+        if self.controllers:
+            for _item in self.controllers:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['controllers'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Port from a dict"""
+        """Create an instance of UpdatePortTagsOperation from a dict"""
         if obj is None:
             return None
 
@@ -92,15 +94,9 @@ class Port(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "disabled": obj.get("disabled"),
-                        "id": obj.get("id"),
-                        "link": obj.get("link"),
-                        "name": obj.get("name"),
-                        "reservedBy": obj.get("reservedBy"),
-                        "speed": obj.get("speed"),
-                        "status": obj.get("status"),
-                        "tags": obj.get("tags"),
-                        "trafficStatus": obj.get("trafficStatus")
+            "controllers": [PortsByController.from_dict(_item) for _item in obj["controllers"]] if obj.get("controllers") is not None else None,
+                        "tagsToAdd": obj.get("tagsToAdd"),
+                        "tagsToRemove": obj.get("tagsToRemove")
             ,
             "links": obj.get("links")
         })

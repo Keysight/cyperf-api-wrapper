@@ -108,6 +108,7 @@ class TestAgentsApi(unittest.TestCase):
 
 
 
+
     def test_start_agents_batch_delete(self) -> None:
         """Test case for start_agents_batch_delete
 
@@ -188,6 +189,12 @@ class TestAgentsApi(unittest.TestCase):
 
     def test_start_controllers_set_port_link_state(self) -> None:
         """Test case for start_controllers_set_port_link_state
+
+        """
+        pass
+
+    def test_start_controllers_update_port_tags(self) -> None:
+        """Test case for start_controllers_update_port_tags
 
         """
         pass
