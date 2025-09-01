@@ -71,6 +71,9 @@ class TestGetControllers200Response(unittest.TestCase):
                                         reserved_by = '', 
                                         speed = '', 
                                         status = '', 
+                                        tags = [
+                                            ''
+                                            ], 
                                         traffic_status = '', )
                                     ], 
                                 serial = '', 

@@ -43,6 +43,9 @@ class TestPort(unittest.TestCase):
                 reserved_by = '',
                 speed = '',
                 status = '',
+                tags = [
+                    ''
+                    ],
                 traffic_status = ''
             )
         else:

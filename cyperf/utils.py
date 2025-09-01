@@ -175,7 +175,7 @@ class TestRunner:
                 else:
                     ip_net.agent_assignments.by_id = agent_details
                 ip_net.update()
-    
+
     def wait_until_agents_released(self, agents):
         timeout = 180
         poll_interval = 3
