@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **reserved_by** | **str** | The owner of the port | [optional] 
 **speed** | **str** | The port&#39;s speed | [optional] 
 **status** | **str** | The current status of the port: ready or not ready | [optional] 
+**tags** | **List[str]** | A list of tags | [optional] 
 **traffic_status** | **str** | The traffic status of the port | [optional] 
 
 ## Example

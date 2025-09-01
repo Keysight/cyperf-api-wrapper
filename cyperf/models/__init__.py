@@ -384,6 +384,7 @@ from cyperf.models.type_media_metadata import TypeMediaMetadata
 from cyperf.models.type_string_metadata import TypeStringMetadata
 from cyperf.models.udp_profile import UdpProfile
 from cyperf.models.update_network_mapping import UpdateNetworkMapping
+from cyperf.models.update_port_tags_operation import UpdatePortTagsOperation
 from cyperf.models.vlan_range import VLANRange
 from cyperf.models.validation_message import ValidationMessage
 from cyperf.models.version import Version

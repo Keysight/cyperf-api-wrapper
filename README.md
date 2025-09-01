@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**start_controllers_set_app**](docs/AgentsApi.md#start_controllers_set_app) | **POST** /api/v2/controllers/operations/set-app | 
 *AgentsApi* | [**start_controllers_set_node_aggregation**](docs/AgentsApi.md#start_controllers_set_node_aggregation) | **POST** /api/v2/controllers/operations/set-node-aggregation | 
 *AgentsApi* | [**start_controllers_set_port_link_state**](docs/AgentsApi.md#start_controllers_set_port_link_state) | **POST** /api/v2/controllers/operations/set-port-link-state | 
+*AgentsApi* | [**start_controllers_update_port_tags**](docs/AgentsApi.md#start_controllers_update_port_tags) | **POST** /api/v2/controllers/operations/update-port-tags | 
 *ApplicationResourcesApi* | [**delete_resources_capture**](docs/ApplicationResourcesApi.md#delete_resources_capture) | **DELETE** /api/v2/resources/captures/{captureId} | 
 *ApplicationResourcesApi* | [**delete_resources_certificate**](docs/ApplicationResourcesApi.md#delete_resources_certificate) | **DELETE** /api/v2/resources/certificates/{certificateId} | 
 *ApplicationResourcesApi* | [**delete_resources_custom_fuzzing_script**](docs/ApplicationResourcesApi.md#delete_resources_custom_fuzzing_script) | **DELETE** /api/v2/resources/custom-fuzzing-scripts/{customFuzzingScriptId} | 
@@ -740,6 +741,7 @@ Class | Method | HTTP request | Description
  - [TypeStringMetadata](docs/TypeStringMetadata.md)
  - [UdpProfile](docs/UdpProfile.md)
  - [UpdateNetworkMapping](docs/UpdateNetworkMapping.md)
+ - [UpdatePortTagsOperation](docs/UpdatePortTagsOperation.md)
  - [VLANRange](docs/VLANRange.md)
  - [ValidationMessage](docs/ValidationMessage.md)
  - [Version](docs/Version.md)

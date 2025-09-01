@@ -69,6 +69,9 @@ class TestController(unittest.TestCase):
                                 reserved_by = '', 
                                 speed = '', 
                                 status = '', 
+                                tags = [
+                                    ''
+                                    ], 
                                 traffic_status = '', )
                             ], 
                         serial = '', 
