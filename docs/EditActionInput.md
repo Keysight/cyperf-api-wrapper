@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action_index** | **int** |  | [optional] 
-**parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 
+**parameters** | [**List[ParameterMeta]**](ParameterMeta.md) |  | [optional] 
 
 ## Example
 

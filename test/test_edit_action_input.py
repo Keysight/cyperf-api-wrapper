@@ -38,7 +38,7 @@ class TestEditActionInput(unittest.TestCase):
             return EditActionInput(
                 action_index = 56,
                 parameters = [
-                    cyperf.models.parameter.Parameter(
+                    cyperf.models.parameter_meta.ParameterMeta(
                         matches = [
                             cyperf.models.parameter_match.ParameterMatch(
                                 match_location = [
@@ -50,10 +50,7 @@ class TestEditActionInput(unittest.TestCase):
                                         ''
                                         ], ), )
                             ], 
-                        name = '', 
-                        field = '', 
-                        operator = '', 
-                        query_param = '', )
+                        name = '', )
                     ]
             )
         else:

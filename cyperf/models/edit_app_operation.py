@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.add_input import AddInput
 from cyperf.models.delete_input import DeleteInput
 from cyperf.models.edit_action_input import EditActionInput
-from cyperf.models.parameter import Parameter
+from cyperf.models.parameter_meta import ParameterMeta
 from cyperf.models.rename_input import RenameInput
 from cyperf.models.reorder_action_input import ReorderActionInput
 from cyperf.models.reorder_exchanges_input import ReorderExchangesInput
@@ -39,7 +39,7 @@ class EditAppOperation(BaseModel):
     app_description: Optional[StrictStr] = Field(default=None, alias="AppDescription")
     app_id: Optional[StrictStr] = Field(default=None, alias="AppId")
     app_name: Optional[StrictStr] = Field(default=None, alias="AppName")
-    app_parameters: Optional[List[Parameter]] = Field(default=None, alias="AppParameters")
+    app_parameters: Optional[List[ParameterMeta]] = Field(default=None, alias="AppParameters")
     delete_inputs: Optional[List[DeleteInput]] = Field(default=None, alias="DeleteInputs")
     edit_action_inputs: Optional[List[EditActionInput]] = Field(default=None, alias="EditActionInputs")
     rename_inputs: Optional[List[RenameInput]] = Field(default=None, alias="RenameInputs")
@@ -153,7 +153,7 @@ class EditAppOperation(BaseModel):
                         "AppDescription": obj.get("AppDescription"),
                         "AppId": obj.get("AppId"),
                         "AppName": obj.get("AppName"),
-                        "AppParameters": [Parameter.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None,
+                        "AppParameters": [ParameterMeta.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None,
                         "DeleteInputs": [DeleteInput.from_dict(_item) for _item in obj["DeleteInputs"]] if obj.get("DeleteInputs") is not None else None,
                         "EditActionInputs": [EditActionInput.from_dict(_item) for _item in obj["EditActionInputs"]] if obj.get("EditActionInputs") is not None else None,
                         "RenameInputs": [RenameInput.from_dict(_item) for _item in obj["RenameInputs"]] if obj.get("RenameInputs") is not None else None,
