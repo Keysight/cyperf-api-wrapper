@@ -326,6 +326,7 @@ from cyperf.models.param_source_type import ParamSourceType
 from cyperf.models.param_type import ParamType
 from cyperf.models.parameter import Parameter
 from cyperf.models.parameter_match import ParameterMatch
+from cyperf.models.parameter_meta import ParameterMeta
 from cyperf.models.parameter_metadata import ParameterMetadata
 from cyperf.models.params import Params
 from cyperf.models.params_enum import ParamsEnum

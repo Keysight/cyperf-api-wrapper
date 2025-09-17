@@ -115,7 +115,7 @@ class TestActionMetadata(unittest.TestCase):
                 index = 56,
                 name = '',
                 parameters = [
-                    cyperf.models.parameter.Parameter(
+                    cyperf.models.parameter_meta.ParameterMeta(
                         matches = [
                             cyperf.models.parameter_match.ParameterMatch(
                                 match_location = [
@@ -127,10 +127,7 @@ class TestActionMetadata(unittest.TestCase):
                                         ''
                                         ], ), )
                             ], 
-                        name = '', 
-                        field = '', 
-                        operator = '', 
-                        query_param = '', )
+                        name = '', )
                     ]
             )
         else:

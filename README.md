@@ -649,6 +649,7 @@ Class | Method | HTTP request | Description
  - [ParamType](docs/ParamType.md)
  - [Parameter](docs/Parameter.md)
  - [ParameterMatch](docs/ParameterMatch.md)
+ - [ParameterMeta](docs/ParameterMeta.md)
  - [ParameterMetadata](docs/ParameterMetadata.md)
  - [Params](docs/Params.md)
  - [ParamsEnum](docs/ParamsEnum.md)

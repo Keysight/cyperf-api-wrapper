@@ -105,19 +105,20 @@ class TestGetResourcesAuthProfiles200Response(unittest.TestCase):
                             sgw_type_value = '', ), 
                         parameters = [
                             cyperf.models.parameter.Parameter(
-                                matches = [
-                                    cyperf.models.parameter_match.ParameterMatch(
-                                        match_location = [
-                                            ''
-                                            ], 
-                                        match_type = '', 
-                                        regex_match = cyperf.models.regex_match.RegexMatch(
-                                            patterns = [
-                                                ''
-                                                ], ), )
+                                default_array_elements = [
+                                    {
+                                        'key' : ''
+                                        }
                                     ], 
-                                name = '', 
+                                default_source = '', 
+                                default_value = '', 
+                                element_type = '', 
+                                sources = [
+                                    ''
+                                    ], 
+                                type = '', 
                                 field = '', 
+                                id = '', 
                                 operator = '', 
                                 query_param = '', )
                             ], 

@@ -20,22 +20,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.action_input import ActionInput
-from cyperf.models.parameter_meta import ParameterMeta
+from cyperf.models.parameter_match import ParameterMatch
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class CreateAppOperation(BaseModel):
+class ParameterMeta(BaseModel):
     """
-    CreateAppOperation
+    ParameterMeta
     """ # noqa: E501
-    actions: Optional[List[ActionInput]] = Field(default=None, alias="Actions")
-    app_name: Optional[StrictStr] = Field(default=None, alias="AppName")
-    app_type: Optional[StrictStr] = Field(default=None, alias="AppType")
-    description: Optional[StrictStr] = Field(default=None, alias="Description")
-    parameters: Optional[List[ParameterMeta]] = Field(default=None, alias="Parameters")
-    __properties: ClassVar[List[str]] = ["Actions", "AppName", "AppType", "Description", "Parameters"]
+    matches: Optional[List[ParameterMatch]] = Field(default=None, alias="Matches")
+    name: Optional[StrictStr] = Field(default=None, alias="Name")
+    __properties: ClassVar[List[str]] = ["Matches", "Name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +51,7 @@ class CreateAppOperation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CreateAppOperation from a JSON string"""
+        """Create an instance of ParameterMeta from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,25 +72,18 @@ class CreateAppOperation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in actions (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in matches (list)
         _items = []
-        if self.actions:
-            for _item in self.actions:
+        if self.matches:
+            for _item in self.matches:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['Actions'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in parameters (list)
-        _items = []
-        if self.parameters:
-            for _item in self.parameters:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['Parameters'] = _items
+            _dict['Matches'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CreateAppOperation from a dict"""
+        """Create an instance of ParameterMeta from a dict"""
         if obj is None:
             return None
 
@@ -104,11 +93,8 @@ class CreateAppOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Actions": [ActionInput.from_dict(_item) for _item in obj["Actions"]] if obj.get("Actions") is not None else None,
-                        "AppName": obj.get("AppName"),
-                        "AppType": obj.get("AppType"),
-                        "Description": obj.get("Description"),
-                        "Parameters": [ParameterMeta.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None
+            "Matches": [ParameterMatch.from_dict(_item) for _item in obj["Matches"]] if obj.get("Matches") is not None else None,
+                        "Name": obj.get("Name")
             ,
             "links": obj.get("links")
         })

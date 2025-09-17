@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **captures** | [**List[CaptureInput]**](CaptureInput.md) |  | [optional] 
 **exchange_index_insert_at** | **int** |  | [optional] 
 **flow_index_insert_at** | **int** |  | [optional] 
-**parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 
+**parameters** | [**List[ParameterMeta]**](ParameterMeta.md) |  | [optional] 
 **type** | **str** |  | [optional] 
 
 ## Example
