@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **flows** | [**List[AppFlow]**](AppFlow.md) |  | [optional] 
 **index** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
-**parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 
+**parameters** | [**List[ParameterMeta]**](ParameterMeta.md) |  | [optional] 
 
 ## Example
 

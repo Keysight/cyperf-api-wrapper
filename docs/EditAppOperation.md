@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **app_description** | **str** |  | [optional] 
 **app_id** | **str** |  | [optional] 
 **app_name** | **str** |  | [optional] 
-**app_parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 
+**app_parameters** | [**List[ParameterMeta]**](ParameterMeta.md) |  | [optional] 
 **delete_inputs** | [**List[DeleteInput]**](DeleteInput.md) |  | [optional] 
 **edit_action_inputs** | [**List[EditActionInput]**](EditActionInput.md) |  | [optional] 
 **rename_inputs** | [**List[RenameInput]**](RenameInput.md) |  | [optional] 

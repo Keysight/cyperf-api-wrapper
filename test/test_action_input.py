@@ -49,7 +49,7 @@ class TestActionInput(unittest.TestCase):
                     ],
                 name = '',
                 parameters = [
-                    cyperf.models.parameter.Parameter(
+                    cyperf.models.parameter_meta.ParameterMeta(
                         matches = [
                             cyperf.models.parameter_match.ParameterMatch(
                                 match_location = [
@@ -61,10 +61,7 @@ class TestActionInput(unittest.TestCase):
                                         ''
                                         ], ), )
                             ], 
-                        name = '', 
-                        field = '', 
-                        operator = '', 
-                        query_param = '', )
+                        name = '', )
                     ]
             )
         else:

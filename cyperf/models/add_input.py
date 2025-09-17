@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.capture_input import CaptureInput
-from cyperf.models.parameter import Parameter
+from cyperf.models.parameter_meta import ParameterMeta
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -35,7 +35,7 @@ class AddInput(BaseModel):
     captures: Optional[List[CaptureInput]] = Field(default=None, alias="Captures")
     exchange_index_insert_at: Optional[StrictInt] = Field(default=None, alias="ExchangeIndexInsertAt")
     flow_index_insert_at: Optional[StrictInt] = Field(default=None, alias="FlowIndexInsertAt")
-    parameters: Optional[List[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[List[ParameterMeta]] = Field(default=None, alias="Parameters")
     type: Optional[StrictStr] = Field(default=None, alias="Type")
     __properties: ClassVar[List[str]] = ["ActionIndex", "ActionName", "Captures", "ExchangeIndexInsertAt", "FlowIndexInsertAt", "Parameters", "Type"]
 
@@ -111,7 +111,7 @@ class AddInput(BaseModel):
                         "Captures": [CaptureInput.from_dict(_item) for _item in obj["Captures"]] if obj.get("Captures") is not None else None,
                         "ExchangeIndexInsertAt": obj.get("ExchangeIndexInsertAt"),
                         "FlowIndexInsertAt": obj.get("FlowIndexInsertAt"),
-                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
+                        "Parameters": [ParameterMeta.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
                         "Type": obj.get("Type")
             ,
             "links": obj.get("links")

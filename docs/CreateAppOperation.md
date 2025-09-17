@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **app_name** | **str** |  | [optional] 
 **app_type** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 
+**parameters** | [**List[ParameterMeta]**](ParameterMeta.md) |  | [optional] 
 
 ## Example
 

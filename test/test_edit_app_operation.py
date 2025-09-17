@@ -54,7 +54,7 @@ class TestEditAppOperation(unittest.TestCase):
                         exchange_index_insert_at = 56, 
                         flow_index_insert_at = 56, 
                         parameters = [
-                            cyperf.models.parameter.Parameter(
+                            cyperf.models.parameter_meta.ParameterMeta(
                                 matches = [
                                     cyperf.models.parameter_match.ParameterMatch(
                                         match_location = [
@@ -66,10 +66,7 @@ class TestEditAppOperation(unittest.TestCase):
                                                 ''
                                                 ], ), )
                                     ], 
-                                name = '', 
-                                field = '', 
-                                operator = '', 
-                                query_param = '', )
+                                name = '', )
                             ], 
                         type = '', )
                     ],
@@ -77,7 +74,7 @@ class TestEditAppOperation(unittest.TestCase):
                 app_id = '',
                 app_name = '',
                 app_parameters = [
-                    cyperf.models.parameter.Parameter(
+                    cyperf.models.parameter_meta.ParameterMeta(
                         matches = [
                             cyperf.models.parameter_match.ParameterMatch(
                                 match_location = [
@@ -89,10 +86,7 @@ class TestEditAppOperation(unittest.TestCase):
                                         ''
                                         ], ), )
                             ], 
-                        name = '', 
-                        field = '', 
-                        operator = '', 
-                        query_param = '', )
+                        name = '', )
                     ],
                 delete_inputs = [
                     cyperf.models.delete_input.DeleteInput(
@@ -105,7 +99,7 @@ class TestEditAppOperation(unittest.TestCase):
                     cyperf.models.edit_action_input.EditActionInput(
                         action_index = 56, 
                         parameters = [
-                            cyperf.models.parameter.Parameter(
+                            cyperf.models.parameter_meta.ParameterMeta(
                                 matches = [
                                     cyperf.models.parameter_match.ParameterMatch(
                                         match_location = [
@@ -117,10 +111,7 @@ class TestEditAppOperation(unittest.TestCase):
                                                 ''
                                                 ], ), )
                                     ], 
-                                name = '', 
-                                field = '', 
-                                operator = '', 
-                                query_param = '', )
+                                name = '', )
                             ], )
                     ],
                 rename_inputs = [

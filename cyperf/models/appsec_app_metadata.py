@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.action_metadata import ActionMetadata
-from cyperf.models.parameter import Parameter
+from cyperf.models.parameter_meta import ParameterMeta
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -31,7 +31,7 @@ class AppsecAppMetadata(BaseModel):
     AppsecAppMetadata
     """ # noqa: E501
     actions_metadata: Optional[List[ActionMetadata]] = Field(default=None, alias="ActionsMetadata")
-    app_parameters: Optional[List[Parameter]] = Field(default=None, alias="AppParameters")
+    app_parameters: Optional[List[ParameterMeta]] = Field(default=None, alias="AppParameters")
     __properties: ClassVar[List[str]] = ["ActionsMetadata", "AppParameters"]
 
     model_config = ConfigDict(
@@ -102,7 +102,7 @@ class AppsecAppMetadata(BaseModel):
 
         _obj = cls.model_validate({
             "ActionsMetadata": [ActionMetadata.from_dict(_item) for _item in obj["ActionsMetadata"]] if obj.get("ActionsMetadata") is not None else None,
-                        "AppParameters": [Parameter.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None
+                        "AppParameters": [ParameterMeta.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None
             ,
             "links": obj.get("links")
         })

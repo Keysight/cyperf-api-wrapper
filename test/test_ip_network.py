@@ -66,8 +66,48 @@ class TestIPNetwork(unittest.TestCase):
                 dut_connections = [
                     ''
                     ],
-                emulated_router = None,
-                eth_range = None,
+                emulated_router = cyperf.models.emulated_router.EmulatedRouter(
+                    emulated_router_ranges = [
+                        null
+                        ], 
+                    enabled = True, 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
+                eth_range = cyperf.models.eth_range.EthRange(
+                    count = 56, 
+                    mac_auto = True, 
+                    mac_incr = '2E-B0-08-29:0c:01', 
+                    mac_start = '2E-B0-08-29:0c:01', 
+                    one_mac_per_ip = True, 
+                    static_arp_table = [
+                        cyperf.models.static_arp_entry.StaticARPEntry(
+                            count = 56, 
+                            remote_ip = '::02:84:9:0cc0:F:CCf', 
+                            remote_ip_incr = '::02:84:9:0cc0:F:CCf', 
+                            remote_mac = '2E-B0-08-29:0c:01', 
+                            remote_mac_incr = '2E-B0-08-29:0c:01', 
+                            static_arp_entry_name = 'YBuLd', 
+                            id = '', )
+                        ], 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], 
+                    max_count_per_agent = 56, ),
                 ip_ranges = [
                     cyperf.models.ip_range.IPRange(
                         automatic_ip_type = null, 

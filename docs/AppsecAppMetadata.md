@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actions_metadata** | [**List[ActionMetadata]**](ActionMetadata.md) |  | [optional] 
-**app_parameters** | [**List[Parameter]**](Parameter.md) |  | [optional] 
+**app_parameters** | [**List[ParameterMeta]**](ParameterMeta.md) |  | [optional] 
 
 ## Example
 
