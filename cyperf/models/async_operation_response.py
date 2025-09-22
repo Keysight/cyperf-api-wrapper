@@ -31,7 +31,7 @@ class AsyncOperationResponse(BaseModel):
     id: StrictInt = Field(description="The subresource id of the status.")
     message: StrictStr = Field(description="A message from the operation (optional).")
     progress: StrictInt = Field(description="The progress of the operation (percent).")
-    result_url: StrictStr = Field(description="The URL where the archive is available.", alias="resultUrl")
+    result_url: Optional[StrictStr] = Field(description="The URL where the archive is available.", alias="resultUrl")
     state: StrictStr = Field(description="The state of the operation.")
     type: StrictStr = Field(description="The name of the operation.")
     url: StrictStr = Field(description="The status URI of the operation.")

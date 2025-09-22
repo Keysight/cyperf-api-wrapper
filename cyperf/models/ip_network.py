@@ -25,6 +25,8 @@ from cyperf.models.agent_assignments import AgentAssignments
 from cyperf.models.api_link import APILink
 from cyperf.models.dns_resolver import DNSResolver
 from cyperf.models.dns_server import DNSServer
+from cyperf.models.emulated_router import EmulatedRouter
+from cyperf.models.eth_range import EthRange
 from cyperf.models.ip_range import IPRange
 from cyperf.models.ip_sec_stack import IPSecStack
 from cyperf.models.mac_dtls_stack import MacDtlsStack
@@ -43,8 +45,8 @@ class IPNetwork(BaseModel):
     dns_resolver: Optional[DNSResolver] = Field(default=None, alias="DNSResolver")
     dns_server: Optional[DNSServer] = Field(default=None, description="The DNS Server configuration for Network Segment", alias="DNSServer")
     dut_connections: Optional[List[StrictStr]] = Field(default=None, description="The connected DUT network segments.", alias="DUTConnections")
-    emulated_router: Optional[Dict[str, Any]] = Field(default=None, alias="EmulatedRouter")
-    eth_range: Optional[Dict[str, Any]] = Field(default=None, alias="EthRange")
+    emulated_router: Optional[EmulatedRouter] = Field(default=None, alias="EmulatedRouter")
+    eth_range: Optional[EthRange] = Field(default=None, alias="EthRange")
     ip_ranges: Optional[List[IPRange]] = Field(default=None, alias="IPRanges")
     ip_sec_stacks: Optional[List[IPSecStack]] = Field(default=None, alias="IPSecStacks")
     mac_dtls_stacks: Optional[List[MacDtlsStack]] = Field(default=None, alias="MacDtlsStacks")
@@ -107,6 +109,12 @@ class IPNetwork(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of dns_server
         if self.dns_server:
             _dict['DNSServer'] = self.dns_server.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of emulated_router
+        if self.emulated_router:
+            _dict['EmulatedRouter'] = self.emulated_router.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of eth_range
+        if self.eth_range:
+            _dict['EthRange'] = self.eth_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in ip_ranges (list)
         _items = []
         if self.ip_ranges:
@@ -164,8 +172,8 @@ class IPNetwork(BaseModel):
                         "networkTags": obj.get("networkTags"),
                         "DNSResolver": DNSResolver.from_dict(obj["DNSResolver"]) if obj.get("DNSResolver") is not None else None,
                         "DNSServer": DNSServer.from_dict(obj["DNSServer"]) if obj.get("DNSServer") is not None else None,
-                        "DUTConnections": obj.get("DUTConnections"),
-                        "EmulatedRouter": obj.get("EmulatedRouter"),
+                        "EmulatedRouter": EmulatedRouter.from_dict(obj["EmulatedRouter"]) if obj.get("EmulatedRouter") is not None else None,
+                        "EthRange": EthRange.from_dict(obj["EthRange"]) if obj.get("EthRange") is not None else None,
                         "EthRange": obj.get("EthRange"),
                         "IPRanges": [IPRange.from_dict(_item) for _item in obj["IPRanges"]] if obj.get("IPRanges") is not None else None,
                         "IPSecStacks": [IPSecStack.from_dict(_item) for _item in obj["IPSecStacks"]] if obj.get("IPSecStacks") is not None else None,
