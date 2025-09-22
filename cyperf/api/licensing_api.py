@@ -1934,6 +1934,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncOperationResponse",
             '202': "AsyncOperationResponse",
             '500': "ErrorDescription",
         }
@@ -1993,6 +1994,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncOperationResponse",
             '202': "AsyncOperationResponse",
             '500': "ErrorDescription",
         }
@@ -2052,6 +2054,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AsyncOperationResponse",
             '202': "AsyncOperationResponse",
             '500': "ErrorDescription",
         }
