@@ -29,7 +29,7 @@ class StreamPayloadType(str, Enum):
     """
     RANDOM = 'RANDOM'
     PSEUDORANDOM = 'PSEUDORANDOM'
-    NULL = 'null'
+    NULL = 'NULL'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
