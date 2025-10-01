@@ -36,10 +36,10 @@ class TestEulaDetails(unittest.TestCase):
         model = EulaDetails()
         if include_optional:
             return EulaDetails(
-                id = '',
                 accepted = True,
-                text = '',
-                html = ''
+                id = '',
+                html = '',
+                text = ''
             )
         else:
             return EulaDetails(

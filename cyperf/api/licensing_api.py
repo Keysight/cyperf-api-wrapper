@@ -22,7 +22,7 @@ from typing import List, Optional, Union
 from typing_extensions import Annotated
 from cyperf.models.activation_code_list_request import ActivationCodeListRequest
 from cyperf.models.activation_code_request import ActivationCodeRequest
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.models.entitlement_code_request import EntitlementCodeRequest
 from cyperf.models.feature_reservation_reserve import FeatureReservationReserve
 from cyperf.models.fulfillment_request import FulfillmentRequest
@@ -67,7 +67,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Performs an online request to KSM and activates the requested licenses.
 
 
@@ -104,7 +104,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -130,7 +130,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Performs an online request to KSM and activates the requested licenses.
 
 
@@ -167,7 +167,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -230,7 +230,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -333,7 +333,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Performs an online request to KSM to deactivate the requested licenses.
 
 
@@ -370,7 +370,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -396,7 +396,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Performs an online request to KSM to deactivate the requested licenses.
 
 
@@ -433,7 +433,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -496,7 +496,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -837,7 +837,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Retrieves the activation code info from KSM.
 
 
@@ -874,7 +874,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -900,7 +900,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Retrieves the activation code info from KSM.
 
 
@@ -937,7 +937,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1000,7 +1000,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1102,7 +1102,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Retrieves the activation code info list from KSM.
 
 
@@ -1139,7 +1139,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1165,7 +1165,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Retrieves the activation code info list from KSM.
 
 
@@ -1202,7 +1202,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1265,7 +1265,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1635,7 +1635,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Returns the status of an ongoing async operation.
 
 
@@ -1675,7 +1675,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1702,7 +1702,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Returns the status of an ongoing async operation.
 
 
@@ -1742,7 +1742,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1809,7 +1809,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1900,7 +1900,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Retrieves the counted feature stats.
 
 
@@ -1934,7 +1934,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -1959,7 +1959,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Retrieves the counted feature stats.
 
 
@@ -1993,7 +1993,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -2052,7 +2052,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -2138,7 +2138,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Retrieves the activations codes of the supplied entitlement code from KSM.
 
 
@@ -2175,7 +2175,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -2201,7 +2201,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Retrieves the activations codes of the supplied entitlement code from KSM.
 
 
@@ -2238,7 +2238,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -2301,7 +2301,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -3413,7 +3413,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Returns the status of an ongoing async operation. 
 
 
@@ -3456,7 +3456,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -3484,7 +3484,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Returns the status of an ongoing async operation. 
 
 
@@ -3527,7 +3527,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -3598,7 +3598,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -3959,7 +3959,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Remove previously reserved features, thus making them available for checkout by other users. 
 
 
@@ -3999,7 +3999,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4026,7 +4026,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Remove previously reserved features, thus making them available for checkout by other users. 
 
 
@@ -4066,7 +4066,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4133,7 +4133,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4238,7 +4238,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Synchronize local licenses with KSM.
 
 
@@ -4272,7 +4272,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4297,7 +4297,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Synchronize local licenses with KSM.
 
 
@@ -4331,7 +4331,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4390,7 +4390,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4475,7 +4475,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Tests connection of the license server with KSM.
 
 
@@ -4509,7 +4509,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4534,7 +4534,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Tests connection of the license server with KSM.
 
 
@@ -4568,7 +4568,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4627,7 +4627,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4714,7 +4714,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """Retain over a period of time specific counts of installed features, that can be consumed only by current user. 
 
 
@@ -4754,7 +4754,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4781,7 +4781,7 @@ class LicensingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """Retain over a period of time specific counts of installed features, that can be consumed only by current user. 
 
 
@@ -4821,7 +4821,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(
@@ -4888,7 +4888,7 @@ class LicensingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': "ErrorDescription",
         }
         return self.api_client.call_api(

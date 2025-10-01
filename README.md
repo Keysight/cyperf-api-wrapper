@@ -416,7 +416,6 @@ Class | Method | HTTP request | Description
  - [ArchiveInfo](docs/ArchiveInfo.md)
  - [ArrayV2ElementMetadata](docs/ArrayV2ElementMetadata.md)
  - [AsyncContext](docs/AsyncContext.md)
- - [AsyncOperationResponse](docs/AsyncOperationResponse.md)
  - [Attack](docs/Attack.md)
  - [AttackAction](docs/AttackAction.md)
  - [AttackMetadata](docs/AttackMetadata.md)

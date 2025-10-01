@@ -21,7 +21,7 @@ from pydantic import Field, StrictBytes, StrictInt, StrictStr
 from typing import List, Optional, Union
 from typing_extensions import Annotated
 from cyperf.models.archive_info import ArchiveInfo
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.models.diagnostic_component import DiagnosticComponent
 from cyperf.models.diagnostic_component_context import DiagnosticComponentContext
 
@@ -1026,7 +1026,7 @@ class DiagnosticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """api_v2_diagnostics_operations_export_id_get
 
         Get the state of an ongoing operation.
@@ -1064,7 +1064,7 @@ class DiagnosticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': None,
         }
         return self.api_client.call_api(
@@ -1090,7 +1090,7 @@ class DiagnosticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """api_v2_diagnostics_operations_export_id_get
 
         Get the state of an ongoing operation.
@@ -1128,7 +1128,7 @@ class DiagnosticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': None,
         }
         return self.api_client.call_api(
@@ -1192,7 +1192,7 @@ class DiagnosticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AsyncOperationResponse",
+            '200': "AsyncContext",
             '500': None,
         }
         return self.api_client.call_api(
@@ -1536,7 +1536,7 @@ class DiagnosticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AsyncOperationResponse:
+    ) -> AsyncContext:
         """api_v2_diagnostics_operations_export_post
 
         Start the diagnostic export operation.
@@ -1574,7 +1574,7 @@ class DiagnosticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '202': "AsyncContext",
             '500': None,
         }
         return self.api_client.call_api(
@@ -1600,7 +1600,7 @@ class DiagnosticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AsyncOperationResponse]:
+    ) -> ApiResponse[AsyncContext]:
         """api_v2_diagnostics_operations_export_post
 
         Start the diagnostic export operation.
@@ -1638,7 +1638,7 @@ class DiagnosticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '202': "AsyncContext",
             '500': None,
         }
         return self.api_client.call_api(
@@ -1702,7 +1702,7 @@ class DiagnosticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "AsyncOperationResponse",
+            '202': "AsyncContext",
             '500': None,
         }
         return self.api_client.call_api(

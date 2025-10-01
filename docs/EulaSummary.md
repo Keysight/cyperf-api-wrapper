@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
 **accepted** | **bool** |  | [default to False]
+**id** | **str** |  | [optional] 
 
 ## Example
 

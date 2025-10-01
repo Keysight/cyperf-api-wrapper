@@ -28,9 +28,9 @@ class EulaSummary(BaseModel):
     """
     EulaSummary
     """ # noqa: E501
-    id: Optional[StrictStr] = None
     accepted: StrictBool
-    __properties: ClassVar[List[str]] = ["id", "accepted"]
+    id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["accepted", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,8 +85,8 @@ class EulaSummary(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "accepted": obj.get("accepted") if obj.get("accepted") is not None else False
+            "accepted": obj.get("accepted") if obj.get("accepted") is not None else False,
+                        "id": obj.get("id")
             ,
             "links": obj.get("links")
         })

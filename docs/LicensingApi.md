@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **activate_licenses**
-> AsyncOperationResponse activate_licenses(fulfillment_request=fulfillment_request)
+> AsyncContext activate_licenses(fulfillment_request=fulfillment_request)
 
 Performs an online request to KSM and activates the requested licenses.
 
@@ -37,7 +37,7 @@ Performs an online request to KSM and activates the requested licenses.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.models.fulfillment_request import FulfillmentRequest
 from cyperf.rest import ApiException
 from pprint import pprint
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -98,13 +98,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occured. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deactivate_licenses**
-> AsyncOperationResponse deactivate_licenses(fulfillment_request=fulfillment_request)
+> AsyncContext deactivate_licenses(fulfillment_request=fulfillment_request)
 
 Performs an online request to KSM to deactivate the requested licenses.
 
@@ -115,7 +115,7 @@ Performs an online request to KSM to deactivate the requested licenses.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.models.fulfillment_request import FulfillmentRequest
 from cyperf.rest import ApiException
 from pprint import pprint
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occured. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -254,7 +254,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_activation_code_info**
-> AsyncOperationResponse get_activation_code_info(activation_code_request=activation_code_request)
+> AsyncContext get_activation_code_info(activation_code_request=activation_code_request)
 
 Retrieves the activation code info from KSM.
 
@@ -266,7 +266,7 @@ Retrieves the activation code info from KSM.
 ```python
 import cyperf
 from cyperf.models.activation_code_request import ActivationCodeRequest
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -326,13 +326,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occured. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_activation_code_info_list**
-> AsyncOperationResponse get_activation_code_info_list(activation_code_list_request=activation_code_list_request)
+> AsyncContext get_activation_code_info_list(activation_code_list_request=activation_code_list_request)
 
 Retrieves the activation code info list from KSM.
 
@@ -344,7 +344,7 @@ Retrieves the activation code info list from KSM.
 ```python
 import cyperf
 from cyperf.models.activation_code_list_request import ActivationCodeListRequest
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occured. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_async_operation_status**
-> AsyncOperationResponse get_async_operation_status(operation_type, id)
+> AsyncContext get_async_operation_status(operation_type, id)
 
 Returns the status of an ongoing async operation.
 
@@ -500,7 +500,7 @@ Returns the status of an ongoing async operation.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_counted_feature_stats**
-> AsyncOperationResponse get_counted_feature_stats()
+> AsyncContext get_counted_feature_stats()
 
 Retrieves the counted feature stats.
 
@@ -579,7 +579,7 @@ Retrieves the counted feature stats.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -620,7 +620,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -635,13 +635,13 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occured. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_entitlement_code_info**
-> AsyncOperationResponse get_entitlement_code_info(entitlement_code_request=entitlement_code_request)
+> AsyncContext get_entitlement_code_info(entitlement_code_request=entitlement_code_request)
 
 Retrieves the activations codes of the supplied entitlement code from KSM.
 
@@ -652,7 +652,7 @@ Retrieves the activations codes of the supplied entitlement code from KSM.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.models.entitlement_code_request import EntitlementCodeRequest
 from cyperf.rest import ApiException
 from pprint import pprint
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -713,7 +713,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occured. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1023,7 +1023,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_license_async_operation_status**
-> AsyncOperationResponse get_license_async_operation_status(license_id, operation_type, id)
+> AsyncContext get_license_async_operation_status(license_id, operation_type, id)
 
 Returns the status of an ongoing async operation. 
 
@@ -1034,7 +1034,7 @@ Returns the status of an ongoing async operation.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -1083,7 +1083,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -1181,7 +1181,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_reservation**
-> AsyncOperationResponse remove_reservation(license_id, request_body=request_body)
+> AsyncContext remove_reservation(license_id, request_body=request_body)
 
 Remove previously reserved features, thus making them available for checkout by other users. 
 
@@ -1192,7 +1192,7 @@ Remove previously reserved features, thus making them available for checkout by 
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -1239,7 +1239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -1254,13 +1254,13 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occurred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sync_licenses**
-> AsyncOperationResponse sync_licenses()
+> AsyncContext sync_licenses()
 
 Synchronize local licenses with KSM.
 
@@ -1271,7 +1271,7 @@ Synchronize local licenses with KSM.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -1312,7 +1312,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -1327,13 +1327,13 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occured. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **test_backend_connectivity**
-> AsyncOperationResponse test_backend_connectivity()
+> AsyncContext test_backend_connectivity()
 
 Tests connection of the license server with KSM.
 
@@ -1344,7 +1344,7 @@ Tests connection of the license server with KSM.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -1385,7 +1385,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -1400,13 +1400,13 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occured. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_reservation**
-> AsyncOperationResponse update_reservation(license_id, feature_reservation_reserve=feature_reservation_reserve)
+> AsyncContext update_reservation(license_id, feature_reservation_reserve=feature_reservation_reserve)
 
 Retain over a period of time specific counts of installed features, that can be consumed only by current user. 
 
@@ -1417,7 +1417,7 @@ Retain over a period of time specific counts of installed features, that can be 
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.models.feature_reservation_reserve import FeatureReservationReserve
 from cyperf.rest import ApiException
 from pprint import pprint
@@ -1465,7 +1465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -1480,7 +1480,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted. |  -  |
+**200** | Accepted. |  -  |
 **500** | An error occurred. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
