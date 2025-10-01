@@ -59,7 +59,6 @@ from cyperf.models.appsec_config import AppsecConfig
 from cyperf.models.archive_info import ArchiveInfo
 from cyperf.models.array_v2_element_metadata import ArrayV2ElementMetadata
 from cyperf.models.async_context import AsyncContext
-from cyperf.models.async_operation_response import AsyncOperationResponse
 from cyperf.models.attack import Attack
 from cyperf.models.attack_action import AttackAction
 from cyperf.models.attack_metadata import AttackMetadata

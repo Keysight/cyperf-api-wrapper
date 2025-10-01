@@ -28,11 +28,11 @@ class EulaDetails(BaseModel):
     """
     EulaDetails
     """ # noqa: E501
-    id: Optional[StrictStr] = None
     accepted: StrictBool
-    text: Optional[StrictStr] = None
+    id: Optional[StrictStr] = None
     html: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "accepted", "text", "html"]
+    text: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["accepted", "id", "html", "text"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,10 +87,10 @@ class EulaDetails(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-                        "accepted": obj.get("accepted") if obj.get("accepted") is not None else False,
-                        "text": obj.get("text"),
-                        "html": obj.get("html")
+            "accepted": obj.get("accepted") if obj.get("accepted") is not None else False,
+                        "id": obj.get("id"),
+                        "html": obj.get("html"),
+                        "text": obj.get("text")
             ,
             "links": obj.get("links")
         })

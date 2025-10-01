@@ -36,8 +36,8 @@ class TestEulaSummary(unittest.TestCase):
         model = EulaSummary()
         if include_optional:
             return EulaSummary(
-                id = '',
-                accepted = True
+                accepted = True,
+                id = ''
             )
         else:
             return EulaSummary(

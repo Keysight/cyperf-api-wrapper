@@ -306,7 +306,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_diagnostics_operations_export_id_get**
-> AsyncOperationResponse api_v2_diagnostics_operations_export_id_get(id)
+> AsyncContext api_v2_diagnostics_operations_export_id_get(id)
 
 
 
@@ -319,7 +319,7 @@ Get the state of an ongoing operation.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
@@ -461,7 +461,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_v2_diagnostics_operations_export_post**
-> AsyncOperationResponse api_v2_diagnostics_operations_export_post(diagnostic_component_context=diagnostic_component_context)
+> AsyncContext api_v2_diagnostics_operations_export_post(diagnostic_component_context=diagnostic_component_context)
 
 
 
@@ -474,7 +474,7 @@ Start the diagnostic export operation.
 
 ```python
 import cyperf
-from cyperf.models.async_operation_response import AsyncOperationResponse
+from cyperf.models.async_context import AsyncContext
 from cyperf.models.diagnostic_component_context import DiagnosticComponentContext
 from cyperf.rest import ApiException
 from pprint import pprint
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AsyncOperationResponse**](AsyncOperationResponse.md)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 
