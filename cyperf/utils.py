@@ -204,6 +204,28 @@ class TestRunner:
                 ip_net.ip_ranges[0].ip_auto = False
                 ip_net.update()
 
+    def get_first_N_http_standalone_strikes(self, n):
+        application_api_instance = cyperf.ApplicationResourcesApi(self.api_client)
+        http_strikes = []
+        skip = 0
+
+        while len(http_strikes) < n:
+            take = min(50, n - len(http_strikes))
+            strike_batch = application_api_instance.get_resources_strikes(take=take, skip=skip).data
+
+            for strike in strike_batch:
+                protocol = strike.metadata.protocol
+                supported_apps = strike.metadata.supported_apps
+
+            if protocol.lower() == 'http' and supported_apps == None:
+                http_strikes.append(strike)
+                if len(http_strikes) == n:
+                    break
+
+            skip += take  
+
+        return http_strikes
+
     def add_apps(self, session, appNames):
         # Retrieve the app from precanned Apps
         resource_api = cyperf.ApplicationResourcesApi(self.api_client)
@@ -329,7 +351,7 @@ class TestRunner:
         lines = ['|'.join([f'{val:^{col_width}}' for val, col_width in zip(item, col_widths)]) for item in zip(*stats_dict.values())]
         return [line_delim, header, line_delim] + lines + [line_delim]
 
-
+    
 def parse_cli_options(extra_options=[]):
     """Can be used to get parameters from the CLI or env vars that are broadly useful for CLI tests"""
     import argparse
