@@ -381,7 +381,7 @@ class DynamicModel(type):
                     del d[key]
                 else:
                     field = self.base_model.__fields__[key]
-                    field_name = field.alias if 'alias' in dir(field) else key
+                    field_name = field.alias if 'alias' in dir(field) and field.alias else key
                     if field_name != key:
                         del d[key]
                     d[field_name] = getattr(self.base_model, key)
