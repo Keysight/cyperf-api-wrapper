@@ -35,7 +35,7 @@ class SecondaryObjective(BaseModel):
     max_simulated_users_per_interval: Optional[StrictInt] = Field(default=None, description="Only applies if Type is SimulatedUsers. The maximum number of simulated users at which new users are initiated and teardown per interval(1 second). Default value is 0 (no limit)", alias="MaxSimulatedUsersPerInterval")
     objective_unit: StrictStr = Field(description="The objective's unit.", alias="ObjectiveUnit")
     objective_value: Union[StrictFloat, StrictInt] = Field(description="The value of the secondary objective. This value will be used for the whole duration of the test.", alias="ObjectiveValue")
-    type: ObjectiveType = Field(description="The objective's type (default: SimulatedUsers).", alias="Type")
+    type: ObjectiveType = Field(alias="Type")
     __properties: ClassVar[List[str]] = ["Enabled", "MaxPendingSimulatedUsers", "MaxSimulatedUsersPerInterval", "ObjectiveUnit", "ObjectiveValue", "Type"]
 
     @field_validator('max_pending_simulated_users')
