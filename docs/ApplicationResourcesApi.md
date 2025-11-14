@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**get_resources_auth_profiles**](ApplicationResourcesApi.md#get_resources_auth_profiles) | **GET** /api/v2/resources/auth-profiles | 
 [**get_resources_capture_by_id**](ApplicationResourcesApi.md#get_resources_capture_by_id) | **GET** /api/v2/resources/captures/{captureId} | 
 [**get_resources_captures**](ApplicationResourcesApi.md#get_resources_captures) | **GET** /api/v2/resources/captures | 
+[**get_resources_captures_encrypted_upload_file_result**](ApplicationResourcesApi.md#get_resources_captures_encrypted_upload_file_result) | **GET** /api/v2/resources/captures/encrypted/operations/uploadFile/{uploadFileId}/result | 
 [**get_resources_captures_upload_file_result**](ApplicationResourcesApi.md#get_resources_captures_upload_file_result) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId}/result | 
 [**get_resources_certificate_by_id**](ApplicationResourcesApi.md#get_resources_certificate_by_id) | **GET** /api/v2/resources/certificates/{certificateId} | 
 [**get_resources_certificate_content_file**](ApplicationResourcesApi.md#get_resources_certificate_content_file) | **GET** /api/v2/resources/certificates/{certificateId}/contentFile | 
@@ -110,6 +111,7 @@ Method | HTTP request | Description
 [**get_resources_user_defined_apps_upload_file_result**](ApplicationResourcesApi.md#get_resources_user_defined_apps_upload_file_result) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId}/result | 
 [**start_resources_apps_export_all**](ApplicationResourcesApi.md#start_resources_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 [**start_resources_captures_batch_delete**](ApplicationResourcesApi.md#start_resources_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
+[**start_resources_captures_encrypted_upload_file**](ApplicationResourcesApi.md#start_resources_captures_encrypted_upload_file) | **POST** /api/v2/resources/captures/encrypted/operations/uploadFile | 
 [**start_resources_captures_upload_file**](ApplicationResourcesApi.md#start_resources_captures_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
 [**start_resources_certificates_upload_file**](ApplicationResourcesApi.md#start_resources_certificates_upload_file) | **POST** /api/v2/resources/certificates/operations/uploadFile | 
 [**start_resources_config_export_user_defined_apps**](ApplicationResourcesApi.md#start_resources_config_export_user_defined_apps) | **POST** /api/v2/resources/configs/{configId}/operations/export-user-defined-apps | 
@@ -2558,6 +2560,82 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_captures_encrypted_upload_file_result**
+> get_resources_captures_encrypted_upload_file_result(upload_file_id)
+
+
+
+Get the result of the upload file operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    upload_file_id = 'upload_file_id_example' # str | The ID of the uploadfile.
+
+    try:
+        api_instance.get_resources_captures_encrypted_upload_file_result(upload_file_id)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_captures_encrypted_upload_file_result: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upload_file_id** | **str**| The ID of the uploadfile. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The payload file that was added |  -  |
+**400** | Bad request |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -8450,6 +8528,81 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_resources_captures_encrypted_upload_file**
+> start_resources_captures_encrypted_upload_file(file=file)
+
+
+
+Upload a file.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    file = None # bytearray |  (optional)
+
+    try:
+        api_instance.start_resources_captures_encrypted_upload_file(file=file)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->start_resources_captures_encrypted_upload_file: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **bytearray**|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started. |  -  |
+**500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

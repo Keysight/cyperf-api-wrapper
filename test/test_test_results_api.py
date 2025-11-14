@@ -92,6 +92,13 @@ class TestTestResultsApi(unittest.TestCase):
 
 
 
+
+    def test_start_result_export_events(self) -> None:
+        """Test case for start_result_export_events
+
+        """
+        pass
+
     def test_start_result_generate_all(self) -> None:
         """Test case for start_result_generate_all
 

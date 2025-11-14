@@ -102,6 +102,8 @@ class TestGetAgents200ResponseOneOf(unittest.TestCase):
                             chassis_info = cyperf.models.chassis_info.ChassisInfo(
                                 checkout_id = 56, 
                                 compute_node_id = '', 
+                                hw_platform = '', 
+                                hw_revision = '', 
                                 port_id = '', ), 
                             kernel_version = '', 
                             os_name = '', 

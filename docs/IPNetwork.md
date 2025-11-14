@@ -18,10 +18,13 @@ Name | Type | Description | Notes
 **ip_sec_stacks** | [**List[IPSecStack]**](IPSecStack.md) |  | [optional] 
 **mac_dtls_stacks** | [**List[MacDtlsStack]**](MacDtlsStack.md) |  | [optional] 
 **tunnel_stacks** | [**List[TunnelStack]**](TunnelStack.md) |  | [optional] 
+**vx_lan_stacks** | [**List[VxLANStack]**](VxLANStack.md) |  | [optional] 
 **active** | **bool** | A flag indicating if the network segment is active.(default: true) | [optional] 
 **agent_assignments** | [**AgentAssignments**](AgentAssignments.md) |  | [optional] 
+**inherit_streaming_cpu_allocation** | **bool** | A flag indicating if the CPU percentage used by agents assigned to this network segment for streaming purposes will be inherited from the objective settings (default: true). | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **min_agents** | **int** | The minimum number of agents that should be assigned to this network segment in a valid test (default: 1). | [optional] 
+**streaming_cpu_allocation** | **int** | The CPU percentage used by agents assigned to this network segment for streaming purposes (default: 25). | [optional] 
 
 ## Example
 

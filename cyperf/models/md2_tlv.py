@@ -18,22 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class AppFlowDesc(BaseModel):
+class Md2Tlv(BaseModel):
     """
-    AppFlowDesc
+    Md2Tlv
     """ # noqa: E501
-    dst_address: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="dstAddress")
-    dst_port: Optional[StrictInt] = Field(default=None, alias="dstPort")
-    http_host: Optional[StrictStr] = Field(default=None, alias="httpHost")
-    src_address: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="srcAddress")
-    src_port: Optional[StrictInt] = Field(default=None, alias="srcPort")
-    __properties: ClassVar[List[str]] = ["dstAddress", "dstPort", "httpHost", "srcAddress", "srcPort"]
+    md2_class: StrictInt = Field(alias="Md2Class")
+    md2_type: StrictInt = Field(alias="Md2Type")
+    md2_value: StrictInt = Field(alias="Md2Value")
+    id: StrictStr
+    __properties: ClassVar[List[str]] = ["Md2Class", "Md2Type", "Md2Value", "id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +52,7 @@ class AppFlowDesc(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AppFlowDesc from a JSON string"""
+        """Create an instance of Md2Tlv from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,7 +77,7 @@ class AppFlowDesc(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AppFlowDesc from a dict"""
+        """Create an instance of Md2Tlv from a dict"""
         if obj is None:
             return None
 
@@ -88,11 +87,10 @@ class AppFlowDesc(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "dstAddress": obj.get("dstAddress"),
-                        "dstPort": obj.get("dstPort"),
-                        "httpHost": obj.get("httpHost"),
-                        "srcAddress": obj.get("srcAddress"),
-                        "srcPort": obj.get("srcPort")
+            "Md2Class": obj.get("Md2Class"),
+                        "Md2Type": obj.get("Md2Type"),
+                        "Md2Value": obj.get("Md2Value"),
+                        "id": obj.get("id")
             ,
             "links": obj.get("links")
         })

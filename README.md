@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_resources_auth_profiles**](docs/ApplicationResourcesApi.md#get_resources_auth_profiles) | **GET** /api/v2/resources/auth-profiles | 
 *ApplicationResourcesApi* | [**get_resources_capture_by_id**](docs/ApplicationResourcesApi.md#get_resources_capture_by_id) | **GET** /api/v2/resources/captures/{captureId} | 
 *ApplicationResourcesApi* | [**get_resources_captures**](docs/ApplicationResourcesApi.md#get_resources_captures) | **GET** /api/v2/resources/captures | 
+*ApplicationResourcesApi* | [**get_resources_captures_encrypted_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_captures_encrypted_upload_file_result) | **GET** /api/v2/resources/captures/encrypted/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**get_resources_captures_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_captures_upload_file_result) | **GET** /api/v2/resources/captures/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**get_resources_certificate_by_id**](docs/ApplicationResourcesApi.md#get_resources_certificate_by_id) | **GET** /api/v2/resources/certificates/{certificateId} | 
 *ApplicationResourcesApi* | [**get_resources_certificate_content_file**](docs/ApplicationResourcesApi.md#get_resources_certificate_content_file) | **GET** /api/v2/resources/certificates/{certificateId}/contentFile | 
@@ -208,6 +209,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_resources_user_defined_apps_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps_upload_file_result) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**start_resources_apps_export_all**](docs/ApplicationResourcesApi.md#start_resources_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 *ApplicationResourcesApi* | [**start_resources_captures_batch_delete**](docs/ApplicationResourcesApi.md#start_resources_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
+*ApplicationResourcesApi* | [**start_resources_captures_encrypted_upload_file**](docs/ApplicationResourcesApi.md#start_resources_captures_encrypted_upload_file) | **POST** /api/v2/resources/captures/encrypted/operations/uploadFile | 
 *ApplicationResourcesApi* | [**start_resources_captures_upload_file**](docs/ApplicationResourcesApi.md#start_resources_captures_upload_file) | **POST** /api/v2/resources/captures/operations/uploadFile | 
 *ApplicationResourcesApi* | [**start_resources_certificates_upload_file**](docs/ApplicationResourcesApi.md#start_resources_certificates_upload_file) | **POST** /api/v2/resources/certificates/operations/uploadFile | 
 *ApplicationResourcesApi* | [**start_resources_config_export_user_defined_apps**](docs/ApplicationResourcesApi.md#start_resources_config_export_user_defined_apps) | **POST** /api/v2/resources/configs/{configId}/operations/export-user-defined-apps | 
@@ -346,6 +348,7 @@ Class | Method | HTTP request | Description
 *TestResultsApi* | [**get_result_files**](docs/TestResultsApi.md#get_result_files) | **GET** /api/v2/results/{resultId}/files | 
 *TestResultsApi* | [**get_results**](docs/TestResultsApi.md#get_results) | **GET** /api/v2/results | 
 *TestResultsApi* | [**get_results_tags**](docs/TestResultsApi.md#get_results_tags) | **GET** /api/v2/results/tags | 
+*TestResultsApi* | [**start_result_export_events**](docs/TestResultsApi.md#start_result_export_events) | **POST** /api/v2/results/{resultId}/operations/export-events | 
 *TestResultsApi* | [**start_result_generate_all**](docs/TestResultsApi.md#start_result_generate_all) | **POST** /api/v2/results/{resultId}/operations/generate-all | 
 *TestResultsApi* | [**start_result_generate_results**](docs/TestResultsApi.md#start_result_generate_results) | **POST** /api/v2/results/{resultId}/operations/generate-results | 
 *TestResultsApi* | [**start_result_load**](docs/TestResultsApi.md#start_result_load) | **POST** /api/v2/results/{resultId}/operations/load | 
@@ -612,6 +615,7 @@ Class | Method | HTTP request | Description
  - [MacDtlsStack](docs/MacDtlsStack.md)
  - [MappingType](docs/MappingType.md)
  - [MarkedAsDeleted](docs/MarkedAsDeleted.md)
+ - [Md2Tlv](docs/Md2Tlv.md)
  - [MediaFile](docs/MediaFile.md)
  - [MediaTrack](docs/MediaTrack.md)
  - [Metadata](docs/Metadata.md)
@@ -745,6 +749,9 @@ Class | Method | HTTP request | Description
  - [VLANRange](docs/VLANRange.md)
  - [ValidationMessage](docs/ValidationMessage.md)
  - [Version](docs/Version.md)
+ - [VxLANId](docs/VxLANId.md)
+ - [VxLANRange](docs/VxLANRange.md)
+ - [VxLANStack](docs/VxLANStack.md)
 
 
 <a id="documentation-for-authorization"></a>

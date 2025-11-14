@@ -15,10 +15,10 @@
 
 import unittest
 
-from cyperf.models.file_value import FileValue
+from cyperf.models.md2_tlv import Md2Tlv
 
-class TestFileValue(unittest.TestCase):
-    """FileValue unit test stubs"""
+class TestMd2Tlv(unittest.TestCase):
+    """Md2Tlv unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,31 +26,32 @@ class TestFileValue(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> FileValue:
-        """Test FileValue
+    def make_instance(self, include_optional) -> Md2Tlv:
+        """Test Md2Tlv
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `FileValue`
+        # uncomment below to create an instance of `Md2Tlv`
         """
-        model = FileValue()
+        model = Md2Tlv()
         if include_optional:
-            return FileValue(
-                file_name = '',
-                md5_sum = '',
-                payload = [
-                    'YQ=='
-                    ],
-                resource_url = '',
-                value = ''
+            return Md2Tlv(
+                md2_class = 56,
+                md2_type = 56,
+                md2_value = 56,
+                id = ''
             )
         else:
-            return FileValue(
+            return Md2Tlv(
+                md2_class = 56,
+                md2_type = 56,
+                md2_value = 56,
+                id = '',
         )
         """
 
-    def testFileValue(self):
-        """Test FileValue"""
+    def testMd2Tlv(self):
+        """Test Md2Tlv"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

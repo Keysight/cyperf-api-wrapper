@@ -38,6 +38,8 @@ class TestChassisInfo(unittest.TestCase):
             return ChassisInfo(
                 checkout_id = 56,
                 compute_node_id = '',
+                hw_platform = '',
+                hw_revision = '',
                 port_id = ''
             )
         else:

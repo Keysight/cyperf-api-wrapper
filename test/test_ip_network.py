@@ -224,6 +224,24 @@ class TestIPNetwork(unittest.TestCase):
                                 type = '', )
                             ], )
                     ],
+                vx_lan_stacks = [
+                    cyperf.models.vx_lan_stack.VxLANStack(
+                        inner_ip_range = null, 
+                        outer_ip_range = null, 
+                        vx_lan_range = null, 
+                        vx_lan_stack_name = 'YBuLd', 
+                        id = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], )
+                    ],
                 active = True,
                 agent_assignments = cyperf.models.agent_assignments.AgentAssignments(
                     by_id = [
@@ -245,6 +263,7 @@ class TestIPNetwork(unittest.TestCase):
                             rel = '', 
                             type = '', )
                         ], ),
+                inherit_streaming_cpu_allocation = True,
                 links = [
                     cyperf.models.api_link.APILink(
                         content_type = '', 
@@ -255,7 +274,8 @@ class TestIPNetwork(unittest.TestCase):
                         rel = '', 
                         type = '', )
                     ],
-                min_agents = 56
+                min_agents = 56,
+                streaming_cpu_allocation = 56
             )
         else:
             return IPNetwork(

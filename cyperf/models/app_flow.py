@@ -34,12 +34,13 @@ class AppFlow(BaseModel):
     dst_address: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="dstAddress")
     dst_port: Optional[StrictInt] = Field(default=None, alias="dstPort")
     exchanges: Optional[List[AppExchange]] = Field(default=None, description="The list of exchanges")
+    http_host: Optional[StrictStr] = Field(default=None, alias="httpHost")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
     src_address: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="srcAddress")
     src_port: Optional[StrictInt] = Field(default=None, alias="srcPort")
     transport_type: Optional[StrictStr] = Field(default=None, alias="transportType")
-    __properties: ClassVar[List[str]] = ["displayId", "dstAddress", "dstPort", "exchanges", "id", "links", "srcAddress", "srcPort", "transportType"]
+    __properties: ClassVar[List[str]] = ["displayId", "dstAddress", "dstPort", "exchanges", "httpHost", "id", "links", "srcAddress", "srcPort", "transportType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,6 +117,7 @@ class AppFlow(BaseModel):
                         "dstAddress": obj.get("dstAddress"),
                         "dstPort": obj.get("dstPort"),
                         "exchanges": [AppExchange.from_dict(_item) for _item in obj["exchanges"]] if obj.get("exchanges") is not None else None,
+                        "httpHost": obj.get("httpHost"),
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "srcAddress": obj.get("srcAddress"),

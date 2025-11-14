@@ -59,6 +59,7 @@ class TestParams(unittest.TestCase):
                         ], ),
                 file_value = cyperf.models.file_value.FileValue(
                     file_name = '', 
+                    md5_sum = '', 
                     payload = [
                         'YQ=='
                         ], 

@@ -39,6 +39,7 @@ class TestAppFlowInputFindParam(unittest.TestCase):
                 app_flow_desc = cyperf.models.app_flow_desc.AppFlowDesc(
                     dst_address = 'YQ==', 
                     dst_port = 56, 
+                    http_host = '', 
                     src_address = 'YQ==', 
                     src_port = 56, ),
                 app_flow_id = '',

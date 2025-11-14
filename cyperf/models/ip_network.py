@@ -31,6 +31,7 @@ from cyperf.models.ip_range import IPRange
 from cyperf.models.ip_sec_stack import IPSecStack
 from cyperf.models.mac_dtls_stack import MacDtlsStack
 from cyperf.models.tunnel_stack import TunnelStack
+from cyperf.models.vx_lan_stack import VxLANStack
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -51,11 +52,14 @@ class IPNetwork(BaseModel):
     ip_sec_stacks: Optional[List[IPSecStack]] = Field(default=None, alias="IPSecStacks")
     mac_dtls_stacks: Optional[List[MacDtlsStack]] = Field(default=None, alias="MacDtlsStacks")
     tunnel_stacks: Optional[List[TunnelStack]] = Field(default=None, alias="TunnelStacks")
+    vx_lan_stacks: Optional[List[VxLANStack]] = Field(default=None, alias="VxLANStacks")
     active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the network segment is active.(default: true)")
     agent_assignments: Optional[AgentAssignments] = Field(default=None, alias="agentAssignments")
+    inherit_streaming_cpu_allocation: Optional[StrictBool] = Field(default=None, description="A flag indicating if the CPU percentage used by agents assigned to this network segment for streaming purposes will be inherited from the objective settings (default: true).", alias="inheritStreamingCPUAllocation")
     links: Optional[List[APILink]] = None
     min_agents: Optional[StrictInt] = Field(default=None, description="The minimum number of agents that should be assigned to this network segment in a valid test (default: 1).", alias="minAgents")
-    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "DNSResolver", "DNSServer", "DUTConnections", "EmulatedRouter", "EthRange", "IPRanges", "IPSecStacks", "MacDtlsStacks", "TunnelStacks", "active", "agentAssignments", "links", "minAgents"]
+    streaming_cpu_allocation: Optional[StrictInt] = Field(default=None, description="The CPU percentage used by agents assigned to this network segment for streaming purposes (default: 25).", alias="streamingCPUAllocation")
+    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "DNSResolver", "DNSServer", "DUTConnections", "EmulatedRouter", "EthRange", "IPRanges", "IPSecStacks", "MacDtlsStacks", "TunnelStacks", "VxLANStacks", "active", "agentAssignments", "inheritStreamingCPUAllocation", "links", "minAgents", "streamingCPUAllocation"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -143,6 +147,13 @@ class IPNetwork(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['TunnelStacks'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in vx_lan_stacks (list)
+        _items = []
+        if self.vx_lan_stacks:
+            for _item in self.vx_lan_stacks:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['VxLANStacks'] = _items
         # override the default output from pydantic by calling `to_dict()` of agent_assignments
         if self.agent_assignments:
             _dict['agentAssignments'] = self.agent_assignments.to_dict()
@@ -179,10 +190,13 @@ class IPNetwork(BaseModel):
                         "IPSecStacks": [IPSecStack.from_dict(_item) for _item in obj["IPSecStacks"]] if obj.get("IPSecStacks") is not None else None,
                         "MacDtlsStacks": [MacDtlsStack.from_dict(_item) for _item in obj["MacDtlsStacks"]] if obj.get("MacDtlsStacks") is not None else None,
                         "TunnelStacks": [TunnelStack.from_dict(_item) for _item in obj["TunnelStacks"]] if obj.get("TunnelStacks") is not None else None,
+                        "VxLANStacks": [VxLANStack.from_dict(_item) for _item in obj["VxLANStacks"]] if obj.get("VxLANStacks") is not None else None,
                         "active": obj.get("active"),
                         "agentAssignments": AgentAssignments.from_dict(obj["agentAssignments"]) if obj.get("agentAssignments") is not None else None,
+                        "inheritStreamingCPUAllocation": obj.get("inheritStreamingCPUAllocation"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "minAgents": obj.get("minAgents")
+                        "minAgents": obj.get("minAgents"),
+                        "streamingCPUAllocation": obj.get("streamingCPUAllocation")
             ,
             "links": obj.get("links")
         })

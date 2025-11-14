@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dst_address** | **bytearray** |  | [optional] 
 **dst_port** | **int** |  | [optional] 
+**http_host** | **str** |  | [optional] 
 **src_address** | **bytearray** |  | [optional] 
 **src_port** | **int** |  | [optional] 
 

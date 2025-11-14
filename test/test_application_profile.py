@@ -86,7 +86,7 @@ class TestApplicationProfile(unittest.TestCase):
                             timeline = [
                                 null
                                 ], 
-                            type = null, 
+                            type = 'Simulated users', 
                             unit = null, 
                             id = '', 
                             links = [
