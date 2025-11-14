@@ -214,6 +214,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_get_resources_captures_encrypted_upload_file_result(self) -> None:
+        """Test case for get_resources_captures_encrypted_upload_file_result
+
+        """
+        pass
+
     def test_get_resources_captures_upload_file_result(self) -> None:
         """Test case for get_resources_captures_upload_file_result
 
@@ -681,6 +687,7 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
 
 
+
     def test_start_resources_apps_export_all(self) -> None:
         """Test case for start_resources_apps_export_all
 
@@ -689,6 +696,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
     def test_start_resources_captures_batch_delete(self) -> None:
         """Test case for start_resources_captures_batch_delete
+
+        """
+        pass
+
+    def test_start_resources_captures_encrypted_upload_file(self) -> None:
+        """Test case for start_resources_captures_encrypted_upload_file
 
         """
         pass

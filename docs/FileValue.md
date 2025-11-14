@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **file_name** | **str** | The name of the file. | [optional] 
+**md5_sum** | **str** | The MD5 sum of the file | [optional] 
 **payload** | **List[bytearray]** | The payload value of the file. | [optional] 
 **resource_url** | **str** | The resource URL of the file. | [optional] 
 **value** | **str** | Selected column name of the file (playlist type). | [optional] 

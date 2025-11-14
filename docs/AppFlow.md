@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **dst_address** | **bytearray** |  | [optional] 
 **dst_port** | **int** |  | [optional] 
 **exchanges** | [**List[AppExchange]**](AppExchange.md) | The list of exchanges | [optional] 
+**http_host** | **str** |  | [optional] 
 **id** | **str** |  | [optional] [readonly] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **src_address** | **bytearray** |  | [optional] 

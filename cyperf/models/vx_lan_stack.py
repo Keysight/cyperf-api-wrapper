@@ -18,35 +18,33 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
-from cyperf.models.objective_type import ObjectiveType
-from cyperf.models.objective_unit import ObjectiveUnit
-from cyperf.models.timeline_segment_union import TimelineSegmentUnion
+from cyperf.models.ip_range import IPRange
+from cyperf.models.vx_lan_range import VxLANRange
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class SpecificObjective(BaseModel):
+class VxLANStack(BaseModel):
     """
-    SpecificObjective
+    The VxLAN stack assigned to the current test configuration
     """ # noqa: E501
-    max_pending_simulated_users: Annotated[str, Field(strict=True)] = Field(description="Only applies if Type is SimulatedUsers. The maximum number or percentage of users that can be in the pending state (not yet connected and sending traffic) at any time. You can either specify a number or a percentage using the % sign.", alias="MaxPendingSimulatedUsers")
-    max_simulated_users_per_interval: Optional[StrictInt] = Field(default=None, description="Only applies if Type is SimulatedUsers. The maximum number of simulated users at which new users are initiated and teardown per interval(1 second). Default value is 0 (no limit)", alias="MaxSimulatedUsersPerInterval")
-    timeline: Optional[List[TimelineSegmentUnion]] = Field(default=None, description="The timeline of this objective.", alias="Timeline")
-    type: ObjectiveType = Field(alias="Type")
-    unit: ObjectiveUnit = Field(description="The objective's unit. Must be one of: bps or ''.", alias="Unit")
+    inner_ip_range: Optional[IPRange] = Field(default=None, alias="InnerIPRange")
+    outer_ip_range: Optional[IPRange] = Field(default=None, alias="OuterIPRange")
+    vx_lan_range: Optional[VxLANRange] = Field(default=None, alias="VxLANRange")
+    vx_lan_stack_name: Annotated[str, Field(strict=True)] = Field(alias="VxLANStackName")
     id: StrictStr
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["MaxPendingSimulatedUsers", "MaxSimulatedUsersPerInterval", "Timeline", "Type", "Unit", "id", "links"]
+    __properties: ClassVar[List[str]] = ["InnerIPRange", "OuterIPRange", "VxLANRange", "VxLANStackName", "id", "links"]
 
-    @field_validator('max_pending_simulated_users')
-    def max_pending_simulated_users_validate_regular_expression(cls, value):
+    @field_validator('vx_lan_stack_name')
+    def vx_lan_stack_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"$|^[0-9]+%?$", value):
-            raise ValueError(r"must validate the regular expression /$|^[0-9]+%?$/")
+        if not re.match(r"^$|^[^\"\\]+$", value):
+            raise ValueError(r"must validate the regular expression /^$|^[^\"\\]+$/")
         return value
 
     model_config = ConfigDict(
@@ -67,7 +65,7 @@ class SpecificObjective(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SpecificObjective from a JSON string"""
+        """Create an instance of VxLANStack from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -88,13 +86,15 @@ class SpecificObjective(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in timeline (list)
-        _items = []
-        if self.timeline:
-            for _item in self.timeline:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['Timeline'] = _items
+        # override the default output from pydantic by calling `to_dict()` of inner_ip_range
+        if self.inner_ip_range:
+            _dict['InnerIPRange'] = self.inner_ip_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_ip_range
+        if self.outer_ip_range:
+            _dict['OuterIPRange'] = self.outer_ip_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of vx_lan_range
+        if self.vx_lan_range:
+            _dict['VxLANRange'] = self.vx_lan_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -106,7 +106,7 @@ class SpecificObjective(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SpecificObjective from a dict"""
+        """Create an instance of VxLANStack from a dict"""
         if obj is None:
             return None
 
@@ -116,11 +116,10 @@ class SpecificObjective(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "MaxPendingSimulatedUsers": obj.get("MaxPendingSimulatedUsers"),
-                        "MaxSimulatedUsersPerInterval": obj.get("MaxSimulatedUsersPerInterval"),
-                        "Timeline": [TimelineSegmentUnion.from_dict(_item) for _item in obj["Timeline"]] if obj.get("Timeline") is not None else None,
-                        "Type": obj.get("Type"),
-                        "Unit": obj.get("Unit"),
+            "InnerIPRange": IPRange.from_dict(obj["InnerIPRange"]) if obj.get("InnerIPRange") is not None else None,
+                        "OuterIPRange": IPRange.from_dict(obj["OuterIPRange"]) if obj.get("OuterIPRange") is not None else None,
+                        "VxLANRange": VxLANRange.from_dict(obj["VxLANRange"]) if obj.get("VxLANRange") is not None else None,
+                        "VxLANStackName": obj.get("VxLANStackName"),
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,

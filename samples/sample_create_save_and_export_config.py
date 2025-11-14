@@ -84,12 +84,6 @@ if __name__ == "__main__":
         api_session_response.await_completion()
         print("Applications added successfully.\n")
 
-        # Create a Network Profile
-        print("Adding network elements...")
-        network_profile = NetworkProfile(IPNetworkSegment=[], id="1")
-        session.config.config.network_profiles.append(network_profile)
-        session.config.config.network_profiles.update()
-
         # Create IP Networks
         client_ip_network = IPNetwork(name="IP Network 1", id="1", agentAssignments=AgentAssignments(by_tag=[]), minAgents=1)
         server_ip_network = IPNetwork(name="IP Network 2", id="2", agentAssignments=AgentAssignments(by_tag=[]), minAgents=1)

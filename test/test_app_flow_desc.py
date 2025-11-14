@@ -38,6 +38,7 @@ class TestAppFlowDesc(unittest.TestCase):
             return AppFlowDesc(
                 dst_address = 'YQ==',
                 dst_port = 56,
+                http_host = '',
                 src_address = 'YQ==',
                 src_port = 56
             )

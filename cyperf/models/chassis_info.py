@@ -30,8 +30,10 @@ class ChassisInfo(BaseModel):
     """ # noqa: E501
     checkout_id: Optional[StrictInt] = Field(default=None, description="The id of the compute node used for checkout licenses", alias="checkoutID")
     compute_node_id: Optional[StrictStr] = Field(default=None, description="The id of the compute node where the agent is running", alias="computeNodeID")
+    hw_platform: Optional[StrictStr] = Field(default=None, alias="hwPlatform")
+    hw_revision: Optional[StrictStr] = Field(default=None, alias="hwRevision")
     port_id: Optional[StrictStr] = Field(default=None, description="The id of the corresponding port", alias="portID")
-    __properties: ClassVar[List[str]] = ["checkoutID", "computeNodeID", "portID"]
+    __properties: ClassVar[List[str]] = ["checkoutID", "computeNodeID", "hwPlatform", "hwRevision", "portID"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +96,8 @@ class ChassisInfo(BaseModel):
         _obj = cls.model_validate({
             "checkoutID": obj.get("checkoutID"),
                         "computeNodeID": obj.get("computeNodeID"),
+                        "hwPlatform": obj.get("hwPlatform"),
+                        "hwRevision": obj.get("hwRevision"),
                         "portID": obj.get("portID")
             ,
             "links": obj.get("links")

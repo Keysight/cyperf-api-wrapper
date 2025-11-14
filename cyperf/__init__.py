@@ -289,6 +289,7 @@ from cyperf.models.log_level import LogLevel
 from cyperf.models.mac_dtls_stack import MacDtlsStack
 from cyperf.models.mapping_type import MappingType
 from cyperf.models.marked_as_deleted import MarkedAsDeleted
+from cyperf.models.md2_tlv import Md2Tlv
 from cyperf.models.media_file import MediaFile
 from cyperf.models.media_track import MediaTrack
 from cyperf.models.metadata import Metadata
@@ -422,3 +423,6 @@ from cyperf.models.update_port_tags_operation import UpdatePortTagsOperation
 from cyperf.models.vlan_range import VLANRange
 from cyperf.models.validation_message import ValidationMessage
 from cyperf.models.version import Version
+from cyperf.models.vx_lanid import VxLANId
+from cyperf.models.vx_lan_range import VxLANRange
+from cyperf.models.vx_lan_stack import VxLANStack

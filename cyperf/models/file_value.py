@@ -29,10 +29,11 @@ class FileValue(BaseModel):
     FileValue
     """ # noqa: E501
     file_name: Optional[StrictStr] = Field(default=None, description="The name of the file.", alias="fileName")
+    md5_sum: Optional[StrictStr] = Field(default=None, description="The MD5 sum of the file", alias="md5Sum")
     payload: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, description="The payload value of the file.")
     resource_url: Optional[StrictStr] = Field(default=None, description="The resource URL of the file.", alias="resourceURL")
     value: Optional[StrictStr] = Field(default=None, description="Selected column name of the file (playlist type).")
-    __properties: ClassVar[List[str]] = ["fileName", "payload", "resourceURL", "value"]
+    __properties: ClassVar[List[str]] = ["fileName", "md5Sum", "payload", "resourceURL", "value"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +89,7 @@ class FileValue(BaseModel):
 
         _obj = cls.model_validate({
             "fileName": obj.get("fileName"),
+                        "md5Sum": obj.get("md5Sum"),
                         "payload": obj.get("payload"),
                         "resourceURL": obj.get("resourceURL"),
                         "value": obj.get("value")

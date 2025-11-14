@@ -351,7 +351,7 @@ class TestRunner:
         lines = ['|'.join([f'{val:^{col_width}}' for val, col_width in zip(item, col_widths)]) for item in zip(*stats_dict.values())]
         return [line_delim, header, line_delim] + lines + [line_delim]
 
-    
+
 def parse_cli_options(extra_options=[]):
     """Can be used to get parameters from the CLI or env vars that are broadly useful for CLI tests"""
     import argparse

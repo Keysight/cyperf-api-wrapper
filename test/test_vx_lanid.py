@@ -15,10 +15,10 @@
 
 import unittest
 
-from cyperf.models.file_value import FileValue
+from cyperf.models.vx_lanid import VxLANId
 
-class TestFileValue(unittest.TestCase):
-    """FileValue unit test stubs"""
+class TestVxLANId(unittest.TestCase):
+    """VxLANId unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,31 +26,28 @@ class TestFileValue(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> FileValue:
-        """Test FileValue
+    def make_instance(self, include_optional) -> VxLANId:
+        """Test VxLANId
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `FileValue`
+        # uncomment below to create an instance of `VxLANId`
         """
-        model = FileValue()
+        model = VxLANId()
         if include_optional:
-            return FileValue(
-                file_name = '',
-                md5_sum = '',
-                payload = [
-                    'YQ=='
-                    ],
-                resource_url = '',
-                value = ''
+            return VxLANId(
+                vx_lan_id = 56,
+                id = ''
             )
         else:
-            return FileValue(
+            return VxLANId(
+                vx_lan_id = 56,
+                id = '',
         )
         """
 
-    def testFileValue(self):
-        """Test FileValue"""
+    def testVxLANId(self):
+        """Test VxLANId"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

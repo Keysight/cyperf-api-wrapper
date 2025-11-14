@@ -94,6 +94,7 @@ class TestReplayCapture(unittest.TestCase):
                                     size = 56, 
                                     type = '', ), )
                             ], 
+                        http_host = '', 
                         id = '', 
                         links = [
                             cyperf.models.api_link.APILink(

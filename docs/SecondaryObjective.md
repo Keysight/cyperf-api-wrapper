@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **max_simulated_users_per_interval** | **int** | Only applies if Type is SimulatedUsers. The maximum number of simulated users at which new users are initiated and teardown per interval(1 second). Default value is 0 (no limit) | [optional] 
 **objective_unit** | **str** | The objective&#39;s unit. | 
 **objective_value** | **float** | The value of the secondary objective. This value will be used for the whole duration of the test. | 
-**type** | [**ObjectiveType**](ObjectiveType.md) | The objective&#39;s type (default: SimulatedUsers). | 
+**type** | [**ObjectiveType**](ObjectiveType.md) |  | 
 
 ## Example
 

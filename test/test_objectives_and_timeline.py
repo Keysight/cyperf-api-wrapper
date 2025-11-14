@@ -48,7 +48,7 @@ class TestObjectivesAndTimeline(unittest.TestCase):
                     timeline = [
                         null
                         ], 
-                    type = null, 
+                    type = 'Simulated users', 
                     unit = null, 
                     id = '', 
                     links = [
@@ -67,7 +67,7 @@ class TestObjectivesAndTimeline(unittest.TestCase):
                     max_simulated_users_per_interval = 56, 
                     objective_unit = '', 
                     objective_value = 1.337, 
-                    type = null, ),
+                    type = 'Simulated users', ),
                 secondary_objectives = [
                     cyperf.models.specific_objective.SpecificObjective(
                         max_pending_simulated_users = '80728', 
@@ -75,7 +75,7 @@ class TestObjectivesAndTimeline(unittest.TestCase):
                         timeline = [
                             null
                             ], 
-                        type = null, 
+                        type = 'Simulated users', 
                         unit = null, 
                         id = '', 
                         links = [

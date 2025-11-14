@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**get_result_files**](TestResultsApi.md#get_result_files) | **GET** /api/v2/results/{resultId}/files | 
 [**get_results**](TestResultsApi.md#get_results) | **GET** /api/v2/results | 
 [**get_results_tags**](TestResultsApi.md#get_results_tags) | **GET** /api/v2/results/tags | 
+[**start_result_export_events**](TestResultsApi.md#start_result_export_events) | **POST** /api/v2/results/{resultId}/operations/export-events | 
 [**start_result_generate_all**](TestResultsApi.md#start_result_generate_all) | **POST** /api/v2/results/{resultId}/operations/generate-all | 
 [**start_result_generate_results**](TestResultsApi.md#start_result_generate_results) | **POST** /api/v2/results/{resultId}/operations/generate-results | 
 [**start_result_load**](TestResultsApi.md#start_result_load) | **POST** /api/v2/results/{resultId}/operations/load | 
@@ -814,6 +815,83 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | The list of agent groups |  -  |
 **500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_result_export_events**
+> AsyncContext start_result_export_events(result_id)
+
+
+
+Export events file.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.TestResultsApi(api_client)
+    result_id = 'result_id_example' # str | The ID of the result.
+
+    try:
+        api_response = api_instance.start_result_export_events(result_id)
+        print("The response of TestResultsApi->start_result_export_events:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TestResultsApi->start_result_export_events: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **result_id** | **str**| The ID of the result. | 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
