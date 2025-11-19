@@ -20,6 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.api_link import APILink
+from cyperf.models.config_sub_category import ConfigSubCategory
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -29,7 +31,9 @@ class ConfigCategory(BaseModel):
     ConfigCategory
     """ # noqa: E501
     display_name: Optional[StrictStr] = Field(default=None, description="The user-visible name of the configuration category", alias="displayName")
-    __properties: ClassVar[List[str]] = ["displayName"]
+    links: Optional[List[APILink]] = None
+    subcategories: Optional[List[ConfigSubCategory]] = Field(default=None, description="List of subcategory names")
+    __properties: ClassVar[List[str]] = ["displayName", "links", "subcategories"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +74,20 @@ class ConfigCategory(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in links (list)
+        _items = []
+        if self.links:
+            for _item in self.links:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['links'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in subcategories (list)
+        _items = []
+        if self.subcategories:
+            for _item in self.subcategories:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['subcategories'] = _items
         return _dict
 
     @classmethod
@@ -84,7 +102,9 @@ class ConfigCategory(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "displayName": obj.get("displayName")
+            "displayName": obj.get("displayName"),
+                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "subcategories": [ConfigSubCategory.from_dict(_item) for _item in obj["subcategories"]] if obj.get("subcategories") is not None else None
             ,
             "links": obj.get("links")
         })

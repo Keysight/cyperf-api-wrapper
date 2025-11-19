@@ -38,7 +38,21 @@ class TestGetConfigCategories200Response(unittest.TestCase):
             return GetConfigCategories200Response(
                 data = [
                     cyperf.models.config_category.ConfigCategory(
-                        display_name = '', )
+                        display_name = '', 
+                        links = [
+                            cyperf.models.api_link.APILink(
+                                content_type = '', 
+                                href = '', 
+                                method = '', 
+                                name = '', 
+                                references_count = 56, 
+                                rel = '', 
+                                type = '', )
+                            ], 
+                        subcategories = [
+                            cyperf.models.config_sub_category.ConfigSubCategory(
+                                display_name = '', )
+                            ], )
                     ],
                 total_count = 56
             )

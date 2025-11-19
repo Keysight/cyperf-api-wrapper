@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
+from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.file_metadata import FileMetadata
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
@@ -36,7 +36,7 @@ class GenericFile(BaseModel):
     md5: Optional[StrictStr] = Field(default=None, description="The md5 value of the file")
     metadata: Optional[FileMetadata] = None
     name: Optional[StrictStr] = Field(default=None, description="The name of the file")
-    options: Optional[Dict[str, AttackMetadataKeywordsInner]] = Field(default=None, description="The characteristics of the file")
+    options: Optional[Dict[str, AppsecAppMetadataKeywordsInner]] = Field(default=None, description="The characteristics of the file")
     owner: Optional[StrictStr] = Field(default=None, description="The user-visible name of the file's owner")
     owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the file's owner", alias="ownerId")
     reference_links: Optional[Dict[str, StrictInt]] = Field(default=None, alias="referenceLinks")
@@ -122,7 +122,7 @@ class GenericFile(BaseModel):
                         "metadata": FileMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
                         "name": obj.get("name"),
                         "options": dict(
-                (_k, AttackMetadataKeywordsInner.from_dict(_v))
+                (_k, AppsecAppMetadataKeywordsInner.from_dict(_v))
                 for _k, _v in obj["options"].items()
             )
             if obj.get("options") is not None

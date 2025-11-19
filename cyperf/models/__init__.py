@@ -54,6 +54,7 @@ from cyperf.models.application_profile import ApplicationProfile
 from cyperf.models.application_type import ApplicationType
 from cyperf.models.appsec_app import AppsecApp
 from cyperf.models.appsec_app_metadata import AppsecAppMetadata
+from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.appsec_attack import AppsecAttack
 from cyperf.models.appsec_config import AppsecConfig
 from cyperf.models.archive_info import ArchiveInfo
@@ -62,7 +63,6 @@ from cyperf.models.async_context import AsyncContext
 from cyperf.models.attack import Attack
 from cyperf.models.attack_action import AttackAction
 from cyperf.models.attack_metadata import AttackMetadata
-from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
 from cyperf.models.attack_objectives_and_timeline import AttackObjectivesAndTimeline
 from cyperf.models.attack_profile import AttackProfile
 from cyperf.models.attack_timeline_segment import AttackTimelineSegment
@@ -91,11 +91,13 @@ from cyperf.models.cisco_any_connect_settings import CiscoAnyConnectSettings
 from cyperf.models.cisco_encapsulation import CiscoEncapsulation
 from cyperf.models.clear_ports_ownership_operation import ClearPortsOwnershipOperation
 from cyperf.models.command import Command
+from cyperf.models.command_metadata import CommandMetadata
 from cyperf.models.compute_node import ComputeNode
 from cyperf.models.config import Config
 from cyperf.models.config_category import ConfigCategory
 from cyperf.models.config_id import ConfigId
 from cyperf.models.config_metadata import ConfigMetadata
+from cyperf.models.config_sub_category import ConfigSubCategory
 from cyperf.models.config_validation import ConfigValidation
 from cyperf.models.conflict import Conflict
 from cyperf.models.connection import Connection
@@ -175,11 +177,14 @@ from cyperf.models.get_agents200_response import GetAgents200Response
 from cyperf.models.get_agents200_response_one_of import GetAgents200ResponseOneOf
 from cyperf.models.get_agents_tags200_response import GetAgentsTags200Response
 from cyperf.models.get_agents_tags200_response_one_of import GetAgentsTags200ResponseOneOf
+from cyperf.models.get_apps_operation import GetAppsOperation
 from cyperf.models.get_async_operation_result200_response import GetAsyncOperationResult200Response
 from cyperf.models.get_attacks_operation import GetAttacksOperation
 from cyperf.models.get_brokers200_response import GetBrokers200Response
 from cyperf.models.get_brokers200_response_one_of import GetBrokers200ResponseOneOf
 from cyperf.models.get_categories_operation import GetCategoriesOperation
+from cyperf.models.get_config_categorie_subcategories200_response import GetConfigCategorieSubcategories200Response
+from cyperf.models.get_config_categorie_subcategories200_response_one_of import GetConfigCategorieSubcategories200ResponseOneOf
 from cyperf.models.get_config_categories200_response import GetConfigCategories200Response
 from cyperf.models.get_config_categories200_response_one_of import GetConfigCategories200ResponseOneOf
 from cyperf.models.get_configs200_response import GetConfigs200Response

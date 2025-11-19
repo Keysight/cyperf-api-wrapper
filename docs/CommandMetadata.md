@@ -1,4 +1,4 @@
-# Metadata
+# CommandMetadata
 
 
 ## Properties
@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **direction** | **str** | The direction of the strike | [optional] 
 **is_banner** | **bool** | Indicates that this is a command that is required, can only be add once and also must be the first | [optional] 
+**is_for_app_traffic_only** | **bool** | Indicates that this is a command that can only be used in application traffic and cannot be mixed with attack traffic | [optional] 
 **is_streaming** | **bool** | Indicates if the application&#39;s traffic is a UDP stream | [optional] 
 **keywords** | [**List[AppsecAppMetadataKeywordsInner]**](AppsecAppMetadataKeywordsInner.md) | The keywords of the strike | [optional] 
 **legacy_names** | **List[str]** | The names of the equivalent application/strike | [optional] 
@@ -25,19 +26,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from cyperf.models.metadata import Metadata
+from cyperf.models.command_metadata import CommandMetadata
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of Metadata from a JSON string
-metadata_instance = Metadata.from_json(json)
+# create an instance of CommandMetadata from a JSON string
+command_metadata_instance = CommandMetadata.from_json(json)
 # print the JSON string representation of the object
-print(Metadata.to_json())
+print(CommandMetadata.to_json())
 
 # convert the object into a dict
-metadata_dict = metadata_instance.to_dict()
-# create an instance of Metadata from a dict
-metadata_from_dict = Metadata.from_dict(metadata_dict)
+command_metadata_dict = command_metadata_instance.to_dict()
+# create an instance of CommandMetadata from a dict
+command_metadata_from_dict = CommandMetadata.from_dict(command_metadata_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

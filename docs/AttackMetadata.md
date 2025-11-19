@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cve_count** | **int** | The number of CVE references associated with the attack | [optional] 
 **direction** | **str** | The aggregated direction of the strike included in the attack | [optional] 
-**keywords** | [**List[AttackMetadataKeywordsInner]**](AttackMetadataKeywordsInner.md) | The aggregated keywords of the attack | [optional] 
+**keywords** | [**List[AppsecAppMetadataKeywordsInner]**](AppsecAppMetadataKeywordsInner.md) | The aggregated keywords of the attack | [optional] 
 **legacy_names** | **List[str]** |  | [optional] 
 **references** | [**List[Reference]**](Reference.md) | The aggregated references of the attack | [optional] 
 **severity** | **str** | The aggregated severity of the strike included in the attack | [optional] 

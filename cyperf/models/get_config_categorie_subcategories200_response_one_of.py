@@ -18,21 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
+from cyperf.models.config_sub_category import ConfigSubCategory
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class PluginStats(BaseModel):
+class GetConfigCategorieSubcategories200ResponseOneOf(BaseModel):
     """
-    PluginStats
+    GetConfigCategorieSubcategories200ResponseOneOf
     """ # noqa: E501
-    plugin: Optional[StrictStr] = Field(default=None, description="The name of the plugin")
-    stats: Optional[List[Dict[str, AppsecAppMetadataKeywordsInner]]] = Field(default=None, description="The statistics to be ingested")
-    version: Optional[StrictStr] = Field(default=None, description="The version of the plugin")
-    __properties: ClassVar[List[str]] = ["plugin", "stats", "version"]
+    data: Optional[List[ConfigSubCategory]] = None
+    total_count: Optional[StrictInt] = Field(default=None, alias="totalCount")
+    __properties: ClassVar[List[str]] = ["data", "totalCount"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +51,7 @@ class PluginStats(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PluginStats from a JSON string"""
+        """Create an instance of GetConfigCategorieSubcategories200ResponseOneOf from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,18 +72,18 @@ class PluginStats(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in stats (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
         _items = []
-        if self.stats:
-            for _item in self.stats:
+        if self.data:
+            for _item in self.data:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['stats'] = _items
+            _dict['data'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PluginStats from a dict"""
+        """Create an instance of GetConfigCategorieSubcategories200ResponseOneOf from a dict"""
         if obj is None:
             return None
 
@@ -94,9 +93,8 @@ class PluginStats(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "plugin": obj.get("plugin"),
-                        "stats": [Dict[str, AppsecAppMetadataKeywordsInner].from_dict(_item) for _item in obj["stats"]] if obj.get("stats") is not None else None,
-                        "version": obj.get("version")
+            "data": [ConfigSubCategory.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+                        "totalCount": obj.get("totalCount")
             ,
             "links": obj.get("links")
         })
