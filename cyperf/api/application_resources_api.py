@@ -33,6 +33,7 @@ from cyperf.models.edit_app_operation import EditAppOperation
 from cyperf.models.export_apps_operation_input import ExportAppsOperationInput
 from cyperf.models.find_param_matches_operation import FindParamMatchesOperation
 from cyperf.models.generic_file import GenericFile
+from cyperf.models.get_apps_operation import GetAppsOperation
 from cyperf.models.get_attacks_operation import GetAttacksOperation
 from cyperf.models.get_categories_operation import GetCategoriesOperation
 from cyperf.models.get_resources_application_types200_response import GetResourcesApplicationTypes200Response
@@ -5557,6 +5558,277 @@ class ApplicationResourcesApi:
 
 
     @validate_call
+    def get_resources_app_categories(
+        self,
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[Category]:
+        """get_resources_app_categories
+
+
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_resources_app_categories_serialize(
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[Category]",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def get_resources_app_categories_with_http_info(
+        self,
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[Category]]:
+        """get_resources_app_categories
+
+
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_resources_app_categories_serialize(
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[Category]",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def get_resources_app_categories_without_preload_content(
+        self,
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_resources_app_categories
+
+
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_resources_app_categories_serialize(
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[Category]",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+    
+
+    def _get_resources_app_categories_serialize(
+        self,
+        take,
+        skip,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if take is not None:
+            
+            _query_params.append(('take', take))
+            
+        if skip is not None:
+            
+            _query_params.append(('skip', skip))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/resources/app-categories',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def get_resources_application_type_by_id(
         self,
         application_type_id: Annotated[StrictStr, Field(description="The ID of the application type.")],
@@ -6094,6 +6366,7 @@ class ApplicationResourcesApi:
         search_val: Annotated[Optional[StrictStr], Field(description="The keywords used to filter the items")] = None,
         filter_mode: Annotated[Optional[StrictStr], Field(description="The operator applied to the supplied values")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="A list of comma-separated field:direction pairs used to sort the items where direction must be asc or dsc")] = None,
+        categories: Annotated[Optional[StrictStr], Field(description="A string which filters the list of applications by categories. The format is categories=category1:value1|...,....")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6123,6 +6396,8 @@ class ApplicationResourcesApi:
         :type filter_mode: str
         :param sort: A list of comma-separated field:direction pairs used to sort the items where direction must be asc or dsc
         :type sort: str
+        :param categories: A string which filters the list of applications by categories. The format is categories=category1:value1|...,....
+        :type categories: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6152,6 +6427,7 @@ class ApplicationResourcesApi:
             search_val=search_val,
             filter_mode=filter_mode,
             sort=sort,
+            categories=categories,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6160,6 +6436,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetResourcesApps200Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -6179,6 +6456,7 @@ class ApplicationResourcesApi:
         search_val: Annotated[Optional[StrictStr], Field(description="The keywords used to filter the items")] = None,
         filter_mode: Annotated[Optional[StrictStr], Field(description="The operator applied to the supplied values")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="A list of comma-separated field:direction pairs used to sort the items where direction must be asc or dsc")] = None,
+        categories: Annotated[Optional[StrictStr], Field(description="A string which filters the list of applications by categories. The format is categories=category1:value1|...,....")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6208,6 +6486,8 @@ class ApplicationResourcesApi:
         :type filter_mode: str
         :param sort: A list of comma-separated field:direction pairs used to sort the items where direction must be asc or dsc
         :type sort: str
+        :param categories: A string which filters the list of applications by categories. The format is categories=category1:value1|...,....
+        :type categories: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6237,6 +6517,7 @@ class ApplicationResourcesApi:
             search_val=search_val,
             filter_mode=filter_mode,
             sort=sort,
+            categories=categories,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6245,6 +6526,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetResourcesApps200Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -6264,6 +6546,7 @@ class ApplicationResourcesApi:
         search_val: Annotated[Optional[StrictStr], Field(description="The keywords used to filter the items")] = None,
         filter_mode: Annotated[Optional[StrictStr], Field(description="The operator applied to the supplied values")] = None,
         sort: Annotated[Optional[StrictStr], Field(description="A list of comma-separated field:direction pairs used to sort the items where direction must be asc or dsc")] = None,
+        categories: Annotated[Optional[StrictStr], Field(description="A string which filters the list of applications by categories. The format is categories=category1:value1|...,....")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6293,6 +6576,8 @@ class ApplicationResourcesApi:
         :type filter_mode: str
         :param sort: A list of comma-separated field:direction pairs used to sort the items where direction must be asc or dsc
         :type sort: str
+        :param categories: A string which filters the list of applications by categories. The format is categories=category1:value1|...,....
+        :type categories: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6322,6 +6607,7 @@ class ApplicationResourcesApi:
             search_val=search_val,
             filter_mode=filter_mode,
             sort=sort,
+            categories=categories,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6330,6 +6616,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetResourcesApps200Response",
+            '400': "ErrorResponse",
             '401': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -6348,6 +6635,7 @@ class ApplicationResourcesApi:
         search_val,
         filter_mode,
         sort,
+        categories,
         _request_auth,
         _content_type,
         _headers,
@@ -6391,6 +6679,10 @@ class ApplicationResourcesApi:
         if sort is not None:
             
             _query_params.append(('sort', sort))
+            
+        if categories is not None:
+            
+            _query_params.append(('categories', categories))
             
         # process the header parameters
         # process the form parameters
@@ -28280,6 +28572,26 @@ class ApplicationResourcesApi:
 
 
 
+    
+
+    
+
+    
+
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
     @validate_call
     def start_resources_apps_export_all(
         self,
@@ -31154,6 +31466,536 @@ class ApplicationResourcesApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/v2/resources/flow-library/operations/uploadFile',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_resources_get_app_categories(
+        self,
+        get_categories_operation: Optional[GetCategoriesOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_resources_get_app_categories
+
+        Get the list of app categories
+
+        :param get_categories_operation:
+        :type get_categories_operation: GetCategoriesOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_resources_get_app_categories_serialize(
+            get_categories_operation=get_categories_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def start_resources_get_app_categories_with_http_info(
+        self,
+        get_categories_operation: Optional[GetCategoriesOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_resources_get_app_categories
+
+        Get the list of app categories
+
+        :param get_categories_operation:
+        :type get_categories_operation: GetCategoriesOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_resources_get_app_categories_serialize(
+            get_categories_operation=get_categories_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def start_resources_get_app_categories_without_preload_content(
+        self,
+        get_categories_operation: Optional[GetCategoriesOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_resources_get_app_categories
+
+        Get the list of app categories
+
+        :param get_categories_operation:
+        :type get_categories_operation: GetCategoriesOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_resources_get_app_categories_serialize(
+            get_categories_operation=get_categories_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+    
+
+    def _start_resources_get_app_categories_serialize(
+        self,
+        get_categories_operation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if get_categories_operation is not None:
+            _body_params = get_categories_operation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/resources/operations/get-app-categories',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_resources_get_apps(
+        self,
+        get_apps_operation: Optional[GetAppsOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_resources_get_apps
+
+        Get the list of applications
+
+        :param get_apps_operation:
+        :type get_apps_operation: GetAppsOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_resources_get_apps_serialize(
+            get_apps_operation=get_apps_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def start_resources_get_apps_with_http_info(
+        self,
+        get_apps_operation: Optional[GetAppsOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_resources_get_apps
+
+        Get the list of applications
+
+        :param get_apps_operation:
+        :type get_apps_operation: GetAppsOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_resources_get_apps_serialize(
+            get_apps_operation=get_apps_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def start_resources_get_apps_without_preload_content(
+        self,
+        get_apps_operation: Optional[GetAppsOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_resources_get_apps
+
+        Get the list of applications
+
+        :param get_apps_operation:
+        :type get_apps_operation: GetAppsOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_resources_get_apps_serialize(
+            get_apps_operation=get_apps_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+    
+
+    def _start_resources_get_apps_serialize(
+        self,
+        get_apps_operation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if get_apps_operation is not None:
+            _body_params = get_apps_operation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/resources/operations/get-apps',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

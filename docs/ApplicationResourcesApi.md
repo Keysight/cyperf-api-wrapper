@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**get_capture_flows**](ApplicationResourcesApi.md#get_capture_flows) | **GET** /api/v2/resources/captures/{captureId}/flows | 
 [**get_flow_exchanges**](ApplicationResourcesApi.md#get_flow_exchanges) | **GET** /api/v2/resources/captures/{captureId}/flows/{flowId}/exchanges | 
 [**get_resources_app_by_id**](ApplicationResourcesApi.md#get_resources_app_by_id) | **GET** /api/v2/resources/apps/{appId} | 
+[**get_resources_app_categories**](ApplicationResourcesApi.md#get_resources_app_categories) | **GET** /api/v2/resources/app-categories | 
 [**get_resources_application_type_by_id**](ApplicationResourcesApi.md#get_resources_application_type_by_id) | **GET** /api/v2/resources/application-types/{applicationTypeId} | 
 [**get_resources_application_types**](ApplicationResourcesApi.md#get_resources_application_types) | **GET** /api/v2/resources/application-types | 
 [**get_resources_apps**](ApplicationResourcesApi.md#get_resources_apps) | **GET** /api/v2/resources/apps | 
@@ -120,6 +121,8 @@ Method | HTTP request | Description
 [**start_resources_edit_app**](ApplicationResourcesApi.md#start_resources_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
 [**start_resources_find_param_matches**](ApplicationResourcesApi.md#start_resources_find_param_matches) | **POST** /api/v2/resources/operations/find-param-matches | 
 [**start_resources_flow_library_upload_file**](ApplicationResourcesApi.md#start_resources_flow_library_upload_file) | **POST** /api/v2/resources/flow-library/operations/uploadFile | 
+[**start_resources_get_app_categories**](ApplicationResourcesApi.md#start_resources_get_app_categories) | **POST** /api/v2/resources/operations/get-app-categories | 
+[**start_resources_get_apps**](ApplicationResourcesApi.md#start_resources_get_apps) | **POST** /api/v2/resources/operations/get-apps | 
 [**start_resources_get_attack_categories**](ApplicationResourcesApi.md#start_resources_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
 [**start_resources_get_attacks**](ApplicationResourcesApi.md#start_resources_get_attacks) | **POST** /api/v2/resources/operations/get-attacks | 
 [**start_resources_get_strike_categories**](ApplicationResourcesApi.md#start_resources_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
@@ -1750,6 +1753,84 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_resources_app_categories**
+> List[Category] get_resources_app_categories(take=take, skip=skip)
+
+
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.category import Category
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
+
+    try:
+        api_response = api_instance.get_resources_app_categories(take=take, skip=skip)
+        print("The response of ApplicationResourcesApi->get_resources_app_categories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_app_categories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
+
+### Return type
+
+[**List[Category]**](Category.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_resources_application_type_by_id**
 > ApplicationType get_resources_application_type_by_id(application_type_id)
 
@@ -1909,7 +1990,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_resources_apps**
-> GetResourcesApps200Response get_resources_apps(take=take, skip=skip, search_col=search_col, search_val=search_val, filter_mode=filter_mode, sort=sort)
+> GetResourcesApps200Response get_resources_apps(take=take, skip=skip, search_col=search_col, search_val=search_val, filter_mode=filter_mode, sort=sort, categories=categories)
 
 
 
@@ -1951,9 +2032,10 @@ with cyperf.ApiClient(configuration) as api_client:
     search_val = 'search_val_example' # str | The keywords used to filter the items (optional)
     filter_mode = 'filter_mode_example' # str | The operator applied to the supplied values (optional)
     sort = 'sort_example' # str | A list of comma-separated field:direction pairs used to sort the items where direction must be asc or dsc (optional)
+    categories = 'categories_example' # str | A string which filters the list of applications by categories. The format is categories=category1:value1|...,.... (optional)
 
     try:
-        api_response = api_instance.get_resources_apps(take=take, skip=skip, search_col=search_col, search_val=search_val, filter_mode=filter_mode, sort=sort)
+        api_response = api_instance.get_resources_apps(take=take, skip=skip, search_col=search_col, search_val=search_val, filter_mode=filter_mode, sort=sort, categories=categories)
         print("The response of ApplicationResourcesApi->get_resources_apps:\n")
         pprint(api_response)
     except Exception as e:
@@ -1973,6 +2055,7 @@ Name | Type | Description  | Notes
  **search_val** | **str**| The keywords used to filter the items | [optional] 
  **filter_mode** | **str**| The operator applied to the supplied values | [optional] 
  **sort** | **str**| A list of comma-separated field:direction pairs used to sort the items where direction must be asc or dsc | [optional] 
+ **categories** | **str**| A string which filters the list of applications by categories. The format is categories&#x3D;category1:value1|...,.... | [optional] 
 
 ### Return type
 
@@ -1992,6 +2075,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The list of CyPerf applications |  -  |
+**400** | Bad request |  -  |
 **401** | Authorization information is missing or invalid. |  -  |
 **500** | Unexpected error |  -  |
 
@@ -9217,6 +9301,162 @@ void (empty response body)
 |-------------|-------------|------------------|
 **202** | Details about the operation that just started. |  -  |
 **500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_resources_get_app_categories**
+> AsyncContext start_resources_get_app_categories(get_categories_operation=get_categories_operation)
+
+
+
+Get the list of app categories
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.models.get_categories_operation import GetCategoriesOperation
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    get_categories_operation = cyperf.GetCategoriesOperation() # GetCategoriesOperation |  (optional)
+
+    try:
+        api_response = api_instance.start_resources_get_app_categories(get_categories_operation=get_categories_operation)
+        print("The response of ApplicationResourcesApi->start_resources_get_app_categories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->start_resources_get_app_categories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_categories_operation** | [**GetCategoriesOperation**](GetCategoriesOperation.md)|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_resources_get_apps**
+> AsyncContext start_resources_get_apps(get_apps_operation=get_apps_operation)
+
+
+
+Get the list of applications
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.models.get_apps_operation import GetAppsOperation
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    get_apps_operation = cyperf.GetAppsOperation() # GetAppsOperation |  (optional)
+
+    try:
+        api_response = api_instance.start_resources_get_apps(get_apps_operation=get_apps_operation)
+        print("The response of ApplicationResourcesApi->start_resources_get_apps:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->start_resources_get_apps: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **get_apps_operation** | [**GetAppsOperation**](GetAppsOperation.md)|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

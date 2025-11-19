@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
+from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.reference import Reference
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
@@ -32,7 +32,7 @@ class AttackMetadata(BaseModel):
     """ # noqa: E501
     cve_count: Optional[StrictInt] = Field(default=None, description="The number of CVE references associated with the attack", alias="CveCount")
     direction: Optional[StrictStr] = Field(default=None, description="The aggregated direction of the strike included in the attack", alias="Direction")
-    keywords: Optional[List[AttackMetadataKeywordsInner]] = Field(default=None, description="The aggregated keywords of the attack", alias="Keywords")
+    keywords: Optional[List[AppsecAppMetadataKeywordsInner]] = Field(default=None, description="The aggregated keywords of the attack", alias="Keywords")
     legacy_names: Optional[List[StrictStr]] = Field(default=None, alias="LegacyNames")
     references: Optional[List[Reference]] = Field(default=None, description="The aggregated references of the attack", alias="References")
     severity: Optional[StrictStr] = Field(default=None, description="The aggregated severity of the strike included in the attack", alias="Severity")
@@ -108,7 +108,7 @@ class AttackMetadata(BaseModel):
         _obj = cls.model_validate({
             "CveCount": obj.get("CveCount"),
                         "Direction": obj.get("Direction"),
-                        "Keywords": [AttackMetadataKeywordsInner.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
+                        "Keywords": [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
                         "LegacyNames": obj.get("LegacyNames"),
                         "References": [Reference.from_dict(_item) for _item in obj["References"]] if obj.get("References") is not None else None,
                         "Severity": obj.get("Severity"),

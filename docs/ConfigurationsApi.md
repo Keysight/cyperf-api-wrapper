@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**create_configs**](ConfigurationsApi.md#create_configs) | **POST** /api/v2/configs | 
 [**delete_config**](ConfigurationsApi.md#delete_config) | **DELETE** /api/v2/configs/{configId} | 
 [**get_config_by_id**](ConfigurationsApi.md#get_config_by_id) | **GET** /api/v2/configs/{configId} | 
+[**get_config_categorie_by_id**](ConfigurationsApi.md#get_config_categorie_by_id) | **GET** /api/v2/config-categories/{configCategorieId} | 
+[**get_config_categorie_subcategories**](ConfigurationsApi.md#get_config_categorie_subcategories) | **GET** /api/v2/config-categories/{configCategorieId}/subcategories | 
 [**get_config_categories**](ConfigurationsApi.md#get_config_categories) | **GET** /api/v2/config-categories | 
 [**get_configs**](ConfigurationsApi.md#get_configs) | **GET** /api/v2/configs | 
 [**get_resources_custom_import_operations**](ConfigurationsApi.md#get_resources_custom_import_operations) | **GET** /api/v2/resources/custom-import-operations | 
@@ -254,6 +256,165 @@ Name | Type | Description  | Notes
 **200** | The requested configuration |  -  |
 **404** | A configuration with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_config_categorie_by_id**
+> ConfigCategory get_config_categorie_by_id(config_categorie_id)
+
+
+
+returns a single configuration category with its subcategories.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.config_category import ConfigCategory
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ConfigurationsApi(api_client)
+    config_categorie_id = 'config_categorie_id_example' # str | The ID of the config categorie.
+
+    try:
+        api_response = api_instance.get_config_categorie_by_id(config_categorie_id)
+        print("The response of ConfigurationsApi->get_config_categorie_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ConfigurationsApi->get_config_categorie_by_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config_categorie_id** | **str**| The ID of the config categorie. | 
+
+### Return type
+
+[**ConfigCategory**](ConfigCategory.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The filtered configuration category with subcategories |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_config_categorie_subcategories**
+> GetConfigCategorieSubcategories200Response get_config_categorie_subcategories(config_categorie_id, take=take, skip=skip)
+
+
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.get_config_categorie_subcategories200_response import GetConfigCategorieSubcategories200Response
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ConfigurationsApi(api_client)
+    config_categorie_id = 'config_categorie_id_example' # str | The ID of the config categorie.
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
+
+    try:
+        api_response = api_instance.get_config_categorie_subcategories(config_categorie_id, take=take, skip=skip)
+        print("The response of ConfigurationsApi->get_config_categorie_subcategories:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ConfigurationsApi->get_config_categorie_subcategories: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **config_categorie_id** | **str**| The ID of the config categorie. | 
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
+
+### Return type
+
+[**GetConfigCategorieSubcategories200Response**](GetConfigCategorieSubcategories200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of subcategories for the specified category |  -  |
+**400** | Missing or invalid category parameter |  -  |
+**500** | Internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

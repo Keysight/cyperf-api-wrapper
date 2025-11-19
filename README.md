@@ -123,6 +123,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_capture_flows**](docs/ApplicationResourcesApi.md#get_capture_flows) | **GET** /api/v2/resources/captures/{captureId}/flows | 
 *ApplicationResourcesApi* | [**get_flow_exchanges**](docs/ApplicationResourcesApi.md#get_flow_exchanges) | **GET** /api/v2/resources/captures/{captureId}/flows/{flowId}/exchanges | 
 *ApplicationResourcesApi* | [**get_resources_app_by_id**](docs/ApplicationResourcesApi.md#get_resources_app_by_id) | **GET** /api/v2/resources/apps/{appId} | 
+*ApplicationResourcesApi* | [**get_resources_app_categories**](docs/ApplicationResourcesApi.md#get_resources_app_categories) | **GET** /api/v2/resources/app-categories | 
 *ApplicationResourcesApi* | [**get_resources_application_type_by_id**](docs/ApplicationResourcesApi.md#get_resources_application_type_by_id) | **GET** /api/v2/resources/application-types/{applicationTypeId} | 
 *ApplicationResourcesApi* | [**get_resources_application_types**](docs/ApplicationResourcesApi.md#get_resources_application_types) | **GET** /api/v2/resources/application-types | 
 *ApplicationResourcesApi* | [**get_resources_apps**](docs/ApplicationResourcesApi.md#get_resources_apps) | **GET** /api/v2/resources/apps | 
@@ -218,6 +219,8 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**start_resources_edit_app**](docs/ApplicationResourcesApi.md#start_resources_edit_app) | **POST** /api/v2/resources/operations/edit-app | 
 *ApplicationResourcesApi* | [**start_resources_find_param_matches**](docs/ApplicationResourcesApi.md#start_resources_find_param_matches) | **POST** /api/v2/resources/operations/find-param-matches | 
 *ApplicationResourcesApi* | [**start_resources_flow_library_upload_file**](docs/ApplicationResourcesApi.md#start_resources_flow_library_upload_file) | **POST** /api/v2/resources/flow-library/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_get_app_categories**](docs/ApplicationResourcesApi.md#start_resources_get_app_categories) | **POST** /api/v2/resources/operations/get-app-categories | 
+*ApplicationResourcesApi* | [**start_resources_get_apps**](docs/ApplicationResourcesApi.md#start_resources_get_apps) | **POST** /api/v2/resources/operations/get-apps | 
 *ApplicationResourcesApi* | [**start_resources_get_attack_categories**](docs/ApplicationResourcesApi.md#start_resources_get_attack_categories) | **POST** /api/v2/resources/operations/get-attack-categories | 
 *ApplicationResourcesApi* | [**start_resources_get_attacks**](docs/ApplicationResourcesApi.md#start_resources_get_attacks) | **POST** /api/v2/resources/operations/get-attacks | 
 *ApplicationResourcesApi* | [**start_resources_get_strike_categories**](docs/ApplicationResourcesApi.md#start_resources_get_strike_categories) | **POST** /api/v2/resources/operations/get-strike-categories | 
@@ -246,6 +249,8 @@ Class | Method | HTTP request | Description
 *ConfigurationsApi* | [**create_configs**](docs/ConfigurationsApi.md#create_configs) | **POST** /api/v2/configs | 
 *ConfigurationsApi* | [**delete_config**](docs/ConfigurationsApi.md#delete_config) | **DELETE** /api/v2/configs/{configId} | 
 *ConfigurationsApi* | [**get_config_by_id**](docs/ConfigurationsApi.md#get_config_by_id) | **GET** /api/v2/configs/{configId} | 
+*ConfigurationsApi* | [**get_config_categorie_by_id**](docs/ConfigurationsApi.md#get_config_categorie_by_id) | **GET** /api/v2/config-categories/{configCategorieId} | 
+*ConfigurationsApi* | [**get_config_categorie_subcategories**](docs/ConfigurationsApi.md#get_config_categorie_subcategories) | **GET** /api/v2/config-categories/{configCategorieId}/subcategories | 
 *ConfigurationsApi* | [**get_config_categories**](docs/ConfigurationsApi.md#get_config_categories) | **GET** /api/v2/config-categories | 
 *ConfigurationsApi* | [**get_configs**](docs/ConfigurationsApi.md#get_configs) | **GET** /api/v2/configs | 
 *ConfigurationsApi* | [**get_resources_custom_import_operations**](docs/ConfigurationsApi.md#get_resources_custom_import_operations) | **GET** /api/v2/resources/custom-import-operations | 
@@ -414,6 +419,7 @@ Class | Method | HTTP request | Description
  - [ApplicationType](docs/ApplicationType.md)
  - [AppsecApp](docs/AppsecApp.md)
  - [AppsecAppMetadata](docs/AppsecAppMetadata.md)
+ - [AppsecAppMetadataKeywordsInner](docs/AppsecAppMetadataKeywordsInner.md)
  - [AppsecAttack](docs/AppsecAttack.md)
  - [AppsecConfig](docs/AppsecConfig.md)
  - [ArchiveInfo](docs/ArchiveInfo.md)
@@ -422,7 +428,6 @@ Class | Method | HTTP request | Description
  - [Attack](docs/Attack.md)
  - [AttackAction](docs/AttackAction.md)
  - [AttackMetadata](docs/AttackMetadata.md)
- - [AttackMetadataKeywordsInner](docs/AttackMetadataKeywordsInner.md)
  - [AttackObjectivesAndTimeline](docs/AttackObjectivesAndTimeline.md)
  - [AttackProfile](docs/AttackProfile.md)
  - [AttackTimelineSegment](docs/AttackTimelineSegment.md)
@@ -451,11 +456,13 @@ Class | Method | HTTP request | Description
  - [CiscoEncapsulation](docs/CiscoEncapsulation.md)
  - [ClearPortsOwnershipOperation](docs/ClearPortsOwnershipOperation.md)
  - [Command](docs/Command.md)
+ - [CommandMetadata](docs/CommandMetadata.md)
  - [ComputeNode](docs/ComputeNode.md)
  - [Config](docs/Config.md)
  - [ConfigCategory](docs/ConfigCategory.md)
  - [ConfigId](docs/ConfigId.md)
  - [ConfigMetadata](docs/ConfigMetadata.md)
+ - [ConfigSubCategory](docs/ConfigSubCategory.md)
  - [ConfigValidation](docs/ConfigValidation.md)
  - [Conflict](docs/Conflict.md)
  - [Connection](docs/Connection.md)
@@ -535,11 +542,14 @@ Class | Method | HTTP request | Description
  - [GetAgents200ResponseOneOf](docs/GetAgents200ResponseOneOf.md)
  - [GetAgentsTags200Response](docs/GetAgentsTags200Response.md)
  - [GetAgentsTags200ResponseOneOf](docs/GetAgentsTags200ResponseOneOf.md)
+ - [GetAppsOperation](docs/GetAppsOperation.md)
  - [GetAsyncOperationResult200Response](docs/GetAsyncOperationResult200Response.md)
  - [GetAttacksOperation](docs/GetAttacksOperation.md)
  - [GetBrokers200Response](docs/GetBrokers200Response.md)
  - [GetBrokers200ResponseOneOf](docs/GetBrokers200ResponseOneOf.md)
  - [GetCategoriesOperation](docs/GetCategoriesOperation.md)
+ - [GetConfigCategorieSubcategories200Response](docs/GetConfigCategorieSubcategories200Response.md)
+ - [GetConfigCategorieSubcategories200ResponseOneOf](docs/GetConfigCategorieSubcategories200ResponseOneOf.md)
  - [GetConfigCategories200Response](docs/GetConfigCategories200Response.md)
  - [GetConfigCategories200ResponseOneOf](docs/GetConfigCategories200ResponseOneOf.md)
  - [GetConfigs200Response](docs/GetConfigs200Response.md)

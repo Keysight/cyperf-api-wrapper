@@ -147,6 +147,9 @@ class TestAppsecAppMetadata(unittest.TestCase):
                                         ], ), )
                             ], 
                         name = '', )
+                    ],
+                keywords = [
+                    null
                     ]
             )
         else:

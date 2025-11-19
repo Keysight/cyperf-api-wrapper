@@ -50,9 +50,10 @@ class TestGetResourcesApplicationTypes200ResponseOneOf(unittest.TestCase):
                                         id = '', )
                                     ], 
                                 is_strike = True, 
-                                metadata = cyperf.models.metadata.Metadata(
+                                metadata = cyperf.models.command_metadata.CommandMetadata(
                                     direction = '', 
                                     is_banner = True, 
+                                    is_for_app_traffic_only = True, 
                                     is_streaming = True, 
                                     keywords = [
                                         null

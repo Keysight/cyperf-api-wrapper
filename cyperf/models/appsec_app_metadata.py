@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.action_metadata import ActionMetadata
+from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.parameter_meta import ParameterMeta
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
@@ -32,7 +33,8 @@ class AppsecAppMetadata(BaseModel):
     """ # noqa: E501
     actions_metadata: Optional[List[ActionMetadata]] = Field(default=None, alias="ActionsMetadata")
     app_parameters: Optional[List[ParameterMeta]] = Field(default=None, alias="AppParameters")
-    __properties: ClassVar[List[str]] = ["ActionsMetadata", "AppParameters"]
+    keywords: Optional[List[AppsecAppMetadataKeywordsInner]] = Field(default=None, description="The aggregated keywords of the application")
+    __properties: ClassVar[List[str]] = ["ActionsMetadata", "AppParameters", "keywords"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +89,13 @@ class AppsecAppMetadata(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['AppParameters'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in keywords (list)
+        _items = []
+        if self.keywords:
+            for _item in self.keywords:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['keywords'] = _items
         return _dict
 
     @classmethod
@@ -102,7 +111,8 @@ class AppsecAppMetadata(BaseModel):
 
         _obj = cls.model_validate({
             "ActionsMetadata": [ActionMetadata.from_dict(_item) for _item in obj["ActionsMetadata"]] if obj.get("ActionsMetadata") is not None else None,
-                        "AppParameters": [ParameterMeta.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None
+                        "AppParameters": [ParameterMeta.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None,
+                        "keywords": [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj["keywords"]] if obj.get("keywords") is not None else None
             ,
             "links": obj.get("links")
         })

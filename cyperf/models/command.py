@@ -21,8 +21,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
+from cyperf.models.command_metadata import CommandMetadata
 from cyperf.models.exchange import Exchange
-from cyperf.models.metadata import Metadata
 from cyperf.models.parameter import Parameter
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
@@ -36,7 +36,7 @@ class Command(BaseModel):
     description: Optional[StrictStr] = Field(default=None, description="The description of the command", alias="Description")
     exchanges: Optional[List[Exchange]] = Field(default=None, description="The exchanges of the command", alias="Exchanges")
     is_strike: Optional[StrictBool] = Field(default=None, description="Indicates if the command is a strike", alias="IsStrike")
-    metadata: Optional[Metadata] = Field(default=None, alias="Metadata")
+    metadata: Optional[CommandMetadata] = Field(default=None, alias="Metadata")
     name: Optional[StrictStr] = Field(default=None, description="The name of the command", alias="Name")
     parameters: Optional[List[Parameter]] = Field(default=None, description="The parameters of the command", alias="Parameters")
     links: Optional[List[APILink]] = None
@@ -129,7 +129,7 @@ class Command(BaseModel):
                         "Description": obj.get("Description"),
                         "Exchanges": [Exchange.from_dict(_item) for _item in obj["Exchanges"]] if obj.get("Exchanges") is not None else None,
                         "IsStrike": obj.get("IsStrike"),
-                        "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
+                        "Metadata": CommandMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
                         "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None

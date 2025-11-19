@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_name** | **str** | The user-visible name of the configuration category | [optional] 
+**links** | [**List[APILink]**](APILink.md) |  | [optional] 
+**subcategories** | [**List[ConfigSubCategory]**](ConfigSubCategory.md) | List of subcategory names | [optional] 
 
 ## Example
 

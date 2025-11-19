@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **actions_metadata** | [**List[ActionMetadata]**](ActionMetadata.md) |  | [optional] 
 **app_parameters** | [**List[ParameterMeta]**](ParameterMeta.md) |  | [optional] 
+**keywords** | [**List[AppsecAppMetadataKeywordsInner]**](AppsecAppMetadataKeywordsInner.md) | The aggregated keywords of the application | [optional] 
 
 ## Example
 

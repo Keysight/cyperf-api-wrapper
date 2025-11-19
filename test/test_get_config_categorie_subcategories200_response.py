@@ -15,10 +15,10 @@
 
 import unittest
 
-from cyperf.models.config_category import ConfigCategory
+from cyperf.models.get_config_categorie_subcategories200_response import GetConfigCategorieSubcategories200Response
 
-class TestConfigCategory(unittest.TestCase):
-    """ConfigCategory unit test stubs"""
+class TestGetConfigCategorieSubcategories200Response(unittest.TestCase):
+    """GetConfigCategorieSubcategories200Response unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,39 +26,29 @@ class TestConfigCategory(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ConfigCategory:
-        """Test ConfigCategory
+    def make_instance(self, include_optional) -> GetConfigCategorieSubcategories200Response:
+        """Test GetConfigCategorieSubcategories200Response
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ConfigCategory`
+        # uncomment below to create an instance of `GetConfigCategorieSubcategories200Response`
         """
-        model = ConfigCategory()
+        model = GetConfigCategorieSubcategories200Response()
         if include_optional:
-            return ConfigCategory(
-                display_name = '',
-                links = [
-                    cyperf.models.api_link.APILink(
-                        content_type = '', 
-                        href = '', 
-                        method = '', 
-                        name = '', 
-                        references_count = 56, 
-                        rel = '', 
-                        type = '', )
-                    ],
-                subcategories = [
+            return GetConfigCategorieSubcategories200Response(
+                data = [
                     cyperf.models.config_sub_category.ConfigSubCategory(
                         display_name = '', )
-                    ]
+                    ],
+                total_count = 56
             )
         else:
-            return ConfigCategory(
+            return GetConfigCategorieSubcategories200Response(
         )
         """
 
-    def testConfigCategory(self):
-        """Test ConfigCategory"""
+    def testGetConfigCategorieSubcategories200Response(self):
+        """Test GetConfigCategorieSubcategories200Response"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

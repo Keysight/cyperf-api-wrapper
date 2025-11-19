@@ -154,6 +154,12 @@ class TestApplicationResourcesApi(unittest.TestCase):
         """
         pass
 
+    def test_get_resources_app_categories(self) -> None:
+        """Test case for get_resources_app_categories
+
+        """
+        pass
+
     def test_get_resources_application_type_by_id(self) -> None:
         """Test case for get_resources_application_type_by_id
 
@@ -688,6 +694,8 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
 
 
+
+
     def test_start_resources_apps_export_all(self) -> None:
         """Test case for start_resources_apps_export_all
 
@@ -750,6 +758,18 @@ class TestApplicationResourcesApi(unittest.TestCase):
 
     def test_start_resources_flow_library_upload_file(self) -> None:
         """Test case for start_resources_flow_library_upload_file
+
+        """
+        pass
+
+    def test_start_resources_get_app_categories(self) -> None:
+        """Test case for start_resources_get_app_categories
+
+        """
+        pass
+
+    def test_start_resources_get_apps(self) -> None:
+        """Test case for start_resources_get_apps
 
         """
         pass
