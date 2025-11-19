@@ -142,6 +142,9 @@ class TestAppsecApp(unittest.TestCase):
                     app_parameters = [
                         cyperf.models.parameter_meta.ParameterMeta(
                             name = '', )
+                        ], 
+                    keywords = [
+                        null
                         ], ),
                 id = '',
                 last_modified = 56,

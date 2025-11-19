@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **application** | **str** |  | [optional] 
-**config_data** | [**Dict[str, AttackMetadataKeywordsInner]**](AttackMetadataKeywordsInner.md) | The actual configuration object | [optional] 
+**config_data** | [**Dict[str, AppsecAppMetadataKeywordsInner]**](AppsecAppMetadataKeywordsInner.md) | The actual configuration object | [optional] 
 **config_url** | **str** | The backend URL of the saved config data | [optional] 
 **created_on** | **int** | A Unix timestamp that indicates when config was created | [optional] [readonly] 
 **display_name** | **str** | The user-visible name of the configuration | [optional] 

@@ -21,8 +21,10 @@ from pydantic import Field, StrictBytes, StrictInt, StrictStr, field_validator
 from typing import List, Optional, Union
 from typing_extensions import Annotated
 from cyperf.models.async_context import AsyncContext
+from cyperf.models.config_category import ConfigCategory
 from cyperf.models.config_metadata import ConfigMetadata
 from cyperf.models.export_all_operation import ExportAllOperation
+from cyperf.models.get_config_categorie_subcategories200_response import GetConfigCategorieSubcategories200Response
 from cyperf.models.get_config_categories200_response import GetConfigCategories200Response
 from cyperf.models.get_configs200_response import GetConfigs200Response
 from cyperf.models.get_resources_custom_import_operations200_response import GetResourcesCustomImportOperations200Response
@@ -864,6 +866,550 @@ class ConfigurationsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v2/configs/{configId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_config_categorie_by_id(
+        self,
+        config_categorie_id: Annotated[StrictStr, Field(description="The ID of the config categorie.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ConfigCategory:
+        """get_config_categorie_by_id
+
+        returns a single configuration category with its subcategories.
+
+        :param config_categorie_id: The ID of the config categorie. (required)
+        :type config_categorie_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_config_categorie_by_id_serialize(
+            config_categorie_id=config_categorie_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ConfigCategory",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def get_config_categorie_by_id_with_http_info(
+        self,
+        config_categorie_id: Annotated[StrictStr, Field(description="The ID of the config categorie.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ConfigCategory]:
+        """get_config_categorie_by_id
+
+        returns a single configuration category with its subcategories.
+
+        :param config_categorie_id: The ID of the config categorie. (required)
+        :type config_categorie_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_config_categorie_by_id_serialize(
+            config_categorie_id=config_categorie_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ConfigCategory",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def get_config_categorie_by_id_without_preload_content(
+        self,
+        config_categorie_id: Annotated[StrictStr, Field(description="The ID of the config categorie.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_config_categorie_by_id
+
+        returns a single configuration category with its subcategories.
+
+        :param config_categorie_id: The ID of the config categorie. (required)
+        :type config_categorie_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_config_categorie_by_id_serialize(
+            config_categorie_id=config_categorie_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ConfigCategory",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+    
+
+    def _get_config_categorie_by_id_serialize(
+        self,
+        config_categorie_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if config_categorie_id is not None:
+            _path_params['configCategorieId'] = config_categorie_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/config-categories/{configCategorieId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_config_categorie_subcategories(
+        self,
+        config_categorie_id: Annotated[StrictStr, Field(description="The ID of the config categorie.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetConfigCategorieSubcategories200Response:
+        """get_config_categorie_subcategories
+
+
+        :param config_categorie_id: The ID of the config categorie. (required)
+        :type config_categorie_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_config_categorie_subcategories_serialize(
+            config_categorie_id=config_categorie_id,
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetConfigCategorieSubcategories200Response",
+            '400': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def get_config_categorie_subcategories_with_http_info(
+        self,
+        config_categorie_id: Annotated[StrictStr, Field(description="The ID of the config categorie.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetConfigCategorieSubcategories200Response]:
+        """get_config_categorie_subcategories
+
+
+        :param config_categorie_id: The ID of the config categorie. (required)
+        :type config_categorie_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_config_categorie_subcategories_serialize(
+            config_categorie_id=config_categorie_id,
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetConfigCategorieSubcategories200Response",
+            '400': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def get_config_categorie_subcategories_without_preload_content(
+        self,
+        config_categorie_id: Annotated[StrictStr, Field(description="The ID of the config categorie.")],
+        take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
+        skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_config_categorie_subcategories
+
+
+        :param config_categorie_id: The ID of the config categorie. (required)
+        :type config_categorie_id: str
+        :param take: The number of search results to return
+        :type take: int
+        :param skip: The number of search results to skip
+        :type skip: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_config_categorie_subcategories_serialize(
+            config_categorie_id=config_categorie_id,
+            take=take,
+            skip=skip,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetConfigCategorieSubcategories200Response",
+            '400': "ErrorResponse",
+            '500': "ErrorResponse",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+    
+
+    def _get_config_categorie_subcategories_serialize(
+        self,
+        config_categorie_id,
+        take,
+        skip,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if config_categorie_id is not None:
+            _path_params['configCategorieId'] = config_categorie_id
+        # process the query parameters
+        if take is not None:
+            
+            _query_params.append(('take', take))
+            
+        if skip is not None:
+            
+            _query_params.append(('skip', skip))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v2/config-categories/{configCategorieId}/subcategories',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

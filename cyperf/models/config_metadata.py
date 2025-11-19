@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
-from cyperf.models.attack_metadata_keywords_inner import AttackMetadataKeywordsInner
+from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.version import Version
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
@@ -32,7 +32,7 @@ class ConfigMetadata(BaseModel):
     ConfigMetadata
     """ # noqa: E501
     application: Optional[StrictStr] = None
-    config_data: Optional[Dict[str, AttackMetadataKeywordsInner]] = Field(default=None, description="The actual configuration object", alias="configData")
+    config_data: Optional[Dict[str, AppsecAppMetadataKeywordsInner]] = Field(default=None, description="The actual configuration object", alias="configData")
     config_url: Optional[StrictStr] = Field(default=None, description="The backend URL of the saved config data", alias="configUrl")
     created_on: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when config was created", alias="createdOn")
     display_name: Optional[StrictStr] = Field(default=None, description="The user-visible name of the configuration", alias="displayName")
@@ -136,7 +136,7 @@ class ConfigMetadata(BaseModel):
         _obj = cls.model_validate({
             "application": obj.get("application"),
                         "configData": dict(
-                (_k, AttackMetadataKeywordsInner.from_dict(_v))
+                (_k, AppsecAppMetadataKeywordsInner.from_dict(_v))
                 for _k, _v in obj["configData"].items()
             )
             if obj.get("configData") is not None

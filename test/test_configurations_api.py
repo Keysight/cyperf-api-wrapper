@@ -46,6 +46,18 @@ class TestConfigurationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_config_categorie_by_id(self) -> None:
+        """Test case for get_config_categorie_by_id
+
+        """
+        pass
+
+    def test_get_config_categorie_subcategories(self) -> None:
+        """Test case for get_config_categorie_subcategories
+
+        """
+        pass
+
     def test_get_config_categories(self) -> None:
         """Test case for get_config_categories
 
