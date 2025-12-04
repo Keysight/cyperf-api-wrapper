@@ -103,7 +103,7 @@ class AgentAssignmentDetails(BaseModel):
             "agentId": obj.get("agentId"),
                         "captureSettings": CaptureSettings.from_dict(obj["captureSettings"]) if obj.get("captureSettings") is not None else None,
                         "id": obj.get("id"),
-                        "interfaces": obj.get("interfaces"),
+                        "interfaces": obj.get("interfaces") if obj.get("interfaces") is not None else [],
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")

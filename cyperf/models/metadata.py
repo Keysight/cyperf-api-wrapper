@@ -123,7 +123,7 @@ class Metadata(BaseModel):
                         "IsBanner": obj.get("IsBanner"),
                         "IsStreaming": obj.get("IsStreaming"),
                         "Keywords": [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
-                        "LegacyNames": obj.get("LegacyNames"),
+                        "LegacyNames": obj.get("LegacyNames") if obj.get("LegacyNames") is not None else [],
                         "NoMultiFlowSupport": obj.get("NoMultiFlowSupport"),
                         "Protocol": obj.get("Protocol"),
                         "RTPProfileMeta": RTPProfileMeta.from_dict(obj["RTPProfileMeta"]) if obj.get("RTPProfileMeta") is not None else None,
@@ -133,7 +133,7 @@ class Metadata(BaseModel):
                         "SkipAttackGeneration": obj.get("SkipAttackGeneration"),
                         "SortSeverity": obj.get("SortSeverity"),
                         "Static": obj.get("Static"),
-                        "SupportedApps": obj.get("SupportedApps"),
+                        "SupportedApps": obj.get("SupportedApps") if obj.get("SupportedApps") is not None else [],
                         "Year": obj.get("Year")
             ,
             "links": obj.get("links")

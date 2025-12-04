@@ -181,7 +181,7 @@ class ResultMetadata(BaseModel):
                         "tags": obj.get("tags"),
                         "testName": obj.get("testName"),
                         "type": obj.get("type"),
-                        "userTags": obj.get("userTags")
+                        "userTags": obj.get("userTags") if obj.get("userTags") is not None else []
             ,
             "links": obj.get("links")
         })

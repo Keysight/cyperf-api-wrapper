@@ -95,7 +95,7 @@ class AgentsGroup(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Agents": obj.get("Agents"),
+            "Agents": obj.get("Agents") if obj.get("Agents") is not None else [],
                         "Available": obj.get("Available"),
                         "Name": obj.get("Name"),
                         "Online": obj.get("Online")

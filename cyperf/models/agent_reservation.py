@@ -90,9 +90,9 @@ class AgentReservation(BaseModel):
 
         _obj = cls.model_validate({
             "agentId": obj.get("agentId"),
-                        "agentPayloadNames": obj.get("agentPayloadNames"),
+                        "agentPayloadNames": obj.get("agentPayloadNames") if obj.get("agentPayloadNames") is not None else [],
                         "generalPurposeCPUPercent": obj.get("generalPurposeCPUPercent"),
-                        "interfaces": obj.get("interfaces"),
+                        "interfaces": obj.get("interfaces") if obj.get("interfaces") is not None else [],
                         "ipAddressVersionUsed": obj.get("ipAddressVersionUsed"),
                         "optimizationMode": obj.get("optimizationMode")
             ,

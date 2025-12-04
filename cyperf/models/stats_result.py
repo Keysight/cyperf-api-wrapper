@@ -104,7 +104,7 @@ class StatsResult(BaseModel):
 
         _obj = cls.model_validate({
             "availableFilters": [Parameter.from_dict(_item) for _item in obj["availableFilters"]] if obj.get("availableFilters") is not None else None,
-                        "columns": obj.get("columns"),
+                        "columns": obj.get("columns") if obj.get("columns") is not None else [],
                         "name": obj.get("name"),
                         "snapshots": [Snapshot.from_dict(_item) for _item in obj["snapshots"]] if obj.get("snapshots") is not None else None
             ,

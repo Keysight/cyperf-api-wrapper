@@ -125,7 +125,7 @@ class CertConfig(BaseModel):
         _obj = cls.model_validate({
             "certificateFile": Params.from_dict(obj["certificateFile"]) if obj.get("certificateFile") is not None else None,
                         "dhFile": Params.from_dict(obj["dhFile"]) if obj.get("dhFile") is not None else None,
-                        "get-sni-conflicts": obj.get("get-sni-conflicts"),
+                        "get-sni-conflicts": obj.get("get-sni-conflicts") if obj.get("get-sni-conflicts") is not None else [],
                         "id": obj.get("id"),
                         "isPlaylist": obj.get("isPlaylist"),
                         "keyFile": Params.from_dict(obj["keyFile"]) if obj.get("keyFile") is not None else None,

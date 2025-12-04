@@ -97,7 +97,7 @@ class FindParamMatchesOperation(BaseModel):
         _obj = cls.model_validate({
             "Actions": [ActionInputFindParam.from_dict(_item) for _item in obj["Actions"]] if obj.get("Actions") is not None else None,
                         "AppId": obj.get("AppId"),
-                        "MatchLocation": obj.get("MatchLocation"),
+                        "MatchLocation": obj.get("MatchLocation") if obj.get("MatchLocation") is not None else [],
                         "Pattern": obj.get("Pattern")
             ,
             "links": obj.get("links")

@@ -147,7 +147,7 @@ class Config(BaseModel):
                         "NetworkProfiles": [NetworkProfile.from_dict(_item) for _item in obj["NetworkProfiles"]] if obj.get("NetworkProfiles") is not None else None,
                         "TrafficProfiles": [ApplicationProfile.from_dict(_item) for _item in obj["TrafficProfiles"]] if obj.get("TrafficProfiles") is not None else None,
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "validate": obj.get("validate")
+                        "validate": obj.get("validate") if obj.get("validate") is not None else []
             ,
             "links": obj.get("links")
         })

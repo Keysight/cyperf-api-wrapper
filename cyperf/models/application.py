@@ -281,7 +281,7 @@ class Application(BaseModel):
                         "ServerTLSProfile": TLSProfile.from_dict(obj["ServerTLSProfile"]) if obj.get("ServerTLSProfile") is not None else None,
                         "StatelessStream": StatelessStream.from_dict(obj["StatelessStream"]) if obj.get("StatelessStream") is not None else None,
                         "Static": obj.get("Static"),
-                        "SupportedApps": obj.get("SupportedApps"),
+                        "SupportedApps": obj.get("SupportedApps") if obj.get("SupportedApps") is not None else [],
                         "SupportsCalibration": obj.get("SupportsCalibration"),
                         "SupportsMultiFlow": obj.get("SupportsMultiFlow"),
                         "SupportsStrikes": obj.get("SupportsStrikes"),

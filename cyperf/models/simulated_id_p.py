@@ -113,7 +113,7 @@ class SimulatedIdP(BaseModel):
                         "ResponseSignature": obj.get("ResponseSignature"),
                         "SignatureAlgorithm": obj.get("SignatureAlgorithm"),
                         "SingleSignOnURL": obj.get("SingleSignOnURL"),
-                        "XMLMetadata": obj.get("XMLMetadata"),
+                        "XMLMetadata": obj.get("XMLMetadata") if obj.get("XMLMetadata") is not None else [],
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")

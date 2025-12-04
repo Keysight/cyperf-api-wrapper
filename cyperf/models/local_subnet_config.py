@@ -120,7 +120,7 @@ class LocalSubnetConfig(BaseModel):
                         "Prefix": obj.get("Prefix"),
                         "Start": obj.get("Start"),
                         "TotalHostCount": obj.get("TotalHostCount"),
-                        "networkTags": obj.get("networkTags")
+                        "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else []
             ,
             "links": obj.get("links")
         })

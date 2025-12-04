@@ -90,7 +90,7 @@ class FileValue(BaseModel):
         _obj = cls.model_validate({
             "fileName": obj.get("fileName"),
                         "md5Sum": obj.get("md5Sum"),
-                        "payload": obj.get("payload"),
+                        "payload": obj.get("payload") if obj.get("payload") is not None else [],
                         "resourceURL": obj.get("resourceURL"),
                         "value": obj.get("value")
             ,

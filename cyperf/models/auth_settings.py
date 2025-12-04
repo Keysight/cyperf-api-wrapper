@@ -123,9 +123,9 @@ class AuthSettings(BaseModel):
                         "CertificateFile": Params.from_dict(obj["CertificateFile"]) if obj.get("CertificateFile") is not None else None,
                         "KeyFile": Params.from_dict(obj["KeyFile"]) if obj.get("KeyFile") is not None else None,
                         "KeyFilePassword": obj.get("KeyFilePassword"),
-                        "Passwords": obj.get("Passwords"),
+                        "Passwords": obj.get("Passwords") if obj.get("Passwords") is not None else [],
                         "PasswordsParam": Params.from_dict(obj["PasswordsParam"]) if obj.get("PasswordsParam") is not None else None,
-                        "Usernames": obj.get("Usernames"),
+                        "Usernames": obj.get("Usernames") if obj.get("Usernames") is not None else [],
                         "UsernamesParam": Params.from_dict(obj["UsernamesParam"]) if obj.get("UsernamesParam") is not None else None,
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,

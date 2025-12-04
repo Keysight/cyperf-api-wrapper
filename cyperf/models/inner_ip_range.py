@@ -84,7 +84,7 @@ class InnerIPRange(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "networkTags": obj.get("networkTags")
+            "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else []
             ,
             "links": obj.get("links")
         })

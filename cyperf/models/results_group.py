@@ -90,7 +90,7 @@ class ResultsGroup(BaseModel):
 
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
-                        "Results": obj.get("Results")
+                        "Results": obj.get("Results") if obj.get("Results") is not None else []
             ,
             "links": obj.get("links")
         })

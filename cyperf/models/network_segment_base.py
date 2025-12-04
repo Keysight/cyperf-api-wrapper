@@ -96,7 +96,7 @@ class NetworkSegmentBase(BaseModel):
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
                         "id": obj.get("id"),
-                        "networkTags": obj.get("networkTags")
+                        "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else []
             ,
             "links": obj.get("links")
         })

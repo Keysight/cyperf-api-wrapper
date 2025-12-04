@@ -138,7 +138,7 @@ class PANGPSettings(BaseModel):
                         "PANGPEncapsulation": PANGPEncapsulation.from_dict(obj["PANGPEncapsulation"]) if obj.get("PANGPEncapsulation") is not None else None,
                         "PortalHostname": obj.get("PortalHostname"),
                         "VPNGateway": obj.get("VPNGateway"),
-                        "VPNGateways": obj.get("VPNGateways")
+                        "VPNGateways": obj.get("VPNGateways") if obj.get("VPNGateways") is not None else []
             ,
             "links": obj.get("links")
         })

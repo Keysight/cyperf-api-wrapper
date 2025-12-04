@@ -85,7 +85,7 @@ class SetDpdkModeOperationInput(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "agentIds": obj.get("agentIds"),
+            "agentIds": obj.get("agentIds") if obj.get("agentIds") is not None else [],
                         "enabled": obj.get("enabled")
             ,
             "links": obj.get("links")
