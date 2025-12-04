@@ -99,7 +99,7 @@ class Port(BaseModel):
                         "reservedBy": obj.get("reservedBy"),
                         "speed": obj.get("speed"),
                         "status": obj.get("status"),
-                        "tags": obj.get("tags"),
+                        "tags": obj.get("tags") if obj.get("tags") is not None else [],
                         "trafficStatus": obj.get("trafficStatus")
             ,
             "links": obj.get("links")

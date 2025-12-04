@@ -174,7 +174,7 @@ class IPRange(BaseModel):
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "maxCountPerAgent": obj.get("maxCountPerAgent"),
-                        "networkTags": obj.get("networkTags")
+                        "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else []
             ,
             "links": obj.get("links")
         })

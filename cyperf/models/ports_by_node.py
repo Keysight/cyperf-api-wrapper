@@ -86,7 +86,7 @@ class PortsByNode(BaseModel):
 
         _obj = cls.model_validate({
             "computeNodeId": obj.get("computeNodeId"),
-                        "ports": obj.get("ports")
+                        "ports": obj.get("ports") if obj.get("ports") is not None else []
             ,
             "links": obj.get("links")
         })

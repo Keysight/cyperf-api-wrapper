@@ -181,7 +181,7 @@ class Agent(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "AgentTags": obj.get("AgentTags"),
+            "AgentTags": obj.get("AgentTags") if obj.get("AgentTags") is not None else [],
                         "IP": obj.get("IP"),
                         "Interfaces": [Interface.from_dict(_item) for _item in obj["Interfaces"]] if obj.get("Interfaces") is not None else None,
                         "LastUpdate": obj.get("LastUpdate"),

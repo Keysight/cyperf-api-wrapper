@@ -109,7 +109,7 @@ class AttackMetadata(BaseModel):
             "CveCount": obj.get("CveCount"),
                         "Direction": obj.get("Direction"),
                         "Keywords": [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
-                        "LegacyNames": obj.get("LegacyNames"),
+                        "LegacyNames": obj.get("LegacyNames") if obj.get("LegacyNames") is not None else [],
                         "References": [Reference.from_dict(_item) for _item in obj["References"]] if obj.get("References") is not None else None,
                         "Severity": obj.get("Severity"),
                         "StrikesCount": obj.get("StrikesCount")

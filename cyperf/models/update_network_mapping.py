@@ -87,10 +87,10 @@ class UpdateNetworkMapping(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "ClientNetworkTags": obj.get("ClientNetworkTags"),
-                        "ExcludedDUTList": obj.get("ExcludedDUTList"),
+            "ClientNetworkTags": obj.get("ClientNetworkTags") if obj.get("ClientNetworkTags") is not None else [],
+                        "ExcludedDUTList": obj.get("ExcludedDUTList") if obj.get("ExcludedDUTList") is not None else [],
                         "SelectTags": obj.get("SelectTags"),
-                        "ServerNetworkTags": obj.get("ServerNetworkTags")
+                        "ServerNetworkTags": obj.get("ServerNetworkTags") if obj.get("ServerNetworkTags") is not None else []
             ,
             "links": obj.get("links")
         })

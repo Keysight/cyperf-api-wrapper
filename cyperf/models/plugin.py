@@ -90,7 +90,7 @@ class Plugin(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-                        "keys": obj.get("keys"),
+                        "keys": obj.get("keys") if obj.get("keys") is not None else [],
                         "name": obj.get("name"),
                         "version": obj.get("version")
             ,

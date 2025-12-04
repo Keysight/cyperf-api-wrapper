@@ -97,8 +97,8 @@ class Certificate(BaseModel):
 
         _obj = cls.model_validate({
             "auto": obj.get("auto"),
-                        "dnsNames": obj.get("dnsNames"),
-                        "ipAddresses": obj.get("ipAddresses"),
+                        "dnsNames": obj.get("dnsNames") if obj.get("dnsNames") is not None else [],
+                        "ipAddresses": obj.get("ipAddresses") if obj.get("ipAddresses") is not None else [],
                         "issuer": obj.get("issuer"),
                         "notAfter": obj.get("notAfter"),
                         "notBefore": obj.get("notBefore"),

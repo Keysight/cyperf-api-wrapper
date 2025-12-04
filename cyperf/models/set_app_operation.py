@@ -87,7 +87,7 @@ class SetAppOperation(BaseModel):
 
         _obj = cls.model_validate({
             "appId": obj.get("appId"),
-                        "controllers": obj.get("controllers"),
+                        "controllers": obj.get("controllers") if obj.get("controllers") is not None else [],
                         "force": obj.get("force")
             ,
             "links": obj.get("links")

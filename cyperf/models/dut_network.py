@@ -211,7 +211,7 @@ class DUTNetwork(BaseModel):
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
                         "id": obj.get("id"),
-                        "networkTags": obj.get("networkTags"),
+                        "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else [],
                         "ClientDUTActive": obj.get("ClientDUTActive"),
                         "ClientDUTHost": obj.get("ClientDUTHost"),
                         "ClientDUTPort": obj.get("ClientDUTPort"),

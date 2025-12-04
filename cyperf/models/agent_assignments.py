@@ -113,7 +113,7 @@ class AgentAssignments(BaseModel):
         _obj = cls.model_validate({
             "ByID": [AgentAssignmentDetails.from_dict(_item) for _item in obj["ByID"]] if obj.get("ByID") is not None else None,
                         "ByPort": [AgentAssignmentByPort.from_dict(_item) for _item in obj["ByPort"]] if obj.get("ByPort") is not None else None,
-                        "ByTag": obj.get("ByTag"),
+                        "ByTag": obj.get("ByTag") if obj.get("ByTag") is not None else [],
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
             ,
             "links": obj.get("links")

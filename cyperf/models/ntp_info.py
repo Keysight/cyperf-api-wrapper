@@ -91,7 +91,7 @@ class NtpInfo(BaseModel):
 
         _obj = cls.model_validate({
             "activeServer": obj.get("activeServer"),
-                        "servers": obj.get("servers"),
+                        "servers": obj.get("servers") if obj.get("servers") is not None else [],
                         "status": obj.get("status")
             ,
             "links": obj.get("links")

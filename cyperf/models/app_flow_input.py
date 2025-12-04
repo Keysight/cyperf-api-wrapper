@@ -86,7 +86,7 @@ class AppFlowInput(BaseModel):
 
         _obj = cls.model_validate({
             "AppFlowId": obj.get("AppFlowId"),
-                        "Exchanges": obj.get("Exchanges")
+                        "Exchanges": obj.get("Exchanges") if obj.get("Exchanges") is not None else []
             ,
             "links": obj.get("links")
         })

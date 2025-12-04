@@ -90,7 +90,7 @@ class ParameterMatch(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "MatchLocation": obj.get("MatchLocation"),
+            "MatchLocation": obj.get("MatchLocation") if obj.get("MatchLocation") is not None else [],
                         "MatchType": obj.get("MatchType"),
                         "RegexMatch": RegexMatch.from_dict(obj["RegexMatch"]) if obj.get("RegexMatch") is not None else None
             ,

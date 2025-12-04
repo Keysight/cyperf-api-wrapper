@@ -93,8 +93,8 @@ class AppFlowInputFindParam(BaseModel):
         _obj = cls.model_validate({
             "AppFlowDesc": AppFlowDesc.from_dict(obj["AppFlowDesc"]) if obj.get("AppFlowDesc") is not None else None,
                         "AppFlowId": obj.get("AppFlowId"),
-                        "ExchangeNames": obj.get("ExchangeNames"),
-                        "Exchanges": obj.get("Exchanges")
+                        "ExchangeNames": obj.get("ExchangeNames") if obj.get("ExchangeNames") is not None else [],
+                        "Exchanges": obj.get("Exchanges") if obj.get("Exchanges") is not None else []
             ,
             "links": obj.get("links")
         })
