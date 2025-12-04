@@ -128,7 +128,7 @@ class ParameterMetadata(BaseModel):
                         "Enum": Enum.from_dict(obj["Enum"]) if obj.get("Enum") is not None else None,
                         "FlowIdentifier": obj.get("FlowIdentifier"),
                         "Input": obj.get("Input"),
-                        "LegacyNames": obj.get("LegacyNames"),
+                        "LegacyNames": obj.get("LegacyNames") if obj.get("LegacyNames") is not None else [],
                         "Mandatory": obj.get("Mandatory"),
                         "Payload": PayloadMetadata.from_dict(obj["Payload"]) if obj.get("Payload") is not None else None,
                         "Readonly": obj.get("Readonly"),

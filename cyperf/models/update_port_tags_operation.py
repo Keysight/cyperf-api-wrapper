@@ -95,8 +95,8 @@ class UpdatePortTagsOperation(BaseModel):
 
         _obj = cls.model_validate({
             "controllers": [PortsByController.from_dict(_item) for _item in obj["controllers"]] if obj.get("controllers") is not None else None,
-                        "tagsToAdd": obj.get("tagsToAdd"),
-                        "tagsToRemove": obj.get("tagsToRemove")
+                        "tagsToAdd": obj.get("tagsToAdd") if obj.get("tagsToAdd") is not None else [],
+                        "tagsToRemove": obj.get("tagsToRemove") if obj.get("tagsToRemove") is not None else []
             ,
             "links": obj.get("links")
         })

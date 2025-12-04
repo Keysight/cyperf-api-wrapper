@@ -163,7 +163,7 @@ class AttackProfile(BaseModel):
                         "add-attacks": [ExternalResourceInfo.from_dict(_item) for _item in obj["add-attacks"]] if obj.get("add-attacks") is not None else None,
                         "modify-excluded-dut-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-excluded-dut-recursively"]] if obj.get("modify-excluded-dut-recursively") is not None else None,
                         "modify-tags-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-tags-recursively"]] if obj.get("modify-tags-recursively") is not None else None,
-                        "reset-tags-to-default": obj.get("reset-tags-to-default")
+                        "reset-tags-to-default": obj.get("reset-tags-to-default") if obj.get("reset-tags-to-default") is not None else []
             ,
             "links": obj.get("links")
         })

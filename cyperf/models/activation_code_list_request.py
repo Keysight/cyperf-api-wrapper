@@ -84,7 +84,7 @@ class ActivationCodeListRequest(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "activationCode": obj.get("activationCode")
+            "activationCode": obj.get("activationCode") if obj.get("activationCode") is not None else []
             ,
             "links": obj.get("links")
         })

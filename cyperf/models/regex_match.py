@@ -84,7 +84,7 @@ class RegexMatch(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Patterns": obj.get("Patterns")
+            "Patterns": obj.get("Patterns") if obj.get("Patterns") is not None else []
             ,
             "links": obj.get("links")
         })

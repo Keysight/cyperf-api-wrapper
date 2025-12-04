@@ -110,8 +110,8 @@ class GetStrikesOperation(BaseModel):
             "categories": [CategoryFilter.from_dict(_item) for _item in obj["categories"]] if obj.get("categories") is not None else None,
                         "compatibleWith": obj.get("compatibleWith"),
                         "filterMode": obj.get("filterMode"),
-                        "searchCol": obj.get("searchCol"),
-                        "searchVal": obj.get("searchVal"),
+                        "searchCol": obj.get("searchCol") if obj.get("searchCol") is not None else [],
+                        "searchVal": obj.get("searchVal") if obj.get("searchVal") is not None else [],
                         "skip": obj.get("skip"),
                         "sort": [SortBodyField.from_dict(_item) for _item in obj["sort"]] if obj.get("sort") is not None else None,
                         "take": obj.get("take")

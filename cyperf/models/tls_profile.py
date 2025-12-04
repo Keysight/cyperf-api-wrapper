@@ -165,7 +165,7 @@ class TLSProfile(BaseModel):
                         "ciphers12": obj.get("ciphers12"),
                         "ciphers13": obj.get("ciphers13"),
                         "dhFile": Params.from_dict(obj["dhFile"]) if obj.get("dhFile") is not None else None,
-                        "get-tls-conflicts": obj.get("get-tls-conflicts"),
+                        "get-tls-conflicts": obj.get("get-tls-conflicts") if obj.get("get-tls-conflicts") is not None else [],
                         "immediateClose": obj.get("immediateClose"),
                         "keyFile": Params.from_dict(obj["keyFile"]) if obj.get("keyFile") is not None else None,
                         "keyFilePassword": obj.get("keyFilePassword"),

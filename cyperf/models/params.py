@@ -139,7 +139,7 @@ class Params(BaseModel):
 
         _obj = cls.model_validate({
             "ArrayElementType": obj.get("ArrayElementType"),
-                        "ArrayElements": obj.get("ArrayElements"),
+                        "ArrayElements": obj.get("ArrayElements") if obj.get("ArrayElements") is not None else [],
                         "Category": obj.get("Category"),
                         "CategoryIndex": obj.get("CategoryIndex"),
                         "DeprecatedPreviousSource": obj.get("DeprecatedPreviousSource"),
@@ -156,10 +156,10 @@ class Params(BaseModel):
                         "ParamId": obj.get("ParamId"),
                         "Readonly": obj.get("Readonly"),
                         "Source": obj.get("Source"),
-                        "SupportedSources": obj.get("SupportedSources"),
+                        "SupportedSources": obj.get("SupportedSources") if obj.get("SupportedSources") is not None else [],
                         "Type": obj.get("Type"),
                         "Value": obj.get("Value"),
-                        "file-upload": obj.get("file-upload"),
+                        "file-upload": obj.get("file-upload") if obj.get("file-upload") is not None else [],
                         "id": obj.get("id"),
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "supportsDynamicPayload": obj.get("supportsDynamicPayload"),

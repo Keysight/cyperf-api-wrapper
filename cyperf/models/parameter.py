@@ -109,12 +109,12 @@ class Parameter(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "DefaultArrayElements": obj.get("DefaultArrayElements"),
+            "DefaultArrayElements": obj.get("DefaultArrayElements") if obj.get("DefaultArrayElements") is not None else [],
                         "DefaultSource": obj.get("DefaultSource"),
                         "DefaultValue": obj.get("DefaultValue"),
                         "ElementType": obj.get("ElementType"),
                         "Metadata": ParameterMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
-                        "Sources": obj.get("Sources"),
+                        "Sources": obj.get("Sources") if obj.get("Sources") is not None else [],
                         "Type": obj.get("Type"),
                         "field": obj.get("field"),
                         "id": obj.get("id"),

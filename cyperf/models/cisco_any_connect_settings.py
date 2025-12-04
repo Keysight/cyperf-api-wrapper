@@ -128,7 +128,7 @@ class CiscoAnyConnectSettings(BaseModel):
                         "OuterTCPProfile": TcpProfile.from_dict(obj["OuterTCPProfile"]) if obj.get("OuterTCPProfile") is not None else None,
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
                         "CiscoEncapsulation": CiscoEncapsulation.from_dict(obj["CiscoEncapsulation"]) if obj.get("CiscoEncapsulation") is not None else None,
-                        "ConnectionProfiles": obj.get("ConnectionProfiles"),
+                        "ConnectionProfiles": obj.get("ConnectionProfiles") if obj.get("ConnectionProfiles") is not None else [],
                         "ESPProbeRetryTimeout": obj.get("ESPProbeRetryTimeout"),
                         "ESPProbeTimeout": obj.get("ESPProbeTimeout"),
                         "OuterTLSClientProfile": TLSProfile.from_dict(obj["OuterTLSClientProfile"]) if obj.get("OuterTLSClientProfile") is not None else None,

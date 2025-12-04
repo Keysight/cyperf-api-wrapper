@@ -85,7 +85,7 @@ class NodesByController(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "computeNodes": obj.get("computeNodes"),
+            "computeNodes": obj.get("computeNodes") if obj.get("computeNodes") is not None else [],
                         "controllerId": obj.get("controllerId")
             ,
             "links": obj.get("links")

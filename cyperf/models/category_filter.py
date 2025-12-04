@@ -86,7 +86,7 @@ class CategoryFilter(BaseModel):
 
         _obj = cls.model_validate({
             "category": obj.get("category"),
-                        "values": obj.get("values")
+                        "values": obj.get("values") if obj.get("values") is not None else []
             ,
             "links": obj.get("links")
         })

@@ -180,9 +180,10 @@ class IPNetwork(BaseModel):
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
                         "id": obj.get("id"),
-                        "networkTags": obj.get("networkTags"),
+                        "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else [],
                         "DNSResolver": DNSResolver.from_dict(obj["DNSResolver"]) if obj.get("DNSResolver") is not None else None,
                         "DNSServer": DNSServer.from_dict(obj["DNSServer"]) if obj.get("DNSServer") is not None else None,
+                        "DUTConnections": obj.get("DUTConnections") if obj.get("DUTConnections") is not None else [],
                         "EmulatedRouter": EmulatedRouter.from_dict(obj["EmulatedRouter"]) if obj.get("EmulatedRouter") is not None else None,
                         "EthRange": EthRange.from_dict(obj["EthRange"]) if obj.get("EthRange") is not None else None,
                         "EthRange": obj.get("EthRange"),

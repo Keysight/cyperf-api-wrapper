@@ -85,8 +85,8 @@ class SetNtpOperationInput(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "agentIds": obj.get("agentIds"),
-                        "servers": obj.get("servers")
+            "agentIds": obj.get("agentIds") if obj.get("agentIds") is not None else [],
+                        "servers": obj.get("servers") if obj.get("servers") is not None else []
             ,
             "links": obj.get("links")
         })
