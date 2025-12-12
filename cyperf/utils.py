@@ -217,7 +217,7 @@ class TestRunner:
                 protocol = strike.metadata.protocol
                 supported_apps = strike.metadata.supported_apps
 
-            if protocol.lower() == 'http' and supported_apps == None:
+            if protocol.lower() == 'http' and (supported_apps == None or supported_apps == []):
                 http_strikes.append(strike)
                 if len(http_strikes) == n:
                     break
