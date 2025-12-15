@@ -46,6 +46,7 @@ class TestFortinetSettings(unittest.TestCase):
                         ''
                         ], 
                     passwords_param = null, 
+                    simulated_id_p = null, 
                     usernames = [
                         ''
                         ], 
@@ -119,6 +120,11 @@ class TestFortinetSettings(unittest.TestCase):
                     dh_file = null, 
                     get_tls_conflicts = [
                         'YQ=='
+                        ], 
+                    groups13 = [
+                        cyperf.models.group_tls13.GroupTLS13(
+                            is_deprecated = True, 
+                            name = 'P-256', )
                         ], 
                     immediate_close = True, 
                     key_file = null, 

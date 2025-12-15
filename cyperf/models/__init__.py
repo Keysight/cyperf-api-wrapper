@@ -227,6 +227,7 @@ from cyperf.models.get_sessions200_response_one_of import GetSessions200Response
 from cyperf.models.get_stats_plugins200_response import GetStatsPlugins200Response
 from cyperf.models.get_stats_plugins200_response_one_of import GetStatsPlugins200ResponseOneOf
 from cyperf.models.get_strikes_operation import GetStrikesOperation
+from cyperf.models.group_tls13 import GroupTLS13
 from cyperf.models.http_profile import HTTPProfile
 from cyperf.models.http_req_meta import HTTPReqMeta
 from cyperf.models.http_res_meta import HTTPResMeta
@@ -305,6 +306,7 @@ from cyperf.models.payload_meta import PayloadMeta
 from cyperf.models.payload_metadata import PayloadMetadata
 from cyperf.models.pep_dut import PepDUT
 from cyperf.models.pfs_p2_group import PfsP2Group
+from cyperf.models.playlist_metadata import PlaylistMetadata
 from cyperf.models.plugin import Plugin
 from cyperf.models.plugin_stats import PluginStats
 from cyperf.models.port import Port

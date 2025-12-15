@@ -758,7 +758,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_controllers**
-> GetControllers200Response get_controllers(take=take, skip=skip)
+> GetControllers200Response get_controllers(take=take, skip=skip, include=include)
 
 
 
@@ -796,9 +796,10 @@ with cyperf.ApiClient(configuration) as api_client:
     api_instance = cyperf.AgentsApi(api_client)
     take = 56 # int | The number of search results to return (optional)
     skip = 56 # int | The number of search results to skip (optional)
+    include = 'include_example' # str | Specifies if the sub-fields that are objects should be included. (optional)
 
     try:
-        api_response = api_instance.get_controllers(take=take, skip=skip)
+        api_response = api_instance.get_controllers(take=take, skip=skip, include=include)
         print("The response of AgentsApi->get_controllers:\n")
         pprint(api_response)
     except Exception as e:
@@ -814,6 +815,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **take** | **int**| The number of search results to return | [optional] 
  **skip** | **int**| The number of search results to skip | [optional] 
+ **include** | **str**| Specifies if the sub-fields that are objects should be included. | [optional] 
 
 ### Return type
 

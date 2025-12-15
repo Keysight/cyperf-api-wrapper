@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **key_file_password** | **str** | The key file password of the TLS VPN authentication. | [optional] 
 **passwords** | **List[str]** |  | [optional] 
 **passwords_param** | [**Params**](Params.md) |  | [optional] 
+**simulated_id_p** | [**SimulatedIdP**](SimulatedIdP.md) |  | [optional] 
 **usernames** | **List[str]** |  | [optional] 
 **usernames_param** | [**Params**](Params.md) |  | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 

@@ -158,6 +158,7 @@ class TestApplicationType(unittest.TestCase):
                 custom_stats = [
                     cyperf.models.custom_stat.CustomStat(
                         function = '', 
+                        is_rate = True, 
                         path = '', )
                     ],
                 data_types = [
@@ -264,6 +265,9 @@ class TestApplicationType(unittest.TestCase):
                                 file_name = '', 
                                 file_type = '', 
                                 file_url = '', ), 
+                            playlist = cyperf.models.playlist_metadata.PlaylistMetadata(
+                                column = '', 
+                                file_name = '', ), 
                             readonly = True, 
                             shared = True, 
                             type = '', 

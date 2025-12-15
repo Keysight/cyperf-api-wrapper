@@ -47,8 +47,8 @@ class EthRange(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)", value):
-            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)/")
+        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)", value):
+            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)/")
         return value
 
     @field_validator('mac_start')
@@ -57,8 +57,8 @@ class EthRange(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)", value):
-            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)/")
+        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)", value):
+            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)/")
         return value
 
     model_config = ConfigDict(

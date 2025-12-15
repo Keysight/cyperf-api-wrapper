@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.auth_method_type import AuthMethodType
 from cyperf.models.params import Params
+from cyperf.models.simulated_id_p import SimulatedIdP
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -38,10 +39,11 @@ class AuthSettings(BaseModel):
     key_file_password: Optional[StrictStr] = Field(default=None, description="The key file password of the TLS VPN authentication.", alias="KeyFilePassword")
     passwords: Optional[List[StrictStr]] = Field(default=None, alias="Passwords")
     passwords_param: Optional[Params] = Field(default=None, alias="PasswordsParam")
+    simulated_id_p: Optional[SimulatedIdP] = Field(default=None, alias="SimulatedIdP")
     usernames: Optional[List[StrictStr]] = Field(default=None, alias="Usernames")
     usernames_param: Optional[Params] = Field(default=None, alias="UsernamesParam")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["AuthMethod", "AuthParam", "CertificateFile", "KeyFile", "KeyFilePassword", "Passwords", "PasswordsParam", "Usernames", "UsernamesParam", "links"]
+    __properties: ClassVar[List[str]] = ["AuthMethod", "AuthParam", "CertificateFile", "KeyFile", "KeyFilePassword", "Passwords", "PasswordsParam", "SimulatedIdP", "Usernames", "UsernamesParam", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +96,9 @@ class AuthSettings(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of passwords_param
         if self.passwords_param:
             _dict['PasswordsParam'] = self.passwords_param.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of simulated_id_p
+        if self.simulated_id_p:
+            _dict['SimulatedIdP'] = self.simulated_id_p.to_dict()
         # override the default output from pydantic by calling `to_dict()` of usernames_param
         if self.usernames_param:
             _dict['UsernamesParam'] = self.usernames_param.to_dict()
@@ -125,6 +130,7 @@ class AuthSettings(BaseModel):
                         "KeyFilePassword": obj.get("KeyFilePassword"),
                         "Passwords": obj.get("Passwords") if obj.get("Passwords") is not None else [],
                         "PasswordsParam": Params.from_dict(obj["PasswordsParam"]) if obj.get("PasswordsParam") is not None else None,
+                        "SimulatedIdP": SimulatedIdP.from_dict(obj["SimulatedIdP"]) if obj.get("SimulatedIdP") is not None else None,
                         "Usernames": obj.get("Usernames") if obj.get("Usernames") is not None else [],
                         "UsernamesParam": Params.from_dict(obj["UsernamesParam"]) if obj.get("UsernamesParam") is not None else None,
                         "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None

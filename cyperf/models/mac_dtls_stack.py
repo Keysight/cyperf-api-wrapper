@@ -121,15 +121,15 @@ class MacDtlsStack(BaseModel):
     @field_validator('tunnel_destination_mac_incr')
     def tunnel_destination_mac_incr_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)", value):
-            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)/")
+        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)", value):
+            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)/")
         return value
 
     @field_validator('tunnel_destination_mac_start')
     def tunnel_destination_mac_start_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)", value):
-            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)/")
+        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)", value):
+            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)/")
         return value
 
     model_config = ConfigDict(

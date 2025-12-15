@@ -50,8 +50,8 @@ class TunnelRange(BaseModel):
     @field_validator('vendor_type')
     def vendor_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['CISCO_ANY_CONNECT', 'PAN_GP', 'FORTINET', 'F5']):
-            raise ValueError("must be one of enum values ('CISCO_ANY_CONNECT', 'PAN_GP', 'FORTINET', 'F5')")
+        if value not in set(['CISCO_ANY_CONNECT', 'PAN_GP', 'FORTINET', 'F5', 'PAN_PAA']):
+            raise ValueError("must be one of enum values ('CISCO_ANY_CONNECT', 'PAN_GP', 'FORTINET', 'F5', 'PAN_PAA')")
         return value
 
     model_config = ConfigDict(
