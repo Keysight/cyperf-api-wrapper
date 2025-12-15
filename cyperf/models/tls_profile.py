@@ -25,6 +25,7 @@ from cyperf.models.cert_config import CertConfig
 from cyperf.models.cipher_tls12 import CipherTLS12
 from cyperf.models.cipher_tls13 import CipherTLS13
 from cyperf.models.conflict import Conflict
+from cyperf.models.group_tls13 import GroupTLS13
 from cyperf.models.params import Params
 from cyperf.models.session_reuse_method_tls12 import SessionReuseMethodTLS12
 from cyperf.models.session_reuse_method_tls13 import SessionReuseMethodTLS13
@@ -46,6 +47,7 @@ class TLSProfile(BaseModel):
     dh_file: Optional[Params] = Field(default=None, alias="dhFile")
     get_tls_conflicts: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="get-tls-conflicts")
     _get_tls_conflicts_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,GetTLSConflicts" })
+    groups13: Optional[List[GroupTLS13]] = None
     immediate_close: Optional[StrictBool] = Field(default=None, description="The immediate FIN after close notify", alias="immediateClose")
     key_file: Optional[Params] = Field(default=None, description="The key file of the TLS profile.", alias="keyFile")
     key_file_password: Optional[StrictStr] = Field(default=None, description="The key file password of the TLS profile.", alias="keyFilePassword")
@@ -66,7 +68,7 @@ class TLSProfile(BaseModel):
     tls13_enabled: Optional[StrictBool] = Field(default=None, alias="tls13Enabled")
     use_tls_profile: Optional[StrictBool] = Field(default=None, description="When disabled, the connection is not TLS secured (default: true).", alias="useTlsProfile")
     version: StrictStr = Field(description="The version of the TLS profile (default: NONE). Must be one of: NONE or TLSv1.2 or TLSv1.3.")
-    __properties: ClassVar[List[str]] = ["certificateFile", "cipher", "cipher12", "cipher13", "ciphers12", "ciphers13", "dhFile", "get-tls-conflicts", "immediateClose", "keyFile", "keyFilePassword", "links", "middleBoxEnabled", "profileId", "resolve-tls-conflicts", "sendCloseNotify", "sessionReuseCount", "sessionReuseMethod", "sessionReuseMethod12", "sessionReuseMethod13", "sniCertConfigs", "sniEnabled", "supportedGroups13", "tls12Enabled", "tls13Enabled", "useTlsProfile", "version"]
+    __properties: ClassVar[List[str]] = ["certificateFile", "cipher", "cipher12", "cipher13", "ciphers12", "ciphers13", "dhFile", "get-tls-conflicts", "groups13", "immediateClose", "keyFile", "keyFilePassword", "links", "middleBoxEnabled", "profileId", "resolve-tls-conflicts", "sendCloseNotify", "sessionReuseCount", "sessionReuseMethod", "sessionReuseMethod12", "sessionReuseMethod13", "sniCertConfigs", "sniEnabled", "supportedGroups13", "tls12Enabled", "tls13Enabled", "useTlsProfile", "version"]
 
     @field_validator('version')
     def version_validate_enum(cls, value):
@@ -120,6 +122,13 @@ class TLSProfile(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of dh_file
         if self.dh_file:
             _dict['dhFile'] = self.dh_file.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in groups13 (list)
+        _items = []
+        if self.groups13:
+            for _item in self.groups13:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['groups13'] = _items
         # override the default output from pydantic by calling `to_dict()` of key_file
         if self.key_file:
             _dict['keyFile'] = self.key_file.to_dict()
@@ -166,6 +175,7 @@ class TLSProfile(BaseModel):
                         "ciphers13": obj.get("ciphers13"),
                         "dhFile": Params.from_dict(obj["dhFile"]) if obj.get("dhFile") is not None else None,
                         "get-tls-conflicts": obj.get("get-tls-conflicts") if obj.get("get-tls-conflicts") is not None else [],
+                        "groups13": [GroupTLS13.from_dict(_item) for _item in obj["groups13"]] if obj.get("groups13") is not None else None,
                         "immediateClose": obj.get("immediateClose"),
                         "keyFile": Params.from_dict(obj["keyFile"]) if obj.get("keyFile") is not None else None,
                         "keyFilePassword": obj.get("keyFilePassword"),

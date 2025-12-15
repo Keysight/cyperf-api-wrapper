@@ -30,6 +30,7 @@ class AuthMethodType(str, Enum):
     AAA = 'AAA'
     AAA_MINUS_CERTIFICATE = 'AAA-CERTIFICATE'
     CERTIFICATE = 'CERTIFICATE'
+    SAML = 'SAML'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

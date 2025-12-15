@@ -73,6 +73,9 @@ class TestGetResults200Response(unittest.TestCase):
                         owner_id = '', 
                         pdf_url = '', 
                         pinned = True, 
+                        report_types = [
+                            ''
+                            ], 
                         reporting_links = [
                             cyperf.models.api_link.APILink(
                                 content_type = '', 

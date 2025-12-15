@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ciphers13** | [**List[CipherTLS13]**](CipherTLS13.md) |  | [optional] 
 **dh_file** | [**Params**](Params.md) |  | [optional] 
 **get_tls_conflicts** | **List[bytearray]** |  | [optional] 
+**groups13** | [**List[GroupTLS13]**](GroupTLS13.md) |  | [optional] 
 **immediate_close** | **bool** | The immediate FIN after close notify | [optional] 
 **key_file** | [**Params**](Params.md) | The key file of the TLS profile. | [optional] 
 **key_file_password** | **str** | The key file password of the TLS profile. | [optional] 

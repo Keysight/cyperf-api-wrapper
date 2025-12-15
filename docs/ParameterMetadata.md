@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **legacy_names** | **List[str]** | The names of the equivalent parameters | [optional] 
 **mandatory** | **bool** | The mandatory status of the parameter | [optional] 
 **payload** | [**PayloadMetadata**](PayloadMetadata.md) |  | [optional] 
+**playlist** | [**PlaylistMetadata**](PlaylistMetadata.md) |  | [optional] 
 **readonly** | **bool** | The read-only status of the parameter | [optional] 
 **shared** | **bool** | The shared status of the parameter | [optional] 
 **type** | **str** | The type of the parameter | [optional] 

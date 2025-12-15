@@ -15,10 +15,10 @@
 
 import unittest
 
-from cyperf.models.custom_stat import CustomStat
+from cyperf.models.group_tls13 import GroupTLS13
 
-class TestCustomStat(unittest.TestCase):
-    """CustomStat unit test stubs"""
+class TestGroupTLS13(unittest.TestCase):
+    """GroupTLS13 unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,28 @@ class TestCustomStat(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> CustomStat:
-        """Test CustomStat
+    def make_instance(self, include_optional) -> GroupTLS13:
+        """Test GroupTLS13
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `CustomStat`
+        # uncomment below to create an instance of `GroupTLS13`
         """
-        model = CustomStat()
+        model = GroupTLS13()
         if include_optional:
-            return CustomStat(
-                function = '',
-                is_rate = True,
-                path = ''
+            return GroupTLS13(
+                is_deprecated = True,
+                name = 'P-256'
             )
         else:
-            return CustomStat(
+            return GroupTLS13(
+                is_deprecated = True,
+                name = 'P-256',
         )
         """
 
-    def testCustomStat(self):
-        """Test CustomStat"""
+    def testGroupTLS13(self):
+        """Test GroupTLS13"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

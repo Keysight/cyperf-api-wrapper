@@ -46,6 +46,7 @@ class TestTunnelSettings(unittest.TestCase):
                         ''
                         ], 
                     passwords_param = null, 
+                    simulated_id_p = null, 
                     usernames = [
                         ''
                         ], 
