@@ -151,6 +151,7 @@ class TestGetResourcesApplicationTypes200ResponseOneOf(unittest.TestCase):
                         custom_stats = [
                             cyperf.models.custom_stat.CustomStat(
                                 function = '', 
+                                is_rate = True, 
                                 path = '', )
                             ], 
                         data_types = [

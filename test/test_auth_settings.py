@@ -413,6 +413,27 @@ class TestAuthSettings(unittest.TestCase):
                         ], 
                     supports_dynamic_payload = True, 
                     upload_url = '', ),
+                simulated_id_p = cyperf.models.simulated_id_p.SimulatedIdP(
+                    assertion_signature = True, 
+                    audience_uri = '', 
+                    cert_config = null, 
+                    name_id_format = null, 
+                    response_signature = True, 
+                    signature_algorithm = null, 
+                    single_sign_on_url = '', 
+                    xml_metadata = [
+                        'YQ=='
+                        ], 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
                 usernames = [
                     ''
                     ],

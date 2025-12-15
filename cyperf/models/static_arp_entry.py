@@ -64,8 +64,8 @@ class StaticARPEntry(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)", value):
-            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)/")
+        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)", value):
+            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)/")
         return value
 
     @field_validator('remote_mac_incr')
@@ -74,8 +74,8 @@ class StaticARPEntry(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)", value):
-            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$)/")
+        if not re.match(r"^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)", value):
+            raise ValueError(r"must validate the regular expression /^$|(^([0-9A-Fa-f]{2}[:\-]){5}([0-9A-Fa-f]{2})$)/")
         return value
 
     @field_validator('static_arp_entry_name')

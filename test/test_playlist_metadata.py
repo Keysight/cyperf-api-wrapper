@@ -15,10 +15,10 @@
 
 import unittest
 
-from cyperf.models.custom_stat import CustomStat
+from cyperf.models.playlist_metadata import PlaylistMetadata
 
-class TestCustomStat(unittest.TestCase):
-    """CustomStat unit test stubs"""
+class TestPlaylistMetadata(unittest.TestCase):
+    """PlaylistMetadata unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,27 +26,26 @@ class TestCustomStat(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> CustomStat:
-        """Test CustomStat
+    def make_instance(self, include_optional) -> PlaylistMetadata:
+        """Test PlaylistMetadata
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `CustomStat`
+        # uncomment below to create an instance of `PlaylistMetadata`
         """
-        model = CustomStat()
+        model = PlaylistMetadata()
         if include_optional:
-            return CustomStat(
-                function = '',
-                is_rate = True,
-                path = ''
+            return PlaylistMetadata(
+                column = '',
+                file_name = ''
             )
         else:
-            return CustomStat(
+            return PlaylistMetadata(
         )
         """
 
-    def testCustomStat(self):
-        """Test CustomStat"""
+    def testPlaylistMetadata(self):
+        """Test PlaylistMetadata"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

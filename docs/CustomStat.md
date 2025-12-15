@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **function** | **str** | The function of the custom statistic | [optional] 
+**is_rate** | **bool** | Indicates whether this statistic supports rate computation | [optional] 
 **path** | **str** | The path of the custom statistic | [optional] 
 
 ## Example

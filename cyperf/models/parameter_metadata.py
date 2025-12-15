@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.enum import Enum
 from cyperf.models.payload_metadata import PayloadMetadata
+from cyperf.models.playlist_metadata import PlaylistMetadata
 from cyperf.models.type_info_metadata import TypeInfoMetadata
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
@@ -43,13 +44,14 @@ class ParameterMetadata(BaseModel):
     legacy_names: Optional[List[StrictStr]] = Field(default=None, description="The names of the equivalent parameters", alias="LegacyNames")
     mandatory: Optional[StrictBool] = Field(default=None, description="The mandatory status of the parameter", alias="Mandatory")
     payload: Optional[PayloadMetadata] = Field(default=None, alias="Payload")
+    playlist: Optional[PlaylistMetadata] = Field(default=None, alias="Playlist")
     readonly: Optional[StrictBool] = Field(default=None, description="The read-only status of the parameter", alias="Readonly")
     shared: Optional[StrictBool] = Field(default=None, description="The shared status of the parameter", alias="Shared")
     type: Optional[StrictStr] = Field(default=None, description="The type of the parameter", alias="Type")
     type_info: Optional[TypeInfoMetadata] = Field(default=None, alias="TypeInfo")
     unique_value: Optional[StrictBool] = Field(default=None, description="If true, the value of this parameter must be unique across all Applications/Actions", alias="UniqueValue")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Category", "CategoryIndex", "Default", "Description", "DisplayName", "Enum", "FlowIdentifier", "Input", "LegacyNames", "Mandatory", "Payload", "Readonly", "Shared", "Type", "TypeInfo", "UniqueValue", "links"]
+    __properties: ClassVar[List[str]] = ["Category", "CategoryIndex", "Default", "Description", "DisplayName", "Enum", "FlowIdentifier", "Input", "LegacyNames", "Mandatory", "Payload", "Playlist", "Readonly", "Shared", "Type", "TypeInfo", "UniqueValue", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,6 +98,9 @@ class ParameterMetadata(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of payload
         if self.payload:
             _dict['Payload'] = self.payload.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of playlist
+        if self.playlist:
+            _dict['Playlist'] = self.playlist.to_dict()
         # override the default output from pydantic by calling `to_dict()` of type_info
         if self.type_info:
             _dict['TypeInfo'] = self.type_info.to_dict()
@@ -131,6 +136,7 @@ class ParameterMetadata(BaseModel):
                         "LegacyNames": obj.get("LegacyNames") if obj.get("LegacyNames") is not None else [],
                         "Mandatory": obj.get("Mandatory"),
                         "Payload": PayloadMetadata.from_dict(obj["Payload"]) if obj.get("Payload") is not None else None,
+                        "Playlist": PlaylistMetadata.from_dict(obj["Playlist"]) if obj.get("Playlist") is not None else None,
                         "Readonly": obj.get("Readonly"),
                         "Shared": obj.get("Shared"),
                         "Type": obj.get("Type"),

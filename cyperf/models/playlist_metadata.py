@@ -18,20 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Union, GenericAlias, get_args
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class CustomStat(BaseModel):
+class PlaylistMetadata(BaseModel):
     """
-    CustomStat
+    PlaylistMetadata
     """ # noqa: E501
-    function: Optional[StrictStr] = Field(default=None, description="The function of the custom statistic", alias="Function")
-    is_rate: Optional[StrictBool] = Field(default=None, description="Indicates whether this statistic supports rate computation", alias="IsRate")
-    path: Optional[StrictStr] = Field(default=None, description="The path of the custom statistic", alias="Path")
-    __properties: ClassVar[List[str]] = ["Function", "IsRate", "Path"]
+    column: Optional[StrictStr] = Field(default=None, description="The selected column", alias="Column")
+    file_name: Optional[StrictStr] = Field(default=None, description="The path of the file", alias="FileName")
+    __properties: ClassVar[List[str]] = ["Column", "FileName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +50,7 @@ class CustomStat(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CustomStat from a JSON string"""
+        """Create an instance of PlaylistMetadata from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,7 +75,7 @@ class CustomStat(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CustomStat from a dict"""
+        """Create an instance of PlaylistMetadata from a dict"""
         if obj is None:
             return None
 
@@ -86,9 +85,8 @@ class CustomStat(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Function": obj.get("Function"),
-                        "IsRate": obj.get("IsRate"),
-                        "Path": obj.get("Path")
+            "Column": obj.get("Column"),
+                        "FileName": obj.get("FileName")
             ,
             "links": obj.get("links")
         })

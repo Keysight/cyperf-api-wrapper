@@ -47,6 +47,7 @@ class ResultMetadata(BaseModel):
     owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the user who owns the result", alias="ownerId")
     pdf_url: Optional[StrictStr] = Field(default=None, description="The URL of the cached pdf report", alias="pdfURL")
     pinned: Optional[StrictBool] = Field(default=None, description="A flag that indicates if the result's configuration is pinned")
+    report_types: Optional[List[StrictStr]] = Field(default=None, description="The report types supported for the result", alias="reportTypes")
     reporting_links: Optional[List[APILink]] = Field(default=None, description="A list of links to result reporting resources", alias="reportingLinks")
     result_url: Optional[StrictStr] = Field(default=None, description="The URL of the result", alias="resultUrl")
     start_time: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when the test was started", alias="startTime")
@@ -54,7 +55,7 @@ class ResultMetadata(BaseModel):
     test_name: Optional[StrictStr] = Field(default=None, description="The name of the test associated with the result", alias="testName")
     type: Optional[StrictStr] = Field(default=None, description="The application type of the result")
     user_tags: Optional[List[StrictStr]] = Field(default=None, description="The list of user defined tags", alias="userTags")
-    __properties: ClassVar[List[str]] = ["activeSession", "configUrl", "csvURL", "displayName", "download-all", "download-diagnostic", "endTime", "files", "id", "lastModified", "links", "markedAsDeleted", "owner", "ownerId", "pdfURL", "pinned", "reportingLinks", "resultUrl", "startTime", "tags", "testName", "type", "userTags"]
+    __properties: ClassVar[List[str]] = ["activeSession", "configUrl", "csvURL", "displayName", "download-all", "download-diagnostic", "endTime", "files", "id", "lastModified", "links", "markedAsDeleted", "owner", "ownerId", "pdfURL", "pinned", "reportTypes", "reportingLinks", "resultUrl", "startTime", "tags", "testName", "type", "userTags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,6 +95,7 @@ class ResultMetadata(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "config_url",
@@ -101,6 +103,7 @@ class ResultMetadata(BaseModel):
             "last_modified",
             "owner",
             "owner_id",
+            "report_types",
             "result_url",
             "start_time",
             "type",
@@ -175,6 +178,7 @@ class ResultMetadata(BaseModel):
                         "ownerId": obj.get("ownerId"),
                         "pdfURL": obj.get("pdfURL"),
                         "pinned": obj.get("pinned"),
+                        "reportTypes": obj.get("reportTypes") if obj.get("reportTypes") is not None else [],
                         "reportingLinks": [APILink.from_dict(_item) for _item in obj["reportingLinks"]] if obj.get("reportingLinks") is not None else None,
                         "resultUrl": obj.get("resultUrl"),
                         "startTime": obj.get("startTime"),

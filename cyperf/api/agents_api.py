@@ -2613,6 +2613,7 @@ class AgentsApi:
         self,
         take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
         skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Specifies if the sub-fields that are objects should be included.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2634,6 +2635,8 @@ class AgentsApi:
         :type take: int
         :param skip: The number of search results to skip
         :type skip: int
+        :param include: Specifies if the sub-fields that are objects should be included.
+        :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2659,6 +2662,7 @@ class AgentsApi:
         _param = self._get_controllers_serialize(
             take=take,
             skip=skip,
+            include=include,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2681,6 +2685,7 @@ class AgentsApi:
         self,
         take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
         skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Specifies if the sub-fields that are objects should be included.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2702,6 +2707,8 @@ class AgentsApi:
         :type take: int
         :param skip: The number of search results to skip
         :type skip: int
+        :param include: Specifies if the sub-fields that are objects should be included.
+        :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2727,6 +2734,7 @@ class AgentsApi:
         _param = self._get_controllers_serialize(
             take=take,
             skip=skip,
+            include=include,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2749,6 +2757,7 @@ class AgentsApi:
         self,
         take: Annotated[Optional[StrictInt], Field(description="The number of search results to return")] = None,
         skip: Annotated[Optional[StrictInt], Field(description="The number of search results to skip")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Specifies if the sub-fields that are objects should be included.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2770,6 +2779,8 @@ class AgentsApi:
         :type take: int
         :param skip: The number of search results to skip
         :type skip: int
+        :param include: Specifies if the sub-fields that are objects should be included.
+        :type include: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2795,6 +2806,7 @@ class AgentsApi:
         _param = self._get_controllers_serialize(
             take=take,
             skip=skip,
+            include=include,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2816,6 +2828,7 @@ class AgentsApi:
         self,
         take,
         skip,
+        include,
         _request_auth,
         _content_type,
         _headers,
@@ -2843,6 +2856,10 @@ class AgentsApi:
         if skip is not None:
             
             _query_params.append(('skip', skip))
+            
+        if include is not None:
+            
+            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters

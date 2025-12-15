@@ -74,6 +74,9 @@ class TestGetResultStats200ResponseOneOf(unittest.TestCase):
                                         file_name = '', 
                                         file_type = '', 
                                         file_url = '', ), 
+                                    playlist = cyperf.models.playlist_metadata.PlaylistMetadata(
+                                        column = '', 
+                                        file_name = '', ), 
                                     readonly = True, 
                                     shared = True, 
                                     type = '', 

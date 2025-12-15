@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **owner_id** | **str** | The unique identifier of the user who owns the result | [optional] [readonly] 
 **pdf_url** | **str** | The URL of the cached pdf report | [optional] 
 **pinned** | **bool** | A flag that indicates if the result&#39;s configuration is pinned | [optional] 
+**report_types** | **List[str]** | The report types supported for the result | [optional] [readonly] 
 **reporting_links** | [**List[APILink]**](APILink.md) | A list of links to result reporting resources | [optional] 
 **result_url** | **str** | The URL of the result | [optional] [readonly] 
 **start_time** | **int** | A Unix timestamp that indicates when the test was started | [optional] [readonly] 

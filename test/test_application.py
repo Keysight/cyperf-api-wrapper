@@ -486,6 +486,11 @@ class TestApplication(unittest.TestCase):
                     get_tls_conflicts = [
                         'YQ=='
                         ], 
+                    groups13 = [
+                        cyperf.models.group_tls13.GroupTLS13(
+                            is_deprecated = True, 
+                            name = 'P-256', )
+                        ], 
                     immediate_close = True, 
                     key_file = null, 
                     key_file_password = '', 
@@ -573,6 +578,11 @@ class TestApplication(unittest.TestCase):
                     dh_file = null, 
                     get_tls_conflicts = [
                         'YQ=='
+                        ], 
+                    groups13 = [
+                        cyperf.models.group_tls13.GroupTLS13(
+                            is_deprecated = True, 
+                            name = 'P-256', )
                         ], 
                     immediate_close = True, 
                     key_file = null, 
