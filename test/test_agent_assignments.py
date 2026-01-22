@@ -58,9 +58,6 @@ class TestAgentAssignments(unittest.TestCase):
             )
         else:
             return AgentAssignments(
-                by_tag = [
-                    ''
-                    ],
         )
         """
 
