@@ -33,7 +33,7 @@ class AgentAssignments(BaseModel):
     """ # noqa: E501
     by_id: Optional[List[AgentAssignmentDetails]] = Field(default=None, description="The agents statically assigned to the current test configuration.", alias="ByID")
     by_port: Optional[List[AgentAssignmentByPort]] = Field(default=None, description="The ports assigned to the current test configuration.", alias="ByPort")
-    by_tag: List[StrictStr] = Field(description="The tags according to which the agents are dynamically assigned.", alias="ByTag")
+    by_tag: Optional[List[StrictStr]] = Field(default=None, description="The tags according to which the agents are dynamically assigned.", alias="ByTag")
     links: Optional[List[APILink]] = None
     __properties: ClassVar[List[str]] = ["ByID", "ByPort", "ByTag", "links"]
 
