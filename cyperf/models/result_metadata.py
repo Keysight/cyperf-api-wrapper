@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.marked_as_deleted import MarkedAsDeleted
 from cyperf.models.result_file_metadata import ResultFileMetadata
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -169,17 +169,17 @@ class ResultMetadata(BaseModel):
                         "download-all": obj.get("download-all"),
                         "download-diagnostic": obj.get("download-diagnostic"),
                         "endTime": obj.get("endTime"),
-                        "files": [ResultFileMetadata.from_dict(_item) for _item in obj["files"]] if obj.get("files") is not None else None,
+                        "files": ( [ResultFileMetadata.from_dict(_item) for _item in obj.get("files", [])] if obj.get("files") is not None else None),
                         "id": obj.get("id"),
                         "lastModified": obj.get("lastModified"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "markedAsDeleted": MarkedAsDeleted.from_dict(obj["markedAsDeleted"]) if obj.get("markedAsDeleted") is not None else None,
                         "owner": obj.get("owner"),
                         "ownerId": obj.get("ownerId"),
                         "pdfURL": obj.get("pdfURL"),
                         "pinned": obj.get("pinned"),
                         "reportTypes": obj.get("reportTypes") if obj.get("reportTypes") is not None else [],
-                        "reportingLinks": [APILink.from_dict(_item) for _item in obj["reportingLinks"]] if obj.get("reportingLinks") is not None else None,
+                        "reportingLinks": ( [APILink.from_dict(_item) for _item in obj.get("reportingLinks", [])] if obj.get("reportingLinks") is not None else None),
                         "resultUrl": obj.get("resultUrl"),
                         "startTime": obj.get("startTime"),
                         "tags": obj.get("tags"),

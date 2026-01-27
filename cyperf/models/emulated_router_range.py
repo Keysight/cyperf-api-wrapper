@@ -25,7 +25,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.automatic_ip_type import AutomaticIpType
 from cyperf.models.ip_ver import IpVer
 from cyperf.models.vlan_range import VLANRange
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -172,7 +172,7 @@ class EmulatedRouterRange(BaseModel):
                         "NetMask": obj.get("NetMask"),
                         "NetMaskAuto": obj.get("NetMaskAuto"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "maxCountPerAgent": obj.get("maxCountPerAgent"),
                         "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else []
             ,

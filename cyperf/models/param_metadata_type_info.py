@@ -24,7 +24,7 @@ from cyperf.models.param_metadata_type_info_array_v2 import ParamMetadataTypeInf
 from cyperf.models.param_metadata_type_info_int import ParamMetadataTypeInfoInt
 from cyperf.models.param_metadata_type_info_media import ParamMetadataTypeInfoMedia
 from cyperf.models.param_metadata_type_info_string import ParamMetadataTypeInfoString
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 

@@ -27,7 +27,7 @@ from cyperf.models.config_validation import ConfigValidation
 from cyperf.models.custom_dashboards import CustomDashboards
 from cyperf.models.expected_disk_space import ExpectedDiskSpace
 from cyperf.models.network_profile import NetworkProfile
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -140,13 +140,13 @@ class Config(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "AttackProfiles": [AttackProfile.from_dict(_item) for _item in obj["AttackProfiles"]] if obj.get("AttackProfiles") is not None else None,
+            "AttackProfiles": ( [AttackProfile.from_dict(_item) for _item in obj.get("AttackProfiles", [])] if obj.get("AttackProfiles") is not None else None),
                         "ConfigValidation": ConfigValidation.from_dict(obj["ConfigValidation"]) if obj.get("ConfigValidation") is not None else None,
                         "CustomDashboards": CustomDashboards.from_dict(obj["CustomDashboards"]) if obj.get("CustomDashboards") is not None else None,
-                        "ExpectedDiskSpace": [ExpectedDiskSpace.from_dict(_item) for _item in obj["ExpectedDiskSpace"]] if obj.get("ExpectedDiskSpace") is not None else None,
-                        "NetworkProfiles": [NetworkProfile.from_dict(_item) for _item in obj["NetworkProfiles"]] if obj.get("NetworkProfiles") is not None else None,
-                        "TrafficProfiles": [ApplicationProfile.from_dict(_item) for _item in obj["TrafficProfiles"]] if obj.get("TrafficProfiles") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "ExpectedDiskSpace": ( [ExpectedDiskSpace.from_dict(_item) for _item in obj.get("ExpectedDiskSpace", [])] if obj.get("ExpectedDiskSpace") is not None else None),
+                        "NetworkProfiles": ( [NetworkProfile.from_dict(_item) for _item in obj.get("NetworkProfiles", [])] if obj.get("NetworkProfiles") is not None else None),
+                        "TrafficProfiles": ( [ApplicationProfile.from_dict(_item) for _item in obj.get("TrafficProfiles", [])] if obj.get("TrafficProfiles") is not None else None),
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "validate": obj.get("validate") if obj.get("validate") is not None else []
             ,
             "links": obj.get("links")

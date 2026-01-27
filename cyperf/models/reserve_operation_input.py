@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.agent_reservation import AgentReservation
 from cyperf.models.payload_meta import PayloadMeta
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -106,13 +106,13 @@ class ReserveOperationInput(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "agentsData": [AgentReservation.from_dict(_item) for _item in obj["agentsData"]] if obj.get("agentsData") is not None else None,
+            "agentsData": ( [AgentReservation.from_dict(_item) for _item in obj.get("agentsData", [])] if obj.get("agentsData") is not None else None),
                         "force": obj.get("force"),
                         "owner": obj.get("owner"),
                         "ownerId": obj.get("ownerId"),
                         "payloads": dict(
                 (_k, PayloadMeta.from_dict(_v))
-                for _k, _v in obj["payloads"].items()
+                for _k, _v in (obj.get("payloads") or {}).items()
             )
             if obj.get("payloads") is not None
             else None,

@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.chassis_info import ChassisInfo
 from cyperf.models.traffic_agent_info import TrafficAgentInfo
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -112,7 +112,7 @@ class SystemInfo(BaseModel):
                         "kernelVersion": obj.get("kernelVersion"),
                         "osName": obj.get("osName"),
                         "portManagerVersion": obj.get("portManagerVersion"),
-                        "trafficAgentInfo": [TrafficAgentInfo.from_dict(_item) for _item in obj["trafficAgentInfo"]] if obj.get("trafficAgentInfo") is not None else None
+                        "trafficAgentInfo": ( [TrafficAgentInfo.from_dict(_item) for _item in obj.get("trafficAgentInfo", [])] if obj.get("trafficAgentInfo") is not None else None)
             ,
             "links": obj.get("links")
         })

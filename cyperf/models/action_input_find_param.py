@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.capture_input_find_param import CaptureInputFindParam
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -93,7 +93,7 @@ class ActionInputFindParam(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Captures": [CaptureInputFindParam.from_dict(_item) for _item in obj["Captures"]] if obj.get("Captures") is not None else None,
+            "Captures": ( [CaptureInputFindParam.from_dict(_item) for _item in obj.get("Captures", [])] if obj.get("Captures") is not None else None),
                         "Name": obj.get("Name")
             ,
             "links": obj.get("links")

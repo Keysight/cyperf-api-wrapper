@@ -25,7 +25,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.secondary_objective import SecondaryObjective
 from cyperf.models.specific_objective import SpecificObjective
 from cyperf.models.timeline_segment import TimelineSegment
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -127,9 +127,9 @@ class ObjectivesAndTimeline(BaseModel):
             "AdvancedSettings": AdvancedSettings.from_dict(obj["AdvancedSettings"]) if obj.get("AdvancedSettings") is not None else None,
                         "PrimaryObjective": SpecificObjective.from_dict(obj["PrimaryObjective"]) if obj.get("PrimaryObjective") is not None else None,
                         "SecondaryObjective": SecondaryObjective.from_dict(obj["SecondaryObjective"]) if obj.get("SecondaryObjective") is not None else None,
-                        "SecondaryObjectives": [SpecificObjective.from_dict(_item) for _item in obj["SecondaryObjectives"]] if obj.get("SecondaryObjectives") is not None else None,
-                        "TimelineSegments": [TimelineSegment.from_dict(_item) for _item in obj["TimelineSegments"]] if obj.get("TimelineSegments") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "SecondaryObjectives": ( [SpecificObjective.from_dict(_item) for _item in obj.get("SecondaryObjectives", [])] if obj.get("SecondaryObjectives") is not None else None),
+                        "TimelineSegments": ( [TimelineSegment.from_dict(_item) for _item in obj.get("TimelineSegments", [])] if obj.get("TimelineSegments") is not None else None),
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.app_flow import AppFlow
 from cyperf.models.parameter_meta import ParameterMeta
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -105,10 +105,10 @@ class ActionMetadata(BaseModel):
 
         _obj = cls.model_validate({
             "FlowIndex": obj.get("FlowIndex"),
-                        "Flows": [AppFlow.from_dict(_item) for _item in obj["Flows"]] if obj.get("Flows") is not None else None,
+                        "Flows": ( [AppFlow.from_dict(_item) for _item in obj.get("Flows", [])] if obj.get("Flows") is not None else None),
                         "Index": obj.get("Index"),
                         "Name": obj.get("Name"),
-                        "Parameters": [ParameterMeta.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None
+                        "Parameters": ( [ParameterMeta.from_dict(_item) for _item in obj.get("Parameters", [])] if obj.get("Parameters") is not None else None)
             ,
             "links": obj.get("links")
         })

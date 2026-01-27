@@ -29,7 +29,7 @@ from cyperf.models.protected_subnet_config import ProtectedSubnetConfig
 from cyperf.models.remote_access import RemoteAccess
 from cyperf.models.remote_subnet_config import RemoteSubnetConfig
 from cyperf.models.timers import Timers
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -177,7 +177,7 @@ class IPSecRange(BaseModel):
                         "Timers": Timers.from_dict(obj["Timers"]) if obj.get("Timers") is not None else None,
                         "TunnelCountPerOuterIP": obj.get("TunnelCountPerOuterIP"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

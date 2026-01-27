@@ -26,7 +26,7 @@ from cyperf.models.dns_resolver import DNSResolver
 from cyperf.models.f5_settings import F5Settings
 from cyperf.models.fortinet_settings import FortinetSettings
 from cyperf.models.pangp_settings import PANGPSettings
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -139,7 +139,7 @@ class TunnelRange(BaseModel):
                         "TunnelCountPerOuterIP": obj.get("TunnelCountPerOuterIP"),
                         "TunnelEstablishmentTimeout": obj.get("TunnelEstablishmentTimeout"),
                         "VendorType": obj.get("VendorType"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

@@ -30,7 +30,7 @@ from cyperf.models.params import Params
 from cyperf.models.session_reuse_method_tls12 import SessionReuseMethodTLS12
 from cyperf.models.session_reuse_method_tls13 import SessionReuseMethodTLS13
 from cyperf.models.supported_group_tls13 import SupportedGroupTLS13
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -175,20 +175,20 @@ class TLSProfile(BaseModel):
                         "ciphers13": obj.get("ciphers13"),
                         "dhFile": Params.from_dict(obj["dhFile"]) if obj.get("dhFile") is not None else None,
                         "get-tls-conflicts": obj.get("get-tls-conflicts") if obj.get("get-tls-conflicts") is not None else [],
-                        "groups13": [GroupTLS13.from_dict(_item) for _item in obj["groups13"]] if obj.get("groups13") is not None else None,
+                        "groups13": ( [GroupTLS13.from_dict(_item) for _item in obj.get("groups13", [])] if obj.get("groups13") is not None else None),
                         "immediateClose": obj.get("immediateClose"),
                         "keyFile": Params.from_dict(obj["keyFile"]) if obj.get("keyFile") is not None else None,
                         "keyFilePassword": obj.get("keyFilePassword"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "middleBoxEnabled": obj.get("middleBoxEnabled"),
                         "profileId": obj.get("profileId"),
-                        "resolve-tls-conflicts": [Conflict.from_dict(_item) for _item in obj["resolve-tls-conflicts"]] if obj.get("resolve-tls-conflicts") is not None else None,
+                        "resolve-tls-conflicts": ( [Conflict.from_dict(_item) for _item in obj.get("resolve-tls-conflicts", [])] if obj.get("resolve-tls-conflicts") is not None else None),
                         "sendCloseNotify": obj.get("sendCloseNotify"),
                         "sessionReuseCount": obj.get("sessionReuseCount"),
                         "sessionReuseMethod": obj.get("sessionReuseMethod"),
                         "sessionReuseMethod12": obj.get("sessionReuseMethod12"),
                         "sessionReuseMethod13": obj.get("sessionReuseMethod13"),
-                        "sniCertConfigs": [CertConfig.from_dict(_item) for _item in obj["sniCertConfigs"]] if obj.get("sniCertConfigs") is not None else None,
+                        "sniCertConfigs": ( [CertConfig.from_dict(_item) for _item in obj.get("sniCertConfigs", [])] if obj.get("sniCertConfigs") is not None else None),
                         "sniEnabled": obj.get("sniEnabled"),
                         "supportedGroups13": obj.get("supportedGroups13"),
                         "tls12Enabled": obj.get("tls12Enabled"),

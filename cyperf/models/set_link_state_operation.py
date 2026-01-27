@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.ports_by_controller import PortsByController
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -104,7 +104,7 @@ class SetLinkStateOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "controllers": [PortsByController.from_dict(_item) for _item in obj["controllers"]] if obj.get("controllers") is not None else None,
+            "controllers": ( [PortsByController.from_dict(_item) for _item in obj.get("controllers", [])] if obj.get("controllers") is not None else None),
                         "link": obj.get("link")
             ,
             "links": obj.get("links")

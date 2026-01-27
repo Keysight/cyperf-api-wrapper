@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.auth_settings import AuthSettings
 from cyperf.models.tcp_profile import TcpProfile
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -104,7 +104,7 @@ class TunnelSettings(BaseModel):
         _obj = cls.model_validate({
             "AuthSettings": AuthSettings.from_dict(obj["AuthSettings"]) if obj.get("AuthSettings") is not None else None,
                         "OuterTCPProfile": TcpProfile.from_dict(obj["OuterTCPProfile"]) if obj.get("OuterTCPProfile") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

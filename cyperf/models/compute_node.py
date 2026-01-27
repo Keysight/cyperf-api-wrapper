@@ -24,7 +24,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.app_mode import AppMode
 from cyperf.models.health_issue import HealthIssue
 from cyperf.models.port import Port
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -125,12 +125,12 @@ class ComputeNode(BaseModel):
         _obj = cls.model_validate({
             "aggregatedMode": obj.get("aggregatedMode"),
                         "appMode": AppMode.from_dict(obj["appMode"]) if obj.get("appMode") is not None else None,
-                        "healthDetails": [HealthIssue.from_dict(_item) for _item in obj["healthDetails"]] if obj.get("healthDetails") is not None else None,
+                        "healthDetails": ( [HealthIssue.from_dict(_item) for _item in obj.get("healthDetails", [])] if obj.get("healthDetails") is not None else None),
                         "healthy": obj.get("healthy"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "name": obj.get("name"),
-                        "ports": [Port.from_dict(_item) for _item in obj["ports"]] if obj.get("ports") is not None else None,
+                        "ports": ( [Port.from_dict(_item) for _item in obj.get("ports", [])] if obj.get("ports") is not None else None),
                         "serial": obj.get("serial"),
                         "slotNumber": obj.get("slotNumber"),
                         "status": obj.get("status"),

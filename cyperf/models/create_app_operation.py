@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.action_input import ActionInput
 from cyperf.models.parameter_meta import ParameterMeta
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -104,11 +104,11 @@ class CreateAppOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Actions": [ActionInput.from_dict(_item) for _item in obj["Actions"]] if obj.get("Actions") is not None else None,
+            "Actions": ( [ActionInput.from_dict(_item) for _item in obj.get("Actions", [])] if obj.get("Actions") is not None else None),
                         "AppName": obj.get("AppName"),
                         "AppType": obj.get("AppType"),
                         "Description": obj.get("Description"),
-                        "Parameters": [ParameterMeta.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None
+                        "Parameters": ( [ParameterMeta.from_dict(_item) for _item in obj.get("Parameters", [])] if obj.get("Parameters") is not None else None)
             ,
             "links": obj.get("links")
         })

@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from cyperf.models.counted_feature_consumer import CountedFeatureConsumer
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -96,7 +96,7 @@ class CountedFeatureStats(BaseModel):
 
         _obj = cls.model_validate({
             "availableCount": obj.get("availableCount"),
-                        "consumers": [CountedFeatureConsumer.from_dict(_item) for _item in obj["consumers"]] if obj.get("consumers") is not None else None,
+                        "consumers": ( [CountedFeatureConsumer.from_dict(_item) for _item in obj.get("consumers", [])] if obj.get("consumers") is not None else None),
                         "featureName": obj.get("featureName"),
                         "installedCount": obj.get("installedCount")
             ,

@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.config_sub_category import ConfigSubCategory
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -93,7 +93,7 @@ class GetConfigCategorieSubcategories200ResponseOneOf(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "data": [ConfigSubCategory.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": ( [ConfigSubCategory.from_dict(_item) for _item in obj.get("data", [])] if obj.get("data") is not None else None),
                         "totalCount": obj.get("totalCount")
             ,
             "links": obj.get("links")

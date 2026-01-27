@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.emulated_router_range import EmulatedRouterRange
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -102,9 +102,9 @@ class EmulatedRouter(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "EmulatedRouterRanges": [EmulatedRouterRange.from_dict(_item) for _item in obj["EmulatedRouterRanges"]] if obj.get("EmulatedRouterRanges") is not None else None,
+            "EmulatedRouterRanges": ( [EmulatedRouterRange.from_dict(_item) for _item in obj.get("EmulatedRouterRanges", [])] if obj.get("EmulatedRouterRanges") is not None else None),
                         "Enabled": obj.get("Enabled"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

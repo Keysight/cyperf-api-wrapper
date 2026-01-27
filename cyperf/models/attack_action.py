@@ -24,7 +24,7 @@ from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.exchange import Exchange
 from cyperf.models.params import Params
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -133,19 +133,19 @@ class AttackAction(BaseModel):
 
         _obj = cls.model_validate({
             "DstHost": obj.get("DstHost"),
-                        "Exchanges": [Exchange.from_dict(_item) for _item in obj["Exchanges"]] if obj.get("Exchanges") is not None else None,
+                        "Exchanges": ( [Exchange.from_dict(_item) for _item in obj.get("Exchanges", [])] if obj.get("Exchanges") is not None else None),
                         "Index": obj.get("Index"),
                         "IsBanner": obj.get("IsBanner"),
                         "IsDeprecated": obj.get("IsDeprecated"),
                         "IsHostname": obj.get("IsHostname"),
                         "IsStrike": obj.get("IsStrike"),
                         "Name": obj.get("Name"),
-                        "Params": [Params.from_dict(_item) for _item in obj["Params"]] if obj.get("Params") is not None else None,
+                        "Params": ( [Params.from_dict(_item) for _item in obj.get("Params", [])] if obj.get("Params") is not None else None),
                         "Port": obj.get("Port"),
                         "ProtocolID": obj.get("ProtocolID"),
                         "RequiresUniqueness": obj.get("RequiresUniqueness"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

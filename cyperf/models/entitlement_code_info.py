@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from cyperf.models.activation_code_info import ActivationCodeInfo
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -93,7 +93,7 @@ class EntitlementCodeInfo(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "activationCodes": [ActivationCodeInfo.from_dict(_item) for _item in obj["activationCodes"]] if obj.get("activationCodes") is not None else None,
+            "activationCodes": ( [ActivationCodeInfo.from_dict(_item) for _item in obj.get("activationCodes", [])] if obj.get("activationCodes") is not None else None),
                         "entitlementCode": obj.get("entitlementCode")
             ,
             "links": obj.get("links")

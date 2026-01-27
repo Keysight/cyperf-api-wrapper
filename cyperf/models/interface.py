@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.ip_mask import IpMask
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -107,7 +107,7 @@ class Interface(BaseModel):
 
         _obj = cls.model_validate({
             "Gateway": obj.get("Gateway"),
-                        "IP": [IpMask.from_dict(_item) for _item in obj["IP"]] if obj.get("IP") is not None else None,
+                        "IP": ( [IpMask.from_dict(_item) for _item in obj.get("IP", [])] if obj.get("IP") is not None else None),
                         "MTU": obj.get("MTU"),
                         "Mac": obj.get("Mac"),
                         "Name": obj.get("Name")

@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.interface import Interface
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -101,7 +101,7 @@ class SelectedEnv(BaseModel):
 
         _obj = cls.model_validate({
             "SessionID": obj.get("SessionID"),
-                        "TestInterface": [Interface.from_dict(_item) for _item in obj["TestInterface"]] if obj.get("TestInterface") is not None else None,
+                        "TestInterface": ( [Interface.from_dict(_item) for _item in obj.get("TestInterface", [])] if obj.get("TestInterface") is not None else None),
                         "Token": obj.get("Token")
             ,
             "links": obj.get("links")

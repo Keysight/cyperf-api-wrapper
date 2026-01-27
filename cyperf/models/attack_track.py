@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.attack_action import AttackAction
 from cyperf.models.create_app_or_attack_operation_input import CreateAppOrAttackOperationInput
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -112,10 +112,10 @@ class AttackTrack(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Actions": [AttackAction.from_dict(_item) for _item in obj["Actions"]] if obj.get("Actions") is not None else None,
-                        "add-actions": [CreateAppOrAttackOperationInput.from_dict(_item) for _item in obj["add-actions"]] if obj.get("add-actions") is not None else None,
+            "Actions": ( [AttackAction.from_dict(_item) for _item in obj.get("Actions", [])] if obj.get("Actions") is not None else None),
+                        "add-actions": ( [CreateAppOrAttackOperationInput.from_dict(_item) for _item in obj.get("add-actions", [])] if obj.get("add-actions") is not None else None),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

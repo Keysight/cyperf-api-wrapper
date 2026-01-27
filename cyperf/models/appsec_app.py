@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.application import Application
 from cyperf.models.appsec_app_metadata import AppsecAppMetadata
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -128,7 +128,7 @@ class AppsecApp(BaseModel):
                         "appMetadata": AppsecAppMetadata.from_dict(obj["appMetadata"]) if obj.get("appMetadata") is not None else None,
                         "id": obj.get("id"),
                         "lastModified": obj.get("lastModified"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "owner": obj.get("owner"),
                         "ownerId": obj.get("ownerId")
             ,

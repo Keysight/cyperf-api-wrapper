@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.category_filter import CategoryFilter
 from cyperf.models.sort_body_field import SortBodyField
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -106,12 +106,12 @@ class GetAppsOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "categories": [CategoryFilter.from_dict(_item) for _item in obj["categories"]] if obj.get("categories") is not None else None,
+            "categories": ( [CategoryFilter.from_dict(_item) for _item in obj.get("categories", [])] if obj.get("categories") is not None else None),
                         "filterMode": obj.get("filterMode"),
                         "searchCol": obj.get("searchCol") if obj.get("searchCol") is not None else [],
                         "searchVal": obj.get("searchVal") if obj.get("searchVal") is not None else [],
                         "skip": obj.get("skip"),
-                        "sort": [SortBodyField.from_dict(_item) for _item in obj["sort"]] if obj.get("sort") is not None else None,
+                        "sort": ( [SortBodyField.from_dict(_item) for _item in obj.get("sort", [])] if obj.get("sort") is not None else None),
                         "take": obj.get("take")
             ,
             "links": obj.get("links")

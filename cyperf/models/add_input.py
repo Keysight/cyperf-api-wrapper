@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.capture_input import CaptureInput
 from cyperf.models.parameter_meta import ParameterMeta
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -108,10 +108,10 @@ class AddInput(BaseModel):
         _obj = cls.model_validate({
             "ActionIndex": obj.get("ActionIndex"),
                         "ActionName": obj.get("ActionName"),
-                        "Captures": [CaptureInput.from_dict(_item) for _item in obj["Captures"]] if obj.get("Captures") is not None else None,
+                        "Captures": ( [CaptureInput.from_dict(_item) for _item in obj.get("Captures", [])] if obj.get("Captures") is not None else None),
                         "ExchangeIndexInsertAt": obj.get("ExchangeIndexInsertAt"),
                         "FlowIndexInsertAt": obj.get("FlowIndexInsertAt"),
-                        "Parameters": [ParameterMeta.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
+                        "Parameters": ( [ParameterMeta.from_dict(_item) for _item in obj.get("Parameters", [])] if obj.get("Parameters") is not None else None),
                         "Type": obj.get("Type")
             ,
             "links": obj.get("links")

@@ -25,7 +25,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.inner_ip_range import InnerIPRange
 from cyperf.models.ip_range import IPRange
 from cyperf.models.tunnel_range import TunnelRange
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -122,7 +122,7 @@ class TunnelStack(BaseModel):
                         "TunnelRange": TunnelRange.from_dict(obj["TunnelRange"]) if obj.get("TunnelRange") is not None else None,
                         "TunnelStackName": obj.get("TunnelStackName"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

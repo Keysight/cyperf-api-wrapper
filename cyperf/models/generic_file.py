@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.file_metadata import FileMetadata
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -123,7 +123,7 @@ class GenericFile(BaseModel):
                         "name": obj.get("name"),
                         "options": dict(
                 (_k, AppsecAppMetadataKeywordsInner.from_dict(_v))
-                for _k, _v in obj["options"].items()
+                for _k, _v in (obj.get("options") or {}).items()
             )
             if obj.get("options") is not None
             else None,

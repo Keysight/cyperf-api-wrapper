@@ -98,23 +98,35 @@ class GetAsyncOperationResult200Response(BaseModel):
         match = 0
 
         # deserialize data into EntitlementCodeInfo
+
+
+        
         try:
             instance.actual_instance = EntitlementCodeInfo.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        
         # deserialize data into ActivationCodeInfo
+
+
+        
         try:
             instance.actual_instance = ActivationCodeInfo.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        
         # deserialize data into CountedFeatureStats
+
+
+        
         try:
             instance.actual_instance = CountedFeatureStats.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        
 
         if match > 1:
             # more than 1 match

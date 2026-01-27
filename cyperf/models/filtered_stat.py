@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.filter import Filter
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -93,7 +93,7 @@ class FilteredStat(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "filters": [Filter.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None,
+            "filters": ( [Filter.from_dict(_item) for _item in obj.get("filters", [])] if obj.get("filters") is not None else None),
                         "name": obj.get("name")
             ,
             "links": obj.get("links")

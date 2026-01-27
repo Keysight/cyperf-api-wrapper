@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.category_filter import CategoryFilter
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -92,7 +92,7 @@ class GetCategoriesOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "filter": [CategoryFilter.from_dict(_item) for _item in obj["filter"]] if obj.get("filter") is not None else None
+            "filter": ( [CategoryFilter.from_dict(_item) for _item in obj.get("filter", [])] if obj.get("filter") is not None else None)
             ,
             "links": obj.get("links")
         })

@@ -25,7 +25,7 @@ from cyperf.models.enum import Enum
 from cyperf.models.payload_metadata import PayloadMetadata
 from cyperf.models.playlist_metadata import PlaylistMetadata
 from cyperf.models.type_info_metadata import TypeInfoMetadata
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -142,7 +142,7 @@ class ParameterMetadata(BaseModel):
                         "Type": obj.get("Type"),
                         "TypeInfo": TypeInfoMetadata.from_dict(obj["TypeInfo"]) if obj.get("TypeInfo") is not None else None,
                         "UniqueValue": obj.get("UniqueValue"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

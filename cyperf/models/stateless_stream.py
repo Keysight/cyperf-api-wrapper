@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.stream_direction import StreamDirection
 from cyperf.models.stream_profile import StreamProfile
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -108,7 +108,7 @@ class StatelessStream(BaseModel):
                         "Direction": obj.get("Direction"),
                         "IsFloodStream": obj.get("IsFloodStream"),
                         "ServerStreamProfile": StreamProfile.from_dict(obj["ServerStreamProfile"]) if obj.get("ServerStreamProfile") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

@@ -24,7 +24,7 @@ from cyperf.models.exchange_payload import ExchangePayload
 from cyperf.models.generic_file import GenericFile
 from cyperf.models.http_req_meta import HTTPReqMeta
 from cyperf.models.http_res_meta import HTTPResMeta
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 

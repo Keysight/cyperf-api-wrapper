@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.diagnostic_component import DiagnosticComponent
 from cyperf.models.diagnostic_options import DiagnosticOptions
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -101,8 +101,8 @@ class DiagnosticComponentContext(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "componentList": [DiagnosticComponent.from_dict(_item) for _item in obj["componentList"]] if obj.get("componentList") is not None else None,
-                        "context": [DiagnosticOptions.from_dict(_item) for _item in obj["context"]] if obj.get("context") is not None else None
+            "componentList": ( [DiagnosticComponent.from_dict(_item) for _item in obj.get("componentList", [])] if obj.get("componentList") is not None else None),
+                        "context": ( [DiagnosticOptions.from_dict(_item) for _item in obj.get("context", [])] if obj.get("context") is not None else None)
             ,
             "links": obj.get("links")
         })
