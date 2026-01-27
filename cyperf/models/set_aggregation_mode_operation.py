@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.nodes_by_controller import NodesByController
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -94,7 +94,7 @@ class SetAggregationModeOperation(BaseModel):
 
         _obj = cls.model_validate({
             "aggregated": obj.get("aggregated"),
-                        "controllers": [NodesByController.from_dict(_item) for _item in obj["controllers"]] if obj.get("controllers") is not None else None
+                        "controllers": ( [NodesByController.from_dict(_item) for _item in obj.get("controllers", [])] if obj.get("controllers") is not None else None)
             ,
             "links": obj.get("links")
         })

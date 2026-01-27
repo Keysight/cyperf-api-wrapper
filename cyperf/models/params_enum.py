@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.choice import Choice
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -92,7 +92,7 @@ class ParamsEnum(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Choices": [Choice.from_dict(_item) for _item in obj["Choices"]] if obj.get("Choices") is not None else None
+            "Choices": ( [Choice.from_dict(_item) for _item in obj.get("Choices", [])] if obj.get("Choices") is not None else None)
             ,
             "links": obj.get("links")
         })

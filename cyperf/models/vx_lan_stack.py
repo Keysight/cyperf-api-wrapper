@@ -24,7 +24,7 @@ from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.ip_range import IPRange
 from cyperf.models.vx_lan_range import VxLANRange
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -121,7 +121,7 @@ class VxLANStack(BaseModel):
                         "VxLANRange": VxLANRange.from_dict(obj["VxLANRange"]) if obj.get("VxLANRange") is not None else None,
                         "VxLANStackName": obj.get("VxLANStackName"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

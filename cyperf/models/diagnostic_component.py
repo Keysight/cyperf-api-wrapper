@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.diagnostic_options import DiagnosticOptions
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -102,8 +102,8 @@ class DiagnosticComponent(BaseModel):
 
         _obj = cls.model_validate({
             "componentName": obj.get("componentName"),
-                        "options": [DiagnosticOptions.from_dict(_item) for _item in obj["options"]] if obj.get("options") is not None else None,
-                        "subComponents": [DiagnosticComponent.from_dict(_item) for _item in obj["subComponents"]] if obj.get("subComponents") is not None else None
+                        "options": ( [DiagnosticOptions.from_dict(_item) for _item in obj.get("options", [])] if obj.get("options") is not None else None),
+                        "subComponents": ( [DiagnosticComponent.from_dict(_item) for _item in obj.get("subComponents", [])] if obj.get("subComponents") is not None else None)
             ,
             "links": obj.get("links")
         })

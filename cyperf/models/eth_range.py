@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.static_arp_entry import StaticARPEntry
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -133,8 +133,8 @@ class EthRange(BaseModel):
                         "MacIncr": obj.get("MacIncr"),
                         "MacStart": obj.get("MacStart"),
                         "OneMacPerIP": obj.get("OneMacPerIP"),
-                        "StaticARPTable": [StaticARPEntry.from_dict(_item) for _item in obj["StaticARPTable"]] if obj.get("StaticARPTable") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "StaticARPTable": ( [StaticARPEntry.from_dict(_item) for _item in obj.get("StaticARPTable", [])] if obj.get("StaticARPTable") is not None else None),
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "maxCountPerAgent": obj.get("maxCountPerAgent")
             ,
             "links": obj.get("links")

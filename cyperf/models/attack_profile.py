@@ -27,7 +27,7 @@ from cyperf.models.external_resource_info import ExternalResourceInfo
 from cyperf.models.network_mapping import NetworkMapping
 from cyperf.models.traffic_settings import TrafficSettings
 from cyperf.models.update_network_mapping import UpdateNetworkMapping
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -155,14 +155,14 @@ class AttackProfile(BaseModel):
                         "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
                         "UseAllSourceIPsPerUser": obj.get("UseAllSourceIPsPerUser"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "Attacks": [Attack.from_dict(_item) for _item in obj["Attacks"]] if obj.get("Attacks") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
+                        "Attacks": ( [Attack.from_dict(_item) for _item in obj.get("Attacks", [])] if obj.get("Attacks") is not None else None),
                         "DefaultNetworkMapping": NetworkMapping.from_dict(obj["DefaultNetworkMapping"]) if obj.get("DefaultNetworkMapping") is not None else None,
                         "Name": obj.get("Name"),
                         "ObjectivesAndTimeline": AttackObjectivesAndTimeline.from_dict(obj["ObjectivesAndTimeline"]) if obj.get("ObjectivesAndTimeline") is not None else None,
-                        "add-attacks": [ExternalResourceInfo.from_dict(_item) for _item in obj["add-attacks"]] if obj.get("add-attacks") is not None else None,
-                        "modify-excluded-dut-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-excluded-dut-recursively"]] if obj.get("modify-excluded-dut-recursively") is not None else None,
-                        "modify-tags-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-tags-recursively"]] if obj.get("modify-tags-recursively") is not None else None,
+                        "add-attacks": ( [ExternalResourceInfo.from_dict(_item) for _item in obj.get("add-attacks", [])] if obj.get("add-attacks") is not None else None),
+                        "modify-excluded-dut-recursively": ( [UpdateNetworkMapping.from_dict(_item) for _item in obj.get("modify-excluded-dut-recursively", [])] if obj.get("modify-excluded-dut-recursively") is not None else None),
+                        "modify-tags-recursively": ( [UpdateNetworkMapping.from_dict(_item) for _item in obj.get("modify-tags-recursively", [])] if obj.get("modify-tags-recursively") is not None else None),
                         "reset-tags-to-default": obj.get("reset-tags-to-default") if obj.get("reset-tags-to-default") is not None else []
             ,
             "links": obj.get("links")

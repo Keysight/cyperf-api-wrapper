@@ -32,7 +32,7 @@ from cyperf.models.ip_sec_stack import IPSecStack
 from cyperf.models.mac_dtls_stack import MacDtlsStack
 from cyperf.models.tunnel_stack import TunnelStack
 from cyperf.models.vx_lan_stack import VxLANStack
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -186,16 +186,15 @@ class IPNetwork(BaseModel):
                         "DUTConnections": obj.get("DUTConnections") if obj.get("DUTConnections") is not None else [],
                         "EmulatedRouter": EmulatedRouter.from_dict(obj["EmulatedRouter"]) if obj.get("EmulatedRouter") is not None else None,
                         "EthRange": EthRange.from_dict(obj["EthRange"]) if obj.get("EthRange") is not None else None,
-                        "EthRange": obj.get("EthRange"),
-                        "IPRanges": [IPRange.from_dict(_item) for _item in obj["IPRanges"]] if obj.get("IPRanges") is not None else None,
-                        "IPSecStacks": [IPSecStack.from_dict(_item) for _item in obj["IPSecStacks"]] if obj.get("IPSecStacks") is not None else None,
-                        "MacDtlsStacks": [MacDtlsStack.from_dict(_item) for _item in obj["MacDtlsStacks"]] if obj.get("MacDtlsStacks") is not None else None,
-                        "TunnelStacks": [TunnelStack.from_dict(_item) for _item in obj["TunnelStacks"]] if obj.get("TunnelStacks") is not None else None,
-                        "VxLANStacks": [VxLANStack.from_dict(_item) for _item in obj["VxLANStacks"]] if obj.get("VxLANStacks") is not None else None,
+                        "IPRanges": ( [IPRange.from_dict(_item) for _item in obj.get("IPRanges", [])] if obj.get("IPRanges") is not None else None),
+                        "IPSecStacks": ( [IPSecStack.from_dict(_item) for _item in obj.get("IPSecStacks", [])] if obj.get("IPSecStacks") is not None else None),
+                        "MacDtlsStacks": ( [MacDtlsStack.from_dict(_item) for _item in obj.get("MacDtlsStacks", [])] if obj.get("MacDtlsStacks") is not None else None),
+                        "TunnelStacks": ( [TunnelStack.from_dict(_item) for _item in obj.get("TunnelStacks", [])] if obj.get("TunnelStacks") is not None else None),
+                        "VxLANStacks": ( [VxLANStack.from_dict(_item) for _item in obj.get("VxLANStacks", [])] if obj.get("VxLANStacks") is not None else None),
                         "active": obj.get("active"),
                         "agentAssignments": AgentAssignments.from_dict(obj["agentAssignments"]) if obj.get("agentAssignments") is not None else None,
                         "inheritStreamingCPUAllocation": obj.get("inheritStreamingCPUAllocation"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "minAgents": obj.get("minAgents"),
                         "streamingCPUAllocation": obj.get("streamingCPUAllocation")
             ,

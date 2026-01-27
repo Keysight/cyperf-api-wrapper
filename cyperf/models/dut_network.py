@@ -25,7 +25,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.health_check_config import HealthCheckConfig
 from cyperf.models.params import Params
 from cyperf.models.pep_dut import PepDUT
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -234,7 +234,7 @@ class DUTNetwork(BaseModel):
                         "UseRealHost": obj.get("UseRealHost"),
                         "active": obj.get("active"),
                         "host": obj.get("host"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

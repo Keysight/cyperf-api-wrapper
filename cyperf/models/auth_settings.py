@@ -24,7 +24,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.auth_method_type import AuthMethodType
 from cyperf.models.params import Params
 from cyperf.models.simulated_id_p import SimulatedIdP
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -133,7 +133,7 @@ class AuthSettings(BaseModel):
                         "SimulatedIdP": SimulatedIdP.from_dict(obj["SimulatedIdP"]) if obj.get("SimulatedIdP") is not None else None,
                         "Usernames": obj.get("Usernames") if obj.get("Usernames") is not None else [],
                         "UsernamesParam": Params.from_dict(obj["UsernamesParam"]) if obj.get("UsernamesParam") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

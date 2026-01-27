@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.category_value import CategoryValue
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -96,7 +96,7 @@ class Category(BaseModel):
         _obj = cls.model_validate({
             "index": obj.get("index"),
                         "name": obj.get("name"),
-                        "values": [CategoryValue.from_dict(_item) for _item in obj["values"]] if obj.get("values") is not None else None
+                        "values": ( [CategoryValue.from_dict(_item) for _item in obj.get("values", [])] if obj.get("values") is not None else None)
             ,
             "links": obj.get("links")
         })

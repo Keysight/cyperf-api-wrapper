@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -95,7 +95,7 @@ class PluginStats(BaseModel):
 
         _obj = cls.model_validate({
             "plugin": obj.get("plugin"),
-                        "stats": [Dict[str, AppsecAppMetadataKeywordsInner].from_dict(_item) for _item in obj["stats"]] if obj.get("stats") is not None else None,
+                        "stats": ( [Dict.from_dict(_item) for _item in obj.get("stats", [])] if obj.get("stats") is not None else None),
                         "version": obj.get("version")
             ,
             "links": obj.get("links")

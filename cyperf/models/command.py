@@ -24,7 +24,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.command_metadata import CommandMetadata
 from cyperf.models.exchange import Exchange
 from cyperf.models.parameter import Parameter
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -127,12 +127,12 @@ class Command(BaseModel):
         _obj = cls.model_validate({
             "ActionID": obj.get("ActionID"),
                         "Description": obj.get("Description"),
-                        "Exchanges": [Exchange.from_dict(_item) for _item in obj["Exchanges"]] if obj.get("Exchanges") is not None else None,
+                        "Exchanges": ( [Exchange.from_dict(_item) for _item in obj.get("Exchanges", [])] if obj.get("Exchanges") is not None else None),
                         "IsStrike": obj.get("IsStrike"),
                         "Metadata": CommandMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
-                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "Parameters": ( [Parameter.from_dict(_item) for _item in obj.get("Parameters", [])] if obj.get("Parameters") is not None else None),
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

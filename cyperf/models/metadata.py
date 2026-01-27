@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.reference import Reference
 from cyperf.models.rtp_profile_meta import RTPProfileMeta
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -122,12 +122,12 @@ class Metadata(BaseModel):
             "Direction": obj.get("Direction"),
                         "IsBanner": obj.get("IsBanner"),
                         "IsStreaming": obj.get("IsStreaming"),
-                        "Keywords": [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
+                        "Keywords": ( [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj.get("Keywords", [])] if obj.get("Keywords") is not None else None),
                         "LegacyNames": obj.get("LegacyNames") if obj.get("LegacyNames") is not None else [],
                         "NoMultiFlowSupport": obj.get("NoMultiFlowSupport"),
                         "Protocol": obj.get("Protocol"),
                         "RTPProfileMeta": RTPProfileMeta.from_dict(obj["RTPProfileMeta"]) if obj.get("RTPProfileMeta") is not None else None,
-                        "References": [Reference.from_dict(_item) for _item in obj["References"]] if obj.get("References") is not None else None,
+                        "References": ( [Reference.from_dict(_item) for _item in obj.get("References", [])] if obj.get("References") is not None else None),
                         "RequiresUniqueness": obj.get("RequiresUniqueness"),
                         "Severity": obj.get("Severity"),
                         "SkipAttackGeneration": obj.get("SkipAttackGeneration"),

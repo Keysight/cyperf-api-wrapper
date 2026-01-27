@@ -25,7 +25,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.objective_type import ObjectiveType
 from cyperf.models.objective_unit import ObjectiveUnit
 from cyperf.models.timeline_segment_union import TimelineSegmentUnion
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -118,11 +118,11 @@ class SpecificObjective(BaseModel):
         _obj = cls.model_validate({
             "MaxPendingSimulatedUsers": obj.get("MaxPendingSimulatedUsers"),
                         "MaxSimulatedUsersPerInterval": obj.get("MaxSimulatedUsersPerInterval"),
-                        "Timeline": [TimelineSegmentUnion.from_dict(_item) for _item in obj["Timeline"]] if obj.get("Timeline") is not None else None,
+                        "Timeline": ( [TimelineSegmentUnion.from_dict(_item) for _item in obj.get("Timeline", [])] if obj.get("Timeline") is not None else None),
                         "Type": obj.get("Type"),
                         "Unit": obj.get("Unit"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

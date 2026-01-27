@@ -26,7 +26,7 @@ from cyperf.models.auth_settings import AuthSettings
 from cyperf.models.f5_encapsulation import F5Encapsulation
 from cyperf.models.tcp_profile import TcpProfile
 from cyperf.models.tls_profile import TLSProfile
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -126,7 +126,7 @@ class F5Settings(BaseModel):
         _obj = cls.model_validate({
             "AuthSettings": AuthSettings.from_dict(obj["AuthSettings"]) if obj.get("AuthSettings") is not None else None,
                         "OuterTCPProfile": TcpProfile.from_dict(obj["OuterTCPProfile"]) if obj.get("OuterTCPProfile") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "F5Encapsulation": F5Encapsulation.from_dict(obj["F5Encapsulation"]) if obj.get("F5Encapsulation") is not None else None,
                         "OuterTLSClientProfile": TLSProfile.from_dict(obj["OuterTLSClientProfile"]) if obj.get("OuterTLSClientProfile") is not None else None,
                         "VPNGateway": obj.get("VPNGateway")

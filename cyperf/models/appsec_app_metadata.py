@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.action_metadata import ActionMetadata
 from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.parameter_meta import ParameterMeta
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -110,9 +110,9 @@ class AppsecAppMetadata(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "ActionsMetadata": [ActionMetadata.from_dict(_item) for _item in obj["ActionsMetadata"]] if obj.get("ActionsMetadata") is not None else None,
-                        "AppParameters": [ParameterMeta.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None,
-                        "keywords": [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj["keywords"]] if obj.get("keywords") is not None else None
+            "ActionsMetadata": ( [ActionMetadata.from_dict(_item) for _item in obj.get("ActionsMetadata", [])] if obj.get("ActionsMetadata") is not None else None),
+                        "AppParameters": ( [ParameterMeta.from_dict(_item) for _item in obj.get("AppParameters", [])] if obj.get("AppParameters") is not None else None),
+                        "keywords": ( [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj.get("keywords", [])] if obj.get("keywords") is not None else None)
             ,
             "links": obj.get("links")
         })

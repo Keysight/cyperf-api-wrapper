@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.agent_release import AgentRelease
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -93,7 +93,7 @@ class ReleaseOperationInput(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "agentsData": [AgentRelease.from_dict(_item) for _item in obj["agentsData"]] if obj.get("agentsData") is not None else None,
+            "agentsData": ( [AgentRelease.from_dict(_item) for _item in obj.get("agentsData", [])] if obj.get("agentsData") is not None else None),
                         "sessionId": obj.get("sessionId")
             ,
             "links": obj.get("links")

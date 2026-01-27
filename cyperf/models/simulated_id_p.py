@@ -24,7 +24,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.cert_config import CertConfig
 from cyperf.models.id_p_signature_algo import IdPSignatureAlgo
 from cyperf.models.name_id_format import NameIdFormat
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -114,7 +114,7 @@ class SimulatedIdP(BaseModel):
                         "SignatureAlgorithm": obj.get("SignatureAlgorithm"),
                         "SingleSignOnURL": obj.get("SingleSignOnURL"),
                         "XMLMetadata": obj.get("XMLMetadata") if obj.get("XMLMetadata") is not None else [],
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

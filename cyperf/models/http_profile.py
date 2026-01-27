@@ -24,7 +24,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.connection_persistence import ConnectionPersistence
 from cyperf.models.http_version import HTTPVersion
 from cyperf.models.params import Params
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -128,9 +128,9 @@ class HTTPProfile(BaseModel):
                         "Headers": Params.from_dict(obj["Headers"]) if obj.get("Headers") is not None else None,
                         "IsModified": obj.get("IsModified"),
                         "Name": obj.get("Name"),
-                        "Params": [Params.from_dict(_item) for _item in obj["Params"]] if obj.get("Params") is not None else None,
+                        "Params": ( [Params.from_dict(_item) for _item in obj.get("Params", [])] if obj.get("Params") is not None else None),
                         "UseApplicationServerHeaders": obj.get("UseApplicationServerHeaders"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

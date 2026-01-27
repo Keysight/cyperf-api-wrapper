@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.parameter_match import ParameterMatch
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -93,7 +93,7 @@ class ParameterMeta(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Matches": [ParameterMatch.from_dict(_item) for _item in obj["Matches"]] if obj.get("Matches") is not None else None,
+            "Matches": ( [ParameterMatch.from_dict(_item) for _item in obj.get("Matches", [])] if obj.get("Matches") is not None else None),
                         "Name": obj.get("Name")
             ,
             "links": obj.get("links")

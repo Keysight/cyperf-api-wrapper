@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.param_metadata_type_info_array_v2_elements_inner import ParamMetadataTypeInfoArrayV2ElementsInner
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -92,7 +92,7 @@ class ParamMetadataTypeInfoArrayV2(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "elements": [ParamMetadataTypeInfoArrayV2ElementsInner.from_dict(_item) for _item in obj["elements"]] if obj.get("elements") is not None else None
+            "elements": ( [ParamMetadataTypeInfoArrayV2ElementsInner.from_dict(_item) for _item in obj.get("elements", [])] if obj.get("elements") is not None else None)
             ,
             "links": obj.get("links")
         })
