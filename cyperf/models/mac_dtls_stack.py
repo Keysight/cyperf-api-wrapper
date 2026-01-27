@@ -25,7 +25,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.ip_range import IPRange
 from cyperf.models.network_meshing import NetworkMeshing
 from cyperf.models.vlan_range import VLANRange
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -220,7 +220,7 @@ class MacDtlsStack(BaseModel):
                         "TunnelDestinationMacStart": obj.get("TunnelDestinationMacStart"),
                         "VlanRange": VLANRange.from_dict(obj["VlanRange"]) if obj.get("VlanRange") is not None else None,
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

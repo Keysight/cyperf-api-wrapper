@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.compute_node import ComputeNode
 from cyperf.models.health_issue import HealthIssue
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -115,11 +115,11 @@ class Controller(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "computeNodes": [ComputeNode.from_dict(_item) for _item in obj["computeNodes"]] if obj.get("computeNodes") is not None else None,
-                        "healthDetails": [HealthIssue.from_dict(_item) for _item in obj["healthDetails"]] if obj.get("healthDetails") is not None else None,
+            "computeNodes": ( [ComputeNode.from_dict(_item) for _item in obj.get("computeNodes", [])] if obj.get("computeNodes") is not None else None),
+                        "healthDetails": ( [HealthIssue.from_dict(_item) for _item in obj.get("healthDetails", [])] if obj.get("healthDetails") is not None else None),
                         "healthy": obj.get("healthy"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "name": obj.get("name"),
                         "serial": obj.get("serial"),
                         "type": obj.get("type")

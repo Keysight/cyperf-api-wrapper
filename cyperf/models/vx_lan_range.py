@@ -24,7 +24,7 @@ from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.md2_tlv import Md2Tlv
 from cyperf.models.vx_lanid import VxLANId
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -168,7 +168,7 @@ class VxLANRange(BaseModel):
         _obj = cls.model_validate({
             "HackedInnerRemoteIpIncr": obj.get("HackedInnerRemoteIpIncr"),
                         "HackedInnerRemoteIpStart": obj.get("HackedInnerRemoteIpStart"),
-                        "Md2Tlvs": [Md2Tlv.from_dict(_item) for _item in obj["Md2Tlvs"]] if obj.get("Md2Tlvs") is not None else None,
+                        "Md2Tlvs": ( [Md2Tlv.from_dict(_item) for _item in obj.get("Md2Tlvs", [])] if obj.get("Md2Tlvs") is not None else None),
                         "RemoteVtepIpLocalCount": obj.get("RemoteVtepIpLocalCount"),
                         "RemoteVtepIpLocalIncr": obj.get("RemoteVtepIpLocalIncr"),
                         "RemoteVtepIpRangeIncr": obj.get("RemoteVtepIpRangeIncr"),
@@ -178,10 +178,10 @@ class VxLANRange(BaseModel):
                         "VxLANIdIncr": obj.get("VxLANIdIncr"),
                         "VxLANIdPerVtepPairCount": obj.get("VxLANIdPerVtepPairCount"),
                         "VxLANIdStart": obj.get("VxLANIdStart"),
-                        "VxLANIds": [VxLANId.from_dict(_item) for _item in obj["VxLANIds"]] if obj.get("VxLANIds") is not None else None,
+                        "VxLANIds": ( [VxLANId.from_dict(_item) for _item in obj.get("VxLANIds", [])] if obj.get("VxLANIds") is not None else None),
                         "VxLANRangeName": obj.get("VxLANRangeName"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

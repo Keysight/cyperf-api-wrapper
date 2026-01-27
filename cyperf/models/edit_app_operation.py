@@ -27,7 +27,7 @@ from cyperf.models.parameter_meta import ParameterMeta
 from cyperf.models.rename_input import RenameInput
 from cyperf.models.reorder_action_input import ReorderActionInput
 from cyperf.models.reorder_exchanges_input import ReorderExchangesInput
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -149,16 +149,16 @@ class EditAppOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "AddInputs": [AddInput.from_dict(_item) for _item in obj["AddInputs"]] if obj.get("AddInputs") is not None else None,
+            "AddInputs": ( [AddInput.from_dict(_item) for _item in obj.get("AddInputs", [])] if obj.get("AddInputs") is not None else None),
                         "AppDescription": obj.get("AppDescription"),
                         "AppId": obj.get("AppId"),
                         "AppName": obj.get("AppName"),
-                        "AppParameters": [ParameterMeta.from_dict(_item) for _item in obj["AppParameters"]] if obj.get("AppParameters") is not None else None,
-                        "DeleteInputs": [DeleteInput.from_dict(_item) for _item in obj["DeleteInputs"]] if obj.get("DeleteInputs") is not None else None,
-                        "EditActionInputs": [EditActionInput.from_dict(_item) for _item in obj["EditActionInputs"]] if obj.get("EditActionInputs") is not None else None,
-                        "RenameInputs": [RenameInput.from_dict(_item) for _item in obj["RenameInputs"]] if obj.get("RenameInputs") is not None else None,
-                        "ReorderActionsInputs": [ReorderActionInput.from_dict(_item) for _item in obj["ReorderActionsInputs"]] if obj.get("ReorderActionsInputs") is not None else None,
-                        "ReorderExchangesInputs": [ReorderExchangesInput.from_dict(_item) for _item in obj["ReorderExchangesInputs"]] if obj.get("ReorderExchangesInputs") is not None else None
+                        "AppParameters": ( [ParameterMeta.from_dict(_item) for _item in obj.get("AppParameters", [])] if obj.get("AppParameters") is not None else None),
+                        "DeleteInputs": ( [DeleteInput.from_dict(_item) for _item in obj.get("DeleteInputs", [])] if obj.get("DeleteInputs") is not None else None),
+                        "EditActionInputs": ( [EditActionInput.from_dict(_item) for _item in obj.get("EditActionInputs", [])] if obj.get("EditActionInputs") is not None else None),
+                        "RenameInputs": ( [RenameInput.from_dict(_item) for _item in obj.get("RenameInputs", [])] if obj.get("RenameInputs") is not None else None),
+                        "ReorderActionsInputs": ( [ReorderActionInput.from_dict(_item) for _item in obj.get("ReorderActionsInputs", [])] if obj.get("ReorderActionsInputs") is not None else None),
+                        "ReorderExchangesInputs": ( [ReorderExchangesInput.from_dict(_item) for _item in obj.get("ReorderExchangesInputs", [])] if obj.get("ReorderExchangesInputs") is not None else None)
             ,
             "links": obj.get("links")
         })

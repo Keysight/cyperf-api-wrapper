@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.parameter import Parameter
 from cyperf.models.snapshot import Snapshot
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -103,10 +103,10 @@ class StatsResult(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "availableFilters": [Parameter.from_dict(_item) for _item in obj["availableFilters"]] if obj.get("availableFilters") is not None else None,
+            "availableFilters": ( [Parameter.from_dict(_item) for _item in obj.get("availableFilters", [])] if obj.get("availableFilters") is not None else None),
                         "columns": obj.get("columns") if obj.get("columns") is not None else [],
                         "name": obj.get("name"),
-                        "snapshots": [Snapshot.from_dict(_item) for _item in obj["snapshots"]] if obj.get("snapshots") is not None else None
+                        "snapshots": ( [Snapshot.from_dict(_item) for _item in obj.get("snapshots", [])] if obj.get("snapshots") is not None else None)
             ,
             "links": obj.get("links")
         })

@@ -24,7 +24,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.appsec_config import AppsecConfig
 from cyperf.models.pair import Pair
 from cyperf.models.test_info import TestInfo
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -147,8 +147,8 @@ class Session(BaseModel):
                         "id": obj.get("id"),
                         "index": obj.get("index"),
                         "lastVisited": obj.get("lastVisited"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
-                        "meta": [Pair.from_dict(_item) for _item in obj["meta"]] if obj.get("meta") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
+                        "meta": ( [Pair.from_dict(_item) for _item in obj.get("meta", [])] if obj.get("meta") is not None else None),
                         "name": obj.get("name"),
                         "owner": obj.get("owner"),
                         "ownerID": obj.get("ownerID"),

@@ -27,7 +27,7 @@ from cyperf.models.rtp_profile import RTPProfile
 from cyperf.models.tcp_profile import TcpProfile
 from cyperf.models.tls_profile import TLSProfile
 from cyperf.models.udp_profile import UdpProfile
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -152,7 +152,7 @@ class TransportProfileBase(BaseModel):
                         "ServerTcpProfile": TcpProfile.from_dict(obj["ServerTcpProfile"]) if obj.get("ServerTcpProfile") is not None else None,
                         "UdpProfile": UdpProfile.from_dict(obj["UdpProfile"]) if obj.get("UdpProfile") is not None else None,
                         "VlanPrio": obj.get("VlanPrio"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

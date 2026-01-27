@@ -27,7 +27,7 @@ from cyperf.models.ip_range import IPRange
 from cyperf.models.ip_sec_range import IPSecRange
 from cyperf.models.local_subnet_config import LocalSubnetConfig
 from cyperf.models.params import Params
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -165,7 +165,7 @@ class IPSecStack(BaseModel):
                         "SetupTimeout": obj.get("SetupTimeout"),
                         "StackRole": obj.get("StackRole"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

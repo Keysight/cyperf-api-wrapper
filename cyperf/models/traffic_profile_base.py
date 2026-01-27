@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.traffic_settings import TrafficSettings
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -104,7 +104,7 @@ class TrafficProfileBase(BaseModel):
                         "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
                         "UseAllSourceIPsPerUser": obj.get("UseAllSourceIPsPerUser"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

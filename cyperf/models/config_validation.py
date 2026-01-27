@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.validation_message import ValidationMessage
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -103,8 +103,8 @@ class ConfigValidation(BaseModel):
 
         _obj = cls.model_validate({
             "IsValidated": obj.get("IsValidated"),
-                        "ValidationMessages": [ValidationMessage.from_dict(_item) for _item in obj["ValidationMessages"]] if obj.get("ValidationMessages") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "ValidationMessages": ( [ValidationMessage.from_dict(_item) for _item in obj.get("ValidationMessages", [])] if obj.get("ValidationMessages") is not None else None),
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

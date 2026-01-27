@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.version import Version
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -137,7 +137,7 @@ class ConfigMetadata(BaseModel):
             "application": obj.get("application"),
                         "configData": dict(
                 (_k, AppsecAppMetadataKeywordsInner.from_dict(_v))
-                for _k, _v in obj["configData"].items()
+                for _k, _v in (obj.get("configData") or {}).items()
             )
             if obj.get("configData") is not None
             else None,
@@ -149,7 +149,7 @@ class ConfigMetadata(BaseModel):
                         "isPublic": obj.get("isPublic"),
                         "lastAccessed": obj.get("lastAccessed"),
                         "lastModified": obj.get("lastModified"),
-                        "linkedResources": [APILink.from_dict(_item) for _item in obj["linkedResources"]] if obj.get("linkedResources") is not None else None,
+                        "linkedResources": ( [APILink.from_dict(_item) for _item in obj.get("linkedResources", [])] if obj.get("linkedResources") is not None else None),
                         "owner": obj.get("owner"),
                         "ownerId": obj.get("ownerId"),
                         "readonly": obj.get("readonly"),

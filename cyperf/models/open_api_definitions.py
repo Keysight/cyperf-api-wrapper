@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -94,7 +94,7 @@ class OpenAPIDefinitions(BaseModel):
         _obj = cls.model_validate({
             "openApiDefinitions": dict(
                 (_k, AppsecAppMetadataKeywordsInner.from_dict(_v))
-                for _k, _v in obj["openApiDefinitions"].items()
+                for _k, _v in (obj.get("openApiDefinitions") or {}).items()
             )
             if obj.get("openApiDefinitions") is not None
             else None

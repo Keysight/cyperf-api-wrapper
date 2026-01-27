@@ -27,7 +27,7 @@ from cyperf.models.interface import Interface
 from cyperf.models.ntp_info import NtpInfo
 from cyperf.models.selected_env import SelectedEnv
 from cyperf.models.system_info import SystemInfo
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -183,7 +183,7 @@ class Agent(BaseModel):
         _obj = cls.model_validate({
             "AgentTags": obj.get("AgentTags") if obj.get("AgentTags") is not None else [],
                         "IP": obj.get("IP"),
-                        "Interfaces": [Interface.from_dict(_item) for _item in obj["Interfaces"]] if obj.get("Interfaces") is not None else None,
+                        "Interfaces": ( [Interface.from_dict(_item) for _item in obj.get("Interfaces", [])] if obj.get("Interfaces") is not None else None),
                         "LastUpdate": obj.get("LastUpdate"),
                         "ReservationID": obj.get("ReservationID"),
                         "SelectedEnv": SelectedEnv.from_dict(obj["SelectedEnv"]) if obj.get("SelectedEnv") is not None else None,
@@ -191,7 +191,7 @@ class Agent(BaseModel):
                         "SessionName": obj.get("SessionName"),
                         "Status": obj.get("Status"),
                         "configuredProxy": obj.get("configuredProxy"),
-                        "cpuInfo": [AgentCPUInfo.from_dict(_item) for _item in obj["cpuInfo"]] if obj.get("cpuInfo") is not None else None,
+                        "cpuInfo": ( [AgentCPUInfo.from_dict(_item) for _item in obj.get("cpuInfo", [])] if obj.get("cpuInfo") is not None else None),
                         "dpdkEnabled": obj.get("dpdkEnabled"),
                         "features": AgentFeatures.from_dict(obj["features"]) if obj.get("features") is not None else None,
                         "hostname": obj.get("hostname"),
@@ -205,7 +205,7 @@ class Agent(BaseModel):
                         "packageVersionStatus": obj.get("packageVersionStatus"),
                         "requiresUpdating": obj.get("requiresUpdating"),
                         "systemInfo": SystemInfo.from_dict(obj["systemInfo"]) if obj.get("systemInfo") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

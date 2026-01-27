@@ -26,7 +26,7 @@ from cyperf.models.connection import Connection
 from cyperf.models.data_type import DataType
 from cyperf.models.endpoint import Endpoint
 from cyperf.models.parameter import Parameter
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -149,15 +149,15 @@ class AuthProfile(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Connections": [Connection.from_dict(_item) for _item in obj["Connections"]] if obj.get("Connections") is not None else None,
-                        "DataTypes": [DataType.from_dict(_item) for _item in obj["DataTypes"]] if obj.get("DataTypes") is not None else None,
-                        "Endpoints": [Endpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
+            "Connections": ( [Connection.from_dict(_item) for _item in obj.get("Connections", [])] if obj.get("Connections") is not None else None),
+                        "DataTypes": ( [DataType.from_dict(_item) for _item in obj.get("DataTypes", [])] if obj.get("DataTypes") is not None else None),
+                        "Endpoints": ( [Endpoint.from_dict(_item) for _item in obj.get("Endpoints", [])] if obj.get("Endpoints") is not None else None),
                         "FileName": obj.get("FileName"),
                         "Metadata": AuthProfileMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
-                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
+                        "Parameters": ( [Parameter.from_dict(_item) for _item in obj.get("Parameters", [])] if obj.get("Parameters") is not None else None),
                         "description": obj.get("description"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "type": obj.get("type")
             ,
             "links": obj.get("links")

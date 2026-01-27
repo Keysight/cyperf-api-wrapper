@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.action_input_find_param import ActionInputFindParam
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -95,7 +95,7 @@ class FindParamMatchesOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Actions": [ActionInputFindParam.from_dict(_item) for _item in obj["Actions"]] if obj.get("Actions") is not None else None,
+            "Actions": ( [ActionInputFindParam.from_dict(_item) for _item in obj.get("Actions", [])] if obj.get("Actions") is not None else None),
                         "AppId": obj.get("AppId"),
                         "MatchLocation": obj.get("MatchLocation") if obj.get("MatchLocation") is not None else [],
                         "Pattern": obj.get("Pattern")

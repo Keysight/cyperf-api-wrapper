@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List
 from cyperf.models.enc_p2_algorithm import EncP2Algorithm
 from cyperf.models.hash_p2_algorithm import HashP2Algorithm
 from cyperf.models.pfs_p2_group import PfsP2Group
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 

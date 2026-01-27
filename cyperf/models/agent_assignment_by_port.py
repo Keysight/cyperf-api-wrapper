@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.capture_settings import CaptureSettings
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -101,7 +101,7 @@ class AgentAssignmentByPort(BaseModel):
         _obj = cls.model_validate({
             "captureSettings": CaptureSettings.from_dict(obj["captureSettings"]) if obj.get("captureSettings") is not None else None,
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "portId": obj.get("portId")
             ,
             "links": obj.get("links")

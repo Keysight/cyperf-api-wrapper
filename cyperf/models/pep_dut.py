@@ -24,7 +24,7 @@ from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.params import Params
 from cyperf.models.simulated_id_p import SimulatedIdP
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -141,7 +141,7 @@ class PepDUT(BaseModel):
 
         _obj = cls.model_validate({
             "AuthMethod": Params.from_dict(obj["AuthMethod"]) if obj.get("AuthMethod") is not None else None,
-                        "AuthProfileParams": [Params.from_dict(_item) for _item in obj["AuthProfileParams"]] if obj.get("AuthProfileParams") is not None else None,
+                        "AuthProfileParams": ( [Params.from_dict(_item) for _item in obj.get("AuthProfileParams", [])] if obj.get("AuthProfileParams") is not None else None),
                         "AuthProfileType": obj.get("AuthProfileType"),
                         "HostnameSuffix": obj.get("HostnameSuffix"),
                         "IDPType": Params.from_dict(obj["IDPType"]) if obj.get("IDPType") is not None else None,
@@ -149,7 +149,7 @@ class PepDUT(BaseModel):
                         "PEPHost": obj.get("PEPHost"),
                         "PEPPort": obj.get("PEPPort"),
                         "SimulatedIdP": SimulatedIdP.from_dict(obj["SimulatedIdP"]) if obj.get("SimulatedIdP") is not None else None,
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

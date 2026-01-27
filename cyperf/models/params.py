@@ -25,7 +25,7 @@ from cyperf.models.file_value import FileValue
 from cyperf.models.media_file import MediaFile
 from cyperf.models.param_metadata import ParamMetadata
 from cyperf.models.params_enum import ParamsEnum
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -150,7 +150,7 @@ class Params(BaseModel):
                         "FlowIdentifier": obj.get("FlowIdentifier"),
                         "IsDeprecated": obj.get("IsDeprecated"),
                         "IsModified": obj.get("IsModified"),
-                        "MediaFiles": [MediaFile.from_dict(_item) for _item in obj["MediaFiles"]] if obj.get("MediaFiles") is not None else None,
+                        "MediaFiles": ( [MediaFile.from_dict(_item) for _item in obj.get("MediaFiles", [])] if obj.get("MediaFiles") is not None else None),
                         "Metadata": ParamMetadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
                         "ParamId": obj.get("ParamId"),
@@ -161,7 +161,7 @@ class Params(BaseModel):
                         "Value": obj.get("Value"),
                         "file-upload": obj.get("file-upload") if obj.get("file-upload") is not None else [],
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "supportsDynamicPayload": obj.get("supportsDynamicPayload"),
                         "uploadURL": obj.get("uploadURL")
             ,

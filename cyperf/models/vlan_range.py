@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.static_arp_entry import StaticARPEntry
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -124,13 +124,13 @@ class VLANRange(BaseModel):
                         "CountPerAgent": obj.get("CountPerAgent"),
                         "MaxCountPerAgent": obj.get("MaxCountPerAgent"),
                         "Priority": obj.get("Priority"),
-                        "StaticARPTable": [StaticARPEntry.from_dict(_item) for _item in obj["StaticARPTable"]] if obj.get("StaticARPTable") is not None else None,
+                        "StaticARPTable": ( [StaticARPEntry.from_dict(_item) for _item in obj.get("StaticARPTable", [])] if obj.get("StaticARPTable") is not None else None),
                         "TagProtocolId": obj.get("TagProtocolId"),
                         "VlanAuto": obj.get("VlanAuto"),
                         "VlanEnabled": obj.get("VlanEnabled"),
                         "VlanId": obj.get("VlanId"),
                         "VlanIncr": obj.get("VlanIncr"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

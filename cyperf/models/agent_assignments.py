@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.agent_assignment_by_port import AgentAssignmentByPort
 from cyperf.models.agent_assignment_details import AgentAssignmentDetails
 from cyperf.models.api_link import APILink
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -111,10 +111,10 @@ class AgentAssignments(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "ByID": [AgentAssignmentDetails.from_dict(_item) for _item in obj["ByID"]] if obj.get("ByID") is not None else None,
-                        "ByPort": [AgentAssignmentByPort.from_dict(_item) for _item in obj["ByPort"]] if obj.get("ByPort") is not None else None,
+            "ByID": ( [AgentAssignmentDetails.from_dict(_item) for _item in obj.get("ByID", [])] if obj.get("ByID") is not None else None),
+                        "ByPort": ( [AgentAssignmentByPort.from_dict(_item) for _item in obj.get("ByPort", [])] if obj.get("ByPort") is not None else None),
                         "ByTag": obj.get("ByTag") if obj.get("ByTag") is not None else [],
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

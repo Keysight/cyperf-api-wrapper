@@ -24,7 +24,7 @@ from cyperf.models.type_array_v2_metadata import TypeArrayV2Metadata
 from cyperf.models.type_int_metadata import TypeIntMetadata
 from cyperf.models.type_media_metadata import TypeMediaMetadata
 from cyperf.models.type_string_metadata import TypeStringMetadata
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 

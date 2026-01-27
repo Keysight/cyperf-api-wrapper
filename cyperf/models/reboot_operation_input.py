@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.agent_to_be_rebooted import AgentToBeRebooted
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -93,7 +93,7 @@ class RebootOperationInput(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "agents": [AgentToBeRebooted.from_dict(_item) for _item in obj["agents"]] if obj.get("agents") is not None else None,
+            "agents": ( [AgentToBeRebooted.from_dict(_item) for _item in obj.get("agents", [])] if obj.get("agents") is not None else None),
                         "softReboot": obj.get("softReboot")
             ,
             "links": obj.get("links")

@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.app_flow import AppFlow
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -111,9 +111,9 @@ class ReplayCapture(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "flows": [AppFlow.from_dict(_item) for _item in obj["flows"]] if obj.get("flows") is not None else None,
+            "flows": ( [AppFlow.from_dict(_item) for _item in obj.get("flows", [])] if obj.get("flows") is not None else None),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "name": obj.get("name"),
                         "owner": obj.get("owner"),
                         "ownerId": obj.get("ownerId")

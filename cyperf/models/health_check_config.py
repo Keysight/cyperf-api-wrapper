@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.params import Params
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -104,9 +104,9 @@ class HealthCheckConfig(BaseModel):
 
         _obj = cls.model_validate({
             "Enabled": obj.get("Enabled"),
-                        "Params": [Params.from_dict(_item) for _item in obj["Params"]] if obj.get("Params") is not None else None,
+                        "Params": ( [Params.from_dict(_item) for _item in obj.get("Params", [])] if obj.get("Params") is not None else None),
                         "Port": obj.get("Port"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

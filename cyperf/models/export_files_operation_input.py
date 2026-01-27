@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.export_files_request import ExportFilesRequest
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -95,13 +95,14 @@ class ExportFilesOperationInput(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "exportFilesRequestsByAgent": dict(
-                (_k,
+            "exportFilesRequestsByAgent": (
+                {
+                    _k: (
                         [ExportFilesRequest.from_dict(_item) for _item in _v]
-                        if _v is not None
-                        else None
-                )
-                for _k, _v in obj.get("exportFilesRequestsByAgent", {}).items()
+                        if _v is not None else None
+                    )
+                    for _k, _v in (obj.get("exportFilesRequestsByAgent") or {}).items()
+                }
             ),
                         "timeout": obj.get("timeout")
             ,

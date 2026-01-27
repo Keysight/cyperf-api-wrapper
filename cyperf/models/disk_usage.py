@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.consumer import Consumer
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -129,10 +129,10 @@ class DiskUsage(BaseModel):
 
         _obj = cls.model_validate({
             "available": obj.get("available"),
-                        "consumers": [Consumer.from_dict(_item) for _item in obj["consumers"]] if obj.get("consumers") is not None else None,
+                        "consumers": ( [Consumer.from_dict(_item) for _item in obj.get("consumers", [])] if obj.get("consumers") is not None else None),
                         "criticalDiskSpace": obj.get("criticalDiskSpace"),
                         "criticalThreshold": obj.get("criticalThreshold"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "lowDiskSpace": obj.get("lowDiskSpace"),
                         "lowThreshold": obj.get("lowThreshold"),
                         "message": obj.get("message"),

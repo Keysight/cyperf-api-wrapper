@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.app_flow_input_find_param import AppFlowInputFindParam
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -94,7 +94,7 @@ class CaptureInputFindParam(BaseModel):
 
         _obj = cls.model_validate({
             "CaptureId": obj.get("CaptureId"),
-                        "Flows": [AppFlowInputFindParam.from_dict(_item) for _item in obj["Flows"]] if obj.get("Flows") is not None else None
+                        "Flows": ( [AppFlowInputFindParam.from_dict(_item) for _item in obj.get("Flows", [])] if obj.get("Flows") is not None else None)
             ,
             "links": obj.get("links")
         })

@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List
 from cyperf.models.feature import Feature
 from cyperf.models.link import Link
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -113,9 +113,9 @@ class License(BaseModel):
             "activationCode": obj.get("activationCode"),
                         "daysLeftToExpire": obj.get("daysLeftToExpire"),
                         "expiryDate": obj.get("expiryDate"),
-                        "features": [Feature.from_dict(_item) for _item in obj["features"]] if obj.get("features") is not None else None,
+                        "features": ( [Feature.from_dict(_item) for _item in obj.get("features", [])] if obj.get("features") is not None else None),
                         "isExpired": obj.get("isExpired"),
-                        "links": [Link.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [Link.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "maintenanceDate": obj.get("maintenanceDate"),
                         "partNumberDescription": obj.get("partNumberDescription"),
                         "partNumberId": obj.get("partNumberId"),

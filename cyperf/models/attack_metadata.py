@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.appsec_app_metadata_keywords_inner import AppsecAppMetadataKeywordsInner
 from cyperf.models.reference import Reference
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -108,9 +108,9 @@ class AttackMetadata(BaseModel):
         _obj = cls.model_validate({
             "CveCount": obj.get("CveCount"),
                         "Direction": obj.get("Direction"),
-                        "Keywords": [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj["Keywords"]] if obj.get("Keywords") is not None else None,
+                        "Keywords": ( [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj.get("Keywords", [])] if obj.get("Keywords") is not None else None),
                         "LegacyNames": obj.get("LegacyNames") if obj.get("LegacyNames") is not None else [],
-                        "References": [Reference.from_dict(_item) for _item in obj["References"]] if obj.get("References") is not None else None,
+                        "References": ( [Reference.from_dict(_item) for _item in obj.get("References", [])] if obj.get("References") is not None else None),
                         "Severity": obj.get("Severity"),
                         "StrikesCount": obj.get("StrikesCount")
             ,

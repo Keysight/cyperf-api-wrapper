@@ -29,7 +29,7 @@ from cyperf.models.definition import Definition
 from cyperf.models.endpoint import Endpoint
 from cyperf.models.metadata import Metadata
 from cyperf.models.parameter import Parameter
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -186,22 +186,22 @@ class ApplicationType(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Commands": [Command.from_dict(_item) for _item in obj["Commands"]] if obj.get("Commands") is not None else None,
-                        "Connections": [Connection.from_dict(_item) for _item in obj["Connections"]] if obj.get("Connections") is not None else None,
-                        "CustomStats": [CustomStat.from_dict(_item) for _item in obj["CustomStats"]] if obj.get("CustomStats") is not None else None,
-                        "DataTypes": [DataType.from_dict(_item) for _item in obj["DataTypes"]] if obj.get("DataTypes") is not None else None,
+            "Commands": ( [Command.from_dict(_item) for _item in obj.get("Commands", [])] if obj.get("Commands") is not None else None),
+                        "Connections": ( [Connection.from_dict(_item) for _item in obj.get("Connections", [])] if obj.get("Connections") is not None else None),
+                        "CustomStats": ( [CustomStat.from_dict(_item) for _item in obj.get("CustomStats", [])] if obj.get("CustomStats") is not None else None),
+                        "DataTypes": ( [DataType.from_dict(_item) for _item in obj.get("DataTypes", [])] if obj.get("DataTypes") is not None else None),
                         "Definition": Definition.from_dict(obj["Definition"]) if obj.get("Definition") is not None else None,
                         "Description": obj.get("Description"),
-                        "Endpoints": [Endpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
+                        "Endpoints": ( [Endpoint.from_dict(_item) for _item in obj.get("Endpoints", [])] if obj.get("Endpoints") is not None else None),
                         "FileName": obj.get("FileName"),
                         "HasBannerCommand": obj.get("HasBannerCommand"),
                         "Md5Content": obj.get("Md5Content"),
                         "Md5Metadata": obj.get("Md5Metadata"),
                         "Metadata": Metadata.from_dict(obj["Metadata"]) if obj.get("Metadata") is not None else None,
                         "Name": obj.get("Name"),
-                        "Parameters": [Parameter.from_dict(_item) for _item in obj["Parameters"]] if obj.get("Parameters") is not None else None,
+                        "Parameters": ( [Parameter.from_dict(_item) for _item in obj.get("Parameters", [])] if obj.get("Parameters") is not None else None),
                         "ProtocolFound": obj.get("ProtocolFound"),
-                        "Strikes": [Command.from_dict(_item) for _item in obj["Strikes"]] if obj.get("Strikes") is not None else None,
+                        "Strikes": ( [Command.from_dict(_item) for _item in obj.get("Strikes", [])] if obj.get("Strikes") is not None else None),
                         "SupportsCalibration": obj.get("SupportsCalibration"),
                         "SupportsClientHTTPProfile": obj.get("SupportsClientHTTPProfile"),
                         "SupportsHTTPProfiles": obj.get("SupportsHTTPProfiles"),
@@ -209,7 +209,7 @@ class ApplicationType(BaseModel):
                         "SupportsStrikes": obj.get("SupportsStrikes"),
                         "SupportsTLS": obj.get("SupportsTLS"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })

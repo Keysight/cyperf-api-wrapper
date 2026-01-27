@@ -33,7 +33,7 @@ from cyperf.models.params import Params
 from cyperf.models.quic_profile import QUICProfile
 from cyperf.models.tls_profile import TLSProfile
 from cyperf.models.update_network_mapping import UpdateNetworkMapping
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -230,13 +230,13 @@ class Attack(BaseModel):
                         "Active": obj.get("Active"),
                         "ClientHTTPProfile": HTTPProfile.from_dict(obj["ClientHTTPProfile"]) if obj.get("ClientHTTPProfile") is not None else None,
                         "ClientQUICProfile": QUICProfile.from_dict(obj["ClientQUICProfile"]) if obj.get("ClientQUICProfile") is not None else None,
-                        "Connections": [Connection.from_dict(_item) for _item in obj["Connections"]] if obj.get("Connections") is not None else None,
+                        "Connections": ( [Connection.from_dict(_item) for _item in obj.get("Connections", [])] if obj.get("Connections") is not None else None),
                         "ConnectionsMaxTransactions": obj.get("ConnectionsMaxTransactions"),
                         "Description": obj.get("Description"),
                         "DestinationHostname": obj.get("DestinationHostname"),
                         "DnnId": obj.get("DnnId"),
                         "EndPointID": obj.get("EndPointID"),
-                        "Endpoints": [Endpoint.from_dict(_item) for _item in obj["Endpoints"]] if obj.get("Endpoints") is not None else None,
+                        "Endpoints": ( [Endpoint.from_dict(_item) for _item in obj.get("Endpoints", [])] if obj.get("Endpoints") is not None else None),
                         "ExternalResourceURL": obj.get("ExternalResourceURL"),
                         "Index": obj.get("Index"),
                         "InheritHTTPProfile": obj.get("InheritHTTPProfile"),
@@ -247,7 +247,7 @@ class Attack(BaseModel):
                         "MaxActiveLimit": obj.get("MaxActiveLimit"),
                         "Name": obj.get("Name"),
                         "NetworkMapping": NetworkMapping.from_dict(obj["NetworkMapping"]) if obj.get("NetworkMapping") is not None else None,
-                        "Params": [Params.from_dict(_item) for _item in obj["Params"]] if obj.get("Params") is not None else None,
+                        "Params": ( [Params.from_dict(_item) for _item in obj.get("Params", [])] if obj.get("Params") is not None else None),
                         "ProtocolID": obj.get("ProtocolID"),
                         "QosFlowId": obj.get("QosFlowId"),
                         "ReadonlyMaxTrans": obj.get("ReadonlyMaxTrans"),
@@ -257,15 +257,15 @@ class Attack(BaseModel):
                         "SupportsHTTPProfiles": obj.get("SupportsHTTPProfiles"),
                         "SupportsServerHTTPProfile": obj.get("SupportsServerHTTPProfile"),
                         "id": obj.get("id"),
-                        "links": [APILink.from_dict(_item) for _item in obj["links"]] if obj.get("links") is not None else None,
+                        "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "ClientTLSProfile": TLSProfile.from_dict(obj["ClientTLSProfile"]) if obj.get("ClientTLSProfile") is not None else None,
                         "InheritTLS": obj.get("InheritTLS"),
                         "ServerTLSProfile": TLSProfile.from_dict(obj["ServerTLSProfile"]) if obj.get("ServerTLSProfile") is not None else None,
                         "SupportsTLS": obj.get("SupportsTLS"),
-                        "Tracks": [AttackTrack.from_dict(_item) for _item in obj["Tracks"]] if obj.get("Tracks") is not None else None,
-                        "create": [CreateAppOrAttackOperationInput.from_dict(_item) for _item in obj["create"]] if obj.get("create") is not None else None,
-                        "modify-excluded-dut-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-excluded-dut-recursively"]] if obj.get("modify-excluded-dut-recursively") is not None else None,
-                        "modify-tags-recursively": [UpdateNetworkMapping.from_dict(_item) for _item in obj["modify-tags-recursively"]] if obj.get("modify-tags-recursively") is not None else None
+                        "Tracks": ( [AttackTrack.from_dict(_item) for _item in obj.get("Tracks", [])] if obj.get("Tracks") is not None else None),
+                        "create": ( [CreateAppOrAttackOperationInput.from_dict(_item) for _item in obj.get("create", [])] if obj.get("create") is not None else None),
+                        "modify-excluded-dut-recursively": ( [UpdateNetworkMapping.from_dict(_item) for _item in obj.get("modify-excluded-dut-recursively", [])] if obj.get("modify-excluded-dut-recursively") is not None else None),
+                        "modify-tags-recursively": ( [UpdateNetworkMapping.from_dict(_item) for _item in obj.get("modify-tags-recursively", [])] if obj.get("modify-tags-recursively") is not None else None)
             ,
             "links": obj.get("links")
         })

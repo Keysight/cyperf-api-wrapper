@@ -149,23 +149,22 @@ if __name__ == "__main__":
                         interfaces = None                               # List[str] | The names of the assigned test interfaces for the agent (optional)
                         links = None                                    # List[APILink] |  (optional)
                         agent_id = agent_map[ip_net.name][0]
-                        agentDetails = [cyperf.AgentAssignmentDetails(agent_id=agent_id,
+                        agentDetails = cyperf.AgentAssignmentDetails(agent_id=agent_id,
                                                                     capture_setting=capture_settings,
                                                                     id=agent_id,
                                                                     interfaces=interfaces,
-                                                                    links=links)]
+                                                                    links=links)
 
                         if not ip_net.agent_assignments:
                             by_id = None                                # List[AgentAssignmentDetails] | The agents statically assigned to the current test configuration (optional)
                             by_port	= None                              # List[AgentAssignmentByPort] | The ports assigned to the current test configuration (optional)
-                            by_tag = []                                 # List[str]	| The tags according to which the agents are dynamically assigned
-                            links = None                                # List[APILink] |  (optional)
+                            by_tag = None                               # List[str]	| The tags according to which the agents are dynamically assigned
                             ip_net.agent_assignments = cyperf.AgentAssignments(by_id=by_id,
                                                                             by_port=by_port,
                                                                             by_tag=by_tag,
                                                                             links=links)
 
-                        ip_net.agent_assignments.by_id.extend(agentDetails)
+                        ip_net.agent_assignments.by_id = [agentDetails]
                         ip_net.update()
             print("Assigning agents completed.\n")
 

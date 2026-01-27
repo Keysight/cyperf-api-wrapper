@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.exchange_order import ExchangeOrder
-from typing import Optional, Set, Union, GenericAlias, get_args
+from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
@@ -95,7 +95,7 @@ class ReorderExchangesInput(BaseModel):
 
         _obj = cls.model_validate({
             "ActionName": obj.get("ActionName"),
-                        "ExchangesOrder": [ExchangeOrder.from_dict(_item) for _item in obj["ExchangesOrder"]] if obj.get("ExchangesOrder") is not None else None,
+                        "ExchangesOrder": ( [ExchangeOrder.from_dict(_item) for _item in obj.get("ExchangesOrder", [])] if obj.get("ExchangesOrder") is not None else None),
                         "FlowIdx": obj.get("FlowIdx")
             ,
             "links": obj.get("links")
