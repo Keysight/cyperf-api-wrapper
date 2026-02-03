@@ -113,6 +113,21 @@ class TestConfig(unittest.TestCase):
                                 type = '', )
                             ], )
                     ],
+                snowflake_exporter = cyperf.models.snowflake_exporter.SnowflakeExporter(
+                    active = True, 
+                    polling_interval = 56, 
+                    profile = null, 
+                    server_url = '', 
+                    links = [
+                        cyperf.models.api_link.APILink(
+                            content_type = '', 
+                            href = '', 
+                            method = '', 
+                            name = '', 
+                            references_count = 56, 
+                            rel = '', 
+                            type = '', )
+                        ], ),
                 traffic_profiles = [
                     null
                     ],
@@ -126,7 +141,7 @@ class TestConfig(unittest.TestCase):
                         rel = '', 
                         type = '', )
                     ],
-                validate = [
+                validate_session_config = [
                     'YQ=='
                     ]
             )

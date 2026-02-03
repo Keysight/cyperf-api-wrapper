@@ -718,6 +718,7 @@ Class | Method | HTTP request | Description
  - [SetNtpOperationInput](docs/SetNtpOperationInput.md)
  - [SimulatedIdP](docs/SimulatedIdP.md)
  - [Snapshot](docs/Snapshot.md)
+ - [SnowflakeExporter](docs/SnowflakeExporter.md)
  - [SortBodyField](docs/SortBodyField.md)
  - [SpecificObjective](docs/SpecificObjective.md)
  - [StartAgentsBatchDeleteRequestInner](docs/StartAgentsBatchDeleteRequestInner.md)

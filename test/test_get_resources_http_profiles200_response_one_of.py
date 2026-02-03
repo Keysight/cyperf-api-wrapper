@@ -46,6 +46,7 @@ class TestGetResourcesHttpProfiles200ResponseOneOf(unittest.TestCase):
                         http_version = null, 
                         headers = null, 
                         is_modified = True, 
+                        max_concurrent_streams = 56, 
                         name = '', 
                         params = [
                             cyperf.models.params.Params(

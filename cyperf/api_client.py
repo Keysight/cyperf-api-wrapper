@@ -543,14 +543,14 @@ class ApiClient:
                     m = re.match(r'List\[(.*)]', klass)
                     assert m is not None, "Malformed List type definition"
                     sub_kls = m.group(1)
-                    return [self.__deserialize(sub_data, sub_kls) 
+                    return [self.__deserialize(sub_data, sub_kls)
                             for sub_data in data]
 
                 elif klass.startswith('Dict['):
                     m = re.match(r'Dict\[([^,]*), (.*)]', klass)
                     assert m is not None, "Malformed Dict type definition"
                     sub_kls = m.group(2)
-                    return {k: self.__deserialize(v, sub_kls) 
+                    return {k: self.__deserialize(v, sub_kls)
                             for k, v in data.items()}
 
                 elif klass.startswith('typing.List['):

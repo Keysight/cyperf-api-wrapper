@@ -81,6 +81,7 @@ class TestGetSessions200Response(unittest.TestCase):
                                                 type = '', )
                                             ], )
                                     ], 
+                                snowflake_exporter = null, 
                                 traffic_profiles = [
                                     null
                                     ], 
@@ -94,7 +95,7 @@ class TestGetSessions200Response(unittest.TestCase):
                                         rel = '', 
                                         type = '', )
                                     ], 
-                                validate = [
+                                validate_session_config = [
                                     'YQ=='
                                     ], ), 
                             session_id = '', 

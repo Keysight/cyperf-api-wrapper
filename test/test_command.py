@@ -80,6 +80,9 @@ class TestCommand(unittest.TestCase):
                     supported_apps = [
                         ''
                         ], 
+                    supported_protocols = [
+                        ''
+                        ], 
                     year = '', ),
                 name = '',
                 parameters = [
