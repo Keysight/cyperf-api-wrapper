@@ -11,9 +11,10 @@ Name | Type | Description | Notes
 **custom_dashboards** | [**CustomDashboards**](CustomDashboards.md) |  | [optional] 
 **expected_disk_space** | [**List[ExpectedDiskSpace]**](ExpectedDiskSpace.md) |  | [optional] 
 **network_profiles** | [**List[NetworkProfile]**](NetworkProfile.md) |  | [optional] 
+**snowflake_exporter** | [**SnowflakeExporter**](SnowflakeExporter.md) |  | [optional] 
 **traffic_profiles** | [**List[ApplicationProfile]**](ApplicationProfile.md) |  | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
-**validate** | **List[bytearray]** |  | [optional] 
+**validate_session_config** | **List[bytearray]** |  | [optional] 
 
 ## Example
 

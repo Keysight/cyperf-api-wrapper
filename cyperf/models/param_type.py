@@ -38,6 +38,7 @@ class ParamType(str, Enum):
     MEDIAPROFILE = 'MediaProfile'
     RANGE = 'range'
     INT = 'int'
+    STATS_MINUS_PROFILE = 'stats-profile'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

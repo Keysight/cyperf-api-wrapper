@@ -228,6 +228,7 @@ class TestHTTPProfile(unittest.TestCase):
                     supports_dynamic_payload = True, 
                     upload_url = '', ),
                 is_modified = True,
+                max_concurrent_streams = 56,
                 name = '',
                 params = [
                     cyperf.models.params.Params(
