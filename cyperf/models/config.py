@@ -27,6 +27,7 @@ from cyperf.models.config_validation import ConfigValidation
 from cyperf.models.custom_dashboards import CustomDashboards
 from cyperf.models.expected_disk_space import ExpectedDiskSpace
 from cyperf.models.network_profile import NetworkProfile
+from cyperf.models.snowflake_exporter import SnowflakeExporter
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -40,11 +41,12 @@ class Config(BaseModel):
     custom_dashboards: Optional[CustomDashboards] = Field(default=None, alias="CustomDashboards")
     expected_disk_space: Optional[List[ExpectedDiskSpace]] = Field(default=None, alias="ExpectedDiskSpace")
     network_profiles: Optional[List[NetworkProfile]] = Field(default=None, alias="NetworkProfiles")
+    snowflake_exporter: Optional[SnowflakeExporter] = Field(default=None, alias="SnowflakeExporter")
     traffic_profiles: Optional[List[ApplicationProfile]] = Field(default=None, alias="TrafficProfiles")
     links: Optional[List[APILink]] = None
-    validate: Optional[List[Union[StrictBytes, StrictStr]]] = None
-    _validate_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,ValidateConfig" })
-    __properties: ClassVar[List[str]] = ["AttackProfiles", "ConfigValidation", "CustomDashboards", "ExpectedDiskSpace", "NetworkProfiles", "TrafficProfiles", "links", "validate"]
+    validate_session_config: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="validate-session-config")
+    _validate_session_config_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,ValidateConfig" })
+    __properties: ClassVar[List[str]] = ["AttackProfiles", "ConfigValidation", "CustomDashboards", "ExpectedDiskSpace", "NetworkProfiles", "SnowflakeExporter", "TrafficProfiles", "links", "validate-session-config"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -112,6 +114,9 @@ class Config(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['NetworkProfiles'] = _items
+        # override the default output from pydantic by calling `to_dict()` of snowflake_exporter
+        if self.snowflake_exporter:
+            _dict['SnowflakeExporter'] = self.snowflake_exporter.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in traffic_profiles (list)
         _items = []
         if self.traffic_profiles:
@@ -145,9 +150,10 @@ class Config(BaseModel):
                         "CustomDashboards": CustomDashboards.from_dict(obj["CustomDashboards"]) if obj.get("CustomDashboards") is not None else None,
                         "ExpectedDiskSpace": ( [ExpectedDiskSpace.from_dict(_item) for _item in obj.get("ExpectedDiskSpace", [])] if obj.get("ExpectedDiskSpace") is not None else None),
                         "NetworkProfiles": ( [NetworkProfile.from_dict(_item) for _item in obj.get("NetworkProfiles", [])] if obj.get("NetworkProfiles") is not None else None),
+                        "SnowflakeExporter": SnowflakeExporter.from_dict(obj["SnowflakeExporter"]) if obj.get("SnowflakeExporter") is not None else None,
                         "TrafficProfiles": ( [ApplicationProfile.from_dict(_item) for _item in obj.get("TrafficProfiles", [])] if obj.get("TrafficProfiles") is not None else None),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
-                        "validate": obj.get("validate") if obj.get("validate") is not None else []
+                        "validate-session-config": obj.get("validate-session-config") if obj.get("validate-session-config") is not None else []
             ,
             "links": obj.get("links")
         })

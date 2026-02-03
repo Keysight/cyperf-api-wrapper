@@ -353,6 +353,7 @@ from cyperf.models.set_link_state_operation import SetLinkStateOperation
 from cyperf.models.set_ntp_operation_input import SetNtpOperationInput
 from cyperf.models.simulated_id_p import SimulatedIdP
 from cyperf.models.snapshot import Snapshot
+from cyperf.models.snowflake_exporter import SnowflakeExporter
 from cyperf.models.sort_body_field import SortBodyField
 from cyperf.models.specific_objective import SpecificObjective
 from cyperf.models.start_agents_batch_delete_request_inner import StartAgentsBatchDeleteRequestInner

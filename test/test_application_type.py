@@ -82,6 +82,9 @@ class TestApplicationType(unittest.TestCase):
                             supported_apps = [
                                 ''
                                 ], 
+                            supported_protocols = [
+                                ''
+                                ], 
                             year = '', ), 
                         name = '', 
                         parameters = [
@@ -363,6 +366,9 @@ class TestApplicationType(unittest.TestCase):
                             sort_severity = '', 
                             static = True, 
                             supported_apps = [
+                                ''
+                                ], 
+                            supported_protocols = [
                                 ''
                                 ], 
                             year = '', ), 

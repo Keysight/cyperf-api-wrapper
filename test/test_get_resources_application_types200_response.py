@@ -84,6 +84,9 @@ class TestGetResourcesApplicationTypes200Response(unittest.TestCase):
                                     supported_apps = [
                                         ''
                                         ], 
+                                    supported_protocols = [
+                                        ''
+                                        ], 
                                     year = '', ), 
                                 name = '', 
                                 parameters = [

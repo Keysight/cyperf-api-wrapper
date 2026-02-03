@@ -25,6 +25,8 @@
 
 * `INT` (value: `'int'`)
 
+* `STATS_MINUS_PROFILE` (value: `'stats-profile'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **http_version** | [**HTTPVersion**](HTTPVersion.md) |  | [optional] 
 **headers** | [**Params**](Params.md) |  | [optional] 
 **is_modified** | **bool** |  | [optional] 
+**max_concurrent_streams** | **int** | The maximum number of streams for all HTTP/2 connections. | [optional] 
 **name** | **str** | The name of the HTTP profile. | 
 **params** | [**List[Params]**](Params.md) | The list of parameters present in the HTTP profile. | [optional] 
 **use_application_server_headers** | **bool** |  | [optional] 

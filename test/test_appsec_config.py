@@ -77,6 +77,7 @@ class TestAppsecConfig(unittest.TestCase):
                                     type = '', )
                                 ], )
                         ], 
+                    snowflake_exporter = null, 
                     traffic_profiles = [
                         null
                         ], 
@@ -90,7 +91,7 @@ class TestAppsecConfig(unittest.TestCase):
                             rel = '', 
                             type = '', )
                         ], 
-                    validate = [
+                    validate_session_config = [
                         'YQ=='
                         ], ),
                 session_id = '',
