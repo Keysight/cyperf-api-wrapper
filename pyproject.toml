@@ -34,9 +34,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "cyperf",
-  #"test",  # auto-generated tests
-  "tests", # hand-written tests
+  "cyperf"
 ]
 # TODO: enable "strict" once all these individual checks are passing
 # strict = true

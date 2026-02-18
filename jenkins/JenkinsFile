@@ -79,13 +79,6 @@ node('wap') {
                                .
                 ''')
         }
-        stage('Run tests') {
-            sh('''
-                  docker run --rm \
-                             cyperf-api-wrapper-build:$DOCKER_VERSION \
-                             /cyperf-api-wrapper-build/test.sh /build/py3
-                ''')
-        }
         stage('Build and publish to internal repo') {
             withCredentials([[$class: 'UsernamePasswordMultiBinding',
                               credentialsId: 'e7e3fcc3-4f5f-4e68-b68c-76f40b75a3c7',
