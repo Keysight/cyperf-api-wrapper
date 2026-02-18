@@ -27,9 +27,6 @@ Then import the package:
 ```python
 import cyperf
 ```
-### Tests
-
-Execute `pytest` to run the tests.
 
 ## Getting Started
 
