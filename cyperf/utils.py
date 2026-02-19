@@ -350,7 +350,135 @@ class TestRunner:
 
         lines = ['|'.join([f'{val:^{col_width}}' for val, col_width in zip(item, col_widths)]) for item in zip(*stats_dict.values())]
         return [line_delim, header, line_delim] + lines + [line_delim]
+    
+    def set_prisma_airs_params(self, session, pan_auth_token, airs_profile_name = None, airs_profile_id = None):
+        # Update Attacks
+        prisma_airs_attacks_found = False
+        try:
+            attack_profiles = session.config.config.attack_profiles
+            if not attack_profiles:
+                raise ValueError("No attack profiles found in the session configuration.")
+            for attack in attack_profiles[0].attacks:
+                if "Prisma AIRS" not in attack.name:
+                    continue
+                for track in attack.tracks:
+                    for action in track.actions:
+                        for param in action.params:
+                            if param.name == "PAN auth token":
+                                prisma_airs_attacks_found = True
+                                param.value = pan_auth_token
+                                print(f"Updated PAN auth token for attack: {attack.name}")
+                            elif param.name == "AIRS Profile Name" and airs_profile_name:
+                                param.value = airs_profile_name
+                                print(f"Updated AIRS Profile Name for attack: {attack.name}")
+                            elif param.name == "AIRS Profile ID" and airs_profile_id:
+                                param.value = airs_profile_id
+                                print(f"Updated AIRS Profile ID for attack: {attack.name}")
+                            param.update()
+        except AttributeError as e:
+            print(f"Error while setting Prisma AIRS params: {e}")
+        except Exception as e:
+            print(f"Unexpected error while setting Prisma AIRS params: {e}")
+        if not prisma_airs_attacks_found:
+            print("No Prisma AIRS Attacks found in the provided session.")
 
+        # Update Applications
+        prisma_airs_applications_found = False
+        try:
+            traffic_profiles = session.config.config.traffic_profiles
+            if not traffic_profiles:
+                raise ValueError("No application profiles found in the session configuration.")
+            for application in traffic_profiles[0].applications:
+                if "Prisma AIRS" not in application.name:
+                    continue
+                for track in application.tracks:
+                    for action in track.actions:
+                        for param in action.params:
+                            if param.name == "PAN Auth Token":
+                                prisma_airs_applications_found = True
+                                param.value = pan_auth_token
+                                print(f"Updated PAN auth token for Application: {application.name}")
+                            elif param.name == "AIRS Profile Name" and airs_profile_name:
+                                param.value = airs_profile_name
+                                print(f"Updated AIRS Profile Name for Application: {application.name}")
+                            elif param.name == "AIRS Profile ID" and airs_profile_id:
+                                param.value = airs_profile_id
+                                print(f"Updated AIRS Profile ID for Application: {application.name}")
+                            param.update()
+        except AttributeError as e:
+            print(f"Error while setting Prisma AIRS params: {e}")
+        except Exception as e:
+            print(f"Unexpected error while setting Prisma AIRS params: {e}")
+        if not prisma_airs_applications_found:
+            print("No Prisma AIRS Applications found in the provided session.")
+
+    def set_model_armor_params(self, session, template_id, location, project_id, access_token):
+        # Update Attacks
+        model_armor_attacks_found = False
+        try:
+            attack_profiles = session.config.config.attack_profiles
+            if not attack_profiles:
+                raise ValueError("No attack profiles found in the session configuration.")
+            for attack in attack_profiles[0].attacks:
+                if "Model Armor" not in attack.name:
+                    continue
+                for track in attack.tracks:
+                    for action in track.actions:
+                        params = action.params
+                        for param in params:
+                            if param.name == "Template ID":
+                                model_armor_attacks_found = True
+                                param.value = template_id
+                                print(f"Updated Template ID for attack: {attack.name}")
+                            elif param.name == "Project ID":
+                                param.value = project_id
+                                print(f"Updated Project ID for attack: {attack.name}")
+                            elif param.name == "Location":
+                                param.value = location
+                                print(f"Updated Location for attack: {attack.name}")
+                            elif param.name == "Access Token":
+                                param.value = access_token
+                                print(f"Updated Access Token for attack: {attack.name}")
+                            param.update()
+        except AttributeError as e:
+            print(f"Error while setting Model Armor params: {e}")
+        except Exception as e:
+            print(f"Unexpected error while setting Model Armor params: {e}")
+        if not model_armor_attacks_found:
+            print("No Model Armor Attacks found in the provided session.")
+
+        # Update Applications
+        model_armor_applications_found = False
+        try:
+            traffic_profiles = session.config.config.traffic_profiles
+            if not traffic_profiles:
+                raise ValueError("No application profiles found in the session configuration.")
+            for application in traffic_profiles[0].applications:
+                if "Model Armor" not in application.name:
+                    continue
+                for track in application.tracks:
+                    for action in track.actions:
+                        for param in action.params:
+                            if param.name == "Template ID":
+                                model_armor_applications_found = True
+                                param.value = template_id
+                                print(f"Updated Template ID for Application: {application.name}")
+                            elif param.name == "Project ID":
+                                param.value = project_id
+                                print(f"Updated Project ID for Application: {application.name}")
+                            elif param.name == "Location":
+                                param.value = location
+                                print(f"Updated Location for Application: {application.name}")
+                            elif param.name == "Access Token":
+                                param.value = access_token
+                                print(f"Updated Access Token for Application: {application.name}")
+                            param.update()
+        except AttributeError as e:
+            print(f"Error while setting Model Armor params: {e}")
+        except Exception as e:
+            print(f"Unexpected error while setting Model Armor params: {e}")
+        if not model_armor_applications_found:
+            print("No Model Armor Applications found in the provided session.")
 
 def parse_cli_options(extra_options=[]):
     """Can be used to get parameters from the CLI or env vars that are broadly useful for CLI tests"""
