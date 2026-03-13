@@ -44,7 +44,7 @@ boolean setDisplayVersion(publish) {
         if (publish) {
             build_number = "${env.BUILD_NUMBER}"
         }
-        env.PIP_VERSION = "${matcher.group(1).toString()}.${matcher.group(2).toString()}.${build_number}"
+	    env.PIP_VERSION = "${matcher.group(1).toString()}.${matcher.group(2).toString()}.${build_number}"
         env.DOCKER_VERSION = env.PIP_VERSION.replaceAll('\\+', '-')
     } else if (branch.startsWith("release%2F")) {
         throw new Exception("Unexpected release branch format ${branch}, expected 'release%2fNUMBER.NUMBER.NUMBER'")
