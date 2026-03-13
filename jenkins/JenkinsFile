@@ -38,16 +38,16 @@ def do_publish = params.publish_pypi
 @NonCPS
 boolean setDisplayVersion(publish) {
     branch_sanitized = branch.replaceAll('-', '.').replaceAll('_', '.').replaceAll('%2F', '-')
-    def matcher = Pattern.compile("^release%2F([0-9]+)\\.([0-9]+)\$").matcher(branch)
+    def matcher = Pattern.compile("^release%2F([0-9]+)\\.([0-9]+)\\.([0-9]+)\$").matcher(branch)
     if (matcher.matches()) {
         build_number = "dev${env.BUILD_NUMBER}+${branch_sanitized}"
         if (publish) {
             build_number = "${env.BUILD_NUMBER}"
         }
-	env.PIP_VERSION = "${matcher.group(1).toString()}.${matcher.group(2).toString()}.${build_number}"
+	    env.PIP_VERSION = "${matcher.group(1).toString()}.${matcher.group(2).toString()}.${build_number}"
         env.DOCKER_VERSION = env.PIP_VERSION.replaceAll('\\+', '-')
     } else if (branch.startsWith("release%2F")) {
-        throw new Exception("Unexpected release branch format ${branch}, expected 'release%2fNUMBER.NUMBER'")
+        throw new Exception("Unexpected release branch format ${branch}, expected 'release%2fNUMBER.NUMBER.NUMBER'")
     } else {
         env.PIP_VERSION = "0.0.dev${env.BUILD_NUMBER}+${branch_sanitized}"
         env.DOCKER_VERSION = env.PIP_VERSION.replaceAll('\\+', '-')
