@@ -38,6 +38,7 @@ class AttackAction(BaseModel):
     is_banner: Optional[StrictBool] = Field(default=None, description="Indicates if this is a required action, can only be add once and also must be the first", alias="IsBanner")
     is_deprecated: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is deprecated.", alias="IsDeprecated")
     is_hostname: Optional[StrictInt] = Field(default=None, alias="IsHostname")
+    is_llm_strike: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is an LLM strike.", alias="IsLLMStrike")
     is_strike: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is a strike.", alias="IsStrike")
     name: Optional[StrictStr] = Field(default=None, description="The name of the action.", alias="Name")
     params: Optional[List[Params]] = Field(default=None, alias="Params")
@@ -46,7 +47,7 @@ class AttackAction(BaseModel):
     requires_uniqueness: Optional[StrictBool] = Field(default=None, description="If true, for applications with the same protocol id, application/attack must have been uniquely identified in previous commands.", alias="RequiresUniqueness")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["DstHost", "Exchanges", "Index", "IsBanner", "IsDeprecated", "IsHostname", "IsStrike", "Name", "Params", "Port", "ProtocolID", "RequiresUniqueness", "id", "links"]
+    __properties: ClassVar[List[str]] = ["DstHost", "Exchanges", "Index", "IsBanner", "IsDeprecated", "IsHostname", "IsLLMStrike", "IsStrike", "Name", "Params", "Port", "ProtocolID", "RequiresUniqueness", "id", "links"]
 
     @field_validator('dst_host')
     def dst_host_validate_regular_expression(cls, value):
@@ -138,6 +139,7 @@ class AttackAction(BaseModel):
                         "IsBanner": obj.get("IsBanner"),
                         "IsDeprecated": obj.get("IsDeprecated"),
                         "IsHostname": obj.get("IsHostname"),
+                        "IsLLMStrike": obj.get("IsLLMStrike"),
                         "IsStrike": obj.get("IsStrike"),
                         "Name": obj.get("Name"),
                         "Params": ( [Params.from_dict(_item) for _item in obj.get("Params", [])] if obj.get("Params") is not None else None),

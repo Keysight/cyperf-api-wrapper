@@ -25,6 +25,9 @@ Then import the package:
 ```python
 import cyperf
 ```
+### Tests
+
+Execute `pytest` to run the tests.
 
 ## Getting Started
 
@@ -155,6 +158,8 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_resources_http_library_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_http_library_upload_file_result) | **GET** /api/v2/resources/http-library/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**get_resources_http_profile_by_id**](docs/ApplicationResourcesApi.md#get_resources_http_profile_by_id) | **GET** /api/v2/resources/http-profiles/{httpProfileId} | 
 *ApplicationResourcesApi* | [**get_resources_http_profiles**](docs/ApplicationResourcesApi.md#get_resources_http_profiles) | **GET** /api/v2/resources/http-profiles | 
+*ApplicationResourcesApi* | [**get_resources_llm_api_profile_by_id**](docs/ApplicationResourcesApi.md#get_resources_llm_api_profile_by_id) | **GET** /api/v2/resources/llm-api-profiles/{llmApiProfileId} | 
+*ApplicationResourcesApi* | [**get_resources_llm_api_profiles**](docs/ApplicationResourcesApi.md#get_resources_llm_api_profiles) | **GET** /api/v2/resources/llm-api-profiles | 
 *ApplicationResourcesApi* | [**get_resources_media_file_by_id**](docs/ApplicationResourcesApi.md#get_resources_media_file_by_id) | **GET** /api/v2/resources/media-files/{mediaFileId} | 
 *ApplicationResourcesApi* | [**get_resources_media_file_content_file**](docs/ApplicationResourcesApi.md#get_resources_media_file_content_file) | **GET** /api/v2/resources/media-files/{mediaFileId}/contentFile | 
 *ApplicationResourcesApi* | [**get_resources_media_files**](docs/ApplicationResourcesApi.md#get_resources_media_files) | **GET** /api/v2/resources/media-files | 
@@ -579,6 +584,8 @@ Class | Method | HTTP request | Description
  - [GetResourcesCustomImportOperations200ResponseOneOf](docs/GetResourcesCustomImportOperations200ResponseOneOf.md)
  - [GetResourcesHttpProfiles200Response](docs/GetResourcesHttpProfiles200Response.md)
  - [GetResourcesHttpProfiles200ResponseOneOf](docs/GetResourcesHttpProfiles200ResponseOneOf.md)
+ - [GetResourcesLlmApiProfiles200Response](docs/GetResourcesLlmApiProfiles200Response.md)
+ - [GetResourcesLlmApiProfiles200ResponseOneOf](docs/GetResourcesLlmApiProfiles200ResponseOneOf.md)
  - [GetResultFiles200Response](docs/GetResultFiles200Response.md)
  - [GetResultFiles200ResponseOneOf](docs/GetResultFiles200ResponseOneOf.md)
  - [GetResultStats200Response](docs/GetResultStats200Response.md)
@@ -613,10 +620,12 @@ Class | Method | HTTP request | Description
  - [ImportOfflineLicenseResult](docs/ImportOfflineLicenseResult.md)
  - [IngestOperation](docs/IngestOperation.md)
  - [InnerIPRange](docs/InnerIPRange.md)
+ - [InnerIPSecRange](docs/InnerIPSecRange.md)
  - [Interface](docs/Interface.md)
  - [IpMask](docs/IpMask.md)
  - [IpPreference](docs/IpPreference.md)
  - [IpVer](docs/IpVer.md)
+ - [LLMAPIProfile](docs/LLMAPIProfile.md)
  - [License](docs/License.md)
  - [LicenseReceipt](docs/LicenseReceipt.md)
  - [LicenseServerMetadata](docs/LicenseServerMetadata.md)

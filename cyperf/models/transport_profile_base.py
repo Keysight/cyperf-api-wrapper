@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.http_profile import HTTPProfile
+from cyperf.models.llmapi_profile import LLMAPIProfile
 from cyperf.models.quic_profile import QUICProfile
 from cyperf.models.rtp_profile import RTPProfile
 from cyperf.models.tcp_profile import TcpProfile
@@ -40,6 +41,7 @@ class TransportProfileBase(BaseModel):
     client_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ClientTLSProfile")
     client_tcp_profile: Optional[TcpProfile] = Field(default=None, alias="ClientTcpProfile")
     ip_tos: Optional[StrictInt] = Field(default=None, alias="IpTos")
+    llmapi_profiles: Optional[List[LLMAPIProfile]] = Field(default=None, alias="LLMAPIProfiles")
     rtp_profile: Optional[RTPProfile] = Field(default=None, alias="RTPProfile")
     server_http_profile: Optional[HTTPProfile] = Field(default=None, description="The server HTTP profile used in the Scenario.", alias="ServerHTTPProfile")
     server_quic_profile: Optional[QUICProfile] = Field(default=None, alias="ServerQUICProfile")
@@ -48,7 +50,7 @@ class TransportProfileBase(BaseModel):
     udp_profile: Optional[UdpProfile] = Field(default=None, alias="UdpProfile")
     vlan_prio: Optional[StrictInt] = Field(default=None, alias="VlanPrio")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["ClientHTTPProfile", "ClientQUICProfile", "ClientTLSProfile", "ClientTcpProfile", "IpTos", "RTPProfile", "ServerHTTPProfile", "ServerQUICProfile", "ServerTLSProfile", "ServerTcpProfile", "UdpProfile", "VlanPrio", "links"]
+    __properties: ClassVar[List[str]] = ["ClientHTTPProfile", "ClientQUICProfile", "ClientTLSProfile", "ClientTcpProfile", "IpTos", "LLMAPIProfiles", "RTPProfile", "ServerHTTPProfile", "ServerQUICProfile", "ServerTLSProfile", "ServerTcpProfile", "UdpProfile", "VlanPrio", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,6 +103,13 @@ class TransportProfileBase(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of client_tcp_profile
         if self.client_tcp_profile:
             _dict['ClientTcpProfile'] = self.client_tcp_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in llmapi_profiles (list)
+        _items = []
+        if self.llmapi_profiles:
+            for _item in self.llmapi_profiles:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['LLMAPIProfiles'] = _items
         # override the default output from pydantic by calling `to_dict()` of rtp_profile
         if self.rtp_profile:
             _dict['RTPProfile'] = self.rtp_profile.to_dict()
@@ -145,6 +154,7 @@ class TransportProfileBase(BaseModel):
                         "ClientTLSProfile": TLSProfile.from_dict(obj["ClientTLSProfile"]) if obj.get("ClientTLSProfile") is not None else None,
                         "ClientTcpProfile": TcpProfile.from_dict(obj["ClientTcpProfile"]) if obj.get("ClientTcpProfile") is not None else None,
                         "IpTos": obj.get("IpTos"),
+                        "LLMAPIProfiles": ( [LLMAPIProfile.from_dict(_item) for _item in obj.get("LLMAPIProfiles", [])] if obj.get("LLMAPIProfiles") is not None else None),
                         "RTPProfile": RTPProfile.from_dict(obj["RTPProfile"]) if obj.get("RTPProfile") is not None else None,
                         "ServerHTTPProfile": HTTPProfile.from_dict(obj["ServerHTTPProfile"]) if obj.get("ServerHTTPProfile") is not None else None,
                         "ServerQUICProfile": QUICProfile.from_dict(obj["ServerQUICProfile"]) if obj.get("ServerQUICProfile") is not None else None,

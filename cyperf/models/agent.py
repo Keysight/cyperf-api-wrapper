@@ -36,9 +36,11 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     agent_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags", alias="AgentTags")
+    display_name_format: Optional[StrictStr] = Field(default=None, description="display agent name format", alias="DisplayNameFormat")
     ip: Optional[StrictStr] = Field(default=None, description="The management IP of the agent", alias="IP")
     interfaces: Optional[List[Interface]] = Field(default=None, description="A list of test interfaces available on the agent", alias="Interfaces")
     last_update: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when the agent was last updated", alias="LastUpdate")
+    port_id_format: Optional[StrictStr] = Field(default=None, description="port agent id format", alias="PortIDFormat")
     reservation_id: Optional[StrictStr] = Field(default=None, description="The ID of the reservation", alias="ReservationID")
     selected_env: Optional[SelectedEnv] = Field(default=None, alias="SelectedEnv")
     selection_status: Optional[StrictStr] = Field(default=None, description="The current status of the selection operation", alias="SelectionStatus")
@@ -60,7 +62,7 @@ class Agent(BaseModel):
     requires_updating: Optional[StrictBool] = Field(default=None, description="A flag indicating whether the agent is not using the recommended version", alias="requiresUpdating")
     system_info: Optional[SystemInfo] = Field(default=None, alias="systemInfo")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["AgentTags", "IP", "Interfaces", "LastUpdate", "ReservationID", "SelectedEnv", "SelectionStatus", "SessionName", "Status", "configuredProxy", "cpuInfo", "dpdkEnabled", "features", "hostname", "id", "memoryMB", "mgmtInterface", "ntpInfo", "offline", "owner", "ownerId", "packageVersionStatus", "requiresUpdating", "systemInfo", "links"]
+    __properties: ClassVar[List[str]] = ["AgentTags", "DisplayNameFormat", "IP", "Interfaces", "LastUpdate", "PortIDFormat", "ReservationID", "SelectedEnv", "SelectionStatus", "SessionName", "Status", "configuredProxy", "cpuInfo", "dpdkEnabled", "features", "hostname", "id", "memoryMB", "mgmtInterface", "ntpInfo", "offline", "owner", "ownerId", "packageVersionStatus", "requiresUpdating", "systemInfo", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -182,9 +184,11 @@ class Agent(BaseModel):
 
         _obj = cls.model_validate({
             "AgentTags": obj.get("AgentTags") if obj.get("AgentTags") is not None else [],
+                        "DisplayNameFormat": obj.get("DisplayNameFormat"),
                         "IP": obj.get("IP"),
                         "Interfaces": ( [Interface.from_dict(_item) for _item in obj.get("Interfaces", [])] if obj.get("Interfaces") is not None else None),
                         "LastUpdate": obj.get("LastUpdate"),
+                        "PortIDFormat": obj.get("PortIDFormat"),
                         "ReservationID": obj.get("ReservationID"),
                         "SelectedEnv": SelectedEnv.from_dict(obj["SelectedEnv"]) if obj.get("SelectedEnv") is not None else None,
                         "SelectionStatus": obj.get("SelectionStatus"),
