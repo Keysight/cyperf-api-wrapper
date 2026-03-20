@@ -23,11 +23,9 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.authentication_settings import AuthenticationSettings
-from cyperf.models.inner_ip_sec_range import InnerIPSecRange
 from cyperf.models.local_subnet_config import LocalSubnetConfig
 from cyperf.models.p1_config import P1Config
 from cyperf.models.p2_config import P2Config
-from cyperf.models.protected_subnet_config import ProtectedSubnetConfig
 from cyperf.models.remote_access import RemoteAccess
 from cyperf.models.remote_subnet_config import RemoteSubnetConfig
 from cyperf.models.timers import Timers
@@ -35,19 +33,16 @@ from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class IPSecRange(BaseModel):
+class InnerIPSecRange(BaseModel):
     """
-    IPSecRange
+    InnerIPSecRange
     """ # noqa: E501
     var_auth_settings: Optional[AuthenticationSettings] = Field(default=None, alias="AuthSettings")
     ike_phase1_config: Optional[P1Config] = Field(default=None, alias="IKEPhase1Config")
     ike_phase2_config: Optional[P2Config] = Field(default=None, alias="IKEPhase2Config")
     ip_sec_range_name: Annotated[str, Field(strict=True)] = Field(alias="IPSecRangeName")
-    inner_ip_sec: Optional[StrictBool] = Field(default=None, alias="InnerIPSec")
-    inner_ip_sec_range: Optional[InnerIPSecRange] = Field(default=None, alias="InnerIPSecRange")
     local_sub_config: Optional[LocalSubnetConfig] = Field(default=None, alias="LocalSubConfig")
-    multi_p2_over_p1: Optional[StrictBool] = Field(default=None, alias="MultiP2OverP1")
-    protected_sub_config: Optional[ProtectedSubnetConfig] = Field(default=None, description="Deeprecated. Use RemoteSubConfig instead.", alias="ProtectedSubConfig")
+    multi_p2_over_p1: StrictBool = Field(alias="MultiP2OverP1")
     public_peer: Annotated[str, Field(strict=True)] = Field(alias="PublicPeer")
     public_peer_increment: Annotated[str, Field(strict=True)] = Field(alias="PublicPeerIncrement")
     remote_access: Optional[RemoteAccess] = Field(default=None, alias="RemoteAccess")
@@ -57,7 +52,7 @@ class IPSecRange(BaseModel):
     tunnel_count_per_outer_ip: StrictInt = Field(alias="TunnelCountPerOuterIP")
     id: StrictStr
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["AuthSettings", "IKEPhase1Config", "IKEPhase2Config", "IPSecRangeName", "InnerIPSec", "InnerIPSecRange", "LocalSubConfig", "MultiP2OverP1", "ProtectedSubConfig", "PublicPeer", "PublicPeerIncrement", "RemoteAccess", "RemoteSubConfig", "TestScenario", "Timers", "TunnelCountPerOuterIP", "id", "links"]
+    __properties: ClassVar[List[str]] = ["AuthSettings", "IKEPhase1Config", "IKEPhase2Config", "IPSecRangeName", "LocalSubConfig", "MultiP2OverP1", "PublicPeer", "PublicPeerIncrement", "RemoteAccess", "RemoteSubConfig", "TestScenario", "Timers", "TunnelCountPerOuterIP", "id", "links"]
 
     @field_validator('ip_sec_range_name')
     def ip_sec_range_name_validate_regular_expression(cls, value):
@@ -105,7 +100,7 @@ class IPSecRange(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of IPSecRange from a JSON string"""
+        """Create an instance of InnerIPSecRange from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -135,15 +130,9 @@ class IPSecRange(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of ike_phase2_config
         if self.ike_phase2_config:
             _dict['IKEPhase2Config'] = self.ike_phase2_config.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of inner_ip_sec_range
-        if self.inner_ip_sec_range:
-            _dict['InnerIPSecRange'] = self.inner_ip_sec_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of local_sub_config
         if self.local_sub_config:
             _dict['LocalSubConfig'] = self.local_sub_config.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of protected_sub_config
-        if self.protected_sub_config:
-            _dict['ProtectedSubConfig'] = self.protected_sub_config.to_dict()
         # override the default output from pydantic by calling `to_dict()` of remote_access
         if self.remote_access:
             _dict['RemoteAccess'] = self.remote_access.to_dict()
@@ -164,7 +153,7 @@ class IPSecRange(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of IPSecRange from a dict"""
+        """Create an instance of InnerIPSecRange from a dict"""
         if obj is None:
             return None
 
@@ -178,11 +167,8 @@ class IPSecRange(BaseModel):
                         "IKEPhase1Config": P1Config.from_dict(obj["IKEPhase1Config"]) if obj.get("IKEPhase1Config") is not None else None,
                         "IKEPhase2Config": P2Config.from_dict(obj["IKEPhase2Config"]) if obj.get("IKEPhase2Config") is not None else None,
                         "IPSecRangeName": obj.get("IPSecRangeName"),
-                        "InnerIPSec": obj.get("InnerIPSec"),
-                        "InnerIPSecRange": InnerIPSecRange.from_dict(obj["InnerIPSecRange"]) if obj.get("InnerIPSecRange") is not None else None,
                         "LocalSubConfig": LocalSubnetConfig.from_dict(obj["LocalSubConfig"]) if obj.get("LocalSubConfig") is not None else None,
                         "MultiP2OverP1": obj.get("MultiP2OverP1"),
-                        "ProtectedSubConfig": ProtectedSubnetConfig.from_dict(obj["ProtectedSubConfig"]) if obj.get("ProtectedSubConfig") is not None else None,
                         "PublicPeer": obj.get("PublicPeer"),
                         "PublicPeerIncrement": obj.get("PublicPeerIncrement"),
                         "RemoteAccess": RemoteAccess.from_dict(obj["RemoteAccess"]) if obj.get("RemoteAccess") is not None else None,

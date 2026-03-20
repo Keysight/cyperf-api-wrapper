@@ -6,9 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **agent_tags** | **List[str]** | A list of tags | [optional] 
+**display_name_format** | **str** | display agent name format | [optional] 
 **ip** | **str** | The management IP of the agent | [optional] [readonly] 
 **interfaces** | [**List[Interface]**](Interface.md) | A list of test interfaces available on the agent | [optional] 
 **last_update** | **int** | A Unix timestamp that indicates when the agent was last updated | [optional] [readonly] 
+**port_id_format** | **str** | port agent id format | [optional] 
 **reservation_id** | **str** | The ID of the reservation | [optional] [readonly] 
 **selected_env** | [**SelectedEnv**](SelectedEnv.md) |  | [optional] 
 **selection_status** | **str** | The current status of the selection operation | [optional] 

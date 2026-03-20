@@ -246,6 +246,8 @@ from cyperf.models.get_resources_custom_import_operations200_response import Get
 from cyperf.models.get_resources_custom_import_operations200_response_one_of import GetResourcesCustomImportOperations200ResponseOneOf
 from cyperf.models.get_resources_http_profiles200_response import GetResourcesHttpProfiles200Response
 from cyperf.models.get_resources_http_profiles200_response_one_of import GetResourcesHttpProfiles200ResponseOneOf
+from cyperf.models.get_resources_llm_api_profiles200_response import GetResourcesLlmApiProfiles200Response
+from cyperf.models.get_resources_llm_api_profiles200_response_one_of import GetResourcesLlmApiProfiles200ResponseOneOf
 from cyperf.models.get_result_files200_response import GetResultFiles200Response
 from cyperf.models.get_result_files200_response_one_of import GetResultFiles200ResponseOneOf
 from cyperf.models.get_result_stats200_response import GetResultStats200Response
@@ -280,10 +282,12 @@ from cyperf.models.import_all_operation import ImportAllOperation
 from cyperf.models.import_offline_license_result import ImportOfflineLicenseResult
 from cyperf.models.ingest_operation import IngestOperation
 from cyperf.models.inner_ip_range import InnerIPRange
+from cyperf.models.inner_ip_sec_range import InnerIPSecRange
 from cyperf.models.interface import Interface
 from cyperf.models.ip_mask import IpMask
 from cyperf.models.ip_preference import IpPreference
 from cyperf.models.ip_ver import IpVer
+from cyperf.models.llmapi_profile import LLMAPIProfile
 from cyperf.models.license import License
 from cyperf.models.license_receipt import LicenseReceipt
 from cyperf.models.license_server_metadata import LicenseServerMetadata
