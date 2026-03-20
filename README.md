@@ -27,6 +27,9 @@ Then import the package:
 ```python
 import cyperf
 ```
+### Tests
+
+Execute `pytest` to run the tests.
 
 ## Getting Started
 
@@ -97,6 +100,7 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**start_controllers_reboot_port**](docs/AgentsApi.md#start_controllers_reboot_port) | **POST** /api/v2/controllers/operations/reboot-port | 
 *AgentsApi* | [**start_controllers_set_app**](docs/AgentsApi.md#start_controllers_set_app) | **POST** /api/v2/controllers/operations/set-app | 
 *AgentsApi* | [**start_controllers_set_node_aggregation**](docs/AgentsApi.md#start_controllers_set_node_aggregation) | **POST** /api/v2/controllers/operations/set-node-aggregation | 
+*AgentsApi* | [**start_controllers_set_node_app**](docs/AgentsApi.md#start_controllers_set_node_app) | **POST** /api/v2/controllers/operations/set-node-app | 
 *AgentsApi* | [**start_controllers_set_port_link_state**](docs/AgentsApi.md#start_controllers_set_port_link_state) | **POST** /api/v2/controllers/operations/set-port-link-state | 
 *AgentsApi* | [**start_controllers_update_port_tags**](docs/AgentsApi.md#start_controllers_update_port_tags) | **POST** /api/v2/controllers/operations/update-port-tags | 
 *ApplicationResourcesApi* | [**delete_resources_capture**](docs/ApplicationResourcesApi.md#delete_resources_capture) | **DELETE** /api/v2/resources/captures/{captureId} | 
@@ -117,6 +121,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**delete_resources_tls_dh**](docs/ApplicationResourcesApi.md#delete_resources_tls_dh) | **DELETE** /api/v2/resources/tls-dhs/{tlsDhId} | 
 *ApplicationResourcesApi* | [**delete_resources_tls_key**](docs/ApplicationResourcesApi.md#delete_resources_tls_key) | **DELETE** /api/v2/resources/tls-keys/{tlsKeyId} | 
 *ApplicationResourcesApi* | [**delete_resources_user_defined_app**](docs/ApplicationResourcesApi.md#delete_resources_user_defined_app) | **DELETE** /api/v2/resources/user-defined-apps/{userDefinedAppId} | 
+*ApplicationResourcesApi* | [**delete_resources_voice_custom_flow**](docs/ApplicationResourcesApi.md#delete_resources_voice_custom_flow) | **DELETE** /api/v2/resources/voice-custom-flows/{voiceCustomFlowId} | 
 *ApplicationResourcesApi* | [**get_capture_flows**](docs/ApplicationResourcesApi.md#get_capture_flows) | **GET** /api/v2/resources/captures/{captureId}/flows | 
 *ApplicationResourcesApi* | [**get_flow_exchanges**](docs/ApplicationResourcesApi.md#get_flow_exchanges) | **GET** /api/v2/resources/captures/{captureId}/flows/{flowId}/exchanges | 
 *ApplicationResourcesApi* | [**get_resources_app_by_id**](docs/ApplicationResourcesApi.md#get_resources_app_by_id) | **GET** /api/v2/resources/apps/{appId} | 
@@ -155,6 +160,8 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_resources_http_library_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_http_library_upload_file_result) | **GET** /api/v2/resources/http-library/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**get_resources_http_profile_by_id**](docs/ApplicationResourcesApi.md#get_resources_http_profile_by_id) | **GET** /api/v2/resources/http-profiles/{httpProfileId} | 
 *ApplicationResourcesApi* | [**get_resources_http_profiles**](docs/ApplicationResourcesApi.md#get_resources_http_profiles) | **GET** /api/v2/resources/http-profiles | 
+*ApplicationResourcesApi* | [**get_resources_llm_api_profile_by_id**](docs/ApplicationResourcesApi.md#get_resources_llm_api_profile_by_id) | **GET** /api/v2/resources/llm-api-profiles/{llmApiProfileId} | 
+*ApplicationResourcesApi* | [**get_resources_llm_api_profiles**](docs/ApplicationResourcesApi.md#get_resources_llm_api_profiles) | **GET** /api/v2/resources/llm-api-profiles | 
 *ApplicationResourcesApi* | [**get_resources_media_file_by_id**](docs/ApplicationResourcesApi.md#get_resources_media_file_by_id) | **GET** /api/v2/resources/media-files/{mediaFileId} | 
 *ApplicationResourcesApi* | [**get_resources_media_file_content_file**](docs/ApplicationResourcesApi.md#get_resources_media_file_content_file) | **GET** /api/v2/resources/media-files/{mediaFileId}/contentFile | 
 *ApplicationResourcesApi* | [**get_resources_media_files**](docs/ApplicationResourcesApi.md#get_resources_media_files) | **GET** /api/v2/resources/media-files | 
@@ -205,6 +212,10 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**get_resources_tls_keys_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_tls_keys_upload_file_result) | **GET** /api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**get_resources_user_defined_apps**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps) | **GET** /api/v2/resources/user-defined-apps | 
 *ApplicationResourcesApi* | [**get_resources_user_defined_apps_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_user_defined_apps_upload_file_result) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId}/result | 
+*ApplicationResourcesApi* | [**get_resources_voice_custom_flow_by_id**](docs/ApplicationResourcesApi.md#get_resources_voice_custom_flow_by_id) | **GET** /api/v2/resources/voice-custom-flows/{voiceCustomFlowId} | 
+*ApplicationResourcesApi* | [**get_resources_voice_custom_flow_content_file**](docs/ApplicationResourcesApi.md#get_resources_voice_custom_flow_content_file) | **GET** /api/v2/resources/voice-custom-flows/{voiceCustomFlowId}/contentFile | 
+*ApplicationResourcesApi* | [**get_resources_voice_custom_flows**](docs/ApplicationResourcesApi.md#get_resources_voice_custom_flows) | **GET** /api/v2/resources/voice-custom-flows | 
+*ApplicationResourcesApi* | [**get_resources_voice_custom_flows_upload_file_result**](docs/ApplicationResourcesApi.md#get_resources_voice_custom_flows_upload_file_result) | **GET** /api/v2/resources/voice-custom-flows/operations/uploadFile/{uploadFileId}/result | 
 *ApplicationResourcesApi* | [**start_resources_apps_export_all**](docs/ApplicationResourcesApi.md#start_resources_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 *ApplicationResourcesApi* | [**start_resources_captures_batch_delete**](docs/ApplicationResourcesApi.md#start_resources_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
 *ApplicationResourcesApi* | [**start_resources_captures_encrypted_upload_file**](docs/ApplicationResourcesApi.md#start_resources_captures_encrypted_upload_file) | **POST** /api/v2/resources/captures/encrypted/operations/uploadFile | 
@@ -237,6 +248,7 @@ Class | Method | HTTP request | Description
 *ApplicationResourcesApi* | [**start_resources_tls_keys_upload_file**](docs/ApplicationResourcesApi.md#start_resources_tls_keys_upload_file) | **POST** /api/v2/resources/tls-keys/operations/uploadFile | 
 *ApplicationResourcesApi* | [**start_resources_user_defined_apps_export_all**](docs/ApplicationResourcesApi.md#start_resources_user_defined_apps_export_all) | **POST** /api/v2/resources/user-defined-apps/operations/export-all | 
 *ApplicationResourcesApi* | [**start_resources_user_defined_apps_upload_file**](docs/ApplicationResourcesApi.md#start_resources_user_defined_apps_upload_file) | **POST** /api/v2/resources/user-defined-apps/operations/uploadFile | 
+*ApplicationResourcesApi* | [**start_resources_voice_custom_flows_upload_file**](docs/ApplicationResourcesApi.md#start_resources_voice_custom_flows_upload_file) | **POST** /api/v2/resources/voice-custom-flows/operations/uploadFile | 
 *AuthorizationApi* | [**authenticate**](docs/AuthorizationApi.md#authenticate) | **POST** /auth/realms/keysight/protocol/openid-connect/token | 
 *BrokersApi* | [**create_brokers**](docs/BrokersApi.md#create_brokers) | **POST** /api/v2/brokers | 
 *BrokersApi* | [**delete_broker**](docs/BrokersApi.md#delete_broker) | **DELETE** /api/v2/brokers/{brokerId} | 
@@ -574,6 +586,8 @@ Class | Method | HTTP request | Description
  - [GetResourcesCustomImportOperations200ResponseOneOf](docs/GetResourcesCustomImportOperations200ResponseOneOf.md)
  - [GetResourcesHttpProfiles200Response](docs/GetResourcesHttpProfiles200Response.md)
  - [GetResourcesHttpProfiles200ResponseOneOf](docs/GetResourcesHttpProfiles200ResponseOneOf.md)
+ - [GetResourcesLlmApiProfiles200Response](docs/GetResourcesLlmApiProfiles200Response.md)
+ - [GetResourcesLlmApiProfiles200ResponseOneOf](docs/GetResourcesLlmApiProfiles200ResponseOneOf.md)
  - [GetResultFiles200Response](docs/GetResultFiles200Response.md)
  - [GetResultFiles200ResponseOneOf](docs/GetResultFiles200ResponseOneOf.md)
  - [GetResultStats200Response](docs/GetResultStats200Response.md)
@@ -608,10 +622,12 @@ Class | Method | HTTP request | Description
  - [ImportOfflineLicenseResult](docs/ImportOfflineLicenseResult.md)
  - [IngestOperation](docs/IngestOperation.md)
  - [InnerIPRange](docs/InnerIPRange.md)
+ - [InnerIPSecRange](docs/InnerIPSecRange.md)
  - [Interface](docs/Interface.md)
  - [IpMask](docs/IpMask.md)
  - [IpPreference](docs/IpPreference.md)
  - [IpVer](docs/IpVer.md)
+ - [LLMAPIProfile](docs/LLMAPIProfile.md)
  - [License](docs/License.md)
  - [LicenseReceipt](docs/LicenseReceipt.md)
  - [LicenseServerMetadata](docs/LicenseServerMetadata.md)
@@ -709,9 +725,10 @@ Class | Method | HTTP request | Description
  - [SessionReuseMethodTLS12](docs/SessionReuseMethodTLS12.md)
  - [SessionReuseMethodTLS13](docs/SessionReuseMethodTLS13.md)
  - [SetAggregationModeOperation](docs/SetAggregationModeOperation.md)
- - [SetAppOperation](docs/SetAppOperation.md)
+ - [SetControllerAppOperation](docs/SetControllerAppOperation.md)
  - [SetDpdkModeOperationInput](docs/SetDpdkModeOperationInput.md)
  - [SetLinkStateOperation](docs/SetLinkStateOperation.md)
+ - [SetNodesAppOperation](docs/SetNodesAppOperation.md)
  - [SetNtpOperationInput](docs/SetNtpOperationInput.md)
  - [SimulatedIdP](docs/SimulatedIdP.md)
  - [Snapshot](docs/Snapshot.md)
@@ -733,6 +750,7 @@ Class | Method | HTTP request | Description
  - [TcpProfile](docs/TcpProfile.md)
  - [TestInfo](docs/TestInfo.md)
  - [TestStateChangedOperation](docs/TestStateChangedOperation.md)
+ - [TestUsage](docs/TestUsage.md)
  - [TimeValue](docs/TimeValue.md)
  - [TimelineSegment](docs/TimelineSegment.md)
  - [TimelineSegmentBase](docs/TimelineSegmentBase.md)

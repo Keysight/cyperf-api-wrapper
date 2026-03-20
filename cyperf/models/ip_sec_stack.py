@@ -40,7 +40,7 @@ class IPSecStack(BaseModel):
     enable_rekey: StrictBool = Field(alias="EnableRekey")
     ip_sec_range: Optional[IPSecRange] = Field(default=None, alias="IPSecRange")
     ip_sec_stack_name: Annotated[str, Field(strict=True)] = Field(alias="IPSecStackName")
-    local_sub_config: Optional[LocalSubnetConfig] = Field(default=None, alias="LocalSubConfig")
+    local_sub_config: Optional[LocalSubnetConfig] = Field(default=None, description="Deeprecated. Use IPSecRange.LocalSubConfig instead.", alias="LocalSubConfig")
     log_keys: StrictBool = Field(alias="LogKeys")
     max_initiation_rate: StrictInt = Field(alias="MaxInitiationRate")
     max_pending: StrictInt = Field(alias="MaxPending")

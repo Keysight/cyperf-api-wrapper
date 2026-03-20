@@ -28,6 +28,7 @@ from cyperf.models.create_app_or_attack_operation_input import CreateAppOrAttack
 from cyperf.models.endpoint import Endpoint
 from cyperf.models.http_profile import HTTPProfile
 from cyperf.models.ip_preference import IpPreference
+from cyperf.models.llmapi_profile import LLMAPIProfile
 from cyperf.models.network_mapping import NetworkMapping
 from cyperf.models.params import Params
 from cyperf.models.quic_profile import QUICProfile
@@ -74,7 +75,9 @@ class Attack(BaseModel):
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
     client_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ClientTLSProfile")
+    inherit_llmapi: Optional[StrictBool] = Field(default=None, alias="InheritLLMAPI")
     inherit_tls: Optional[StrictBool] = Field(default=None, alias="InheritTLS")
+    llmapi_profiles: Optional[List[LLMAPIProfile]] = Field(default=None, alias="LLMAPIProfiles")
     server_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ServerTLSProfile")
     supports_tls: Optional[StrictBool] = Field(default=None, alias="SupportsTLS")
     tracks: Optional[List[AttackTrack]] = Field(default=None, alias="Tracks")
@@ -84,7 +87,7 @@ class Attack(BaseModel):
     _modify_excluded_dut_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateAttackNetworkMapping" })
     modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
     _modify_tags_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateAttackNetworkMapping" })
-    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "ClientQUICProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "InheritQUICProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "ServerQUICProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links", "ClientTLSProfile", "InheritTLS", "ServerTLSProfile", "SupportsTLS", "Tracks", "create", "modify-excluded-dut-recursively", "modify-tags-recursively"]
+    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "ClientQUICProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "InheritQUICProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "ServerQUICProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links", "ClientTLSProfile", "InheritLLMAPI", "InheritTLS", "LLMAPIProfiles", "ServerTLSProfile", "SupportsTLS", "Tracks", "create", "modify-excluded-dut-recursively", "modify-tags-recursively"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -181,6 +184,13 @@ class Attack(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of client_tls_profile
         if self.client_tls_profile:
             _dict['ClientTLSProfile'] = self.client_tls_profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in llmapi_profiles (list)
+        _items = []
+        if self.llmapi_profiles:
+            for _item in self.llmapi_profiles:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['LLMAPIProfiles'] = _items
         # override the default output from pydantic by calling `to_dict()` of server_tls_profile
         if self.server_tls_profile:
             _dict['ServerTLSProfile'] = self.server_tls_profile.to_dict()
@@ -259,7 +269,9 @@ class Attack(BaseModel):
                         "id": obj.get("id"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "ClientTLSProfile": TLSProfile.from_dict(obj["ClientTLSProfile"]) if obj.get("ClientTLSProfile") is not None else None,
+                        "InheritLLMAPI": obj.get("InheritLLMAPI"),
                         "InheritTLS": obj.get("InheritTLS"),
+                        "LLMAPIProfiles": ( [LLMAPIProfile.from_dict(_item) for _item in obj.get("LLMAPIProfiles", [])] if obj.get("LLMAPIProfiles") is not None else None),
                         "ServerTLSProfile": TLSProfile.from_dict(obj["ServerTLSProfile"]) if obj.get("ServerTLSProfile") is not None else None,
                         "SupportsTLS": obj.get("SupportsTLS"),
                         "Tracks": ( [AttackTrack.from_dict(_item) for _item in obj.get("Tracks", [])] if obj.get("Tracks") is not None else None),

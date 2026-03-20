@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **enable_rekey** | **bool** |  | 
 **ip_sec_range** | [**IPSecRange**](IPSecRange.md) |  | [optional] 
 **ip_sec_stack_name** | **str** |  | 
-**local_sub_config** | [**LocalSubnetConfig**](LocalSubnetConfig.md) |  | [optional] 
+**local_sub_config** | [**LocalSubnetConfig**](LocalSubnetConfig.md) | Deeprecated. Use IPSecRange.LocalSubConfig instead. | [optional] 
 **log_keys** | **bool** |  | 
 **max_initiation_rate** | **int** |  | 
 **max_pending** | **int** |  | 

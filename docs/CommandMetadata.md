@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **direction** | **str** | The direction of the strike | [optional] 
 **is_banner** | **bool** | Indicates that this is a command that is required, can only be add once and also must be the first | [optional] 
 **is_for_app_traffic_only** | **bool** | Indicates that this is a command that can only be used in application traffic and cannot be mixed with attack traffic | [optional] 
+**is_llm_strike** | **bool** | Indicates if the command is an LLM strike | [optional] 
 **is_streaming** | **bool** | Indicates if the application&#39;s traffic is a UDP stream | [optional] 
 **keywords** | [**List[AppsecAppMetadataKeywordsInner]**](AppsecAppMetadataKeywordsInner.md) | The keywords of the strike | [optional] 
 **legacy_names** | **List[str]** | The names of the equivalent application/strike | [optional] 

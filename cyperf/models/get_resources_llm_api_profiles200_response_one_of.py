@@ -18,25 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.chassis_info import ChassisInfo
-from cyperf.models.traffic_agent_info import TrafficAgentInfo
+from cyperf.models.llmapi_profile import LLMAPIProfile
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class SystemInfo(BaseModel):
+class GetResourcesLlmApiProfiles200ResponseOneOf(BaseModel):
     """
-    SystemInfo
+    GetResourcesLlmApiProfiles200ResponseOneOf
     """ # noqa: E501
-    arch: Optional[StrictStr] = None
-    chassis_info: Optional[ChassisInfo] = Field(default=None, alias="chassisInfo")
-    kernel_version: Optional[StrictStr] = Field(default=None, alias="kernelVersion")
-    os_name: Optional[StrictStr] = Field(default=None, alias="osName")
-    port_manager_version: Optional[StrictStr] = Field(default=None, alias="portManagerVersion")
-    traffic_agent_info: Optional[List[TrafficAgentInfo]] = Field(default=None, alias="trafficAgentInfo")
-    __properties: ClassVar[List[str]] = ["arch", "chassisInfo", "kernelVersion", "osName", "portManagerVersion", "trafficAgentInfo"]
+    data: Optional[List[LLMAPIProfile]] = None
+    total_count: Optional[StrictInt] = Field(default=None, alias="totalCount")
+    __properties: ClassVar[List[str]] = ["data", "totalCount"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,7 +51,7 @@ class SystemInfo(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SystemInfo from a JSON string"""
+        """Create an instance of GetResourcesLlmApiProfiles200ResponseOneOf from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -68,18 +63,8 @@ class SystemInfo(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "arch",
-            "kernel_version",
-            "os_name",
-            "port_manager_version",
-            "traffic_agent_info",
         ])
 
         _dict = self.model_dump(
@@ -87,21 +72,18 @@ class SystemInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of chassis_info
-        if self.chassis_info:
-            _dict['chassisInfo'] = self.chassis_info.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in traffic_agent_info (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
         _items = []
-        if self.traffic_agent_info:
-            for _item in self.traffic_agent_info:
+        if self.data:
+            for _item in self.data:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['trafficAgentInfo'] = _items
+            _dict['data'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SystemInfo from a dict"""
+        """Create an instance of GetResourcesLlmApiProfiles200ResponseOneOf from a dict"""
         if obj is None:
             return None
 
@@ -111,12 +93,8 @@ class SystemInfo(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "arch": obj.get("arch"),
-                        "chassisInfo": ChassisInfo.from_dict(obj["chassisInfo"]) if obj.get("chassisInfo") is not None else None,
-                        "kernelVersion": obj.get("kernelVersion"),
-                        "osName": obj.get("osName"),
-                        "portManagerVersion": obj.get("portManagerVersion"),
-                        "trafficAgentInfo": ( [TrafficAgentInfo.from_dict(_item) for _item in obj.get("trafficAgentInfo", [])] if obj.get("trafficAgentInfo") is not None else None)
+            "data": ( [LLMAPIProfile.from_dict(_item) for _item in obj.get("data", [])] if obj.get("data") is not None else None),
+                        "totalCount": obj.get("totalCount")
             ,
             "links": obj.get("links")
         })

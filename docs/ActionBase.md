@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **is_banner** | **bool** | Indicates if this is a required action, can only be add once and also must be the first | [optional] 
 **is_deprecated** | **bool** | A value that indicates if the action is deprecated. | [optional] 
 **is_hostname** | **int** |  | [optional] 
+**is_llm_strike** | **bool** | A value that indicates if the action is an LLM strike. | [optional] 
 **is_strike** | **bool** | A value that indicates if the action is a strike. | [optional] 
 **name** | **str** | The name of the action. | [optional] 
 **params** | [**List[Params]**](Params.md) |  | [optional] 

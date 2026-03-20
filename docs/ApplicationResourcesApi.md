@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**delete_resources_tls_dh**](ApplicationResourcesApi.md#delete_resources_tls_dh) | **DELETE** /api/v2/resources/tls-dhs/{tlsDhId} | 
 [**delete_resources_tls_key**](ApplicationResourcesApi.md#delete_resources_tls_key) | **DELETE** /api/v2/resources/tls-keys/{tlsKeyId} | 
 [**delete_resources_user_defined_app**](ApplicationResourcesApi.md#delete_resources_user_defined_app) | **DELETE** /api/v2/resources/user-defined-apps/{userDefinedAppId} | 
+[**delete_resources_voice_custom_flow**](ApplicationResourcesApi.md#delete_resources_voice_custom_flow) | **DELETE** /api/v2/resources/voice-custom-flows/{voiceCustomFlowId} | 
 [**get_capture_flows**](ApplicationResourcesApi.md#get_capture_flows) | **GET** /api/v2/resources/captures/{captureId}/flows | 
 [**get_flow_exchanges**](ApplicationResourcesApi.md#get_flow_exchanges) | **GET** /api/v2/resources/captures/{captureId}/flows/{flowId}/exchanges | 
 [**get_resources_app_by_id**](ApplicationResourcesApi.md#get_resources_app_by_id) | **GET** /api/v2/resources/apps/{appId} | 
@@ -60,6 +61,8 @@ Method | HTTP request | Description
 [**get_resources_http_library_upload_file_result**](ApplicationResourcesApi.md#get_resources_http_library_upload_file_result) | **GET** /api/v2/resources/http-library/operations/uploadFile/{uploadFileId}/result | 
 [**get_resources_http_profile_by_id**](ApplicationResourcesApi.md#get_resources_http_profile_by_id) | **GET** /api/v2/resources/http-profiles/{httpProfileId} | 
 [**get_resources_http_profiles**](ApplicationResourcesApi.md#get_resources_http_profiles) | **GET** /api/v2/resources/http-profiles | 
+[**get_resources_llm_api_profile_by_id**](ApplicationResourcesApi.md#get_resources_llm_api_profile_by_id) | **GET** /api/v2/resources/llm-api-profiles/{llmApiProfileId} | 
+[**get_resources_llm_api_profiles**](ApplicationResourcesApi.md#get_resources_llm_api_profiles) | **GET** /api/v2/resources/llm-api-profiles | 
 [**get_resources_media_file_by_id**](ApplicationResourcesApi.md#get_resources_media_file_by_id) | **GET** /api/v2/resources/media-files/{mediaFileId} | 
 [**get_resources_media_file_content_file**](ApplicationResourcesApi.md#get_resources_media_file_content_file) | **GET** /api/v2/resources/media-files/{mediaFileId}/contentFile | 
 [**get_resources_media_files**](ApplicationResourcesApi.md#get_resources_media_files) | **GET** /api/v2/resources/media-files | 
@@ -110,6 +113,10 @@ Method | HTTP request | Description
 [**get_resources_tls_keys_upload_file_result**](ApplicationResourcesApi.md#get_resources_tls_keys_upload_file_result) | **GET** /api/v2/resources/tls-keys/operations/uploadFile/{uploadFileId}/result | 
 [**get_resources_user_defined_apps**](ApplicationResourcesApi.md#get_resources_user_defined_apps) | **GET** /api/v2/resources/user-defined-apps | 
 [**get_resources_user_defined_apps_upload_file_result**](ApplicationResourcesApi.md#get_resources_user_defined_apps_upload_file_result) | **GET** /api/v2/resources/user-defined-apps/operations/uploadFile/{uploadFileId}/result | 
+[**get_resources_voice_custom_flow_by_id**](ApplicationResourcesApi.md#get_resources_voice_custom_flow_by_id) | **GET** /api/v2/resources/voice-custom-flows/{voiceCustomFlowId} | 
+[**get_resources_voice_custom_flow_content_file**](ApplicationResourcesApi.md#get_resources_voice_custom_flow_content_file) | **GET** /api/v2/resources/voice-custom-flows/{voiceCustomFlowId}/contentFile | 
+[**get_resources_voice_custom_flows**](ApplicationResourcesApi.md#get_resources_voice_custom_flows) | **GET** /api/v2/resources/voice-custom-flows | 
+[**get_resources_voice_custom_flows_upload_file_result**](ApplicationResourcesApi.md#get_resources_voice_custom_flows_upload_file_result) | **GET** /api/v2/resources/voice-custom-flows/operations/uploadFile/{uploadFileId}/result | 
 [**start_resources_apps_export_all**](ApplicationResourcesApi.md#start_resources_apps_export_all) | **POST** /api/v2/resources/apps/operations/export-all | 
 [**start_resources_captures_batch_delete**](ApplicationResourcesApi.md#start_resources_captures_batch_delete) | **POST** /api/v2/resources/captures/operations/batch-delete | 
 [**start_resources_captures_encrypted_upload_file**](ApplicationResourcesApi.md#start_resources_captures_encrypted_upload_file) | **POST** /api/v2/resources/captures/encrypted/operations/uploadFile | 
@@ -142,6 +149,7 @@ Method | HTTP request | Description
 [**start_resources_tls_keys_upload_file**](ApplicationResourcesApi.md#start_resources_tls_keys_upload_file) | **POST** /api/v2/resources/tls-keys/operations/uploadFile | 
 [**start_resources_user_defined_apps_export_all**](ApplicationResourcesApi.md#start_resources_user_defined_apps_export_all) | **POST** /api/v2/resources/user-defined-apps/operations/export-all | 
 [**start_resources_user_defined_apps_upload_file**](ApplicationResourcesApi.md#start_resources_user_defined_apps_upload_file) | **POST** /api/v2/resources/user-defined-apps/operations/uploadFile | 
+[**start_resources_voice_custom_flows_upload_file**](ApplicationResourcesApi.md#start_resources_voice_custom_flows_upload_file) | **POST** /api/v2/resources/voice-custom-flows/operations/uploadFile | 
 
 
 # **delete_resources_capture**
@@ -1507,6 +1515,82 @@ void (empty response body)
 **401** | The user is not authorized to delete resources. |  -  |
 **403** | The user is not allowed to delete an application not owned by them. |  -  |
 **404** | A resource with the specified ID was not found. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_resources_voice_custom_flow**
+> delete_resources_voice_custom_flow(voice_custom_flow_id)
+
+
+
+Delete a particular voice custom flow.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    voice_custom_flow_id = 'voice_custom_flow_id_example' # str | The ID of the voice custom flow.
+
+    try:
+        api_instance.delete_resources_voice_custom_flow(voice_custom_flow_id)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->delete_resources_voice_custom_flow: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **voice_custom_flow_id** | **str**| The ID of the voice custom flow. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The voice custom flow was successfully deleted. |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4525,6 +4609,165 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The list of HTTP profiles |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_llm_api_profile_by_id**
+> LLMAPIProfile get_resources_llm_api_profile_by_id(llm_api_profile_id)
+
+
+
+Get a particular LLM API profile.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.llmapi_profile import LLMAPIProfile
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    llm_api_profile_id = 'llm_api_profile_id_example' # str | The ID of the llm api profile.
+
+    try:
+        api_response = api_instance.get_resources_llm_api_profile_by_id(llm_api_profile_id)
+        print("The response of ApplicationResourcesApi->get_resources_llm_api_profile_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_llm_api_profile_by_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **llm_api_profile_id** | **str**| The ID of the llm api profile. | 
+
+### Return type
+
+[**LLMAPIProfile**](LLMAPIProfile.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested LLM API profile |  -  |
+**404** | An LLM API profile with the specified ID was not found. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_llm_api_profiles**
+> GetResourcesLlmApiProfiles200Response get_resources_llm_api_profiles(take=take, skip=skip)
+
+
+
+Get all the available LLM API profiles.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.get_resources_llm_api_profiles200_response import GetResourcesLlmApiProfiles200Response
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
+
+    try:
+        api_response = api_instance.get_resources_llm_api_profiles(take=take, skip=skip)
+        print("The response of ApplicationResourcesApi->get_resources_llm_api_profiles:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_llm_api_profiles: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
+
+### Return type
+
+[**GetResourcesLlmApiProfiles200Response**](GetResourcesLlmApiProfiles200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of LLM API profiles |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -8464,6 +8707,320 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_resources_voice_custom_flow_by_id**
+> GenericFile get_resources_voice_custom_flow_by_id(voice_custom_flow_id)
+
+
+
+Get a particular voice custom flow.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.generic_file import GenericFile
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    voice_custom_flow_id = 'voice_custom_flow_id_example' # str | The ID of the voice custom flow.
+
+    try:
+        api_response = api_instance.get_resources_voice_custom_flow_by_id(voice_custom_flow_id)
+        print("The response of ApplicationResourcesApi->get_resources_voice_custom_flow_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_voice_custom_flow_by_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **voice_custom_flow_id** | **str**| The ID of the voice custom flow. | 
+
+### Return type
+
+[**GenericFile**](GenericFile.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The requested voice custom flow |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
+**404** | A voice custom flow with the specified ID was not found. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_voice_custom_flow_content_file**
+> bytearray get_resources_voice_custom_flow_content_file(voice_custom_flow_id)
+
+
+
+Get the content of a particular voice custom flow file.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    voice_custom_flow_id = 'voice_custom_flow_id_example' # str | The ID of the voice custom flow.
+
+    try:
+        api_response = api_instance.get_resources_voice_custom_flow_content_file(voice_custom_flow_id)
+        print("The response of ApplicationResourcesApi->get_resources_voice_custom_flow_content_file:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_voice_custom_flow_content_file: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **voice_custom_flow_id** | **str**| The ID of the voice custom flow. | 
+
+### Return type
+
+**bytearray**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream, application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The content of the voice custom flow file |  -  |
+**404** | A voice custom flow file with the specified ID was not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_voice_custom_flows**
+> GetResourcesCertificates200Response get_resources_voice_custom_flows(take=take, skip=skip)
+
+
+
+Get all the available voice custom flows.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.get_resources_certificates200_response import GetResourcesCertificates200Response
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    take = 56 # int | The number of search results to return (optional)
+    skip = 56 # int | The number of search results to skip (optional)
+
+    try:
+        api_response = api_instance.get_resources_voice_custom_flows(take=take, skip=skip)
+        print("The response of ApplicationResourcesApi->get_resources_voice_custom_flows:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_voice_custom_flows: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **take** | **int**| The number of search results to return | [optional] 
+ **skip** | **int**| The number of search results to skip | [optional] 
+
+### Return type
+
+[**GetResourcesCertificates200Response**](GetResourcesCertificates200Response.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of voice custom flows |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_resources_voice_custom_flows_upload_file_result**
+> get_resources_voice_custom_flows_upload_file_result(upload_file_id)
+
+
+
+Get the result of the upload file operation.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    upload_file_id = 'upload_file_id_example' # str | The ID of the uploadfile.
+
+    try:
+        api_instance.get_resources_voice_custom_flows_upload_file_result(upload_file_id)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->get_resources_voice_custom_flows_upload_file_result: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **upload_file_id** | **str**| The ID of the uploadfile. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The payload file that was added |  -  |
+**400** | Bad request |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **start_resources_apps_export_all**
 > AsyncContext start_resources_apps_export_all(export_apps_operation_input=export_apps_operation_input)
 
@@ -10867,6 +11424,81 @@ with cyperf.ApiClient(configuration) as api_client:
         api_instance.start_resources_user_defined_apps_upload_file(file=file)
     except Exception as e:
         print("Exception when calling ApplicationResourcesApi->start_resources_user_defined_apps_upload_file: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **bytearray**|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started. |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_resources_voice_custom_flows_upload_file**
+> start_resources_voice_custom_flows_upload_file(file=file)
+
+
+
+Upload a file.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.ApplicationResourcesApi(api_client)
+    file = None # bytearray |  (optional)
+
+    try:
+        api_instance.start_resources_voice_custom_flows_upload_file(file=file)
+    except Exception as e:
+        print("Exception when calling ApplicationResourcesApi->start_resources_voice_custom_flows_upload_file: %s\n" % e)
 ```
 
 

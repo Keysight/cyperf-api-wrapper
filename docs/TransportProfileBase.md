@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **client_tls_profile** | [**TLSProfile**](TLSProfile.md) |  | [optional] 
 **client_tcp_profile** | [**TcpProfile**](TcpProfile.md) |  | [optional] 
 **ip_tos** | **int** |  | [optional] 
+**llmapi_profiles** | [**List[LLMAPIProfile]**](LLMAPIProfile.md) |  | [optional] 
 **rtp_profile** | [**RTPProfile**](RTPProfile.md) |  | [optional] 
 **server_http_profile** | [**HTTPProfile**](HTTPProfile.md) | The server HTTP profile used in the Scenario. | [optional] 
 **server_quic_profile** | [**QUICProfile**](QUICProfile.md) |  | [optional] 

@@ -35,17 +35,18 @@ class TunnelRange(BaseModel):
     The Tunnel Range assigned to the current test configuration
     """ # noqa: E501
     cisco_any_connect_settings: Optional[CiscoAnyConnectSettings] = Field(default=None, alias="CiscoAnyConnectSettings")
-    dcp_request_timeout: Optional[StrictInt] = Field(default=None, alias="DCPRequestTimeout")
+    dcp_request_timeout: StrictInt = Field(alias="DCPRequestTimeout")
     dns_resolver: Optional[DNSResolver] = Field(default=None, alias="DNSResolver")
     f5_settings: Optional[F5Settings] = Field(default=None, alias="F5Settings")
     fortinet_settings: Optional[FortinetSettings] = Field(default=None, alias="FortinetSettings")
     pangp_settings: Optional[PANGPSettings] = Field(default=None, alias="PANGPSettings")
     tcp_dst_port: StrictInt = Field(alias="TcpDstPort")
     tunnel_count_per_outer_ip: StrictInt = Field(alias="TunnelCountPerOuterIP")
+    tunnel_establishment_reattempts: Optional[StrictInt] = Field(default=None, alias="TunnelEstablishmentReattempts")
     tunnel_establishment_timeout: Optional[StrictInt] = Field(default=None, alias="TunnelEstablishmentTimeout")
     vendor_type: StrictStr = Field(alias="VendorType")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["CiscoAnyConnectSettings", "DCPRequestTimeout", "DNSResolver", "F5Settings", "FortinetSettings", "PANGPSettings", "TcpDstPort", "TunnelCountPerOuterIP", "TunnelEstablishmentTimeout", "VendorType", "links"]
+    __properties: ClassVar[List[str]] = ["CiscoAnyConnectSettings", "DCPRequestTimeout", "DNSResolver", "F5Settings", "FortinetSettings", "PANGPSettings", "TcpDstPort", "TunnelCountPerOuterIP", "TunnelEstablishmentReattempts", "TunnelEstablishmentTimeout", "VendorType", "links"]
 
     @field_validator('vendor_type')
     def vendor_type_validate_enum(cls, value):
@@ -137,6 +138,7 @@ class TunnelRange(BaseModel):
                         "PANGPSettings": PANGPSettings.from_dict(obj["PANGPSettings"]) if obj.get("PANGPSettings") is not None else None,
                         "TcpDstPort": obj.get("TcpDstPort"),
                         "TunnelCountPerOuterIP": obj.get("TunnelCountPerOuterIP"),
+                        "TunnelEstablishmentReattempts": obj.get("TunnelEstablishmentReattempts"),
                         "TunnelEstablishmentTimeout": obj.get("TunnelEstablishmentTimeout"),
                         "VendorType": obj.get("VendorType"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)

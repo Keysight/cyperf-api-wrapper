@@ -33,6 +33,7 @@ class Metadata(BaseModel):
     """ # noqa: E501
     direction: Optional[StrictStr] = Field(default=None, description="The direction of the strike", alias="Direction")
     is_banner: Optional[StrictBool] = Field(default=None, description="Indicates that this is a command that is required, can only be add once and also must be the first", alias="IsBanner")
+    is_llm_strike: Optional[StrictBool] = Field(default=None, description="Indicates if the command is an LLM strike", alias="IsLLMStrike")
     is_streaming: Optional[StrictBool] = Field(default=None, description="Indicates if the application's traffic is a UDP stream", alias="IsStreaming")
     keywords: Optional[List[AppsecAppMetadataKeywordsInner]] = Field(default=None, description="The keywords of the strike", alias="Keywords")
     legacy_names: Optional[List[StrictStr]] = Field(default=None, description="The names of the equivalent application/strike", alias="LegacyNames")
@@ -47,7 +48,7 @@ class Metadata(BaseModel):
     static: Optional[StrictBool] = Field(default=None, description="If true, the application/strike is managed directly by the controller", alias="Static")
     supported_apps: Optional[List[StrictStr]] = Field(default=None, description="The apps that this strike can be used with", alias="SupportedApps")
     year: Optional[StrictStr] = Field(default=None, description="The year of the strike", alias="Year")
-    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "IsStreaming", "Keywords", "LegacyNames", "NoMultiFlowSupport", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "Year"]
+    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "IsLLMStrike", "IsStreaming", "Keywords", "LegacyNames", "NoMultiFlowSupport", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "Year"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -121,6 +122,7 @@ class Metadata(BaseModel):
         _obj = cls.model_validate({
             "Direction": obj.get("Direction"),
                         "IsBanner": obj.get("IsBanner"),
+                        "IsLLMStrike": obj.get("IsLLMStrike"),
                         "IsStreaming": obj.get("IsStreaming"),
                         "Keywords": ( [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj.get("Keywords", [])] if obj.get("Keywords") is not None else None),
                         "LegacyNames": obj.get("LegacyNames") if obj.get("LegacyNames") is not None else [],

@@ -34,6 +34,7 @@ class CommandMetadata(BaseModel):
     direction: Optional[StrictStr] = Field(default=None, description="The direction of the strike", alias="Direction")
     is_banner: Optional[StrictBool] = Field(default=None, description="Indicates that this is a command that is required, can only be add once and also must be the first", alias="IsBanner")
     is_for_app_traffic_only: Optional[StrictBool] = Field(default=None, description="Indicates that this is a command that can only be used in application traffic and cannot be mixed with attack traffic", alias="IsForAppTrafficOnly")
+    is_llm_strike: Optional[StrictBool] = Field(default=None, description="Indicates if the command is an LLM strike", alias="IsLLMStrike")
     is_streaming: Optional[StrictBool] = Field(default=None, description="Indicates if the application's traffic is a UDP stream", alias="IsStreaming")
     keywords: Optional[List[AppsecAppMetadataKeywordsInner]] = Field(default=None, description="The keywords of the strike", alias="Keywords")
     legacy_names: Optional[List[StrictStr]] = Field(default=None, description="The names of the equivalent application/strike", alias="LegacyNames")
@@ -49,7 +50,7 @@ class CommandMetadata(BaseModel):
     supported_apps: Optional[List[StrictStr]] = Field(default=None, description="The apps that this strike can be used with", alias="SupportedApps")
     supported_protocols: Optional[List[StrictStr]] = Field(default=None, description="The list of protocols which support this command", alias="SupportedProtocols")
     year: Optional[StrictStr] = Field(default=None, description="The year of the strike", alias="Year")
-    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "IsForAppTrafficOnly", "IsStreaming", "Keywords", "LegacyNames", "NoMultiFlowSupport", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "SupportedProtocols", "Year"]
+    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "IsForAppTrafficOnly", "IsLLMStrike", "IsStreaming", "Keywords", "LegacyNames", "NoMultiFlowSupport", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "SupportedProtocols", "Year"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -124,6 +125,7 @@ class CommandMetadata(BaseModel):
             "Direction": obj.get("Direction"),
                         "IsBanner": obj.get("IsBanner"),
                         "IsForAppTrafficOnly": obj.get("IsForAppTrafficOnly"),
+                        "IsLLMStrike": obj.get("IsLLMStrike"),
                         "IsStreaming": obj.get("IsStreaming"),
                         "Keywords": ( [AppsecAppMetadataKeywordsInner.from_dict(_item) for _item in obj.get("Keywords", [])] if obj.get("Keywords") is not None else None),
                         "LegacyNames": obj.get("LegacyNames") if obj.get("LegacyNames") is not None else [],
