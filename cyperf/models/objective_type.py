@@ -32,6 +32,7 @@ class ObjectiveType(str, Enum):
     CONNECTIONS_PER_SECOND = 'Connections per second'
     FLOW_RATE = 'Flow rate'
     CONCURRENT_CONNECTIONS = 'Concurrent connections'
+    PROMPTS_PER_SECOND = 'Prompts per second'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

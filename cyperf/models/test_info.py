@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.dashboard import Dashboard
+from cyperf.models.test_usage import TestUsage
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -40,7 +41,8 @@ class TestInfo(BaseModel):
     test_initialized: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when the last test was initialized", alias="testInitialized")
     test_started: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when the test was started", alias="testStarted")
     test_stopped: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when the test was stopped. May be null if the test is still running.", alias="testStopped")
-    __properties: ClassVar[List[str]] = ["dashboards", "defaultDashboardIndex", "defaultPollingInterval", "status", "testDetails", "testDuration", "testElapsed", "testId", "testInitialized", "testStarted", "testStopped"]
+    test_usage: Optional[TestUsage] = Field(default=None, alias="testUsage")
+    __properties: ClassVar[List[str]] = ["dashboards", "defaultDashboardIndex", "defaultPollingInterval", "status", "testDetails", "testDuration", "testElapsed", "testId", "testInitialized", "testStarted", "testStopped", "testUsage"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,6 +92,9 @@ class TestInfo(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['dashboards'] = _items
+        # override the default output from pydantic by calling `to_dict()` of test_usage
+        if self.test_usage:
+            _dict['testUsage'] = self.test_usage.to_dict()
         return _dict
 
     @classmethod
@@ -114,7 +119,8 @@ class TestInfo(BaseModel):
                         "testId": obj.get("testId"),
                         "testInitialized": obj.get("testInitialized"),
                         "testStarted": obj.get("testStarted"),
-                        "testStopped": obj.get("testStopped")
+                        "testStopped": obj.get("testStopped"),
+                        "testUsage": TestUsage.from_dict(obj["testUsage"]) if obj.get("testUsage") is not None else None
             ,
             "links": obj.get("links")
         })
