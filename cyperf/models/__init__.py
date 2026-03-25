@@ -347,9 +347,10 @@ from cyperf.models.session import Session
 from cyperf.models.session_reuse_method_tls12 import SessionReuseMethodTLS12
 from cyperf.models.session_reuse_method_tls13 import SessionReuseMethodTLS13
 from cyperf.models.set_aggregation_mode_operation import SetAggregationModeOperation
-from cyperf.models.set_app_operation import SetAppOperation
+from cyperf.models.set_controller_app_operation import SetControllerAppOperation
 from cyperf.models.set_dpdk_mode_operation_input import SetDpdkModeOperationInput
 from cyperf.models.set_link_state_operation import SetLinkStateOperation
+from cyperf.models.set_nodes_app_operation import SetNodesAppOperation
 from cyperf.models.set_ntp_operation_input import SetNtpOperationInput
 from cyperf.models.simulated_id_p import SimulatedIdP
 from cyperf.models.snapshot import Snapshot
@@ -371,6 +372,7 @@ from cyperf.models.tls_profile import TLSProfile
 from cyperf.models.tcp_profile import TcpProfile
 from cyperf.models.test_info import TestInfo
 from cyperf.models.test_state_changed_operation import TestStateChangedOperation
+from cyperf.models.test_usage import TestUsage
 from cyperf.models.time_value import TimeValue
 from cyperf.models.timeline_segment import TimelineSegment
 from cyperf.models.timeline_segment_base import TimelineSegmentBase
