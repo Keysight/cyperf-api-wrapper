@@ -27,9 +27,6 @@ Then import the package:
 ```python
 import cyperf
 ```
-### Tests
-
-Execute `pytest` to run the tests.
 
 ## Getting Started
 
@@ -499,6 +496,7 @@ Class | Method | HTTP request | Description
  - [DiagnosticComponentContext](docs/DiagnosticComponentContext.md)
  - [DiagnosticOptions](docs/DiagnosticOptions.md)
  - [DiskUsage](docs/DiskUsage.md)
+ - [DismissOperation](docs/DismissOperation.md)
  - [ESPOverUDPSettings](docs/ESPOverUDPSettings.md)
  - [EditActionInput](docs/EditActionInput.md)
  - [EditAppOperation](docs/EditAppOperation.md)

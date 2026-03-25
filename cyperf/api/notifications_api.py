@@ -21,6 +21,7 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from cyperf.models.async_context import AsyncContext
+from cyperf.models.dismiss_operation import DismissOperation
 from cyperf.models.get_notifications200_response import GetNotifications200Response
 from cyperf.models.notification import Notification
 from cyperf.models.notification_counts import NotificationCounts
@@ -1779,6 +1780,7 @@ class NotificationsApi:
     @validate_call
     def start_notifications_dismiss(
         self,
+        dismiss_operation: Optional[DismissOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1794,8 +1796,10 @@ class NotificationsApi:
     ) -> AsyncContext:
         """start_notifications_dismiss
 
-        Dismiss all notifications that match the specified filter.
+        Dismiss notifications.
 
+        :param dismiss_operation:
+        :type dismiss_operation: DismissOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1819,6 +1823,7 @@ class NotificationsApi:
         """ # noqa: E501
 
         _param = self._start_notifications_dismiss_serialize(
+            dismiss_operation=dismiss_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1838,6 +1843,7 @@ class NotificationsApi:
     @validate_call
     def start_notifications_dismiss_with_http_info(
         self,
+        dismiss_operation: Optional[DismissOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1853,8 +1859,10 @@ class NotificationsApi:
     ) -> ApiResponse[AsyncContext]:
         """start_notifications_dismiss
 
-        Dismiss all notifications that match the specified filter.
+        Dismiss notifications.
 
+        :param dismiss_operation:
+        :type dismiss_operation: DismissOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1878,6 +1886,7 @@ class NotificationsApi:
         """ # noqa: E501
 
         _param = self._start_notifications_dismiss_serialize(
+            dismiss_operation=dismiss_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1897,6 +1906,7 @@ class NotificationsApi:
     @validate_call
     def start_notifications_dismiss_without_preload_content(
         self,
+        dismiss_operation: Optional[DismissOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1912,8 +1922,10 @@ class NotificationsApi:
     ) -> RESTResponseType:
         """start_notifications_dismiss
 
-        Dismiss all notifications that match the specified filter.
+        Dismiss notifications.
 
+        :param dismiss_operation:
+        :type dismiss_operation: DismissOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1937,6 +1949,7 @@ class NotificationsApi:
         """ # noqa: E501
 
         _param = self._start_notifications_dismiss_serialize(
+            dismiss_operation=dismiss_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1955,6 +1968,7 @@ class NotificationsApi:
 
     def _start_notifications_dismiss_serialize(
         self,
+        dismiss_operation,
         _request_auth,
         _content_type,
         _headers,
@@ -1978,6 +1992,8 @@ class NotificationsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if dismiss_operation is not None:
+            _body_params = dismiss_operation
 
 
         # set the HTTP header `Accept`
@@ -1988,6 +2004,19 @@ class NotificationsApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

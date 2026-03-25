@@ -125,6 +125,7 @@ from cyperf.models.diagnostic_component import DiagnosticComponent
 from cyperf.models.diagnostic_component_context import DiagnosticComponentContext
 from cyperf.models.diagnostic_options import DiagnosticOptions
 from cyperf.models.disk_usage import DiskUsage
+from cyperf.models.dismiss_operation import DismissOperation
 from cyperf.models.esp_over_udp_settings import ESPOverUDPSettings
 from cyperf.models.edit_action_input import EditActionInput
 from cyperf.models.edit_app_operation import EditAppOperation
