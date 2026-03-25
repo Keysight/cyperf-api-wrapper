@@ -36,9 +36,10 @@ from cyperf.models.reboot_ports_operation import RebootPortsOperation
 from cyperf.models.release_operation_input import ReleaseOperationInput
 from cyperf.models.reserve_operation_input import ReserveOperationInput
 from cyperf.models.set_aggregation_mode_operation import SetAggregationModeOperation
-from cyperf.models.set_app_operation import SetAppOperation
+from cyperf.models.set_controller_app_operation import SetControllerAppOperation
 from cyperf.models.set_dpdk_mode_operation_input import SetDpdkModeOperationInput
 from cyperf.models.set_link_state_operation import SetLinkStateOperation
+from cyperf.models.set_nodes_app_operation import SetNodesAppOperation
 from cyperf.models.set_ntp_operation_input import SetNtpOperationInput
 from cyperf.models.start_agents_batch_delete_request_inner import StartAgentsBatchDeleteRequestInner
 from cyperf.models.update_port_tags_operation import UpdatePortTagsOperation
@@ -3335,6 +3336,16 @@ class AgentsApi:
 
 
 
+    
+
+    
+
+    
+
+
+
+
+
     @validate_call
     def start_agents_batch_delete(
         self,
@@ -6226,7 +6237,7 @@ class AgentsApi:
     @validate_call
     def start_controllers_set_app(
         self,
-        set_app_operation: Optional[SetAppOperation] = None,
+        set_controller_app_operation: Optional[SetControllerAppOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6244,8 +6255,8 @@ class AgentsApi:
 
         Set the active app of the controllers.
 
-        :param set_app_operation:
-        :type set_app_operation: SetAppOperation
+        :param set_controller_app_operation:
+        :type set_controller_app_operation: SetControllerAppOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6269,7 +6280,7 @@ class AgentsApi:
         """ # noqa: E501
 
         _param = self._start_controllers_set_app_serialize(
-            set_app_operation=set_app_operation,
+            set_controller_app_operation=set_controller_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6289,7 +6300,7 @@ class AgentsApi:
     @validate_call
     def start_controllers_set_app_with_http_info(
         self,
-        set_app_operation: Optional[SetAppOperation] = None,
+        set_controller_app_operation: Optional[SetControllerAppOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6307,8 +6318,8 @@ class AgentsApi:
 
         Set the active app of the controllers.
 
-        :param set_app_operation:
-        :type set_app_operation: SetAppOperation
+        :param set_controller_app_operation:
+        :type set_controller_app_operation: SetControllerAppOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6332,7 +6343,7 @@ class AgentsApi:
         """ # noqa: E501
 
         _param = self._start_controllers_set_app_serialize(
-            set_app_operation=set_app_operation,
+            set_controller_app_operation=set_controller_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6352,7 +6363,7 @@ class AgentsApi:
     @validate_call
     def start_controllers_set_app_without_preload_content(
         self,
-        set_app_operation: Optional[SetAppOperation] = None,
+        set_controller_app_operation: Optional[SetControllerAppOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6370,8 +6381,8 @@ class AgentsApi:
 
         Set the active app of the controllers.
 
-        :param set_app_operation:
-        :type set_app_operation: SetAppOperation
+        :param set_controller_app_operation:
+        :type set_controller_app_operation: SetControllerAppOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6395,7 +6406,7 @@ class AgentsApi:
         """ # noqa: E501
 
         _param = self._start_controllers_set_app_serialize(
-            set_app_operation=set_app_operation,
+            set_controller_app_operation=set_controller_app_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6414,7 +6425,7 @@ class AgentsApi:
 
     def _start_controllers_set_app_serialize(
         self,
-        set_app_operation,
+        set_controller_app_operation,
         _request_auth,
         _content_type,
         _headers,
@@ -6438,8 +6449,8 @@ class AgentsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if set_app_operation is not None:
-            _body_params = set_app_operation
+        if set_controller_app_operation is not None:
+            _body_params = set_controller_app_operation
 
 
         # set the HTTP header `Accept`
@@ -6738,6 +6749,271 @@ class AgentsApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/v2/controllers/operations/set-node-aggregation',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def start_controllers_set_node_app(
+        self,
+        set_nodes_app_operation: Optional[SetNodesAppOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AsyncContext:
+        """start_controllers_set_node_app
+
+        Set the active app of the compute nodes.
+
+        :param set_nodes_app_operation:
+        :type set_nodes_app_operation: SetNodesAppOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_node_app_serialize(
+            set_nodes_app_operation=set_nodes_app_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def start_controllers_set_node_app_with_http_info(
+        self,
+        set_nodes_app_operation: Optional[SetNodesAppOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AsyncContext]:
+        """start_controllers_set_node_app
+
+        Set the active app of the compute nodes.
+
+        :param set_nodes_app_operation:
+        :type set_nodes_app_operation: SetNodesAppOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_node_app_serialize(
+            set_nodes_app_operation=set_nodes_app_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=_response_types_map,
+            _request_timeout=_request_timeout
+        )
+    
+
+    @validate_call
+    def start_controllers_set_node_app_without_preload_content(
+        self,
+        set_nodes_app_operation: Optional[SetNodesAppOperation] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """start_controllers_set_node_app
+
+        Set the active app of the compute nodes.
+
+        :param set_nodes_app_operation:
+        :type set_nodes_app_operation: SetNodesAppOperation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._start_controllers_set_node_app_serialize(
+            set_nodes_app_operation=set_nodes_app_operation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "AsyncContext",
+        }
+        return self.api_client.call_api(
+            *_param,
+            _response_types_map=None,
+            _request_timeout=_request_timeout
+        )
+    
+
+    def _start_controllers_set_node_app_serialize(
+        self,
+        set_nodes_app_operation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if set_nodes_app_operation is not None:
+            _body_params = set_nodes_app_operation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'OAuth2', 
+            'OAuth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v2/controllers/operations/set-node-app',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

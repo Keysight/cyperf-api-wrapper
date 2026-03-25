@@ -40,12 +40,11 @@ class HTTPProfile(BaseModel):
     http_version: Optional[HTTPVersion] = Field(default=None, alias="HTTPVersion")
     headers: Optional[Params] = Field(default=None, alias="Headers")
     is_modified: Optional[StrictBool] = Field(default=None, alias="IsModified")
-    max_concurrent_streams: Optional[StrictInt] = Field(default=None, description="The maximum number of streams for all HTTP/2 connections.", alias="MaxConcurrentStreams")
     name: StrictStr = Field(description="The name of the HTTP profile.", alias="Name")
     params: Optional[List[Params]] = Field(default=None, description="The list of parameters present in the HTTP profile.", alias="Params")
     use_application_server_headers: Optional[StrictBool] = Field(default=None, alias="UseApplicationServerHeaders")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["AdditionalHeaders", "ConnectionPersistence", "ConnectionsMaxTransactions", "Description", "ExternalResourceURL", "HTTPVersion", "Headers", "IsModified", "MaxConcurrentStreams", "Name", "Params", "UseApplicationServerHeaders", "links"]
+    __properties: ClassVar[List[str]] = ["AdditionalHeaders", "ConnectionPersistence", "ConnectionsMaxTransactions", "Description", "ExternalResourceURL", "HTTPVersion", "Headers", "IsModified", "Name", "Params", "UseApplicationServerHeaders", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -128,7 +127,6 @@ class HTTPProfile(BaseModel):
                         "HTTPVersion": obj.get("HTTPVersion"),
                         "Headers": Params.from_dict(obj["Headers"]) if obj.get("Headers") is not None else None,
                         "IsModified": obj.get("IsModified"),
-                        "MaxConcurrentStreams": obj.get("MaxConcurrentStreams"),
                         "Name": obj.get("Name"),
                         "Params": ( [Params.from_dict(_item) for _item in obj.get("Params", [])] if obj.get("Params") is not None else None),
                         "UseApplicationServerHeaders": obj.get("UseApplicationServerHeaders"),
