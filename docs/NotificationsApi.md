@@ -450,11 +450,11 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_notifications_dismiss**
-> AsyncContext start_notifications_dismiss()
+> AsyncContext start_notifications_dismiss(dismiss_operation=dismiss_operation)
 
 
 
-Dismiss all notifications that match the specified filter.
+Dismiss notifications.
 
 ### Example
 
@@ -464,6 +464,7 @@ Dismiss all notifications that match the specified filter.
 ```python
 import cyperf
 from cyperf.models.async_context import AsyncContext
+from cyperf.models.dismiss_operation import DismissOperation
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -486,9 +487,10 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.NotificationsApi(api_client)
+    dismiss_operation = cyperf.DismissOperation() # DismissOperation |  (optional)
 
     try:
-        api_response = api_instance.start_notifications_dismiss()
+        api_response = api_instance.start_notifications_dismiss(dismiss_operation=dismiss_operation)
         print("The response of NotificationsApi->start_notifications_dismiss:\n")
         pprint(api_response)
     except Exception as e:
@@ -499,7 +501,10 @@ with cyperf.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dismiss_operation** | [**DismissOperation**](DismissOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -511,7 +516,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
