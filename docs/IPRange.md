@@ -16,12 +16,14 @@ Name | Type | Description | Notes
 **ip_incr** | **str** | The IP incrementation rule (default: 0.0.0.1). | [optional] 
 **ip_range_name** | **str** |  | 
 **ip_start** | **str** | The start IP for the IPRange (default: 10.0.0.10). | [optional] 
-**ip_ver** | [**IpVer**](IpVer.md) | The type of the IP. &#39;IPV4&#39; and &#39;IPV6&#39; are both supported currently. | 
+**ip_ver** | [**IpVer**](IpVer.md) | The type of the IP. &#39;IPV4&#39; and &#39;IPV6&#39; are both supported currently. | [optional] 
 **is_emulated_router** | **bool** |  | [optional] 
 **mss** | **int** | The maximum segment size of the TCP header. | [optional] 
-**mss_auto** | **bool** | A flag indicating if Mss settings for the IPRange should be determined automatically (default: false). | 
+**mss_auto** | **bool** | A flag indicating if Mss settings for the IPRange should be determined automatically (default: false). | [optional] 
 **net_mask** | **int** | The network mask of the IP Range (default: 16). | [optional] 
 **net_mask_auto** | **bool** | A flag indicating if the network mask of the IPRange should be determined automatically (default: true). | 
+**outer_vlan_range** | [**VLANRange**](VLANRange.md) | The outer VLAN range assigned to the current IP range configuration | [optional] 
+**vlan_type** | [**VLANType**](VLANType.md) | The type of VLAN used | [optional] 
 **id** | **str** |  | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **max_count_per_agent** | **int** | The maximum number of IPs that should be assigned to each traffic agent for this IP range segment in a valid test (default: 1). | [optional] 

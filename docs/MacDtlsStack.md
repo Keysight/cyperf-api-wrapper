@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dtls_enabled** | **bool** |  | [optional] 
 **dtls_range_name** | **str** |  | 
-**epoch** | **int** |  | 
+**epoch** | **int** |  | [optional] 
 **epoch_incr** | **int** |  | [optional] 
 **ip_range** | [**IPRange**](IPRange.md) |  | [optional] 
 **in_iv** | **str** | The in IV start for the DTLSRange (default: 0x22222222). | 
@@ -19,9 +19,11 @@ Name | Type | Description | Notes
 **out_iv_incr** | **str** | The out IV increment for the DTLSRange (default: 0x00000001). | 
 **out_key** | **str** | The out key start for the DTLSRange (default: 0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA). | 
 **out_key_incr** | **str** | The out key start for the DTLSRange (default: 0x0000000000000000000000000000000000000000000000000000000000000001). | 
+**outer_vlan_range** | [**VLANRange**](VLANRange.md) | The inner VLAN range assigned to the current DTLS Range configuration | [optional] 
 **tunnel_count** | **int** |  | 
 **tunnel_destination_mac_incr** | **str** | The MAC address increment rule for the DTLSRange (default: 00:00:00:00:00:01). | 
 **tunnel_destination_mac_start** | **str** | The MAC start address for the DTLSRange (default: AA:BB:CC:DD:EE:FF). | 
+**vlan_type** | [**VLANType**](VLANType.md) | The type of VLAN used | [optional] 
 **vlan_range** | [**VLANRange**](VLANRange.md) | The inner VLAN range assigned to the current DTLS Range configuration | [optional] 
 **id** | **str** |  | 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 

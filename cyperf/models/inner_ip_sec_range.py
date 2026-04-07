@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.authentication_settings import AuthenticationSettings
+from cyperf.models.identification_config import IdentificationConfig
 from cyperf.models.local_subnet_config import LocalSubnetConfig
 from cyperf.models.p1_config import P1Config
 from cyperf.models.p2_config import P2Config
@@ -41,6 +42,7 @@ class InnerIPSecRange(BaseModel):
     ike_phase1_config: Optional[P1Config] = Field(default=None, alias="IKEPhase1Config")
     ike_phase2_config: Optional[P2Config] = Field(default=None, alias="IKEPhase2Config")
     ip_sec_range_name: Annotated[str, Field(strict=True)] = Field(alias="IPSecRangeName")
+    identification_config: Optional[IdentificationConfig] = Field(default=None, alias="IdentificationConfig")
     local_sub_config: Optional[LocalSubnetConfig] = Field(default=None, alias="LocalSubConfig")
     multi_p2_over_p1: StrictBool = Field(alias="MultiP2OverP1")
     public_peer: Annotated[str, Field(strict=True)] = Field(alias="PublicPeer")
@@ -52,7 +54,7 @@ class InnerIPSecRange(BaseModel):
     tunnel_count_per_outer_ip: StrictInt = Field(alias="TunnelCountPerOuterIP")
     id: StrictStr
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["AuthSettings", "IKEPhase1Config", "IKEPhase2Config", "IPSecRangeName", "LocalSubConfig", "MultiP2OverP1", "PublicPeer", "PublicPeerIncrement", "RemoteAccess", "RemoteSubConfig", "TestScenario", "Timers", "TunnelCountPerOuterIP", "id", "links"]
+    __properties: ClassVar[List[str]] = ["AuthSettings", "IKEPhase1Config", "IKEPhase2Config", "IPSecRangeName", "IdentificationConfig", "LocalSubConfig", "MultiP2OverP1", "PublicPeer", "PublicPeerIncrement", "RemoteAccess", "RemoteSubConfig", "TestScenario", "Timers", "TunnelCountPerOuterIP", "id", "links"]
 
     @field_validator('ip_sec_range_name')
     def ip_sec_range_name_validate_regular_expression(cls, value):
@@ -130,6 +132,9 @@ class InnerIPSecRange(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of ike_phase2_config
         if self.ike_phase2_config:
             _dict['IKEPhase2Config'] = self.ike_phase2_config.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of identification_config
+        if self.identification_config:
+            _dict['IdentificationConfig'] = self.identification_config.to_dict()
         # override the default output from pydantic by calling `to_dict()` of local_sub_config
         if self.local_sub_config:
             _dict['LocalSubConfig'] = self.local_sub_config.to_dict()
@@ -167,6 +172,7 @@ class InnerIPSecRange(BaseModel):
                         "IKEPhase1Config": P1Config.from_dict(obj["IKEPhase1Config"]) if obj.get("IKEPhase1Config") is not None else None,
                         "IKEPhase2Config": P2Config.from_dict(obj["IKEPhase2Config"]) if obj.get("IKEPhase2Config") is not None else None,
                         "IPSecRangeName": obj.get("IPSecRangeName"),
+                        "IdentificationConfig": IdentificationConfig.from_dict(obj["IdentificationConfig"]) if obj.get("IdentificationConfig") is not None else None,
                         "LocalSubConfig": LocalSubnetConfig.from_dict(obj["LocalSubConfig"]) if obj.get("LocalSubConfig") is not None else None,
                         "MultiP2OverP1": obj.get("MultiP2OverP1"),
                         "PublicPeer": obj.get("PublicPeer"),
