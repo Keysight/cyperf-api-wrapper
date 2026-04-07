@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ike_phase1_config** | [**P1Config**](P1Config.md) |  | [optional] 
 **ike_phase2_config** | [**P2Config**](P2Config.md) |  | [optional] 
 **ip_sec_range_name** | **str** |  | 
+**identification_config** | [**IdentificationConfig**](IdentificationConfig.md) |  | [optional] 
 **inner_ip_sec** | **bool** |  | [optional] 
 **inner_ip_sec_range** | [**InnerIPSecRange**](InnerIPSecRange.md) |  | [optional] 
 **local_sub_config** | [**LocalSubnetConfig**](LocalSubnetConfig.md) |  | [optional] 

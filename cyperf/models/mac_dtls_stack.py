@@ -25,6 +25,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.ip_range import IPRange
 from cyperf.models.network_meshing import NetworkMeshing
 from cyperf.models.vlan_range import VLANRange
+from cyperf.models.vlan_type import VLANType
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -35,7 +36,7 @@ class MacDtlsStack(BaseModel):
     """ # noqa: E501
     dtls_enabled: Optional[StrictBool] = Field(default=None, alias="DTLSEnabled")
     dtls_range_name: Annotated[str, Field(strict=True)] = Field(alias="DTLSRangeName")
-    epoch: StrictInt = Field(alias="Epoch")
+    epoch: Optional[StrictInt] = Field(default=None, alias="Epoch")
     epoch_incr: Optional[StrictInt] = Field(default=None, alias="EpochIncr")
     ip_range: Optional[IPRange] = Field(default=None, alias="IPRange")
     in_iv: Annotated[str, Field(strict=True)] = Field(description="The in IV start for the DTLSRange (default: 0x22222222).", alias="InIV")
@@ -47,13 +48,15 @@ class MacDtlsStack(BaseModel):
     out_iv_incr: Annotated[str, Field(strict=True)] = Field(description="The out IV increment for the DTLSRange (default: 0x00000001).", alias="OutIVIncr")
     out_key: Annotated[str, Field(strict=True)] = Field(description="The out key start for the DTLSRange (default: 0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA).", alias="OutKey")
     out_key_incr: Annotated[str, Field(strict=True)] = Field(description="The out key start for the DTLSRange (default: 0x0000000000000000000000000000000000000000000000000000000000000001).", alias="OutKeyIncr")
+    outer_vlan_range: Optional[VLANRange] = Field(default=None, description="The inner VLAN range assigned to the current DTLS Range configuration", alias="OuterVlanRange")
     tunnel_count: StrictInt = Field(alias="TunnelCount")
     tunnel_destination_mac_incr: Annotated[str, Field(strict=True)] = Field(description="The MAC address increment rule for the DTLSRange (default: 00:00:00:00:00:01).", alias="TunnelDestinationMacIncr")
     tunnel_destination_mac_start: Annotated[str, Field(strict=True)] = Field(description="The MAC start address for the DTLSRange (default: AA:BB:CC:DD:EE:FF).", alias="TunnelDestinationMacStart")
+    vlan_type: Optional[VLANType] = Field(default=None, description="The type of VLAN used", alias="VLANType")
     vlan_range: Optional[VLANRange] = Field(default=None, description="The inner VLAN range assigned to the current DTLS Range configuration", alias="VlanRange")
     id: StrictStr
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["DTLSEnabled", "DTLSRangeName", "Epoch", "EpochIncr", "IPRange", "InIV", "InIVIncr", "InKey", "InKeyIncr", "NetworkMeshing", "OutIV", "OutIVIncr", "OutKey", "OutKeyIncr", "TunnelCount", "TunnelDestinationMacIncr", "TunnelDestinationMacStart", "VlanRange", "id", "links"]
+    __properties: ClassVar[List[str]] = ["DTLSEnabled", "DTLSRangeName", "Epoch", "EpochIncr", "IPRange", "InIV", "InIVIncr", "InKey", "InKeyIncr", "NetworkMeshing", "OutIV", "OutIVIncr", "OutKey", "OutKeyIncr", "OuterVlanRange", "TunnelCount", "TunnelDestinationMacIncr", "TunnelDestinationMacStart", "VLANType", "VlanRange", "id", "links"]
 
     @field_validator('dtls_range_name')
     def dtls_range_name_validate_regular_expression(cls, value):
@@ -177,6 +180,9 @@ class MacDtlsStack(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of network_meshing
         if self.network_meshing:
             _dict['NetworkMeshing'] = self.network_meshing.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_vlan_range
+        if self.outer_vlan_range:
+            _dict['OuterVlanRange'] = self.outer_vlan_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of vlan_range
         if self.vlan_range:
             _dict['VlanRange'] = self.vlan_range.to_dict()
@@ -215,9 +221,11 @@ class MacDtlsStack(BaseModel):
                         "OutIVIncr": obj.get("OutIVIncr"),
                         "OutKey": obj.get("OutKey"),
                         "OutKeyIncr": obj.get("OutKeyIncr"),
+                        "OuterVlanRange": VLANRange.from_dict(obj["OuterVlanRange"]) if obj.get("OuterVlanRange") is not None else None,
                         "TunnelCount": obj.get("TunnelCount"),
                         "TunnelDestinationMacIncr": obj.get("TunnelDestinationMacIncr"),
                         "TunnelDestinationMacStart": obj.get("TunnelDestinationMacStart"),
+                        "VLANType": obj.get("VLANType"),
                         "VlanRange": VLANRange.from_dict(obj["VlanRange"]) if obj.get("VlanRange") is not None else None,
                         "id": obj.get("id"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)

@@ -25,6 +25,7 @@ from cyperf.models.api_link import APILink
 from cyperf.models.automatic_ip_type import AutomaticIpType
 from cyperf.models.ip_ver import IpVer
 from cyperf.models.vlan_range import VLANRange
+from cyperf.models.vlan_type import VLANType
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -43,17 +44,19 @@ class IPRange(BaseModel):
     ip_incr: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The IP incrementation rule (default: 0.0.0.1).", alias="IpIncr")
     ip_range_name: Annotated[str, Field(strict=True)] = Field(alias="IpRangeName")
     ip_start: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start IP for the IPRange (default: 10.0.0.10).", alias="IpStart")
-    ip_ver: IpVer = Field(description="The type of the IP. 'IPV4' and 'IPV6' are both supported currently.", alias="IpVer")
+    ip_ver: Optional[IpVer] = Field(default=None, description="The type of the IP. 'IPV4' and 'IPV6' are both supported currently.", alias="IpVer")
     is_emulated_router: Optional[StrictBool] = Field(default=None, alias="IsEmulatedRouter")
     mss: Optional[StrictInt] = Field(default=None, description="The maximum segment size of the TCP header.", alias="Mss")
-    mss_auto: StrictBool = Field(description="A flag indicating if Mss settings for the IPRange should be determined automatically (default: false).", alias="MssAuto")
+    mss_auto: Optional[StrictBool] = Field(default=None, description="A flag indicating if Mss settings for the IPRange should be determined automatically (default: false).", alias="MssAuto")
     net_mask: Optional[StrictInt] = Field(default=None, description="The network mask of the IP Range (default: 16).", alias="NetMask")
     net_mask_auto: StrictBool = Field(description="A flag indicating if the network mask of the IPRange should be determined automatically (default: true).", alias="NetMaskAuto")
+    outer_vlan_range: Optional[VLANRange] = Field(default=None, description="The outer VLAN range assigned to the current IP range configuration", alias="OuterVlanRange")
+    vlan_type: Optional[VLANType] = Field(default=None, description="The type of VLAN used", alias="VLANType")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
     max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of IPs that should be assigned to each traffic agent for this IP range segment in a valid test (default: 1).", alias="maxCountPerAgent")
     network_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags.", alias="networkTags")
-    __properties: ClassVar[List[str]] = ["AutomaticIpType", "Count", "GwAuto", "GwStart", "HostCount", "InnerVlanRange", "IpAuto", "IpIncr", "IpRangeName", "IpStart", "IpVer", "IsEmulatedRouter", "Mss", "MssAuto", "NetMask", "NetMaskAuto", "id", "links", "maxCountPerAgent", "networkTags"]
+    __properties: ClassVar[List[str]] = ["AutomaticIpType", "Count", "GwAuto", "GwStart", "HostCount", "InnerVlanRange", "IpAuto", "IpIncr", "IpRangeName", "IpStart", "IpVer", "IsEmulatedRouter", "Mss", "MssAuto", "NetMask", "NetMaskAuto", "OuterVlanRange", "VLANType", "id", "links", "maxCountPerAgent", "networkTags"]
 
     @field_validator('gw_start')
     def gw_start_validate_regular_expression(cls, value):
@@ -134,6 +137,9 @@ class IPRange(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of inner_vlan_range
         if self.inner_vlan_range:
             _dict['InnerVlanRange'] = self.inner_vlan_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_vlan_range
+        if self.outer_vlan_range:
+            _dict['OuterVlanRange'] = self.outer_vlan_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -171,6 +177,8 @@ class IPRange(BaseModel):
                         "MssAuto": obj.get("MssAuto"),
                         "NetMask": obj.get("NetMask"),
                         "NetMaskAuto": obj.get("NetMaskAuto"),
+                        "OuterVlanRange": VLANRange.from_dict(obj["OuterVlanRange"]) if obj.get("OuterVlanRange") is not None else None,
+                        "VLANType": obj.get("VLANType"),
                         "id": obj.get("id"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "maxCountPerAgent": obj.get("maxCountPerAgent"),
