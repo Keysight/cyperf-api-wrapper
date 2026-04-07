@@ -27,6 +27,7 @@ from cyperf.models.data_type import DataType
 from cyperf.models.endpoint import Endpoint
 from cyperf.models.http_profile import HTTPProfile
 from cyperf.models.ip_preference import IpPreference
+from cyperf.models.llmapi_profile import LLMAPIProfile
 from cyperf.models.network_mapping import NetworkMapping
 from cyperf.models.params import Params
 from cyperf.models.quic_profile import QUICProfile
@@ -76,16 +77,19 @@ class Application(BaseModel):
     links: Optional[List[APILink]] = None
     client_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ClientTLSProfile")
     data_types: Optional[List[DataType]] = Field(default=None, alias="DataTypes")
+    inherit_llmapi: Optional[StrictBool] = Field(default=None, alias="InheritLLMAPI")
     inherit_tls: Optional[StrictBool] = Field(default=None, alias="InheritTLS")
     is_stateless_stream: Optional[StrictBool] = Field(default=None, alias="IsStatelessStream")
     is_streaming: Optional[StrictBool] = Field(default=None, alias="IsStreaming")
-    objective_weight: StrictInt = Field(description="The objective weight of the application.", alias="ObjectiveWeight")
+    llmapi_profiles: Optional[List[LLMAPIProfile]] = Field(default=None, alias="LLMAPIProfiles")
+    objective_weight: Optional[StrictInt] = Field(default=None, description="The objective weight of the application.", alias="ObjectiveWeight")
     protocol_found: Optional[StrictBool] = Field(default=None, alias="ProtocolFound")
     server_tls_profile: Optional[TLSProfile] = Field(default=None, alias="ServerTLSProfile")
     stateless_stream: Optional[StatelessStream] = Field(default=None, alias="StatelessStream")
     static: Optional[StrictBool] = Field(default=None, alias="Static")
     supported_apps: Optional[List[StrictStr]] = Field(default=None, alias="SupportedApps")
     supports_calibration: Optional[StrictBool] = Field(default=None, alias="SupportsCalibration")
+    supports_http2: Optional[StrictBool] = Field(default=None, alias="SupportsHTTP2")
     supports_multi_flow: Optional[StrictBool] = Field(default=None, alias="SupportsMultiFlow")
     supports_strikes: Optional[StrictBool] = Field(default=None, alias="SupportsStrikes")
     supports_tls: Optional[StrictBool] = Field(default=None, alias="SupportsTLS")
@@ -94,7 +98,7 @@ class Application(BaseModel):
     _modify_excluded_dut_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateApplicationNetworkMapping" })
     modify_tags_recursively: Optional[List[UpdateNetworkMapping]] = Field(default=None, alias="modify-tags-recursively")
     _modify_tags_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateApplicationNetworkMapping" })
-    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "ClientQUICProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "InheritQUICProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "ServerQUICProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links", "ClientTLSProfile", "DataTypes", "InheritTLS", "IsStatelessStream", "IsStreaming", "ObjectiveWeight", "ProtocolFound", "ServerTLSProfile", "StatelessStream", "Static", "SupportedApps", "SupportsCalibration", "SupportsMultiFlow", "SupportsStrikes", "SupportsTLS", "Tracks", "modify-excluded-dut-recursively", "modify-tags-recursively"]
+    __properties: ClassVar[List[str]] = ["ActionTimeout", "Active", "ClientHTTPProfile", "ClientQUICProfile", "Connections", "ConnectionsMaxTransactions", "Description", "DestinationHostname", "DnnId", "EndPointID", "Endpoints", "ExternalResourceURL", "Index", "InheritHTTPProfile", "InheritQUICProfile", "IpPreference", "IsDeprecated", "IterationCount", "MaxActiveLimit", "Name", "NetworkMapping", "Params", "ProtocolID", "QosFlowId", "ReadonlyMaxTrans", "ServerHTTPProfile", "ServerQUICProfile", "SupportsClientHTTPProfile", "SupportsHTTPProfiles", "SupportsServerHTTPProfile", "id", "links", "ClientTLSProfile", "DataTypes", "InheritLLMAPI", "InheritTLS", "IsStatelessStream", "IsStreaming", "LLMAPIProfiles", "ObjectiveWeight", "ProtocolFound", "ServerTLSProfile", "StatelessStream", "Static", "SupportedApps", "SupportsCalibration", "SupportsHTTP2", "SupportsMultiFlow", "SupportsStrikes", "SupportsTLS", "Tracks", "modify-excluded-dut-recursively", "modify-tags-recursively"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -198,6 +202,13 @@ class Application(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['DataTypes'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in llmapi_profiles (list)
+        _items = []
+        if self.llmapi_profiles:
+            for _item in self.llmapi_profiles:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['LLMAPIProfiles'] = _items
         # override the default output from pydantic by calling `to_dict()` of server_tls_profile
         if self.server_tls_profile:
             _dict['ServerTLSProfile'] = self.server_tls_profile.to_dict()
@@ -273,9 +284,11 @@ class Application(BaseModel):
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "ClientTLSProfile": TLSProfile.from_dict(obj["ClientTLSProfile"]) if obj.get("ClientTLSProfile") is not None else None,
                         "DataTypes": ( [DataType.from_dict(_item) for _item in obj.get("DataTypes", [])] if obj.get("DataTypes") is not None else None),
+                        "InheritLLMAPI": obj.get("InheritLLMAPI"),
                         "InheritTLS": obj.get("InheritTLS"),
                         "IsStatelessStream": obj.get("IsStatelessStream"),
                         "IsStreaming": obj.get("IsStreaming"),
+                        "LLMAPIProfiles": ( [LLMAPIProfile.from_dict(_item) for _item in obj.get("LLMAPIProfiles", [])] if obj.get("LLMAPIProfiles") is not None else None),
                         "ObjectiveWeight": obj.get("ObjectiveWeight"),
                         "ProtocolFound": obj.get("ProtocolFound"),
                         "ServerTLSProfile": TLSProfile.from_dict(obj["ServerTLSProfile"]) if obj.get("ServerTLSProfile") is not None else None,
@@ -283,6 +296,7 @@ class Application(BaseModel):
                         "Static": obj.get("Static"),
                         "SupportedApps": obj.get("SupportedApps") if obj.get("SupportedApps") is not None else [],
                         "SupportsCalibration": obj.get("SupportsCalibration"),
+                        "SupportsHTTP2": obj.get("SupportsHTTP2"),
                         "SupportsMultiFlow": obj.get("SupportsMultiFlow"),
                         "SupportsStrikes": obj.get("SupportsStrikes"),
                         "SupportsTLS": obj.get("SupportsTLS"),

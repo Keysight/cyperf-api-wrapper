@@ -245,6 +245,7 @@ from cyperf.models.ip_range import IPRange
 from cyperf.models.ip_sec_range import IPSecRange
 from cyperf.models.ip_sec_stack import IPSecStack
 from cyperf.models.id_p_signature_algo import IdPSignatureAlgo
+from cyperf.models.identification_config import IdentificationConfig
 from cyperf.models.import_all_operation import ImportAllOperation
 from cyperf.models.import_offline_license_result import ImportOfflineLicenseResult
 from cyperf.models.ingest_operation import IngestOperation
@@ -402,6 +403,7 @@ from cyperf.models.udp_profile import UdpProfile
 from cyperf.models.update_network_mapping import UpdateNetworkMapping
 from cyperf.models.update_port_tags_operation import UpdatePortTagsOperation
 from cyperf.models.vlan_range import VLANRange
+from cyperf.models.vlan_type import VLANType
 from cyperf.models.validation_message import ValidationMessage
 from cyperf.models.version import Version
 from cyperf.models.vx_lanid import VxLANId

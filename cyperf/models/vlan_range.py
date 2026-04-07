@@ -32,6 +32,7 @@ class VLANRange(BaseModel):
     """ # noqa: E501
     count: Optional[StrictInt] = Field(default=None, description="The number of VLANs generated (default: 1).", alias="Count")
     count_per_agent: Optional[StrictInt] = Field(default=None, description="The number of VLANs that should be assigned to each traffic agent for this VLAN range segment in a valid test (default: 1).", alias="CountPerAgent")
+    increment_every_no_of_ips: Optional[StrictInt] = Field(default=None, description="Sets that number of IPs from the IP Range after which the VLAN is incremented.", alias="IncrementEveryNoOfIPs")
     max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of VLANs that should be assigned to each traffic agent for this VLAN range segment in a valid test (default: 1).", alias="MaxCountPerAgent")
     priority: Optional[StrictInt] = Field(default=None, description="The priority code point value (default: 0).", alias="Priority")
     static_arp_table: Optional[List[StaticARPEntry]] = Field(default=None, alias="StaticARPTable")
@@ -41,7 +42,7 @@ class VLANRange(BaseModel):
     vlan_id: Optional[StrictInt] = Field(default=None, description="The VLAN identifier (default: 1).", alias="VlanId")
     vlan_incr: Optional[StrictInt] = Field(default=None, description="The VLAN incrementation rule (default: 1).", alias="VlanIncr")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Count", "CountPerAgent", "MaxCountPerAgent", "Priority", "StaticARPTable", "TagProtocolId", "VlanAuto", "VlanEnabled", "VlanId", "VlanIncr", "links"]
+    __properties: ClassVar[List[str]] = ["Count", "CountPerAgent", "IncrementEveryNoOfIPs", "MaxCountPerAgent", "Priority", "StaticARPTable", "TagProtocolId", "VlanAuto", "VlanEnabled", "VlanId", "VlanIncr", "links"]
 
     @field_validator('tag_protocol_id')
     def tag_protocol_id_validate_enum(cls, value):
@@ -49,8 +50,8 @@ class VLANRange(BaseModel):
         if value is None:
             return value
 
-        if value not in set([33024]):
-            raise ValueError("must be one of enum values (33024)")
+        if value not in set([33024, 34984]):
+            raise ValueError("must be one of enum values (33024, 34984)")
         return value
 
     model_config = ConfigDict(
@@ -122,6 +123,7 @@ class VLANRange(BaseModel):
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
                         "CountPerAgent": obj.get("CountPerAgent"),
+                        "IncrementEveryNoOfIPs": obj.get("IncrementEveryNoOfIPs"),
                         "MaxCountPerAgent": obj.get("MaxCountPerAgent"),
                         "Priority": obj.get("Priority"),
                         "StaticARPTable": ( [StaticARPEntry.from_dict(_item) for _item in obj.get("StaticARPTable", [])] if obj.get("StaticARPTable") is not None else None),

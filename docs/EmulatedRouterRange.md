@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **mss_auto** | **bool** | A flag indicating if Mss settings for the IPRange should be determined automatically (default: false). | 
 **net_mask** | **int** | The network mask of the IP Range (default: 16). | [optional] 
 **net_mask_auto** | **bool** | A flag indicating if the network mask of the IPRange should be determined automatically (default: true). | 
+**outer_vlan_range** | [**VLANRange**](VLANRange.md) | The outer VLAN range assigned to the current IP range configuration | [optional] 
+**vlan_type** | [**VLANType**](VLANType.md) | The type of VLAN used | [optional] 
 **id** | **str** |  | 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **max_count_per_agent** | **int** | The maximum number of IPs that should be assigned to each traffic agent for this IP range segment in a valid test (default: 1). | [optional] 

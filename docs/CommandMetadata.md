@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **static** | **bool** | If true, the application/strike is managed directly by the controller | [optional] 
 **supported_apps** | **List[str]** | The apps that this strike can be used with | [optional] 
 **supported_protocols** | **List[str]** | The list of protocols which support this command | [optional] 
+**supports_http2** | **bool** | Indicates if the application supports HTTP2 multi-stream | [optional] 
 **year** | **str** | The year of the strike | [optional] 
 
 ## Example
