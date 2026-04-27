@@ -661,6 +661,7 @@ Class | Method | HTTP request | Description
  - [P2Config](docs/P2Config.md)
  - [PANGPEncapsulation](docs/PANGPEncapsulation.md)
  - [PANGPSettings](docs/PANGPSettings.md)
+ - [PPKPair](docs/PPKPair.md)
  - [Pair](docs/Pair.md)
  - [ParamMetadata](docs/ParamMetadata.md)
  - [ParamMetadataTypeInfo](docs/ParamMetadataTypeInfo.md)
