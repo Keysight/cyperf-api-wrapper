@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **hash_algorithm** | [**HashP1Algorithm**](HashP1Algorithm.md) |  | 
 **initial_contact** | **bool** |  | 
 **lifetime** | **int** |  | 
+**ppk_enabled** | **bool** |  | 
+**ppkid** | **str** |  | 
+**ppk_mandatory** | **str** |  | 
 **prf_algorithm** | [**PrfP1Algorithm**](PrfP1Algorithm.md) |  | 
 
 ## Example
