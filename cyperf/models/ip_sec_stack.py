@@ -27,6 +27,7 @@ from cyperf.models.ip_range import IPRange
 from cyperf.models.ip_sec_range import IPSecRange
 from cyperf.models.local_subnet_config import LocalSubnetConfig
 from cyperf.models.params import Params
+from cyperf.models.ppk_pair import PPKPair
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
@@ -45,6 +46,7 @@ class IPSecStack(BaseModel):
     max_initiation_rate: StrictInt = Field(alias="MaxInitiationRate")
     max_pending: StrictInt = Field(alias="MaxPending")
     outer_ip_range: Optional[IPRange] = Field(default=None, alias="OuterIPRange")
+    ppk_list: Optional[List[PPKPair]] = Field(default=None, alias="PPKList")
     rekey_margin: StrictInt = Field(alias="RekeyMargin")
     rekey_retry_count: StrictInt = Field(alias="RekeyRetryCount")
     retransmission_timeout: StrictInt = Field(alias="RetransmissionTimeout")
@@ -55,7 +57,7 @@ class IPSecStack(BaseModel):
     stack_role: StrictStr = Field(alias="StackRole")
     id: StrictStr
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["CACertificateFile", "EmulatedSubConfig", "EnableRekey", "IPSecRange", "IPSecStackName", "LocalSubConfig", "LogKeys", "MaxInitiationRate", "MaxPending", "OuterIPRange", "RekeyMargin", "RekeyRetryCount", "RetransmissionTimeout", "RetryCount", "RetryInterval", "RetryIntervalIncrement", "SetupTimeout", "StackRole", "id", "links"]
+    __properties: ClassVar[List[str]] = ["CACertificateFile", "EmulatedSubConfig", "EnableRekey", "IPSecRange", "IPSecStackName", "LocalSubConfig", "LogKeys", "MaxInitiationRate", "MaxPending", "OuterIPRange", "PPKList", "RekeyMargin", "RekeyRetryCount", "RetransmissionTimeout", "RetryCount", "RetryInterval", "RetryIntervalIncrement", "SetupTimeout", "StackRole", "id", "links"]
 
     @field_validator('ip_sec_stack_name')
     def ip_sec_stack_name_validate_regular_expression(cls, value):
@@ -125,6 +127,13 @@ class IPSecStack(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of outer_ip_range
         if self.outer_ip_range:
             _dict['OuterIPRange'] = self.outer_ip_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in ppk_list (list)
+        _items = []
+        if self.ppk_list:
+            for _item in self.ppk_list:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['PPKList'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -156,6 +165,7 @@ class IPSecStack(BaseModel):
                         "MaxInitiationRate": obj.get("MaxInitiationRate"),
                         "MaxPending": obj.get("MaxPending"),
                         "OuterIPRange": IPRange.from_dict(obj["OuterIPRange"]) if obj.get("OuterIPRange") is not None else None,
+                        "PPKList": ( [PPKPair.from_dict(_item) for _item in obj.get("PPKList", [])] if obj.get("PPKList") is not None else None),
                         "RekeyMargin": obj.get("RekeyMargin"),
                         "RekeyRetryCount": obj.get("RekeyRetryCount"),
                         "RetransmissionTimeout": obj.get("RetransmissionTimeout"),

@@ -18,37 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from cyperf.models.dh_p1_group import DhP1Group
-from cyperf.models.enc_p1_algorithm import EncP1Algorithm
-from cyperf.models.hash_p1_algorithm import HashP1Algorithm
-from cyperf.models.prf_p1_algorithm import PrfP1Algorithm
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class P1Config(BaseModel):
+class PPKPair(BaseModel):
     """
-    P1Config
+    PPKPair
     """ # noqa: E501
-    dh_group: DhP1Group = Field(alias="DHGroup")
-    enc_algorithm: EncP1Algorithm = Field(alias="EncAlgorithm")
-    hash_algorithm: HashP1Algorithm = Field(alias="HashAlgorithm")
-    initial_contact: StrictBool = Field(alias="InitialContact")
-    lifetime: StrictInt = Field(alias="Lifetime")
-    ppk_enabled: StrictBool = Field(alias="PPKEnabled")
     ppkid: StrictStr = Field(alias="PPKId")
-    ppk_mandatory: StrictStr = Field(alias="PPKMandatory")
-    prf_algorithm: PrfP1Algorithm = Field(alias="PrfAlgorithm")
-    __properties: ClassVar[List[str]] = ["DHGroup", "EncAlgorithm", "HashAlgorithm", "InitialContact", "Lifetime", "PPKEnabled", "PPKId", "PPKMandatory", "PrfAlgorithm"]
-
-    @field_validator('ppk_mandatory')
-    def ppk_mandatory_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['PREFERRED', 'MANDATORY']):
-            raise ValueError("must be one of enum values ('PREFERRED', 'MANDATORY')")
-        return value
+    ppk_key: StrictStr = Field(alias="PPKKey")
+    __properties: ClassVar[List[str]] = ["PPKId", "PPKKey"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,7 +50,7 @@ class P1Config(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of P1Config from a JSON string"""
+        """Create an instance of PPKPair from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -93,7 +75,7 @@ class P1Config(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of P1Config from a dict"""
+        """Create an instance of PPKPair from a dict"""
         if obj is None:
             return None
 
@@ -103,15 +85,8 @@ class P1Config(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "DHGroup": obj.get("DHGroup"),
-                        "EncAlgorithm": obj.get("EncAlgorithm"),
-                        "HashAlgorithm": obj.get("HashAlgorithm"),
-                        "InitialContact": obj.get("InitialContact"),
-                        "Lifetime": obj.get("Lifetime"),
-                        "PPKEnabled": obj.get("PPKEnabled"),
-                        "PPKId": obj.get("PPKId"),
-                        "PPKMandatory": obj.get("PPKMandatory"),
-                        "PrfAlgorithm": obj.get("PrfAlgorithm")
+            "PPKId": obj.get("PPKId"),
+                        "PPKKey": obj.get("PPKKey")
             ,
             "links": obj.get("links")
         })

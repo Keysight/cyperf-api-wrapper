@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **max_initiation_rate** | **int** |  | 
 **max_pending** | **int** |  | 
 **outer_ip_range** | [**IPRange**](IPRange.md) |  | [optional] 
+**ppk_list** | [**List[PPKPair]**](PPKPair.md) |  | [optional] 
 **rekey_margin** | **int** |  | 
 **rekey_retry_count** | **int** |  | 
 **retransmission_timeout** | **int** |  | 
