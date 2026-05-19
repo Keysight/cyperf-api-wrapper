@@ -662,6 +662,8 @@ Class | Method | HTTP request | Description
  - [PANGPEncapsulation](docs/PANGPEncapsulation.md)
  - [PANGPSettings](docs/PANGPSettings.md)
  - [PPKPair](docs/PPKPair.md)
+ - [PSPRange](docs/PSPRange.md)
+ - [PSPStack](docs/PSPStack.md)
  - [Pair](docs/Pair.md)
  - [ParamMetadata](docs/ParamMetadata.md)
  - [ParamMetadataTypeInfo](docs/ParamMetadataTypeInfo.md)

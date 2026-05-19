@@ -454,7 +454,7 @@ This endpoint does not need any parameter.
 
 
 
-Dismiss notifications.
+Dismiss all notifications that match the specified filter.
 
 ### Example
 

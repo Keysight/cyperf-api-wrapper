@@ -293,6 +293,8 @@ from cyperf.models.p2_config import P2Config
 from cyperf.models.pangp_encapsulation import PANGPEncapsulation
 from cyperf.models.pangp_settings import PANGPSettings
 from cyperf.models.ppk_pair import PPKPair
+from cyperf.models.psp_range import PSPRange
+from cyperf.models.psp_stack import PSPStack
 from cyperf.models.pair import Pair
 from cyperf.models.param_metadata import ParamMetadata
 from cyperf.models.param_metadata_type_info import ParamMetadataTypeInfo
