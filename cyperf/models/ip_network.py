@@ -30,6 +30,7 @@ from cyperf.models.eth_range import EthRange
 from cyperf.models.ip_range import IPRange
 from cyperf.models.ip_sec_stack import IPSecStack
 from cyperf.models.mac_dtls_stack import MacDtlsStack
+from cyperf.models.psp_stack import PSPStack
 from cyperf.models.tunnel_stack import TunnelStack
 from cyperf.models.vx_lan_stack import VxLANStack
 from typing import Optional, Set, Union
@@ -51,6 +52,7 @@ class IPNetwork(BaseModel):
     ip_ranges: Optional[List[IPRange]] = Field(default=None, alias="IPRanges")
     ip_sec_stacks: Optional[List[IPSecStack]] = Field(default=None, alias="IPSecStacks")
     mac_dtls_stacks: Optional[List[MacDtlsStack]] = Field(default=None, alias="MacDtlsStacks")
+    psp_stacks: Optional[List[PSPStack]] = Field(default=None, alias="PSPStacks")
     tunnel_stacks: Optional[List[TunnelStack]] = Field(default=None, alias="TunnelStacks")
     vx_lan_stacks: Optional[List[VxLANStack]] = Field(default=None, alias="VxLANStacks")
     active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the network segment is active.(default: true)")
@@ -59,7 +61,7 @@ class IPNetwork(BaseModel):
     links: Optional[List[APILink]] = None
     min_agents: Optional[StrictInt] = Field(default=None, description="The minimum number of agents that should be assigned to this network segment in a valid test (default: 1).", alias="minAgents")
     streaming_cpu_allocation: Optional[StrictInt] = Field(default=None, description="The CPU percentage used by agents assigned to this network segment for streaming purposes (default: 25).", alias="streamingCPUAllocation")
-    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "DNSResolver", "DNSServer", "DUTConnections", "EmulatedRouter", "EthRange", "IPRanges", "IPSecStacks", "MacDtlsStacks", "TunnelStacks", "VxLANStacks", "active", "agentAssignments", "inheritStreamingCPUAllocation", "links", "minAgents", "streamingCPUAllocation"]
+    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "DNSResolver", "DNSServer", "DUTConnections", "EmulatedRouter", "EthRange", "IPRanges", "IPSecStacks", "MacDtlsStacks", "PSPStacks", "TunnelStacks", "VxLANStacks", "active", "agentAssignments", "inheritStreamingCPUAllocation", "links", "minAgents", "streamingCPUAllocation"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -140,6 +142,13 @@ class IPNetwork(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['MacDtlsStacks'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in psp_stacks (list)
+        _items = []
+        if self.psp_stacks:
+            for _item in self.psp_stacks:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['PSPStacks'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in tunnel_stacks (list)
         _items = []
         if self.tunnel_stacks:
@@ -189,6 +198,7 @@ class IPNetwork(BaseModel):
                         "IPRanges": ( [IPRange.from_dict(_item) for _item in obj.get("IPRanges", [])] if obj.get("IPRanges") is not None else None),
                         "IPSecStacks": ( [IPSecStack.from_dict(_item) for _item in obj.get("IPSecStacks", [])] if obj.get("IPSecStacks") is not None else None),
                         "MacDtlsStacks": ( [MacDtlsStack.from_dict(_item) for _item in obj.get("MacDtlsStacks", [])] if obj.get("MacDtlsStacks") is not None else None),
+                        "PSPStacks": ( [PSPStack.from_dict(_item) for _item in obj.get("PSPStacks", [])] if obj.get("PSPStacks") is not None else None),
                         "TunnelStacks": ( [TunnelStack.from_dict(_item) for _item in obj.get("TunnelStacks", [])] if obj.get("TunnelStacks") is not None else None),
                         "VxLANStacks": ( [VxLANStack.from_dict(_item) for _item in obj.get("VxLANStacks", [])] if obj.get("VxLANStacks") is not None else None),
                         "active": obj.get("active"),

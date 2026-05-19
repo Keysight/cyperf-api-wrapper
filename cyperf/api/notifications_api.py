@@ -1796,7 +1796,7 @@ class NotificationsApi:
     ) -> AsyncContext:
         """start_notifications_dismiss
 
-        Dismiss notifications.
+        Dismiss all notifications that match the specified filter.
 
         :param dismiss_operation:
         :type dismiss_operation: DismissOperation
@@ -1859,7 +1859,7 @@ class NotificationsApi:
     ) -> ApiResponse[AsyncContext]:
         """start_notifications_dismiss
 
-        Dismiss notifications.
+        Dismiss all notifications that match the specified filter.
 
         :param dismiss_operation:
         :type dismiss_operation: DismissOperation
@@ -1922,7 +1922,7 @@ class NotificationsApi:
     ) -> RESTResponseType:
         """start_notifications_dismiss
 
-        Dismiss notifications.
+        Dismiss all notifications that match the specified filter.
 
         :param dismiss_operation:
         :type dismiss_operation: DismissOperation
