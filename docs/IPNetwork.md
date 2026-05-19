@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **ip_ranges** | [**List[IPRange]**](IPRange.md) |  | [optional] 
 **ip_sec_stacks** | [**List[IPSecStack]**](IPSecStack.md) |  | [optional] 
 **mac_dtls_stacks** | [**List[MacDtlsStack]**](MacDtlsStack.md) |  | [optional] 
+**psp_stacks** | [**List[PSPStack]**](PSPStack.md) |  | [optional] 
 **tunnel_stacks** | [**List[TunnelStack]**](TunnelStack.md) |  | [optional] 
 **vx_lan_stacks** | [**List[VxLANStack]**](VxLANStack.md) |  | [optional] 
 **active** | **bool** | A flag indicating if the network segment is active.(default: true) | [optional] 
