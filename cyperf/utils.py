@@ -6,7 +6,7 @@ import warnings
 from pprint import pprint
 import sys
 import cyperf
-
+from zipfile import ZipFile
 
 def format_warning_cli_issues(message, category, filename, lineno=None, line=None):
     return f"{category.__name__}: {message}\n"
@@ -14,22 +14,25 @@ def format_warning_cli_issues(message, category, filename, lineno=None, line=Non
 
 warnings.formatwarning = format_warning_cli_issues
 
-
 class TestRunner:
     """Convenience class for common test run operations"""
 
-    def __init__(self, controller, username="", password="", refresh_token="", license_server=None, license_user="", license_password=""):
+    def __init__(self, controller, username="", password="", refresh_token="", license_server=None, license_user="", license_password="", verify_ssl=True):
         self.controller = controller
         self.host = f'https://{controller}'
+        self.verify_ssl = verify_ssl
         self.license_server   = license_server
         self.license_user     = license_user
         self.license_password = license_password
-
+        if username and password:
+            refresh_token = None
+        else:
+            refresh_token = refresh_token or os.environ.get("CYPERF_OFFLINE_TOKEN")
         self.configuration            = cyperf.Configuration(host=self.host,
                                                              refresh_token=refresh_token,
                                                              username=username,
                                                              password=password)
-        self.configuration.verify_ssl = False
+        self.configuration.verify_ssl = verify_ssl
         self.api_client               = cyperf.ApiClient(self.configuration)
         self.added_license_servers    = []
 
@@ -277,7 +280,7 @@ class TestRunner:
         except cyperf.ApiException as e:
             raise (e)
 
-    def wait_for_test_stop(self, session, test_monitor=None):
+    def wait_for_test_end(self, session=None, test_monitor=None):
         session_api      = cyperf.SessionsApi(self.api_client)
         monitored_at     = None
         wait_interval    = 0.5
@@ -480,6 +483,108 @@ class TestRunner:
         if not model_armor_applications_found:
             print("No Model Armor Applications found in the provided session.")
 
+    def get_agent_ips(self):
+        """Return the management IPs of all available agents."""
+        agents = list(self.agents.values())
+        return [agent.ip for agent in agents if agent.ip]
+
+    def get_agent_ids_by_ips(self, agent_ips=None):
+        agents = list(self.agents.values())
+
+        if agent_ips is None:
+            agent_ips = [agent.ip for agent in agents if agent.ip]
+
+        if isinstance(agent_ips, str):
+            agent_ips = [agent_ips]
+
+        agent_ids = []
+
+        for agent_ip in agent_ips:
+            match = next((a for a in agents if a.ip == agent_ip), None)
+
+            if match:
+                print(f'agent_ip: {agent_ip}, agent_id: {match.id}')
+                agent_ids.append(match.id)
+
+        return agent_ids
+
+    def set_test_duration(self, session, duration_seconds):
+        value = int(float(duration_seconds)) if isinstance(duration_seconds, str) else int(duration_seconds)
+
+        if len(session.config.config.traffic_profiles) > 0 and session.config.config.traffic_profiles[0].active:
+            tp = session.config.config.traffic_profiles[0]
+            tp.objectives_and_timeline.primary_objective.timeline[1].duration = value
+            tp.objectives_and_timeline.update()
+
+        if len(session.config.config.attack_profiles) > 0 and session.config.config.attack_profiles[0].active:
+            ap = session.config.config.attack_profiles[0]
+            ap.objectives_and_timeline.timeline_segments[0].duration = value
+            ap.objectives_and_timeline.update()
+
+        self.testDuration = value
+        return value
+
+    def get_test_duration(self, session):
+        traffic_duration = 0
+        attack_duration = 0
+
+        if len(session.config.config.traffic_profiles) == 0 and len(session.config.config.attack_profiles) == 0:
+            return 0
+
+        if len(session.config.config.traffic_profiles) != 0 and session.config.config.traffic_profiles[0].active:
+            traffic_duration = \
+            session.config.config.traffic_profiles[0].objectives_and_timeline.primary_objective.timeline[1].duration
+
+        if len(session.config.config.attack_profiles) != 0 and session.config.config.attack_profiles[0].active:
+            attack_duration = session.config.config.attack_profiles[0].objectives_and_timeline.timeline_segments[
+                0].duration
+
+        test_duration = max(traffic_duration, attack_duration)
+        self.testDuration = test_duration
+        return test_duration
+
+    def get_csvs_for_result(self, result_id, download_path):
+        print("Get CSV statistics...")
+        os.makedirs(download_path, exist_ok=True)
+
+        reports_api = cyperf.ReportsApi(self.api_client)
+        op = reports_api.start_result_generate_csv(result_id)
+
+        try:
+            result = op.await_completion()
+        except cyperf.ApiException as e:
+            raise e
+
+        zip_path = None
+        if isinstance(result, dict):
+            zip_path = result.get("filePath") or result.get("path")
+        elif isinstance(result, str):
+            zip_path = result
+
+        if not zip_path:
+            raise RuntimeError(f"Could not determine CSV zip path from result: {result}")
+
+        with ZipFile(zip_path, "r") as zf:
+            zf.extractall(download_path)
+
+        print(f"CSV files extracted to: {download_path}")
+        return download_path
+
+    def set_tcp_sack(self, session, enabled=True):
+        value = str(enabled).lower() == 'true' if isinstance(enabled, str) else bool(enabled)
+        updated = False
+
+        for traffic_profile in session.config.config.traffic_profiles:
+            for application in traffic_profile.applications:
+                for connection in application.connections:
+                    tcp = getattr(connection, 'tcp_characteristics', None)
+                    if tcp:
+                        tcp.use_sack_when_permitted = value
+                        tcp.update()
+                        updated = True
+
+        return updated
+
 def parse_cli_options(extra_options=[]):
     """Can be used to get parameters from the CLI or env vars that are broadly useful for CLI tests"""
     import argparse
@@ -528,3 +633,5 @@ def create_api_client_cli(verify_ssl=True):
                                                     password=cli_args.password)
     configuration.verify_ssl = verify_ssl
     return cyperf.ApiClient(configuration)
+
+utils = TestRunner
