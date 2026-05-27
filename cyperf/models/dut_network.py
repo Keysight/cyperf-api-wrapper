@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from cyperf.models.address import Address
 from cyperf.models.api_link import APILink
 from cyperf.models.health_check_config import HealthCheckConfig
 from cyperf.models.params import Params
@@ -54,6 +55,7 @@ class DUTNetwork(BaseModel):
     reverse_proxy_pep_dut: Optional[PepDUT] = Field(default=None, alias="ReverseProxyPepDUT")
     reverse_proxy_pep_dut_active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the PEP device is an active device. If active, the simulated clients will send traffic to the PEP device host. (default: false)", alias="ReverseProxyPepDUTActive")
     server_dut_active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the server DUT is an active device. If it is, the simulated clients or client DUT(if active) will send traffic to the server DUT 'host'; and the simulated servers will use the healtcheck configurations. (default: false)", alias="ServerDUTActive")
+    server_dut_address: Optional[Address] = Field(default=None, alias="ServerDUTAddress")
     server_dut_host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The hostname where the traffic goes if server DUT is active.", alias="ServerDUTHost")
     server_dut_port: Optional[StrictInt] = Field(default=None, description="The listen port for server-side DUT", alias="ServerDUTPort")
     tcp_health_check: Optional[HealthCheckConfig] = Field(default=None, description="The TCP HealthCheck configuration for DUT", alias="TCPHealthCheck")
@@ -61,7 +63,7 @@ class DUTNetwork(BaseModel):
     active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the server DUT is an active device. If it is, the simulated clients or client DUT(if active) will send traffic to the DUT 'host'; and the simulated servers will use the healtcheck configurations. (default: false)")
     host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The hostname where the traffic goes if server DUT is active.")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "ClientDUTActive", "ClientDUTHost", "ClientDUTPort", "ConfigSettings", "ForwardProxyPepDUT", "ForwardProxyPepDUTActive", "HTTPHealthCheck", "HTTPSHealthCheck", "HostnameSuffix", "HttpForwardProxyMode", "LLMModel", "LLMRequestURLPath", "NonProxiedHosts", "PepDUT", "PepDUTActive", "ReverseProxyPepDUT", "ReverseProxyPepDUTActive", "ServerDUTActive", "ServerDUTHost", "ServerDUTPort", "TCPHealthCheck", "UseRealHost", "active", "host", "links"]
+    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "ClientDUTActive", "ClientDUTHost", "ClientDUTPort", "ConfigSettings", "ForwardProxyPepDUT", "ForwardProxyPepDUTActive", "HTTPHealthCheck", "HTTPSHealthCheck", "HostnameSuffix", "HttpForwardProxyMode", "LLMModel", "LLMRequestURLPath", "NonProxiedHosts", "PepDUT", "PepDUTActive", "ReverseProxyPepDUT", "ReverseProxyPepDUTActive", "ServerDUTActive", "ServerDUTAddress", "ServerDUTHost", "ServerDUTPort", "TCPHealthCheck", "UseRealHost", "active", "host", "links"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -187,6 +189,9 @@ class DUTNetwork(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of reverse_proxy_pep_dut
         if self.reverse_proxy_pep_dut:
             _dict['ReverseProxyPepDUT'] = self.reverse_proxy_pep_dut.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of server_dut_address
+        if self.server_dut_address:
+            _dict['ServerDUTAddress'] = self.server_dut_address.to_dict()
         # override the default output from pydantic by calling `to_dict()` of tcp_health_check
         if self.tcp_health_check:
             _dict['TCPHealthCheck'] = self.tcp_health_check.to_dict()
@@ -232,6 +237,7 @@ class DUTNetwork(BaseModel):
                         "ReverseProxyPepDUT": PepDUT.from_dict(obj["ReverseProxyPepDUT"]) if obj.get("ReverseProxyPepDUT") is not None else None,
                         "ReverseProxyPepDUTActive": obj.get("ReverseProxyPepDUTActive"),
                         "ServerDUTActive": obj.get("ServerDUTActive"),
+                        "ServerDUTAddress": Address.from_dict(obj["ServerDUTAddress"]) if obj.get("ServerDUTAddress") is not None else None,
                         "ServerDUTHost": obj.get("ServerDUTHost"),
                         "ServerDUTPort": obj.get("ServerDUTPort"),
                         "TCPHealthCheck": HealthCheckConfig.from_dict(obj["TCPHealthCheck"]) if obj.get("TCPHealthCheck") is not None else None,

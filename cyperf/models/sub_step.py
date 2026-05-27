@@ -18,26 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
-from cyperf.models.playlist_sequencing_method import PlaylistSequencingMethod
-from cyperf.models.traffic_settings import TrafficSettings
+from cyperf.models.single_value import SingleValue
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class TrafficProfileBase(BaseModel):
+class SubStep(BaseModel):
     """
-    TrafficProfileBase
+    SubStep
     """ # noqa: E501
-    active: Optional[StrictBool] = Field(default=None, description="Indicates whether the profile is enabled or not.", alias="Active")
-    playlist_sequencing_method: Optional[PlaylistSequencingMethod] = Field(default=None, alias="PlaylistSequencingMethod")
-    traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
-    use_all_source_ips_per_user: Optional[StrictBool] = Field(default=None, description="Indicates whether one or all source IPs are used for each simulated user.", alias="UseAllSourceIPsPerUser")
-    id: Optional[StrictStr] = None
+    count: StrictInt = Field(alias="Count")
+    step: Optional[SingleValue] = Field(default=None, alias="Step")
+    sub_steps: List[SubStep] = Field(alias="SubSteps")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Active", "PlaylistSequencingMethod", "TrafficSettings", "UseAllSourceIPsPerUser", "id", "links"]
+    __properties: ClassVar[List[str]] = ["Count", "Step", "SubSteps", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,7 +54,7 @@ class TrafficProfileBase(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TrafficProfileBase from a JSON string"""
+        """Create an instance of SubStep from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,9 +75,16 @@ class TrafficProfileBase(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of traffic_settings
-        if self.traffic_settings:
-            _dict['TrafficSettings'] = self.traffic_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of step
+        if self.step:
+            _dict['Step'] = self.step.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in sub_steps (list)
+        _items = []
+        if self.sub_steps:
+            for _item in self.sub_steps:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['SubSteps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -92,7 +96,7 @@ class TrafficProfileBase(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TrafficProfileBase from a dict"""
+        """Create an instance of SubStep from a dict"""
         if obj is None:
             return None
 
@@ -102,15 +106,15 @@ class TrafficProfileBase(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Active": obj.get("Active"),
-                        "PlaylistSequencingMethod": obj.get("PlaylistSequencingMethod"),
-                        "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
-                        "UseAllSourceIPsPerUser": obj.get("UseAllSourceIPsPerUser"),
-                        "id": obj.get("id"),
+            "Count": obj.get("Count"),
+                        "Step": SingleValue.from_dict(obj["Step"]) if obj.get("Step") is not None else None,
+                        "SubSteps": ( [SubStep.from_dict(_item) for _item in obj.get("SubSteps", [])] if obj.get("SubSteps") is not None else None),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")
         })
         return _obj
 
+# TODO: Rewrite to not use raise_errors
+SubStep.model_rebuild(raise_errors=False)
 

@@ -64,6 +64,7 @@ from cyperf.models.activation_code_list_request import ActivationCodeListRequest
 from cyperf.models.activation_code_request import ActivationCodeRequest
 from cyperf.models.add_action_info import AddActionInfo
 from cyperf.models.add_input import AddInput
+from cyperf.models.address import Address
 from cyperf.models.advanced_settings import AdvancedSettings
 from cyperf.models.agent import Agent
 from cyperf.models.agent_assignment_by_port import AgentAssignmentByPort
@@ -144,11 +145,13 @@ from cyperf.models.create_app_operation import CreateAppOperation
 from cyperf.models.create_app_or_attack_operation_input import CreateAppOrAttackOperationInput
 from cyperf.models.custom_dashboards import CustomDashboards
 from cyperf.models.custom_import_handler import CustomImportHandler
+from cyperf.models.custom_sequence import CustomSequence
 from cyperf.models.custom_stat import CustomStat
 from cyperf.models.dns_resolver import DNSResolver
 from cyperf.models.dns_server import DNSServer
 from cyperf.models.dtls_settings import DTLSSettings
 from cyperf.models.dut_network import DUTNetwork
+from cyperf.models.dut_range import DUTRange
 from cyperf.models.dashboard import Dashboard
 from cyperf.models.data_type import DataType
 from cyperf.models.data_type_values_inner import DataTypeValuesInner
@@ -350,6 +353,7 @@ from cyperf.models.payload_metadata import PayloadMetadata
 from cyperf.models.pep_dut import PepDUT
 from cyperf.models.pfs_p2_group import PfsP2Group
 from cyperf.models.playlist_metadata import PlaylistMetadata
+from cyperf.models.playlist_sequencing_method import PlaylistSequencingMethod
 from cyperf.models.plugin import Plugin
 from cyperf.models.plugin_stats import PluginStats
 from cyperf.models.port import Port
@@ -386,6 +390,9 @@ from cyperf.models.scenario import Scenario
 from cyperf.models.secondary_objective import SecondaryObjective
 from cyperf.models.segment_type import SegmentType
 from cyperf.models.selected_env import SelectedEnv
+from cyperf.models.sequence_data_types import SequenceDataTypes
+from cyperf.models.sequence_value import SequenceValue
+from cyperf.models.sequence_value_types import SequenceValueTypes
 from cyperf.models.session import Session
 from cyperf.models.session_reuse_method_tls12 import SessionReuseMethodTLS12
 from cyperf.models.session_reuse_method_tls13 import SessionReuseMethodTLS13
@@ -395,7 +402,9 @@ from cyperf.models.set_dpdk_mode_operation_input import SetDpdkModeOperationInpu
 from cyperf.models.set_link_state_operation import SetLinkStateOperation
 from cyperf.models.set_nodes_app_operation import SetNodesAppOperation
 from cyperf.models.set_ntp_operation_input import SetNtpOperationInput
+from cyperf.models.simple_sequence_value import SimpleSequenceValue
 from cyperf.models.simulated_id_p import SimulatedIdP
+from cyperf.models.single_value import SingleValue
 from cyperf.models.snapshot import Snapshot
 from cyperf.models.snowflake_exporter import SnowflakeExporter
 from cyperf.models.sort_body_field import SortBodyField
@@ -409,6 +418,7 @@ from cyperf.models.step_segment import StepSegment
 from cyperf.models.stream_direction import StreamDirection
 from cyperf.models.stream_payload_type import StreamPayloadType
 from cyperf.models.stream_profile import StreamProfile
+from cyperf.models.sub_step import SubStep
 from cyperf.models.supported_group_tls13 import SupportedGroupTLS13
 from cyperf.models.system_info import SystemInfo
 from cyperf.models.tls_profile import TLSProfile

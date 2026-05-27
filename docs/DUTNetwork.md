@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **reverse_proxy_pep_dut** | [**PepDUT**](PepDUT.md) |  | [optional] 
 **reverse_proxy_pep_dut_active** | **bool** | A flag indicating if the PEP device is an active device. If active, the simulated clients will send traffic to the PEP device host. (default: false) | [optional] 
 **server_dut_active** | **bool** | A flag indicating if the server DUT is an active device. If it is, the simulated clients or client DUT(if active) will send traffic to the server DUT &#39;host&#39;; and the simulated servers will use the healtcheck configurations. (default: false) | [optional] 
+**server_dut_address** | [**Address**](Address.md) |  | [optional] 
 **server_dut_host** | **str** | The hostname where the traffic goes if server DUT is active. | [optional] 
 **server_dut_port** | **int** | The listen port for server-side DUT | [optional] 
 **tcp_health_check** | [**HealthCheckConfig**](HealthCheckConfig.md) | The TCP HealthCheck configuration for DUT | [optional] 
