@@ -18,26 +18,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
-from cyperf.models.playlist_sequencing_method import PlaylistSequencingMethod
-from cyperf.models.traffic_settings import TrafficSettings
+from cyperf.models.sequence_value import SequenceValue
+from cyperf.models.vlan_range import VLANRange
+from cyperf.models.vlan_type import VLANType
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class TrafficProfileBase(BaseModel):
+class DUTRange(BaseModel):
     """
-    TrafficProfileBase
+    DUTRange
     """ # noqa: E501
-    active: Optional[StrictBool] = Field(default=None, description="Indicates whether the profile is enabled or not.", alias="Active")
-    playlist_sequencing_method: Optional[PlaylistSequencingMethod] = Field(default=None, alias="PlaylistSequencingMethod")
-    traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
-    use_all_source_ips_per_user: Optional[StrictBool] = Field(default=None, description="Indicates whether one or all source IPs are used for each simulated user.", alias="UseAllSourceIPsPerUser")
-    id: Optional[StrictStr] = None
+    count: Optional[StrictInt] = Field(default=None, alias="Count")
+    inner_vlan_range: Optional[VLANRange] = Field(default=None, description="The inner VLAN range assigned to the current DTLS Range configuration", alias="InnerVlanRange")
+    ip: Optional[SequenceValue] = Field(default=None, alias="Ip")
+    outer_vlan_range: Optional[VLANRange] = Field(default=None, description="The inner VLAN range assigned to the current DTLS Range configuration", alias="OuterVlanRange")
+    vlan_type: Optional[VLANType] = Field(default=None, description="The type of VLAN used", alias="VLANType")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Active", "PlaylistSequencingMethod", "TrafficSettings", "UseAllSourceIPsPerUser", "id", "links"]
+    __properties: ClassVar[List[str]] = ["Count", "InnerVlanRange", "Ip", "OuterVlanRange", "VLANType", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,7 +58,7 @@ class TrafficProfileBase(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TrafficProfileBase from a JSON string"""
+        """Create an instance of DUTRange from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,9 +79,15 @@ class TrafficProfileBase(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of traffic_settings
-        if self.traffic_settings:
-            _dict['TrafficSettings'] = self.traffic_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of inner_vlan_range
+        if self.inner_vlan_range:
+            _dict['InnerVlanRange'] = self.inner_vlan_range.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of ip
+        if self.ip:
+            _dict['Ip'] = self.ip.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of outer_vlan_range
+        if self.outer_vlan_range:
+            _dict['OuterVlanRange'] = self.outer_vlan_range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -92,7 +99,7 @@ class TrafficProfileBase(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TrafficProfileBase from a dict"""
+        """Create an instance of DUTRange from a dict"""
         if obj is None:
             return None
 
@@ -102,11 +109,11 @@ class TrafficProfileBase(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Active": obj.get("Active"),
-                        "PlaylistSequencingMethod": obj.get("PlaylistSequencingMethod"),
-                        "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
-                        "UseAllSourceIPsPerUser": obj.get("UseAllSourceIPsPerUser"),
-                        "id": obj.get("id"),
+            "Count": obj.get("Count"),
+                        "InnerVlanRange": VLANRange.from_dict(obj["InnerVlanRange"]) if obj.get("InnerVlanRange") is not None else None,
+                        "Ip": SequenceValue.from_dict(obj["Ip"]) if obj.get("Ip") is not None else None,
+                        "OuterVlanRange": VLANRange.from_dict(obj["OuterVlanRange"]) if obj.get("OuterVlanRange") is not None else None,
+                        "VLANType": obj.get("VLANType"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")

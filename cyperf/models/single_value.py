@@ -18,25 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.stream_payload_type import StreamPayloadType
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class StreamProfile(BaseModel):
+class SingleValue(BaseModel):
     """
-    StreamProfile
+    SingleValue
     """ # noqa: E501
-    packet_rate: StrictInt = Field(alias="packetRate")
-    payload_size: StrictInt = Field(alias="payloadSize")
-    payload_type: StreamPayloadType = Field(alias="payloadType")
-    total_estimated_throughput: Optional[StrictStr] = Field(default=None, alias="totalEstimatedThroughput")
-    total_estimated_throughput_per_simulated_user: Optional[StrictStr] = Field(default=None, alias="totalEstimatedThroughputPerSimulatedUser")
-    unique_pool_size: Optional[StrictInt] = Field(default=None, alias="uniquePoolSize")
-    unrestricted_packet_rate: Optional[StrictBool] = Field(default=None, alias="unrestrictedPacketRate")
-    __properties: ClassVar[List[str]] = ["packetRate", "payloadSize", "payloadType", "totalEstimatedThroughput", "totalEstimatedThroughputPerSimulatedUser", "uniquePoolSize", "unrestrictedPacketRate"]
+    bool_value: Optional[StrictBool] = Field(default=None, alias="BoolValue")
+    float_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="FloatValue")
+    integer_value: Optional[StrictInt] = Field(default=None, alias="IntegerValue")
+    string_value: Optional[StrictStr] = Field(default=None, alias="StringValue")
+    __properties: ClassVar[List[str]] = ["BoolValue", "FloatValue", "IntegerValue", "StringValue"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,7 +52,7 @@ class StreamProfile(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of StreamProfile from a JSON string"""
+        """Create an instance of SingleValue from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +77,7 @@ class StreamProfile(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of StreamProfile from a dict"""
+        """Create an instance of SingleValue from a dict"""
         if obj is None:
             return None
 
@@ -91,13 +87,10 @@ class StreamProfile(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "packetRate": obj.get("packetRate"),
-                        "payloadSize": obj.get("payloadSize"),
-                        "payloadType": obj.get("payloadType"),
-                        "totalEstimatedThroughput": obj.get("totalEstimatedThroughput"),
-                        "totalEstimatedThroughputPerSimulatedUser": obj.get("totalEstimatedThroughputPerSimulatedUser"),
-                        "uniquePoolSize": obj.get("uniquePoolSize"),
-                        "unrestrictedPacketRate": obj.get("unrestrictedPacketRate")
+            "BoolValue": obj.get("BoolValue"),
+                        "FloatValue": obj.get("FloatValue"),
+                        "IntegerValue": obj.get("IntegerValue"),
+                        "StringValue": obj.get("StringValue")
             ,
             "links": obj.get("links")
         })

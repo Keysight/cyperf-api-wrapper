@@ -18,41 +18,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
-from cyperf.models.exchange import Exchange
-from cyperf.models.http_version import HTTPVersion
-from cyperf.models.params import Params
+from cyperf.models.dut_range import DUTRange
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class ActionBase(BaseModel):
+class Address(BaseModel):
     """
-    ActionBase
+    Address
     """ # noqa: E501
-    dst_host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The destination host of the action.", alias="DstHost")
-    exchanges: Optional[List[Exchange]] = Field(default=None, alias="Exchanges")
-    index: Optional[StrictInt] = Field(default=None, description="The index of the action.", alias="Index")
-    is_banner: Optional[StrictBool] = Field(default=None, description="Indicates if this is a required action, can only be add once and also must be the first", alias="IsBanner")
-    is_deprecated: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is deprecated.", alias="IsDeprecated")
-    is_hostname: Optional[StrictInt] = Field(default=None, alias="IsHostname")
-    is_llm_strike: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is an LLM strike.", alias="IsLLMStrike")
-    is_strike: Optional[StrictBool] = Field(default=None, description="A value that indicates if the action is a strike.", alias="IsStrike")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the action.", alias="Name")
-    params: Optional[List[Params]] = Field(default=None, alias="Params")
-    port: Optional[StrictInt] = Field(default=None, description="The port of the destination host.", alias="Port")
-    protocol_id: Optional[StrictStr] = Field(default=None, alias="ProtocolID")
-    requires_uniqueness: Optional[StrictBool] = Field(default=None, description="If true, for applications with the same protocol id, application/attack must have been uniquely identified in previous commands.", alias="RequiresUniqueness")
-    supported_http_versions: Optional[List[HTTPVersion]] = Field(default=None, description="The HTTP versions supported by the action.", alias="SupportedHTTPVersions")
-    id: Optional[StrictStr] = None
+    host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="Host")
+    range: Optional[DUTRange] = Field(default=None, alias="Range")
+    use_range: Optional[StrictBool] = Field(default=None, alias="UseRange")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["DstHost", "Exchanges", "Index", "IsBanner", "IsDeprecated", "IsHostname", "IsLLMStrike", "IsStrike", "Name", "Params", "Port", "ProtocolID", "RequiresUniqueness", "SupportedHTTPVersions", "id", "links"]
+    __properties: ClassVar[List[str]] = ["Host", "Range", "UseRange", "links"]
 
-    @field_validator('dst_host')
-    def dst_host_validate_regular_expression(cls, value):
+    @field_validator('host')
+    def host_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
@@ -79,7 +65,7 @@ class ActionBase(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ActionBase from a JSON string"""
+        """Create an instance of Address from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -100,20 +86,9 @@ class ActionBase(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in exchanges (list)
-        _items = []
-        if self.exchanges:
-            for _item in self.exchanges:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['Exchanges'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in params (list)
-        _items = []
-        if self.params:
-            for _item in self.params:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['Params'] = _items
+        # override the default output from pydantic by calling `to_dict()` of range
+        if self.range:
+            _dict['Range'] = self.range.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -125,7 +100,7 @@ class ActionBase(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ActionBase from a dict"""
+        """Create an instance of Address from a dict"""
         if obj is None:
             return None
 
@@ -135,21 +110,9 @@ class ActionBase(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "DstHost": obj.get("DstHost"),
-                        "Exchanges": ( [Exchange.from_dict(_item) for _item in obj.get("Exchanges", [])] if obj.get("Exchanges") is not None else None),
-                        "Index": obj.get("Index"),
-                        "IsBanner": obj.get("IsBanner"),
-                        "IsDeprecated": obj.get("IsDeprecated"),
-                        "IsHostname": obj.get("IsHostname"),
-                        "IsLLMStrike": obj.get("IsLLMStrike"),
-                        "IsStrike": obj.get("IsStrike"),
-                        "Name": obj.get("Name"),
-                        "Params": ( [Params.from_dict(_item) for _item in obj.get("Params", [])] if obj.get("Params") is not None else None),
-                        "Port": obj.get("Port"),
-                        "ProtocolID": obj.get("ProtocolID"),
-                        "RequiresUniqueness": obj.get("RequiresUniqueness"),
-                        "SupportedHTTPVersions": obj.get("SupportedHTTPVersions"),
-                        "id": obj.get("id"),
+            "Host": obj.get("Host"),
+                        "Range": DUTRange.from_dict(obj["Range"]) if obj.get("Range") is not None else None,
+                        "UseRange": obj.get("UseRange"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
             "links": obj.get("links")

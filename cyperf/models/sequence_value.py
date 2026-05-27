@@ -18,26 +18,29 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
-from cyperf.models.playlist_sequencing_method import PlaylistSequencingMethod
-from cyperf.models.traffic_settings import TrafficSettings
+from cyperf.models.custom_sequence import CustomSequence
+from cyperf.models.sequence_data_types import SequenceDataTypes
+from cyperf.models.sequence_value_types import SequenceValueTypes
+from cyperf.models.simple_sequence_value import SimpleSequenceValue
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class TrafficProfileBase(BaseModel):
+class SequenceValue(BaseModel):
     """
-    TrafficProfileBase
+    SequenceValue
     """ # noqa: E501
-    active: Optional[StrictBool] = Field(default=None, description="Indicates whether the profile is enabled or not.", alias="Active")
-    playlist_sequencing_method: Optional[PlaylistSequencingMethod] = Field(default=None, alias="PlaylistSequencingMethod")
-    traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
-    use_all_source_ips_per_user: Optional[StrictBool] = Field(default=None, description="Indicates whether one or all source IPs are used for each simulated user.", alias="UseAllSourceIPsPerUser")
+    custom: Optional[CustomSequence] = Field(default=None, alias="Custom")
+    data_type: Optional[SequenceDataTypes] = Field(default=None, alias="DataType")
+    increment: Optional[SimpleSequenceValue] = Field(default=None, alias="Increment")
+    preview: Optional[List[StrictStr]] = Field(default=None, alias="Preview")
+    sequence_type: Optional[SequenceValueTypes] = Field(default=None, alias="SequenceType")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Active", "PlaylistSequencingMethod", "TrafficSettings", "UseAllSourceIPsPerUser", "id", "links"]
+    __properties: ClassVar[List[str]] = ["Custom", "DataType", "Increment", "Preview", "SequenceType", "id", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,7 +60,7 @@ class TrafficProfileBase(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TrafficProfileBase from a JSON string"""
+        """Create an instance of SequenceValue from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,9 +81,12 @@ class TrafficProfileBase(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of traffic_settings
-        if self.traffic_settings:
-            _dict['TrafficSettings'] = self.traffic_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of custom
+        if self.custom:
+            _dict['Custom'] = self.custom.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of increment
+        if self.increment:
+            _dict['Increment'] = self.increment.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -92,7 +98,7 @@ class TrafficProfileBase(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TrafficProfileBase from a dict"""
+        """Create an instance of SequenceValue from a dict"""
         if obj is None:
             return None
 
@@ -102,10 +108,11 @@ class TrafficProfileBase(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "Active": obj.get("Active"),
-                        "PlaylistSequencingMethod": obj.get("PlaylistSequencingMethod"),
-                        "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
-                        "UseAllSourceIPsPerUser": obj.get("UseAllSourceIPsPerUser"),
+            "Custom": CustomSequence.from_dict(obj["Custom"]) if obj.get("Custom") is not None else None,
+                        "DataType": obj.get("DataType"),
+                        "Increment": SimpleSequenceValue.from_dict(obj["Increment"]) if obj.get("Increment") is not None else None,
+                        "Preview": obj.get("Preview") if obj.get("Preview") is not None else [],
+                        "SequenceType": obj.get("SequenceType"),
                         "id": obj.get("id"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,
