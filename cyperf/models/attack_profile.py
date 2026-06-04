@@ -25,7 +25,6 @@ from cyperf.models.attack import Attack
 from cyperf.models.attack_objectives_and_timeline import AttackObjectivesAndTimeline
 from cyperf.models.external_resource_info import ExternalResourceInfo
 from cyperf.models.network_mapping import NetworkMapping
-from cyperf.models.playlist_sequencing_method import PlaylistSequencingMethod
 from cyperf.models.traffic_settings import TrafficSettings
 from cyperf.models.update_network_mapping import UpdateNetworkMapping
 from typing import Optional, Set, Union
@@ -37,7 +36,6 @@ class AttackProfile(BaseModel):
     AttackProfile
     """ # noqa: E501
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether the profile is enabled or not.", alias="Active")
-    playlist_sequencing_method: Optional[PlaylistSequencingMethod] = Field(default=None, alias="PlaylistSequencingMethod")
     traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
     use_all_source_ips_per_user: Optional[StrictBool] = Field(default=None, description="Indicates whether one or all source IPs are used for each simulated user.", alias="UseAllSourceIPsPerUser")
     id: Optional[StrictStr] = None
@@ -54,7 +52,7 @@ class AttackProfile(BaseModel):
     _modify_tags_recursively_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,UpdateAttackProfileNetworkMapping" })
     reset_tags_to_default: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="reset-tags-to-default")
     _reset_tags_to_default_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,ResetAttackProfileNetworkMapping" })
-    __properties: ClassVar[List[str]] = ["Active", "PlaylistSequencingMethod", "TrafficSettings", "UseAllSourceIPsPerUser", "id", "links", "Attacks", "DefaultNetworkMapping", "Name", "ObjectivesAndTimeline", "add-attacks", "modify-excluded-dut-recursively", "modify-tags-recursively", "reset-tags-to-default"]
+    __properties: ClassVar[List[str]] = ["Active", "TrafficSettings", "UseAllSourceIPsPerUser", "id", "links", "Attacks", "DefaultNetworkMapping", "Name", "ObjectivesAndTimeline", "add-attacks", "modify-excluded-dut-recursively", "modify-tags-recursively", "reset-tags-to-default"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -154,7 +152,6 @@ class AttackProfile(BaseModel):
 
         _obj = cls.model_validate({
             "Active": obj.get("Active"),
-                        "PlaylistSequencingMethod": obj.get("PlaylistSequencingMethod"),
                         "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
                         "UseAllSourceIPsPerUser": obj.get("UseAllSourceIPsPerUser"),
                         "id": obj.get("id"),

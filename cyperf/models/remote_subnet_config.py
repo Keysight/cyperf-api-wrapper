@@ -36,8 +36,7 @@ class RemoteSubnetConfig(BaseModel):
     prefix: StrictInt = Field(description="The length (in bits) of the subnet mask to be applied to all the addresses created in the range.", alias="Prefix")
     single_remote_subnet: StrictBool = Field(alias="SingleRemoteSubnet")
     start: Annotated[str, Field(strict=True)] = Field(description="The base address for enumerating all the local subnets in the range", alias="Start")
-    wildcard_responder_traffic: StrictBool = Field(alias="WildcardResponderTraffic")
-    __properties: ClassVar[List[str]] = ["Automatic", "HostsIncrement", "HostsPrefix", "Increment", "Prefix", "SingleRemoteSubnet", "Start", "WildcardResponderTraffic"]
+    __properties: ClassVar[List[str]] = ["Automatic", "HostsIncrement", "HostsPrefix", "Increment", "Prefix", "SingleRemoteSubnet", "Start"]
 
     @field_validator('hosts_increment')
     def hosts_increment_validate_regular_expression(cls, value):
@@ -119,8 +118,7 @@ class RemoteSubnetConfig(BaseModel):
                         "Increment": obj.get("Increment"),
                         "Prefix": obj.get("Prefix"),
                         "SingleRemoteSubnet": obj.get("SingleRemoteSubnet"),
-                        "Start": obj.get("Start"),
-                        "WildcardResponderTraffic": obj.get("WildcardResponderTraffic")
+                        "Start": obj.get("Start")
             ,
             "links": obj.get("links")
         })

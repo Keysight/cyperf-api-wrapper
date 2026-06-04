@@ -21,7 +21,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
-from cyperf.models.playlist_sequencing_method import PlaylistSequencingMethod
 from cyperf.models.traffic_settings import TrafficSettings
 from typing import Optional, Set, Union
 from typing_extensions import Self
@@ -32,12 +31,11 @@ class TrafficProfileBase(BaseModel):
     TrafficProfileBase
     """ # noqa: E501
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether the profile is enabled or not.", alias="Active")
-    playlist_sequencing_method: Optional[PlaylistSequencingMethod] = Field(default=None, alias="PlaylistSequencingMethod")
     traffic_settings: Optional[TrafficSettings] = Field(default=None, alias="TrafficSettings")
     use_all_source_ips_per_user: Optional[StrictBool] = Field(default=None, description="Indicates whether one or all source IPs are used for each simulated user.", alias="UseAllSourceIPsPerUser")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Active", "PlaylistSequencingMethod", "TrafficSettings", "UseAllSourceIPsPerUser", "id", "links"]
+    __properties: ClassVar[List[str]] = ["Active", "TrafficSettings", "UseAllSourceIPsPerUser", "id", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,7 +101,6 @@ class TrafficProfileBase(BaseModel):
 
         _obj = cls.model_validate({
             "Active": obj.get("Active"),
-                        "PlaylistSequencingMethod": obj.get("PlaylistSequencingMethod"),
                         "TrafficSettings": TrafficSettings.from_dict(obj["TrafficSettings"]) if obj.get("TrafficSettings") is not None else None,
                         "UseAllSourceIPsPerUser": obj.get("UseAllSourceIPsPerUser"),
                         "id": obj.get("id"),

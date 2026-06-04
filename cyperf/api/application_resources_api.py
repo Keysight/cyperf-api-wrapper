@@ -30951,7 +30951,8 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_captures_encrypted_upload_file(
         self,
-        file: Optional[Union[StrictBytes, StrictStr]] = None,
+        file: Union[StrictBytes, StrictStr],
+        ssl_key_log_file: Union[StrictBytes, StrictStr],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30964,13 +30965,15 @@ class ApplicationResourcesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+    ) -> AsyncContext:
         """start_resources_captures_encrypted_upload_file
 
         Upload a file.
 
-        :param file:
+        :param file: (required)
         :type file: bytearray
+        :param ssl_key_log_file: (required)
+        :type ssl_key_log_file: bytearray
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30995,6 +30998,7 @@ class ApplicationResourcesApi:
 
         _param = self._start_resources_captures_encrypted_upload_file_serialize(
             file=file,
+            ssl_key_log_file=ssl_key_log_file,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -31002,7 +31006,7 @@ class ApplicationResourcesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': None,
+            '202': "AsyncContext",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -31015,7 +31019,8 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_captures_encrypted_upload_file_with_http_info(
         self,
-        file: Optional[Union[StrictBytes, StrictStr]] = None,
+        file: Union[StrictBytes, StrictStr],
+        ssl_key_log_file: Union[StrictBytes, StrictStr],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31028,13 +31033,15 @@ class ApplicationResourcesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+    ) -> ApiResponse[AsyncContext]:
         """start_resources_captures_encrypted_upload_file
 
         Upload a file.
 
-        :param file:
+        :param file: (required)
         :type file: bytearray
+        :param ssl_key_log_file: (required)
+        :type ssl_key_log_file: bytearray
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -31059,6 +31066,7 @@ class ApplicationResourcesApi:
 
         _param = self._start_resources_captures_encrypted_upload_file_serialize(
             file=file,
+            ssl_key_log_file=ssl_key_log_file,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -31066,7 +31074,7 @@ class ApplicationResourcesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': None,
+            '202': "AsyncContext",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -31079,7 +31087,8 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_captures_encrypted_upload_file_without_preload_content(
         self,
-        file: Optional[Union[StrictBytes, StrictStr]] = None,
+        file: Union[StrictBytes, StrictStr],
+        ssl_key_log_file: Union[StrictBytes, StrictStr],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31097,8 +31106,10 @@ class ApplicationResourcesApi:
 
         Upload a file.
 
-        :param file:
+        :param file: (required)
         :type file: bytearray
+        :param ssl_key_log_file: (required)
+        :type ssl_key_log_file: bytearray
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -31123,6 +31134,7 @@ class ApplicationResourcesApi:
 
         _param = self._start_resources_captures_encrypted_upload_file_serialize(
             file=file,
+            ssl_key_log_file=ssl_key_log_file,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -31130,7 +31142,7 @@ class ApplicationResourcesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': None,
+            '202': "AsyncContext",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -31143,6 +31155,7 @@ class ApplicationResourcesApi:
     def _start_resources_captures_encrypted_upload_file_serialize(
         self,
         file,
+        ssl_key_log_file,
         _request_auth,
         _content_type,
         _headers,
@@ -31167,6 +31180,8 @@ class ApplicationResourcesApi:
         # process the form parameters
         if file is not None:
             _files['file'] = file
+        if ssl_key_log_file is not None:
+            _files['sslKeyLogFile'] = ssl_key_log_file
         # process the body parameter
 
 

@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **prefix** | **int** | The network mask of the IP Range (default: 16). | 
 **start** | **str** | The start IP for the IPRange (default: 10.0.0.10). | 
 **total_host_count** | **str** |  | 
-**wildcard_initiator_traffic** | **bool** |  | 
 **network_tags** | **List[str]** | A list of tags. | 
 
 ## Example
