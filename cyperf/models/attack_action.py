@@ -23,7 +23,6 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.exchange import Exchange
-from cyperf.models.http_version import HTTPVersion
 from cyperf.models.params import Params
 from typing import Optional, Set, Union
 from typing_extensions import Self
@@ -46,10 +45,9 @@ class AttackAction(BaseModel):
     port: Optional[StrictInt] = Field(default=None, description="The port of the destination host.", alias="Port")
     protocol_id: Optional[StrictStr] = Field(default=None, alias="ProtocolID")
     requires_uniqueness: Optional[StrictBool] = Field(default=None, description="If true, for applications with the same protocol id, application/attack must have been uniquely identified in previous commands.", alias="RequiresUniqueness")
-    supported_http_versions: Optional[List[HTTPVersion]] = Field(default=None, description="The HTTP versions supported by the action.", alias="SupportedHTTPVersions")
     id: Optional[StrictStr] = None
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["DstHost", "Exchanges", "Index", "IsBanner", "IsDeprecated", "IsHostname", "IsLLMStrike", "IsStrike", "Name", "Params", "Port", "ProtocolID", "RequiresUniqueness", "SupportedHTTPVersions", "id", "links"]
+    __properties: ClassVar[List[str]] = ["DstHost", "Exchanges", "Index", "IsBanner", "IsDeprecated", "IsHostname", "IsLLMStrike", "IsStrike", "Name", "Params", "Port", "ProtocolID", "RequiresUniqueness", "id", "links"]
 
     @field_validator('dst_host')
     def dst_host_validate_regular_expression(cls, value):
@@ -148,7 +146,6 @@ class AttackAction(BaseModel):
                         "Port": obj.get("Port"),
                         "ProtocolID": obj.get("ProtocolID"),
                         "RequiresUniqueness": obj.get("RequiresUniqueness"),
-                        "SupportedHTTPVersions": obj.get("SupportedHTTPVersions"),
                         "id": obj.get("id"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)
             ,

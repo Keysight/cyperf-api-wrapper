@@ -24,7 +24,6 @@ from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
 from cyperf.models.automatic_ip_type import AutomaticIpType
 from cyperf.models.ip_ver import IpVer
-from cyperf.models.sequence_value import SequenceValue
 from cyperf.models.vlan_range import VLANRange
 from cyperf.models.vlan_type import VLANType
 from typing import Optional, Set, Union
@@ -41,7 +40,6 @@ class EmulatedRouterRange(BaseModel):
     gw_start: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The gateway start IP for the IPRange (default: 10.0.0.1).", alias="GwStart")
     host_count: Optional[StrictInt] = Field(default=None, description="The number of Host IPs generated (default: 1).", alias="HostCount")
     inner_vlan_range: Optional[VLANRange] = Field(default=None, description="The inner VLAN range assigned to the current IP range configuration", alias="InnerVlanRange")
-    ip_address: Optional[SequenceValue] = Field(default=None, alias="IpAddress")
     ip_auto: StrictBool = Field(description="A flag indicating if IP settings for the IPRange should be determined automatically (default: true).", alias="IpAuto")
     ip_incr: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The IP incrementation rule (default: 0.0.0.1).", alias="IpIncr")
     ip_range_name: Annotated[str, Field(strict=True)] = Field(alias="IpRangeName")
@@ -58,7 +56,7 @@ class EmulatedRouterRange(BaseModel):
     links: Optional[List[APILink]] = None
     max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of IPs that should be assigned to each traffic agent for this IP range segment in a valid test (default: 1).", alias="maxCountPerAgent")
     network_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags.", alias="networkTags")
-    __properties: ClassVar[List[str]] = ["AutomaticIpType", "Count", "GwAuto", "GwStart", "HostCount", "InnerVlanRange", "IpAddress", "IpAuto", "IpIncr", "IpRangeName", "IpStart", "IpVer", "IsEmulatedRouter", "Mss", "MssAuto", "NetMask", "NetMaskAuto", "OuterVlanRange", "VLANType", "id", "links", "maxCountPerAgent", "networkTags"]
+    __properties: ClassVar[List[str]] = ["AutomaticIpType", "Count", "GwAuto", "GwStart", "HostCount", "InnerVlanRange", "IpAuto", "IpIncr", "IpRangeName", "IpStart", "IpVer", "IsEmulatedRouter", "Mss", "MssAuto", "NetMask", "NetMaskAuto", "OuterVlanRange", "VLANType", "id", "links", "maxCountPerAgent", "networkTags"]
 
     @field_validator('gw_start')
     def gw_start_validate_regular_expression(cls, value):
@@ -139,9 +137,6 @@ class EmulatedRouterRange(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of inner_vlan_range
         if self.inner_vlan_range:
             _dict['InnerVlanRange'] = self.inner_vlan_range.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of ip_address
-        if self.ip_address:
-            _dict['IpAddress'] = self.ip_address.to_dict()
         # override the default output from pydantic by calling `to_dict()` of outer_vlan_range
         if self.outer_vlan_range:
             _dict['OuterVlanRange'] = self.outer_vlan_range.to_dict()
@@ -172,7 +167,6 @@ class EmulatedRouterRange(BaseModel):
                         "GwStart": obj.get("GwStart"),
                         "HostCount": obj.get("HostCount"),
                         "InnerVlanRange": VLANRange.from_dict(obj["InnerVlanRange"]) if obj.get("InnerVlanRange") is not None else None,
-                        "IpAddress": SequenceValue.from_dict(obj["IpAddress"]) if obj.get("IpAddress") is not None else None,
                         "IpAuto": obj.get("IpAuto"),
                         "IpIncr": obj.get("IpIncr"),
                         "IpRangeName": obj.get("IpRangeName"),

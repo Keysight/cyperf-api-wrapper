@@ -9173,7 +9173,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_resources_captures_encrypted_upload_file**
-> start_resources_captures_encrypted_upload_file(file=file)
+> AsyncContext start_resources_captures_encrypted_upload_file(file, ssl_key_log_file)
 
 
 
@@ -9186,6 +9186,7 @@ Upload a file.
 
 ```python
 import cyperf
+from cyperf.models.async_context import AsyncContext
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -9208,10 +9209,13 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.ApplicationResourcesApi(api_client)
-    file = None # bytearray |  (optional)
+    file = None # bytearray | 
+    ssl_key_log_file = None # bytearray | 
 
     try:
-        api_instance.start_resources_captures_encrypted_upload_file(file=file)
+        api_response = api_instance.start_resources_captures_encrypted_upload_file(file, ssl_key_log_file)
+        print("The response of ApplicationResourcesApi->start_resources_captures_encrypted_upload_file:\n")
+        pprint(api_response)
     except Exception as e:
         print("Exception when calling ApplicationResourcesApi->start_resources_captures_encrypted_upload_file: %s\n" % e)
 ```
@@ -9223,11 +9227,12 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **bytearray**|  | [optional] 
+ **file** | **bytearray**|  | 
+ **ssl_key_log_file** | **bytearray**|  | 
 
 ### Return type
 
-void (empty response body)
+[**AsyncContext**](AsyncContext.md)
 
 ### Authorization
 

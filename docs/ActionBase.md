@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **port** | **int** | The port of the destination host. | [optional] 
 **protocol_id** | **str** |  | [optional] 
 **requires_uniqueness** | **bool** | If true, for applications with the same protocol id, application/attack must have been uniquely identified in previous commands. | [optional] 
-**supported_http_versions** | [**List[HTTPVersion]**](HTTPVersion.md) | The HTTP versions supported by the action. | [optional] 
 **id** | **str** |  | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 

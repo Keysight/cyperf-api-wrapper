@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **prefix** | **int** | The length (in bits) of the subnet mask to be applied to all the addresses created in the range. | 
 **single_remote_subnet** | **bool** |  | 
 **start** | **str** | The base address for enumerating all the local subnets in the range | 
-**wildcard_responder_traffic** | **bool** |  | 
 
 ## Example
 

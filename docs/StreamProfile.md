@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **total_estimated_throughput** | **str** |  | [optional] 
 **total_estimated_throughput_per_simulated_user** | **str** |  | [optional] 
 **unique_pool_size** | **int** |  | [optional] 
-**unrestricted_packet_rate** | **bool** |  | [optional] 
 
 ## Example
 

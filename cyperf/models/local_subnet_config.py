@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set, Union
@@ -36,9 +36,8 @@ class LocalSubnetConfig(BaseModel):
     prefix: StrictInt = Field(description="The network mask of the IP Range (default: 16).", alias="Prefix")
     start: Annotated[str, Field(strict=True)] = Field(description="The start IP for the IPRange (default: 10.0.0.10).", alias="Start")
     total_host_count: StrictStr = Field(alias="TotalHostCount")
-    wildcard_initiator_traffic: StrictBool = Field(alias="WildcardInitiatorTraffic")
     network_tags: List[StrictStr] = Field(description="A list of tags.", alias="networkTags")
-    __properties: ClassVar[List[str]] = ["HostCountPerTunnel", "HostsIncrement", "HostsPrefix", "Increment", "Prefix", "Start", "TotalHostCount", "WildcardInitiatorTraffic", "networkTags"]
+    __properties: ClassVar[List[str]] = ["HostCountPerTunnel", "HostsIncrement", "HostsPrefix", "Increment", "Prefix", "Start", "TotalHostCount", "networkTags"]
 
     @field_validator('hosts_increment')
     def hosts_increment_validate_regular_expression(cls, value):
@@ -121,7 +120,6 @@ class LocalSubnetConfig(BaseModel):
                         "Prefix": obj.get("Prefix"),
                         "Start": obj.get("Start"),
                         "TotalHostCount": obj.get("TotalHostCount"),
-                        "WildcardInitiatorTraffic": obj.get("WildcardInitiatorTraffic"),
                         "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else []
             ,
             "links": obj.get("links")
