@@ -7,7 +7,6 @@ The Ethernet Ranges assigned to the current test configuration
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count** | **int** |  | [optional] 
-**mac_address** | [**SequenceValue**](SequenceValue.md) |  | [optional] 
 **mac_auto** | **bool** | A flag indicating if the MAC address for the EthRange should be determined automatically (default: true). | 
 **mac_incr** | **str** | The MAC address increment rule for the EthRange (default: 00:00:00:00:00:01). | [optional] 
 **mac_start** | **str** | The MAC start address for the EthRange (default: 00:11:01:00:00:01). | [optional] 

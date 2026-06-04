@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.stream_payload_type import StreamPayloadType
 from typing import Optional, Set, Union
@@ -35,8 +35,7 @@ class StreamProfile(BaseModel):
     total_estimated_throughput: Optional[StrictStr] = Field(default=None, alias="totalEstimatedThroughput")
     total_estimated_throughput_per_simulated_user: Optional[StrictStr] = Field(default=None, alias="totalEstimatedThroughputPerSimulatedUser")
     unique_pool_size: Optional[StrictInt] = Field(default=None, alias="uniquePoolSize")
-    unrestricted_packet_rate: Optional[StrictBool] = Field(default=None, alias="unrestrictedPacketRate")
-    __properties: ClassVar[List[str]] = ["packetRate", "payloadSize", "payloadType", "totalEstimatedThroughput", "totalEstimatedThroughputPerSimulatedUser", "uniquePoolSize", "unrestrictedPacketRate"]
+    __properties: ClassVar[List[str]] = ["packetRate", "payloadSize", "payloadType", "totalEstimatedThroughput", "totalEstimatedThroughputPerSimulatedUser", "uniquePoolSize"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,8 +95,7 @@ class StreamProfile(BaseModel):
                         "payloadType": obj.get("payloadType"),
                         "totalEstimatedThroughput": obj.get("totalEstimatedThroughput"),
                         "totalEstimatedThroughputPerSimulatedUser": obj.get("totalEstimatedThroughputPerSimulatedUser"),
-                        "uniquePoolSize": obj.get("uniquePoolSize"),
-                        "unrestrictedPacketRate": obj.get("unrestrictedPacketRate")
+                        "uniquePoolSize": obj.get("uniquePoolSize")
             ,
             "links": obj.get("links")
         })

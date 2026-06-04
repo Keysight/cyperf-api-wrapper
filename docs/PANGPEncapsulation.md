@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **esp_over_udp_enabled** | **bool** |  | 
 **esp_over_udp_settings** | [**ESPOverUDPSettings**](ESPOverUDPSettings.md) |  | [optional] 
-**enable_ikev2** | **bool** |  | 
 **encapsulation_mode** | **str** | The encapsulation mode for inner traffic. | 
 **udp_port** | **int** |  | 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 

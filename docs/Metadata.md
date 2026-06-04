@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **sort_severity** | **str** | The field by which the severity is sorted | [optional] 
 **static** | **bool** | If true, the application/strike is managed directly by the controller | [optional] 
 **supported_apps** | **List[str]** | The apps that this strike can be used with | [optional] 
-**supported_http_versions** | **List[str]** | The HTTP versions supported by the application | [optional] 
 **supports_http2** | **bool** | Indicates if the application supports HTTP2 multi-stream | [optional] 
 **year** | **str** | The year of the strike | [optional] 
 
