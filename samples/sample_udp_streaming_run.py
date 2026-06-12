@@ -122,7 +122,7 @@ class UDPTest (object):
 
     def _wait_until_stopped(self):
         self.last_recorded_time_stamps = {}
-        self.utils.wait_for_test_stop(self.session, self._print_run_time_stats)
+        self.utils.wait_for_test_end(self.session, self._print_run_time_stats)
         print('Stopped test ...')
 
     def run(self):
