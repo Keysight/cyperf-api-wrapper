@@ -1,0 +1,57 @@
+<!-- generated: knowledge-base v3.5.0 | section:file-index -->
+## File Index
+
+### File Inventory
+| Path / Group | Count | Role | Generated? |
+|---|---|---|---|
+| `cyperf/api_client.py` | 1 | HTTP request/response pipeline, retry, dynamic-model wrapping | Generated + hand patches (`accept_eula`, `wait_for_controller_up`, `refresh_authorization`, `__retry`) |
+| `cyperf/configuration.py` | 1 | Auth/host/SSL/proxy config, OAuth2 token fetch | Generated + hand patch (`_get_access_token`, `eula_accept_interactive`) |
+| `cyperf/rest.py` | 1 | urllib3-based low-level HTTP client | Generated (standard) |
+| `cyperf/exceptions.py` | 1 | Exception hierarchy, status→exception mapping | Generated + 1 hand addition (`LinkNameException`) |
+| `cyperf/api_response.py` | 1 | Generic `ApiResponse[T]` pydantic wrapper | Generated (standard) |
+| `cyperf/__init__.py` | 1 | Public namespace (re-exports ~460 names) | Generated (standard) |
+| `cyperf/dynamic_model_meta.py` | 1 | `DynamicModel` metaclass — HATEOAS link-following, update/delete/refresh/poll | **Hand-written**, no generator header |
+| `cyperf/dynamic_models/__init__.py` | 1 | Mechanically builds one `DynamicModel`-wrapped class per model name | Generated (custom template, not standard openapi-generator) |
+| `cyperf/utils.py` | 1 | `TestRunner` convenience class + CLI arg parsing (`parse_cli_options`, `create_api_client_cli`) | **Hand-written**, no generator header |
+| `cyperf/api/*.py` | 16 (+`__init__.py`) | Generated REST operation classes, ~322 operations total (was 312; `AgentsApi` gained ~10 compute-resource/front-panel-port ownership ops in the Jul-10 2026 regen) | Generated (standard) |
+| `cyperf/models/*.py` | 454 | Generated pydantic model per OpenAPI schema (was 443; +11 new models for front-panel-port/compute-resource ownership, 1 renamed: `set_link_state_operation.py` → `set_ports_link_state_operation.py`) | Generated (standard) |
+| `docs/*.md` | 469 | Generated per-model/per-API-class reference docs (was 458; +11 for the same regen) | Generated (standard) |
+| `samples/*.py` | 7 | End-to-end usage examples (attack tests, config CRUD, UDP streaming, sequences, appbuilder capture-to-app workflow) | Hand-written |
+| `samples/appbuilder/*` | 3 | `sample_appbuilder_examples.py` (uploads an encrypted pcap capture via `ApplicationResourcesApi`, then builds AppBuilder apps/actions from the parsed flows) + `claude.pcap`/`tls_key.log` fixtures (added 2026-07-14, PR #77) | Hand-written script + data fixtures |
+| `samples/cyperf-configurations/*.zip` | 1 | Sample pre-canned CyPerf config bundle | Data fixture |
+| `docker/Dockerfile` | 1 | Builds/installs the package for publishing | Hand-written |
+| `jenkins/JenkinsFile` | 1 | Internal Keysight build/publish pipeline (PyPI release) | Hand-written |
+| `.github/workflows/python.yml`, `.gitlab-ci.yml`, `.travis.yml` | 3 | Lint/test CI (all generator-produced, unmodified) | Generated (standard) |
+
+### Key File Details
+
+- **`cyperf/api_client.py`** — `ApiClient.__init__(configuration, header_name, header_value, cookie)`. `param_serialize()` builds method/url/headers/body via `update_params_for_auth`/`_apply_auth_params`. `call_api()` is the public sync entry point, wrapping private `__call_api` in a hand-written `__retry(request_func, retries=3→5)` loop (catches `ServiceException`/`urllib3.exceptions.RequestError`, `time.sleep(5)` between attempts) — independent of urllib3's own retry config. `__call_api` calls `rest_client.request(...)` then wraps the result via `DynamicModel.dynamic_wrapper(...)` (lazy import from `dynamic_model_meta`). `response_deserialize()` maps status→declared type, raises `ApiException.from_response(...)` on non-2xx. CyPerf-specific: `accept_eula(eula_text)` (env var `CYPERF_EULA_ACCEPTED` or interactive prompt), `wait_for_controller_up(timeout_seconds=600)` (polls `UtilsApi.check_eulas`, `ApplicationResourcesApi`, `SessionsApi`, `ConfigurationsApi`, `AgentsApi`, `TestResultsApi`), `refresh_authorization()` (clears `configuration.access_token` to force re-auth).
+
+- **`cyperf/configuration.py`** — Supports API-key, HTTP basic (`username`/`password`), and OAuth2 (`access_token`/`refresh_token`). `_get_access_token()` (hand-written) calls `AuthorizationApi.authenticate(client_id='clt-wap', grant_type='refresh_token'|'password', ...)`. `auth_settings()` lazily fetches the token and builds `auth['OAuth2'] = {'type':'oauth2','in':'header','key':'Authorization','value':'Bearer '+access_token}`; contains a verbatim duplicated credential-check block (~lines 417–436), a manual-edit artifact, functionally harmless. Host/SSL/proxy fields: `host`, `verify_ssl`, `ssl_ca_cert`, `cert_file`/`key_file`, `proxy`, `retries`, `connection_pool_maxsize` (`cpu_count()*5`); CyPerf-specific `eula_accept_interactive`, `temp_folder_path`.
+
+- **`cyperf/rest.py`** — `RESTClientObject` built on raw `urllib3` (`PoolManager`/`ProxyManager`/SOCKS via `is_socks_proxy_url`), `preload_content=False` always, retries passed straight to urllib3 (`pool_args['retries']`), TLS via `ssl.CERT_REQUIRED`/`CERT_NONE`. Body building supports JSON/form/multipart/raw depending on `Content-Type`.
+
+- **`cyperf/exceptions.py`** — `OpenApiException` → `ApiTypeError`/`ApiValueError`/`ApiAttributeError`/`ApiKeyError`/`ApiException`. `ApiException.from_response()` maps 400→`BadRequestException`, 401→`UnauthorizedException`, 403→`ForbiddenException`, 404→`NotFoundException`, 5xx→`ServiceException`. Hand addition: `LinkNameException(Exception)` — raised by `DynamicModel.get_link()` when a HATEOAS link name isn't found.
+
+- **`cyperf/dynamic_model_meta.py`** — `DynamicList(UserList)`/`DynamicDict(UserDict)` keep raw vs. link-wrapped collection data in sync, diffing local vs. server state to POST new items / batch-DELETE (`operations/batch-delete`) removed ones on `.update()`. `DynamicModel(type)` metaclass inspects each model's pydantic fields (via `x-operation` schema extras) to attach either a bound "operation" method (e.g. a synthetic `start_test_run_start`-style method returning an `AsyncContext`) or a lazy link-following property. Key instance methods added to every model: `update()` (PATCH only-changed fields; falls back to full GET+PUT on HTTP 405), `delete()`, `refresh()`, `get_link()`/`get_self_link()`, `link_based_request()` (the actual `api_client.param_serialize`+`call_api` call), `poll()`/`await_completion()` (polls async ops, `time.sleep(poll_time)`, raises on `state=="ERROR"`). Known latent bug: `DynamicDict.__init__` iterates `for key,i in dct` over what is normally a plain dict — likely never exercised in practice, worth a defensive look before relying on dict-typed link fields.
+
+- **`cyperf/utils.py`** — `TestRunner.__init__(controller, username, password, refresh_token, license_server, license_user, license_password, verify_ssl)`: reads env var **`CYPERF_OFFLINE_TOKEN`** when no explicit credentials are given, builds `Configuration`+`ApiClient`, calls `update_license_server()`, fetches online agents. ~35 methods wrap the generated `*Api` classes for common workflows: `load_configuration_file(s)`, `create_session(_by_config_name)`, `delete_session`, `assign_agents` (raises `ValueError("Insufficient agents found on setup.")`), `wait_until_agents_released` (raises `TimeoutError` after 180s), `start_test`/`stop_test`/`wait_for_test_end(session, test_monitor)` (0.5s poll loop with optional callback), `collect_stats`, `get_csvs_for_result` (file I/O: `os.makedirs` + `ZipFile(...).extractall(...)`), `set_prisma_airs_params`/`set_model_armor_params` (broad except-and-print, no re-raise — the one clear error-swallowing spot in the codebase). Module functions: `parse_cli_options(extra_options=[])` (argparse: `--controller` required, `--user`/`--password`/`--license-server`/`--license-user`/`--license-password`, plus caller-supplied extra flags; falls back to `CYPERF_OFFLINE_TOKEN` env var), `create_api_client_cli(verify_ssl=True)`. `is_valid_ipv4`/`is_valid_ipv6` are defined without a `self` parameter — a bug if ever invoked as bound instance methods.
+
+- **`cyperf/__init__.py`** — Pure generated flat namespace: all 16 `*Api` classes, `ApiClient`, `ApiResponse`, `Configuration`, `DynamicModel`, all exception classes (incl. `LinkNameException`), and ~440 model classes. Notably **`utils` and `dynamic_model_meta` are not re-exported here** — accessed as `cyperf.utils`/`cyperf.dynamic_model_meta` submodules.
+
+### Interaction Chains
+
+**Chain A — `TestRunner`-based end-to-end test run** (used by `sample_udp_streaming_run.py`, `sample_attacks_load_and_run.py`):
+1. `utils.parse_cli_options()` → parses `--controller/--user/--password/--refresh-token`.
+2. `utils.TestRunner(...)` constructor → builds `Configuration` + `ApiClient` (no HTTP yet unless `license_server` given).
+3. `TestRunner.create_session_by_config_name(name)` → `ConfigurationsApi.get_configs(...)` (**GET** `/api/v2/configurations`) → `TestRunner.create_session(config_url)` → `SessionsApi.create_sessions([Session(config_url=...)])` (**POST** `/api/v2/sessions`).
+4. `TestRunner.add_app/disable_automatic_network/assign_agents/set_objective_and_timeline(...)` → mutate in-memory config models → `.update()` (via `DynamicModel`) → **PATCH/PUT** to session config sub-resources.
+5. `TestRunner.start_test(session)` → `TestOperationsApi.start_test_run_start(session_id=...)` (**POST** `/api/v2/sessions/{id}/test-operations/start`) → `.await_completion()` polls the async op (**GET**) until done.
+6. `TestRunner.wait_for_test_end(session, test_monitor)` → loop calling `SessionsApi.get_session_test(session_id=...)` (**GET** `/api/v2/sessions/{id}/test`) every 0.5s until `status=='STOPPED'`; each tick optionally calls `TestRunner.collect_stats(...)` → `StatisticsApi.get_result_stats`/`get_result_stat_by_id` (**GET**).
+7. Cleanup: `TestRunner.delete_session(session)` → `SessionsApi.delete_session(...)` (**DELETE** `/api/v2/sessions/{id}`).
+
+**Chain B — raw-API end-to-end run** (used by `sample_load_and_run_precanned_config.py`, `sample_create_save_and_export_config.py`, `sample_attack_based_script.py`): same shape but inlined without `TestRunner` — `create_api_client_cli()` → `ConfigurationsApi.get_configs` → `SessionsApi.create_sessions` → per-model `.update()` calls → `TestOperationsApi.start_test_run_start` + `.await_completion()` → hand-rolled `while session.test.status != 'STOPPED': sleep(5); session.refresh()` (bypasses `wait_for_test_end`) → `TestResultsApi.start_result_generate_all`/`ReportsApi.start_result_generate_csv` + `.await_completion()`. These three scripts never call `delete_session` — no cleanup.
+
+### Hub Files & Side Effect Map
+- **Hub files** (imported by many): `cyperf/api_client.py` (all 16 `*Api` classes + `dynamic_model_meta.py`), `cyperf/dynamic_model_meta.py` (`__init__.py`, all `*_api.py`, `dynamic_models/__init__.py`), `cyperf/configuration.py` (`ApiClient` + every sample), `cyperf/exceptions.py` (used wherever `ApiException` is caught).
+- **Side effects**: `api_client.py`/`rest.py` — all outbound HTTPS to the CyPerf controller. `utils.py` — file I/O (`get_csvs_for_result`: `os.makedirs`, `ZipFile.extractall`), env var reads (`CYPERF_OFFLINE_TOKEN`, license/EULA flows), `time.sleep` polling, `print`/`pprint` to stdout. `dynamic_model_meta.py` — HTTP via `api_client.call_api`/`param_serialize`, `time.sleep` in `poll()`. No database, no message queues, no background workers.
