@@ -1,0 +1,17 @@
+<!-- generated: knowledge-base v3.5.0 | section:architecture -->
+## Architecture Overview
+
+**Style**: Generated OpenAPI client SDK ("Library" surface), not a monolith/microservice/UI. Four layers, bottom-up:
+
+1. **Transport/Auth** — `cyperf/configuration.py` (host, SSL/proxy/retry config, OAuth2 credential storage) + `cyperf/rest.py` (`RESTClientObject`, thin urllib3 wrapper: `PoolManager`/`ProxyManager`/SOCKS, `preload_content=False`) + `cyperf/api_client.py` (`ApiClient`: `param_serialize` → `call_api` → `response_deserialize`, plus a hand-written `__retry` loop layered on top of urllib3's own retries, and CyPerf-specific `accept_eula`/`wait_for_controller_up`/`refresh_authorization`).
+2. **Generated REST surface** — `cyperf/api/*.py`, 16 classes / ~322 operations (grew from 312 via the Jul-10 2026 "Regenerate Python API Wrapper" commit, which added ~10 compute-resource/front-panel-port ownership operations to `AgentsApi`), each method built in triplicate (`op`, `op_with_http_info`, `op_without_preload_content`), all declaring `_auth_settings = ['OAuth2', 'OAuth2']`.
+3. **Generated data models** — `cyperf/models/*.py`, 454 pydantic v2 models (was 443; +11 new models for the same regen, incl. `ComputeResource`, `FrontPanel`, `RebootComputeResourcesOperation`, `SetFrontPanelPortsLinkStateOperation`), one per OpenAPI schema, re-exported flat from `cyperf/__init__.py`.
+4. **Dynamic/HATEOAS overlay + scripting helpers** — `cyperf/dynamic_model_meta.py` (`DynamicModel` metaclass attaches `.update()/.delete()/.refresh()/.get_link()/.poll()` and lazy link-following properties to every generated model) and `cyperf/utils.py` (`TestRunner` class + `parse_cli_options`/`create_api_client_cli`) for end-to-end test-automation scripting. `samples/*.py` demonstrate both the raw-API style and the `TestRunner`-based style.
+
+**Auth flow**: `Configuration._get_access_token()` calls `AuthorizationApi.authenticate(client_id='clt-wap', grant_type='refresh_token'|'password', ...)` against the controller's Keycloak-style endpoint (`/auth/realms/keysight/protocol/openid-connect/token`), then every subsequent call attaches `Authorization: Bearer {access_token}` via `Configuration.auth_settings()`.
+
+**Async operations**: CyPerf operations that take time (start test, generate report, license activation) return an `AsyncContext`-like resource; `DynamicModel.poll()`/`.await_completion()` polls it via GET until `state != "IN_PROGRESS"`, raising `ApiException` on `state == "ERROR"`.
+
+**Dependency graph / hub files**: `api_client.py` ← used by all 16 `*Api` classes and by `dynamic_model_meta.py`. `dynamic_model_meta.py` ← used by `cyperf/__init__.py`, every `*_api.py`, and `cyperf/dynamic_models/__init__.py` (which mechanically instantiates one `DynamicModel`-built class per model name). `configuration.py` ← used by `ApiClient` and every sample script. `exceptions.py` ← imported everywhere `ApiException` handling occurs. No circular imports detected beyond the documented `dynamic_model_meta` ↔ `cyperf/__init__` load-order coupling noted above.
+
+**Data architecture**: No database — the controller (external system) is the data store; this package is purely a typed HTTP client. "Caching" is limited to in-memory model state kept in sync by `DynamicList`/`DynamicDict` wrappers between local mutation and server refresh.
