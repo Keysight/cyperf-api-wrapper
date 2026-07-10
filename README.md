@@ -75,12 +75,18 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**get_agent_by_id**](docs/AgentsApi.md#get_agent_by_id) | **GET** /api/v2/agents/{agentId} | 
 *AgentsApi* | [**get_agents**](docs/AgentsApi.md#get_agents) | **GET** /api/v2/agents | 
 *AgentsApi* | [**get_agents_tags**](docs/AgentsApi.md#get_agents_tags) | **GET** /api/v2/tags | 
+*AgentsApi* | [**get_compute_node_compute_resource_by_id**](docs/AgentsApi.md#get_compute_node_compute_resource_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/compute-resources/{computeResourceId} | 
+*AgentsApi* | [**get_compute_node_compute_resources**](docs/AgentsApi.md#get_compute_node_compute_resources) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/compute-resources | 
 *AgentsApi* | [**get_compute_node_port_by_id**](docs/AgentsApi.md#get_compute_node_port_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/ports/{portId} | 
 *AgentsApi* | [**get_compute_node_ports**](docs/AgentsApi.md#get_compute_node_ports) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId}/ports | 
 *AgentsApi* | [**get_controller_by_id**](docs/AgentsApi.md#get_controller_by_id) | **GET** /api/v2/controllers/{controllerId} | 
 *AgentsApi* | [**get_controller_compute_node_by_id**](docs/AgentsApi.md#get_controller_compute_node_by_id) | **GET** /api/v2/controllers/{controllerId}/compute-nodes/{computeNodeId} | 
 *AgentsApi* | [**get_controller_compute_nodes**](docs/AgentsApi.md#get_controller_compute_nodes) | **GET** /api/v2/controllers/{controllerId}/compute-nodes | 
+*AgentsApi* | [**get_controller_front_panel_by_id**](docs/AgentsApi.md#get_controller_front_panel_by_id) | **GET** /api/v2/controllers/{controllerId}/front-panels/{frontPanelId} | 
+*AgentsApi* | [**get_controller_front_panels**](docs/AgentsApi.md#get_controller_front_panels) | **GET** /api/v2/controllers/{controllerId}/front-panels | 
 *AgentsApi* | [**get_controllers**](docs/AgentsApi.md#get_controllers) | **GET** /api/v2/controllers | 
+*AgentsApi* | [**get_front_panel_port_by_id**](docs/AgentsApi.md#get_front_panel_port_by_id) | **GET** /api/v2/controllers/{controllerId}/front-panels/{frontPanelId}/ports/{portId} | 
+*AgentsApi* | [**get_front_panel_ports**](docs/AgentsApi.md#get_front_panel_ports) | **GET** /api/v2/controllers/{controllerId}/front-panels/{frontPanelId}/ports | 
 *AgentsApi* | [**patch_agent**](docs/AgentsApi.md#patch_agent) | **PATCH** /api/v2/agents/{agentId} | 
 *AgentsApi* | [**start_agents_batch_delete**](docs/AgentsApi.md#start_agents_batch_delete) | **POST** /api/v2/agents/operations/batch-delete | 
 *AgentsApi* | [**start_agents_export_files**](docs/AgentsApi.md#start_agents_export_files) | **POST** /api/v2/agents/operations/exportFiles | 
@@ -90,10 +96,14 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**start_agents_set_dpdk_mode**](docs/AgentsApi.md#start_agents_set_dpdk_mode) | **POST** /api/v2/agents/operations/set-dpdk-mode | 
 *AgentsApi* | [**start_agents_set_ntp**](docs/AgentsApi.md#start_agents_set_ntp) | **POST** /api/v2/agents/operations/set-ntp | 
 *AgentsApi* | [**start_agents_update**](docs/AgentsApi.md#start_agents_update) | **POST** /api/v2/agents/operations/update | 
+*AgentsApi* | [**start_controllers_clear_compute_resource_ownership**](docs/AgentsApi.md#start_controllers_clear_compute_resource_ownership) | **POST** /api/v2/controllers/operations/clear-compute-resource-ownership | 
+*AgentsApi* | [**start_controllers_clear_front_panel_port_ownership**](docs/AgentsApi.md#start_controllers_clear_front_panel_port_ownership) | **POST** /api/v2/controllers/operations/clear-front-panel-port-ownership | 
 *AgentsApi* | [**start_controllers_clear_port_ownership**](docs/AgentsApi.md#start_controllers_clear_port_ownership) | **POST** /api/v2/controllers/operations/clear-port-ownership | 
 *AgentsApi* | [**start_controllers_power_cycle_nodes**](docs/AgentsApi.md#start_controllers_power_cycle_nodes) | **POST** /api/v2/controllers/operations/power-cycle-nodes | 
+*AgentsApi* | [**start_controllers_reboot_compute_resource**](docs/AgentsApi.md#start_controllers_reboot_compute_resource) | **POST** /api/v2/controllers/operations/reboot-compute-resource | 
 *AgentsApi* | [**start_controllers_reboot_port**](docs/AgentsApi.md#start_controllers_reboot_port) | **POST** /api/v2/controllers/operations/reboot-port | 
 *AgentsApi* | [**start_controllers_set_app**](docs/AgentsApi.md#start_controllers_set_app) | **POST** /api/v2/controllers/operations/set-app | 
+*AgentsApi* | [**start_controllers_set_front_panel_port_link_state**](docs/AgentsApi.md#start_controllers_set_front_panel_port_link_state) | **POST** /api/v2/controllers/operations/set-front-panel-port-link-state | 
 *AgentsApi* | [**start_controllers_set_node_aggregation**](docs/AgentsApi.md#start_controllers_set_node_aggregation) | **POST** /api/v2/controllers/operations/set-node-aggregation | 
 *AgentsApi* | [**start_controllers_set_node_app**](docs/AgentsApi.md#start_controllers_set_node_app) | **POST** /api/v2/controllers/operations/set-node-app | 
 *AgentsApi* | [**start_controllers_set_port_link_state**](docs/AgentsApi.md#start_controllers_set_port_link_state) | **POST** /api/v2/controllers/operations/set-port-link-state | 
@@ -399,8 +409,10 @@ Class | Method | HTTP request | Description
  - [ActivationCodeRequest](docs/ActivationCodeRequest.md)
  - [AddActionInfo](docs/AddActionInfo.md)
  - [AddInput](docs/AddInput.md)
+ - [Address](docs/Address.md)
  - [AdvancedSettings](docs/AdvancedSettings.md)
  - [Agent](docs/Agent.md)
+ - [AgentAssignmentByFrontPanelPort](docs/AgentAssignmentByFrontPanelPort.md)
  - [AgentAssignmentByPort](docs/AgentAssignmentByPort.md)
  - [AgentAssignmentDetails](docs/AgentAssignmentDetails.md)
  - [AgentAssignments](docs/AgentAssignments.md)
@@ -458,10 +470,15 @@ Class | Method | HTTP request | Description
  - [CipherTLS13](docs/CipherTLS13.md)
  - [CiscoAnyConnectSettings](docs/CiscoAnyConnectSettings.md)
  - [CiscoEncapsulation](docs/CiscoEncapsulation.md)
+ - [ClearComputeResourcesOwnershipOperation](docs/ClearComputeResourcesOwnershipOperation.md)
+ - [ClearFrontPanelPortsOwnershipOperation](docs/ClearFrontPanelPortsOwnershipOperation.md)
  - [ClearPortsOwnershipOperation](docs/ClearPortsOwnershipOperation.md)
  - [Command](docs/Command.md)
  - [CommandMetadata](docs/CommandMetadata.md)
  - [ComputeNode](docs/ComputeNode.md)
+ - [ComputeResource](docs/ComputeResource.md)
+ - [ComputeResourcesByController](docs/ComputeResourcesByController.md)
+ - [ComputeResourcesByNode](docs/ComputeResourcesByNode.md)
  - [Config](docs/Config.md)
  - [ConfigCategory](docs/ConfigCategory.md)
  - [ConfigId](docs/ConfigId.md)
@@ -479,11 +496,13 @@ Class | Method | HTTP request | Description
  - [CreateAppOrAttackOperationInput](docs/CreateAppOrAttackOperationInput.md)
  - [CustomDashboards](docs/CustomDashboards.md)
  - [CustomImportHandler](docs/CustomImportHandler.md)
+ - [CustomSequence](docs/CustomSequence.md)
  - [CustomStat](docs/CustomStat.md)
  - [DNSResolver](docs/DNSResolver.md)
  - [DNSServer](docs/DNSServer.md)
  - [DTLSSettings](docs/DTLSSettings.md)
  - [DUTNetwork](docs/DUTNetwork.md)
+ - [DUTRange](docs/DUTRange.md)
  - [Dashboard](docs/Dashboard.md)
  - [DataType](docs/DataType.md)
  - [DataTypeValuesInner](docs/DataTypeValuesInner.md)
@@ -538,6 +557,8 @@ Class | Method | HTTP request | Description
  - [FindParamMatchesOperation](docs/FindParamMatchesOperation.md)
  - [FortinetEncapsulation](docs/FortinetEncapsulation.md)
  - [FortinetSettings](docs/FortinetSettings.md)
+ - [FrontPanel](docs/FrontPanel.md)
+ - [FrontPanelPortsByController](docs/FrontPanelPortsByController.md)
  - [FulfillmentRequest](docs/FulfillmentRequest.md)
  - [GenerateAllOperation](docs/GenerateAllOperation.md)
  - [GenerateCSVReportsOperation](docs/GenerateCSVReportsOperation.md)
@@ -685,12 +706,14 @@ Class | Method | HTTP request | Description
  - [PepDUT](docs/PepDUT.md)
  - [PfsP2Group](docs/PfsP2Group.md)
  - [PlaylistMetadata](docs/PlaylistMetadata.md)
+ - [PlaylistSequencingMethod](docs/PlaylistSequencingMethod.md)
  - [Plugin](docs/Plugin.md)
  - [PluginStats](docs/PluginStats.md)
  - [Port](docs/Port.md)
  - [PortSettings](docs/PortSettings.md)
  - [PortsByController](docs/PortsByController.md)
  - [PortsByNode](docs/PortsByNode.md)
+ - [PortsByPanel](docs/PortsByPanel.md)
  - [PrepareTestOperation](docs/PrepareTestOperation.md)
  - [PreparedTestOptions](docs/PreparedTestOptions.md)
  - [PrfP1Algorithm](docs/PrfP1Algorithm.md)
@@ -700,6 +723,7 @@ Class | Method | HTTP request | Description
  - [RTPEncryptionMode](docs/RTPEncryptionMode.md)
  - [RTPProfile](docs/RTPProfile.md)
  - [RTPProfileMeta](docs/RTPProfileMeta.md)
+ - [RebootComputeResourcesOperation](docs/RebootComputeResourcesOperation.md)
  - [RebootOperationInput](docs/RebootOperationInput.md)
  - [RebootPortsOperation](docs/RebootPortsOperation.md)
  - [Reference](docs/Reference.md)
@@ -721,16 +745,22 @@ Class | Method | HTTP request | Description
  - [SecondaryObjective](docs/SecondaryObjective.md)
  - [SegmentType](docs/SegmentType.md)
  - [SelectedEnv](docs/SelectedEnv.md)
+ - [SequenceDataTypes](docs/SequenceDataTypes.md)
+ - [SequenceValue](docs/SequenceValue.md)
+ - [SequenceValueTypes](docs/SequenceValueTypes.md)
  - [Session](docs/Session.md)
  - [SessionReuseMethodTLS12](docs/SessionReuseMethodTLS12.md)
  - [SessionReuseMethodTLS13](docs/SessionReuseMethodTLS13.md)
  - [SetAggregationModeOperation](docs/SetAggregationModeOperation.md)
  - [SetControllerAppOperation](docs/SetControllerAppOperation.md)
  - [SetDpdkModeOperationInput](docs/SetDpdkModeOperationInput.md)
- - [SetLinkStateOperation](docs/SetLinkStateOperation.md)
+ - [SetFrontPanelPortsLinkStateOperation](docs/SetFrontPanelPortsLinkStateOperation.md)
  - [SetNodesAppOperation](docs/SetNodesAppOperation.md)
  - [SetNtpOperationInput](docs/SetNtpOperationInput.md)
+ - [SetPortsLinkStateOperation](docs/SetPortsLinkStateOperation.md)
+ - [SimpleSequenceValue](docs/SimpleSequenceValue.md)
  - [SimulatedIdP](docs/SimulatedIdP.md)
+ - [SingleValue](docs/SingleValue.md)
  - [Snapshot](docs/Snapshot.md)
  - [SnowflakeExporter](docs/SnowflakeExporter.md)
  - [SortBodyField](docs/SortBodyField.md)
@@ -744,6 +774,7 @@ Class | Method | HTTP request | Description
  - [StreamDirection](docs/StreamDirection.md)
  - [StreamPayloadType](docs/StreamPayloadType.md)
  - [StreamProfile](docs/StreamProfile.md)
+ - [SubStep](docs/SubStep.md)
  - [SupportedGroupTLS13](docs/SupportedGroupTLS13.md)
  - [SystemInfo](docs/SystemInfo.md)
  - [TLSProfile](docs/TLSProfile.md)

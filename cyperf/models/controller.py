@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.compute_node import ComputeNode
+from cyperf.models.front_panel import FrontPanel
 from cyperf.models.health_issue import HealthIssue
 from typing import Optional, Set, Union
 from typing_extensions import Self
@@ -32,6 +33,7 @@ class Controller(BaseModel):
     Controller
     """ # noqa: E501
     compute_nodes: Optional[List[ComputeNode]] = Field(default=None, description="The compute nodes of the controller", alias="computeNodes")
+    front_panels: Optional[List[FrontPanel]] = Field(default=None, description="The front panels of the controller", alias="frontPanels")
     health_details: Optional[List[HealthIssue]] = Field(default=None, description="Details regarding any health issue of the controller", alias="healthDetails")
     healthy: Optional[StrictBool] = Field(default=None, description="Whether the controller has any health issue or not")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the controller")
@@ -39,7 +41,8 @@ class Controller(BaseModel):
     name: Optional[StrictStr] = Field(default=None, description="A user-friendly display name for the controller")
     serial: Optional[StrictStr] = Field(default=None, description="The serial of the controller")
     type: Optional[StrictStr] = Field(default=None, description="The type of the controller")
-    __properties: ClassVar[List[str]] = ["computeNodes", "healthDetails", "healthy", "id", "links", "name", "serial", "type"]
+    type_display_name: Optional[StrictStr] = Field(default=None, description="The display type name of the controller", alias="typeDisplayName")
+    __properties: ClassVar[List[str]] = ["computeNodes", "frontPanels", "healthDetails", "healthy", "id", "links", "name", "serial", "type", "typeDisplayName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +90,13 @@ class Controller(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['computeNodes'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in front_panels (list)
+        _items = []
+        if self.front_panels:
+            for _item in self.front_panels:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['frontPanels'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in health_details (list)
         _items = []
         if self.health_details:
@@ -116,13 +126,15 @@ class Controller(BaseModel):
 
         _obj = cls.model_validate({
             "computeNodes": ( [ComputeNode.from_dict(_item) for _item in obj.get("computeNodes", [])] if obj.get("computeNodes") is not None else None),
+                        "frontPanels": ( [FrontPanel.from_dict(_item) for _item in obj.get("frontPanels", [])] if obj.get("frontPanels") is not None else None),
                         "healthDetails": ( [HealthIssue.from_dict(_item) for _item in obj.get("healthDetails", [])] if obj.get("healthDetails") is not None else None),
                         "healthy": obj.get("healthy"),
                         "id": obj.get("id"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "name": obj.get("name"),
                         "serial": obj.get("serial"),
-                        "type": obj.get("type")
+                        "type": obj.get("type"),
+                        "typeDisplayName": obj.get("typeDisplayName")
             ,
             "links": obj.get("links")
         })

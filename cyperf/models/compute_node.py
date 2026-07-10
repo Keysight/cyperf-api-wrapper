@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
 from cyperf.models.app_mode import AppMode
+from cyperf.models.compute_resource import ComputeResource
 from cyperf.models.health_issue import HealthIssue
 from cyperf.models.port import Port
 from typing import Optional, Set, Union
@@ -34,6 +35,7 @@ class ComputeNode(BaseModel):
     """ # noqa: E501
     aggregated_mode: Optional[StrictBool] = Field(default=None, description="Whether the ports of the compute node are aggregated or not", alias="aggregatedMode")
     app_mode: Optional[AppMode] = Field(default=None, alias="appMode")
+    compute_resources: Optional[List[ComputeResource]] = Field(default=None, description="The compute Resources of the compute node", alias="computeResources")
     health_details: Optional[List[HealthIssue]] = Field(default=None, description="A list with more details regarding the health of the compute node", alias="healthDetails")
     healthy: Optional[StrictBool] = Field(default=None, description="Whether the compute node has any health issue or not")
     id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the compute node")
@@ -44,7 +46,8 @@ class ComputeNode(BaseModel):
     slot_number: Optional[StrictInt] = Field(default=None, description="The slot number of the compute node", alias="slotNumber")
     status: Optional[StrictStr] = Field(default=None, description="The current status of the compute node: ready or not ready")
     type: Optional[StrictStr] = Field(default=None, description="The type of the compute node")
-    __properties: ClassVar[List[str]] = ["aggregatedMode", "appMode", "healthDetails", "healthy", "id", "links", "name", "ports", "serial", "slotNumber", "status", "type"]
+    type_display_name: Optional[StrictStr] = Field(default=None, description="The display type name of the compute node", alias="typeDisplayName")
+    __properties: ClassVar[List[str]] = ["aggregatedMode", "appMode", "computeResources", "healthDetails", "healthy", "id", "links", "name", "ports", "serial", "slotNumber", "status", "type", "typeDisplayName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,6 +91,13 @@ class ComputeNode(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of app_mode
         if self.app_mode:
             _dict['appMode'] = self.app_mode.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in compute_resources (list)
+        _items = []
+        if self.compute_resources:
+            for _item in self.compute_resources:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['computeResources'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in health_details (list)
         _items = []
         if self.health_details:
@@ -125,6 +135,7 @@ class ComputeNode(BaseModel):
         _obj = cls.model_validate({
             "aggregatedMode": obj.get("aggregatedMode"),
                         "appMode": AppMode.from_dict(obj["appMode"]) if obj.get("appMode") is not None else None,
+                        "computeResources": ( [ComputeResource.from_dict(_item) for _item in obj.get("computeResources", [])] if obj.get("computeResources") is not None else None),
                         "healthDetails": ( [HealthIssue.from_dict(_item) for _item in obj.get("healthDetails", [])] if obj.get("healthDetails") is not None else None),
                         "healthy": obj.get("healthy"),
                         "id": obj.get("id"),
@@ -134,7 +145,8 @@ class ComputeNode(BaseModel):
                         "serial": obj.get("serial"),
                         "slotNumber": obj.get("slotNumber"),
                         "status": obj.get("status"),
-                        "type": obj.get("type")
+                        "type": obj.get("type"),
+                        "typeDisplayName": obj.get("typeDisplayName")
             ,
             "links": obj.get("links")
         })

@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.agent_assignment_by_front_panel_port import AgentAssignmentByFrontPanelPort
 from cyperf.models.agent_assignment_by_port import AgentAssignmentByPort
 from cyperf.models.agent_assignment_details import AgentAssignmentDetails
 from cyperf.models.api_link import APILink
@@ -31,11 +32,12 @@ class AgentAssignments(BaseModel):
     """
     The agents assigned to the current test configuration
     """ # noqa: E501
+    by_front_panel_port: Optional[List[AgentAssignmentByFrontPanelPort]] = Field(default=None, description="The front panel ports assigned to the current test configuration.", alias="ByFrontPanelPort")
     by_id: Optional[List[AgentAssignmentDetails]] = Field(default=None, description="The agents statically assigned to the current test configuration.", alias="ByID")
     by_port: Optional[List[AgentAssignmentByPort]] = Field(default=None, description="The ports assigned to the current test configuration.", alias="ByPort")
     by_tag: Optional[List[StrictStr]] = Field(default=None, description="The tags according to which the agents are dynamically assigned.", alias="ByTag")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["ByID", "ByPort", "ByTag", "links"]
+    __properties: ClassVar[List[str]] = ["ByFrontPanelPort", "ByID", "ByPort", "ByTag", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +78,13 @@ class AgentAssignments(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in by_front_panel_port (list)
+        _items = []
+        if self.by_front_panel_port:
+            for _item in self.by_front_panel_port:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['ByFrontPanelPort'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in by_id (list)
         _items = []
         if self.by_id:
@@ -111,7 +120,8 @@ class AgentAssignments(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "ByID": ( [AgentAssignmentDetails.from_dict(_item) for _item in obj.get("ByID", [])] if obj.get("ByID") is not None else None),
+            "ByFrontPanelPort": ( [AgentAssignmentByFrontPanelPort.from_dict(_item) for _item in obj.get("ByFrontPanelPort", [])] if obj.get("ByFrontPanelPort") is not None else None),
+                        "ByID": ( [AgentAssignmentDetails.from_dict(_item) for _item in obj.get("ByID", [])] if obj.get("ByID") is not None else None),
                         "ByPort": ( [AgentAssignmentByPort.from_dict(_item) for _item in obj.get("ByPort", [])] if obj.get("ByPort") is not None else None),
                         "ByTag": obj.get("ByTag") if obj.get("ByTag") is not None else [],
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None)

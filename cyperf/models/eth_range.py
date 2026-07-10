@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.api_link import APILink
+from cyperf.models.sequence_value import SequenceValue
 from cyperf.models.static_arp_entry import StaticARPEntry
 from typing import Optional, Set, Union
 from typing_extensions import Self
@@ -32,6 +33,7 @@ class EthRange(BaseModel):
     The Ethernet Ranges assigned to the current test configuration
     """ # noqa: E501
     count: Optional[StrictInt] = Field(default=None, alias="Count")
+    mac_address: Optional[SequenceValue] = Field(default=None, alias="MacAddress")
     mac_auto: StrictBool = Field(description="A flag indicating if the MAC address for the EthRange should be determined automatically (default: true).", alias="MacAuto")
     mac_incr: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The MAC address increment rule for the EthRange (default: 00:00:00:00:00:01).", alias="MacIncr")
     mac_start: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The MAC start address for the EthRange (default: 00:11:01:00:00:01).", alias="MacStart")
@@ -39,7 +41,7 @@ class EthRange(BaseModel):
     static_arp_table: Optional[List[StaticARPEntry]] = Field(default=None, alias="StaticARPTable")
     links: Optional[List[APILink]] = None
     max_count_per_agent: Optional[StrictInt] = Field(default=None, description="The maximum number of MACs that should be assigned to each traffic agent for this Ethernet range segment in a valid test (default: 0, split equally between agents).", alias="maxCountPerAgent")
-    __properties: ClassVar[List[str]] = ["Count", "MacAuto", "MacIncr", "MacStart", "OneMacPerIP", "StaticARPTable", "links", "maxCountPerAgent"]
+    __properties: ClassVar[List[str]] = ["Count", "MacAddress", "MacAuto", "MacIncr", "MacStart", "OneMacPerIP", "StaticARPTable", "links", "maxCountPerAgent"]
 
     @field_validator('mac_incr')
     def mac_incr_validate_regular_expression(cls, value):
@@ -100,6 +102,9 @@ class EthRange(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of mac_address
+        if self.mac_address:
+            _dict['MacAddress'] = self.mac_address.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in static_arp_table (list)
         _items = []
         if self.static_arp_table:
@@ -129,6 +134,7 @@ class EthRange(BaseModel):
 
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
+                        "MacAddress": SequenceValue.from_dict(obj["MacAddress"]) if obj.get("MacAddress") is not None else None,
                         "MacAuto": obj.get("MacAuto"),
                         "MacIncr": obj.get("MacIncr"),
                         "MacStart": obj.get("MacStart"),
