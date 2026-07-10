@@ -1,4 +1,4 @@
-# SetLinkStateOperation
+# SetPortsLinkStateOperation
 
 
 ## Properties
@@ -11,19 +11,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from cyperf.models.set_link_state_operation import SetLinkStateOperation
+from cyperf.models.set_ports_link_state_operation import SetPortsLinkStateOperation
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of SetLinkStateOperation from a JSON string
-set_link_state_operation_instance = SetLinkStateOperation.from_json(json)
+# create an instance of SetPortsLinkStateOperation from a JSON string
+set_ports_link_state_operation_instance = SetPortsLinkStateOperation.from_json(json)
 # print the JSON string representation of the object
-print(SetLinkStateOperation.to_json())
+print(SetPortsLinkStateOperation.to_json())
 
 # convert the object into a dict
-set_link_state_operation_dict = set_link_state_operation_instance.to_dict()
-# create an instance of SetLinkStateOperation from a dict
-set_link_state_operation_from_dict = SetLinkStateOperation.from_dict(set_link_state_operation_dict)
+set_ports_link_state_operation_dict = set_ports_link_state_operation_instance.to_dict()
+# create an instance of SetPortsLinkStateOperation from a dict
+set_ports_link_state_operation_from_dict = SetPortsLinkStateOperation.from_dict(set_ports_link_state_operation_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

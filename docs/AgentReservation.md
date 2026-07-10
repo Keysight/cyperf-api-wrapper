@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **agent_id** | **str** |  | [optional] 
 **agent_payload_names** | **List[str]** |  | [optional] 
+**front_panel_port_id** | **str** |  | [optional] 
 **general_purpose_cpu_percent** | **int** |  | [optional] 
 **interfaces** | **List[str]** |  | [optional] 
 **ip_address_version_used** | **str** |  | [optional] 

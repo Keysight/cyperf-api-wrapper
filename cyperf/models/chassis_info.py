@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Union
 from typing_extensions import Self
@@ -28,12 +28,14 @@ class ChassisInfo(BaseModel):
     """
     ChassisInfo
     """ # noqa: E501
+    aggregated_mode: Optional[StrictBool] = Field(default=None, description="Whether the ports of this compute node are aggregated", alias="aggregatedMode")
     checkout_id: Optional[StrictInt] = Field(default=None, description="The id of the compute node used for checkout licenses", alias="checkoutID")
     compute_node_id: Optional[StrictStr] = Field(default=None, description="The id of the compute node where the agent is running", alias="computeNodeID")
-    hw_platform: Optional[StrictStr] = Field(default=None, alias="hwPlatform")
-    hw_revision: Optional[StrictStr] = Field(default=None, alias="hwRevision")
+    front_panel_port_id: Optional[StrictStr] = Field(default=None, description="The ID of the Front Panel Port", alias="frontPanelPortID")
+    hw_platform: Optional[StrictStr] = Field(default=None, description="The hardware platform the corresponding port is running on", alias="hwPlatform")
+    hw_revision: Optional[StrictStr] = Field(default=None, description="The hardware revision of the underlying platform", alias="hwRevision")
     port_id: Optional[StrictStr] = Field(default=None, description="The id of the corresponding port", alias="portID")
-    __properties: ClassVar[List[str]] = ["checkoutID", "computeNodeID", "hwPlatform", "hwRevision", "portID"]
+    __properties: ClassVar[List[str]] = ["aggregatedMode", "checkoutID", "computeNodeID", "frontPanelPortID", "hwPlatform", "hwRevision", "portID"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,10 +70,18 @@ class ChassisInfo(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "aggregated_mode",
             "checkout_id",
             "compute_node_id",
+            "front_panel_port_id",
+            "hw_platform",
+            "hw_revision",
             "port_id",
         ])
 
@@ -94,8 +104,10 @@ class ChassisInfo(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "checkoutID": obj.get("checkoutID"),
+            "aggregatedMode": obj.get("aggregatedMode"),
+                        "checkoutID": obj.get("checkoutID"),
                         "computeNodeID": obj.get("computeNodeID"),
+                        "frontPanelPortID": obj.get("frontPanelPortID"),
                         "hwPlatform": obj.get("hwPlatform"),
                         "hwRevision": obj.get("hwRevision"),
                         "portID": obj.get("portID")

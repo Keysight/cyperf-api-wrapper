@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **compute_nodes** | [**List[ComputeNode]**](ComputeNode.md) | The compute nodes of the controller | [optional] 
+**front_panels** | [**List[FrontPanel]**](FrontPanel.md) | The front panels of the controller | [optional] 
 **health_details** | [**List[HealthIssue]**](HealthIssue.md) | Details regarding any health issue of the controller | [optional] 
 **healthy** | **bool** | Whether the controller has any health issue or not | [optional] 
 **id** | **str** | The unique identifier of the controller | [optional] 
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **name** | **str** | A user-friendly display name for the controller | [optional] 
 **serial** | **str** | The serial of the controller | [optional] 
 **type** | **str** | The type of the controller | [optional] 
+**type_display_name** | **str** | The display type name of the controller | [optional] 
 
 ## Example
 

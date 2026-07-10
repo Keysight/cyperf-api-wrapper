@@ -5,10 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**aggregated_mode** | **bool** | Whether the ports of this compute node are aggregated | [optional] [readonly] 
 **checkout_id** | **int** | The id of the compute node used for checkout licenses | [optional] [readonly] 
 **compute_node_id** | **str** | The id of the compute node where the agent is running | [optional] [readonly] 
-**hw_platform** | **str** |  | [optional] 
-**hw_revision** | **str** |  | [optional] 
+**front_panel_port_id** | **str** | The ID of the Front Panel Port | [optional] [readonly] 
+**hw_platform** | **str** | The hardware platform the corresponding port is running on | [optional] [readonly] 
+**hw_revision** | **str** | The hardware revision of the underlying platform | [optional] [readonly] 
 **port_id** | **str** | The id of the corresponding port | [optional] [readonly] 
 
 ## Example
