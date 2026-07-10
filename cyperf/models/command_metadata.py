@@ -48,10 +48,11 @@ class CommandMetadata(BaseModel):
     sort_severity: Optional[StrictStr] = Field(default=None, description="The field by which the severity is sorted", alias="SortSeverity")
     static: Optional[StrictBool] = Field(default=None, description="If true, the application/strike is managed directly by the controller", alias="Static")
     supported_apps: Optional[List[StrictStr]] = Field(default=None, description="The apps that this strike can be used with", alias="SupportedApps")
+    supported_http_versions: Optional[List[StrictStr]] = Field(default=None, description="The HTTP versions supported by the application", alias="SupportedHTTPVersions")
     supported_protocols: Optional[List[StrictStr]] = Field(default=None, description="The list of protocols which support this command", alias="SupportedProtocols")
     supports_http2: Optional[StrictBool] = Field(default=None, description="Indicates if the application supports HTTP2 multi-stream", alias="SupportsHTTP2")
     year: Optional[StrictStr] = Field(default=None, description="The year of the strike", alias="Year")
-    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "IsForAppTrafficOnly", "IsLLMStrike", "IsStreaming", "Keywords", "LegacyNames", "NoMultiFlowSupport", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "SupportedProtocols", "SupportsHTTP2", "Year"]
+    __properties: ClassVar[List[str]] = ["Direction", "IsBanner", "IsForAppTrafficOnly", "IsLLMStrike", "IsStreaming", "Keywords", "LegacyNames", "NoMultiFlowSupport", "Protocol", "RTPProfileMeta", "References", "RequiresUniqueness", "Severity", "SkipAttackGeneration", "SortSeverity", "Static", "SupportedApps", "SupportedHTTPVersions", "SupportedProtocols", "SupportsHTTP2", "Year"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -140,6 +141,7 @@ class CommandMetadata(BaseModel):
                         "SortSeverity": obj.get("SortSeverity"),
                         "Static": obj.get("Static"),
                         "SupportedApps": obj.get("SupportedApps") if obj.get("SupportedApps") is not None else [],
+                        "SupportedHTTPVersions": obj.get("SupportedHTTPVersions") if obj.get("SupportedHTTPVersions") is not None else [],
                         "SupportedProtocols": obj.get("SupportedProtocols") if obj.get("SupportedProtocols") is not None else [],
                         "SupportsHTTP2": obj.get("SupportsHTTP2"),
                         "Year": obj.get("Year")

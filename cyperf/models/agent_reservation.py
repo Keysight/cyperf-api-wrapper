@@ -30,11 +30,12 @@ class AgentReservation(BaseModel):
     """ # noqa: E501
     agent_id: Optional[StrictStr] = Field(default=None, alias="agentId")
     agent_payload_names: Optional[List[StrictStr]] = Field(default=None, alias="agentPayloadNames")
+    front_panel_port_id: Optional[StrictStr] = Field(default=None, alias="frontPanelPortId")
     general_purpose_cpu_percent: Optional[StrictInt] = Field(default=None, alias="generalPurposeCPUPercent")
     interfaces: Optional[List[StrictStr]] = None
     ip_address_version_used: Optional[StrictStr] = Field(default=None, alias="ipAddressVersionUsed")
     optimization_mode: Optional[StrictStr] = Field(default=None, alias="optimizationMode")
-    __properties: ClassVar[List[str]] = ["agentId", "agentPayloadNames", "generalPurposeCPUPercent", "interfaces", "ipAddressVersionUsed", "optimizationMode"]
+    __properties: ClassVar[List[str]] = ["agentId", "agentPayloadNames", "frontPanelPortId", "generalPurposeCPUPercent", "interfaces", "ipAddressVersionUsed", "optimizationMode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +92,7 @@ class AgentReservation(BaseModel):
         _obj = cls.model_validate({
             "agentId": obj.get("agentId"),
                         "agentPayloadNames": obj.get("agentPayloadNames") if obj.get("agentPayloadNames") is not None else [],
+                        "frontPanelPortId": obj.get("frontPanelPortId"),
                         "generalPurposeCPUPercent": obj.get("generalPurposeCPUPercent"),
                         "interfaces": obj.get("interfaces") if obj.get("interfaces") is not None else [],
                         "ipAddressVersionUsed": obj.get("ipAddressVersionUsed"),

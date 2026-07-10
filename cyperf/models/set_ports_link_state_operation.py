@@ -26,9 +26,9 @@ from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class SetLinkStateOperation(BaseModel):
+class SetPortsLinkStateOperation(BaseModel):
     """
-    SetLinkStateOperation
+    SetPortsLinkStateOperation
     """ # noqa: E501
     controllers: Optional[List[PortsByController]] = Field(default=None, description="The controllers that the ports are part of.")
     link: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The desired link state.")
@@ -62,7 +62,7 @@ class SetLinkStateOperation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SetLinkStateOperation from a JSON string"""
+        """Create an instance of SetPortsLinkStateOperation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -94,7 +94,7 @@ class SetLinkStateOperation(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SetLinkStateOperation from a dict"""
+        """Create an instance of SetPortsLinkStateOperation from a dict"""
         if obj is None:
             return None
 
