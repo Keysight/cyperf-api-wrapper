@@ -24,9 +24,12 @@ from cyperf.models.api_link import APILink
 from cyperf.models.cert_config import CertConfig
 from cyperf.models.cipher_tls12 import CipherTLS12
 from cyperf.models.cipher_tls13 import CipherTLS13
+from cyperf.models.classical_signature_algorithm_tls13 import ClassicalSignatureAlgorithmTLS13
+from cyperf.models.composite_pqc_signature_algorithm_tls13 import CompositePqcSignatureAlgorithmTLS13
 from cyperf.models.conflict import Conflict
 from cyperf.models.group_tls13 import GroupTLS13
 from cyperf.models.params import Params
+from cyperf.models.pqc_signature_algorithm_tls13 import PqcSignatureAlgorithmTLS13
 from cyperf.models.session_reuse_method_tls12 import SessionReuseMethodTLS12
 from cyperf.models.session_reuse_method_tls13 import SessionReuseMethodTLS13
 from cyperf.models.supported_group_tls13 import SupportedGroupTLS13
@@ -44,7 +47,10 @@ class TLSProfile(BaseModel):
     cipher13: Optional[CipherTLS13] = None
     ciphers12: Optional[List[CipherTLS12]] = None
     ciphers13: Optional[List[CipherTLS13]] = None
+    classical_signature_algorithms13: Optional[List[ClassicalSignatureAlgorithmTLS13]] = Field(default=None, alias="classicalSignatureAlgorithms13")
+    composite_pqc_signature_algorithms13: Optional[List[CompositePqcSignatureAlgorithmTLS13]] = Field(default=None, alias="compositePqcSignatureAlgorithms13")
     dh_file: Optional[Params] = Field(default=None, alias="dhFile")
+    early_data_enabled: Optional[StrictBool] = Field(default=None, description="If true, TLS 1.3 early data will be enabled.", alias="earlyDataEnabled")
     get_tls_conflicts: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="get-tls-conflicts")
     _get_tls_conflicts_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,GetTLSConflicts" })
     groups13: Optional[List[GroupTLS13]] = None
@@ -53,11 +59,14 @@ class TLSProfile(BaseModel):
     key_file_password: Optional[StrictStr] = Field(default=None, description="The key file password of the TLS profile.", alias="keyFilePassword")
     links: Optional[List[APILink]] = None
     middle_box_enabled: Optional[StrictBool] = Field(default=None, description="If true, the middle box compatibility will be enabled", alias="middleBoxEnabled")
+    pqc_signature_algorithms13: Optional[List[PqcSignatureAlgorithmTLS13]] = Field(default=None, alias="pqcSignatureAlgorithms13")
     profile_id: StrictStr = Field(description="The ID of the TLS profile (default: TLSProfile).", alias="profileId")
     resolve_tls_conflicts: Optional[List[Conflict]] = Field(default=None, alias="resolve-tls-conflicts")
     _resolve_tls_conflicts_json_schema_extra: dict = PrivateAttr(default={"x-operation": "-,ResolveTLSConflicts" })
     send_close_notify: Optional[StrictBool] = Field(default=None, description="If true, a TLS close-notify alert will be sent while closing the TLS session", alias="sendCloseNotify")
-    session_reuse_count: Optional[StrictInt] = Field(default=None, alias="sessionReuseCount")
+    session_reuse_count: Optional[StrictInt] = Field(default=None, description="Deprecated: retained for backward compatibility. Represents the TLS 1.2 session reuse count - the number of times a TLS 1.2 client can reuse a previously established session before performing a full handshake (a value of 0 disables session reuse). Use sessionReuseCount12 instead.", alias="sessionReuseCount")
+    session_reuse_count12: Optional[StrictInt] = Field(default=None, description="The number of times a TLS 1.2 client can reuse a previously established session before performing a full handshake ( a value of 0 disables session reuse).", alias="sessionReuseCount12")
+    session_reuse_count13: Optional[StrictInt] = Field(default=None, description="The number of times a TLS 1.3 client can reuse a previously established session before performing a full handshake ( a value of 0 disables session reuse).", alias="sessionReuseCount13")
     session_reuse_method: Optional[SessionReuseMethodTLS12] = Field(default=None, alias="sessionReuseMethod")
     session_reuse_method12: Optional[SessionReuseMethodTLS12] = Field(default=None, alias="sessionReuseMethod12")
     session_reuse_method13: Optional[SessionReuseMethodTLS13] = Field(default=None, alias="sessionReuseMethod13")
@@ -66,9 +75,10 @@ class TLSProfile(BaseModel):
     supported_groups13: Optional[List[SupportedGroupTLS13]] = Field(default=None, alias="supportedGroups13")
     tls12_enabled: StrictBool = Field(alias="tls12Enabled")
     tls13_enabled: Optional[StrictBool] = Field(default=None, alias="tls13Enabled")
+    use_default_signature_algorithms: Optional[StrictBool] = Field(default=None, description="If true, default signature algorithms will be used.", alias="useDefaultSignatureAlgorithms")
     use_tls_profile: Optional[StrictBool] = Field(default=None, description="When disabled, the connection is not TLS secured (default: true).", alias="useTlsProfile")
     version: StrictStr = Field(description="The version of the TLS profile (default: NONE). Must be one of: NONE or TLSv1.2 or TLSv1.3.")
-    __properties: ClassVar[List[str]] = ["certificateFile", "cipher", "cipher12", "cipher13", "ciphers12", "ciphers13", "dhFile", "get-tls-conflicts", "groups13", "immediateClose", "keyFile", "keyFilePassword", "links", "middleBoxEnabled", "profileId", "resolve-tls-conflicts", "sendCloseNotify", "sessionReuseCount", "sessionReuseMethod", "sessionReuseMethod12", "sessionReuseMethod13", "sniCertConfigs", "sniEnabled", "supportedGroups13", "tls12Enabled", "tls13Enabled", "useTlsProfile", "version"]
+    __properties: ClassVar[List[str]] = ["certificateFile", "cipher", "cipher12", "cipher13", "ciphers12", "ciphers13", "classicalSignatureAlgorithms13", "compositePqcSignatureAlgorithms13", "dhFile", "earlyDataEnabled", "get-tls-conflicts", "groups13", "immediateClose", "keyFile", "keyFilePassword", "links", "middleBoxEnabled", "pqcSignatureAlgorithms13", "profileId", "resolve-tls-conflicts", "sendCloseNotify", "sessionReuseCount", "sessionReuseCount12", "sessionReuseCount13", "sessionReuseMethod", "sessionReuseMethod12", "sessionReuseMethod13", "sniCertConfigs", "sniEnabled", "supportedGroups13", "tls12Enabled", "tls13Enabled", "useDefaultSignatureAlgorithms", "useTlsProfile", "version"]
 
     @field_validator('version')
     def version_validate_enum(cls, value):
@@ -173,7 +183,10 @@ class TLSProfile(BaseModel):
                         "cipher13": obj.get("cipher13"),
                         "ciphers12": obj.get("ciphers12"),
                         "ciphers13": obj.get("ciphers13"),
+                        "classicalSignatureAlgorithms13": obj.get("classicalSignatureAlgorithms13"),
+                        "compositePqcSignatureAlgorithms13": obj.get("compositePqcSignatureAlgorithms13"),
                         "dhFile": Params.from_dict(obj["dhFile"]) if obj.get("dhFile") is not None else None,
+                        "earlyDataEnabled": obj.get("earlyDataEnabled"),
                         "get-tls-conflicts": obj.get("get-tls-conflicts") if obj.get("get-tls-conflicts") is not None else [],
                         "groups13": ( [GroupTLS13.from_dict(_item) for _item in obj.get("groups13", [])] if obj.get("groups13") is not None else None),
                         "immediateClose": obj.get("immediateClose"),
@@ -181,10 +194,13 @@ class TLSProfile(BaseModel):
                         "keyFilePassword": obj.get("keyFilePassword"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
                         "middleBoxEnabled": obj.get("middleBoxEnabled"),
+                        "pqcSignatureAlgorithms13": obj.get("pqcSignatureAlgorithms13"),
                         "profileId": obj.get("profileId"),
                         "resolve-tls-conflicts": ( [Conflict.from_dict(_item) for _item in obj.get("resolve-tls-conflicts", [])] if obj.get("resolve-tls-conflicts") is not None else None),
                         "sendCloseNotify": obj.get("sendCloseNotify"),
                         "sessionReuseCount": obj.get("sessionReuseCount"),
+                        "sessionReuseCount12": obj.get("sessionReuseCount12"),
+                        "sessionReuseCount13": obj.get("sessionReuseCount13"),
                         "sessionReuseMethod": obj.get("sessionReuseMethod"),
                         "sessionReuseMethod12": obj.get("sessionReuseMethod12"),
                         "sessionReuseMethod13": obj.get("sessionReuseMethod13"),
@@ -193,6 +209,7 @@ class TLSProfile(BaseModel):
                         "supportedGroups13": obj.get("supportedGroups13"),
                         "tls12Enabled": obj.get("tls12Enabled"),
                         "tls13Enabled": obj.get("tls13Enabled"),
+                        "useDefaultSignatureAlgorithms": obj.get("useDefaultSignatureAlgorithms"),
                         "useTlsProfile": obj.get("useTlsProfile"),
                         "version": obj.get("version")
             ,

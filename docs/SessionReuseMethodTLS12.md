@@ -1,6 +1,6 @@
 # SessionReuseMethodTLS12
 
-The session reuse method. Must be one of: DISABLE, SESSION-TICKET or SESSION-ID (default: DISABLE).
+TLS 1.2 session reuse method. Must be one of: DISABLE, SESSION-TICKET, SESSION-ID (default: DISABLE).
 
 ## Enum
 

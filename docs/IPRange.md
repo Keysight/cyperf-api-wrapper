@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **automatic_ip_type** | [**AutomaticIpType**](AutomaticIpType.md) | The automatic IP types, either &#39;ONLY_IPV4&#39;, &#39;ONLY_IPV6&#39; or &#39;BOTH_IPV4_IPV6&#39;. | [optional] 
 **count** | **int** | The number of IPs generated (default: 1). | [optional] 
-**gw_auto** | **bool** | A flag indicating if the gateway settings for the IPRange should be determined automatically (default: true). | 
+**gw_auto** | **bool** | A flag indicating if the gateway settings for the IPRange should be determined automatically (default: true). | [optional] 
 **gw_start** | **str** | The gateway start IP for the IPRange (default: 10.0.0.1). | [optional] 
 **host_count** | **int** | The number of Host IPs generated (default: 1). | [optional] 
 **inner_vlan_range** | [**VLANRange**](VLANRange.md) | The inner VLAN range assigned to the current IP range configuration | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **mss** | **int** | The maximum segment size of the TCP header. | [optional] 
 **mss_auto** | **bool** | A flag indicating if Mss settings for the IPRange should be determined automatically (default: false). | [optional] 
 **net_mask** | **int** | The network mask of the IP Range (default: 16). | [optional] 
-**net_mask_auto** | **bool** | A flag indicating if the network mask of the IPRange should be determined automatically (default: true). | 
+**net_mask_auto** | **bool** | A flag indicating if the network mask of the IPRange should be determined automatically (default: true). | [optional] 
 **outer_vlan_range** | [**VLANRange**](VLANRange.md) | The outer VLAN range assigned to the current IP range configuration | [optional] 
 **vlan_type** | [**VLANType**](VLANType.md) | The type of VLAN used | [optional] 
 **id** | **str** |  | [optional] 

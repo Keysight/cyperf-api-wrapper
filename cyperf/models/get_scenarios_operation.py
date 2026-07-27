@@ -18,28 +18,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.category_filter import CategoryFilter
+from cyperf.models.sort_body_field import SortBodyField
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class Broker(BaseModel):
+class GetScenariosOperation(BaseModel):
     """
-    Broker
+    GetScenariosOperation
     """ # noqa: E501
-    connection_status: Optional[StrictStr] = Field(default=None, alias="connectionStatus")
-    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason")
-    fingerprint: Optional[StrictStr] = None
-    host_name: Optional[StrictStr] = Field(default=None, alias="hostName")
-    id: Optional[StrictInt] = None
-    interactive_fingerprint_verification: Optional[StrictBool] = Field(default=None, alias="interactiveFingerprintVerification")
-    password: Optional[StrictStr] = None
-    pretty_conn_status: Optional[StrictStr] = Field(default=None, alias="prettyConnStatus")
-    trust_new: Optional[StrictBool] = Field(default=None, alias="trustNew")
-    tunnel_host_name: Optional[StrictStr] = Field(default=None, alias="tunnelHostName")
-    user: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["connectionStatus", "failureReason", "fingerprint", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "tunnelHostName", "user"]
+    categories: Optional[List[CategoryFilter]] = None
+    filter_mode: Optional[StrictStr] = Field(default=None, alias="filterMode")
+    search_col: Optional[List[StrictStr]] = Field(default=None, alias="searchCol")
+    search_val: Optional[List[StrictStr]] = Field(default=None, alias="searchVal")
+    skip: Optional[StrictStr] = None
+    sort: Optional[List[SortBodyField]] = None
+    take: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["categories", "filterMode", "searchCol", "searchVal", "skip", "sort", "take"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +57,7 @@ class Broker(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Broker from a JSON string"""
+        """Create an instance of GetScenariosOperation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,11 +78,25 @@ class Broker(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in categories (list)
+        _items = []
+        if self.categories:
+            for _item in self.categories:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['categories'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in sort (list)
+        _items = []
+        if self.sort:
+            for _item in self.sort:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['sort'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Broker from a dict"""
+        """Create an instance of GetScenariosOperation from a dict"""
         if obj is None:
             return None
 
@@ -94,17 +106,13 @@ class Broker(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "connectionStatus": obj.get("connectionStatus"),
-                        "failureReason": obj.get("failureReason"),
-                        "fingerprint": obj.get("fingerprint"),
-                        "hostName": obj.get("hostName"),
-                        "id": obj.get("id"),
-                        "interactiveFingerprintVerification": obj.get("interactiveFingerprintVerification"),
-                        "password": obj.get("password"),
-                        "prettyConnStatus": obj.get("prettyConnStatus"),
-                        "trustNew": obj.get("trustNew"),
-                        "tunnelHostName": obj.get("tunnelHostName"),
-                        "user": obj.get("user")
+            "categories": ( [CategoryFilter.from_dict(_item) for _item in obj.get("categories", [])] if obj.get("categories") is not None else None),
+                        "filterMode": obj.get("filterMode"),
+                        "searchCol": obj.get("searchCol") if obj.get("searchCol") is not None else [],
+                        "searchVal": obj.get("searchVal") if obj.get("searchVal") is not None else [],
+                        "skip": obj.get("skip"),
+                        "sort": ( [SortBodyField.from_dict(_item) for _item in obj.get("sort", [])] if obj.get("sort") is not None else None),
+                        "take": obj.get("take")
             ,
             "links": obj.get("links")
         })

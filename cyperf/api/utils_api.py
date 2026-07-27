@@ -2030,6 +2030,7 @@ class UtilsApi:
     @validate_call
     def get_eula(
         self,
+        id: Annotated[StrictStr, Field(description="The ID of the EULA.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2046,6 +2047,8 @@ class UtilsApi:
         """Retrieve EULA detail
 
 
+        :param id: The ID of the EULA. (required)
+        :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2069,6 +2072,7 @@ class UtilsApi:
         """ # noqa: E501
 
         _param = self._get_eula_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2089,6 +2093,7 @@ class UtilsApi:
     @validate_call
     def get_eula_with_http_info(
         self,
+        id: Annotated[StrictStr, Field(description="The ID of the EULA.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2105,6 +2110,8 @@ class UtilsApi:
         """Retrieve EULA detail
 
 
+        :param id: The ID of the EULA. (required)
+        :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2128,6 +2135,7 @@ class UtilsApi:
         """ # noqa: E501
 
         _param = self._get_eula_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2148,6 +2156,7 @@ class UtilsApi:
     @validate_call
     def get_eula_without_preload_content(
         self,
+        id: Annotated[StrictStr, Field(description="The ID of the EULA.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2164,6 +2173,8 @@ class UtilsApi:
         """Retrieve EULA detail
 
 
+        :param id: The ID of the EULA. (required)
+        :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2187,6 +2198,7 @@ class UtilsApi:
         """ # noqa: E501
 
         _param = self._get_eula_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2206,6 +2218,7 @@ class UtilsApi:
 
     def _get_eula_serialize(
         self,
+        id,
         _request_auth,
         _content_type,
         _headers,
@@ -2225,6 +2238,8 @@ class UtilsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -2248,7 +2263,7 @@ class UtilsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/eula/v1/eula/CyPerf',
+            resource_path='/eula/v1/eula/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3048,6 +3063,7 @@ class UtilsApi:
     @validate_call
     def post_eula(
         self,
+        id: Annotated[StrictStr, Field(description="The ID of the EULA.")],
         eula_summary: Optional[EulaSummary] = None,
         _request_timeout: Union[
             None,
@@ -3065,6 +3081,8 @@ class UtilsApi:
         """Update properties an EULA
 
 
+        :param id: The ID of the EULA. (required)
+        :type id: str
         :param eula_summary:
         :type eula_summary: EulaSummary
         :param _request_timeout: timeout setting for this request. If one
@@ -3090,6 +3108,7 @@ class UtilsApi:
         """ # noqa: E501
 
         _param = self._post_eula_serialize(
+            id=id,
             eula_summary=eula_summary,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3111,6 +3130,7 @@ class UtilsApi:
     @validate_call
     def post_eula_with_http_info(
         self,
+        id: Annotated[StrictStr, Field(description="The ID of the EULA.")],
         eula_summary: Optional[EulaSummary] = None,
         _request_timeout: Union[
             None,
@@ -3128,6 +3148,8 @@ class UtilsApi:
         """Update properties an EULA
 
 
+        :param id: The ID of the EULA. (required)
+        :type id: str
         :param eula_summary:
         :type eula_summary: EulaSummary
         :param _request_timeout: timeout setting for this request. If one
@@ -3153,6 +3175,7 @@ class UtilsApi:
         """ # noqa: E501
 
         _param = self._post_eula_serialize(
+            id=id,
             eula_summary=eula_summary,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3174,6 +3197,7 @@ class UtilsApi:
     @validate_call
     def post_eula_without_preload_content(
         self,
+        id: Annotated[StrictStr, Field(description="The ID of the EULA.")],
         eula_summary: Optional[EulaSummary] = None,
         _request_timeout: Union[
             None,
@@ -3191,6 +3215,8 @@ class UtilsApi:
         """Update properties an EULA
 
 
+        :param id: The ID of the EULA. (required)
+        :type id: str
         :param eula_summary:
         :type eula_summary: EulaSummary
         :param _request_timeout: timeout setting for this request. If one
@@ -3216,6 +3242,7 @@ class UtilsApi:
         """ # noqa: E501
 
         _param = self._post_eula_serialize(
+            id=id,
             eula_summary=eula_summary,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3236,6 +3263,7 @@ class UtilsApi:
 
     def _post_eula_serialize(
         self,
+        id,
         eula_summary,
         _request_auth,
         _content_type,
@@ -3256,6 +3284,8 @@ class UtilsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -3294,7 +3324,7 @@ class UtilsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/eula/v1/eula/CyPerf',
+            resource_path='/eula/v1/eula/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

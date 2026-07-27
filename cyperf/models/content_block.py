@@ -18,28 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.text_segment import TextSegment
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class Broker(BaseModel):
+class ContentBlock(BaseModel):
     """
-    Broker
+    ContentBlock
     """ # noqa: E501
-    connection_status: Optional[StrictStr] = Field(default=None, alias="connectionStatus")
-    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason")
-    fingerprint: Optional[StrictStr] = None
-    host_name: Optional[StrictStr] = Field(default=None, alias="hostName")
-    id: Optional[StrictInt] = None
-    interactive_fingerprint_verification: Optional[StrictBool] = Field(default=None, alias="interactiveFingerprintVerification")
-    password: Optional[StrictStr] = None
-    pretty_conn_status: Optional[StrictStr] = Field(default=None, alias="prettyConnStatus")
-    trust_new: Optional[StrictBool] = Field(default=None, alias="trustNew")
-    tunnel_host_name: Optional[StrictStr] = Field(default=None, alias="tunnelHostName")
-    user: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["connectionStatus", "failureReason", "fingerprint", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "tunnelHostName", "user"]
+    content: Optional[List[TextSegment]] = Field(default=None, description="The content of the block, as a list of rich text segments.")
+    level: Optional[StrictInt] = Field(default=None, description="The heading level (1-6), used by heading blocks.")
+    list_style: Optional[StrictStr] = Field(default=None, description="The list style: ordered or unordered (used by list blocks).", alias="listStyle")
+    severity: Optional[StrictStr] = Field(default=None, description="The severity level of a note block: info, warning, error, or success.")
+    type: Optional[StrictStr] = Field(default=None, description="The type of content block (e.g. paragraph, list, note, heading, divider).")
+    __properties: ClassVar[List[str]] = ["content", "level", "listStyle", "severity", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +54,7 @@ class Broker(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Broker from a JSON string"""
+        """Create an instance of ContentBlock from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,11 +75,18 @@ class Broker(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in content (list)
+        _items = []
+        if self.content:
+            for _item in self.content:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['content'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Broker from a dict"""
+        """Create an instance of ContentBlock from a dict"""
         if obj is None:
             return None
 
@@ -94,17 +96,11 @@ class Broker(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "connectionStatus": obj.get("connectionStatus"),
-                        "failureReason": obj.get("failureReason"),
-                        "fingerprint": obj.get("fingerprint"),
-                        "hostName": obj.get("hostName"),
-                        "id": obj.get("id"),
-                        "interactiveFingerprintVerification": obj.get("interactiveFingerprintVerification"),
-                        "password": obj.get("password"),
-                        "prettyConnStatus": obj.get("prettyConnStatus"),
-                        "trustNew": obj.get("trustNew"),
-                        "tunnelHostName": obj.get("tunnelHostName"),
-                        "user": obj.get("user")
+            "content": ( [TextSegment.from_dict(_item) for _item in obj.get("content", [])] if obj.get("content") is not None else None),
+                        "level": obj.get("level"),
+                        "listStyle": obj.get("listStyle"),
+                        "severity": obj.get("severity"),
+                        "type": obj.get("type")
             ,
             "links": obj.get("links")
         })

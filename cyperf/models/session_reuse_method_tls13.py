@@ -21,13 +21,14 @@ from typing_extensions import Self
 
 class SessionReuseMethodTLS13(str, Enum):
     """
-    The session reuse method. Must be DISABLE (default: DISABLE).
+    TLS 1.3 session reuse method. Must be one of: DISABLE, PSK_ECDHE_REUSE (default: DISABLE).
     """
 
     """
     allowed enum values
     """
     DISABLE = 'DISABLE'
+    PSK_ECDHE_REUSE = 'PSK_ECDHE_REUSE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

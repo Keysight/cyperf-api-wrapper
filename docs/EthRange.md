@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count** | **int** |  | [optional] 
 **mac_address** | [**SequenceValue**](SequenceValue.md) |  | [optional] 
-**mac_auto** | **bool** | A flag indicating if the MAC address for the EthRange should be determined automatically (default: true). | 
+**mac_auto** | **bool** | A flag indicating if the MAC address for the EthRange should be determined automatically (default: true). | [optional] 
 **mac_incr** | **str** | The MAC address increment rule for the EthRange (default: 00:00:00:00:00:01). | [optional] 
 **mac_start** | **str** | The MAC start address for the EthRange (default: 00:11:01:00:00:01). | [optional] 
 **one_mac_per_ip** | **bool** | A flag indicating if there is only one MAC address for the EthRange per IPRange (default: true). | [optional] 
