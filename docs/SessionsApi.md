@@ -24,7 +24,6 @@ Method | HTTP request | Description
 [**start_session_config_granular_stats_default_dashboards**](SessionsApi.md#start_session_config_granular_stats_default_dashboards) | **POST** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards | 
 [**start_session_config_save**](SessionsApi.md#start_session_config_save) | **POST** /api/v2/sessions/{sessionId}/config/operations/save | 
 [**start_session_load_config**](SessionsApi.md#start_session_load_config) | **POST** /api/v2/sessions/{sessionId}/operations/loadConfig | 
-[**start_session_prepare_test**](SessionsApi.md#start_session_prepare_test) | **POST** /api/v2/sessions/{sessionId}/operations/prepareTest | 
 [**start_session_test_end**](SessionsApi.md#start_session_test_end) | **POST** /api/v2/sessions/{sessionId}/operations/testEnd | 
 [**start_session_test_init**](SessionsApi.md#start_session_test_init) | **POST** /api/v2/sessions/{sessionId}/operations/testInit | 
 [**start_session_touch**](SessionsApi.md#start_session_touch) | **POST** /api/v2/sessions/{sessionId}/operations/touch | 
@@ -1603,86 +1602,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **str**| The ID of the session. | 
  **load_config_operation** | [**LoadConfigOperation**](LoadConfigOperation.md)|  | [optional] 
-
-### Return type
-
-[**AsyncContext**](AsyncContext.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Details about the operation that just started |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **start_session_prepare_test**
-> AsyncContext start_session_prepare_test(session_id, prepare_test_operation=prepare_test_operation)
-
-
-
-This operation returns the config processed as agent messages and any data necessary for UI and REST stats
-
-### Example
-
-* OAuth Authentication (OAuth2):
-* OAuth Authentication (OAuth2):
-
-```python
-import cyperf
-from cyperf.models.async_context import AsyncContext
-from cyperf.models.prepare_test_operation import PrepareTestOperation
-from cyperf.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = cyperf.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
-
-# Enter a context with an instance of the API client
-with cyperf.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = cyperf.SessionsApi(api_client)
-    session_id = 'session_id_example' # str | The ID of the session.
-    prepare_test_operation = [cyperf.PrepareTestOperation()] # List[PrepareTestOperation] |  (optional)
-
-    try:
-        api_response = api_instance.start_session_prepare_test(session_id, prepare_test_operation=prepare_test_operation)
-        print("The response of SessionsApi->start_session_prepare_test:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling SessionsApi->start_session_prepare_test: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **session_id** | **str**| The ID of the session. | 
- **prepare_test_operation** | [**List[PrepareTestOperation]**](PrepareTestOperation.md)|  | [optional] 
 
 ### Return type
 

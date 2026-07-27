@@ -12,11 +12,11 @@ Method | HTTP request | Description
 [**get_docs**](UtilsApi.md#get_docs) | **GET** /api/v2/docs | 
 [**get_docs_json**](UtilsApi.md#get_docs_json) | **GET** /api/v2/docs.json | 
 [**get_docs_yaml**](UtilsApi.md#get_docs_yaml) | **GET** /api/v2/docs.yaml | 
-[**get_eula**](UtilsApi.md#get_eula) | **GET** /eula/v1/eula/CyPerf | Retrieve EULA detail
+[**get_eula**](UtilsApi.md#get_eula) | **GET** /eula/v1/eula/{id} | Retrieve EULA detail
 [**get_log_config**](UtilsApi.md#get_log_config) | **GET** /api/v2/log-config | 
 [**get_time**](UtilsApi.md#get_time) | **GET** /api/v2/time | 
 [**list_eulas**](UtilsApi.md#list_eulas) | **GET** /eula/v1/eula | list of EULAs
-[**post_eula**](UtilsApi.md#post_eula) | **POST** /eula/v1/eula/CyPerf | Update properties an EULA
+[**post_eula**](UtilsApi.md#post_eula) | **POST** /eula/v1/eula/{id} | Update properties an EULA
 [**start_cert_manager_generate**](UtilsApi.md#start_cert_manager_generate) | **POST** /api/v2/cert-manager/operations/generate | 
 [**start_cert_manager_upload**](UtilsApi.md#start_cert_manager_upload) | **POST** /api/v2/cert-manager/operations/upload | 
 [**start_disk_usage_cleanup_diagnostics**](UtilsApi.md#start_disk_usage_cleanup_diagnostics) | **POST** /api/v2/disk-usage/operations/cleanup-diagnostics | 
@@ -624,7 +624,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_eula**
-> EulaDetails get_eula()
+> EulaDetails get_eula(id)
 
 Retrieve EULA detail
 
@@ -658,10 +658,11 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.UtilsApi(api_client)
+    id = 'id_example' # str | The ID of the EULA.
 
     try:
         # Retrieve EULA detail
-        api_response = api_instance.get_eula()
+        api_response = api_instance.get_eula(id)
         print("The response of UtilsApi->get_eula:\n")
         pprint(api_response)
     except Exception as e:
@@ -672,7 +673,10 @@ with cyperf.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The ID of the EULA. | 
 
 ### Return type
 
@@ -916,7 +920,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_eula**
-> str post_eula(eula_summary=eula_summary)
+> str post_eula(id, eula_summary=eula_summary)
 
 Update properties an EULA
 
@@ -950,11 +954,12 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.UtilsApi(api_client)
+    id = 'id_example' # str | The ID of the EULA.
     eula_summary = cyperf.EulaSummary() # EulaSummary |  (optional)
 
     try:
         # Update properties an EULA
-        api_response = api_instance.post_eula(eula_summary=eula_summary)
+        api_response = api_instance.post_eula(id, eula_summary=eula_summary)
         print("The response of UtilsApi->post_eula:\n")
         pprint(api_response)
     except Exception as e:
@@ -968,6 +973,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **str**| The ID of the EULA. | 
  **eula_summary** | [**EulaSummary**](EulaSummary.md)|  | [optional] 
 
 ### Return type

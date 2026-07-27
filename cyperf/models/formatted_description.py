@@ -18,28 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from cyperf.models.layout_config import LayoutConfig
+from cyperf.models.section import Section
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class Broker(BaseModel):
+class FormattedDescription(BaseModel):
     """
-    Broker
+    FormattedDescription
     """ # noqa: E501
-    connection_status: Optional[StrictStr] = Field(default=None, alias="connectionStatus")
-    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason")
-    fingerprint: Optional[StrictStr] = None
-    host_name: Optional[StrictStr] = Field(default=None, alias="hostName")
-    id: Optional[StrictInt] = None
-    interactive_fingerprint_verification: Optional[StrictBool] = Field(default=None, alias="interactiveFingerprintVerification")
-    password: Optional[StrictStr] = None
-    pretty_conn_status: Optional[StrictStr] = Field(default=None, alias="prettyConnStatus")
-    trust_new: Optional[StrictBool] = Field(default=None, alias="trustNew")
-    tunnel_host_name: Optional[StrictStr] = Field(default=None, alias="tunnelHostName")
-    user: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["connectionStatus", "failureReason", "fingerprint", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "tunnelHostName", "user"]
+    layout: Optional[LayoutConfig] = None
+    sections: Optional[List[Section]] = Field(default=None, description="The list of sections that make up the page.")
+    summary: Optional[Section] = None
+    __properties: ClassVar[List[str]] = ["layout", "sections", "summary"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +53,7 @@ class Broker(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Broker from a JSON string"""
+        """Create an instance of FormattedDescription from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -80,11 +74,24 @@ class Broker(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of layout
+        if self.layout:
+            _dict['layout'] = self.layout.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in sections (list)
+        _items = []
+        if self.sections:
+            for _item in self.sections:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['sections'] = _items
+        # override the default output from pydantic by calling `to_dict()` of summary
+        if self.summary:
+            _dict['summary'] = self.summary.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Broker from a dict"""
+        """Create an instance of FormattedDescription from a dict"""
         if obj is None:
             return None
 
@@ -94,17 +101,9 @@ class Broker(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "connectionStatus": obj.get("connectionStatus"),
-                        "failureReason": obj.get("failureReason"),
-                        "fingerprint": obj.get("fingerprint"),
-                        "hostName": obj.get("hostName"),
-                        "id": obj.get("id"),
-                        "interactiveFingerprintVerification": obj.get("interactiveFingerprintVerification"),
-                        "password": obj.get("password"),
-                        "prettyConnStatus": obj.get("prettyConnStatus"),
-                        "trustNew": obj.get("trustNew"),
-                        "tunnelHostName": obj.get("tunnelHostName"),
-                        "user": obj.get("user")
+            "layout": LayoutConfig.from_dict(obj["layout"]) if obj.get("layout") is not None else None,
+                        "sections": ( [Section.from_dict(_item) for _item in obj.get("sections", [])] if obj.get("sections") is not None else None),
+                        "summary": Section.from_dict(obj["summary"]) if obj.get("summary") is not None else None
             ,
             "links": obj.get("links")
         })

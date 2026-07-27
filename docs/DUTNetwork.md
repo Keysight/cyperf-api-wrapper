@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **id** | **str** |  | 
 **network_tags** | **List[str]** | A list of tags. | [optional] 
+**basic_auth_profile** | [**BasicAuthProfile**](BasicAuthProfile.md) |  | [optional] 
 **client_dut_active** | **bool** |  | [optional] 
 **client_dut_host** | **str** |  | [optional] 
 **client_dut_port** | **int** | The listen port for client-side DUT (default: 80). | [optional] 
@@ -18,8 +19,6 @@ Name | Type | Description | Notes
 **https_health_check** | [**HealthCheckConfig**](HealthCheckConfig.md) | The HTTPS HealthCheck configuration for DUT | [optional] 
 **hostname_suffix** | **str** | A suffix to be added to the Host header of all Apps/Attacks running through the forward proxy DUT (default: empty string). | [optional] 
 **http_forward_proxy_mode** | **str** | Deprecated. This is ignored and the proxy mode will be deduced from the connection type. | [optional] 
-**llm_model** | **str** | The identifier of the LLM model to use for inference. | [optional] 
-**llm_request_url_path** | **str** | The endpoint URL for the LLM chat completions API. | [optional] 
 **non_proxied_hosts** | [**Params**](Params.md) |  | [optional] 
 **pep_dut** | [**PepDUT**](PepDUT.md) |  | [optional] 
 **pep_dut_active** | **bool** | A flag indicating if the PEP device is an active device. If active, the simulated clients will send traffic to the PEP device host. (default: false) | [optional] 

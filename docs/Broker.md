@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connection_status** | **str** | The broker&#39;s connection status | [optional] 
-**failure_reason** | **str** | The broker&#39;s connection failure reason | [optional] 
-**fingerprint** | **str** | The broker&#39;s fingerprint | [optional] 
-**host** | **str** | The IP or hostname of the registered broker | [optional] 
-**host_name** | **str** | The IP or hostname of the registered broker | [optional] 
-**id** | **str** | The unique identifier of the broker | [optional] [readonly] 
-**interactive_fingerprint_verification** | **bool** | Validate the broker&#39;s fingerprint interactively | [optional] 
-**password** | **str** | The broker&#39;s authentication password | [optional] 
-**pretty_conn_status** | **str** | The broker&#39;s connection status in human readable format | [optional] 
-**trust_new** | **bool** | The flag used to skip broker&#39;s identity verifications | [optional] 
-**user** | **str** | The broker&#39;s authentication user | [optional] 
+**connection_status** | **str** |  | [optional] 
+**failure_reason** | **str** |  | [optional] 
+**fingerprint** | **str** |  | [optional] 
+**host_name** | **str** |  | [optional] 
+**id** | **int** |  | [optional] 
+**interactive_fingerprint_verification** | **bool** |  | [optional] 
+**password** | **str** |  | [optional] 
+**pretty_conn_status** | **str** |  | [optional] 
+**trust_new** | **bool** |  | [optional] 
+**tunnel_host_name** | **str** |  | [optional] 
+**user** | **str** |  | [optional] 
 
 ## Example
 

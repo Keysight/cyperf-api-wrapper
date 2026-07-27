@@ -19,21 +19,22 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class SessionReuseMethodTLS12(str, Enum):
+class CompositePqcSignatureAlgorithmTLS13(str, Enum):
     """
-    TLS 1.2 session reuse method. Must be one of: DISABLE, SESSION-TICKET, SESSION-ID (default: DISABLE).
+    The TLSv1.3 supported composite PQC signature algorithms.
     """
 
     """
     allowed enum values
     """
-    DISABLE = 'DISABLE'
-    SESSION_MINUS_TICKET = 'SESSION-TICKET'
-    SESSION_MINUS_ID = 'SESSION-ID'
+    P256_MLDSA44 = 'p256_mldsa44'
+    P384_MLDSA65 = 'p384_mldsa65'
+    P521_MLDSA87 = 'p521_mldsa87'
+    RSA3072_MLDSA44 = 'rsa3072_mldsa44'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of SessionReuseMethodTLS12 from a JSON string"""
+        """Create an instance of CompositePqcSignatureAlgorithmTLS13 from a JSON string"""
         return cls(json.loads(json_str))
 
 

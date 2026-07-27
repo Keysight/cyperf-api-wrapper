@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connection_status** | **str** | The license server&#39;s connection status | [optional] [readonly] 
-**failure_reason** | **str** | The license server&#39;s connection failure reason | [optional] 
-**fingerprint** | **str** | The license server&#39;s fingerprint | [optional] 
-**host_name** | **str** | The hostname/IP of the server | [optional] 
-**id** | **int** | The unique identifier of the license server | [optional] [readonly] 
-**interactive_fingerprint_verification** | **bool** | Validate the license&#39;s server fingerprint interactively | [optional] 
-**password** | **str** | The license server&#39;s authentication password | [optional] 
-**pretty_conn_status** | **str** | The license server&#39;s connection status in a human-readable format | [optional] [readonly] 
-**trust_new** | **bool** | The flag used to skip license server&#39;s identity verifications | [optional] 
-**tunnel_host_name** | **str** | The hostname/IP of the license server tunnel | [optional] [readonly] 
-**user** | **str** | The license server&#39;s authentication user | [optional] 
+**connection_status** | **str** |  | [optional] 
+**failure_reason** | **str** |  | [optional] 
+**fingerprint** | **str** |  | [optional] 
+**host_name** | **str** |  | [optional] 
+**id** | **int** |  | [optional] 
+**interactive_fingerprint_verification** | **bool** |  | [optional] 
+**password** | **str** |  | [optional] 
+**pretty_conn_status** | **str** |  | [optional] 
+**trust_new** | **bool** |  | [optional] 
+**tunnel_host_name** | **str** |  | [optional] 
+**user** | **str** |  | [optional] 
 
 ## Example
 

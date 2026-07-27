@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **test_initialized** | **int** | A Unix timestamp that indicates when the last test was initialized | [optional] 
 **test_started** | **int** | A Unix timestamp that indicates when the test was started | [optional] 
 **test_stopped** | **int** | A Unix timestamp that indicates when the test was stopped. May be null if the test is still running. | [optional] 
-**test_usage** | [**TestUsage**](TestUsage.md) |  | [optional] 
+**used_licenses** | **Dict[str, int]** | Feature types used by the current test and their respective counts | [optional] 
 
 ## Example
 

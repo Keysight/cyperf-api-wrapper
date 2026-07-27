@@ -33,8 +33,6 @@ from cyperf.models.edit_app_operation import EditAppOperation
 from cyperf.models.export_apps_operation_input import ExportAppsOperationInput
 from cyperf.models.find_param_matches_operation import FindParamMatchesOperation
 from cyperf.models.generic_file import GenericFile
-from cyperf.models.get_apps_operation import GetAppsOperation
-from cyperf.models.get_attacks_operation import GetAttacksOperation
 from cyperf.models.get_categories_operation import GetCategoriesOperation
 from cyperf.models.get_resources_application_types200_response import GetResourcesApplicationTypes200Response
 from cyperf.models.get_resources_apps200_response import GetResourcesApps200Response
@@ -43,6 +41,7 @@ from cyperf.models.get_resources_auth_profiles200_response import GetResourcesAu
 from cyperf.models.get_resources_certificates200_response import GetResourcesCertificates200Response
 from cyperf.models.get_resources_http_profiles200_response import GetResourcesHttpProfiles200Response
 from cyperf.models.get_resources_llm_api_profiles200_response import GetResourcesLlmApiProfiles200Response
+from cyperf.models.get_scenarios_operation import GetScenariosOperation
 from cyperf.models.get_strikes_operation import GetStrikesOperation
 from cyperf.models.http_profile import HTTPProfile
 from cyperf.models.llmapi_profile import LLMAPIProfile
@@ -86,6 +85,7 @@ class ApplicationResourcesApi:
     ) -> None:
         """delete_resources_capture
 
+        Delete a capture that was loaded by the user.
 
         :param capture_id: The ID of the capture. (required)
         :type capture_id: str
@@ -121,6 +121,9 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '401': "ErrorResponse",
+            '403': "ErrorResponse",
+            '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -149,6 +152,7 @@ class ApplicationResourcesApi:
     ) -> ApiResponse[None]:
         """delete_resources_capture
 
+        Delete a capture that was loaded by the user.
 
         :param capture_id: The ID of the capture. (required)
         :type capture_id: str
@@ -184,6 +188,9 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '401': "ErrorResponse",
+            '403': "ErrorResponse",
+            '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -212,6 +219,7 @@ class ApplicationResourcesApi:
     ) -> RESTResponseType:
         """delete_resources_capture
 
+        Delete a capture that was loaded by the user.
 
         :param capture_id: The ID of the capture. (required)
         :type capture_id: str
@@ -247,6 +255,9 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '401': "ErrorResponse",
+            '403': "ErrorResponse",
+            '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -4466,7 +4477,7 @@ class ApplicationResourcesApi:
     ) -> None:
         """delete_resources_user_defined_app
 
-        Delete a CyPerf application that was created by the user.
+        Delete an application that was created by the user.
 
         :param user_defined_app_id: The ID of the user defined app. (required)
         :type user_defined_app_id: str
@@ -4533,7 +4544,7 @@ class ApplicationResourcesApi:
     ) -> ApiResponse[None]:
         """delete_resources_user_defined_app
 
-        Delete a CyPerf application that was created by the user.
+        Delete an application that was created by the user.
 
         :param user_defined_app_id: The ID of the user defined app. (required)
         :type user_defined_app_id: str
@@ -4600,7 +4611,7 @@ class ApplicationResourcesApi:
     ) -> RESTResponseType:
         """delete_resources_user_defined_app
 
-        Delete a CyPerf application that was created by the user.
+        Delete an application that was created by the user.
 
         :param user_defined_app_id: The ID of the user defined app. (required)
         :type user_defined_app_id: str
@@ -5575,7 +5586,7 @@ class ApplicationResourcesApi:
     ) -> AppsecApp:
         """get_resources_app_by_id
 
-        Get a particular CyPerf application.
+        Get a particular application.
 
         :param app_id: The ID of the app. (required)
         :type app_id: str
@@ -5641,7 +5652,7 @@ class ApplicationResourcesApi:
     ) -> ApiResponse[AppsecApp]:
         """get_resources_app_by_id
 
-        Get a particular CyPerf application.
+        Get a particular application.
 
         :param app_id: The ID of the app. (required)
         :type app_id: str
@@ -5707,7 +5718,7 @@ class ApplicationResourcesApi:
     ) -> RESTResponseType:
         """get_resources_app_by_id
 
-        Get a particular CyPerf application.
+        Get a particular application.
 
         :param app_id: The ID of the app. (required)
         :type app_id: str
@@ -6642,7 +6653,7 @@ class ApplicationResourcesApi:
     ) -> GetResourcesApps200Response:
         """get_resources_apps
 
-        Get all the available CyPerf applications.
+        Get all the available applications.
 
         :param take: The number of search results to return
         :type take: int
@@ -6732,7 +6743,7 @@ class ApplicationResourcesApi:
     ) -> ApiResponse[GetResourcesApps200Response]:
         """get_resources_apps
 
-        Get all the available CyPerf applications.
+        Get all the available applications.
 
         :param take: The number of search results to return
         :type take: int
@@ -6822,7 +6833,7 @@ class ApplicationResourcesApi:
     ) -> RESTResponseType:
         """get_resources_apps
 
-        Get all the available CyPerf applications.
+        Get all the available applications.
 
         :param take: The number of search results to return
         :type take: int
@@ -7001,7 +7012,7 @@ class ApplicationResourcesApi:
     ) -> AppsecAttack:
         """get_resources_attack_by_id
 
-        Get a particular CyPerf attack.
+        Get a particular attack.
 
         :param attack_id: The ID of the attack. (required)
         :type attack_id: str
@@ -7067,7 +7078,7 @@ class ApplicationResourcesApi:
     ) -> ApiResponse[AppsecAttack]:
         """get_resources_attack_by_id
 
-        Get a particular CyPerf attack.
+        Get a particular attack.
 
         :param attack_id: The ID of the attack. (required)
         :type attack_id: str
@@ -7133,7 +7144,7 @@ class ApplicationResourcesApi:
     ) -> RESTResponseType:
         """get_resources_attack_by_id
 
-        Get a particular CyPerf attack.
+        Get a particular attack.
 
         :param attack_id: The ID of the attack. (required)
         :type attack_id: str
@@ -7539,7 +7550,7 @@ class ApplicationResourcesApi:
     ) -> GetResourcesAttacks200Response:
         """get_resources_attacks
 
-        Get all the available CyPerf attacks.
+        Get all the available attacks.
 
         :param take: The number of search results to return
         :type take: int
@@ -7629,7 +7640,7 @@ class ApplicationResourcesApi:
     ) -> ApiResponse[GetResourcesAttacks200Response]:
         """get_resources_attacks
 
-        Get all the available CyPerf attacks.
+        Get all the available attacks.
 
         :param take: The number of search results to return
         :type take: int
@@ -7719,7 +7730,7 @@ class ApplicationResourcesApi:
     ) -> RESTResponseType:
         """get_resources_attacks
 
-        Get all the available CyPerf attacks.
+        Get all the available attacks.
 
         :param take: The number of search results to return
         :type take: int
@@ -8430,7 +8441,7 @@ class ApplicationResourcesApi:
     ) -> ReplayCapture:
         """get_resources_capture_by_id
 
-        Get a particular CyPerf capture loaded by the user.
+        Get a particular capture loaded by the user.
 
         :param capture_id: The ID of the capture. (required)
         :type capture_id: str
@@ -8496,7 +8507,7 @@ class ApplicationResourcesApi:
     ) -> ApiResponse[ReplayCapture]:
         """get_resources_capture_by_id
 
-        Get a particular CyPerf capture loaded by the user.
+        Get a particular capture loaded by the user.
 
         :param capture_id: The ID of the capture. (required)
         :type capture_id: str
@@ -8562,7 +8573,7 @@ class ApplicationResourcesApi:
     ) -> RESTResponseType:
         """get_resources_capture_by_id
 
-        Get a particular CyPerf capture loaded by the user.
+        Get a particular capture loaded by the user.
 
         :param capture_id: The ID of the capture. (required)
         :type capture_id: str
@@ -9775,6 +9786,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -9839,6 +9851,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -9903,6 +9916,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -10827,6 +10841,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -10891,6 +10906,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -10955,6 +10971,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -12156,6 +12173,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -12220,6 +12238,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -12284,6 +12303,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -12931,6 +12951,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -12995,6 +13016,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -13059,6 +13081,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -14260,6 +14283,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -14324,6 +14348,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -14388,6 +14413,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -16099,6 +16125,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -16163,6 +16190,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -16227,6 +16255,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -17428,6 +17457,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -17492,6 +17522,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -17556,6 +17587,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -18480,6 +18512,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -18544,6 +18577,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -18608,6 +18642,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -19255,6 +19290,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -19319,6 +19355,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -19383,6 +19420,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -20307,6 +20345,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -20371,6 +20410,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -20435,6 +20475,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -21359,6 +21400,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -21423,6 +21465,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -21487,6 +21530,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -21619,6 +21663,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -21688,6 +21733,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -21757,6 +21803,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
             '500': "ErrorResponse",
         }
@@ -22963,6 +23010,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -23027,6 +23075,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -23091,6 +23140,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -24015,6 +24065,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -24079,6 +24130,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -24143,6 +24195,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -25695,6 +25748,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -25759,6 +25813,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -25823,6 +25878,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -26747,6 +26803,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -26811,6 +26868,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -26875,6 +26933,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -27799,6 +27858,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -27863,6 +27923,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -27927,6 +27988,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -29380,6 +29442,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -29444,6 +29507,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -29508,6 +29572,7 @@ class ApplicationResourcesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "bytearray",
+            '401': "ErrorResponse",
             '404': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -33618,7 +33683,7 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_get_apps(
         self,
-        get_apps_operation: Optional[GetAppsOperation] = None,
+        get_scenarios_operation: Optional[GetScenariosOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33636,8 +33701,8 @@ class ApplicationResourcesApi:
 
         Get the list of applications
 
-        :param get_apps_operation:
-        :type get_apps_operation: GetAppsOperation
+        :param get_scenarios_operation:
+        :type get_scenarios_operation: GetScenariosOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -33661,7 +33726,7 @@ class ApplicationResourcesApi:
         """ # noqa: E501
 
         _param = self._start_resources_get_apps_serialize(
-            get_apps_operation=get_apps_operation,
+            get_scenarios_operation=get_scenarios_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -33681,7 +33746,7 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_get_apps_with_http_info(
         self,
-        get_apps_operation: Optional[GetAppsOperation] = None,
+        get_scenarios_operation: Optional[GetScenariosOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33699,8 +33764,8 @@ class ApplicationResourcesApi:
 
         Get the list of applications
 
-        :param get_apps_operation:
-        :type get_apps_operation: GetAppsOperation
+        :param get_scenarios_operation:
+        :type get_scenarios_operation: GetScenariosOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -33724,7 +33789,7 @@ class ApplicationResourcesApi:
         """ # noqa: E501
 
         _param = self._start_resources_get_apps_serialize(
-            get_apps_operation=get_apps_operation,
+            get_scenarios_operation=get_scenarios_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -33744,7 +33809,7 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_get_apps_without_preload_content(
         self,
-        get_apps_operation: Optional[GetAppsOperation] = None,
+        get_scenarios_operation: Optional[GetScenariosOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33762,8 +33827,8 @@ class ApplicationResourcesApi:
 
         Get the list of applications
 
-        :param get_apps_operation:
-        :type get_apps_operation: GetAppsOperation
+        :param get_scenarios_operation:
+        :type get_scenarios_operation: GetScenariosOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -33787,7 +33852,7 @@ class ApplicationResourcesApi:
         """ # noqa: E501
 
         _param = self._start_resources_get_apps_serialize(
-            get_apps_operation=get_apps_operation,
+            get_scenarios_operation=get_scenarios_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -33806,7 +33871,7 @@ class ApplicationResourcesApi:
 
     def _start_resources_get_apps_serialize(
         self,
-        get_apps_operation,
+        get_scenarios_operation,
         _request_auth,
         _content_type,
         _headers,
@@ -33830,8 +33895,8 @@ class ApplicationResourcesApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if get_apps_operation is not None:
-            _body_params = get_apps_operation
+        if get_scenarios_operation is not None:
+            _body_params = get_scenarios_operation
 
 
         # set the HTTP header `Accept`
@@ -34148,7 +34213,7 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_get_attacks(
         self,
-        get_attacks_operation: Optional[GetAttacksOperation] = None,
+        get_scenarios_operation: Optional[GetScenariosOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34166,8 +34231,8 @@ class ApplicationResourcesApi:
 
         Get the list of attacks
 
-        :param get_attacks_operation:
-        :type get_attacks_operation: GetAttacksOperation
+        :param get_scenarios_operation:
+        :type get_scenarios_operation: GetScenariosOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -34191,7 +34256,7 @@ class ApplicationResourcesApi:
         """ # noqa: E501
 
         _param = self._start_resources_get_attacks_serialize(
-            get_attacks_operation=get_attacks_operation,
+            get_scenarios_operation=get_scenarios_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -34211,7 +34276,7 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_get_attacks_with_http_info(
         self,
-        get_attacks_operation: Optional[GetAttacksOperation] = None,
+        get_scenarios_operation: Optional[GetScenariosOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34229,8 +34294,8 @@ class ApplicationResourcesApi:
 
         Get the list of attacks
 
-        :param get_attacks_operation:
-        :type get_attacks_operation: GetAttacksOperation
+        :param get_scenarios_operation:
+        :type get_scenarios_operation: GetScenariosOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -34254,7 +34319,7 @@ class ApplicationResourcesApi:
         """ # noqa: E501
 
         _param = self._start_resources_get_attacks_serialize(
-            get_attacks_operation=get_attacks_operation,
+            get_scenarios_operation=get_scenarios_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -34274,7 +34339,7 @@ class ApplicationResourcesApi:
     @validate_call
     def start_resources_get_attacks_without_preload_content(
         self,
-        get_attacks_operation: Optional[GetAttacksOperation] = None,
+        get_scenarios_operation: Optional[GetScenariosOperation] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34292,8 +34357,8 @@ class ApplicationResourcesApi:
 
         Get the list of attacks
 
-        :param get_attacks_operation:
-        :type get_attacks_operation: GetAttacksOperation
+        :param get_scenarios_operation:
+        :type get_scenarios_operation: GetScenariosOperation
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -34317,7 +34382,7 @@ class ApplicationResourcesApi:
         """ # noqa: E501
 
         _param = self._start_resources_get_attacks_serialize(
-            get_attacks_operation=get_attacks_operation,
+            get_scenarios_operation=get_scenarios_operation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -34336,7 +34401,7 @@ class ApplicationResourcesApi:
 
     def _start_resources_get_attacks_serialize(
         self,
-        get_attacks_operation,
+        get_scenarios_operation,
         _request_auth,
         _content_type,
         _headers,
@@ -34360,8 +34425,8 @@ class ApplicationResourcesApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if get_attacks_operation is not None:
-            _body_params = get_attacks_operation
+        if get_scenarios_operation is not None:
+            _body_params = get_scenarios_operation
 
 
         # set the HTTP header `Accept`

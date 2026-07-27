@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **connections** | [**List[Connection]**](Connection.md) |  | [optional] 
 **id** | **str** |  | 
 **is_enabled** | **bool** |  | 
+**is_one_arm** | **bool** | Indicates whether the LLM API profile is one-arm | 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **model_name** | **str** |  | 
 **params** | [**List[Params]**](Params.md) |  | [optional] 

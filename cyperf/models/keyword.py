@@ -18,28 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class Broker(BaseModel):
+class Keyword(BaseModel):
     """
-    Broker
+    Keyword
     """ # noqa: E501
-    connection_status: Optional[StrictStr] = Field(default=None, alias="connectionStatus")
-    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason")
-    fingerprint: Optional[StrictStr] = None
-    host_name: Optional[StrictStr] = Field(default=None, alias="hostName")
-    id: Optional[StrictInt] = None
-    interactive_fingerprint_verification: Optional[StrictBool] = Field(default=None, alias="interactiveFingerprintVerification")
-    password: Optional[StrictStr] = None
-    pretty_conn_status: Optional[StrictStr] = Field(default=None, alias="prettyConnStatus")
-    trust_new: Optional[StrictBool] = Field(default=None, alias="trustNew")
-    tunnel_host_name: Optional[StrictStr] = Field(default=None, alias="tunnelHostName")
-    user: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["connectionStatus", "failureReason", "fingerprint", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "tunnelHostName", "user"]
+    category: Optional[StrictStr] = Field(default=None, description="The keyword category", alias="Category")
+    value: Optional[StrictStr] = Field(default=None, description="The keyword value", alias="Value")
+    index: Optional[StrictInt] = Field(default=None, description="The index of the category")
+    __properties: ClassVar[List[str]] = ["Category", "Value", "index"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -59,7 +51,7 @@ class Broker(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Broker from a JSON string"""
+        """Create an instance of Keyword from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -84,7 +76,7 @@ class Broker(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Broker from a dict"""
+        """Create an instance of Keyword from a dict"""
         if obj is None:
             return None
 
@@ -94,17 +86,9 @@ class Broker(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "connectionStatus": obj.get("connectionStatus"),
-                        "failureReason": obj.get("failureReason"),
-                        "fingerprint": obj.get("fingerprint"),
-                        "hostName": obj.get("hostName"),
-                        "id": obj.get("id"),
-                        "interactiveFingerprintVerification": obj.get("interactiveFingerprintVerification"),
-                        "password": obj.get("password"),
-                        "prettyConnStatus": obj.get("prettyConnStatus"),
-                        "trustNew": obj.get("trustNew"),
-                        "tunnelHostName": obj.get("tunnelHostName"),
-                        "user": obj.get("user")
+            "Category": obj.get("Category"),
+                        "Value": obj.get("Value"),
+                        "index": obj.get("index")
             ,
             "links": obj.get("links")
         })

@@ -37,7 +37,7 @@ class IPRange(BaseModel):
     """ # noqa: E501
     automatic_ip_type: Optional[AutomaticIpType] = Field(default=None, description="The automatic IP types, either 'ONLY_IPV4', 'ONLY_IPV6' or 'BOTH_IPV4_IPV6'.", alias="AutomaticIpType")
     count: Optional[StrictInt] = Field(default=None, description="The number of IPs generated (default: 1).", alias="Count")
-    gw_auto: StrictBool = Field(description="A flag indicating if the gateway settings for the IPRange should be determined automatically (default: true).", alias="GwAuto")
+    gw_auto: Optional[StrictBool] = Field(default=None, description="A flag indicating if the gateway settings for the IPRange should be determined automatically (default: true).", alias="GwAuto")
     gw_start: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The gateway start IP for the IPRange (default: 10.0.0.1).", alias="GwStart")
     host_count: Optional[StrictInt] = Field(default=None, description="The number of Host IPs generated (default: 1).", alias="HostCount")
     inner_vlan_range: Optional[VLANRange] = Field(default=None, description="The inner VLAN range assigned to the current IP range configuration", alias="InnerVlanRange")
@@ -51,7 +51,7 @@ class IPRange(BaseModel):
     mss: Optional[StrictInt] = Field(default=None, description="The maximum segment size of the TCP header.", alias="Mss")
     mss_auto: Optional[StrictBool] = Field(default=None, description="A flag indicating if Mss settings for the IPRange should be determined automatically (default: false).", alias="MssAuto")
     net_mask: Optional[StrictInt] = Field(default=None, description="The network mask of the IP Range (default: 16).", alias="NetMask")
-    net_mask_auto: StrictBool = Field(description="A flag indicating if the network mask of the IPRange should be determined automatically (default: true).", alias="NetMaskAuto")
+    net_mask_auto: Optional[StrictBool] = Field(default=None, description="A flag indicating if the network mask of the IPRange should be determined automatically (default: true).", alias="NetMaskAuto")
     outer_vlan_range: Optional[VLANRange] = Field(default=None, description="The outer VLAN range assigned to the current IP range configuration", alias="OuterVlanRange")
     vlan_type: Optional[VLANType] = Field(default=None, description="The type of VLAN used", alias="VLANType")
     id: Optional[StrictStr] = None

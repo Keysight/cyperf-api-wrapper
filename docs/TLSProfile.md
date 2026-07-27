@@ -11,7 +11,10 @@ Name | Type | Description | Notes
 **cipher13** | [**CipherTLS13**](CipherTLS13.md) |  | [optional] 
 **ciphers12** | [**List[CipherTLS12]**](CipherTLS12.md) |  | [optional] 
 **ciphers13** | [**List[CipherTLS13]**](CipherTLS13.md) |  | [optional] 
+**classical_signature_algorithms13** | [**List[ClassicalSignatureAlgorithmTLS13]**](ClassicalSignatureAlgorithmTLS13.md) |  | [optional] 
+**composite_pqc_signature_algorithms13** | [**List[CompositePqcSignatureAlgorithmTLS13]**](CompositePqcSignatureAlgorithmTLS13.md) |  | [optional] 
 **dh_file** | [**Params**](Params.md) |  | [optional] 
+**early_data_enabled** | **bool** | If true, TLS 1.3 early data will be enabled. | [optional] 
 **get_tls_conflicts** | **List[bytearray]** |  | [optional] 
 **groups13** | [**List[GroupTLS13]**](GroupTLS13.md) |  | [optional] 
 **immediate_close** | **bool** | The immediate FIN after close notify | [optional] 
@@ -19,10 +22,13 @@ Name | Type | Description | Notes
 **key_file_password** | **str** | The key file password of the TLS profile. | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **middle_box_enabled** | **bool** | If true, the middle box compatibility will be enabled | [optional] 
+**pqc_signature_algorithms13** | [**List[PqcSignatureAlgorithmTLS13]**](PqcSignatureAlgorithmTLS13.md) |  | [optional] 
 **profile_id** | **str** | The ID of the TLS profile (default: TLSProfile). | 
 **resolve_tls_conflicts** | [**List[Conflict]**](Conflict.md) |  | [optional] 
 **send_close_notify** | **bool** | If true, a TLS close-notify alert will be sent while closing the TLS session | [optional] 
-**session_reuse_count** | **int** |  | [optional] 
+**session_reuse_count** | **int** | Deprecated: retained for backward compatibility. Represents the TLS 1.2 session reuse count - the number of times a TLS 1.2 client can reuse a previously established session before performing a full handshake (a value of 0 disables session reuse). Use sessionReuseCount12 instead. | [optional] 
+**session_reuse_count12** | **int** | The number of times a TLS 1.2 client can reuse a previously established session before performing a full handshake ( a value of 0 disables session reuse). | [optional] 
+**session_reuse_count13** | **int** | The number of times a TLS 1.3 client can reuse a previously established session before performing a full handshake ( a value of 0 disables session reuse). | [optional] 
 **session_reuse_method** | [**SessionReuseMethodTLS12**](SessionReuseMethodTLS12.md) |  | [optional] 
 **session_reuse_method12** | [**SessionReuseMethodTLS12**](SessionReuseMethodTLS12.md) |  | [optional] 
 **session_reuse_method13** | [**SessionReuseMethodTLS13**](SessionReuseMethodTLS13.md) |  | [optional] 
@@ -31,6 +37,7 @@ Name | Type | Description | Notes
 **supported_groups13** | [**List[SupportedGroupTLS13]**](SupportedGroupTLS13.md) |  | [optional] 
 **tls12_enabled** | **bool** |  | 
 **tls13_enabled** | **bool** |  | [optional] 
+**use_default_signature_algorithms** | **bool** | If true, default signature algorithms will be used. | [optional] 
 **use_tls_profile** | **bool** | When disabled, the connection is not TLS secured (default: true). | [optional] 
 **version** | **str** | The version of the TLS profile (default: NONE). Must be one of: NONE or TLSv1.2 or TLSv1.3. | 
 
