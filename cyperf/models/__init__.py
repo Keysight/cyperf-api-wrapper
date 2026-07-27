@@ -76,6 +76,7 @@ from cyperf.models.auth_settings import AuthSettings
 from cyperf.models.authenticate200_response import Authenticate200Response
 from cyperf.models.authentication_settings import AuthenticationSettings
 from cyperf.models.automatic_ip_type import AutomaticIpType
+from cyperf.models.basic_auth_profile import BasicAuthProfile
 from cyperf.models.broker import Broker
 from cyperf.models.capture_input import CaptureInput
 from cyperf.models.capture_input_find_param import CaptureInputFindParam
@@ -91,11 +92,13 @@ from cyperf.models.cipher_tls12 import CipherTLS12
 from cyperf.models.cipher_tls13 import CipherTLS13
 from cyperf.models.cisco_any_connect_settings import CiscoAnyConnectSettings
 from cyperf.models.cisco_encapsulation import CiscoEncapsulation
+from cyperf.models.classical_signature_algorithm_tls13 import ClassicalSignatureAlgorithmTLS13
 from cyperf.models.clear_compute_resources_ownership_operation import ClearComputeResourcesOwnershipOperation
 from cyperf.models.clear_front_panel_ports_ownership_operation import ClearFrontPanelPortsOwnershipOperation
 from cyperf.models.clear_ports_ownership_operation import ClearPortsOwnershipOperation
 from cyperf.models.command import Command
 from cyperf.models.command_metadata import CommandMetadata
+from cyperf.models.composite_pqc_signature_algorithm_tls13 import CompositePqcSignatureAlgorithmTLS13
 from cyperf.models.compute_node import ComputeNode
 from cyperf.models.compute_resource import ComputeResource
 from cyperf.models.compute_resources_by_controller import ComputeResourcesByController
@@ -110,6 +113,7 @@ from cyperf.models.conflict import Conflict
 from cyperf.models.connection import Connection
 from cyperf.models.connection_persistence import ConnectionPersistence
 from cyperf.models.consumer import Consumer
+from cyperf.models.content_block import ContentBlock
 from cyperf.models.controller import Controller
 from cyperf.models.counted_feature_consumer import CountedFeatureConsumer
 from cyperf.models.counted_feature_stats import CountedFeatureStats
@@ -176,6 +180,7 @@ from cyperf.models.file_value import FileValue
 from cyperf.models.filter import Filter
 from cyperf.models.filtered_stat import FilteredStat
 from cyperf.models.find_param_matches_operation import FindParamMatchesOperation
+from cyperf.models.formatted_description import FormattedDescription
 from cyperf.models.fortinet_encapsulation import FortinetEncapsulation
 from cyperf.models.fortinet_settings import FortinetSettings
 from cyperf.models.front_panel import FrontPanel
@@ -189,9 +194,7 @@ from cyperf.models.get_agents200_response import GetAgents200Response
 from cyperf.models.get_agents200_response_one_of import GetAgents200ResponseOneOf
 from cyperf.models.get_agents_tags200_response import GetAgentsTags200Response
 from cyperf.models.get_agents_tags200_response_one_of import GetAgentsTags200ResponseOneOf
-from cyperf.models.get_apps_operation import GetAppsOperation
 from cyperf.models.get_async_operation_result200_response import GetAsyncOperationResult200Response
-from cyperf.models.get_attacks_operation import GetAttacksOperation
 from cyperf.models.get_brokers200_response import GetBrokers200Response
 from cyperf.models.get_brokers200_response_one_of import GetBrokers200ResponseOneOf
 from cyperf.models.get_categories_operation import GetCategoriesOperation
@@ -234,6 +237,7 @@ from cyperf.models.get_results200_response import GetResults200Response
 from cyperf.models.get_results200_response_one_of import GetResults200ResponseOneOf
 from cyperf.models.get_results_tags200_response import GetResultsTags200Response
 from cyperf.models.get_results_tags200_response_one_of import GetResultsTags200ResponseOneOf
+from cyperf.models.get_scenarios_operation import GetScenariosOperation
 from cyperf.models.get_session_meta200_response import GetSessionMeta200Response
 from cyperf.models.get_session_meta200_response_one_of import GetSessionMeta200ResponseOneOf
 from cyperf.models.get_sessions200_response import GetSessions200Response
@@ -266,7 +270,9 @@ from cyperf.models.interface import Interface
 from cyperf.models.ip_mask import IpMask
 from cyperf.models.ip_preference import IpPreference
 from cyperf.models.ip_ver import IpVer
+from cyperf.models.keyword import Keyword
 from cyperf.models.llmapi_profile import LLMAPIProfile
+from cyperf.models.layout_config import LayoutConfig
 from cyperf.models.license import License
 from cyperf.models.license_receipt import LicenseReceipt
 from cyperf.models.license_server_metadata import LicenseServerMetadata
@@ -335,9 +341,9 @@ from cyperf.models.port_settings import PortSettings
 from cyperf.models.ports_by_controller import PortsByController
 from cyperf.models.ports_by_node import PortsByNode
 from cyperf.models.ports_by_panel import PortsByPanel
-from cyperf.models.prepare_test_operation import PrepareTestOperation
-from cyperf.models.prepared_test_options import PreparedTestOptions
+from cyperf.models.pqc_signature_algorithm_tls13 import PqcSignatureAlgorithmTLS13
 from cyperf.models.prf_p1_algorithm import PrfP1Algorithm
+from cyperf.models.profile import Profile
 from cyperf.models.protected_subnet_config import ProtectedSubnetConfig
 from cyperf.models.quic_profile import QUICProfile
 from cyperf.models.quic_version import QUICVersion
@@ -364,6 +370,7 @@ from cyperf.models.results_group import ResultsGroup
 from cyperf.models.save_config_operation import SaveConfigOperation
 from cyperf.models.scenario import Scenario
 from cyperf.models.secondary_objective import SecondaryObjective
+from cyperf.models.section import Section
 from cyperf.models.segment_type import SegmentType
 from cyperf.models.selected_env import SelectedEnv
 from cyperf.models.sequence_data_types import SequenceDataTypes
@@ -402,7 +409,7 @@ from cyperf.models.tls_profile import TLSProfile
 from cyperf.models.tcp_profile import TcpProfile
 from cyperf.models.test_info import TestInfo
 from cyperf.models.test_state_changed_operation import TestStateChangedOperation
-from cyperf.models.test_usage import TestUsage
+from cyperf.models.text_segment import TextSegment
 from cyperf.models.time_value import TimeValue
 from cyperf.models.timeline_segment import TimelineSegment
 from cyperf.models.timeline_segment_base import TimelineSegmentBase

@@ -337,7 +337,6 @@ Class | Method | HTTP request | Description
 *SessionsApi* | [**start_session_config_granular_stats_default_dashboards**](docs/SessionsApi.md#start_session_config_granular_stats_default_dashboards) | **POST** /api/v2/sessions/{sessionId}/config/operations/granular-stats-default-dashboards | 
 *SessionsApi* | [**start_session_config_save**](docs/SessionsApi.md#start_session_config_save) | **POST** /api/v2/sessions/{sessionId}/config/operations/save | 
 *SessionsApi* | [**start_session_load_config**](docs/SessionsApi.md#start_session_load_config) | **POST** /api/v2/sessions/{sessionId}/operations/loadConfig | 
-*SessionsApi* | [**start_session_prepare_test**](docs/SessionsApi.md#start_session_prepare_test) | **POST** /api/v2/sessions/{sessionId}/operations/prepareTest | 
 *SessionsApi* | [**start_session_test_end**](docs/SessionsApi.md#start_session_test_end) | **POST** /api/v2/sessions/{sessionId}/operations/testEnd | 
 *SessionsApi* | [**start_session_test_init**](docs/SessionsApi.md#start_session_test_init) | **POST** /api/v2/sessions/{sessionId}/operations/testInit | 
 *SessionsApi* | [**start_session_touch**](docs/SessionsApi.md#start_session_touch) | **POST** /api/v2/sessions/{sessionId}/operations/touch | 
@@ -380,11 +379,11 @@ Class | Method | HTTP request | Description
 *UtilsApi* | [**get_docs**](docs/UtilsApi.md#get_docs) | **GET** /api/v2/docs | 
 *UtilsApi* | [**get_docs_json**](docs/UtilsApi.md#get_docs_json) | **GET** /api/v2/docs.json | 
 *UtilsApi* | [**get_docs_yaml**](docs/UtilsApi.md#get_docs_yaml) | **GET** /api/v2/docs.yaml | 
-*UtilsApi* | [**get_eula**](docs/UtilsApi.md#get_eula) | **GET** /eula/v1/eula/CyPerf | Retrieve EULA detail
+*UtilsApi* | [**get_eula**](docs/UtilsApi.md#get_eula) | **GET** /eula/v1/eula/{id} | Retrieve EULA detail
 *UtilsApi* | [**get_log_config**](docs/UtilsApi.md#get_log_config) | **GET** /api/v2/log-config | 
 *UtilsApi* | [**get_time**](docs/UtilsApi.md#get_time) | **GET** /api/v2/time | 
 *UtilsApi* | [**list_eulas**](docs/UtilsApi.md#list_eulas) | **GET** /eula/v1/eula | list of EULAs
-*UtilsApi* | [**post_eula**](docs/UtilsApi.md#post_eula) | **POST** /eula/v1/eula/CyPerf | Update properties an EULA
+*UtilsApi* | [**post_eula**](docs/UtilsApi.md#post_eula) | **POST** /eula/v1/eula/{id} | Update properties an EULA
 *UtilsApi* | [**start_cert_manager_generate**](docs/UtilsApi.md#start_cert_manager_generate) | **POST** /api/v2/cert-manager/operations/generate | 
 *UtilsApi* | [**start_cert_manager_upload**](docs/UtilsApi.md#start_cert_manager_upload) | **POST** /api/v2/cert-manager/operations/upload | 
 *UtilsApi* | [**start_disk_usage_cleanup_diagnostics**](docs/UtilsApi.md#start_disk_usage_cleanup_diagnostics) | **POST** /api/v2/disk-usage/operations/cleanup-diagnostics | 
@@ -455,6 +454,7 @@ Class | Method | HTTP request | Description
  - [Authenticate200Response](docs/Authenticate200Response.md)
  - [AuthenticationSettings](docs/AuthenticationSettings.md)
  - [AutomaticIpType](docs/AutomaticIpType.md)
+ - [BasicAuthProfile](docs/BasicAuthProfile.md)
  - [Broker](docs/Broker.md)
  - [CaptureInput](docs/CaptureInput.md)
  - [CaptureInputFindParam](docs/CaptureInputFindParam.md)
@@ -470,11 +470,13 @@ Class | Method | HTTP request | Description
  - [CipherTLS13](docs/CipherTLS13.md)
  - [CiscoAnyConnectSettings](docs/CiscoAnyConnectSettings.md)
  - [CiscoEncapsulation](docs/CiscoEncapsulation.md)
+ - [ClassicalSignatureAlgorithmTLS13](docs/ClassicalSignatureAlgorithmTLS13.md)
  - [ClearComputeResourcesOwnershipOperation](docs/ClearComputeResourcesOwnershipOperation.md)
  - [ClearFrontPanelPortsOwnershipOperation](docs/ClearFrontPanelPortsOwnershipOperation.md)
  - [ClearPortsOwnershipOperation](docs/ClearPortsOwnershipOperation.md)
  - [Command](docs/Command.md)
  - [CommandMetadata](docs/CommandMetadata.md)
+ - [CompositePqcSignatureAlgorithmTLS13](docs/CompositePqcSignatureAlgorithmTLS13.md)
  - [ComputeNode](docs/ComputeNode.md)
  - [ComputeResource](docs/ComputeResource.md)
  - [ComputeResourcesByController](docs/ComputeResourcesByController.md)
@@ -489,6 +491,7 @@ Class | Method | HTTP request | Description
  - [Connection](docs/Connection.md)
  - [ConnectionPersistence](docs/ConnectionPersistence.md)
  - [Consumer](docs/Consumer.md)
+ - [ContentBlock](docs/ContentBlock.md)
  - [Controller](docs/Controller.md)
  - [CountedFeatureConsumer](docs/CountedFeatureConsumer.md)
  - [CountedFeatureStats](docs/CountedFeatureStats.md)
@@ -555,6 +558,7 @@ Class | Method | HTTP request | Description
  - [Filter](docs/Filter.md)
  - [FilteredStat](docs/FilteredStat.md)
  - [FindParamMatchesOperation](docs/FindParamMatchesOperation.md)
+ - [FormattedDescription](docs/FormattedDescription.md)
  - [FortinetEncapsulation](docs/FortinetEncapsulation.md)
  - [FortinetSettings](docs/FortinetSettings.md)
  - [FrontPanel](docs/FrontPanel.md)
@@ -568,9 +572,7 @@ Class | Method | HTTP request | Description
  - [GetAgents200ResponseOneOf](docs/GetAgents200ResponseOneOf.md)
  - [GetAgentsTags200Response](docs/GetAgentsTags200Response.md)
  - [GetAgentsTags200ResponseOneOf](docs/GetAgentsTags200ResponseOneOf.md)
- - [GetAppsOperation](docs/GetAppsOperation.md)
  - [GetAsyncOperationResult200Response](docs/GetAsyncOperationResult200Response.md)
- - [GetAttacksOperation](docs/GetAttacksOperation.md)
  - [GetBrokers200Response](docs/GetBrokers200Response.md)
  - [GetBrokers200ResponseOneOf](docs/GetBrokers200ResponseOneOf.md)
  - [GetCategoriesOperation](docs/GetCategoriesOperation.md)
@@ -613,6 +615,7 @@ Class | Method | HTTP request | Description
  - [GetResults200ResponseOneOf](docs/GetResults200ResponseOneOf.md)
  - [GetResultsTags200Response](docs/GetResultsTags200Response.md)
  - [GetResultsTags200ResponseOneOf](docs/GetResultsTags200ResponseOneOf.md)
+ - [GetScenariosOperation](docs/GetScenariosOperation.md)
  - [GetSessionMeta200Response](docs/GetSessionMeta200Response.md)
  - [GetSessionMeta200ResponseOneOf](docs/GetSessionMeta200ResponseOneOf.md)
  - [GetSessions200Response](docs/GetSessions200Response.md)
@@ -645,7 +648,9 @@ Class | Method | HTTP request | Description
  - [IpMask](docs/IpMask.md)
  - [IpPreference](docs/IpPreference.md)
  - [IpVer](docs/IpVer.md)
+ - [Keyword](docs/Keyword.md)
  - [LLMAPIProfile](docs/LLMAPIProfile.md)
+ - [LayoutConfig](docs/LayoutConfig.md)
  - [License](docs/License.md)
  - [LicenseReceipt](docs/LicenseReceipt.md)
  - [LicenseServerMetadata](docs/LicenseServerMetadata.md)
@@ -714,9 +719,9 @@ Class | Method | HTTP request | Description
  - [PortsByController](docs/PortsByController.md)
  - [PortsByNode](docs/PortsByNode.md)
  - [PortsByPanel](docs/PortsByPanel.md)
- - [PrepareTestOperation](docs/PrepareTestOperation.md)
- - [PreparedTestOptions](docs/PreparedTestOptions.md)
+ - [PqcSignatureAlgorithmTLS13](docs/PqcSignatureAlgorithmTLS13.md)
  - [PrfP1Algorithm](docs/PrfP1Algorithm.md)
+ - [Profile](docs/Profile.md)
  - [ProtectedSubnetConfig](docs/ProtectedSubnetConfig.md)
  - [QUICProfile](docs/QUICProfile.md)
  - [QUICVersion](docs/QUICVersion.md)
@@ -743,6 +748,7 @@ Class | Method | HTTP request | Description
  - [SaveConfigOperation](docs/SaveConfigOperation.md)
  - [Scenario](docs/Scenario.md)
  - [SecondaryObjective](docs/SecondaryObjective.md)
+ - [Section](docs/Section.md)
  - [SegmentType](docs/SegmentType.md)
  - [SelectedEnv](docs/SelectedEnv.md)
  - [SequenceDataTypes](docs/SequenceDataTypes.md)
@@ -781,7 +787,7 @@ Class | Method | HTTP request | Description
  - [TcpProfile](docs/TcpProfile.md)
  - [TestInfo](docs/TestInfo.md)
  - [TestStateChangedOperation](docs/TestStateChangedOperation.md)
- - [TestUsage](docs/TestUsage.md)
+ - [TextSegment](docs/TextSegment.md)
  - [TimeValue](docs/TimeValue.md)
  - [TimelineSegment](docs/TimelineSegment.md)
  - [TimelineSegmentBase](docs/TimelineSegmentBase.md)

@@ -28,17 +28,17 @@ class LicenseServerMetadata(BaseModel):
     """
     LicenseServerMetadata
     """ # noqa: E501
-    connection_status: Optional[StrictStr] = Field(default=None, description="The license server's connection status", alias="connectionStatus")
-    failure_reason: Optional[StrictStr] = Field(default=None, description="The license server's connection failure reason", alias="failureReason")
-    fingerprint: Optional[StrictStr] = Field(default=None, description="The license server's fingerprint")
-    host_name: Optional[StrictStr] = Field(default=None, description="The hostname/IP of the server", alias="hostName")
-    id: Optional[StrictInt] = Field(default=None, description="The unique identifier of the license server")
-    interactive_fingerprint_verification: Optional[StrictBool] = Field(default=None, description="Validate the license's server fingerprint interactively", alias="interactiveFingerprintVerification")
-    password: Optional[StrictStr] = Field(default=None, description="The license server's authentication password")
-    pretty_conn_status: Optional[StrictStr] = Field(default=None, description="The license server's connection status in a human-readable format", alias="prettyConnStatus")
-    trust_new: Optional[StrictBool] = Field(default=None, description="The flag used to skip license server's identity verifications", alias="trustNew")
-    tunnel_host_name: Optional[StrictStr] = Field(default=None, description="The hostname/IP of the license server tunnel", alias="tunnelHostName")
-    user: Optional[StrictStr] = Field(default=None, description="The license server's authentication user")
+    connection_status: Optional[StrictStr] = Field(default=None, alias="connectionStatus")
+    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason")
+    fingerprint: Optional[StrictStr] = None
+    host_name: Optional[StrictStr] = Field(default=None, alias="hostName")
+    id: Optional[StrictInt] = None
+    interactive_fingerprint_verification: Optional[StrictBool] = Field(default=None, alias="interactiveFingerprintVerification")
+    password: Optional[StrictStr] = None
+    pretty_conn_status: Optional[StrictStr] = Field(default=None, alias="prettyConnStatus")
+    trust_new: Optional[StrictBool] = Field(default=None, alias="trustNew")
+    tunnel_host_name: Optional[StrictStr] = Field(default=None, alias="tunnelHostName")
+    user: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["connectionStatus", "failureReason", "fingerprint", "hostName", "id", "interactiveFingerprintVerification", "password", "prettyConnStatus", "trustNew", "tunnelHostName", "user"]
 
     model_config = ConfigDict(
@@ -71,16 +71,8 @@ class LicenseServerMetadata(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
-        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
-            "connection_status",
-            "id",
-            "pretty_conn_status",
-            "tunnel_host_name",
         ])
 
         _dict = self.model_dump(

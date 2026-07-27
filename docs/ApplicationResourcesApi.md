@@ -157,6 +157,8 @@ Method | HTTP request | Description
 
 
 
+Delete a capture that was loaded by the user.
+
 ### Example
 
 * OAuth Authentication (OAuth2):
@@ -220,7 +222,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | The request was completed successfully. |  -  |
+**204** | The capture was deleted. |  -  |
+**401** | The user is not authorized to delete resources. |  -  |
+**403** | The user is not allowed to delete a capture not owned by them. |  -  |
+**404** | A resource with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1446,7 +1451,7 @@ void (empty response body)
 
 
 
-Delete a CyPerf application that was created by the user.
+Delete an application that was created by the user.
 
 ### Example
 
@@ -1762,7 +1767,7 @@ Name | Type | Description  | Notes
 
 
 
-Get a particular CyPerf application.
+Get a particular application.
 
 ### Example
 
@@ -1830,9 +1835,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The requested CyPerf application |  -  |
+**200** | The requested application |  -  |
 **401** | Authorization information is missing or invalid. |  -  |
-**404** | A CyPerf application with the specified ID was not found. |  -  |
+**404** | An application with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2078,7 +2083,7 @@ Name | Type | Description  | Notes
 
 
 
-Get all the available CyPerf applications.
+Get all the available applications.
 
 ### Example
 
@@ -2158,7 +2163,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The list of CyPerf applications |  -  |
+**200** | The list of applications |  -  |
 **400** | Bad request |  -  |
 **401** | Authorization information is missing or invalid. |  -  |
 **500** | Unexpected error |  -  |
@@ -2170,7 +2175,7 @@ Name | Type | Description  | Notes
 
 
 
-Get a particular CyPerf attack.
+Get a particular attack.
 
 ### Example
 
@@ -2238,9 +2243,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The requested CyPerf attack |  -  |
+**200** | The requested attack |  -  |
 **401** | Authorization information is missing or invalid. |  -  |
-**404** | A CyPerf attack with the specified ID was not found. |  -  |
+**404** | An attack with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2328,7 +2333,7 @@ Name | Type | Description  | Notes
 
 
 
-Get all the available CyPerf attacks.
+Get all the available attacks.
 
 ### Example
 
@@ -2408,7 +2413,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The list of CyPerf attacks |  -  |
+**200** | The list of attacks |  -  |
 **400** | Bad request |  -  |
 **401** | Authorization information is missing or invalid. |  -  |
 **500** | Unexpected error |  -  |
@@ -2579,7 +2584,7 @@ Name | Type | Description  | Notes
 
 
 
-Get a particular CyPerf capture loaded by the user.
+Get a particular capture loaded by the user.
 
 ### Example
 
@@ -2647,9 +2652,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | The requested CyPerf application |  -  |
+**200** | The requested capture |  -  |
 **401** | Authorization information is missing or invalid. |  -  |
-**404** | A CyPerf capture with the specified ID was not found. |  -  |
+**404** | A capture with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3037,6 +3042,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the certificate archive file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A certificate file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3351,6 +3357,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the custom fuzzing script file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A custom fuzzing script file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3746,6 +3753,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the flow library file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A flow library file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3979,6 +3987,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the global playlists archive file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A global playlists file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4374,6 +4383,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the http library file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A http library file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4925,6 +4935,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the media file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A media file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -5320,6 +5331,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the media library file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A media library file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -5634,6 +5646,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the other library file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | An other library file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -5867,6 +5880,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the payload file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A payload file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -6181,6 +6195,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the pcap file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A pcap file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -6495,6 +6510,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the playlist file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A playlist file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -6572,6 +6588,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The requested values from the playlist file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A playlist file with the specified ID was not found. |  -  |
 **500** | Unexpected error |  -  |
 
@@ -6968,6 +6985,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the sip library file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A sip library file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -7282,6 +7300,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the stats profile file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A stats profile file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -7764,6 +7783,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the TLS certificate file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A TLS certificate file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -8078,6 +8098,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the TLS DH file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A TLS DH file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -8392,6 +8413,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the TLS key file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A TLS key file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -8860,6 +8882,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of the voice custom flow file |  -  |
+**401** | Authorization information is missing or invalid. |  -  |
 **404** | A voice custom flow file with the specified ID was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -9945,7 +9968,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_resources_get_apps**
-> AsyncContext start_resources_get_apps(get_apps_operation=get_apps_operation)
+> AsyncContext start_resources_get_apps(get_scenarios_operation=get_scenarios_operation)
 
 
 
@@ -9959,7 +9982,7 @@ Get the list of applications
 ```python
 import cyperf
 from cyperf.models.async_context import AsyncContext
-from cyperf.models.get_apps_operation import GetAppsOperation
+from cyperf.models.get_scenarios_operation import GetScenariosOperation
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -9982,10 +10005,10 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.ApplicationResourcesApi(api_client)
-    get_apps_operation = cyperf.GetAppsOperation() # GetAppsOperation |  (optional)
+    get_scenarios_operation = cyperf.GetScenariosOperation() # GetScenariosOperation |  (optional)
 
     try:
-        api_response = api_instance.start_resources_get_apps(get_apps_operation=get_apps_operation)
+        api_response = api_instance.start_resources_get_apps(get_scenarios_operation=get_scenarios_operation)
         print("The response of ApplicationResourcesApi->start_resources_get_apps:\n")
         pprint(api_response)
     except Exception as e:
@@ -9999,7 +10022,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_apps_operation** | [**GetAppsOperation**](GetAppsOperation.md)|  | [optional] 
+ **get_scenarios_operation** | [**GetScenariosOperation**](GetScenariosOperation.md)|  | [optional] 
 
 ### Return type
 
@@ -10101,7 +10124,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_resources_get_attacks**
-> AsyncContext start_resources_get_attacks(get_attacks_operation=get_attacks_operation)
+> AsyncContext start_resources_get_attacks(get_scenarios_operation=get_scenarios_operation)
 
 
 
@@ -10115,7 +10138,7 @@ Get the list of attacks
 ```python
 import cyperf
 from cyperf.models.async_context import AsyncContext
-from cyperf.models.get_attacks_operation import GetAttacksOperation
+from cyperf.models.get_scenarios_operation import GetScenariosOperation
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -10138,10 +10161,10 @@ configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
 with cyperf.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cyperf.ApplicationResourcesApi(api_client)
-    get_attacks_operation = cyperf.GetAttacksOperation() # GetAttacksOperation |  (optional)
+    get_scenarios_operation = cyperf.GetScenariosOperation() # GetScenariosOperation |  (optional)
 
     try:
-        api_response = api_instance.start_resources_get_attacks(get_attacks_operation=get_attacks_operation)
+        api_response = api_instance.start_resources_get_attacks(get_scenarios_operation=get_scenarios_operation)
         print("The response of ApplicationResourcesApi->start_resources_get_attacks:\n")
         pprint(api_response)
     except Exception as e:
@@ -10155,7 +10178,7 @@ with cyperf.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_attacks_operation** | [**GetAttacksOperation**](GetAttacksOperation.md)|  | [optional] 
+ **get_scenarios_operation** | [**GetScenariosOperation**](GetScenariosOperation.md)|  | [optional] 
 
 ### Return type
 

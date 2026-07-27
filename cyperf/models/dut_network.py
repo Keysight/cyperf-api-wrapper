@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from cyperf.models.address import Address
 from cyperf.models.api_link import APILink
+from cyperf.models.basic_auth_profile import BasicAuthProfile
 from cyperf.models.health_check_config import HealthCheckConfig
 from cyperf.models.params import Params
 from cyperf.models.pep_dut import PepDUT
@@ -37,6 +38,7 @@ class DUTNetwork(BaseModel):
     name: Annotated[str, Field(strict=True)] = Field(alias="Name")
     id: StrictStr
     network_tags: Optional[List[StrictStr]] = Field(default=None, description="A list of tags.", alias="networkTags")
+    basic_auth_profile: Optional[BasicAuthProfile] = Field(default=None, alias="BasicAuthProfile")
     client_dut_active: Optional[StrictBool] = Field(default=None, alias="ClientDUTActive")
     client_dut_host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="ClientDUTHost")
     client_dut_port: Optional[StrictInt] = Field(default=None, description="The listen port for client-side DUT (default: 80).", alias="ClientDUTPort")
@@ -47,8 +49,6 @@ class DUTNetwork(BaseModel):
     https_health_check: Optional[HealthCheckConfig] = Field(default=None, description="The HTTPS HealthCheck configuration for DUT", alias="HTTPSHealthCheck")
     hostname_suffix: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A suffix to be added to the Host header of all Apps/Attacks running through the forward proxy DUT (default: empty string).", alias="HostnameSuffix")
     http_forward_proxy_mode: Optional[StrictStr] = Field(default=None, description="Deprecated. This is ignored and the proxy mode will be deduced from the connection type.", alias="HttpForwardProxyMode")
-    llm_model: Optional[StrictStr] = Field(default=None, description="The identifier of the LLM model to use for inference.", alias="LLMModel")
-    llm_request_url_path: Optional[StrictStr] = Field(default=None, description="The endpoint URL for the LLM chat completions API.", alias="LLMRequestURLPath")
     non_proxied_hosts: Optional[Params] = Field(default=None, alias="NonProxiedHosts")
     pep_dut: Optional[PepDUT] = Field(default=None, alias="PepDUT")
     pep_dut_active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the PEP device is an active device. If active, the simulated clients will send traffic to the PEP device host. (default: false)", alias="PepDUTActive")
@@ -63,7 +63,7 @@ class DUTNetwork(BaseModel):
     active: Optional[StrictBool] = Field(default=None, description="A flag indicating if the server DUT is an active device. If it is, the simulated clients or client DUT(if active) will send traffic to the DUT 'host'; and the simulated servers will use the healtcheck configurations. (default: false)")
     host: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The hostname where the traffic goes if server DUT is active.")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "ClientDUTActive", "ClientDUTHost", "ClientDUTPort", "ConfigSettings", "ForwardProxyPepDUT", "ForwardProxyPepDUTActive", "HTTPHealthCheck", "HTTPSHealthCheck", "HostnameSuffix", "HttpForwardProxyMode", "LLMModel", "LLMRequestURLPath", "NonProxiedHosts", "PepDUT", "PepDUTActive", "ReverseProxyPepDUT", "ReverseProxyPepDUTActive", "ServerDUTActive", "ServerDUTAddress", "ServerDUTHost", "ServerDUTPort", "TCPHealthCheck", "UseRealHost", "active", "host", "links"]
+    __properties: ClassVar[List[str]] = ["Name", "id", "networkTags", "BasicAuthProfile", "ClientDUTActive", "ClientDUTHost", "ClientDUTPort", "ConfigSettings", "ForwardProxyPepDUT", "ForwardProxyPepDUTActive", "HTTPHealthCheck", "HTTPSHealthCheck", "HostnameSuffix", "HttpForwardProxyMode", "NonProxiedHosts", "PepDUT", "PepDUTActive", "ReverseProxyPepDUT", "ReverseProxyPepDUTActive", "ServerDUTActive", "ServerDUTAddress", "ServerDUTHost", "ServerDUTPort", "TCPHealthCheck", "UseRealHost", "active", "host", "links"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -171,6 +171,9 @@ class DUTNetwork(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of basic_auth_profile
+        if self.basic_auth_profile:
+            _dict['BasicAuthProfile'] = self.basic_auth_profile.to_dict()
         # override the default output from pydantic by calling `to_dict()` of forward_proxy_pep_dut
         if self.forward_proxy_pep_dut:
             _dict['ForwardProxyPepDUT'] = self.forward_proxy_pep_dut.to_dict()
@@ -219,6 +222,7 @@ class DUTNetwork(BaseModel):
             "Name": obj.get("Name"),
                         "id": obj.get("id"),
                         "networkTags": obj.get("networkTags") if obj.get("networkTags") is not None else [],
+                        "BasicAuthProfile": BasicAuthProfile.from_dict(obj["BasicAuthProfile"]) if obj.get("BasicAuthProfile") is not None else None,
                         "ClientDUTActive": obj.get("ClientDUTActive"),
                         "ClientDUTHost": obj.get("ClientDUTHost"),
                         "ClientDUTPort": obj.get("ClientDUTPort"),
@@ -229,8 +233,6 @@ class DUTNetwork(BaseModel):
                         "HTTPSHealthCheck": HealthCheckConfig.from_dict(obj["HTTPSHealthCheck"]) if obj.get("HTTPSHealthCheck") is not None else None,
                         "HostnameSuffix": obj.get("HostnameSuffix"),
                         "HttpForwardProxyMode": obj.get("HttpForwardProxyMode"),
-                        "LLMModel": obj.get("LLMModel"),
-                        "LLMRequestURLPath": obj.get("LLMRequestURLPath"),
                         "NonProxiedHosts": Params.from_dict(obj["NonProxiedHosts"]) if obj.get("NonProxiedHosts") is not None else None,
                         "PepDUT": PepDUT.from_dict(obj["PepDUT"]) if obj.get("PepDUT") is not None else None,
                         "PepDUTActive": obj.get("PepDUTActive"),

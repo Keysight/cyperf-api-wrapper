@@ -34,7 +34,7 @@ class EthRange(BaseModel):
     """ # noqa: E501
     count: Optional[StrictInt] = Field(default=None, alias="Count")
     mac_address: Optional[SequenceValue] = Field(default=None, alias="MacAddress")
-    mac_auto: StrictBool = Field(description="A flag indicating if the MAC address for the EthRange should be determined automatically (default: true).", alias="MacAuto")
+    mac_auto: Optional[StrictBool] = Field(default=None, description="A flag indicating if the MAC address for the EthRange should be determined automatically (default: true).", alias="MacAuto")
     mac_incr: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The MAC address increment rule for the EthRange (default: 00:00:00:00:00:01).", alias="MacIncr")
     mac_start: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The MAC start address for the EthRange (default: 00:11:01:00:00:01).", alias="MacStart")
     one_mac_per_ip: Optional[StrictBool] = Field(default=None, description="A flag indicating if there is only one MAC address for the EthRange per IPRange (default: true).", alias="OneMacPerIP")
