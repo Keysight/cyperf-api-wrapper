@@ -1,5 +1,5 @@
 # Knowledge Base: cyperf-api-wrapper
-Generated: 2026-07-09 | Plugin: knowledge-base v3.5.0
+Generated: 2026-07-09 | Plugin: knowledge-base v3.5.0 | Last incremental refresh: 2026-07-31 (git-history patch covering commits through `835526c`, no re-discovery/IQ/EQ)
 
 ## Product Profile
 - **Purpose**: Python client SDK for the Keysight CyPerf network/security performance-test controller — a mostly OpenAPI-generated REST client (`pip install cyperf`) topped with a hand-written `TestRunner`/CLI helper layer and a HATEOAS "dynamic model" layer for writing test-automation scripts.
