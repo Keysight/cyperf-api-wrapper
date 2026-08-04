@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    CyPerf Application API
+    Keysight CyPerf Application API
 
-    CyPerf REST API
+    Keysight CyPerf REST API
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@keysight.com
@@ -49,6 +49,7 @@ class IPSecRange(BaseModel):
     inner_ip_sec_range: Optional[InnerIPSecRange] = Field(default=None, alias="InnerIPSecRange")
     local_sub_config: Optional[LocalSubnetConfig] = Field(default=None, alias="LocalSubConfig")
     multi_p2_over_p1: Optional[StrictBool] = Field(default=None, alias="MultiP2OverP1")
+    pqckem_enabled: Optional[StrictBool] = Field(default=None, alias="PQCKEMEnabled")
     protected_sub_config: Optional[ProtectedSubnetConfig] = Field(default=None, description="Deeprecated. Use RemoteSubConfig instead.", alias="ProtectedSubConfig")
     public_peer: Annotated[str, Field(strict=True)] = Field(alias="PublicPeer")
     public_peer_increment: Annotated[str, Field(strict=True)] = Field(alias="PublicPeerIncrement")
@@ -59,7 +60,7 @@ class IPSecRange(BaseModel):
     tunnel_count_per_outer_ip: StrictInt = Field(alias="TunnelCountPerOuterIP")
     id: StrictStr
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["AuthSettings", "IKEPhase1Config", "IKEPhase2Config", "IPSecRangeName", "IdentificationConfig", "InnerIPSec", "InnerIPSecRange", "LocalSubConfig", "MultiP2OverP1", "ProtectedSubConfig", "PublicPeer", "PublicPeerIncrement", "RemoteAccess", "RemoteSubConfig", "TestScenario", "Timers", "TunnelCountPerOuterIP", "id", "links"]
+    __properties: ClassVar[List[str]] = ["AuthSettings", "IKEPhase1Config", "IKEPhase2Config", "IPSecRangeName", "IdentificationConfig", "InnerIPSec", "InnerIPSecRange", "LocalSubConfig", "MultiP2OverP1", "PQCKEMEnabled", "ProtectedSubConfig", "PublicPeer", "PublicPeerIncrement", "RemoteAccess", "RemoteSubConfig", "TestScenario", "Timers", "TunnelCountPerOuterIP", "id", "links"]
 
     @field_validator('ip_sec_range_name')
     def ip_sec_range_name_validate_regular_expression(cls, value):
@@ -188,6 +189,7 @@ class IPSecRange(BaseModel):
                         "InnerIPSecRange": InnerIPSecRange.from_dict(obj["InnerIPSecRange"]) if obj.get("InnerIPSecRange") is not None else None,
                         "LocalSubConfig": LocalSubnetConfig.from_dict(obj["LocalSubConfig"]) if obj.get("LocalSubConfig") is not None else None,
                         "MultiP2OverP1": obj.get("MultiP2OverP1"),
+                        "PQCKEMEnabled": obj.get("PQCKEMEnabled"),
                         "ProtectedSubConfig": ProtectedSubnetConfig.from_dict(obj["ProtectedSubConfig"]) if obj.get("ProtectedSubConfig") is not None else None,
                         "PublicPeer": obj.get("PublicPeer"),
                         "PublicPeerIncrement": obj.get("PublicPeerIncrement"),

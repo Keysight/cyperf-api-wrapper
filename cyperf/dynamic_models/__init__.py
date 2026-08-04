@@ -2,9 +2,9 @@
 
 # flake8: noqa
 """
-    CyPerf Application API
+    Keysight CyPerf Application API
 
-    CyPerf REST API
+    Keysight CyPerf REST API
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@keysight.com
@@ -341,6 +341,7 @@ PortSettings = DynamicModel('PortSettings', (), {} )
 PortsByController = DynamicModel('PortsByController', (), {} )
 PortsByNode = DynamicModel('PortsByNode', (), {} )
 PortsByPanel = DynamicModel('PortsByPanel', (), {} )
+PqcKemGroup = DynamicModel('PqcKemGroup', (), {} )
 PqcSignatureAlgorithmTLS13 = DynamicModel('PqcSignatureAlgorithmTLS13', (), {} )
 PrfP1Algorithm = DynamicModel('PrfP1Algorithm', (), {} )
 Profile = DynamicModel('Profile', (), {} )

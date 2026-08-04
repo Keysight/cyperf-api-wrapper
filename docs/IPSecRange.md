@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **inner_ip_sec_range** | [**InnerIPSecRange**](InnerIPSecRange.md) |  | [optional] 
 **local_sub_config** | [**LocalSubnetConfig**](LocalSubnetConfig.md) |  | [optional] 
 **multi_p2_over_p1** | **bool** |  | [optional] 
+**pqckem_enabled** | **bool** |  | [optional] 
 **protected_sub_config** | [**ProtectedSubnetConfig**](ProtectedSubnetConfig.md) | Deeprecated. Use RemoteSubConfig instead. | [optional] 
 **public_peer** | **str** |  | 
 **public_peer_increment** | **str** |  | 
