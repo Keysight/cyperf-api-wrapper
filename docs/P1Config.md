@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ppk_enabled** | **bool** |  | 
 **ppkid** | **str** |  | 
 **ppk_mandatory** | **str** |  | 
+**pqckem_round** | [**List[PqcKemGroup]**](PqcKemGroup.md) |  | 
 **prf_algorithm** | [**PrfP1Algorithm**](PrfP1Algorithm.md) |  | 
 
 ## Example

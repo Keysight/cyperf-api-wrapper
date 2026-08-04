@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    CyPerf Application API
+    Keysight CyPerf Application API
 
-    CyPerf REST API
+    Keysight CyPerf REST API
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@keysight.com
@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List
 from cyperf.models.dh_p1_group import DhP1Group
 from cyperf.models.enc_p1_algorithm import EncP1Algorithm
 from cyperf.models.hash_p1_algorithm import HashP1Algorithm
+from cyperf.models.pqc_kem_group import PqcKemGroup
 from cyperf.models.prf_p1_algorithm import PrfP1Algorithm
 from typing import Optional, Set, Union
 from typing_extensions import Self
@@ -40,8 +41,9 @@ class P1Config(BaseModel):
     ppk_enabled: StrictBool = Field(alias="PPKEnabled")
     ppkid: StrictStr = Field(alias="PPKId")
     ppk_mandatory: StrictStr = Field(alias="PPKMandatory")
+    pqckem_round: List[PqcKemGroup] = Field(alias="PQCKEMRound")
     prf_algorithm: PrfP1Algorithm = Field(alias="PrfAlgorithm")
-    __properties: ClassVar[List[str]] = ["DHGroup", "EncAlgorithm", "HashAlgorithm", "InitialContact", "Lifetime", "PPKEnabled", "PPKId", "PPKMandatory", "PrfAlgorithm"]
+    __properties: ClassVar[List[str]] = ["DHGroup", "EncAlgorithm", "HashAlgorithm", "InitialContact", "Lifetime", "PPKEnabled", "PPKId", "PPKMandatory", "PQCKEMRound", "PrfAlgorithm"]
 
     @field_validator('ppk_mandatory')
     def ppk_mandatory_validate_enum(cls, value):
@@ -111,6 +113,7 @@ class P1Config(BaseModel):
                         "PPKEnabled": obj.get("PPKEnabled"),
                         "PPKId": obj.get("PPKId"),
                         "PPKMandatory": obj.get("PPKMandatory"),
+                        "PQCKEMRound": obj.get("PQCKEMRound"),
                         "PrfAlgorithm": obj.get("PrfAlgorithm")
             ,
             "links": obj.get("links")

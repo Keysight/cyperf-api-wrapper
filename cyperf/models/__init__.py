@@ -2,9 +2,9 @@
 
 # flake8: noqa
 """
-    CyPerf Application API
+    Keysight CyPerf Application API
 
-    CyPerf REST API
+    Keysight CyPerf REST API
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@keysight.com
@@ -341,6 +341,7 @@ from cyperf.models.port_settings import PortSettings
 from cyperf.models.ports_by_controller import PortsByController
 from cyperf.models.ports_by_node import PortsByNode
 from cyperf.models.ports_by_panel import PortsByPanel
+from cyperf.models.pqc_kem_group import PqcKemGroup
 from cyperf.models.pqc_signature_algorithm_tls13 import PqcSignatureAlgorithmTLS13
 from cyperf.models.prf_p1_algorithm import PrfP1Algorithm
 from cyperf.models.profile import Profile

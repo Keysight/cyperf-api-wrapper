@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    CyPerf Application API
+    Keysight CyPerf Application API
 
-    CyPerf REST API
+    Keysight CyPerf REST API
 
     The version of the OpenAPI document: 1.0.0
     Contact: support@keysight.com
