@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **identification_config** | [**IdentificationConfig**](IdentificationConfig.md) |  | [optional] 
 **local_sub_config** | [**LocalSubnetConfig**](LocalSubnetConfig.md) |  | [optional] 
 **multi_p2_over_p1** | **bool** |  | 
+**pqckem_enabled** | **bool** |  | 
 **public_peer** | **str** |  | 
 **public_peer_increment** | **str** |  | 
 **remote_access** | [**RemoteAccess**](RemoteAccess.md) |  | [optional] 

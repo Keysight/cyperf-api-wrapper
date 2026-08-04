@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "cyperf"
 version = "1.0.0"
-description = "CyPerf Application API"
+description = "Keysight CyPerf Application API"
 authors = ["Keysight CyPerf <support@keysight.com>"]
 license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
-keywords = ["OpenAPI", "OpenAPI-Generator", "CyPerf Application API"]
+keywords = ["OpenAPI", "OpenAPI-Generator", "Keysight CyPerf Application API"]
 include = ["cyperf/py.typed"]
 
 [tool.poetry.dependencies]
