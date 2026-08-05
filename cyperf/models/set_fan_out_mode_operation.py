@@ -20,19 +20,19 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.nodes_by_controller import NodesByController
+from cyperf.models.front_panels_by_controller import FrontPanelsByController
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class SetNodesAppOperation(BaseModel):
+class SetFanOutModeOperation(BaseModel):
     """
-    SetNodesAppOperation
+    SetFanOutModeOperation
     """ # noqa: E501
-    app_id: Optional[StrictStr] = Field(default=None, description="The id of the app to activate on the compute nodes.", alias="appId")
-    controllers: Optional[List[NodesByController]] = Field(default=None, description="The controllers that the compute nodes are part of.")
-    force_clear_ownership: Optional[StrictBool] = Field(default=None, description="Whether the ownership information will be cleared or not.", alias="forceClearOwnership")
-    __properties: ClassVar[List[str]] = ["appId", "controllers", "forceClearOwnership"]
+    controllers: Optional[List[FrontPanelsByController]] = Field(default=None, description="The controllers that the front panels are part of.")
+    fan_out_mode: Optional[StrictStr] = Field(default=None, description="The desired fanOut mode.", alias="fanOutMode")
+    force_clear_ownership: Optional[StrictBool] = Field(default=None, description="Whether the ownership information of reserved ports will be cleared before switching the fanOut mode.", alias="forceClearOwnership")
+    __properties: ClassVar[List[str]] = ["controllers", "fanOutMode", "forceClearOwnership"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +52,7 @@ class SetNodesAppOperation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SetNodesAppOperation from a JSON string"""
+        """Create an instance of SetFanOutModeOperation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -84,7 +84,7 @@ class SetNodesAppOperation(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SetNodesAppOperation from a dict"""
+        """Create an instance of SetFanOutModeOperation from a dict"""
         if obj is None:
             return None
 
@@ -94,8 +94,8 @@ class SetNodesAppOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "appId": obj.get("appId"),
-                        "controllers": ( [NodesByController.from_dict(_item) for _item in obj.get("controllers", [])] if obj.get("controllers") is not None else None),
+            "controllers": ( [FrontPanelsByController.from_dict(_item) for _item in obj.get("controllers", [])] if obj.get("controllers") is not None else None),
+                        "fanOutMode": obj.get("fanOutMode"),
                         "forceClearOwnership": obj.get("forceClearOwnership")
             ,
             "links": obj.get("links")

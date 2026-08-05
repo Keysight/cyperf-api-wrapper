@@ -30,8 +30,8 @@ class SetControllerAppOperation(BaseModel):
     """ # noqa: E501
     app_id: Optional[StrictStr] = Field(default=None, description="The id of the app to activate on the controllers.", alias="appId")
     controllers: Optional[List[StrictStr]] = Field(default=None, description="The controller ids for which to activate the app.")
-    force: Optional[StrictBool] = Field(default=None, description="Whether the ownership information will be cleared or not.")
-    __properties: ClassVar[List[str]] = ["appId", "controllers", "force"]
+    force_clear_ownership: Optional[StrictBool] = Field(default=None, description="Whether the ownership information will be cleared or not.", alias="forceClearOwnership")
+    __properties: ClassVar[List[str]] = ["appId", "controllers", "forceClearOwnership"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +88,7 @@ class SetControllerAppOperation(BaseModel):
         _obj = cls.model_validate({
             "appId": obj.get("appId"),
                         "controllers": obj.get("controllers") if obj.get("controllers") is not None else [],
-                        "force": obj.get("force")
+                        "forceClearOwnership": obj.get("forceClearOwnership")
             ,
             "links": obj.get("links")
         })
