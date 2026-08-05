@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**available_fan_out_modes** | **List[str]** | A list with the current fanOut modes available for the front panel | [optional] 
 **fan_out_mode** | **str** | The current fanOut mode of the front panel | [optional] 
 **health_details** | [**List[HealthIssue]**](HealthIssue.md) | A list with more details regarding the health of the front panel | [optional] 
 **healthy** | **bool** | Whether the front panel has any health issue or not | [optional] 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **app_id** | **str** | The id of the app to activate on the compute nodes. | [optional] 
 **controllers** | [**List[NodesByController]**](NodesByController.md) | The controllers that the compute nodes are part of. | [optional] 
-**force** | **bool** | Whether the ownership information will be cleared or not. | [optional] 
+**force_clear_ownership** | **bool** | Whether the ownership information will be cleared or not. | [optional] 
 
 ## Example
 

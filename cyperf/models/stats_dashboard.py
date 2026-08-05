@@ -21,26 +21,29 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cyperf.models.api_link import APILink
-from cyperf.models.health_issue import HealthIssue
-from cyperf.models.port import Port
+from cyperf.models.change_event import ChangeEvent
+from cyperf.models.metrics_list import MetricsList
+from cyperf.models.panel import Panel
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class FrontPanel(BaseModel):
+class StatsDashboard(BaseModel):
     """
-    FrontPanel
+    StatsDashboard
     """ # noqa: E501
-    available_fan_out_modes: Optional[List[StrictStr]] = Field(default=None, description="A list with the current fanOut modes available for the front panel", alias="availableFanOutModes")
-    fan_out_mode: Optional[StrictStr] = Field(default=None, description="The current fanOut mode of the front panel", alias="fanOutMode")
-    health_details: Optional[List[HealthIssue]] = Field(default=None, description="A list with more details regarding the health of the front panel", alias="healthDetails")
-    healthy: Optional[StrictBool] = Field(default=None, description="Whether the front panel has any health issue or not")
-    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the front panel")
+    changes: Optional[List[ChangeEvent]] = Field(default=None, description="The changes hook")
+    group_id: Optional[StrictStr] = Field(default=None, description="The group identifier of the dashboard", alias="groupId")
+    id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the dashboard")
     links: Optional[List[APILink]] = None
-    name: Optional[StrictStr] = Field(default=None, description="A user-friendly display name for the front panel")
-    ports: Optional[List[Port]] = Field(default=None, description="The front panel ports of the front panel")
-    status: Optional[StrictStr] = Field(default=None, description="The current status of the front panel: ready or not ready")
-    __properties: ClassVar[List[str]] = ["availableFanOutModes", "fanOutMode", "healthDetails", "healthy", "id", "links", "name", "ports", "status"]
+    metrics: Optional[MetricsList] = None
+    name: Optional[StrictStr] = Field(default=None, description="The name of the dashboard")
+    owner: Optional[StrictStr] = Field(default=None, description="The friendly display name of the entity that created the dashboard")
+    owner_id: Optional[StrictStr] = Field(default=None, description="The unique identifier of the entity that created the dashboard", alias="ownerId")
+    panels: Optional[List[Panel]] = Field(default=None, description="The list of panels in the dashboard")
+    read_only: Optional[StrictBool] = Field(default=None, description="Is a read only dashboard", alias="readOnly")
+    type: Optional[StrictStr] = Field(default=None, description="The application type of the dashboard")
+    __properties: ClassVar[List[str]] = ["changes", "groupId", "id", "links", "metrics", "name", "owner", "ownerId", "panels", "readOnly", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -60,7 +63,7 @@ class FrontPanel(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of FrontPanel from a JSON string"""
+        """Create an instance of StatsDashboard from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,8 +75,12 @@ class FrontPanel(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
+            "owner",
+            "owner_id",
         ])
 
         _dict = self.model_dump(
@@ -81,13 +88,13 @@ class FrontPanel(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in health_details (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in changes (list)
         _items = []
-        if self.health_details:
-            for _item in self.health_details:
+        if self.changes:
+            for _item in self.changes:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['healthDetails'] = _items
+            _dict['changes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in links (list)
         _items = []
         if self.links:
@@ -95,18 +102,21 @@ class FrontPanel(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['links'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in ports (list)
+        # override the default output from pydantic by calling `to_dict()` of metrics
+        if self.metrics:
+            _dict['metrics'] = self.metrics.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in panels (list)
         _items = []
-        if self.ports:
-            for _item in self.ports:
+        if self.panels:
+            for _item in self.panels:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['ports'] = _items
+            _dict['panels'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of FrontPanel from a dict"""
+        """Create an instance of StatsDashboard from a dict"""
         if obj is None:
             return None
 
@@ -116,15 +126,17 @@ class FrontPanel(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "availableFanOutModes": obj.get("availableFanOutModes") if obj.get("availableFanOutModes") is not None else [],
-                        "fanOutMode": obj.get("fanOutMode"),
-                        "healthDetails": ( [HealthIssue.from_dict(_item) for _item in obj.get("healthDetails", [])] if obj.get("healthDetails") is not None else None),
-                        "healthy": obj.get("healthy"),
+            "changes": ( [ChangeEvent.from_dict(_item) for _item in obj.get("changes", [])] if obj.get("changes") is not None else None),
+                        "groupId": obj.get("groupId"),
                         "id": obj.get("id"),
                         "links": ( [APILink.from_dict(_item) for _item in obj.get("links", [])] if obj.get("links") is not None else None),
+                        "metrics": MetricsList.from_dict(obj["metrics"]) if obj.get("metrics") is not None else None,
                         "name": obj.get("name"),
-                        "ports": ( [Port.from_dict(_item) for _item in obj.get("ports", [])] if obj.get("ports") is not None else None),
-                        "status": obj.get("status")
+                        "owner": obj.get("owner"),
+                        "ownerId": obj.get("ownerId"),
+                        "panels": ( [Panel.from_dict(_item) for _item in obj.get("panels", [])] if obj.get("panels") is not None else None),
+                        "readOnly": obj.get("readOnly"),
+                        "type": obj.get("type")
             ,
             "links": obj.get("links")
         })

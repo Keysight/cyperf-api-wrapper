@@ -31,6 +31,7 @@ from cyperf.models.activation_code_request import ActivationCodeRequest
 from cyperf.models.add_action_info import AddActionInfo
 from cyperf.models.add_input import AddInput
 from cyperf.models.address import Address
+from cyperf.models.advanced_metric import AdvancedMetric
 from cyperf.models.advanced_settings import AdvancedSettings
 from cyperf.models.agent import Agent
 from cyperf.models.agent_assignment_by_front_panel_port import AgentAssignmentByFrontPanelPort
@@ -86,6 +87,7 @@ from cyperf.models.category_filter import CategoryFilter
 from cyperf.models.category_value import CategoryValue
 from cyperf.models.cert_config import CertConfig
 from cyperf.models.certificate import Certificate
+from cyperf.models.change_event import ChangeEvent
 from cyperf.models.chassis_info import ChassisInfo
 from cyperf.models.choice import Choice
 from cyperf.models.cipher_tls12 import CipherTLS12
@@ -115,6 +117,7 @@ from cyperf.models.connection_persistence import ConnectionPersistence
 from cyperf.models.consumer import Consumer
 from cyperf.models.content_block import ContentBlock
 from cyperf.models.controller import Controller
+from cyperf.models.convert_dashboards_operation import ConvertDashboardsOperation
 from cyperf.models.counted_feature_consumer import CountedFeatureConsumer
 from cyperf.models.counted_feature_stats import CountedFeatureStats
 from cyperf.models.create_app_operation import CreateAppOperation
@@ -129,6 +132,7 @@ from cyperf.models.dtls_settings import DTLSSettings
 from cyperf.models.dut_network import DUTNetwork
 from cyperf.models.dut_range import DUTRange
 from cyperf.models.dashboard import Dashboard
+from cyperf.models.data_source_details import DataSourceDetails
 from cyperf.models.data_type import DataType
 from cyperf.models.data_type_values_inner import DataTypeValuesInner
 from cyperf.models.definition import Definition
@@ -185,6 +189,7 @@ from cyperf.models.fortinet_encapsulation import FortinetEncapsulation
 from cyperf.models.fortinet_settings import FortinetSettings
 from cyperf.models.front_panel import FrontPanel
 from cyperf.models.front_panel_ports_by_controller import FrontPanelPortsByController
+from cyperf.models.front_panels_by_controller import FrontPanelsByController
 from cyperf.models.fulfillment_request import FulfillmentRequest
 from cyperf.models.generate_all_operation import GenerateAllOperation
 from cyperf.models.generate_csv_reports_operation import GenerateCSVReportsOperation
@@ -242,9 +247,14 @@ from cyperf.models.get_session_meta200_response import GetSessionMeta200Response
 from cyperf.models.get_session_meta200_response_one_of import GetSessionMeta200ResponseOneOf
 from cyperf.models.get_sessions200_response import GetSessions200Response
 from cyperf.models.get_sessions200_response_one_of import GetSessions200ResponseOneOf
+from cyperf.models.get_stats_dashboard_changes200_response import GetStatsDashboardChanges200Response
+from cyperf.models.get_stats_dashboard_changes200_response_one_of import GetStatsDashboardChanges200ResponseOneOf
+from cyperf.models.get_stats_dashboards200_response import GetStatsDashboards200Response
+from cyperf.models.get_stats_dashboards200_response_one_of import GetStatsDashboards200ResponseOneOf
 from cyperf.models.get_stats_plugins200_response import GetStatsPlugins200Response
 from cyperf.models.get_stats_plugins200_response_one_of import GetStatsPlugins200ResponseOneOf
 from cyperf.models.get_strikes_operation import GetStrikesOperation
+from cyperf.models.grid_position import GridPosition
 from cyperf.models.group_tls13 import GroupTLS13
 from cyperf.models.http_profile import HTTPProfile
 from cyperf.models.http_req_meta import HTTPReqMeta
@@ -288,6 +298,7 @@ from cyperf.models.md2_tlv import Md2Tlv
 from cyperf.models.media_file import MediaFile
 from cyperf.models.media_track import MediaTrack
 from cyperf.models.metadata import Metadata
+from cyperf.models.metrics_list import MetricsList
 from cyperf.models.mos_mode import MosMode
 from cyperf.models.name_id_format import NameIdFormat
 from cyperf.models.name_server import NameServer
@@ -313,6 +324,7 @@ from cyperf.models.ppk_pair import PPKPair
 from cyperf.models.psp_range import PSPRange
 from cyperf.models.psp_stack import PSPStack
 from cyperf.models.pair import Pair
+from cyperf.models.panel import Panel
 from cyperf.models.param_metadata import ParamMetadata
 from cyperf.models.param_metadata_type_info import ParamMetadataTypeInfo
 from cyperf.models.param_metadata_type_info_array_v2 import ParamMetadataTypeInfoArrayV2
@@ -383,6 +395,7 @@ from cyperf.models.session_reuse_method_tls13 import SessionReuseMethodTLS13
 from cyperf.models.set_aggregation_mode_operation import SetAggregationModeOperation
 from cyperf.models.set_controller_app_operation import SetControllerAppOperation
 from cyperf.models.set_dpdk_mode_operation_input import SetDpdkModeOperationInput
+from cyperf.models.set_fan_out_mode_operation import SetFanOutModeOperation
 from cyperf.models.set_front_panel_ports_link_state_operation import SetFrontPanelPortsLinkStateOperation
 from cyperf.models.set_nodes_app_operation import SetNodesAppOperation
 from cyperf.models.set_ntp_operation_input import SetNtpOperationInput
@@ -397,6 +410,7 @@ from cyperf.models.specific_objective import SpecificObjective
 from cyperf.models.start_agents_batch_delete_request_inner import StartAgentsBatchDeleteRequestInner
 from cyperf.models.stateless_stream import StatelessStream
 from cyperf.models.static_arp_entry import StaticARPEntry
+from cyperf.models.stats_dashboard import StatsDashboard
 from cyperf.models.stats_result import StatsResult
 from cyperf.models.steady_segment import SteadySegment
 from cyperf.models.step_segment import StepSegment
