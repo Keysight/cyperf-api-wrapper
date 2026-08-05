@@ -18,21 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.nodes_by_controller import NodesByController
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class SetNodesAppOperation(BaseModel):
+class ConvertDashboardsOperation(BaseModel):
     """
-    SetNodesAppOperation
+    ConvertDashboardsOperation
     """ # noqa: E501
-    app_id: Optional[StrictStr] = Field(default=None, description="The id of the app to activate on the compute nodes.", alias="appId")
-    controllers: Optional[List[NodesByController]] = Field(default=None, description="The controllers that the compute nodes are part of.")
-    force_clear_ownership: Optional[StrictBool] = Field(default=None, description="Whether the ownership information will be cleared or not.", alias="forceClearOwnership")
-    __properties: ClassVar[List[str]] = ["appId", "controllers", "forceClearOwnership"]
+    dashboard_ids: Optional[List[StrictStr]] = Field(default=None, description="The dashboard ids to be converted", alias="dashboardIds")
+    test_id: Optional[StrictStr] = Field(default=None, description="The test that contains the dashboards", alias="testId")
+    types: Optional[List[StrictStr]] = Field(default=None, description="The types of queries the dashboards will be converted in")
+    __properties: ClassVar[List[str]] = ["dashboardIds", "testId", "types"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +51,7 @@ class SetNodesAppOperation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SetNodesAppOperation from a JSON string"""
+        """Create an instance of ConvertDashboardsOperation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,18 +72,11 @@ class SetNodesAppOperation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in controllers (list)
-        _items = []
-        if self.controllers:
-            for _item in self.controllers:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['controllers'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SetNodesAppOperation from a dict"""
+        """Create an instance of ConvertDashboardsOperation from a dict"""
         if obj is None:
             return None
 
@@ -94,9 +86,9 @@ class SetNodesAppOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "appId": obj.get("appId"),
-                        "controllers": ( [NodesByController.from_dict(_item) for _item in obj.get("controllers", [])] if obj.get("controllers") is not None else None),
-                        "forceClearOwnership": obj.get("forceClearOwnership")
+            "dashboardIds": obj.get("dashboardIds") if obj.get("dashboardIds") is not None else [],
+                        "testId": obj.get("testId"),
+                        "types": obj.get("types") if obj.get("types") is not None else []
             ,
             "links": obj.get("links")
         })

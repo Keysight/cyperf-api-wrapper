@@ -18,21 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cyperf.models.nodes_by_controller import NodesByController
+from cyperf.models.advanced_metric import AdvancedMetric
 from typing import Optional, Set, Union
 from typing_extensions import Self
 from pydantic import Field, PrivateAttr
 
-class SetNodesAppOperation(BaseModel):
+class MetricsList(BaseModel):
     """
-    SetNodesAppOperation
+    MetricsList
     """ # noqa: E501
-    app_id: Optional[StrictStr] = Field(default=None, description="The id of the app to activate on the compute nodes.", alias="appId")
-    controllers: Optional[List[NodesByController]] = Field(default=None, description="The controllers that the compute nodes are part of.")
-    force_clear_ownership: Optional[StrictBool] = Field(default=None, description="Whether the ownership information will be cleared or not.", alias="forceClearOwnership")
-    __properties: ClassVar[List[str]] = ["appId", "controllers", "forceClearOwnership"]
+    dashboard_id: Optional[StrictStr] = Field(default=None, description="The id of the dashboard with these metrics", alias="dashboardId")
+    metrics: Optional[List[AdvancedMetric]] = Field(default=None, description="The list of metrics in the specified dashboard")
+    __properties: ClassVar[List[str]] = ["dashboardId", "metrics"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +51,7 @@ class SetNodesAppOperation(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of SetNodesAppOperation from a JSON string"""
+        """Create an instance of MetricsList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,18 +72,18 @@ class SetNodesAppOperation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in controllers (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in metrics (list)
         _items = []
-        if self.controllers:
-            for _item in self.controllers:
+        if self.metrics:
+            for _item in self.metrics:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['controllers'] = _items
+            _dict['metrics'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of SetNodesAppOperation from a dict"""
+        """Create an instance of MetricsList from a dict"""
         if obj is None:
             return None
 
@@ -94,9 +93,8 @@ class SetNodesAppOperation(BaseModel):
             return _obj
 
         _obj = cls.model_validate({
-            "appId": obj.get("appId"),
-                        "controllers": ( [NodesByController.from_dict(_item) for _item in obj.get("controllers", [])] if obj.get("controllers") is not None else None),
-                        "forceClearOwnership": obj.get("forceClearOwnership")
+            "dashboardId": obj.get("dashboardId"),
+                        "metrics": ( [AdvancedMetric.from_dict(_item) for _item in obj.get("metrics", [])] if obj.get("metrics") is not None else None)
             ,
             "links": obj.get("links")
         })

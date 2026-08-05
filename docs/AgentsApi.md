@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**start_controllers_reboot_compute_resource**](AgentsApi.md#start_controllers_reboot_compute_resource) | **POST** /api/v2/controllers/operations/reboot-compute-resource | 
 [**start_controllers_reboot_port**](AgentsApi.md#start_controllers_reboot_port) | **POST** /api/v2/controllers/operations/reboot-port | 
 [**start_controllers_set_app**](AgentsApi.md#start_controllers_set_app) | **POST** /api/v2/controllers/operations/set-app | 
+[**start_controllers_set_front_panel_fanout**](AgentsApi.md#start_controllers_set_front_panel_fanout) | **POST** /api/v2/controllers/operations/set-front-panel-fanout | 
 [**start_controllers_set_front_panel_port_link_state**](AgentsApi.md#start_controllers_set_front_panel_port_link_state) | **POST** /api/v2/controllers/operations/set-front-panel-port-link-state | 
 [**start_controllers_set_node_aggregation**](AgentsApi.md#start_controllers_set_node_aggregation) | **POST** /api/v2/controllers/operations/set-node-aggregation | 
 [**start_controllers_set_node_app**](AgentsApi.md#start_controllers_set_node_app) | **POST** /api/v2/controllers/operations/set-node-app | 
@@ -2557,6 +2558,84 @@ with cyperf.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **set_controller_app_operation** | [**SetControllerAppOperation**](SetControllerAppOperation.md)|  | [optional] 
+
+### Return type
+
+[**AsyncContext**](AsyncContext.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2), [OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Details about the operation that just started |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **start_controllers_set_front_panel_fanout**
+> AsyncContext start_controllers_set_front_panel_fanout(set_fan_out_mode_operation=set_fan_out_mode_operation)
+
+
+
+Set the fanOut mode of the front panels.
+
+### Example
+
+* OAuth Authentication (OAuth2):
+* OAuth Authentication (OAuth2):
+
+```python
+import cyperf
+from cyperf.models.async_context import AsyncContext
+from cyperf.models.set_fan_out_mode_operation import SetFanOutModeOperation
+from cyperf.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cyperf.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+configuration.refresh_token = os.environ["OFFLINE_TOKEN_FROM_CYPERF_UI"]
+
+# Enter a context with an instance of the API client
+with cyperf.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cyperf.AgentsApi(api_client)
+    set_fan_out_mode_operation = cyperf.SetFanOutModeOperation() # SetFanOutModeOperation |  (optional)
+
+    try:
+        api_response = api_instance.start_controllers_set_front_panel_fanout(set_fan_out_mode_operation=set_fan_out_mode_operation)
+        print("The response of AgentsApi->start_controllers_set_front_panel_fanout:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsApi->start_controllers_set_front_panel_fanout: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **set_fan_out_mode_operation** | [**SetFanOutModeOperation**](SetFanOutModeOperation.md)|  | [optional] 
 
 ### Return type
 

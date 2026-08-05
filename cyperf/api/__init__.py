@@ -6,6 +6,7 @@ from cyperf.api.application_resources_api import ApplicationResourcesApi
 from cyperf.api.authorization_api import AuthorizationApi
 from cyperf.api.brokers_api import BrokersApi
 from cyperf.api.configurations_api import ConfigurationsApi
+from cyperf.api.dashboards_api import DashboardsApi
 from cyperf.api.data_migration_api import DataMigrationApi
 from cyperf.api.diagnostics_api import DiagnosticsApi
 from cyperf.api.license_servers_api import LicenseServersApi

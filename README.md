@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**start_controllers_reboot_compute_resource**](docs/AgentsApi.md#start_controllers_reboot_compute_resource) | **POST** /api/v2/controllers/operations/reboot-compute-resource | 
 *AgentsApi* | [**start_controllers_reboot_port**](docs/AgentsApi.md#start_controllers_reboot_port) | **POST** /api/v2/controllers/operations/reboot-port | 
 *AgentsApi* | [**start_controllers_set_app**](docs/AgentsApi.md#start_controllers_set_app) | **POST** /api/v2/controllers/operations/set-app | 
+*AgentsApi* | [**start_controllers_set_front_panel_fanout**](docs/AgentsApi.md#start_controllers_set_front_panel_fanout) | **POST** /api/v2/controllers/operations/set-front-panel-fanout | 
 *AgentsApi* | [**start_controllers_set_front_panel_port_link_state**](docs/AgentsApi.md#start_controllers_set_front_panel_port_link_state) | **POST** /api/v2/controllers/operations/set-front-panel-port-link-state | 
 *AgentsApi* | [**start_controllers_set_node_aggregation**](docs/AgentsApi.md#start_controllers_set_node_aggregation) | **POST** /api/v2/controllers/operations/set-node-aggregation | 
 *AgentsApi* | [**start_controllers_set_node_app**](docs/AgentsApi.md#start_controllers_set_node_app) | **POST** /api/v2/controllers/operations/set-node-app | 
@@ -274,6 +275,15 @@ Class | Method | HTTP request | Description
 *ConfigurationsApi* | [**start_configs_import**](docs/ConfigurationsApi.md#start_configs_import) | **POST** /api/v2/configs/operations/import | 
 *ConfigurationsApi* | [**start_configs_import_all**](docs/ConfigurationsApi.md#start_configs_import_all) | **POST** /api/v2/configs/operations/importAll | 
 *ConfigurationsApi* | [**update_config**](docs/ConfigurationsApi.md#update_config) | **PUT** /api/v2/configs/{configId} | 
+*DashboardsApi* | [**create_stats_dashboard_changes**](docs/DashboardsApi.md#create_stats_dashboard_changes) | **POST** /api/v2/stats-dashboards/{statsDashboardId}/changes | 
+*DashboardsApi* | [**create_stats_dashboards**](docs/DashboardsApi.md#create_stats_dashboards) | **POST** /api/v2/stats-dashboards | 
+*DashboardsApi* | [**delete_stats_dashboard**](docs/DashboardsApi.md#delete_stats_dashboard) | **DELETE** /api/v2/stats-dashboards/{statsDashboardId} | 
+*DashboardsApi* | [**get_stats_dashboard_by_id**](docs/DashboardsApi.md#get_stats_dashboard_by_id) | **GET** /api/v2/stats-dashboards/{statsDashboardId} | 
+*DashboardsApi* | [**get_stats_dashboard_changes**](docs/DashboardsApi.md#get_stats_dashboard_changes) | **GET** /api/v2/stats-dashboards/{statsDashboardId}/changes | 
+*DashboardsApi* | [**get_stats_dashboard_metrics**](docs/DashboardsApi.md#get_stats_dashboard_metrics) | **GET** /api/v2/stats-dashboards/{statsDashboardId}/metrics | 
+*DashboardsApi* | [**get_stats_dashboards**](docs/DashboardsApi.md#get_stats_dashboards) | **GET** /api/v2/stats-dashboards | 
+*DashboardsApi* | [**start_stats_dashboards_convert**](docs/DashboardsApi.md#start_stats_dashboards_convert) | **POST** /api/v2/stats-dashboards/operations/convert | 
+*DashboardsApi* | [**update_stats_dashboard**](docs/DashboardsApi.md#update_stats_dashboard) | **PUT** /api/v2/stats-dashboards/{statsDashboardId} | 
 *DataMigrationApi* | [**start_controller_migration_export**](docs/DataMigrationApi.md#start_controller_migration_export) | **POST** /api/v2/controller-migration/operations/export | 
 *DataMigrationApi* | [**start_controller_migration_import**](docs/DataMigrationApi.md#start_controller_migration_import) | **POST** /api/v2/controller-migration/operations/import | 
 *DiagnosticsApi* | [**api_v2_diagnostics_components_get**](docs/DiagnosticsApi.md#api_v2_diagnostics_components_get) | **GET** /api/v2/diagnostics/components | 
@@ -409,6 +419,7 @@ Class | Method | HTTP request | Description
  - [AddActionInfo](docs/AddActionInfo.md)
  - [AddInput](docs/AddInput.md)
  - [Address](docs/Address.md)
+ - [AdvancedMetric](docs/AdvancedMetric.md)
  - [AdvancedSettings](docs/AdvancedSettings.md)
  - [Agent](docs/Agent.md)
  - [AgentAssignmentByFrontPanelPort](docs/AgentAssignmentByFrontPanelPort.md)
@@ -464,6 +475,7 @@ Class | Method | HTTP request | Description
  - [CategoryValue](docs/CategoryValue.md)
  - [CertConfig](docs/CertConfig.md)
  - [Certificate](docs/Certificate.md)
+ - [ChangeEvent](docs/ChangeEvent.md)
  - [ChassisInfo](docs/ChassisInfo.md)
  - [Choice](docs/Choice.md)
  - [CipherTLS12](docs/CipherTLS12.md)
@@ -493,6 +505,7 @@ Class | Method | HTTP request | Description
  - [Consumer](docs/Consumer.md)
  - [ContentBlock](docs/ContentBlock.md)
  - [Controller](docs/Controller.md)
+ - [ConvertDashboardsOperation](docs/ConvertDashboardsOperation.md)
  - [CountedFeatureConsumer](docs/CountedFeatureConsumer.md)
  - [CountedFeatureStats](docs/CountedFeatureStats.md)
  - [CreateAppOperation](docs/CreateAppOperation.md)
@@ -507,6 +520,7 @@ Class | Method | HTTP request | Description
  - [DUTNetwork](docs/DUTNetwork.md)
  - [DUTRange](docs/DUTRange.md)
  - [Dashboard](docs/Dashboard.md)
+ - [DataSourceDetails](docs/DataSourceDetails.md)
  - [DataType](docs/DataType.md)
  - [DataTypeValuesInner](docs/DataTypeValuesInner.md)
  - [Definition](docs/Definition.md)
@@ -563,6 +577,7 @@ Class | Method | HTTP request | Description
  - [FortinetSettings](docs/FortinetSettings.md)
  - [FrontPanel](docs/FrontPanel.md)
  - [FrontPanelPortsByController](docs/FrontPanelPortsByController.md)
+ - [FrontPanelsByController](docs/FrontPanelsByController.md)
  - [FulfillmentRequest](docs/FulfillmentRequest.md)
  - [GenerateAllOperation](docs/GenerateAllOperation.md)
  - [GenerateCSVReportsOperation](docs/GenerateCSVReportsOperation.md)
@@ -620,9 +635,14 @@ Class | Method | HTTP request | Description
  - [GetSessionMeta200ResponseOneOf](docs/GetSessionMeta200ResponseOneOf.md)
  - [GetSessions200Response](docs/GetSessions200Response.md)
  - [GetSessions200ResponseOneOf](docs/GetSessions200ResponseOneOf.md)
+ - [GetStatsDashboardChanges200Response](docs/GetStatsDashboardChanges200Response.md)
+ - [GetStatsDashboardChanges200ResponseOneOf](docs/GetStatsDashboardChanges200ResponseOneOf.md)
+ - [GetStatsDashboards200Response](docs/GetStatsDashboards200Response.md)
+ - [GetStatsDashboards200ResponseOneOf](docs/GetStatsDashboards200ResponseOneOf.md)
  - [GetStatsPlugins200Response](docs/GetStatsPlugins200Response.md)
  - [GetStatsPlugins200ResponseOneOf](docs/GetStatsPlugins200ResponseOneOf.md)
  - [GetStrikesOperation](docs/GetStrikesOperation.md)
+ - [GridPosition](docs/GridPosition.md)
  - [GroupTLS13](docs/GroupTLS13.md)
  - [HTTPProfile](docs/HTTPProfile.md)
  - [HTTPReqMeta](docs/HTTPReqMeta.md)
@@ -666,6 +686,7 @@ Class | Method | HTTP request | Description
  - [MediaFile](docs/MediaFile.md)
  - [MediaTrack](docs/MediaTrack.md)
  - [Metadata](docs/Metadata.md)
+ - [MetricsList](docs/MetricsList.md)
  - [MosMode](docs/MosMode.md)
  - [NameIdFormat](docs/NameIdFormat.md)
  - [NameServer](docs/NameServer.md)
@@ -691,6 +712,7 @@ Class | Method | HTTP request | Description
  - [PSPRange](docs/PSPRange.md)
  - [PSPStack](docs/PSPStack.md)
  - [Pair](docs/Pair.md)
+ - [Panel](docs/Panel.md)
  - [ParamMetadata](docs/ParamMetadata.md)
  - [ParamMetadataTypeInfo](docs/ParamMetadataTypeInfo.md)
  - [ParamMetadataTypeInfoArrayV2](docs/ParamMetadataTypeInfoArrayV2.md)
@@ -761,6 +783,7 @@ Class | Method | HTTP request | Description
  - [SetAggregationModeOperation](docs/SetAggregationModeOperation.md)
  - [SetControllerAppOperation](docs/SetControllerAppOperation.md)
  - [SetDpdkModeOperationInput](docs/SetDpdkModeOperationInput.md)
+ - [SetFanOutModeOperation](docs/SetFanOutModeOperation.md)
  - [SetFrontPanelPortsLinkStateOperation](docs/SetFrontPanelPortsLinkStateOperation.md)
  - [SetNodesAppOperation](docs/SetNodesAppOperation.md)
  - [SetNtpOperationInput](docs/SetNtpOperationInput.md)
@@ -775,6 +798,7 @@ Class | Method | HTTP request | Description
  - [StartAgentsBatchDeleteRequestInner](docs/StartAgentsBatchDeleteRequestInner.md)
  - [StatelessStream](docs/StatelessStream.md)
  - [StaticARPEntry](docs/StaticARPEntry.md)
+ - [StatsDashboard](docs/StatsDashboard.md)
  - [StatsResult](docs/StatsResult.md)
  - [SteadySegment](docs/SteadySegment.md)
  - [StepSegment](docs/StepSegment.md)
