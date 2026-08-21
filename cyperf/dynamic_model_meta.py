@@ -254,9 +254,9 @@ class DynamicModel(type):
 
             list_fields = []
             if not_method:
-                list_match = re.search(r"List\[(\w+)\]", field_str)
+                list_match = re.search(r"List\[([\w.]+)\]", field_str)
                 if list_match:
-                    inner_type = list_match.group(1)
+                    inner_type = list_match.group(1).rsplit(".", 1)[-1]
                     if inner_type not in ignored_types:
                         list_fields.append([inner_type, field.alias])
 
@@ -265,11 +265,11 @@ class DynamicModel(type):
 
                 for child_key, _ in child_fields.items():
                     parts = cls.extract_x_operation(child_key, child_private_attrs)
-                    
+
                     if parts:
                         if len(parts) == 1 or (len(parts) == 2 and parts[1].strip() == "-"):
                             child_method_name = child_key + "_" + child_name.lower()
-                            dct[child_method_name] = cls.generate_method(child_key, 'POST', True, child_alias)                               
+                            dct[child_method_name] = cls.generate_method(child_key, 'POST', True, child_alias)
 
             parts = cls.extract_x_operation(key, private_attrs)
             if parts:
@@ -319,7 +319,7 @@ class DynamicModel(type):
     def to_str(cls, self) -> str:
         """Returns the string representation of the actual instance"""
         return f"{self.base_model}"
-        
+
     @classmethod
     def repr(cls, self) -> str:
         """Returns the string representation of the actual instance"""
@@ -537,7 +537,7 @@ class DynamicModel(type):
             private_attr_obj = private_attrs[extra_attr_name]
             if hasattr(private_attr_obj, 'default'):
                 extra = private_attr_obj.default or {}
-        
+
         operation_raw = extra.get("x-operation")
         if operation_raw:
             parts = operation_raw.split(",")
@@ -554,7 +554,7 @@ class DynamicModel(type):
                 derived_href = self_link.href.rstrip("/") + f"/{child_inner_model}" f"/operations/{link_name.replace('_', '-')}"
             else:
                 derived_href = self_link.href.rstrip("/") + f"/operations/{link_name.replace('_', '-')}"
-            
+
             link_class = type(self.links[0]) if self.links else type(self_link)
             new_link = link_class(
                 href=derived_href,
