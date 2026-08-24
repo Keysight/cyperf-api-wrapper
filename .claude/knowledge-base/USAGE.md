@@ -1,7 +1,7 @@
-<!-- generated: knowledge-base v3.4.0 | readme:usage -->
+<!-- generated: knowledge-base v3.5.0 | readme:usage -->
 # Usage Guide for cyperf-api-wrapper
 
-Generated: 2026-07-09 | Plugin: knowledge-base v3.4.0
+Generated: 2026-07-09 | Plugin: knowledge-base v3.5.0
 
 ---
 
@@ -53,7 +53,7 @@ Generated: 2026-07-09 | Plugin: knowledge-base v3.4.0
 
 **Run**: `/document samples/`
 
-**What happens**: The document skill reads `samples/*.py` (the only hand-written usage examples in the repo — `sample_udp_streaming_run.py`, `sample_attacks_load_and_run.py`, `sample_load_and_run_precanned_config.py`, `sample_create_save_and_export_config.py`, `sample_attack_based_script.py`), infers the two idiomatic call styles already used, and writes/updates guidance rather than touching the generator-owned `README.md`/`docs/*.md` (443 model docs + per-API-class docs), which would simply be clobbered on the next OpenAPI regeneration.
+**What happens**: The document skill reads `samples/*.py` (the only hand-written usage examples in the repo — `sample_udp_streaming_run.py`, `sample_attacks_load_and_run.py`, `sample_load_and_run_precanned_config.py`, `sample_create_save_and_export_config.py`, `sample_attack_based_script.py`, `sample_sequences_examples.py`, plus `samples/appbuilder/sample_appbuilder_examples.py`), infers the two idiomatic call styles already used, and writes/updates guidance rather than touching the generator-owned `README.md`/`docs/*.md` (443 model docs + per-API-class docs), which would simply be clobbered on the next OpenAPI regeneration.
 
 ---
 
