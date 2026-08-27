@@ -451,9 +451,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_compute_node_compute_resources**
-> List[ComputeResource] get_compute_node_compute_resources(controller_id, compute_node_id, take=take, skip=skip)
+> GetComputeNodeComputeResources200Response get_compute_node_compute_resources(controller_id, compute_node_id, take=take, skip=skip)
 
 
+
+Get the compute resources of a compute node.
 
 ### Example
 
@@ -462,7 +464,7 @@ Name | Type | Description  | Notes
 
 ```python
 import cyperf
-from cyperf.models.compute_resource import ComputeResource
+from cyperf.models.get_compute_node_compute_resources200_response import GetComputeNodeComputeResources200Response
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -512,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ComputeResource]**](ComputeResource.md)
+[**GetComputeNodeComputeResources200Response**](GetComputeNodeComputeResources200Response.md)
 
 ### Authorization
 
@@ -527,7 +529,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | The list of compute resources of the compute node. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -614,9 +616,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_compute_node_ports**
-> List[Port] get_compute_node_ports(controller_id, compute_node_id, take=take, skip=skip)
+> GetComputeNodePorts200Response get_compute_node_ports(controller_id, compute_node_id, take=take, skip=skip)
 
 
+
+Get the ports of a compute node.
 
 ### Example
 
@@ -625,7 +629,7 @@ Name | Type | Description  | Notes
 
 ```python
 import cyperf
-from cyperf.models.port import Port
+from cyperf.models.get_compute_node_ports200_response import GetComputeNodePorts200Response
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -675,7 +679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[Port]**](Port.md)
+[**GetComputeNodePorts200Response**](GetComputeNodePorts200Response.md)
 
 ### Authorization
 
@@ -690,7 +694,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | The list of ports of the compute node. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -853,9 +857,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_controller_compute_nodes**
-> List[ComputeNode] get_controller_compute_nodes(controller_id, take=take, skip=skip)
+> GetControllerComputeNodes200Response get_controller_compute_nodes(controller_id, take=take, skip=skip)
 
 
+
+Get the compute nodes chain.
 
 ### Example
 
@@ -864,7 +870,7 @@ Name | Type | Description  | Notes
 
 ```python
 import cyperf
-from cyperf.models.compute_node import ComputeNode
+from cyperf.models.get_controller_compute_nodes200_response import GetControllerComputeNodes200Response
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -912,7 +918,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ComputeNode]**](ComputeNode.md)
+[**GetControllerComputeNodes200Response**](GetControllerComputeNodes200Response.md)
 
 ### Authorization
 
@@ -927,7 +933,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | The list of compute nodes of the controller. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1012,9 +1018,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_controller_front_panels**
-> List[FrontPanel] get_controller_front_panels(controller_id, take=take, skip=skip)
+> GetControllerFrontPanels200Response get_controller_front_panels(controller_id, take=take, skip=skip)
 
 
+
+Get the front panels chain.
 
 ### Example
 
@@ -1023,7 +1031,7 @@ Name | Type | Description  | Notes
 
 ```python
 import cyperf
-from cyperf.models.front_panel import FrontPanel
+from cyperf.models.get_controller_front_panels200_response import GetControllerFrontPanels200Response
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -1071,7 +1079,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[FrontPanel]**](FrontPanel.md)
+[**GetControllerFrontPanels200Response**](GetControllerFrontPanels200Response.md)
 
 ### Authorization
 
@@ -1086,7 +1094,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | The list of front panels of the controller. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1255,9 +1263,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_front_panel_ports**
-> List[Port] get_front_panel_ports(controller_id, front_panel_id, take=take, skip=skip)
+> GetComputeNodePorts200Response get_front_panel_ports(controller_id, front_panel_id, take=take, skip=skip)
 
 
+
+Get the ports of a front panel.
 
 ### Example
 
@@ -1266,7 +1276,7 @@ Name | Type | Description  | Notes
 
 ```python
 import cyperf
-from cyperf.models.port import Port
+from cyperf.models.get_compute_node_ports200_response import GetComputeNodePorts200Response
 from cyperf.rest import ApiException
 from pprint import pprint
 
@@ -1316,7 +1326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[Port]**](Port.md)
+[**GetComputeNodePorts200Response**](GetComputeNodePorts200Response.md)
 
 ### Authorization
 
@@ -1331,7 +1341,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | The list of ports of the front panel. |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

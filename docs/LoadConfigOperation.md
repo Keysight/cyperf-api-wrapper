@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**config_url** | **str** | The URL of the configuration that should be loaded | [optional] 
+**config_url** | **str** | The URL of the configuration that will be loaded when creating the session | [optional] 
 
 ## Example
 

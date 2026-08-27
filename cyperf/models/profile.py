@@ -28,7 +28,7 @@ class Profile(BaseModel):
     """
     Profile
     """ # noqa: E501
-    category: Optional[StrictStr] = Field(default=None, description="Category of the profile")
+    category: Optional[StrictStr] = Field(default=None, description="The category of the profile template.")
     config_id: Optional[StrictStr] = Field(default=None, description="The config ID associated with this profile", alias="configId")
     description: Optional[StrictStr] = Field(default=None, description="Description of the profile")
     display_name: Optional[StrictStr] = Field(default=None, description="Display name of the profile", alias="displayName")
