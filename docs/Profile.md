@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | **str** | Category of the profile | [optional] 
+**category** | **str** | The category of the profile template. | [optional] 
 **config_id** | **str** | The config ID associated with this profile | [optional] 
 **description** | **str** | Description of the profile | [optional] 
 **display_name** | **str** | Display name of the profile | [optional] 

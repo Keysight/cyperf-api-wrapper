@@ -31,7 +31,7 @@ class AgentAssignmentByFrontPanelPort(BaseModel):
     Details of an agent assignment by front panel port
     """ # noqa: E501
     capture_settings: Optional[CaptureSettings] = Field(default=None, description="The capture settings of the front panel port that is assigned.", alias="captureSettings")
-    compute_resources_by_type: Optional[Dict[str, StrictInt]] = Field(default=None, description="The number of compute resources to assign per compute node type.", alias="computeResourcesByType")
+    compute_resources_by_type: Optional[Dict[str, StrictInt]] = Field(default=None, description="The number of compute resources to assign per compute node type name + aggregation mode. Each key must be formatted as '<computeNodeTypeName>:<aggregationMode>'.", alias="computeResourcesByType")
     front_panel_port_id: StrictStr = Field(description="The id of the front panel port that is assigned.", alias="frontPanelPortId")
     id: StrictStr
     links: Optional[List[APILink]] = None

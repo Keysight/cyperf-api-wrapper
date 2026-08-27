@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **last_update** | **int** | A Unix timestamp that indicates when the agent was last updated | [optional] [readonly] 
 **port_id_format** | **str** | port agent id format | [optional] 
 **reservation_id** | **str** | The ID of the reservation | [optional] [readonly] 
-**resource_name_format** | **str** | display agent resource name format | [optional] 
 **selected_env** | [**SelectedEnv**](SelectedEnv.md) |  | [optional] 
 **selection_status** | **str** | The current status of the selection operation | [optional] 
 **session_name** | **str** | The session&#39;s name where the agent is running | [optional] [readonly] 

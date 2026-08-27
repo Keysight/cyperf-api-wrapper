@@ -35,7 +35,8 @@ class ChassisInfo(BaseModel):
     hw_platform: Optional[StrictStr] = Field(default=None, description="The hardware platform the corresponding port is running on", alias="hwPlatform")
     hw_revision: Optional[StrictStr] = Field(default=None, description="The hardware revision of the underlying platform", alias="hwRevision")
     port_id: Optional[StrictStr] = Field(default=None, description="The id of the corresponding port", alias="portID")
-    __properties: ClassVar[List[str]] = ["aggregatedMode", "checkoutID", "computeNodeID", "frontPanelPortID", "hwPlatform", "hwRevision", "portID"]
+    type_display_name: Optional[StrictStr] = Field(default=None, description="The marketing name for the compute node", alias="typeDisplayName")
+    __properties: ClassVar[List[str]] = ["aggregatedMode", "checkoutID", "computeNodeID", "frontPanelPortID", "hwPlatform", "hwRevision", "portID", "typeDisplayName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +75,7 @@ class ChassisInfo(BaseModel):
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
         * OpenAPI `readOnly` fields are excluded.
+        * OpenAPI `readOnly` fields are excluded.
         """
         excluded_fields: Set[str] = set([
             "aggregated_mode",
@@ -83,6 +85,7 @@ class ChassisInfo(BaseModel):
             "hw_platform",
             "hw_revision",
             "port_id",
+            "type_display_name",
         ])
 
         _dict = self.model_dump(
@@ -110,7 +113,8 @@ class ChassisInfo(BaseModel):
                         "frontPanelPortID": obj.get("frontPanelPortID"),
                         "hwPlatform": obj.get("hwPlatform"),
                         "hwRevision": obj.get("hwRevision"),
-                        "portID": obj.get("portID")
+                        "portID": obj.get("portID"),
+                        "typeDisplayName": obj.get("typeDisplayName")
             ,
             "links": obj.get("links")
         })

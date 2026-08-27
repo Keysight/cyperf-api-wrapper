@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **hw_platform** | **str** | The hardware platform the corresponding port is running on | [optional] [readonly] 
 **hw_revision** | **str** | The hardware revision of the underlying platform | [optional] [readonly] 
 **port_id** | **str** | The id of the corresponding port | [optional] [readonly] 
+**type_display_name** | **str** | The marketing name for the compute node | [optional] [readonly] 
 
 ## Example
 
