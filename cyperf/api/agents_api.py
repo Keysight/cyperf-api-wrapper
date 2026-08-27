@@ -32,6 +32,10 @@ from cyperf.models.export_files_operation_input import ExportFilesOperationInput
 from cyperf.models.front_panel import FrontPanel
 from cyperf.models.get_agents200_response import GetAgents200Response
 from cyperf.models.get_agents_tags200_response import GetAgentsTags200Response
+from cyperf.models.get_compute_node_compute_resources200_response import GetComputeNodeComputeResources200Response
+from cyperf.models.get_compute_node_ports200_response import GetComputeNodePorts200Response
+from cyperf.models.get_controller_compute_nodes200_response import GetControllerComputeNodes200Response
+from cyperf.models.get_controller_front_panels200_response import GetControllerFrontPanels200Response
 from cyperf.models.get_controllers200_response import GetControllers200Response
 from cyperf.models.nodes_power_cycle_operation import NodesPowerCycleOperation
 from cyperf.models.port import Port
@@ -1523,9 +1527,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ComputeResource]:
+    ) -> GetComputeNodeComputeResources200Response:
         """get_compute_node_compute_resources
 
+        Get the compute resources of a compute node.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -1569,7 +1574,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ComputeResource]",
+            '200': "GetComputeNodeComputeResources200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -1598,9 +1603,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ComputeResource]]:
+    ) -> ApiResponse[GetComputeNodeComputeResources200Response]:
         """get_compute_node_compute_resources
 
+        Get the compute resources of a compute node.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -1644,7 +1650,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ComputeResource]",
+            '200': "GetComputeNodeComputeResources200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -1676,6 +1682,7 @@ class AgentsApi:
     ) -> RESTResponseType:
         """get_compute_node_compute_resources
 
+        Get the compute resources of a compute node.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -1719,7 +1726,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ComputeResource]",
+            '200': "GetComputeNodeComputeResources200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -2109,9 +2116,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[Port]:
+    ) -> GetComputeNodePorts200Response:
         """get_compute_node_ports
 
+        Get the ports of a compute node.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -2155,7 +2163,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Port]",
+            '200': "GetComputeNodePorts200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -2184,9 +2192,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[Port]]:
+    ) -> ApiResponse[GetComputeNodePorts200Response]:
         """get_compute_node_ports
 
+        Get the ports of a compute node.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -2230,7 +2239,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Port]",
+            '200': "GetComputeNodePorts200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -2262,6 +2271,7 @@ class AgentsApi:
     ) -> RESTResponseType:
         """get_compute_node_ports
 
+        Get the ports of a compute node.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -2305,7 +2315,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Port]",
+            '200': "GetComputeNodePorts200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -2934,9 +2944,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ComputeNode]:
+    ) -> GetControllerComputeNodes200Response:
         """get_controller_compute_nodes
 
+        Get the compute nodes chain.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -2977,7 +2988,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ComputeNode]",
+            '200': "GetControllerComputeNodes200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -3005,9 +3016,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ComputeNode]]:
+    ) -> ApiResponse[GetControllerComputeNodes200Response]:
         """get_controller_compute_nodes
 
+        Get the compute nodes chain.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -3048,7 +3060,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ComputeNode]",
+            '200': "GetControllerComputeNodes200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -3079,6 +3091,7 @@ class AgentsApi:
     ) -> RESTResponseType:
         """get_controller_compute_nodes
 
+        Get the compute nodes chain.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -3119,7 +3132,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ComputeNode]",
+            '200': "GetControllerComputeNodes200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -3490,9 +3503,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[FrontPanel]:
+    ) -> GetControllerFrontPanels200Response:
         """get_controller_front_panels
 
+        Get the front panels chain.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -3533,7 +3547,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FrontPanel]",
+            '200': "GetControllerFrontPanels200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -3561,9 +3575,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[FrontPanel]]:
+    ) -> ApiResponse[GetControllerFrontPanels200Response]:
         """get_controller_front_panels
 
+        Get the front panels chain.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -3604,7 +3619,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FrontPanel]",
+            '200': "GetControllerFrontPanels200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -3635,6 +3650,7 @@ class AgentsApi:
     ) -> RESTResponseType:
         """get_controller_front_panels
 
+        Get the front panels chain.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -3675,7 +3691,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[FrontPanel]",
+            '200': "GetControllerFrontPanels200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -4353,9 +4369,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[Port]:
+    ) -> GetComputeNodePorts200Response:
         """get_front_panel_ports
 
+        Get the ports of a front panel.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -4399,7 +4416,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Port]",
+            '200': "GetComputeNodePorts200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -4428,9 +4445,10 @@ class AgentsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[Port]]:
+    ) -> ApiResponse[GetComputeNodePorts200Response]:
         """get_front_panel_ports
 
+        Get the ports of a front panel.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -4474,7 +4492,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Port]",
+            '200': "GetComputeNodePorts200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(
@@ -4506,6 +4524,7 @@ class AgentsApi:
     ) -> RESTResponseType:
         """get_front_panel_ports
 
+        Get the ports of a front panel.
 
         :param controller_id: The ID of the controller. (required)
         :type controller_id: str
@@ -4549,7 +4568,7 @@ class AgentsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Port]",
+            '200': "GetComputeNodePorts200Response",
             '500': "ErrorResponse",
         }
         return self.api_client.call_api(

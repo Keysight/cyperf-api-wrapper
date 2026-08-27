@@ -30,7 +30,7 @@ class DNSResolver(BaseModel):
     """
     DNSResolver
     """ # noqa: E501
-    cache_timeout: Optional[StrictInt] = Field(default=None, description="The cached timeout for the DNS Resolver", alias="cacheTimeout")
+    cache_timeout: Optional[StrictInt] = Field(default=None, description="The timeout in seconds for cached DNS responses.", alias="cacheTimeout")
     enable_perconnect: Optional[StrictBool] = Field(default=None, description="The enable perconnection value.", alias="enablePerconnect")
     links: Optional[List[APILink]] = None
     name_servers: Optional[List[NameServer]] = Field(default=None, description="A list of name servers.", alias="nameServers")

@@ -7,7 +7,7 @@ Details of an agent assignment by front panel port
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **capture_settings** | [**CaptureSettings**](CaptureSettings.md) | The capture settings of the front panel port that is assigned. | [optional] 
-**compute_resources_by_type** | **Dict[str, int]** | The number of compute resources to assign per compute node type. | [optional] 
+**compute_resources_by_type** | **Dict[str, int]** | The number of compute resources to assign per compute node type name + aggregation mode. Each key must be formatted as &#39;&lt;computeNodeTypeName&gt;:&lt;aggregationMode&gt;&#39;. | [optional] 
 **front_panel_port_id** | **str** | The id of the front panel port that is assigned. | 
 **id** | **str** |  | 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 

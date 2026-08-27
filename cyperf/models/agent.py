@@ -42,7 +42,6 @@ class Agent(BaseModel):
     last_update: Optional[StrictInt] = Field(default=None, description="A Unix timestamp that indicates when the agent was last updated", alias="LastUpdate")
     port_id_format: Optional[StrictStr] = Field(default=None, description="port agent id format", alias="PortIDFormat")
     reservation_id: Optional[StrictStr] = Field(default=None, description="The ID of the reservation", alias="ReservationID")
-    resource_name_format: Optional[StrictStr] = Field(default=None, description="display agent resource name format", alias="ResourceNameFormat")
     selected_env: Optional[SelectedEnv] = Field(default=None, alias="SelectedEnv")
     selection_status: Optional[StrictStr] = Field(default=None, description="The current status of the selection operation", alias="SelectionStatus")
     session_name: Optional[StrictStr] = Field(default=None, description="The session's name where the agent is running", alias="SessionName")
@@ -63,7 +62,7 @@ class Agent(BaseModel):
     requires_updating: Optional[StrictBool] = Field(default=None, description="A flag indicating whether the agent is not using the recommended version", alias="requiresUpdating")
     system_info: Optional[SystemInfo] = Field(default=None, alias="systemInfo")
     links: Optional[List[APILink]] = None
-    __properties: ClassVar[List[str]] = ["AgentTags", "DisplayNameFormat", "IP", "Interfaces", "LastUpdate", "PortIDFormat", "ReservationID", "ResourceNameFormat", "SelectedEnv", "SelectionStatus", "SessionName", "Status", "configuredProxy", "cpuInfo", "dpdkEnabled", "features", "hostname", "id", "memoryMB", "mgmtInterface", "ntpInfo", "offline", "owner", "ownerId", "packageVersionStatus", "requiresUpdating", "systemInfo", "links"]
+    __properties: ClassVar[List[str]] = ["AgentTags", "DisplayNameFormat", "IP", "Interfaces", "LastUpdate", "PortIDFormat", "ReservationID", "SelectedEnv", "SelectionStatus", "SessionName", "Status", "configuredProxy", "cpuInfo", "dpdkEnabled", "features", "hostname", "id", "memoryMB", "mgmtInterface", "ntpInfo", "offline", "owner", "ownerId", "packageVersionStatus", "requiresUpdating", "systemInfo", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -191,7 +190,6 @@ class Agent(BaseModel):
                         "LastUpdate": obj.get("LastUpdate"),
                         "PortIDFormat": obj.get("PortIDFormat"),
                         "ReservationID": obj.get("ReservationID"),
-                        "ResourceNameFormat": obj.get("ResourceNameFormat"),
                         "SelectedEnv": SelectedEnv.from_dict(obj["SelectedEnv"]) if obj.get("SelectedEnv") is not None else None,
                         "SelectionStatus": obj.get("SelectionStatus"),
                         "SessionName": obj.get("SessionName"),

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cache_timeout** | **int** | The cached timeout for the DNS Resolver | [optional] 
+**cache_timeout** | **int** | The timeout in seconds for cached DNS responses. | [optional] 
 **enable_perconnect** | **bool** | The enable perconnection value. | [optional] 
 **links** | [**List[APILink]**](APILink.md) |  | [optional] 
 **name_servers** | [**List[NameServer]**](NameServer.md) | A list of name servers. | [optional] 
