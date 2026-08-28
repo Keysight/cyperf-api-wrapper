@@ -601,12 +601,39 @@ def create_api_client_cli(verify_ssl=True):
     """Parse the args passed to the current script and use them to create an API client; optionally disable SSL verification"""
     cli_args, offline_token = parse_cli_options()
     host = f'https://{cli_args.controller}'
-    
+
     configuration            = cyperf.Configuration(host=host,
                                                     refresh_token=offline_token,
                                                     username=cli_args.user,
                                                     password=cli_args.password)
     configuration.verify_ssl = verify_ssl
     return cyperf.ApiClient(configuration)
+
+
+def require_ports(entity, min_count=1):
+    """Validate that entity.ports exists and has at least min_count entries, then return it."""
+    if entity.ports is None:
+        raise ValueError(f"Ports are not defined for '{entity.name}'")
+    if len(entity.ports) < min_count:
+        raise ValueError(f"Expected at least {min_count} available port(s) for '{entity.name}'")
+    return entity.ports
+
+
+def validate_ports(ports):
+    """Raise a ValueError listing any of the given ports that are down, not ready, or reserved by someone else."""
+    invalid = []
+    for port in ports or []:
+        reasons = []
+        if port.link != 'UP':
+            reasons.append(f"link is '{port.link}'")
+        if port.status != 'READY':
+            reasons.append(f"status is '{port.status}'")
+        if port.reserved_by:
+            reasons.append(f"reserved by '{port.reserved_by}'")
+        if reasons:
+            invalid.append(f"{port.id} ({', '.join(reasons)})")
+
+    if invalid:
+        raise ValueError(f"The following port(s) cannot be used right now: {'; '.join(invalid)}")
 
 utils = TestRunner
