@@ -577,6 +577,12 @@ class ApiClient:
                     klass = m.group(1)
                     continue
 
+                elif '|' in klass:
+                    m = re.match(r'(.*)\|.*', klass)
+                    assert m is not None, "Malformed union type definition"
+                    klass = m.group(1).strip()
+                    continue
+
                 else:
                     break
 
