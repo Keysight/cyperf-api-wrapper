@@ -420,7 +420,7 @@ class DynamicModel(type):
                                        return_type=self.base_model.__class__, href=self.url),
                 api_client=self.api_client)
         if op.state == "ERROR":
-            raise ApiException(f"Error running operation {op.id} of type {op.type}: {op.message}")
+            raise ApiException(f"Error running operation {op.id} of type {op.type}: {op.message if op.message else op.base_model.result}")
         if op.result_url and get_final_result:
             return cls.link_based_request(op, None, "GET", return_type=object, href=op.result_url)
         return op.base_model.result
